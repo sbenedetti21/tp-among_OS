@@ -5,20 +5,27 @@
 
 int main(int argc, char ** argv){
 
-	struct addrinfo hints;
-	    struct addrinfo *server_info;
+	t_config *config = config_create("./cfg/imongo.config");
+	int listening_socket = crear_conexionServer(config_get_string_value(config, "PUERTO"));
 
-	    memset(&hints, 0, sizeof(hints));
-	    hints.ai_family = AF_UNSPEC;
-	    hints.ai_socktype = SOCK_STREAM;
 
-	    getaddrinfo(ip, puerto, &hints, &server_info);
+	int socketCliente;
+	struct sockaddr_in addr;
 
-	    int socket_server = socket(server_info->ai_family, server_info->ai_socktype, server_info->ai_protocol);
+	socklen_t addrlen = sizeof(addr);
 
-	    if(connect(socket_server, server_info->ai_addr, server_info->ai_addrlen) == -1)
-	        printf("error conectando");
+	socketCliente = accept(listening_socket, (struct sockaddr *) &addr, &addrlen);
+	if(socketCliente == -1){
+		printf("Error en la conexion");
+	}else{
+		printf("Conexion establecida con el Discordiador");
+	}
 
-	    freeaddrinfo(server_info);
+	close(listening_socket);
 
+	close(socketCliente);
+
+	return 0;
 }
+
+
