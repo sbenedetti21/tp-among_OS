@@ -39,7 +39,7 @@ int crear_conexionServer(char *puerto){
 	if(bind(listening_socket, server_info->ai_addr, server_info->ai_addrlen) == -1)
 		printf("error Linkenado puerto");
 
-	if(listen(listening_socket,BACKLOG) == -1)
+	if(listen(listening_socket, BACKLOG) == -1)
 		printf("error Listening");
 
 	freeaddrinfo(server_info);
