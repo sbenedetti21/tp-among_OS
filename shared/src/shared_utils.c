@@ -15,6 +15,7 @@ int crear_conexion(char *ip, char* puerto)
 
 	if(connect(socket_cliente, server_info->ai_addr, server_info->ai_addrlen) == -1)
 		printf("error conectando");
+	else printf("conectado");
 
 	freeaddrinfo(server_info);
 
@@ -39,10 +40,11 @@ int crear_conexionServer(char *puerto){
 	if(bind(listening_socket, server_info->ai_addr, server_info->ai_addrlen) == -1)
 		printf("error Linkenado puerto");
 
-	if(listen(listening_socket,BACKLOG) == -1)
+	if(listen(listening_socket,5) == -1)
 		printf("error Listening");
 
 	freeaddrinfo(server_info);
 
 	return listening_socket;
+
 }
