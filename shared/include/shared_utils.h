@@ -15,4 +15,6 @@
 
 int crear_conexion(char *, char*);
 
+int crear_conexionServer(char*);
+
 #endif
