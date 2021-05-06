@@ -1,29 +1,22 @@
 #include "discordiador.h"
 
+
 int main(int argc, char ** argv){
 
-conectarImongo();
-conectarMIRam();
+/* Funciona
+pthread_t t1, t2;
+pthread_create(&t1, NULL, (void *) conectarImongo, NULL);
+pthread_create(&t2, NULL, (void *) conectarMiRam, NULL);
+
+pthread_join(t1, NULL);
+pthread_join(t2, NULL);
+*/
+
+
+
 
 return 0;
 
 }
 
-int conectarImongo(){
-	t_config * config = config_create("./cfg/discordiador.config");
-		char * ip = config_get_string_value(config, "IP_I_MONGO_STORE");
-		char * puerto = config_get_string_value(config, "PUERTO_I_MONGO_STORE");
 
-		return crear_conexion(ip, puerto);
-}
-
-int conectarMIRam(){
-
-
-	t_config * config = config_create("./cfg/discordiador.config");
-	char * ip = config_get_string_value(config, "IP_MI_RAM_HQ");
-	char * puerto = config_get_string_value(config, "PUERTO_MI_RAM_HQ");
-
-	return crear_conexion(ip, puerto);
-
-}
