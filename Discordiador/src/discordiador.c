@@ -22,10 +22,11 @@ int main(int argc, char ** argv){
 			for(i = 0; i < cantidadTripulantes; i++ ) {
 				pthread_t hilo;
 				tripulantes[i] = hilo;
-				pthread_create(&tripulantes[i], NULL, sleep /*TODO iniciarTripulante */, 10/*posisicion??*/ );
+				pthread_create(&tripulantes[i], NULL, sleep /*TODO iniciarTripulante */, 10 /*posisicion??*/);
 				pthread_join(&tripulantes[i], NULL);
 			}
 
+			// Preguntar memory leaks con valgrind
 
 		}
 
