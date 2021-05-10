@@ -13,6 +13,7 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <string.h>
+#include <commons/collections/queue.h>
 
 int crear_conexion(char *, char*);
 

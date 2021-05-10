@@ -1,16 +1,32 @@
 #include "discordiador.h"
 
+void mostrarPosicion(char *);
 
 int main(int argc, char ** argv){
 
 	char * instruccion;
 	char ** vectorInstruccion;
 
+
+struct Tripulante{
+		int id;
+		int posicionx;
+		int posiciony;
+
+	};
+
+
+
+
+
+
+
 	while(1) {
 
 		instruccion = readline("Ingrese próxima instrucción: \n");
 
 		vectorInstruccion = string_split(instruccion, " ");
+
 
 		if(strcmp(vectorInstruccion[0], "INICIAR_PATOTA") == 0) {
 
@@ -19,11 +35,16 @@ int main(int argc, char ** argv){
 			int cantidadTripulantes = atoi(vectorInstruccion[1]);
 			pthread_t tripulantes[cantidadTripulantes];
 
+
+
 			for(i = 0; i < cantidadTripulantes; i++ ) {
 				pthread_t hilo;
+				struct Tripulante tripulante;
+				tripulante.id = 0;
 				tripulantes[i] = hilo;
-				pthread_create(&tripulantes[i], NULL, sleep /*TODO iniciarTripulante */, 10 /*posisicion??*/);
+				pthread_create(&tripulantes[i], NULL, mostrarPosicion , tripulante );
 				pthread_join(&tripulantes[i], NULL);
+
 			}
 
 			// Preguntar memory leaks con valgrind
@@ -55,7 +76,28 @@ int main(int argc, char ** argv){
 
 	}
 
+
 return 0;
 }
 
+/*
+ *
+ *
+ * inicializar una sola funcion y pasarle un flag que me diga que funcion ejecutar
+ * */
 
+void mostrarPosicion(struct Tripulante * unTripulante){
+	/*if(posicion != 0){*/
+	char ** vectorPosicion = string_split(posicion, "|");
+	int x = atoi(vectorPosicion[0]);
+	int y =  atoi(vectorPosicion[1]);
+	unTripulante->posicionx = x;
+	unTripulante->posiciony = y;
+	printf("Soy el tripulante numero %d. \n Mi posición en x = %d. \n Mi posición en y = %d. \n", unTripulante -> id,  x ,y);
+	/*
+	else{
+		printf("Mi posición en x = 0. \n Mi posicion en y = 0. \n");
+	}*/
+	sleep(5);
+	return ;
+}
