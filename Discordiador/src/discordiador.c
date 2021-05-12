@@ -4,6 +4,7 @@ int main(int argc, char ** argv){
 
 	char * instruccion;
 	char ** vectorInstruccion;
+	char * posicionBase = "0|0";
 
 	while(1) {
 
@@ -16,6 +17,7 @@ int main(int argc, char ** argv){
 
 			//INICIAR_PATOTA 3 txt 1|1 1|2 1|3
 			int i;
+			int indice_posiciones = 3;
 			int cantidadTripulantes = atoi(vectorInstruccion[1]);
 			pthread_t tripulantes[cantidadTripulantes];
 
@@ -23,7 +25,12 @@ int main(int argc, char ** argv){
 				pthread_t hilo;
 
 				tripulante_t* tripulante = malloc(sizeof(tripulante_t));
-				tripulante = crearTripulante(vectorInstruccion[3 + i]);
+				if (vectorInstruccion[indice_posiciones] != NULL) {
+					tripulante = crearTripulante(vectorInstruccion[3 + i]);
+					indice_posiciones++;
+				} else {
+					tripulante = crearTripulante(posicionBase);
+				}
 				tripulante->id = i;
 				tripulantes[i] = hilo;
 
