@@ -3,9 +3,17 @@
 
 #include "shared_utils.h"
 
+typedef struct {
+		int id;
+		int posicionx;
+		int posiciony;
+} tripulante_t;
+
 int conectarImongo();
 int conectarMiRAM();
 
+struct tripulante_t *crearTripulante(char *);
+void mostrarPosicion(tripulante_t*);
 
 
 int conectarImongo(){

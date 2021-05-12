@@ -1,14 +1,5 @@
 #include "discordiador.h"
 
-void mostrarPosicion(struct tripulante_t*);
-struct tripulante_t *crearTripulante(char *);
-
-typedef struct {
-		int id;
-		int posicionx;
-		int posiciony;
-} tripulante_t;
-
 int main(int argc, char ** argv){
 
 	char * instruccion;
@@ -23,7 +14,7 @@ int main(int argc, char ** argv){
 
 		if(strcmp(vectorInstruccion[0], "INICIAR_PATOTA") == 0) {
 
-			//INICIAR_PATOTA 5 txt ... ... ...
+			//INICIAR_PATOTA 3 txt 1|1 1|2 1|3
 			int i;
 			int cantidadTripulantes = atoi(vectorInstruccion[1]);
 			pthread_t tripulantes[cantidadTripulantes];
@@ -31,18 +22,14 @@ int main(int argc, char ** argv){
 			for(i = 0; i < cantidadTripulantes; i++ ) {
 				pthread_t hilo;
 
-				tripulante_t* tripulante = crearTripulante(vectorInstruccion[3 + i]);
+				tripulante_t* tripulante = malloc(sizeof(tripulante_t));
+				tripulante = crearTripulante(vectorInstruccion[3 + i]);
 				tripulante->id = i;
 				tripulantes[i] = hilo;
 
-
-
 				pthread_create(&tripulantes[i], NULL, mostrarPosicion , tripulante);
 				pthread_join(&tripulantes[i], NULL);
-
 			}
-
-
 
 		}
 
@@ -76,12 +63,12 @@ struct tripulante_t * crearTripulante(char * posicion){
 	char ** vectorPosicion = string_split(posicion, "|");
 	int x = atoi(vectorPosicion[0]);
     int y = atoi(vectorPosicion[1]);
-    struct tripulante_t* unTripulante = malloc(sizeof(tripulante_t));
+    tripulante_t* unTripulante = malloc(sizeof(tripulante_t));
 	unTripulante->posicionx = x;
 	unTripulante->posiciony = y;
 	return unTripulante;
 }
 
-void mostrarPosicion(struct tripulante_t* unTripulante) {
+void mostrarPosicion(tripulante_t* unTripulante) {
 	printf("Soy el tripulante numero %d. \n Mi posición en x = %d. \n Mi posición en y = %d. \n", unTripulante -> id,  unTripulante -> posicionx , unTripulante -> posiciony);
 }
