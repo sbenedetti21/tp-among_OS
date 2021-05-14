@@ -1,7 +1,7 @@
 #include "discordiador.h"
 
 int main(int argc, char ** argv){
-
+	printf("si te llega eso esta todo bien");
 	char * instruccion;
 	char ** vectorInstruccion;
 	char * posicionBase = "0|0";
