@@ -12,9 +12,10 @@
                 "/usr/lib/gcc/i686-linux-gnu/5/include-fixed",
                 "/usr/include/i386-linux-gnu",
                 "/usr/include",
-                "${workspaceFolder}/include",
-                "../shared/include",
-                "${workspaceFolder}/include"
+                "/Discordiador/include",
+                "/I-MongoStore/include",
+                "/Mi-RAM/include",
+                "/shared/include"
             ],
             "defines": [
                 "_GNU_SOURCE"
@@ -23,8 +24,7 @@
             "browse": {
                 "path": [
                     "${workspaceFolder}",
-                    "${workspaceFolder}/include",
-                    "../shared/include",
+                    "/shared/include",
                     "/usr/include/c++/5",
                     "/usr/include/i386-linux-gnu/c++/5",
                     "/usr/include/c++/5/backward",
@@ -32,6 +32,9 @@
                     "/usr/local/include",
                     "/usr/lib/gcc/i686-linux-gnu/5/include-fixed",
                     "/usr/include/i386-linux-gnu",
+                    "/Discordiador/include",
+                    "/I-MongoStore/include",
+                    "/Mi-RAM/include",
                     "/usr/include"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
