@@ -3,7 +3,7 @@
 
 #include "shared_utils.h"
 
-typedef struct {
+typedef struct tripulante_t {
 		int id;
 		int posicionx;
 		int posiciony;

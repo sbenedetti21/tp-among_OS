@@ -4,7 +4,6 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}",
-                "${workspaceFolder}/I-MongoStore/include",
                 "/usr/include/c++/5",
                 "/usr/include/i386-linux-gnu/c++/5",
                 "/usr/include/c++/5/backward",
@@ -14,8 +13,7 @@
                 "/usr/include/i386-linux-gnu",
                 "/usr/include",
                 "${workspaceFolder}/include",
-                "../shared/include",
-                "${workspaceFolder}/include"
+                "../shared/include"
             ],
             "defines": [
                 "_GNU_SOURCE"
@@ -25,7 +23,6 @@
                 "path": [
                     "${workspaceFolder}",
                     "${workspaceFolder}/include",
-                    "${workspaceFolder}/I-MongoStore/include",
                     "../shared/include",
                     "/usr/include/c++/5",
                     "/usr/include/i386-linux-gnu/c++/5",
