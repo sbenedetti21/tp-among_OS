@@ -17,7 +17,8 @@ int conectarMiRAM();
 struct tripulante_t *crearTripulante(char *);
 void mostrarPosicion(tripulante_t*);
 
-TCB * crearTCB(uint32_t, uint32_t);
+void pasarTripulante(TCB * tripulante);
+TCB * crearTCB(char *); // chequear lo de la lista
 
 
 int conectarImongo(){
@@ -57,9 +58,10 @@ void mostrarPosicion(tripulante_t* unTripulante) {
 
 
 void consola(){
-		char * instruccion;
-		char ** vectorInstruccion;
-		char * posicionBase = "0|0";
+
+	char * instruccion;
+	char ** vectorInstruccion;
+	char * posicionBase = "0|0";
 
 	while(1) {
 
@@ -81,40 +83,16 @@ void consola(){
 
 				tripulante_t* tripulante = malloc(sizeof(tripulante_t));
 				if (vectorInstruccion[indice_posiciones] != NULL) {
-					tripulante = crearTripulante(vectorInstruccion[3 + i]);
+					tripulante = crearTCB(vectorInstruccion[3 + i]);
 					indice_posiciones++;
 				} else {
-					tripulante = crearTripulante(posicionBase);
+					tripulante = crearTCB(posicionBase);
 				}
-				tripulante->id = i;
-				tripulantes[i] = hilo;
 
-				pthread_create(&tripulantes[i], NULL, mostrarPosicion , tripulante);
+				pthread_create(&tripulantes[i], NULL, pasarTripulante , tripulante);
 				pthread_join(&tripulantes[i], NULL);
 			}
 
-		}
-
-		if(strcmp(vectorInstruccion[0], "crearTripulantes") == 0){
-
-
-
-			int socket = crear_conexion( "127.0.0.1","3500");
-
-			TCB * tripulanteNuevo = crearTCB(4, 2);
-
-			pthread_t hilo;
-
-			int status = send(socket, tripulanteNuevo, sizeof(TCB), 0);
-
-
-			close(socket);
-
-			int socket2 = crear_conexion("127.0.0.1", "3500");
-			TCB * otroTripulante = crearTCB(3,1);
-			status = send(socket, otroTripulante, sizeof(TCB), 0);
-
-			close(socket2);
 		}
 
 		/*
@@ -133,26 +111,33 @@ void consola(){
 	}
 }
 
+TCB * crearTCB(char * posiciones){
 
 
-	TCB * crearTCB(uint32_t x, uint32_t y){
-
+		char ** vectorPosiciones = string_split(posiciones,"|" );
 		TCB * tripulante = malloc(sizeof(TCB));
-		//tripulante->estado = 'R';
+		tripulante->estado = 'R';
 		tripulante->tid = proximoTID;
-		tripulante->posicionX = x;
-		tripulante->posicionY = y;
+		tripulante->posicionX = atoi(vectorPosiciones[0]);
+		tripulante->posicionY = atoi(vectorPosiciones[1]);
 		//tripulante->punteroPCB;  //falta
 		//tripulante->proximaInstruccion; //falta
+
+		list_add(listaReady, tripulante);
 
 		proximoTID ++; //ver sincronizacion
 
 		return tripulante;   //preguntar liberar malloc
-
 	}
 
-
-
+void pasarTripulante(TCB * tripulante){
+	t_config * config = config_create("./cfg/discordiador.config");
+	int socket = crear_conexion(
+		config_get_string_value(config, "IP_MI_RAM_HQ"),
+		config_get_string_value(config, "PUERTO_MI_RAM_HQ"));
+	send(socket, tripulante, sizeof(TCB), 0);
+	close(socket);
+}
 
 
 

@@ -1,6 +1,6 @@
 #ifndef MI_RAM_H
 #define MI_RAM_H
-#define BACKLOG 5 //TODO
+#define BACKLOG 10 //TODO
 
 #include <stdio.h>
 #include <commons/log.h>

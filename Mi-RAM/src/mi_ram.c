@@ -84,12 +84,6 @@ void atenderDiscordiador(int socketCliente){
 
 	printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 
-	int proximaInstruccion = tripulante->tarea;
-
-	switch(proximaInstruccion) {
-	case 1: printf("soy un impostor \n"); break;
-	case 2: printf("no soy un impostor \n"); break;
-	}
 	printf("------------------------\n");
 	free(tripulante);
 
