@@ -13,8 +13,6 @@ int main(int argc, char ** argv){
     struct sockaddr_in addr;
 	socklen_t addrlen = sizeof(addr);
 
-
-
 	socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
 	if(socketCliente == -1){printf("Error en la conexión");}
 	else {
