@@ -12,20 +12,22 @@ int main(int argc, char ** argv){
 	int socketCliente;
     struct sockaddr_in addr;
 	socklen_t addrlen = sizeof(addr);
+	int status = 1;
+	pthread_t receptorDiscordiador;
 
+		while(1){
 
-
-
-		pthread_t receptorDiscordiador;
 
 		socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
 			if(socketCliente == -1){printf("Error en la conexión");}
 			else {
 				printf("Conexión establecida con Discordiador \n");
-				atenderDiscordiador(socketCliente);
-				//pthread_create(&receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
+				pthread_create(&receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
+
 
 	}
+		}
+
 
 
 	close(socketCliente);
@@ -39,6 +41,7 @@ int main(int argc, char ** argv){
 }
 
 
+//Deserializar tripulante
  void atenderDiscordiador(int socketCliente){
 
 	 TCB * tripulante = malloc(sizeof(TCB));

@@ -94,18 +94,26 @@ void consola(){
 
 		}
 
-		if(strcmp(vectorInstruccion[0], "crearTripulante") == 0){
+		if(strcmp(vectorInstruccion[0], "crearTripulantes") == 0){
+
 
 
 			int socket = crear_conexion( "127.0.0.1","3500");
 
 			TCB * tripulanteNuevo = crearTCB(4, 2);
+
 			pthread_t hilo;
 
 			int status = send(socket, tripulanteNuevo, sizeof(TCB), 0);
 
+
 			close(socket);
 
+			int socket2 = crear_conexion("127.0.0.1", "3500");
+			TCB * otroTripulante = crearTCB(3,1);
+			status = send(socket, otroTripulante, sizeof(TCB), 0);
+
+			close(socket2);
 		}
 
 		/*
