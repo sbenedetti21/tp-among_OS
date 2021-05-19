@@ -1,3 +1,4 @@
+
 #ifndef SHARED_UTILS_H
 #define SHARED_UTILS_H
 
@@ -13,6 +14,7 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <string.h>
+#include <commons/collections/list.h>
 
 int crear_conexion(char *, char*);
 
@@ -26,6 +28,10 @@ typedef struct tcb{
 	//char estado;
 	uint32_t posicionX;
 	uint32_t posicionY;
+<<<<<<< HEAD
+=======
+	int tarea;
+>>>>>>> sofi
 	//uint32_t proximaInstruccion;
 	//uint32_t punteroPCB;
 } TCB;
