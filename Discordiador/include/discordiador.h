@@ -16,7 +16,7 @@ int conectarImongo(){
 		return crear_conexion(ip, puerto);
 }
 
-int conectarMiRam(){
+int conectarMiRAM(){
 
 
 	t_config * config = config_create("./cfg/discordiador.config");
@@ -24,6 +24,7 @@ int conectarMiRam(){
 	char * puerto = config_get_string_value(config, "PUERTO_MI_RAM_HQ");
 
 	return crear_conexion(ip, puerto);
+
 
 }
 
