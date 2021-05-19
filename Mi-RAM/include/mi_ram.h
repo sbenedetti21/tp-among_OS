@@ -7,4 +7,6 @@
 #include <stdbool.h>
 #include "shared_utils.h"
 
+void atenderDiscordiador(int);
+
 #endif

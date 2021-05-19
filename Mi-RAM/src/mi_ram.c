@@ -15,13 +15,21 @@ int main(int argc, char ** argv){
 
 
 
-	socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
-	if(socketCliente == -1){printf("Error en la conexión");}
-	else {
-		printf("Conexión establecida con Discordiador \n");
+
+		pthread_t receptorDiscordiador;
+
+		socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
+			if(socketCliente == -1){printf("Error en la conexión");}
+			else {
+				printf("Conexión establecida con Discordiador \n");
+				atenderDiscordiador(socketCliente);
+				//pthread_create(&receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
+
 	}
 
+
 	close(socketCliente);
+
 	close(listeningSocket);
 
 	return 0;
@@ -29,3 +37,28 @@ int main(int argc, char ** argv){
 
     
 }
+
+
+ void atenderDiscordiador(int socketCliente){
+
+	 TCB * tripulante = malloc(sizeof(TCB));
+
+
+
+	int status =  recv(socketCliente, (void *) tripulante, sizeof(TCB), 0);
+	printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+
+	free(tripulante);
+
+
+ }
+
+
+
+
+
+
+
+
+
+

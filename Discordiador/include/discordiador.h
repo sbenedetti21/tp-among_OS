@@ -3,6 +3,8 @@
 
 #include "shared_utils.h"
 
+int proximoTID = 0;  // variable global?? se define asi?
+
 typedef struct tripulante_t {
 		int id;
 		int posicionx;
@@ -14,6 +16,8 @@ int conectarMiRAM();
 
 struct tripulante_t *crearTripulante(char *);
 void mostrarPosicion(tripulante_t*);
+
+TCB * crearTCB(uint32_t, uint32_t);
 
 
 int conectarImongo(){
@@ -52,7 +56,9 @@ void mostrarPosicion(tripulante_t* unTripulante) {
 
 
 void consola(){
-
+		char * instruccion;
+		char ** vectorInstruccion;
+		char * posicionBase = "0|0";
 
 	while(1) {
 
@@ -88,6 +94,20 @@ void consola(){
 
 		}
 
+		if(strcmp(vectorInstruccion[0], "crearTripulante") == 0){
+
+
+			int socket = crear_conexion( "127.0.0.1","3500");
+
+			TCB * tripulanteNuevo = crearTCB(4, 2);
+			pthread_t hilo;
+
+			int status = send(socket, tripulanteNuevo, sizeof(TCB), 0);
+
+			close(socket);
+
+		}
+
 		/*
 		if(strcmp(vectorInstruccion[0], "LISTAR_TRIPULANTES") == 0) {
 		}
@@ -103,5 +123,32 @@ void consola(){
 
 	}
 }
+
+
+
+	TCB * crearTCB(uint32_t x, uint32_t y){
+
+		TCB * tripulante = malloc(sizeof(TCB));
+		//tripulante->estado = 'R';
+		tripulante->tid = proximoTID;
+		tripulante->posicionX = x;
+		tripulante->posicionY = y;
+		//tripulante->punteroPCB;  //falta
+		//tripulante->proximaInstruccion; //falta
+
+		proximoTID ++; //ver sincronizacion
+
+		return tripulante;   //preguntar liberar malloc
+
+	}
+
+
+
+
+
+
+
+
+
 
 #endif
