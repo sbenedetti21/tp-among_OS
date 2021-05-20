@@ -5,17 +5,10 @@
 
 int proximoTID = 0;  // variable global?? se define asi?
 
-typedef struct tripulante_t {
-		int id;
-		int posicionx;
-		int posiciony;
-} tripulante_t;
 
 int conectarImongo();
 int conectarMiRAM();
 
-struct tripulante_t *crearTripulante(char *);
-void mostrarPosicion(tripulante_t*);
 
 void pasarTripulante(TCB * tripulante);
 TCB * crearTCB(char *); // chequear lo de la lista
@@ -39,21 +32,6 @@ int conectarMiRAM(){
 	return crear_conexion(ip, puerto);
 
 
-}
-
-struct tripulante_t * crearTripulante(char * posicion){
-
-	char ** vectorPosicion = string_split(posicion, "|");
-	int x = atoi(vectorPosicion[0]);
-    int y = atoi(vectorPosicion[1]);
-    tripulante_t* unTripulante = malloc(sizeof(tripulante_t));
-	unTripulante->posicionx = x;
-	unTripulante->posiciony = y;
-	return unTripulante;
-}
-
-void mostrarPosicion(tripulante_t* unTripulante) {
-	printf("Soy el tripulante numero %d. \n Mi posición en x = %d. \n Mi posición en y = %d. \n", unTripulante -> id,  unTripulante -> posicionx , unTripulante -> posiciony);
 }
 
 
@@ -81,7 +59,7 @@ void consola(){
 			for(i = 0; i < cantidadTripulantes; i++ ) {
 				pthread_t hilo;
 
-				tripulante_t* tripulante = malloc(sizeof(tripulante_t));
+				TCB* tripulante = malloc(sizeof(TCB));
 				if (vectorInstruccion[indice_posiciones] != NULL) {
 					tripulante = crearTCB(vectorInstruccion[3 + i]);
 					indice_posiciones++;
