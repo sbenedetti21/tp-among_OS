@@ -1,7 +1,5 @@
 #include "discordiador.h"
 
-t_list * listaReady;
-t_list * listaBloqueados;
 
 int main(int argc, char ** argv){
 

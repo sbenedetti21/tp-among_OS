@@ -6,6 +6,9 @@
 int proximoTID = 0;  // variable global?? se define asi?
 
 
+t_list * listaReady;
+t_list * listaBloqueados;
+
 int conectarImongo();
 int conectarMiRAM();
 
@@ -69,6 +72,12 @@ void consola(){
 
 				pthread_create(&tripulantes[i], NULL, pasarTripulante , tripulante);
 				pthread_join(&tripulantes[i], NULL);
+			}
+
+			for(int e = 0; e < list_size(listaReady); e++){
+				TCB *tripulante = list_get(listaReady,e); 
+
+				printf("Posicion: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 			}
 
 		}
