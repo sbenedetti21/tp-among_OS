@@ -8,7 +8,9 @@ int main(int argc, char ** argv){
 	listaReady = list_create();
 	listaBloqueados = list_create();
 
-	consola();
+	pthread_t hiloConsola;
+	pthread_create(&hiloConsola, NULL, consola, NULL);
+	pthread_join(&hiloConsola, NULL);
 
 
 	while(1);
