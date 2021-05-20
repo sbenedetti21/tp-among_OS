@@ -11,7 +11,7 @@ t_list * listaBloqueados;
 
 int conectarImongo();
 int conectarMiRAM();
-
+void iniciarPatota(char **);
 
 void pasarTripulante(TCB * tripulante);
 TCB * crearTCB(char *); // chequear lo de la lista
@@ -42,7 +42,7 @@ void consola(){
 
 	char * instruccion;
 	char ** vectorInstruccion;
-	char * posicionBase = "0|0";
+
 
 	while(1) {
 
@@ -53,34 +53,21 @@ void consola(){
 
 		if(strcmp(vectorInstruccion[0], "INICIAR_PATOTA") == 0) {
 
-			//INICIAR_PATOTA 3 txt 1|1 1|2 1|3
-			int i;
-			int indice_posiciones = 3;
-			int cantidadTripulantes = atoi(vectorInstruccion[1]);
-			pthread_t tripulantes[cantidadTripulantes];
 
-			for(i = 0; i < cantidadTripulantes; i++ ) {
-				pthread_t hilo;
+			iniciarPatota(vectorInstruccion);
 
-				TCB* tripulante = malloc(sizeof(TCB));
-				if (vectorInstruccion[indice_posiciones] != NULL) {
-					tripulante = crearTCB(vectorInstruccion[3 + i]);
-					indice_posiciones++;
-				} else {
-					tripulante = crearTCB(posicionBase);
-				}
-
-				pthread_create(&tripulantes[i], NULL, pasarTripulante , tripulante);
-				pthread_join(&tripulantes[i], NULL);
-			}
-
-			for(int e = 0; e < list_size(listaReady); e++){
-				TCB *tripulante = list_get(listaReady,e); 
-
-				printf("Posicion: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
-			}
 
 		}
+
+		/*if(strcmp(vectorInstruccion[0], "expulsar") == 0){
+
+			int idexpulsado = atoi(vectorInstruccion[1]);
+			//list_find(listaReady, tripulante->tid == idexpulsado); INVESTIGAR PUNTERO A FUNCION
+			list_remove(listaReady, indexEliminado);
+
+		}
+
+		*/
 
 		/*
 		if(strcmp(vectorInstruccion[0], "LISTAR_TRIPULANTES") == 0) {
@@ -96,6 +83,7 @@ void consola(){
 		*/
 
 	}
+
 }
 
 TCB * crearTCB(char * posiciones){
@@ -118,15 +106,44 @@ TCB * crearTCB(char * posiciones){
 	}
 
 void pasarTripulante(TCB * tripulante){
-	t_config * config = config_create("./cfg/discordiador.config");
-	int socket = crear_conexion(
-		config_get_string_value(config, "IP_MI_RAM_HQ"),
-		config_get_string_value(config, "PUERTO_MI_RAM_HQ"));
+	int socket = conectarMiRAM();
 	send(socket, tripulante, sizeof(TCB), 0);
 	close(socket);
 }
 
 
+
+void iniciarPatota(char ** vectorInstruccion){
+
+	//INICIAR_PATOTA 3 txt 1|1 1|2 1|3
+				char * posicionBase = "0|0";
+				int i;
+				int indice_posiciones = 3;
+				int cantidadTripulantes = atoi(vectorInstruccion[1]);
+				pthread_t tripulantes[cantidadTripulantes];
+
+				for(i = 0; i < cantidadTripulantes; i++ ) {
+					pthread_t hilo;
+
+					TCB* tripulante = malloc(sizeof(TCB));
+					if (vectorInstruccion[indice_posiciones] != NULL) {
+						tripulante = crearTCB(vectorInstruccion[3 + i]);
+						indice_posiciones++;
+					} else {
+						tripulante = crearTCB(posicionBase);
+					}
+
+					pthread_create(&tripulantes[i], NULL, pasarTripulante , tripulante);
+					pthread_join(&tripulantes[i], NULL);
+				}
+
+				for(int e = 0; e < list_size(listaReady); e++){
+												TCB *tripulante = list_get(listaReady,e);
+
+												printf("Posicion: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+											}
+
+}
 
 
 
