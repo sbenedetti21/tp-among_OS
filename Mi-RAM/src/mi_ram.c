@@ -20,6 +20,8 @@ int main(int argc, char ** argv){
 
 	int listeningSocket = crear_conexionServer(puerto);
 
+	void * punteroMemoria = malloc(config_get_int_value(config, "TAMANIO_MEMORIA"));
+
 
 	int socketCliente;
 
