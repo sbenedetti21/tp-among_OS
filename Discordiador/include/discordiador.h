@@ -138,10 +138,10 @@ void iniciarPatota(char ** vectorInstruccion){
 				}
 
 				for(int e = 0; e < list_size(listaReady); e++){
-												TCB *tripulante = list_get(listaReady,e);
+					TCB *tripulante = list_get(listaReady,e);
 
-												printf("Posicion: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
-											}
+					printf("Posicion: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+				}
 
 }
 
