@@ -3,6 +3,8 @@
 #define BACKLOG 5 //TODO
 
 #include "shared_utils.h"
+#include <commons/txt.h>
+#include <commons/bitarray.h>
 
 char * puertoImongoStore;
 uint32_t tamanioDeBloque;
