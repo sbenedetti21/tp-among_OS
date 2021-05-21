@@ -5,6 +5,7 @@
 
 int proximoTID = 0;  // variable global?? se define asi?
 
+ uint32_t idexpulsado;
 
 t_list * listaReady;
 t_list * listaBloqueados;
@@ -12,6 +13,7 @@ t_list * listaBloqueados;
 int conectarImongo();
 int conectarMiRAM();
 void iniciarPatota(char **);
+bool coincideID(TCB*);
 
 void pasarTripulante(TCB * tripulante);
 TCB * crearTCB(char *); // chequear lo de la lista
@@ -56,19 +58,16 @@ void consola(){
 
 			iniciarPatota(vectorInstruccion);
 
-
+			
 		}
 
-		/*if(strcmp(vectorInstruccion[0], "expulsar") == 0){
-
-			int idexpulsado = atoi(vectorInstruccion[1]);
-			//list_find(listaReady, tripulante->tid == idexpulsado); INVESTIGAR PUNTERO A FUNCION
-			list_remove(listaReady, indexEliminado);
-
+		if(strcmp(vectorInstruccion[0], "expulsar") == 0){
+			//TODO TERMINAR EXPULSAR_TRIPULANTE
+			idexpulsado = atoi(vectorInstruccion[1]);
+			list_remove_by_condition(listaReady, (& coincideID));
 		}
 
-		*/
-
+	
 		/*
 		if(strcmp(vectorInstruccion[0], "LISTAR_TRIPULANTES") == 0) {
 		}
@@ -82,8 +81,18 @@ void consola(){
 		}
 		*/
 
+				for(int e = 0; e < list_size(listaReady); e++){
+					TCB *tripulante = list_get(listaReady,e);
+
+					printf("Posicion: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+				}
+
 	}
 
+}
+
+bool coincideID(TCB* tripulante){
+	return tripulante->tid == idexpulsado;
 }
 
 TCB * crearTCB(char * posiciones){
@@ -137,11 +146,6 @@ void iniciarPatota(char ** vectorInstruccion){
 					pthread_join(&tripulantes[i], NULL);
 				}
 
-				for(int e = 0; e < list_size(listaReady); e++){
-					TCB *tripulante = list_get(listaReady,e);
-
-					printf("Posicion: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
-				}
 
 }
 
