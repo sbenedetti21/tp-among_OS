@@ -20,7 +20,7 @@ int main(int argc, char ** argv){
 
 	int listeningSocket = crear_conexionServer(puerto);
 
-	void * punteroMemoria = malloc(config_get_int_value(config, "TAMANIO_MEMORIA"));
+	void * punteroMemoria = malloc(config_get_int_value(config, "TAMANIO_MEMORIA")); //preguntar si es void asterisco
 
 
 	int socketCliente;
@@ -76,21 +76,7 @@ void aceptarConexion(structConexion datosConexion){
 
 }
 */
-void atenderDiscordiador(int socketCliente){
 
-	 TCB * tripulante = malloc(sizeof(TCB));
-
-
-
-	int status =  recv(socketCliente, (void *) tripulante, sizeof(TCB), 0);
-
-	printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
-
-	printf("------------------------\n");
-	free(tripulante);
-
-
-}
 
 
 //un comentario

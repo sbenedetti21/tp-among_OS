@@ -65,6 +65,7 @@ void consola(){
 			//TODO TERMINAR EXPULSAR_TRIPULANTE
 			idexpulsado = atoi(vectorInstruccion[1]);
 			list_remove_by_condition(listaReady, (& coincideID));
+
 		}
 
 	
@@ -148,6 +149,9 @@ void iniciarPatota(char ** vectorInstruccion){
 
 
 }
+
+
+
 
 
 

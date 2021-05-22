@@ -28,7 +28,6 @@ typedef struct tcb{
 	char estado;
 	uint32_t posicionX;
 	uint32_t posicionY;
-	int tarea;
 	//uint32_t proximaInstruccion;
 	//uint32_t punteroPCB;
 } TCB;

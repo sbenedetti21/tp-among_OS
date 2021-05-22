@@ -9,4 +9,21 @@
 
 void atenderDiscordiador(int);
 
+
+void atenderDiscordiador(int socketCliente){
+
+	 TCB * tripulante = malloc(sizeof(TCB));
+
+
+
+	int status =  recv(socketCliente, (void *) tripulante, sizeof(TCB), 0);
+
+	printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+
+	printf("------------------------\n");
+	free(tripulante);
+
+
+}
+
 #endif
