@@ -1,62 +1,65 @@
 #include "imongo.h"
 
-
-
-t_bitarray * crearBitMap(){
-size_t sizeBitMap = cantidadDeBloques / 8; 
-void * bitMap = malloc(sizeBitMap);
-
-t_bitarray * punteroBitmap =  bitarray_create(bitMap, sizeBitMap);
-
-for(int i = 0; i<cantidadDeBloques; i++){
-	 bitarray_set_bit(punteroBitmap,i);
-	 printf("%d",bitarray_test_bit(punteroBitmap,i));
-  }
-return punteroBitmap;
+void liberarBitMap(t_bitarray *punteroBitmap){
+	free(punteroBitmap->bitarray);
+ 	bitarray_destroy(punteroBitmap);
 }
 
-void * leerBitMap(){
- char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
- FILE * superBloque; 
- superBloque = fopen(ubicacionSuperBloque,"r");
- size_t sizeBitMap = cantidadDeBloques / 8; 
- 
- fread(&tamanioDeBloque, sizeof(uint32_t), 1, superBloque);
- fread(&cantidadDeBloques, sizeof(uint32_t), 1, superBloque);
- 
- void * bitMap = malloc(sizeBitMap);
- fread(bitMap, sizeBitMap,1,superBloque);
- t_bitarray * punteroBitmap =  bitarray_create(bitMap, sizeBitMap);
- for(int i = 0; i<cantidadDeBloques; i++){
-	  printf("%d",bitarray_test_bit(punteroBitmap,i));
-  }
- fclose(superBloque);
- return bitMap;
+t_bitarray *crearBitMap(){
+	size_t sizeBitMap = cantidadDeBloques / 8; 
+	char * bitMap = malloc(sizeBitMap);
+	return bitarray_create(bitMap, sizeBitMap);
 }
 
+t_bitarray *leerBitMap(){
+	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+	FILE * superBloque; 
+	superBloque = fopen(ubicacionSuperBloque,"r");
+ 
+	fread(&tamanioDeBloque, sizeof(uint32_t), 1, superBloque);
+	fread(&cantidadDeBloques, sizeof(uint32_t), 1, superBloque);
+	
+	size_t sizeBitMap = cantidadDeBloques / 8; 
+ 	char * bitMap = malloc(sizeBitMap);
+ 	t_bitarray * punteroBitmap =  bitarray_create(bitMap, sizeBitMap);
+ 	fread(bitMap,sizeof(t_bitarray),1,superBloque);
+
+	for(int i = 0; i<cantidadDeBloques; i++){
+		printf("%d\n",bitarray_test_bit(punteroBitmap,i));
+	}
+
+	fclose(superBloque);
+	
+	return punteroBitmap;
+}
 
 void crearSuperBloque(){
 //crear bloque y tamanio
- char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
- FILE * superBloque; 
- superBloque = fopen(ubicacionSuperBloque,"w");
- fwrite(&tamanioDeBloque, sizeof(uint32_t), 1, superBloque);
- fwrite(&cantidadDeBloques, sizeof(uint32_t), 1, superBloque);
+	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+	FILE * superBloque; 
+	superBloque = fopen(ubicacionSuperBloque,"w");
+	
+	fwrite(&tamanioDeBloque, sizeof(uint32_t), 1, superBloque);
+	fflush(superBloque);
+	
+	fwrite(&cantidadDeBloques, sizeof(uint32_t), 1, superBloque);
+	fflush(superBloque);
  
 //crear bitmap
- t_bitarray* bitMap = crearBitMap();
- for(int i = 0; i<cantidadDeBloques; i++){
-	 printf("%d",bitarray_test_bit(bitMap,i));
-  }
- fwrite(bitMap,sizeof(cantidadDeBloques / 8),1,superBloque);
+ 	t_bitarray *punteroBitmap = crearBitMap();
+	char *bitMap = punteroBitmap->bitarray;
+	bitarray_set_bit(punteroBitmap,0);
 
- fclose(superBloque);
- bitarray_destroy(bitMap);
- //-----------------
- //leerBitMap();
- //bitarray_destroy(leerBitMap());
+	fwrite(bitMap,sizeof(t_bitarray),1,superBloque);
+
+	for(int i = 0; i<cantidadDeBloques; i++){
+		printf("%d\n",bitarray_test_bit(punteroBitmap,i));
+	}
+
+	fclose(superBloque);
+
+	liberarBitMap(punteroBitmap);
 }
-
 
 
 // void crearBloques(){
@@ -74,7 +77,7 @@ void crearSuperBloque(){
 
 
 void crearFileSystem(){
-crearSuperBloque();
+	crearSuperBloque();
 /* char * ubicacionBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
 FILE * blocks = fopen(ubicacionBlocks,"w");
 */
@@ -107,6 +110,8 @@ int main(int argc, char ** argv){
 
 	leerConfig();
 	crearFileSystem();
+ 	t_bitarray *punteroBitmap = leerBitMap();
+	liberarBitMap(punteroBitmap);
 
 	//conectarAlCliente();
 
