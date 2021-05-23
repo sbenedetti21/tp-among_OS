@@ -21,7 +21,7 @@ int crear_conexion(char *, char*);
 int crear_conexionServer(char*);
 
 
-// TCB - Tripulante Control Block -- ocupa 17 bytes
+// TCB - Tripulante Control Block -- ocupa 17 bytes (no)
 
 typedef struct tcb{
 	uint32_t tid;
@@ -29,7 +29,7 @@ typedef struct tcb{
 	uint32_t posicionX;
 	uint32_t posicionY;
 	//uint32_t proximaInstruccion;
-	//uint32_t punteroPCB;
+	//uint32_t punteroPCB; --> direccion logica
 } TCB;
 
 

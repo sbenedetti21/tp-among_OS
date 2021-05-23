@@ -3,9 +3,10 @@
 
 #include "shared_utils.h"
 
-int proximoTID = 0;  // variable global?? se define asi?
+int proximoTID = 0; // variable global?? se define asi?
+//contadorPatotaGlobal
 
- uint32_t idexpulsado;
+
 
 t_list * listaReady;
 t_list * listaBloqueados;
@@ -63,8 +64,12 @@ void consola(){
 
 		if(strcmp(vectorInstruccion[0], "expulsar") == 0){
 			//TODO TERMINAR EXPULSAR_TRIPULANTE
-			idexpulsado = atoi(vectorInstruccion[1]);
-			list_remove_by_condition(listaReady, (& coincideID));
+
+			bool coincideID(TCB* tripulante){
+				return tripulante->tid ==  atoi(vectorInstruccion[1]);
+			}
+
+			list_remove_by_condition(listaReady,  coincideID);
 
 		}
 
@@ -92,9 +97,7 @@ void consola(){
 
 }
 
-bool coincideID(TCB* tripulante){
-	return tripulante->tid == idexpulsado;
-}
+
 
 TCB * crearTCB(char * posiciones){
 
@@ -144,7 +147,7 @@ void iniciarPatota(char ** vectorInstruccion){
 					}
 
 					pthread_create(&tripulantes[i], NULL, pasarTripulante , tripulante);
-					pthread_join(&tripulantes[i], NULL);
+					pthread_join(tripulantes[i], NULL);
 				}
 
 

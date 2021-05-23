@@ -7,13 +7,14 @@ int main(int argc, char ** argv){
 	listaReady = list_create();
 	listaBloqueados = list_create();
 
-	 //pthread_t hiloConsola;
-	 //pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
+	 pthread_t hiloConsola;
+	 pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
+	 pthread_join(hiloConsola, NULL);
 
-	consola();
+	//consola();
 
 
-	while(1);
+
 
 
 return 0;

@@ -16,7 +16,7 @@ void atenderDiscordiador(int socketCliente){
 
 
 
-	int status =  recv(socketCliente, (void *) tripulante, sizeof(TCB), 0);
+	int status =  recv(socketCliente, (void *) tripulante, sizeof(TCB), 0); //MSG_WAITALL
 
 	printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 
