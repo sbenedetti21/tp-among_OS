@@ -14,6 +14,7 @@ t_list * listaBloqueados;
 int conectarImongo();
 int conectarMiRAM();
 void iniciarPatota(char **);
+void listarTripulantes();
 bool coincideID(TCB*);
 
 void pasarTripulante(TCB * tripulante);
@@ -62,7 +63,7 @@ void consola(){
 			
 		}
 
-		if(strcmp(vectorInstruccion[0], "expulsar") == 0){
+		/* if(strcmp(vectorInstruccion[0], "expulsar") == 0){
 			//TODO TERMINAR EXPULSAR_TRIPULANTE
 
 			bool coincideID(TCB* tripulante){
@@ -71,12 +72,19 @@ void consola(){
 
 			list_remove_by_condition(listaReady,  coincideID);
 
-		}
+		}*/
+		
 
 	
-		/*
+		
 		if(strcmp(vectorInstruccion[0], "LISTAR_TRIPULANTES") == 0) {
+			
+			listarTripulantes();
+
 		}
+
+
+		/*
 		if(strcmp(vectorInstruccion[0], "EXPULSAR_TRIPULANTE") == 0) {
 		}
 		if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0) {
@@ -154,7 +162,22 @@ void iniciarPatota(char ** vectorInstruccion){
 }
 
 
+void listarTripulantes(){
 
+printf("--------------------------------------------------------- \nEstado actual de la nave: %s    \n\n", temporal_get_string_time("%d/%m/%y %H:%M:%S"));
+
+	for(int i = 0; i < list_size(listaReady) ; i++){
+
+		TCB *tripulante = list_get(listaReady,i);
+		// PCB *patota = tripulante->punteroPCB;
+
+		printf("Tripulante: %d    Patota:    Estado: %c \n", tripulante->tid , /* patota->pid, */ tripulante->estado);
+
+	}
+
+printf("--------------------------------------------------------- \n");
+
+}
 
 
 
