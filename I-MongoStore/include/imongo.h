@@ -14,7 +14,6 @@ uint32_t tamanioDeBloque;
 uint32_t cantidadDeBloques;
 char * puntoDeMontaje;
 char *elBlocks;
-int proximoBlock;
 
 void leerConfig(){
     
@@ -49,16 +48,22 @@ t_bitarray *crearBitMap(){
 int leerBitMap(){
 	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 	FILE * superBloque; 
-	superBloque = fopen(ubicacionSuperBloque,"r");
+	superBloque = fopen(ubicacionSuperBloque,"r+");
 
 	fseek(superBloque, sizeof(uint32_t) * 2, SEEK_SET);
 	t_bitarray * punteroBitmap = crearBitMap();
  	fread(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
+
 	int bloqueLibre = 0;
 	while(bitarray_test_bit(punteroBitmap,bloqueLibre))
 		bloqueLibre++;
 
-	proximoBlock = bloqueLibre;
+	bitarray_set_bit(punteroBitmap,bloqueLibre);
+
+	fseek(superBloque, sizeof(uint32_t) * 2, SEEK_SET);
+	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
+
+	liberarBitMap(punteroBitmap);
 	fclose(superBloque);	
 	return bloqueLibre;
 }
@@ -94,13 +99,18 @@ void mapearBlocks(){
 	size_t tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 	int archivoBlocks = open(ubicacionBlocks, O_RDWR , S_IRUSR | S_IWUSR);
 	elBlocks = mmap(NULL, tamanioBlocks, PROT_READ | PROT_WRITE, MAP_SHARED, archivoBlocks,0);
-	leerBitMap();
-	int cant = proximoBlock * tamanioDeBloque;
-	printf("%d\n",cant);
-	for(int i=40; i<48;i++){
-		elBlocks[cant+i]='o';
+}
+
+void llenarBlocks(char caracterLlenado, int sizeLlenar){
+	int sizeAux = sizeLlenar;
+	while(sizeAux>0){
+		int proximoBlock = leerBitMap();
+		int cant = proximoBlock * tamanioDeBloque;
+		for(int i=0; i<sizeAux && i<tamanioDeBloque;i++){
+			elBlocks[cant+i]=caracterLlenado;
+		}
+		sizeAux-=tamanioDeBloque;
 	}
-	munmap(elBlocks,tamanioBlocks);
 }
 
 void crearBlocks(){
