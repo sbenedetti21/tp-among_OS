@@ -4,13 +4,17 @@
 
 #include "shared_utils.h"
 #include <commons/txt.h>
+#include <sys/mman.h>
 #include <sys/stat.h>
 #include <commons/bitarray.h>
+#include <fcntl.h>
 
 char * puertoImongoStore;
 uint32_t tamanioDeBloque;
 uint32_t cantidadDeBloques;
 char * puntoDeMontaje;
+char *elBlocks;
+int proximoBlock;
 
 void leerConfig(){
     
@@ -42,7 +46,7 @@ t_bitarray *crearBitMap(){
 	return punteroBitmap;
 }
 
-t_bitarray *leerBitMap(){
+int leerBitMap(){
 	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 	FILE * superBloque; 
 	superBloque = fopen(ubicacionSuperBloque,"r");
@@ -50,9 +54,13 @@ t_bitarray *leerBitMap(){
 	fseek(superBloque, sizeof(uint32_t) * 2, SEEK_SET);
 	t_bitarray * punteroBitmap = crearBitMap();
  	fread(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
+	int bloqueLibre = 0;
+	while(bitarray_test_bit(punteroBitmap,bloqueLibre))
+		bloqueLibre++;
 
+	proximoBlock = bloqueLibre;
 	fclose(superBloque);	
-	return punteroBitmap;
+	return bloqueLibre;
 }
 
 void crearSuperBloque(){
@@ -69,22 +77,41 @@ void crearSuperBloque(){
 
 //crear bitmap
  	t_bitarray *punteroBitmap = crearBitMap();
-
+/*
 	bitarray_set_bit(punteroBitmap,0); //Cambia de 0 a 1 el primer bloque
 	bitarray_set_bit(punteroBitmap,15);	//Cambia de 0 a 1 el ultimo bloque
 	bitarray_set_bit(punteroBitmap,5);	//Cambia de 0 a 1 el sexto bloque
-	
+*/	
 	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
 
 	fclose(superBloque);
 	liberarBitMap(punteroBitmap);
 }
 
-
-void crearBlocks(){
+void mapearBlocks(){
 	//Usar mmap() para acceder al archivo block
+	char * ubicacionBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
+	size_t tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
+	int archivoBlocks = open(ubicacionBlocks, O_RDWR , S_IRUSR | S_IWUSR);
+	elBlocks = mmap(NULL, tamanioBlocks, PROT_READ | PROT_WRITE, MAP_SHARED, archivoBlocks,0);
+	leerBitMap();
+	int cant = proximoBlock * tamanioDeBloque;
+	printf("%d\n",cant);
+	for(int i=40; i<48;i++){
+		elBlocks[cant+i]='o';
+	}
+	munmap(elBlocks,tamanioBlocks);
 }
 
+void crearBlocks(){
+	//Crea archivo vacio con el tamanio
+	char * ubicacionBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
+	FILE *archivoBlocks = fopen(ubicacionBlocks, "w");
+	size_t tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
+	ftruncate(fileno(archivoBlocks), tamanioBlocks);
+	fclose(archivoBlocks);
+	mapearBlocks();
+}
 
 void crearFileSystem(){
 	mkdir(puntoDeMontaje,0777);
@@ -93,7 +120,6 @@ void crearFileSystem(){
 	mkdir(string_from_format("%s/Files",puntoDeMontaje),0777);
 	mkdir(string_from_format("%s/Files/Bitacoras",puntoDeMontaje),0777);
 }
-
 
 void conectarAlCliente(){
 	t_config * config = config_create("./cfg/imongo.config");
