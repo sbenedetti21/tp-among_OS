@@ -3,22 +3,23 @@
 
 #include "shared_utils.h"
 
-int proximoTID = 0; // variable global?? se define asi?
-//contadorPatotaGlobal
+int proximoTID = 0;
+
 
 
 
 t_list * listaReady;
 t_list * listaBloqueados;
 
+uint32_t iniciarPCB(char*, int);
 int conectarImongo();
 int conectarMiRAM();
 void iniciarPatota(char **);
 void listarTripulantes();
 bool coincideID(TCB*);
 
-void pasarTripulante(TCB * tripulante);
-TCB * crearTCB(char *); // chequear lo de la lista
+void pasarTripulante(TCB *);
+TCB * crearTCB(char *, uint32_t); // chequear lo de la lista
 
 
 int conectarImongo(){
@@ -107,7 +108,7 @@ void consola(){
 
 
 
-TCB * crearTCB(char * posiciones){
+TCB * crearTCB(char * posiciones, uint32_t punteroAPCB){
 
 
 		char ** vectorPosiciones = string_split(posiciones,"|" );
@@ -116,7 +117,7 @@ TCB * crearTCB(char * posiciones){
 		tripulante->tid = proximoTID;
 		tripulante->posicionX = atoi(vectorPosiciones[0]);
 		tripulante->posicionY = atoi(vectorPosiciones[1]);
-		//tripulante->punteroPCB;  //falta
+		tripulante->punteroPCB = punteroAPCB;  
 		//tripulante->proximaInstruccion; //falta
 
 		list_add(listaReady, tripulante);
@@ -126,15 +127,15 @@ TCB * crearTCB(char * posiciones){
 		return tripulante;   //preguntar liberar malloc
 	}
 
-void pasarTripulante(TCB * tripulante){
-	int socket = conectarMiRAM();
-	send(socket, tripulante, sizeof(TCB), 0);
-	close(socket);
-}
+
 
 
 
 void iniciarPatota(char ** vectorInstruccion){
+
+	int socket = conectarMiRAM();
+
+	uint32_t punteroPCB = iniciarPCB(vectorInstruccion[2], socket);
 
 	//INICIAR_PATOTA 3 txt 1|1 1|2 1|3
 				char * posicionBase = "0|0";
@@ -148,15 +149,21 @@ void iniciarPatota(char ** vectorInstruccion){
 
 					TCB* tripulante = malloc(sizeof(TCB));
 					if (vectorInstruccion[indice_posiciones] != NULL) {
-						tripulante = crearTCB(vectorInstruccion[3 + i]);
+						tripulante = crearTCB(vectorInstruccion[3 + i],punteroPCB);
 						indice_posiciones++;
 					} else {
-						tripulante = crearTCB(posicionBase);
+						tripulante = crearTCB(posicionBase, punteroPCB);
+					}
+
+					void pasarTripulante(TCB * tripulante){ 
+						send(socket, tripulante, sizeof(TCB), 0);
 					}
 
 					pthread_create(&tripulantes[i], NULL, pasarTripulante , tripulante);
 					pthread_join(tripulantes[i], NULL);
 				}
+
+	close(socket);
 
 
 }
@@ -180,7 +187,21 @@ printf("--------------------------------------------------------- \n");
 }
 
 
+uint32_t iniciarPCB(char * pathTareas, int socket){
+	uint32_t * punteroPCB;
 
+	printf("Entre iniciar PCB\n");
+
+	send(socket, CREAR_PCB , sizeof(CREAR_PCB) , 0);		//VER SERIALIZACION DINAMICA
+	//send(socket,pathTareas,sizeof(char*),0);
+
+	
+	recv(socket,(void*) punteroPCB,sizeof(uint32_t),0);
+
+	printf("RECIBI PUNTERO PCB \n");
+
+	return *punteroPCB;
+}
 
 
 #endif
