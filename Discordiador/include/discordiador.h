@@ -112,10 +112,8 @@ void consola(){
 				return tripulante->tid ==  atoi(vectorInstruccion[1]);
 			}
 
-			TCB * tripulante = malloc(sizeof(TCB));
-			tripulante = list_find(listaTripulantes, coincideID);
+			TCB * tripulante =  list_find(listaTripulantes, coincideID);
 			tripulante->estado = 'E';
-			free(tripulante);
 		}
 
 				for(int e = 0; e < list_size(listaTripulantes); e++){
