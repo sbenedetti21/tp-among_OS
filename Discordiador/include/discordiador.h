@@ -56,7 +56,7 @@ void consola(){
 		vectorInstruccion = string_split(instruccion, " ");
 
 
-		if(strcmp(vectorInstruccion[0], "INICIAR_PATOTA") == 0) {
+		if(strcmp(vectorInstruccion[0], "I") == 0) {
 
 
 			iniciarPatota(vectorInstruccion);
@@ -94,6 +94,8 @@ void consola(){
 		}
 		if(strcmp(vectorInstruccion[0], "OBTENER_BITACORA") == 0) {
 		}
+
+		
 		*/
 
 				for(int e = 0; e < list_size(listaReady); e++){
@@ -188,17 +190,13 @@ printf("--------------------------------------------------------- \n");
 
 
 uint32_t iniciarPCB(char * pathTareas, int socket){
-	uint32_t * punteroPCB;
-
-	printf("Entre iniciar PCB\n");
-
-	send(socket, CREAR_PCB , sizeof(CREAR_PCB) , 0);		//VER SERIALIZACION DINAMICA
-	//send(socket,pathTareas,sizeof(char*),0);
-
+	uint32_t * punteroPCB = malloc(sizeof(uint32_t));
+	int * punteroACrearPCB = malloc(sizeof(int));
+	*punteroACrearPCB = CREAR_PCB;
 	
-	recv(socket,(void*) punteroPCB,sizeof(uint32_t),0);
+	send(socket, punteroACrearPCB, sizeof(int) , 0);	//VER SERIALIZACION DINAMICA
 
-	printf("RECIBI PUNTERO PCB \n");
+	int prueba = recv(socket, (void*)punteroPCB, sizeof(uint32_t),0);
 
 	return *punteroPCB;
 }

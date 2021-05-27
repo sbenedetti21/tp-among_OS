@@ -45,7 +45,7 @@ typedef struct pcb{
 } PCB;
 
 enum protocoloMIRAM{
-	CREAR_PCB, CREAR_TCB
+	CREAR_PCB, CREAR_TCB, PRUEBA
 };
 
 

@@ -14,29 +14,28 @@ int proximoPID = 0;
 
 
 void atenderDiscordiador(int socketCliente){
-	int* header;
+	int* header = malloc(sizeof(int));
 
 	int prueba = recv(socketCliente,(void*) header , sizeof(int) , 0);
-	printf("Recibi header\n");
+	printf("Recibi header: %d\n", *header);
 
 	switch (*header)
 	{
 	case CREAR_PCB: ; // <- preguntar label
-		char * pathTareas = "CULO";
-		printf("Entre CREAR PCB EN SWITCH\n");
-
-		//recv(socketCliente,pathTareas,sizeof(char*),MSG_WAITALL);
-		
-		uint32_t punteroPCB = crearPCB(pathTareas);
+	
+		uint32_t * punteroPCB = malloc(sizeof(punteroPCB));
+		*punteroPCB = crearPCB("pathTareas");
 
 		send(socketCliente, punteroPCB, sizeof(uint32_t),0);
+
+		free(punteroPCB);
 
 		break;
 
 	case CREAR_TCB: ;
 
 			TCB * tripulante = malloc(sizeof(TCB));
-			int status =  recv(socketCliente, (void *) tripulante, sizeof(TCB), MSG_WAITALL); 
+			int status =  recv(socketCliente, (void *) tripulante, sizeof(TCB), 0); 
 
 			printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 
@@ -45,10 +44,20 @@ void atenderDiscordiador(int socketCliente){
 
 
 		break;
+
+	case PRUEBA: ;
+
 	
-	default:
+		break;
+	
+	default:	
+
+
+
 		break;
 	}
+
+	free(header);
 
 
 	
@@ -57,16 +66,19 @@ void atenderDiscordiador(int socketCliente){
 
 
 uint32_t crearPCB(char* tareas){
-	printf("Entre crear PCB FUNCION\n");
-	uint32_t punteroTareas = *tareas; //ESTO ESTA RARI
+	// uint32_t punteroTareas = *tareas; //ESTO ESTA RARI
 
 	PCB * patota = malloc(sizeof(PCB));
 	patota->pid = proximoPID; 				
-	patota->tareas = punteroTareas;
+	// patota->tareas = punteroTareas; // hABRIA QUE ALMACENAR LA PATOTA EN ALGUN LADO
 
 	proximoPID++;
 
-	return 100;
+
+	uint32_t a = patota->pid;
+
+	free(patota);
+	return a;
 }
 
 #endif
