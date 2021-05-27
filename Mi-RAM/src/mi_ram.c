@@ -40,8 +40,6 @@ int main(int argc, char ** argv){
 				else {
 					printf("Conexión establecida con Discordiador \n");
 					pthread_create(&receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
-
-
 		}
 			}
 

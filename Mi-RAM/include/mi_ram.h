@@ -8,12 +8,14 @@
 #include "shared_utils.h"
 
 void atenderDiscordiador(int);
+void recibir_TCB(int);
 uint32_t crearPCB(char*);
 
 int proximoPID = 0; 
 
 
 void atenderDiscordiador(int socketCliente){
+	for(int i = 0;i<50;i++){
 	int* header = malloc(sizeof(int));
 	printf("Entre a atenderDiscordiador otra vez \n");
 	int prueba = recv(socketCliente,(void*) header , sizeof(int) , 0);
@@ -40,14 +42,7 @@ void atenderDiscordiador(int socketCliente){
 
 	case CREAR_TCB: ;  // pasar desde discordiador
 
-			TCB * tripulante = malloc(sizeof(TCB));
-			int status =  recv(socketCliente, (void *) tripulante, sizeof(TCB), 0); 
-
-			printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
-
-			printf("------------------------\n");
-			free(tripulante);
-
+			recibir_TCB(socketCliente);	
 
 		break;
 
@@ -64,7 +59,7 @@ void atenderDiscordiador(int socketCliente){
 	}
 
 	free(header);
-
+	}
 
 	
 
@@ -85,6 +80,16 @@ uint32_t crearPCB(char* tareas){
 
 	free(patota);
 	return a;
+}
+
+void recibir_TCB(int socketCliente){
+	TCB * tripulante = malloc(sizeof(TCB));
+			int status =  recv(socketCliente, (void *) tripulante, sizeof(TCB), 0); 
+
+			printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+
+			printf("------------------------\n");
+			free(tripulante);
 }
 
 #endif

@@ -198,9 +198,13 @@ void tripulanteVivo(TCBySocket * paquete) {
 
 	DatosTripulante * datosTripulante = malloc(sizeof(DatosTripulante)); 
 	datosTripulante->header = CREAR_TCB;
-	datosTripulante->tripulante = &tripulante;  
+	datosTripulante->tripulante = &tripulante; 
+	int * punteroTCB = malloc(sizeof(int));
+	*punteroTCB = CREAR_TCB;
 	
-	send(socket, datosTripulante, sizeof(DatosTripulante), 0);
+	//send(socket, datosTripulante, sizeof(DatosTripulante), 0);
+	send(socket, punteroTCB, sizeof(int),0);
+	send(socket, tripulante, sizeof(TCB),0);
 	
 	while (1)
 	{
