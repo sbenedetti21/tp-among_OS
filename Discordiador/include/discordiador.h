@@ -3,10 +3,10 @@
 
 #include "shared_utils.h"
 
-typedef struct Dato{
-	TCB * tripulante; 
-	int header; 
-}DatosTripulante;
+typedef struct TCBySocket_t {
+	int socket;
+	TCB * tripulante;
+} TCBySocket;
 
 int proximoTID = 0;
 
@@ -20,11 +20,6 @@ int conectarMiRAM();
 void iniciarPatota(char **);
 void listarTripulantes();
 bool coincideID(TCB*);
-
-typedef struct TCBySocket_t {
-	int socket;
-	TCB * tripulante;
-} TCBySocket;
 
 void pasarTripulante(TCB *);
 
@@ -186,31 +181,26 @@ void iniciarPatota(char ** vectorInstruccion){
 					pthread_create(&tripulantes[i], NULL, tripulanteVivo , paquete);
 					//pthread_join(tripulantes[i], NULL);
 
-					free(paquete);
+					
 				}
 
 	close(socket);
-
 
 }
 
 
 
 void tripulanteVivo(TCBySocket * paquete) {
-	
-	
+
 	TCB * tripulante =  malloc(sizeof(TCB));
-	tripulante = &paquete->tripulante;
+	tripulante = paquete->tripulante;
 	int socket = paquete->socket;
 
-	printf("HOlaaa"); 
-
-	
 	DatosTripulante * datosTripulante = malloc(sizeof(DatosTripulante)); 
 	datosTripulante->header = CREAR_TCB;
 	datosTripulante->tripulante = &tripulante;  
 	
-	send(socket, datosTripulante, sizeof(DatosTripulante), 0 );
+	send(socket, datosTripulante, sizeof(DatosTripulante), 0);
 	
 	while (1)
 	{
@@ -221,6 +211,8 @@ void tripulanteVivo(TCBySocket * paquete) {
 					 			tripulante->estado = 'R';
 					}
 	}
+
+
 }
 
 void listarTripulantes(){

@@ -48,6 +48,11 @@ enum protocoloMIRAM{
 	CREAR_PCB, CREAR_TCB, PRUEBA
 };
 
+typedef struct Dato{
+	TCB * tripulante; 
+	int header; 
+}DatosTripulante;
+
 
 
 
