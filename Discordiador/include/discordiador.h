@@ -5,9 +5,7 @@
 
 int proximoTID = 0;
 
-
-
-
+t_list * listaTripulantes;
 t_list * listaReady;
 t_list * listaBloqueados;
 
@@ -19,6 +17,9 @@ void listarTripulantes();
 bool coincideID(TCB*);
 
 void pasarTripulante(TCB *);
+
+void tripulanteVivo(TCB *);
+
 TCB * crearTCB(char *, uint32_t); // chequear lo de la lista
 
 
@@ -56,7 +57,7 @@ void consola(){
 		vectorInstruccion = string_split(instruccion, " ");
 
 
-		if(strcmp(vectorInstruccion[0], "I") == 0) {
+		if(strcmp(vectorInstruccion[0], "INICIAR_PATOTA") == 0) {
 
 
 			iniciarPatota(vectorInstruccion);
@@ -64,8 +65,8 @@ void consola(){
 			
 		}
 
-		/* if(strcmp(vectorInstruccion[0], "expulsar") == 0){
-			//TODO TERMINAR EXPULSAR_TRIPULANTE
+		if(strcmp(vectorInstruccion[0], "expulsar") == 0){
+													//TODO TERMINAR EXPULSAR_TRIPULANTE
 
 			bool coincideID(TCB* tripulante){
 				return tripulante->tid ==  atoi(vectorInstruccion[1]);
@@ -73,7 +74,7 @@ void consola(){
 
 			list_remove_by_condition(listaReady,  coincideID);
 
-		}*/
+		}
 		
 
 	
@@ -88,20 +89,31 @@ void consola(){
 		/*
 		if(strcmp(vectorInstruccion[0], "EXPULSAR_TRIPULANTE") == 0) {
 		}
+		*/
 		if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0) {
+			
 		}
+		/*
 		if(strcmp(vectorInstruccion[0], "PAUSAR_PLANIFICACION") == 0) {
 		}
 		if(strcmp(vectorInstruccion[0], "OBTENER_BITACORA") == 0) {
 		}
 
-		
 		*/
 
-				for(int e = 0; e < list_size(listaReady); e++){
-					TCB *tripulante = list_get(listaReady,e);
+		if(strcmp(vectorInstruccion[0], "MODIFICAR") == 0) {
+			bool coincideID(TCB* tripulante){
+				return tripulante->tid ==  atoi(vectorInstruccion[1]);
+			}
 
-					printf("Posicion: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+			TCB * tripulante = list_find(listaTripulantes, coincideID);
+			tripulante->estado = 'E';
+		}
+
+				for(int e = 0; e < list_size(listaTripulantes); e++){
+					TCB *tripulante = list_get(listaTripulantes, e);
+
+					printf("index: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 				}
 
 	}
@@ -115,14 +127,14 @@ TCB * crearTCB(char * posiciones, uint32_t punteroAPCB){
 
 		char ** vectorPosiciones = string_split(posiciones,"|" );
 		TCB * tripulante = malloc(sizeof(TCB));
-		tripulante->estado = 'R';
+		tripulante->estado = 'N';
 		tripulante->tid = proximoTID;
 		tripulante->posicionX = atoi(vectorPosiciones[0]);
 		tripulante->posicionY = atoi(vectorPosiciones[1]);
 		tripulante->punteroPCB = punteroAPCB;  
 		//tripulante->proximaInstruccion; //falta
 
-		list_add(listaReady, tripulante);
+		list_add(listaTripulantes, tripulante);
 
 		proximoTID ++; //ver sincronizacion
 
@@ -157,12 +169,23 @@ void iniciarPatota(char ** vectorInstruccion){
 						tripulante = crearTCB(posicionBase, punteroPCB);
 					}
 
-					void pasarTripulante(TCB * tripulante){ 
-						send(socket, tripulante, sizeof(TCB), 0);
-					}
+					// void pasarTripulante(TCB * tripulante){ 
+					// 	send(socket, tripulante, sizeof(TCB), 0);
+						
+					// 	while (1)
+					// 	{
+					// 		while (tripulante->estado == 'E')
+					//  		{
+					//  			printf("estoy trabajango soy: %d \n", tripulante->tid);
+					//  			sleep(10);
+					//  			tripulante->estado = 'R';
+					// 	}
+					// }
+						
+					//}
 
-					pthread_create(&tripulantes[i], NULL, pasarTripulante , tripulante);
-					pthread_join(tripulantes[i], NULL);
+					pthread_create(&tripulantes[i], NULL, tripulanteVivo , tripulante);
+					//pthread_join(tripulantes[i], NULL);
 				}
 
 	close(socket);
@@ -170,17 +193,28 @@ void iniciarPatota(char ** vectorInstruccion){
 
 }
 
+void tripulanteVivo(TCB * tripulante) {
+	while (1)
+	{
+		while (tripulante->estado == 'E')
+					 		{
+					 			printf("estoy trabajango soy: %d \n", tripulante->tid);
+					 			sleep(10);
+					 			tripulante->estado = 'R';
+					}
+	}
+}
 
 void listarTripulantes(){
 
 printf("--------------------------------------------------------- \nEstado actual de la nave: %s    \n\n", temporal_get_string_time("%d/%m/%y %H:%M:%S"));
 
-	for(int i = 0; i < list_size(listaReady) ; i++){
+	for(int i = 0; i < list_size(listaTripulantes) ; i++){
 
-		TCB *tripulante = list_get(listaReady,i);
+		TCB *tripulante = list_get(listaTripulantes,i);
 		// PCB *patota = tripulante->punteroPCB;
 
-		printf("Tripulante: %d    Patota:    Estado: %c \n", tripulante->tid , /* patota->pid, */ tripulante->estado);
+		printf("Tripulante: %d    Patota:    Estado: %c \n", tripulante->tid , /* patota->pid  ,*/  tripulante->estado);
 
 	}
 

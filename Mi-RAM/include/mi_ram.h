@@ -32,7 +32,7 @@ void atenderDiscordiador(int socketCliente){
 
 		break;
 
-	case CREAR_TCB: ;
+	case CREAR_TCB: ;  // pasar desde discordiador
 
 			TCB * tripulante = malloc(sizeof(TCB));
 			int status =  recv(socketCliente, (void *) tripulante, sizeof(TCB), 0); 
