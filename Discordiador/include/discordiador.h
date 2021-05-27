@@ -3,6 +3,7 @@
 
 #include "shared_utils.h"
 
+
 int proximoTID = 0;
 
 t_list * listaTripulantes;
@@ -16,9 +17,14 @@ void iniciarPatota(char **);
 void listarTripulantes();
 bool coincideID(TCB*);
 
+typedef struct TCBySocket_t {
+	int socket;
+	TCB * tripulante;
+} TCBySocket;
+
 void pasarTripulante(TCB *);
 
-void tripulanteVivo(TCB *);
+void tripulanteVivo(TCBySocket *);
 
 TCB * crearTCB(char *, uint32_t); // chequear lo de la lista
 
@@ -184,8 +190,14 @@ void iniciarPatota(char ** vectorInstruccion){
 						
 					//}
 
-					pthread_create(&tripulantes[i], NULL, tripulanteVivo , tripulante);
+					TCBySocket * paquete = malloc(sizeof(TCBySocket));
+					paquete->socket = socket;
+					paquete->tripulante = tripulante;
+
+					pthread_create(&tripulantes[i], NULL, tripulanteVivo , paquete);
 					//pthread_join(tripulantes[i], NULL);
+
+					free(paquete);
 				}
 
 	close(socket);
@@ -193,7 +205,24 @@ void iniciarPatota(char ** vectorInstruccion){
 
 }
 
-void tripulanteVivo(TCB * tripulante) {
+
+
+void tripulanteVivo(TCBySocket * paquete) {
+	
+	
+	TCB * tripulante =  malloc(sizeof(TCB));
+	tripulante = paquete->tripulante;
+	int socket = paquete->socket;
+
+	printf("HOlaaa"); 
+
+	int * punteroACrearTCB = malloc(sizeof(int));
+	*punteroACrearTCB = CREAR_TCB;
+
+	send(socket, punteroACrearTCB, sizeof(int), 0);
+	
+	send(socket, tripulante, sizeof(TCB), 0);
+	
 	while (1)
 	{
 		while (tripulante->estado == 'E')
