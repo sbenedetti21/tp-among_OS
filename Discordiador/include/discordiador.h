@@ -112,8 +112,10 @@ void consola(){
 				return tripulante->tid ==  atoi(vectorInstruccion[1]);
 			}
 
-			TCB * tripulante = list_find(listaTripulantes, coincideID);
+			TCB * tripulante = malloc(sizeof(TCB));
+			tripulante = list_find(listaTripulantes, coincideID);
 			tripulante->estado = 'E';
+			free(tripulante);
 		}
 
 				for(int e = 0; e < list_size(listaTripulantes); e++){
@@ -211,7 +213,7 @@ void tripulanteVivo(TCBySocket * paquete) {
 	
 	
 	TCB * tripulante =  malloc(sizeof(TCB));
-	tripulante = paquete->tripulante;
+	tripulante = &paquete->tripulante;
 	int socket = paquete->socket;
 
 	printf("HOlaaa"); 

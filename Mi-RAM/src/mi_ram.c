@@ -52,6 +52,8 @@ int main(int argc, char ** argv){
 
 	close(listeningSocket);
 
+	free(punteroMemoria);
+
 	return 0;
 
 

@@ -17,7 +17,13 @@ void atenderDiscordiador(int socketCliente){
 	int* header = malloc(sizeof(int));
 
 	int prueba = recv(socketCliente,(void*) header , sizeof(int) , 0);
-	printf("Recibi header: %d\n", *header);
+	if(prueba) {
+		printf("Recibi header: %d\n", *header);
+	} else
+	{
+		printf("no pude recibir el header");
+	}
+	
 
 	switch (*header)
 	{
