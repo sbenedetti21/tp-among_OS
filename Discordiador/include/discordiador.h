@@ -3,6 +3,10 @@
 
 #include "shared_utils.h"
 
+typedef struct Dato{
+	TCB * tripulante; 
+	int header; 
+}DatosTripulante;
 
 int proximoTID = 0;
 
@@ -175,21 +179,6 @@ void iniciarPatota(char ** vectorInstruccion){
 						tripulante = crearTCB(posicionBase, punteroPCB);
 					}
 
-					// void pasarTripulante(TCB * tripulante){ 
-					// 	send(socket, tripulante, sizeof(TCB), 0);
-						
-					// 	while (1)
-					// 	{
-					// 		while (tripulante->estado == 'E')
-					//  		{
-					//  			printf("estoy trabajango soy: %d \n", tripulante->tid);
-					//  			sleep(10);
-					//  			tripulante->estado = 'R';
-					// 	}
-					// }
-						
-					//}
-
 					TCBySocket * paquete = malloc(sizeof(TCBySocket));
 					paquete->socket = socket;
 					paquete->tripulante = tripulante;
@@ -216,12 +205,12 @@ void tripulanteVivo(TCBySocket * paquete) {
 
 	printf("HOlaaa"); 
 
-	int * punteroACrearTCB = malloc(sizeof(int));
-	*punteroACrearTCB = CREAR_TCB;
-
-	send(socket, punteroACrearTCB, sizeof(int), 0);
 	
-	send(socket, tripulante, sizeof(TCB), 0);
+	DatosTripulante * datosTripulante = malloc(sizeof(DatosTripulante)); 
+	datosTripulante->header = CREAR_TCB;
+	datosTripulante->tripulante = &tripulante;  
+	
+	send(socket, datosTripulante, sizeof(DatosTripulante), 0 );
 	
 	while (1)
 	{

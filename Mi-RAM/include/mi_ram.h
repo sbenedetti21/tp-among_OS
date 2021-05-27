@@ -15,7 +15,7 @@ int proximoPID = 0;
 
 void atenderDiscordiador(int socketCliente){
 	int* header = malloc(sizeof(int));
-
+	printf("Entre a atenderDiscordiador otra vez \n");
 	int prueba = recv(socketCliente,(void*) header , sizeof(int) , 0);
 	if(prueba) {
 		printf("Recibi header: %d\n", *header);
