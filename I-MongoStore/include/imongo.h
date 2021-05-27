@@ -14,9 +14,9 @@ uint32_t tamanioDeBloque;
 uint32_t cantidadDeBloques;
 char * puntoDeMontaje;
 char *elBlocks;
+int proximoBlock;
 
-void leerConfig(){
-    
+void leerConfig(){ 
 	t_config * config = config_create("./cfg/imongo.config");
 	
 	puntoDeMontaje = config_get_string_value(config, "PUNTO_MONTAJE");
@@ -24,13 +24,6 @@ void leerConfig(){
 //  char *  tiempoDeSinc = config_get_string_value(config, "TIEMPO_SINCRONIZACION");
 	tamanioDeBloque = config_get_int_value(config, "BLOCK_SIZE");
     cantidadDeBloques = config_get_int_value(config, "CANTIDAD_BLOCKS");
-        
-
-}
-
-void liberarBitMap(t_bitarray *punteroBitmap){
-	free(punteroBitmap->bitarray);
- 	bitarray_destroy(punteroBitmap);
 }
 
 t_bitarray *crearBitMap(){
@@ -45,7 +38,12 @@ t_bitarray *crearBitMap(){
 	return punteroBitmap;
 }
 
-int leerBitMap(){
+void liberarBitMap(t_bitarray *punteroBitmap){
+	free(punteroBitmap->bitarray);
+ 	bitarray_destroy(punteroBitmap);
+}
+
+t_bitarray *leerBitMap(){
 	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 	FILE * superBloque; 
 	superBloque = fopen(ubicacionSuperBloque,"r+");
@@ -54,18 +52,26 @@ int leerBitMap(){
 	t_bitarray * punteroBitmap = crearBitMap();
  	fread(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
 
-	int bloqueLibre = 0;
-	while(bitarray_test_bit(punteroBitmap,bloqueLibre))
-		bloqueLibre++;
+	fclose(superBloque);	
+	return punteroBitmap;
+}
 
-	bitarray_set_bit(punteroBitmap,bloqueLibre);
+int bitLibreBitMap(t_bitarray *punteroBitmap){
+	while(bitarray_test_bit(punteroBitmap,proximoBlock))
+			proximoBlock++;
+	return proximoBlock;
+}
+
+void cambiarBitMap(t_bitarray *punteroBitmap){
+	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+	FILE * superBloque; 
+	superBloque = fopen(ubicacionSuperBloque,"r+");
 
 	fseek(superBloque, sizeof(uint32_t) * 2, SEEK_SET);
 	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
 
 	liberarBitMap(punteroBitmap);
-	fclose(superBloque);	
-	return bloqueLibre;
+	fclose(superBloque);
 }
 
 void crearSuperBloque(){
@@ -101,16 +107,32 @@ void mapearBlocks(){
 	elBlocks = mmap(NULL, tamanioBlocks, PROT_READ | PROT_WRITE, MAP_SHARED, archivoBlocks,0);
 }
 
-void llenarBlocks(char caracterLlenado, int sizeLlenar){
-	int sizeAux = sizeLlenar;
-	while(sizeAux>0){
-		int proximoBlock = leerBitMap();
+void llenarBlocks(char caracterLlenado, int cantLlenar){
+	int cantAux = cantLlenar;
+	proximoBlock=0;
+	t_bitarray *punteroBitmap = leerBitMap();
+	while(cantAux>0){
+		bitLibreBitMap(punteroBitmap);
 		int cant = proximoBlock * tamanioDeBloque;
-		for(int i=0; i<sizeAux && i<tamanioDeBloque;i++){
-			elBlocks[cant+i]=caracterLlenado;
+		if(elBlocks[cant]=='\0' || elBlocks[cant]==caracterLlenado){
+			for(int i=0; i<cantAux && i<tamanioDeBloque;i++){
+				if(elBlocks[cant+i]!=caracterLlenado)
+					elBlocks[cant+i]=caracterLlenado;
+				else
+					cantAux++;
+			}
+			cantAux-=tamanioDeBloque;
+
+			if(cantAux>=0)
+				bitarray_set_bit(punteroBitmap,proximoBlock);
+
+		} else {
+			proximoBlock++;
 		}
-		sizeAux-=tamanioDeBloque;
+		
 	}
+
+	cambiarBitMap(punteroBitmap);
 }
 
 void crearBlocks(){
@@ -142,9 +164,9 @@ void conectarAlCliente(){
 
 	socketCliente = accept(listening_socket, (struct sockaddr *) &addr, &addrlen);
 	if(socketCliente == -1){
-		printf("Error en la conexion");
+		printf("Error en la conexion\n");
 	}else{
-		printf("Conexion establecida con el Discordiador");
+		printf("Conexion establecida con el Discordiador\n");
 	}
 
 	close(listening_socket);
