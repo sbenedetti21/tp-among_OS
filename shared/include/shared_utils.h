@@ -41,7 +41,6 @@ typedef struct tcb{
 typedef struct pcb{
 	uint32_t pid;
 	uint32_t tareas;
-
 } PCB;
 
 enum protocoloMIRAM{

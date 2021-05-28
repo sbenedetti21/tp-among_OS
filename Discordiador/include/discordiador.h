@@ -9,7 +9,7 @@ typedef struct TCBySocket_t {
 } TCBySocket;
 
 int proximoTID = 0;
-
+ 
 t_list * listaTripulantes;
 t_list * listaReady;
 t_list * listaBloqueados;
@@ -23,7 +23,7 @@ bool coincideID(TCB*);
 
 void pasarTripulante(TCB *);
 
-void tripulanteVivo(TCBySocket *);
+void tripulanteVivo(TCB *);
 
 TCB * crearTCB(char *, uint32_t); // chequear lo de la lista
 
@@ -76,8 +76,31 @@ void consola(){
 			bool coincideID(TCB* tripulante){
 				return tripulante->tid ==  atoi(vectorInstruccion[1]);
 			}
+			
+			for(int x=0; x<5; x++) {
+				
+				TCB* tripulantee = list_remove(listaTripulantes, 0);
 
-			list_remove_by_condition(listaReady,  coincideID);
+				for(int e = 0; e < list_size(listaTripulantes); e++){
+					TCB *tripulante = list_get(listaTripulantes, e);
+
+					printf("index: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+				}
+
+				tripulantee->estado = 'E';
+
+				while (tripulantee->estado == 'E');
+				
+				list_add(listaTripulantes, tripulantee);
+				
+				for(int e = 0; e < list_size(listaTripulantes); e++){
+					TCB *tripulante = list_get(listaTripulantes, e);
+
+					printf("index: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+				}
+
+			}
+			
 
 		}
 		
@@ -96,8 +119,14 @@ void consola(){
 		}
 		*/
 		if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0) {
-			
+		
+
 		}
+		if (strcmp(vectorInstruccion[0], "E"))
+		{
+		
+		}
+		
 		/*
 		if(strcmp(vectorInstruccion[0], "PAUSAR_PLANIFICACION") == 0) {
 		}
@@ -163,7 +192,7 @@ void iniciarPatota(char ** vectorInstruccion){
 				int cantidadTripulantes = atoi(vectorInstruccion[1]);
 				pthread_t tripulantes[cantidadTripulantes];
 
-				for(i = 0; i < cantidadTripulantes; i++ ) {
+				for(i = 0; i < cantidadTripulantes; i++ ) {  // DEBERIA SER <, NO <=
 					pthread_t hilo;
 
 					TCB* tripulante = malloc(sizeof(TCB));
@@ -174,13 +203,7 @@ void iniciarPatota(char ** vectorInstruccion){
 						tripulante = crearTCB(posicionBase, punteroPCB);
 					}
 
-					TCBySocket * paquete = malloc(sizeof(TCBySocket));
-					paquete->socket = socket;
-					paquete->tripulante = tripulante;
-
-					pthread_create(&tripulantes[i], NULL, tripulanteVivo , paquete);
-					//pthread_join(tripulantes[i], NULL);
-
+					pthread_create(&tripulantes[i], NULL, tripulanteVivo , tripulante);
 					
 				}
 
@@ -190,17 +213,15 @@ void iniciarPatota(char ** vectorInstruccion){
 
 
 
-void tripulanteVivo(TCBySocket * paquete) {
+void tripulanteVivo(TCB * tripulante) {
 
-	TCB * tripulante =  malloc(sizeof(TCB));
-	tripulante = paquete->tripulante;
-	int socket = paquete->socket;
+	int socket = conectarMiRAM();
 
 	DatosTripulante * datosTripulante = malloc(sizeof(DatosTripulante)); 
 	datosTripulante->header = CREAR_TCB;
-	datosTripulante->tripulante = &tripulante; 
+	datosTripulante->tripulante = &tripulante;
 	int * punteroTCB = malloc(sizeof(int));
-	*punteroTCB = CREAR_TCB;
+	*punteroTCB = CREAR_TCB; 
 	
 	//send(socket, datosTripulante, sizeof(DatosTripulante), 0);
 	send(socket, punteroTCB, sizeof(int),0);
