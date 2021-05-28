@@ -30,7 +30,7 @@ void tripulanteVivo(TCB *);
 
 TCB * crearTCB(char *, uint32_t); // chequear lo de la lista
 
-void mostrarListaTripulantes(); 
+void mostrarLista(t_list *); 
 
 
 
@@ -77,19 +77,9 @@ void consola(){
 		}
 
 		if(strcmp(vectorInstruccion[0], "trabajar") == 0){
-													//TODO TERMINAR EXPULSAR_TRIPULANTE
-
-			bool coincideID(TCB* tripulante){
-				return tripulante->tid ==  atoi(vectorInstruccion[1]);
-			}
-
-
-		
-
-	trabajar();
-			
-			
-			
+													
+			pthread_t  hiloTrabajador; 
+			pthread_create(&hiloTrabajador, NULL, trabajar, NULL );	
 
 		}
 		
@@ -103,10 +93,19 @@ void consola(){
 		}
 
 
-		/*
+		
 		if(strcmp(vectorInstruccion[0], "EXPULSAR_TRIPULANTE") == 0) {
+				
+			bool coincideID(TCB* tripulante){
+				return tripulante->tid ==  atoi(vectorInstruccion[1]);
+			}
+
+			list_remove_by_condition(listaTripulantes, coincideID); 
+			
+			//LE FALTAN COSAS 
+
 		}
-		*/
+		
 		if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0) {
 		
 
@@ -121,16 +120,9 @@ void consola(){
 
 		*/
 
-		if(strcmp(vectorInstruccion[0], "MODIFICAR") == 0) {
-			bool coincideID(TCB* tripulante){
-				return tripulante->tid ==  atoi(vectorInstruccion[1]);
-			}
+		
 
-			TCB * tripulante =  list_find(listaTripulantes, coincideID);
-			tripulante->estado = 'E';
-		}
-
-			mostrarListaTripulantes(); 
+			mostrarLista(listaReady); 
 
 	}
 
@@ -186,6 +178,9 @@ void iniciarPatota(char ** vectorInstruccion){
 					}
 
 					pthread_create(&tripulantes[i], NULL, tripulanteVivo , tripulante);
+					listarTripulantes(); 
+					tripulante->estado = 'R'; 
+					list_add(listaReady, tripulante);
 					
 				}
 
@@ -213,11 +208,11 @@ void tripulanteVivo(TCB * tripulante) {
 	{
 		while (tripulante->estado == 'E')
 					 		{
-					 			printf("estoy trabajango soy: %d \n", tripulante->tid);
+					 			printf("estoy trabajando soy: %d \n", tripulante->tid);
 					 			sleep(5);
 								sem_post(&semaforoTripulantes);
 					 			tripulante->estado = 'R';
-								list_add(listaTripulantes, tripulante);
+								list_add(listaReady, tripulante); //deberia hacerlo el discordiador :( 
 								
 					}
 	}
@@ -256,13 +251,14 @@ uint32_t iniciarPCB(char * pathTareas, int socket){
 }
 
 
-void mostrarListaTripulantes(){
-		for(int e = 0; e < list_size(listaReady); e++){
-					TCB *tripulante = list_get(listaTripulantes, e);
+void mostrarLista(t_list * unaLista){
+		for(int e = 0; e < list_size(unaLista); e++){
+					TCB *tripulante = list_get(unaLista, e);
 
 					printf("index: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 				}
 }
+
 
 
 void trabajar(){
@@ -272,14 +268,14 @@ void trabajar(){
 
 				sem_wait(&semaforoTripulantes); 
 				
-				TCB* tripulantee = list_remove(listaTripulantes, 0);
+				TCB* tripulantee = list_remove(listaReady, 0);
 
 				tripulantee->estado = 'E';
 				
 				
 				printf("------------------ \n "); 
 
-				mostrarListaTripulantes(); 
+				mostrarLista(listaReady); 
 			
 				} 
 			
