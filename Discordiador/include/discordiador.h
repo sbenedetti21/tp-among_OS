@@ -78,8 +78,15 @@ void consola(){
 
 		if(strcmp(vectorInstruccion[0], "trabajar") == 0){
 													
-			pthread_t  hiloTrabajador; 
-			pthread_create(&hiloTrabajador, NULL, trabajar, NULL );	
+			t_config * config = config_create("./cfg/discordiador.config");
+			char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
+
+			if(strcmp(tipoAlgoritmo,"FIFO") == 0){
+				pthread_t  hiloTrabajador; 
+				pthread_create(&hiloTrabajador, NULL, trabajar, NULL );	
+			} else {
+				//PLANIFICACION RR 
+			}
 
 		}
 		
