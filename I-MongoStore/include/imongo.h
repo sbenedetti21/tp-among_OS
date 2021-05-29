@@ -126,7 +126,6 @@ void creacionArchivoRecurso(char * ubicacionArchivoRecurso, char *caracterLlenad
 
 void agregarBloqueAlFile(int nuevoBloque, char * ubicacionArchivoRecurso){
 	t_config * configRecurso = config_create(ubicacionArchivoRecurso);
-	config_set_value(configRecurso,"SIZE",string_itoa(64));
 
 	int nuevaCantidadBloques = config_get_int_value(configRecurso,"BLOCK_COUNT");
 	nuevaCantidadBloques++;
@@ -141,7 +140,14 @@ void agregarBloqueAlFile(int nuevoBloque, char * ubicacionArchivoRecurso){
 	string_append(&nuevaListablocks, string_itoa(nuevoBloque));
 	string_append(&nuevaListablocks, "]");
 	config_set_value(configRecurso,"BLOCKS",nuevaListablocks);
+	config_save(configRecurso);
 
+	int archivoRecurso = open(ubicacionArchivoRecurso, O_RDONLY, S_IRUSR | S_IWUSR);
+	struct stat statbuf;
+	fstat(archivoRecurso, &statbuf);
+	config_set_value(configRecurso,"SIZE",string_itoa(statbuf.st_size));
+	
+	close(archivoRecurso);
 	config_save(configRecurso);
 	config_destroy(configRecurso);
 }
