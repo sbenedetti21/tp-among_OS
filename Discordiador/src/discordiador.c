@@ -16,7 +16,7 @@ int main(int argc, char ** argv){
 	 pthread_join(hiloConsola, NULL);
 
 
-
+ 
 sem_destroy(&semaforoTripulantes);
 
 
