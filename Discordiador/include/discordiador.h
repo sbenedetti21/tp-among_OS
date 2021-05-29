@@ -3,10 +3,21 @@
 
 #include "shared_utils.h"
 
+typedef struct tcb_discordiador{
+	uint32_t tid;
+	char estado;
+	uint32_t posicionX;
+	uint32_t posicionY;
+	//uint32_t proximaInstruccion;
+	uint32_t punteroPCB;
+	sem_t semaforoTrabajo;
+} TCB_DISCORDIADOR;
+
 typedef struct TCBySocket_t {
 	int socket;
-	TCB * tripulante;
+	TCB_DISCORDIADOR * tripulante;
 } TCBySocket;
+
 
 int proximoTID = 0;
 sem_t semaforoTripulantes; 
@@ -22,17 +33,18 @@ void iniciarPatota(char **);
 void listarTripulantes();
 void consola();
 
-bool coincideID(TCB*);
+bool coincideID(TCB_DISCORDIADOR*);
 
 void trabajar();
 
-void pasarTripulante(TCB *);
+void pasarTripulante(TCB_DISCORDIADOR *);
 
-void tripulanteVivo(TCB *);
+void tripulanteVivo(TCB_DISCORDIADOR *);
 
-TCB * crearTCB(char *, uint32_t); // chequear lo de la lista
+TCB_DISCORDIADOR * crearTCB(char *, uint32_t); // chequear lo de la lista
 
 void mostrarLista(t_list *); 
+
 
 
 #endif

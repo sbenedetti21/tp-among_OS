@@ -1,6 +1,8 @@
 #include "discordiador.h"
 
 
+
+
 int main(int argc, char ** argv){
 
 	listaTripulantes = list_create();
@@ -14,8 +16,6 @@ int main(int argc, char ** argv){
 	 pthread_t hiloConsola;
 	 pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
 	 pthread_join(hiloConsola, NULL);
-
-
  
 sem_destroy(&semaforoTripulantes);
 
@@ -95,7 +95,7 @@ void consola(){
 		
 		if(strcmp(vectorInstruccion[0], "EXPULSAR_TRIPULANTE") == 0) {
 				
-			bool coincideID(TCB* tripulante){
+			bool coincideID(TCB_DISCORDIADOR * tripulante){
 				return tripulante->tid ==  atoi(vectorInstruccion[1]);
 			}
 
@@ -146,7 +146,7 @@ void iniciarPatota(char ** vectorInstruccion){
 				for(i = 0; i < cantidadTripulantes; i++ ) {  // DEBERIA SER <, NO <=
 					pthread_t hilo;
 
-					TCB* tripulante = malloc(sizeof(TCB));
+					TCB_DISCORDIADOR* tripulante = malloc(sizeof(TCB_DISCORDIADOR));
 					if (vectorInstruccion[indice_posiciones] != NULL) {
 						tripulante = crearTCB(vectorInstruccion[3 + i],punteroPCB);
 						indice_posiciones++;
@@ -179,11 +179,13 @@ uint32_t iniciarPCB(char * pathTareas, int socket){
 }
 
 
-TCB * crearTCB(char * posiciones, uint32_t punteroAPCB){
-
+TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t punteroAPCB){
 
 		char ** vectorPosiciones = string_split(posiciones,"|" );
-		TCB * tripulante = malloc(sizeof(TCB));
+		TCB_DISCORDIADOR * tripulante = malloc(sizeof(TCB_DISCORDIADOR));
+
+		sem_init(&(tripulante->semaforoTrabajo), 0, 1); 
+	
 		tripulante->estado = 'N';
 		tripulante->tid = proximoTID;
 		tripulante->posicionX = atoi(vectorPosiciones[0]);
@@ -200,22 +202,65 @@ TCB * crearTCB(char * posiciones, uint32_t punteroAPCB){
 
 
 
-void tripulanteVivo(TCB * tripulante) {
+void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
+
+	printf("Entre \n");
 
 	int socket = conectarMiRAM();
 
-	DatosTripulante * datosTripulante = malloc(sizeof(DatosTripulante)); 
-	datosTripulante->header = CREAR_TCB;
-	datosTripulante->tripulante = &tripulante;
-	int * punteroTCB = malloc(sizeof(int));
-	*punteroTCB = CREAR_TCB; 
-	
-	//send(socket, datosTripulante, sizeof(DatosTripulante), 0);
-	send(socket, punteroTCB, sizeof(int),0);
-	send(socket, tripulante, sizeof(TCB),0);
-	
-	while (1)
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = sizeof(uint32_t) * 4  /* + sizeof(char)*/;
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0; //desplazamiento
+
+	memcpy(stream+offset, &(tripulante->tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->posicionX), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->posicionY), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->punteroPCB), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	//memcpy(stream+offset, &(tripulante->estado), sizeof(char));
+
+	buffer-> stream = stream;
+
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+	// paquete->buffer = malloc(sizeof(buffer->size));
+
+	paquete->header = CREAR_TCB;
+	paquete->buffer = buffer;
+
+	void* a_enviar = malloc(buffer->size + sizeof(int) + sizeof(uint32_t) ); //PUSE INT EN VEZ DE UINT_8 PQ NUESTRO HEADER ES UN INT
+	int offset2 = 0;
+
+	memcpy(a_enviar + offset2, &(paquete->header), sizeof(int));
+	offset2 += sizeof(int);
+
+	memcpy(a_enviar + offset2, &(paquete->buffer->size), sizeof(uint32_t));
+	offset2 += sizeof(uint32_t);
+
+	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
+
+
+	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
+
+	 free(a_enviar);
+	 free(paquete->buffer->size);
+	 free(paquete->buffer);
+	 free(paquete);
+
+
+	while (1) 
 	{
+		sem_wait(&tripulante->semaforoTrabajo);
 		while (tripulante->estado == 'E')
 					 		{
 					 			printf("estoy trabajando soy: %d \n", tripulante->tid);
@@ -238,14 +283,16 @@ void trabajar(){
 
 				sem_wait(&semaforoTripulantes); 
 				
-				TCB* tripulantee = list_remove(listaReady, 0);
+				TCB_DISCORDIADOR* tripulantee = list_remove(listaReady, 0);
 
 				tripulantee->estado = 'E';
 				
 				
 				printf("------------------ \n "); 
 
-				mostrarLista(listaReady); 
+				//mostrarLista(listaReady); 
+
+					sem_post(&tripulantee->semaforoTrabajo);
 			
 				} 
 			
@@ -262,7 +309,7 @@ printf("--------------------------------------------------------- \nEstado actua
 
 	for(int i = 0; i < list_size(listaTripulantes) ; i++){
 
-		TCB *tripulante = list_get(listaTripulantes,i);
+		TCB_DISCORDIADOR *tripulante = list_get(listaTripulantes,i);
 		// PCB *patota = tripulante->punteroPCB;
 
 		printf("Tripulante: %d    Patota:    Estado: %c \n", tripulante->tid , /* patota->pid  ,*/  tripulante->estado);
@@ -276,9 +323,9 @@ printf("--------------------------------------------------------- \n");
 
 void mostrarLista(t_list * unaLista){
 		for(int e = 0; e < list_size(unaLista); e++){
-					TCB *tripulante = list_get(unaLista, e);
+					TCB_DISCORDIADOR *tripulante = list_get(unaLista, e);
 
-					printf("index: %d, ID:%d, X:%d, Y:%d \n",e,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+					printf("index: %d, ID:%d, X:%d, Y:%d \n",e ,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 				}
 }
 
