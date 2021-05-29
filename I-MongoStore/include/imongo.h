@@ -10,77 +10,80 @@
 #include <commons/collections/list.h>
 #include <fcntl.h>
 
+//Informacion config
 char * puertoImongoStore;
 uint32_t tamanioDeBloque;
 uint32_t cantidadDeBloques;
 char * puntoDeMontaje;
+char *  tiempoDeSinc;
+
 //Bloques
 int proximoBlock;
+
 //Variables del map blocks
 char *mapBlocks;
 int archivoBlocks;
+
+//Superbloque
+char * ubicacionSuperBloque;
+t_bitarray *punteroBitmap;
+
+//FilesRecurso
+t_config * configRecurso;
+char * ubicacionArchivoRecurso;
 
 void leerConfig(){ 
 	t_config * config = config_create("./cfg/imongo.config");
 	
 	puntoDeMontaje = config_get_string_value(config, "PUNTO_MONTAJE");
 	puertoImongoStore = config_get_string_value(config, "PUERTO");//no importa??
-//  char *  tiempoDeSinc = config_get_string_value(config, "TIEMPO_SINCRONIZACION");
+	tiempoDeSinc = config_get_string_value(config, "TIEMPO_SINCRONIZACION");
 	tamanioDeBloque = config_get_int_value(config, "BLOCK_SIZE");
     cantidadDeBloques = config_get_int_value(config, "CANTIDAD_BLOCKS");
 }
 
-t_bitarray *crearBitMap(){
+void crearBitMap(){
 	size_t sizeBitMap = cantidadDeBloques / 8; 
 	char * bitMap = (char *) malloc(sizeBitMap);
-	t_bitarray * punteroBitmap = bitarray_create(bitMap, sizeBitMap);
+	punteroBitmap = bitarray_create(bitMap, sizeBitMap);
 	
 	for(int i = 0; i<cantidadDeBloques; i++){
 		bitarray_clean_bit(punteroBitmap,i);
 	}
-
-	return punteroBitmap;
 }
 
-void liberarBitMap(t_bitarray *punteroBitmap){
+void liberarBitMap(){
 	free(punteroBitmap->bitarray);
  	bitarray_destroy(punteroBitmap);
 }
 
-t_bitarray *leerBitMap(){
-	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+void leerBitMap(){
 	FILE * superBloque; 
 	superBloque = fopen(ubicacionSuperBloque,"r+");
 
 	fseek(superBloque, sizeof(uint32_t) * 2, SEEK_SET);
-	t_bitarray * punteroBitmap = crearBitMap();
+	crearBitMap();
  	fread(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
 
-	fclose(superBloque);	
-	return punteroBitmap;
+	fclose(superBloque);
 }
 
-int bitLibreBitMap(t_bitarray *punteroBitmap){
+int bitLibreBitMap(){
 	while(bitarray_test_bit(punteroBitmap,proximoBlock))
 			proximoBlock++;
 	return proximoBlock;
 }
 
-void cambiarBitMap(t_bitarray *punteroBitmap){
-	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+void cambiarBitMap(){
 	FILE * superBloque; 
 	superBloque = fopen(ubicacionSuperBloque,"r+");
-
 	fseek(superBloque, sizeof(uint32_t) * 2, SEEK_SET);
 	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
-
-	liberarBitMap(punteroBitmap);
 	fclose(superBloque);
 }
 
 void crearSuperBloque(){
-//crear bloque y tamanio
-	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+	ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 	FILE * superBloque; 
 	superBloque = fopen(ubicacionSuperBloque,"w");
 	
@@ -90,43 +93,43 @@ void crearSuperBloque(){
 	fwrite(&cantidadDeBloques, sizeof(uint32_t), 1, superBloque);
 	fflush(superBloque);
 
-//crear bitmap
- 	t_bitarray *punteroBitmap = crearBitMap();
-/*
-	bitarray_set_bit(punteroBitmap,0); //Cambia de 0 a 1 el primer bloque
-	bitarray_set_bit(punteroBitmap,15);	//Cambia de 0 a 1 el ultimo bloque
-	bitarray_set_bit(punteroBitmap,5);	//Cambia de 0 a 1 el sexto bloque
-*/	
+ 	crearBitMap();
+
 	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
 
 	fclose(superBloque);
-	liberarBitMap(punteroBitmap);
 }
 
 void mapearBlocks(){
-	//Usar mmap() para acceder al archivo block
 	char * ubicacionBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
 	size_t tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 	archivoBlocks = open(ubicacionBlocks, O_RDWR , S_IRUSR | S_IWUSR);
 	mapBlocks = mmap(NULL, tamanioBlocks, PROT_READ | PROT_WRITE, MAP_SHARED, archivoBlocks,0);
+	free(ubicacionBlocks);
 }
 
-void creacionArchivoRecurso(char * ubicacionArchivoRecurso, char *caracterLlenado){
+void creacionArchivoRecurso(char *caracterLlenado){
 	FILE *fileRecurso = fopen(ubicacionArchivoRecurso,"w");
 	fclose(fileRecurso);
-	t_config * configRecurso = config_create(ubicacionArchivoRecurso);
+
+	configRecurso = config_create(ubicacionArchivoRecurso);
 	config_set_value(configRecurso,"SIZE",string_itoa(64));
 	config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(0));
 	config_set_value(configRecurso,"BLOCKS","[]");
 	config_set_value(configRecurso,"CARACTER_LLENADO",caracterLlenado);
 	config_set_value(configRecurso,"MD5_ARCHIVO","");
-	config_save(configRecurso);
-	config_destroy(configRecurso);
 }
 
-void agregarBloqueAlFile(int nuevoBloque, char * ubicacionArchivoRecurso){
-	t_config * configRecurso = config_create(ubicacionArchivoRecurso);
+void actualizarSizeFile(){
+	config_save(configRecurso);
+	int archivoRecurso = open(ubicacionArchivoRecurso, O_RDONLY, S_IRUSR | S_IWUSR);
+	struct stat statbuf;
+	fstat(archivoRecurso, &statbuf);
+	config_set_value(configRecurso,"SIZE",string_itoa(statbuf.st_size));
+	close(archivoRecurso);
+}
 
+void agregarBloqueAlFile(int nuevoBloque){
 	int nuevaCantidadBloques = config_get_int_value(configRecurso,"BLOCK_COUNT");
 	nuevaCantidadBloques++;
 	config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(nuevaCantidadBloques));
@@ -136,70 +139,106 @@ void agregarBloqueAlFile(int nuevoBloque, char * ubicacionArchivoRecurso){
 
 	if(listaBlocks[1]!=']')
 		string_append(&nuevaListablocks, ",");
+	
 
-	string_append(&nuevaListablocks, string_itoa(nuevoBloque));
+	string_append(&nuevaListablocks, string_itoa(nuevoBloque + 1));
 	string_append(&nuevaListablocks, "]");
 	config_set_value(configRecurso,"BLOCKS",nuevaListablocks);
-	config_save(configRecurso);
 
-	int archivoRecurso = open(ubicacionArchivoRecurso, O_RDONLY, S_IRUSR | S_IWUSR);
-	struct stat statbuf;
-	fstat(archivoRecurso, &statbuf);
-	config_set_value(configRecurso,"SIZE",string_itoa(statbuf.st_size));
-	
-	close(archivoRecurso);
-	config_save(configRecurso);
-	config_destroy(configRecurso);
+	actualizarSizeFile();
 }
 
-void leerUltimoBloque(char * ubicacionArchivoRecurso){
-	t_config * configRecurso = config_create(ubicacionArchivoRecurso);
+void leerUltimoBloque(){
 	char *listaBlocks = config_get_string_value(configRecurso,"BLOCKS");
-	if(listaBlocks[1]!=']'){
-		int indiceFinal = strlen(listaBlocks);
-		while(listaBlocks[indiceFinal]!=',' && indiceFinal>0)
-			indiceFinal--;
-		int largoNum = strlen(listaBlocks) - indiceFinal;
-		proximoBlock = atoi(string_substring(listaBlocks,indiceFinal+1,largoNum));
+	int indiceFinal = strlen(listaBlocks);
+	while(listaBlocks[indiceFinal]!=',' && indiceFinal>0)
+		indiceFinal--;
+	if(indiceFinal>0){
+		int largoNum = strlen(listaBlocks) - indiceFinal - 2;
+		proximoBlock = atoi(string_substring(listaBlocks,indiceFinal+1,largoNum)) - 1;
 	}else{
 		proximoBlock = 0;
 	}
-
-	config_destroy(configRecurso);
 }
 
-void llenarBlocks(char caracterLlenado, int cantLlenar, char * ubicacionArchivoRecurso){
+void llenarBlocks(char caracterLlenado, int cantLlenar){
 	int cantAux = cantLlenar;
-	t_bitarray *punteroBitmap = leerBitMap();
 	leerUltimoBloque(ubicacionArchivoRecurso);
 	while(cantAux>0){
 		bitLibreBitMap(punteroBitmap);
 		int cant = proximoBlock * tamanioDeBloque;
 		if(mapBlocks[cant]=='\0' || mapBlocks[cant]==caracterLlenado){
+			if(mapBlocks[cant]=='\0')
+				agregarBloqueAlFile(proximoBlock);
+
 			for(int i=0; i<cantAux && i<tamanioDeBloque;i++){
-				if(mapBlocks[cant+i]!=caracterLlenado)
-					mapBlocks[cant+i]=caracterLlenado;
+				int j = cant + i;
+				if(mapBlocks[j]!=caracterLlenado)
+					mapBlocks[j]=caracterLlenado;
 				else
 					cantAux++;
 			}
+
 			cantAux-=tamanioDeBloque;
 
-			if(cantAux>=0){
-				agregarBloqueAlFile(proximoBlock, ubicacionArchivoRecurso);
+			if(cantAux>=0)
 				bitarray_set_bit(punteroBitmap,proximoBlock);
-			}
 
 		} else {
 			proximoBlock++;
 		}
-		
 	}
 
-	cambiarBitMap(punteroBitmap);
+	cambiarBitMap();
+}
+
+void borrarUltimoBloque(){
+	int nuevaCantidadBloques = config_get_int_value(configRecurso,"BLOCK_COUNT");
+	nuevaCantidadBloques--;
+	config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(nuevaCantidadBloques));
+
+	char *listaBlocks = config_get_string_value(configRecurso,"BLOCKS");
+	int indiceFinal = strlen(listaBlocks)-1;
+	while(listaBlocks[indiceFinal]!=',' && indiceFinal>0)
+			indiceFinal--;
+	
+	if(indiceFinal>0){
+		listaBlocks = string_substring_until(listaBlocks, indiceFinal);
+		string_append(&listaBlocks, "]");
+	} else {
+		listaBlocks = "[]";
+	}
+	config_set_value(configRecurso,"BLOCKS",listaBlocks);
+	actualizarSizeFile();
+}
+
+void vaciarBlocks(char caracterVaciado, int cantAVaciar){
+	int cantAux = cantAVaciar;
+
+	while(cantAux>0){
+		leerUltimoBloque();
+		printf("Prueba %d\n",proximoBlock);
+		int cant = proximoBlock * tamanioDeBloque;
+		if(mapBlocks[cant]==caracterVaciado){
+			for(int i = tamanioDeBloque; cantAux>0 && i>0; i--){
+				int j = cant + i - 1;
+				if(mapBlocks[j]==caracterVaciado){
+					mapBlocks[j]='\0';
+					cantAux--;
+				}
+			}
+
+			if(mapBlocks[cant]=='\0'){
+				bitarray_clean_bit(punteroBitmap,proximoBlock);
+				borrarUltimoBloque();
+			}
+		}
+	}
+
+	cambiarBitMap();
 }
 
 void crearBlocks(){
-	//Crea archivo vacio con el tamanio
 	char * ubicacionBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
 	FILE *archivoBlocks = fopen(ubicacionBlocks, "w");
 	size_t tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
@@ -217,11 +256,31 @@ void crearFileSystem(){
 }
 
 void generarOxigeno(int cantidadALlenar){
-	char * ubicacionOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
-	if(access(ubicacionOxigeno, F_OK )){
-		creacionArchivoRecurso(ubicacionOxigeno, "O");
-	}
-	llenarBlocks('O', cantidadALlenar, ubicacionOxigeno);
+	ubicacionArchivoRecurso = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
+	if(access(ubicacionArchivoRecurso, F_OK ))
+		creacionArchivoRecurso("O");
+	else
+		configRecurso = config_create(ubicacionArchivoRecurso);
+
+	llenarBlocks('O', cantidadALlenar);
+	config_save(configRecurso);
+	config_destroy(configRecurso);
+	free(ubicacionArchivoRecurso);
+}
+
+bool consumirOxigeno(int cantidadAConsumir){
+	ubicacionArchivoRecurso = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
+	
+	if(access(ubicacionArchivoRecurso, F_OK ))
+		return false;
+
+	configRecurso = config_create(ubicacionArchivoRecurso);
+	vaciarBlocks('O', cantidadAConsumir);
+	config_save(configRecurso);
+	config_destroy(configRecurso);
+	free(ubicacionArchivoRecurso);
+
+	return true;
 }
 
 void conectarAlCliente(){
