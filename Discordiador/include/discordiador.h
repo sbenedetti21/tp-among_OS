@@ -287,8 +287,6 @@ void trabajar(){
 				} 
 			
 
-
-
 			
 }
 
