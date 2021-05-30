@@ -53,6 +53,15 @@ typedef struct Dato{
 	int header; 
 }DatosTripulante;
 
+typedef struct {
+	uint32_t size;	// Tamaño del payload
+	void * stream; //Payload
+}t_buffer;
+
+typedef struct {
+	int header;
+	t_buffer* buffer;
+}t_paquete;
 
 
 

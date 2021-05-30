@@ -37,6 +37,9 @@ int crear_conexionServer(char *puerto){
 
 	int listening_socket= socket(server_info->ai_family, server_info->ai_socktype, server_info->ai_protocol);
 
+	int optval = 1;
+    setsockopt(listening_socket, SOL_SOCKET, SO_REUSEPORT, &optval, sizeof(optval));
+
 	if(bind(listening_socket, server_info->ai_addr, server_info->ai_addrlen) == -1)
 		printf("error Linkenado puerto");
 

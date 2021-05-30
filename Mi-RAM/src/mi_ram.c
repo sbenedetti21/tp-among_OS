@@ -7,77 +7,177 @@ typedef struct {
 
 	int socket;
 	struct sockaddr_in address;
-	socklen_t addresslength;
+	socklen_t addresslength; 
 
-
+ 
 } structConexion;
 
 
 int main(int argc, char ** argv){
 
 	t_config * config = config_create("./cfg/miram.config");
+
+	void * punteroMemoria = malloc(config_get_int_value(config, "TAMANIO_MEMORIA"));
+
+	pthread_t servidor;
+	pthread_create(&servidor, NULL, servidorPrincipal, config);
+
+	pthread_t mapa;
+	pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	
+
+	pthread_join(servidor, NULL);
+	//pthread_join(&mapa, NULL);
+	free(punteroMemoria);
+
+	return 0; 
+}
+
+void servidorPrincipal(t_config * config) {
 	char * puerto = config_get_string_value(config, "PUERTO");
-
 	int listeningSocket = crear_conexionServer(puerto);
-
-	void * punteroMemoria = malloc(config_get_int_value(config, "TAMANIO_MEMORIA")); //preguntar si es void asterisco
-
 
 	int socketCliente;
 
-	    struct sockaddr_in addr;
-		socklen_t addrlen = sizeof(addr);
-		int status = 1;
-		pthread_t receptorDiscordiador;
+	struct sockaddr_in addr;
+	socklen_t addrlen = sizeof(addr);
+	pthread_t receptorDiscordiador;
 
 
-		while(1){
-
-
-
-			socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
-				if(socketCliente == -1){printf("Error en la conexión");}
-				else {
-					printf("Conexión establecida con Discordiador \n");
-					pthread_create(&receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
-		}
-			}
-
-
-
-		close(socketCliente);
-
-
-	close(listeningSocket);
-
-	free(punteroMemoria);
-
-	return 0;
-
-
-    
-}
-
-
-/*funcion hilo aceptar conexion
-
-void aceptarConexion(structConexion datosConexion){
-
-	int socketCliente;y
 	while(1){
-	 socketCliente = accept(datosConexion.socket,(struct sockaddr *) &datosConexion.address, &datosConexion.addresslength);
-	if(socketCliente == -1){printf("Error en la conexión");}
+		socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
+		if(socketCliente == -1){printf("Error en la conexión");}
 		else {
 			printf("Conexión establecida con Discordiador \n");
-
+			pthread_create(&receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
 		}
 	}
+
 	close(socketCliente);
+	close(listeningSocket);
+}
+
+
+void atenderDiscordiador(int socketCliente){
+
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+	paquete->buffer = malloc(sizeof(t_buffer));
+
+	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
+
+	if(headerRECV) { printf("Recibi header: %d\n", paquete->header);} else{ printf("No pude recibir el header. \n");}
+
+	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+
+	if(! tamanioPAQUETE_RECV){ printf("No pude recibir el tamanio del buffer \n");}
+
+	paquete->buffer->stream = malloc(paquete->buffer->size);
+
+	int PAQUETE_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size,0);
+
+	if(! PAQUETE_RECV){ printf("No pude recibir el PAQUETE \n");}
+	
+
+	switch (paquete->header)
+	{
+	case CREAR_PCB: ; 
+	
+		uint32_t * punteroPCB = malloc(sizeof(punteroPCB));
+		*punteroPCB = crearPCB("pathTareas");
+
+		char * tareas = deserializar_Tareas(paquete->buffer);
+
+		printf("%s \n", tareas);
+
+		send(socketCliente, punteroPCB, sizeof(uint32_t),0);
+
+		free(punteroPCB);
+
+		break;
+
+	case CREAR_TCB: ; 
+
+
+
+		TCB * tripulante = deserializar_TCB(paquete->buffer);
+
+			printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+
+			printf("------------------------\n");
+			free(tripulante);
+
+		break;
+
+	case PRUEBA: ;
+
+	
+		break;
+	
+	default:	
+
+
+
+		break;
+	}
+
+	free(paquete->buffer->stream);
+	free(paquete->buffer);
+	free(paquete);
+	
+
 
 }
-*/
 
 
+TCB * deserializar_TCB(t_buffer * buffer){
+	TCB * tripulante = malloc(sizeof(TCB));
 
-//un comentario
+	void* stream = buffer->stream;
 
+	//Deserializamos los campos que tenemos en el buffer
+	memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
+	stream += sizeof(uint32_t);
+
+	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
+	stream += sizeof(uint32_t);
+
+	memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
+	stream += sizeof(uint32_t);
+
+	memcpy(&(tripulante->punteroPCB), stream, sizeof(uint32_t));
+	stream += sizeof(uint32_t);
+
+	memcpy(&(tripulante->estado), stream, sizeof(char));
+	stream += sizeof(char);
+
+	return tripulante;
+}
+
+char * deserializar_Tareas(t_buffer * buffer) {
+	int tamanioBuffer = buffer->size;
+
+	char * tareas = malloc(tamanioBuffer);
+	tareas = buffer->stream;
+	//string_append(&tareas, "\0");
+	return tareas;
+}
+
+uint32_t crearPCB(char* tareas){
+	// uint32_t punteroTareas = *tareas; //ESTO ESTA RARI
+
+	PCB * patota = malloc(sizeof(PCB));
+	patota->pid = proximoPID; 				
+	// patota->tareas = punteroTareas; // hABRIA QUE ALMACENAR LA PATOTA EN ALGUN LADO
+
+	proximoPID++;
+
+
+	uint32_t a = patota->pid;
+
+	free(patota);
+	return a;
+}
+
+void iniciarMapa() {
+	//TODO
+}
