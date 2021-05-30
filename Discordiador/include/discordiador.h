@@ -3,6 +3,9 @@
 
 #include "shared_utils.h"
 
+
+//flag para liberar puerto 
+
 typedef struct TCBySocket_t {
 	int socket;
 	TCB * tripulante;
@@ -200,6 +203,9 @@ void tripulanteVivo(TCB * tripulante) {
 	int * punteroTCB = malloc(sizeof(int));
 	*punteroTCB = CREAR_TCB; 
 	
+
+	//tiene que haber un solo send -- cargar el tcb por partes y ponerle un semaforo que no vamos a mandar 
+	//solucionar padding --serializacion 
 	//send(socket, datosTripulante, sizeof(DatosTripulante), 0);
 	send(socket, punteroTCB, sizeof(int),0);
 	send(socket, tripulante, sizeof(TCB),0);
@@ -270,7 +276,7 @@ void trabajar(){
 				
 				TCB* tripulantee = list_remove(listaReady, 0);
 
-				tripulantee->estado = 'E';
+				tripulantee->estado = 'E'; //meter semaforo en el TCB 
 				
 				
 				printf("------------------ \n "); 
