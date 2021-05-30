@@ -1,17 +1,5 @@
 #include "mi_ram.h"
 
-/*void aceptarConexion(structConexion);*/
-void atenderDiscordiador(int);
-
-typedef struct {
-
-	int socket;
-	struct sockaddr_in address;
-	socklen_t addresslength; 
-
- 
-} structConexion;
-
 
 int main(int argc, char ** argv){
 
@@ -27,9 +15,8 @@ int main(int argc, char ** argv){
 	pthread_t mapa;
 	pthread_create(&mapa, NULL, iniciarMapa, NULL);
 	 
-
 	pthread_join(servidor, NULL);
-	//pthread_join(&mapa, NULL);
+	pthread_join(mapa, NULL);
 	free(punteroMemoria);
 
 	return 0; 
@@ -181,6 +168,20 @@ uint32_t crearPCB(char* tareas){
 	return a;
 }
 
+
+// ------------------------------------------------------ MAPA ----------------------------------------------
+
 void iniciarMapa() {
-	//TODO
+	
+	nivel_gui_inicializar();
+	NIVEL* navePrincipal = nivel_crear("Nave Principal");
+
+	personaje_crear(navePrincipal, '1', 7, 0);
+	personaje_crear(navePrincipal, '2', 2, 0);
+	personaje_crear(navePrincipal, '3', 7, 2);
+	personaje_crear(navePrincipal, '4', 1, 3);
+	personaje_crear(navePrincipal, '5', 4, 2);
+
+	nivel_gui_dibujar(navePrincipal);
+
 }

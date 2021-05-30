@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <commons/log.h>
 #include <stdbool.h>
+#include <nivel-gui/nivel-gui.h>
+#include <nivel-gui/tad_nivel.h>
 #include "shared_utils.h"
 
 t_log * loggerMiram; 
@@ -16,7 +18,18 @@ void recibir_TCB(int);
 uint32_t crearPCB(char*);
 TCB * deserializar_TCB(t_buffer *);
 char * deserializar_Tareas(t_buffer * );
+
+
+typedef struct {
+
+	int socket;
+	struct sockaddr_in address;
+	socklen_t addresslength; 
+
  
+} structConexion;
+
+
 int proximoPID = 0; 
 
  
