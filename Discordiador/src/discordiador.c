@@ -5,9 +5,12 @@
 
 int main(int argc, char ** argv){
 
+	 loggerDiscordiador = log_create("discordiador.log", "discordiador.c", 0, LOG_LEVEL_INFO); 
+
+	log_info(loggerDiscordiador, "---------PROGRAMA INICIADO----------");
+
 	printf("Ingrese un comando o ingrese EXIT para salir del programa \n");
 
-	 loggerDiscordiador = log_create("discordiador.log", "discordiador.c", 1, LOG_LEVEL_INFO); 
 	listaTripulantes = list_create();
 	listaReady = list_create();
 	listaBloqueados = list_create();
@@ -121,7 +124,7 @@ void consola(){
 		}
 
 		if(strcmp(vectorInstruccion[0], "EXIT") == 0){
-			log_info(loggerDiscordiador, "PROGRAMA TERMINADO"); 
+			log_info(loggerDiscordiador, "-------------PROGRAMA TERMINADO-------------"); 
 			return 0; 
 		}
 	
@@ -371,7 +374,7 @@ void trabajar(){
 				
 				sem_post(&tripulantee->semaforoTrabajo); // donde se pone? -> sem_destroy(&tripulantee->semaforoTrabajo);
 				
-				printf("------------------ \n "); 
+				
 
 				//mostrarLista(listaReady); 
 
