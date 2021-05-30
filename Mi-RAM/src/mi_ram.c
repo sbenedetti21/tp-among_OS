@@ -26,7 +26,7 @@ int main(int argc, char ** argv){
 
 	pthread_t mapa;
 	pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	
+	 
 
 	pthread_join(servidor, NULL);
 	//pthread_join(&mapa, NULL);
@@ -87,7 +87,8 @@ void atenderDiscordiador(int socketCliente){
 		uint32_t * punteroPCB = malloc(sizeof(punteroPCB));
 		*punteroPCB = crearPCB("pathTareas");
 
-		char * tareas = deserializar_Tareas(paquete->buffer);
+		char * tareas = malloc(paquete->buffer->size);
+		tareas = deserializar_Tareas(paquete->buffer);
 
 		printf("%s \n", tareas);
 

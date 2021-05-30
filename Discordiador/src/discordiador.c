@@ -177,7 +177,7 @@ void iniciarPatota(char ** vectorInstruccion){
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, PosX: %d, PosY: %d, estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
 					tripulante->estado = 'R'; 
 					log_info(loggerDiscordiador, "Estado tripulante %d cambiado a %c", tripulante->tid, tripulante->estado);
-					list_add(listaReady, tripulante);
+					list_add(listaReady, tripulante); 
 					
 				}
 
@@ -193,6 +193,7 @@ uint32_t iniciarPCB(char * pathTareas, int socket){
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
 	buffer-> size = strlen(stringTareas);
+	printf("%d\n", strlen(stringTareas));
 
 	void* stream = malloc(buffer->size);
 
@@ -209,7 +210,7 @@ uint32_t iniciarPCB(char * pathTareas, int socket){
 	buffer-> stream = stream;
 
 	t_paquete* paquete = malloc(sizeof(t_paquete));
-	 paquete->buffer = malloc(sizeof(buffer->size));
+	paquete->buffer = malloc(sizeof(buffer->size));
 
 	paquete->header = CREAR_PCB;
 	paquete->buffer = buffer;
@@ -225,7 +226,7 @@ uint32_t iniciarPCB(char * pathTareas, int socket){
 
 	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
 	
-	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
+	send(socket, a_enviar, buffer->size + sizeof(int) + sizeof(uint32_t),0);
 	 
 	//  free(a_enviar);
 	//  free(paquete->buffer->size);
@@ -254,14 +255,17 @@ char * leerTareas(char* pathTareas) {
 	
     fseek(archivo, 0, SEEK_END);
     int tamanioArchivo = ftell(archivo);
+	printf("cantidad de carac:%d \n", tamanioArchivo);
     fseek(archivo, 0, SEEK_SET);
 
-    char* lineas = malloc(tamanioArchivo + 1);
-    fread(lineas, 1, tamanioArchivo, archivo);
+    char* lineas = (char*) calloc(tamanioArchivo, sizeof(char)); //USANDO MALLOC ME TIRABA ERROR
+    fread(lineas, sizeof(char), tamanioArchivo, archivo);
 
     // acá tengo un string "lineas" con todas las lineas del archivo juntas, incluyendo los saltos de linea
 
 	fclose(archivo);
+
+	printf("%s \n", lineas);
 
 	return lineas;
 }
