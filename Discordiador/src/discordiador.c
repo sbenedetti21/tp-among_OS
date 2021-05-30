@@ -5,6 +5,9 @@
 
 int main(int argc, char ** argv){
 
+	printf("Ingrese un comando o ingrese EXIT para salir del programa \n");
+
+	 loggerDiscordiador = log_create("discordiador.log", "discordiador.c", 1, LOG_LEVEL_INFO); 
 	listaTripulantes = list_create();
 	listaReady = list_create();
 	listaBloqueados = list_create();
@@ -40,7 +43,11 @@ int conectarMiRAM(){
 	char * ip = config_get_string_value(config, "IP_MI_RAM_HQ");
 	char * puerto = config_get_string_value(config, "PUERTO_MI_RAM_HQ");
 
-	return crear_conexion(ip, puerto);
+	 int conexion = crear_conexion(ip, puerto);
+
+	
+
+	 return conexion; 
 
 
 }
@@ -56,6 +63,8 @@ void consola(){
 	while(1) {
 
 		instruccion = readline("Ingrese próxima instrucción: \n");
+
+		log_info(loggerDiscordiador, "INSTRUCCION LEIDA: %s", instruccion); 
 
 		vectorInstruccion = string_split(instruccion, " ");
 
@@ -110,6 +119,11 @@ void consola(){
 		
 
 		}
+
+		if(strcmp(vectorInstruccion[0], "EXIT") == 0){
+			log_info(loggerDiscordiador, "PROGRAMA TERMINADO"); 
+			return 0; 
+		}
 	
 		
 		/*
@@ -122,7 +136,7 @@ void consola(){
 
 		
 
-			mostrarLista(listaReady); 
+		//	mostrarLista(listaReady); 
 
 	}
 
@@ -134,6 +148,7 @@ void consola(){
 void iniciarPatota(char ** vectorInstruccion){
 
 	int socket = conectarMiRAM();
+	log_info(loggerDiscordiador, "Discordiador conectado con Mi RAM");
 
 	uint32_t punteroPCB = iniciarPCB(vectorInstruccion[2], socket);
 
@@ -156,8 +171,9 @@ void iniciarPatota(char ** vectorInstruccion){
 					}
 
 					pthread_create(&tripulantes[i], NULL, tripulanteVivo , tripulante);
-					listarTripulantes(); 
+					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, PosX: %d, PosY: %d, estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
 					tripulante->estado = 'R'; 
+					log_info(loggerDiscordiador, "Estado tripulante %d cambiado a %c", tripulante->tid, tripulante->estado);
 					list_add(listaReady, tripulante);
 					
 				}
@@ -227,6 +243,11 @@ char * leerTareas(char* pathTareas) {
 	{
 		printf("no pude abrir las tareas :( \n");
 	}
+	else
+	{
+		log_info(loggerDiscordiador, "path de tareas recibido: %s", pathTareas);
+	}
+	
 	
     fseek(archivo, 0, SEEK_END);
     int tamanioArchivo = ftell(archivo);
@@ -269,6 +290,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t punteroAPCB){
 void tripulanteVivo(TCB_DISCORDIADOR * tripulante) { 
 
 	int socket = conectarMiRAM();
+	log_info(loggerDiscordiador, "Tripulante conectado con Mi RAM");
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
@@ -322,11 +344,11 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 	while (1) 
 	{
 		sem_wait(&tripulante->semaforoTrabajo);
-					 		
-		printf("estoy trabajando soy: %d \n", tripulante->tid);
+		log_info(loggerDiscordiador, "tripulante %d trabajando, estado: %c", tripulante->tid, tripulante->estado);
 		sleep(5);
-		sem_post(&semaforoTripulantes);
+		sem_post(&semaforoTripulantes); 
 		tripulante->estado = 'R';
+		log_info(loggerDiscordiador, "tripulante %d terminó de trabajar, estado: %c", tripulante->tid, tripulante->estado);
 		list_add(listaReady, tripulante); 
 								
 					

@@ -3,6 +3,7 @@
 
 #include "shared_utils.h"
 
+// /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
 
 //flag para liberar puerto 
 
@@ -25,7 +26,8 @@ typedef struct TCBySocket_t {
 
 int proximoTID = 0;
 sem_t semaforoTripulantes; 
- 
+
+t_log * loggerDiscordiador; 
 t_list * listaTripulantes;
 t_list * listaReady;
 t_list * listaBloqueados;
