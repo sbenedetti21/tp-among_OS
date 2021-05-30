@@ -45,6 +45,6 @@ TCB_DISCORDIADOR * crearTCB(char *, uint32_t); // chequear lo de la lista
 
 void mostrarLista(t_list *); 
 
-
+char * leerTareas(char *);
 
 #endif

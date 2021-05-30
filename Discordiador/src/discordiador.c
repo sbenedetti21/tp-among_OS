@@ -74,9 +74,10 @@ void consola(){
 			char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
 
 			if(strcmp(tipoAlgoritmo,"FIFO") == 0){
-				pthread_t  hiloTrabajador; 
-				pthread_create(&hiloTrabajador, NULL, trabajar, NULL );	
-			} else {
+				pthread_t  hiloTrabajadorFIFO; 
+				pthread_create(&hiloTrabajadorFIFO, NULL, trabajar, NULL );	
+			} 
+			if (strcmp(tipoAlgoritmo, "RR") == 0){
 				//PLANIFICACION RR 
 			}
 
@@ -168,20 +169,24 @@ void iniciarPatota(char ** vectorInstruccion){
 
 uint32_t iniciarPCB(char * pathTareas, int socket){
 
+	char * stringTareas = leerTareas(pathTareas);
+
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = sizeof(uint32_t);
+	buffer-> size = strlen(stringTareas) + 1;
 
 	void* stream = malloc(buffer->size);
 
 	int offset = 0;
 
-	TCB_DISCORDIADOR * a = malloc(sizeof(a));
-	a->posicionX = 4;
+	// TCB_DISCORDIADOR * a = malloc(sizeof(a));
+	// a->posicionX = 4;
 
-	memcpy(stream+offset, &(a->posicionX), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
+	// memcpy(stream+offset, &(a->posicionX), sizeof(uint32_t));
+	// offset += sizeof(uint32_t);
 	
+	memcpy(stream + offset, stringTareas, buffer->size);
+
 	buffer-> stream = stream;
 
 	t_paquete* paquete = malloc(sizeof(t_paquete));
@@ -213,6 +218,28 @@ uint32_t iniciarPCB(char * pathTareas, int socket){
 	int prueba = recv(socket, (void*)punteroPCB, sizeof(uint32_t),0);
 
 	return *punteroPCB;
+}
+
+char * leerTareas(char* pathTareas) {
+	//TODO
+	FILE* archivo = fopen(pathTareas,"r");
+	if (archivo == NULL)
+	{
+		printf("no pude abrir las tareas :( \n");
+	}
+	
+    fseek(archivo, 0, SEEK_END);
+    int tamanioArchivo = ftell(archivo);
+    fseek(archivo, 0, SEEK_SET);
+
+    char* lineas = malloc(tamanioArchivo + 1);
+    fread(lineas, 1, tamanioArchivo, archivo);
+
+    // acá tengo un string "lineas" con todas las lineas del archivo juntas, incluyendo los saltos de linea
+
+	fclose(archivo);
+
+	return lineas;
 }
 
 
@@ -288,7 +315,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 	//  free(a_enviar);
 	//  free(paquete->buffer->size);
-	//  free(paquete->buffer);
+	//  free(paquete->buffer); 
 	//  free(paquete);
 
 
@@ -300,7 +327,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 		sleep(5);
 		sem_post(&semaforoTripulantes);
 		tripulante->estado = 'R';
-		list_add(listaReady, tripulante); //deberia hacerlo el discordiador :( 
+		list_add(listaReady, tripulante); 
 								
 					
 	}
@@ -320,12 +347,12 @@ void trabajar(){
 
 				tripulantee->estado = 'E';
 				
+				sem_post(&tripulantee->semaforoTrabajo); // donde se pone? -> sem_destroy(&tripulantee->semaforoTrabajo);
 				
 				printf("------------------ \n "); 
 
 				//mostrarLista(listaReady); 
 
-				sem_post(&tripulantee->semaforoTrabajo); // donde se pone? -> sem_destroy(&tripulantee->semaforoTrabajo);
 			
 				} 
 
