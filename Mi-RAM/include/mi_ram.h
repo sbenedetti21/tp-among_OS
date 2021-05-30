@@ -20,6 +20,19 @@ void atenderDiscordiador(int socketCliente){
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->buffer = malloc(sizeof(t_buffer));
 
+	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
+
+	if(headerRECV) { printf("Recibi header: %d\n", paquete->header);} else{ printf("No pude recibir el header. \n");}
+
+	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+
+	if(! tamanioPAQUETE_RECV){ printf("No pude recibir el tamanio del buffer \n");}
+
+	paquete->buffer->stream = malloc(paquete->buffer->size);
+
+	int PAQUETE_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size,0);
+
+	if(! PAQUETE_RECV){ printf("No pude recibir el PAQUETE \n");}
 	
 
 	switch (paquete->header)
@@ -37,19 +50,7 @@ void atenderDiscordiador(int socketCliente){
 
 	case CREAR_TCB: ;  // pasar desde discordiador
 
-		int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
 
-		if(headerRECV) { printf("Recibi header: %d\n", paquete->header);} else{ printf("No pude recibir el header. \n");}
-
-		int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
-
-		if(! tamanioPAQUETE_RECV){ printf("No pude recibir el tamanio del buffer \n");}
-
-		paquete->buffer->stream = malloc(paquete->buffer->size);
-
-		int PAQUETE_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size,0);
-
-		if(! PAQUETE_RECV){ printf("No pude recibir el PAQUETE \n");}
 
 		TCB * tripulante = deserializar_TCB(paquete->buffer);
 
@@ -99,8 +100,8 @@ TCB * deserializar_TCB(t_buffer * buffer){
 	memcpy(&(tripulante->punteroPCB), stream, sizeof(uint32_t));
 	stream += sizeof(uint32_t);
 
-	//	memcpy(&(tripulante->estado), stream, sizeof(char));
-	//	stream += sizeof(char);
+	memcpy(&(tripulante->estado), stream, sizeof(char));
+	stream += sizeof(char);
 
 	return tripulante;
 }

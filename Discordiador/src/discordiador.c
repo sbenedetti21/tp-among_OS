@@ -167,12 +167,49 @@ void iniciarPatota(char ** vectorInstruccion){
 
 
 uint32_t iniciarPCB(char * pathTareas, int socket){
-	uint32_t * punteroPCB = malloc(sizeof(uint32_t));
-	int * punteroACrearPCB = malloc(sizeof(int));
-	*punteroACrearPCB = CREAR_PCB;
-	
-	send(socket, punteroACrearPCB, sizeof(int) , 0);	//VER SERIALIZACION DINAMICA
 
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = sizeof(uint32_t);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	TCB_DISCORDIADOR * a = malloc(sizeof(a));
+	a->posicionX = 4;
+
+	memcpy(stream+offset, &(a->posicionX), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+	
+	buffer-> stream = stream;
+
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+	 paquete->buffer = malloc(sizeof(buffer->size));
+
+	paquete->header = CREAR_PCB;
+	paquete->buffer = buffer;
+	
+	void* a_enviar = malloc(buffer->size + sizeof(int) + sizeof(uint32_t) ); //PUSE INT EN VEZ DE UINT_8 PQ NUESTRO HEADER ES UN INT
+	int offset2 = 0;
+
+	memcpy(a_enviar + offset2, &(paquete->header), sizeof(int));
+	offset2 += sizeof(int);
+
+	memcpy(a_enviar + offset2, &(paquete->buffer->size), sizeof(uint32_t));
+	offset2 += sizeof(uint32_t);
+
+	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
+	
+	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
+	 
+	//  free(a_enviar);
+	//  free(paquete->buffer->size);
+	//  free(paquete->buffer); DA ERROR
+	//  free(paquete);
+	//  free(a);
+
+	uint32_t * punteroPCB = malloc(sizeof(uint32_t));
 	int prueba = recv(socket, (void*)punteroPCB, sizeof(uint32_t),0);
 
 	return *punteroPCB;
@@ -184,7 +221,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t punteroAPCB){
 		char ** vectorPosiciones = string_split(posiciones,"|" );
 		TCB_DISCORDIADOR * tripulante = malloc(sizeof(TCB_DISCORDIADOR));
 
-		sem_init(&(tripulante->semaforoTrabajo), 0, 1); 
+		sem_init(&tripulante->semaforoTrabajo, 0, 0); 
 	
 		tripulante->estado = 'N';
 		tripulante->tid = proximoTID;
@@ -202,15 +239,13 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t punteroAPCB){
 
 
 
-void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
-
-	printf("Entre \n");
+void tripulanteVivo(TCB_DISCORDIADOR * tripulante) { 
 
 	int socket = conectarMiRAM();
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = sizeof(uint32_t) * 4  /* + sizeof(char)*/;
+	buffer-> size = sizeof(uint32_t) * 4  + sizeof(char);
 
 	void* stream = malloc(buffer->size);
 
@@ -228,12 +263,12 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 	memcpy(stream+offset, &(tripulante->punteroPCB), sizeof(uint32_t));
 	offset += sizeof(uint32_t);
 
-	//memcpy(stream+offset, &(tripulante->estado), sizeof(char));
+	memcpy(stream+offset, &(tripulante->estado), sizeof(char));
 
 	buffer-> stream = stream;
 
 	t_paquete* paquete = malloc(sizeof(t_paquete));
-	// paquete->buffer = malloc(sizeof(buffer->size));
+	 paquete->buffer = malloc(sizeof(buffer->size));
 
 	paquete->header = CREAR_TCB;
 	paquete->buffer = buffer;
@@ -249,27 +284,25 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
 
-
 	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
 
-	 free(a_enviar);
-	 free(paquete->buffer->size);
-	 free(paquete->buffer);
-	 free(paquete);
+	//  free(a_enviar);
+	//  free(paquete->buffer->size);
+	//  free(paquete->buffer);
+	//  free(paquete);
 
 
 	while (1) 
 	{
 		sem_wait(&tripulante->semaforoTrabajo);
-		while (tripulante->estado == 'E')
-					 		{
-					 			printf("estoy trabajando soy: %d \n", tripulante->tid);
-					 			sleep(5);
-								sem_post(&semaforoTripulantes);
-					 			tripulante->estado = 'R';
-								list_add(listaReady, tripulante); //deberia hacerlo el discordiador :( 
+					 		
+		printf("estoy trabajando soy: %d \n", tripulante->tid);
+		sleep(5);
+		sem_post(&semaforoTripulantes);
+		tripulante->estado = 'R';
+		list_add(listaReady, tripulante); //deberia hacerlo el discordiador :( 
 								
-					}
+					
 	}
 
 
@@ -292,11 +325,12 @@ void trabajar(){
 
 				//mostrarLista(listaReady); 
 
-					sem_post(&tripulantee->semaforoTrabajo);
+				sem_post(&tripulantee->semaforoTrabajo); // donde se pone? -> sem_destroy(&tripulantee->semaforoTrabajo);
 			
 				} 
-			
 
+				
+			
 			
 }
 
