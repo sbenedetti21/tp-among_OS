@@ -173,7 +173,7 @@ uint32_t iniciarPCB(char * pathTareas, int socket){
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = strlen(stringTareas) + 1;
+	buffer-> size = strlen(stringTareas);
 
 	void* stream = malloc(buffer->size);
 

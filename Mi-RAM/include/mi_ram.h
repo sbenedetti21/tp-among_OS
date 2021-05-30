@@ -7,6 +7,9 @@
 #include <stdbool.h>
 #include "shared_utils.h"
 
+void servidorPrincipal(t_config*);
+void iniciarMapa();
+
 void atenderDiscordiador(int);
 void recibir_TCB(int);
 uint32_t crearPCB(char*);
