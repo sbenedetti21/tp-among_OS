@@ -15,6 +15,8 @@ typedef struct {
 
 int main(int argc, char ** argv){
 
+	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO); 
+
 	t_config * config = config_create("./cfg/miram.config");
 
 	void * punteroMemoria = malloc(config_get_int_value(config, "TAMANIO_MEMORIA"));

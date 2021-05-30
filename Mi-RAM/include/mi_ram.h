@@ -7,6 +7,7 @@
 #include <stdbool.h>
 #include "shared_utils.h"
 
+t_log * loggerMiram; 
 void servidorPrincipal(t_config*);
 void iniciarMapa();
 
