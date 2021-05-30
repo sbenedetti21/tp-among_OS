@@ -160,7 +160,7 @@ void leerUltimoBloque(){
 		proximoBlock = 0;
 	}
 }
-
+ 
 void llenarBlocks(char caracterLlenado, int cantLlenar){
 	int cantAux = cantLlenar;
 	leerUltimoBloque(ubicacionArchivoRecurso);
