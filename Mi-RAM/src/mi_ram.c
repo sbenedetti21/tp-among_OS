@@ -2,6 +2,8 @@
 
 NIVEL* navePrincipal;
 
+//comentario prueba
+
 int main(int argc, char ** argv){
 
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO); 
