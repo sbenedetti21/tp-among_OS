@@ -101,6 +101,13 @@ void atenderDiscordiador(int socketCliente){
 			//printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 			//agregarTripulanteAlMapa(tripulante);
 
+		//	int personaje = personaje_crear(navePrincipal, '0', tripulante->posicionX, tripulante->posicionY); 
+		//	nivel_gui_dibujar(navePrincipal); 
+
+			//pthread_t hiloDibujante; 
+
+			//pthread_create(&hiloDibujante, NULL, agregarTripulanteAlMapa, tripulante); 
+
 			
 			free(tripulante);
 
@@ -190,11 +197,13 @@ void iniciarMapa() {
 
 void agregarTripulanteAlMapa(TCB* tripulante) {
 	char id = '0';
-	id = '0' + tripulante->tid;
+	id = '0' + tripulante->tid; //aca el tid es un uint 
 	printf("%c", id);
 	int posicionX = tripulante->posicionX;
 	int posicionY = tripulante->posicionY;
 	personaje_crear(navePrincipal, id, posicionX, posicionY);
+	
+	
 }
 
 void moverTripulanteEnMapa(TCB * tripulante, int x, int y) {
