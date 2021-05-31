@@ -1,5 +1,8 @@
 #include "mi_ram.h"
 
+//comentario prueba
+//otro comentario prueba
+
 NIVEL* navePrincipal;
 
 int main(int argc, char ** argv){
@@ -36,9 +39,9 @@ void servidorPrincipal(t_config * config) {
 
 	while(1){
 		socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
-		if(socketCliente == -1){printf("Error en la conexión");}
+		if(socketCliente == -1){printf("Error en la conexión"); log_info(loggerMiram, "error en la conexion con Discordiador");}
 		else {
-			printf("Conexión establecida con Discordiador \n");
+			log_info(loggerMiram, "Conexión establecida con Discordiador");
 			pthread_create(&receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
 		}
 	}
@@ -55,17 +58,17 @@ void atenderDiscordiador(int socketCliente){
 
 	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
 
-	if(headerRECV) { printf("Recibi header: %d\n", paquete->header);} else{ printf("No pude recibir el header. \n");}
+	if(headerRECV) { log_info(loggerMiram, "Recibi header: %d\n", paquete->header);} else{ log_info(loggerMiram, "No se pudo recibir el header");}
 
 	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
 
-	if(! tamanioPAQUETE_RECV){ printf("No pude recibir el tamanio del buffer \n");}
+	if(! tamanioPAQUETE_RECV){ log_info(loggerMiram, "No se pudo recibir el tamanio del buffer ");}
 
 	paquete->buffer->stream = malloc(paquete->buffer->size);
 
 	int PAQUETE_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size,0);
 
-	if(! PAQUETE_RECV){ printf("No pude recibir el PAQUETE \n");}
+	if(! PAQUETE_RECV){ log_info(loggerMiram,"No se pudo recibir el paquete");}
 	
 
 	switch (paquete->header)
@@ -78,7 +81,8 @@ void atenderDiscordiador(int socketCliente){
 		char * tareas = malloc(paquete->buffer->size);
 		tareas = deserializar_Tareas(paquete->buffer);
 
-		printf("%s \n", tareas);
+		log_info(loggerMiram, tareas); 
+		//printf("%s \n", tareas);
 
 		send(socketCliente, punteroPCB, sizeof(uint32_t),0);
 
@@ -92,10 +96,12 @@ void atenderDiscordiador(int socketCliente){
 
 		TCB * tripulante = deserializar_TCB(paquete->buffer);
 
-			printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+			log_info(loggerMiram, "tripulante recibido. ID: %d, X: %d, Y: %d ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+
+			//printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 			//agregarTripulanteAlMapa(tripulante);
 
-			printf("------------------------\n");
+			
 			free(tripulante);
 
 		break;
