@@ -1,5 +1,6 @@
 #include "mi_ram.h"
 
+NIVEL* navePrincipal;
 
 int main(int argc, char ** argv){
 
@@ -92,6 +93,7 @@ void atenderDiscordiador(int socketCliente){
 		TCB * tripulante = deserializar_TCB(paquete->buffer);
 
 			printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+			//agregarTripulanteAlMapa(tripulante);
 
 			printf("------------------------\n");
 			free(tripulante);
@@ -175,13 +177,26 @@ void iniciarMapa() {
 	
 	nivel_gui_inicializar();
 	NIVEL* navePrincipal = nivel_crear("Nave Principal");
-
-	personaje_crear(navePrincipal, '1', 7, 0);
-	personaje_crear(navePrincipal, '2', 2, 0);
-	personaje_crear(navePrincipal, '3', 7, 2);
-	personaje_crear(navePrincipal, '4', 1, 3);
-	personaje_crear(navePrincipal, '5', 4, 2);
-
 	nivel_gui_dibujar(navePrincipal);
+	sleep(1000);
 
+}
+
+void agregarTripulanteAlMapa(TCB* tripulante) {
+	char id = '0';
+	id = '0' + tripulante->tid;
+	printf("%c", id);
+	int posicionX = tripulante->posicionX;
+	int posicionY = tripulante->posicionY;
+	personaje_crear(navePrincipal, id, posicionX, posicionY);
+}
+
+void moverTripulanteEnMapa(TCB * tripulante, int x, int y) {
+	char id = '0' + tripulante->tid;
+	item_mover(navePrincipal, id, x, y);
+}
+
+void expulsarTripulanteDelMapa(TCB* tripulante) {
+	char id = '0' + tripulante->tid;
+	item_borrar(navePrincipal, id);
 }

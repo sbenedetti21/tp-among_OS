@@ -11,7 +11,6 @@
 
 t_log * loggerMiram; 
 void servidorPrincipal(t_config*);
-void iniciarMapa();
 
 void atenderDiscordiador(int);
 void recibir_TCB(int);
@@ -32,5 +31,10 @@ typedef struct {
 
 int proximoPID = 0; 
 
+//--------------- MAPA ---------------------
+void iniciarMapa();
+void agregarTripulanteAlMapa(TCB*);
+void moverTripulanteEnMapa(TCB *, int , int );
+void expulsarTripulanteDelMapa(TCB*);
  
 #endif
