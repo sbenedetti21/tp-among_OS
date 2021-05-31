@@ -69,8 +69,10 @@ void leerBitMap(){
 }
 
 int bitLibreBitMap(){
+	proximoBlock=0;
 	while(bitarray_test_bit(punteroBitmap,proximoBlock))
 			proximoBlock++;
+	bitarray_set_bit(punteroBitmap,proximoBlock);
 	return proximoBlock;
 }
 
@@ -113,20 +115,11 @@ void creacionArchivoRecurso(char *caracterLlenado){
 	fclose(fileRecurso);
 
 	configRecurso = config_create(ubicacionArchivoRecurso);
-	config_set_value(configRecurso,"SIZE",string_itoa(64));
+	config_set_value(configRecurso,"SIZE",string_itoa(0));
 	config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(0));
 	config_set_value(configRecurso,"BLOCKS","[]");
 	config_set_value(configRecurso,"CARACTER_LLENADO",caracterLlenado);
 	config_set_value(configRecurso,"MD5_ARCHIVO","");
-}
-
-void actualizarSizeFile(){
-	config_save(configRecurso);
-	int archivoRecurso = open(ubicacionArchivoRecurso, O_RDONLY, S_IRUSR | S_IWUSR);
-	struct stat statbuf;
-	fstat(archivoRecurso, &statbuf);
-	config_set_value(configRecurso,"SIZE",string_itoa(statbuf.st_size));
-	close(archivoRecurso);
 }
 
 void agregarBloqueAlFile(int nuevoBloque){
@@ -140,53 +133,51 @@ void agregarBloqueAlFile(int nuevoBloque){
 	if(listaBlocks[1]!=']')
 		string_append(&nuevaListablocks, ",");
 	
-
 	string_append(&nuevaListablocks, string_itoa(nuevoBloque + 1));
 	string_append(&nuevaListablocks, "]");
 	config_set_value(configRecurso,"BLOCKS",nuevaListablocks);
-
-	actualizarSizeFile();
 }
 
 void leerUltimoBloque(){
 	char *listaBlocks = config_get_string_value(configRecurso,"BLOCKS");
-	int indiceFinal = strlen(listaBlocks);
-	while(listaBlocks[indiceFinal]!=',' && indiceFinal>0)
-		indiceFinal--;
-	if(indiceFinal>0){
-		int largoNum = strlen(listaBlocks) - indiceFinal - 2;
-		proximoBlock = atoi(string_substring(listaBlocks,indiceFinal+1,largoNum)) - 1;
+	
+	if(listaBlocks[1]!=']'){
+		int indiceFinal = strlen(listaBlocks);
+		while(listaBlocks[indiceFinal]!=',' && indiceFinal>0)
+			indiceFinal--;
+		proximoBlock = atoi(string_substring_from(listaBlocks,indiceFinal+1)) - 1;
 	}else{
-		proximoBlock = 0;
+		proximoBlock = bitLibreBitMap(punteroBitmap);
 	}
 }
  
 void llenarBlocks(char caracterLlenado, int cantLlenar){
 	int cantAux = cantLlenar;
+
 	leerUltimoBloque(ubicacionArchivoRecurso);
+	int nuevaSize = config_get_int_value(configRecurso,"SIZE");
+	nuevaSize+=cantLlenar;
+	config_set_value(configRecurso, "SIZE", string_itoa(nuevaSize));
+	
 	while(cantAux>0){
-		bitLibreBitMap(punteroBitmap);
+		
 		int cant = proximoBlock * tamanioDeBloque;
-		if(mapBlocks[cant]=='\0' || mapBlocks[cant]==caracterLlenado){
-			if(mapBlocks[cant]=='\0')
-				agregarBloqueAlFile(proximoBlock);
+		
+		if(mapBlocks[cant]=='\0')
+			agregarBloqueAlFile(proximoBlock);
 
-			for(int i=0; i<cantAux && i<tamanioDeBloque;i++){
-				int j = cant + i;
-				if(mapBlocks[j]!=caracterLlenado)
-					mapBlocks[j]=caracterLlenado;
-				else
-					cantAux++;
-			}
-
-			cantAux-=tamanioDeBloque;
-
-			if(cantAux>=0)
-				bitarray_set_bit(punteroBitmap,proximoBlock);
-
-		} else {
-			proximoBlock++;
+		for(int i=0; i<cantAux && i<tamanioDeBloque;i++){
+			int j = cant + i;
+			if(mapBlocks[j]!=caracterLlenado)
+				mapBlocks[j]=caracterLlenado;
+			else
+				cantAux++;
 		}
+
+		cantAux-=tamanioDeBloque;
+
+		if(cantAux>0)
+			bitLibreBitMap(punteroBitmap);
 	}
 
 	cambiarBitMap();
@@ -209,29 +200,32 @@ void borrarUltimoBloque(){
 		listaBlocks = "[]";
 	}
 	config_set_value(configRecurso,"BLOCKS",listaBlocks);
-	actualizarSizeFile();
+	//Actualizar size;
 }
 
 void vaciarBlocks(char caracterVaciado, int cantAVaciar){
 	int cantAux = cantAVaciar;
 
+	int nuevaSize = config_get_int_value(configRecurso,"SIZE");
+	nuevaSize-=cantAVaciar;
+	config_set_value(configRecurso, "SIZE", string_itoa(nuevaSize));
+
 	while(cantAux>0){
 		leerUltimoBloque();
-		printf("Prueba %d\n",proximoBlock);
 		int cant = proximoBlock * tamanioDeBloque;
-		if(mapBlocks[cant]==caracterVaciado){
-			for(int i = tamanioDeBloque; cantAux>0 && i>0; i--){
-				int j = cant + i - 1;
-				if(mapBlocks[j]==caracterVaciado){
-					mapBlocks[j]='\0';
-					cantAux--;
-				}
+		
+		for(int i = tamanioDeBloque; cantAux>0 && i>0; i--){
+			int j = cant + i - 1;
+			
+			if(mapBlocks[j]==caracterVaciado){
+				mapBlocks[j]='\0';
+				cantAux--;
 			}
+		}
 
-			if(mapBlocks[cant]=='\0'){
-				bitarray_clean_bit(punteroBitmap,proximoBlock);
-				borrarUltimoBloque();
-			}
+		if(mapBlocks[cant]=='\0'){
+			bitarray_clean_bit(punteroBitmap,proximoBlock);
+			borrarUltimoBloque();
 		}
 	}
 
@@ -263,6 +257,19 @@ void generarOxigeno(int cantidadALlenar){
 		configRecurso = config_create(ubicacionArchivoRecurso);
 
 	llenarBlocks('O', cantidadALlenar);
+	config_save(configRecurso);
+	config_destroy(configRecurso);
+	free(ubicacionArchivoRecurso);
+}
+
+void generarBasura(int cantidadALlenar){
+	ubicacionArchivoRecurso = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
+	if(access(ubicacionArchivoRecurso, F_OK ))
+		creacionArchivoRecurso("B");
+	else
+		configRecurso = config_create(ubicacionArchivoRecurso);
+
+	llenarBlocks('B', cantidadALlenar);
 	config_save(configRecurso);
 	config_destroy(configRecurso);
 	free(ubicacionArchivoRecurso);

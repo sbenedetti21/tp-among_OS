@@ -10,12 +10,16 @@ int main(int argc, char ** argv){
 		leerBitMap();
 		mapearBlocks();
 	}
-	generarOxigeno(29);
-	//generarOxigeno(32);
-	//generarOxigeno(32);
-	//llenarBlocks('f',30);
-	//generarOxigeno(26);
-	//consumirOxigeno(30);
+	generarOxigeno(15);
+	generarBasura(30);
+	generarOxigeno(32);
+	generarBasura(25);
+	generarOxigeno(32);
+	generarBasura(2);
+	generarOxigeno(26);
+	consumirOxigeno(15);
+	consumirOxigeno(60);
+	generarBasura(33);
 	
 	//conectarAlCliente();
 
