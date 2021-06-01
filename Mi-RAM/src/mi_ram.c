@@ -2,15 +2,18 @@
 
 NIVEL* navePrincipal;
 
-//comentario prueba
 
-//comentariooooooooooooooooooooo
 
 int main(int argc, char ** argv){
 
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO); 
 
 	t_config * config = config_create("./cfg/miram.config");
+
+	char * esquemaMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA"); 
+
+	//if (strcmp(esquemaMemoria, "PAGINACION") == 0) .... 
+	//if (strcmp(esquemaMemoria, "SEGMENTACION") == =) ....
 
 	void * punteroMemoria = malloc(config_get_int_value(config, "TAMANIO_MEMORIA"));
 

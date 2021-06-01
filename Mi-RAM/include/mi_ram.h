@@ -9,6 +9,14 @@
 #include <nivel-gui/tad_nivel.h>
 #include "shared_utils.h"
 
+t_list * tablaSegmentos; 
+typedef struct{
+	int numeroSegmento; 
+	int direccionBase; 
+	int tamanio; 
+// no se si va aca -- 	void * contenido; 
+}segmento; 
+
 t_log * loggerMiram; 
 void servidorPrincipal(t_config*);
 
