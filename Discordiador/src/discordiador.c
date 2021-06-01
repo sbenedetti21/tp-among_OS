@@ -87,7 +87,7 @@ void consola(){
 
 			if(strcmp(tipoAlgoritmo,"FIFO") == 0){
 				pthread_t  hiloTrabajadorFIFO; 
-				pthread_create(&hiloTrabajadorFIFO, NULL, trabajar, NULL );	
+				pthread_create(&hiloTrabajadorFIFO, NULL, ponerATrabajar, NULL );	
 			} 
 			if (strcmp(tipoAlgoritmo, "RR") == 0){
 				//PLANIFICACION RR 
@@ -240,36 +240,6 @@ uint32_t iniciarPCB(char * pathTareas, int socket){
 	return *punteroPCB;
 }
 
-char * leerTareas(char* pathTareas) {
-	//TODO
-	FILE* archivo = fopen(pathTareas,"r");
-	if (archivo == NULL)
-	{
-		printf("no pude abrir las tareas :( \n");
-	}
-	else
-	{
-		log_info(loggerDiscordiador, "path de tareas recibido: %s", pathTareas);
-	}
-	
-	
-    fseek(archivo, 0, SEEK_END);
-    int tamanioArchivo = ftell(archivo);
-	printf("cantidad de carac:%d \n", tamanioArchivo);
-    fseek(archivo, 0, SEEK_SET);
-
-    char* lineas = (char*) calloc(tamanioArchivo, sizeof(char)); //USANDO MALLOC ME TIRABA ERROR
-    fread(lineas, sizeof(char), tamanioArchivo, archivo);
-
-    // acá tengo un string "lineas" con todas las lineas del archivo juntas, incluyendo los saltos de linea
-
-	fclose(archivo);
-
-	printf("%s \n", lineas);
-
-	return lineas;
-}
-
 
 TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t punteroAPCB){
 
@@ -365,7 +335,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 }
 
 
-void trabajar(){
+void ponerATrabajar(){
 	 
 	
 			while(1){  
@@ -378,11 +348,8 @@ void trabajar(){
 				
 				sem_post(&tripulantee->semaforoTrabajo); // donde se pone? -> sem_destroy(&tripulantee->semaforoTrabajo);
 				
-				
-
 				//mostrarLista(listaReady); 
 
-			
 				} 
 
 				
@@ -420,4 +387,40 @@ void mostrarLista(t_list * unaLista){
 }
 
 
+
+//-----------------------------TAREAS---------------------------------------------------------------------------------------------------
+
+
+char * leerTareas(char* pathTareas) {
+	//TODO
+	FILE* archivo = fopen(pathTareas,"r");
+	if (archivo == NULL)
+	{
+		printf("no pude abrir las tareas :( \n");
+	}
+	else
+	{
+		log_info(loggerDiscordiador, "path de tareas recibido: %s", pathTareas);
+	}
+	
+	
+    fseek(archivo, 0, SEEK_END);
+    int tamanioArchivo = ftell(archivo);
+	printf("cantidad de carac:%d \n", tamanioArchivo);
+    fseek(archivo, 0, SEEK_SET);
+
+    char* lineas = (char*) calloc(tamanioArchivo, sizeof(char)); //USANDO MALLOC ME TIRABA ERROR
+    fread(lineas, sizeof(char), tamanioArchivo, archivo);
+
+    // acá tengo un string "lineas" con todas las lineas del archivo juntas, incluyendo los saltos de linea
+
+	fclose(archivo);
+
+	printf("%s \n", lineas);
+
+	return lineas;
+}
+
+
+//-----------------------------PAQUETES---------------------------------------------------------------------------------------------------
 

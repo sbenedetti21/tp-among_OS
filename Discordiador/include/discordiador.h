@@ -41,7 +41,7 @@ void consola();
 
 bool coincideID(TCB_DISCORDIADOR*);
 
-void trabajar();
+void ponerATrabajar();
 
 void pasarTripulante(TCB_DISCORDIADOR *);
 
