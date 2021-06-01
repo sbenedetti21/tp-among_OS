@@ -22,11 +22,16 @@ int main(int argc, char ** argv){
 	pthread_t servidor;
 	pthread_create(&servidor, NULL, servidorPrincipal, config);
 
-	pthread_t mapa;
-	pthread_create(&mapa, NULL, iniciarMapa, NULL);
+
+
+	nivel_gui_inicializar();
+	NIVEL* navePrincipal = nivel_crear("Nave Principal");
+	nivel_gui_dibujar(navePrincipal);
+	//pthread_t mapa;
+	//pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	//pthread_join(mapa, NULL);
 	 
 	pthread_join(servidor, NULL);
-	pthread_join(mapa, NULL);
 	free(punteroMemoria);
 
 	return 0; 
@@ -115,7 +120,7 @@ void atenderDiscordiador(int socketCliente){
 			//pthread_create(&hiloDibujante, NULL, agregarTripulanteAlMapa, tripulante); 
 
 			
-			free(tripulante);
+			//free(tripulante);
 
 		break;
 
@@ -208,8 +213,7 @@ void agregarTripulanteAlMapa(TCB* tripulante) {
 	int posicionX = tripulante->posicionX;
 	int posicionY = tripulante->posicionY;
 	personaje_crear(navePrincipal, id, posicionX, posicionY);
-	
-	
+	nivel_gui_dibujar(navePrincipal);
 }
 
 void moverTripulanteEnMapa(TCB * tripulante, int x, int y) {

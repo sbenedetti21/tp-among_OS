@@ -222,7 +222,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t punteroAPCB){
 		proximoTID ++; //ver sincronizacion
 
 		return tripulante;   //preguntar liberar malloc
-	}
+	} 
 
 
 
@@ -404,7 +404,7 @@ void serializarYMandarPCB(char * pathTareas, int socket){
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = strlen(stringTareas);
+	buffer-> size = strlen(stringTareas) + 1;
 	printf("%d\n", strlen(stringTareas));
 
 	void* stream = malloc(buffer->size);
