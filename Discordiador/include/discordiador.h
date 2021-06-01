@@ -38,6 +38,9 @@ int conectarMiRAM();
 void iniciarPatota(char **);
 void listarTripulantes();
 void consola();
+void mandarPaqueteSerializado(t_buffer*,int, int);
+void serializarYMandarPCB(char*,int);
+void serializarYMandarTripulante(TCB_DISCORDIADOR*);
 
 bool coincideID(TCB_DISCORDIADOR*);
 

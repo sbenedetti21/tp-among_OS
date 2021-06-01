@@ -1,6 +1,6 @@
 #include "discordiador.h"
 
-
+// FACU: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
 
 
 int main(int argc, char ** argv){
@@ -156,6 +156,7 @@ void iniciarPatota(char ** vectorInstruccion){
 	uint32_t punteroPCB = iniciarPCB(vectorInstruccion[2], socket);
 
 	//INICIAR_PATOTA 3 txt 1|1 1|2 1|3
+
 				char * posicionBase = "0|0";
 				int i;
 				int indice_posiciones = 3;
@@ -188,46 +189,7 @@ void iniciarPatota(char ** vectorInstruccion){
 
 uint32_t iniciarPCB(char * pathTareas, int socket){
 
-	char * stringTareas = leerTareas(pathTareas);
-
-	t_buffer* buffer = malloc(sizeof(t_buffer));
-
-	buffer-> size = strlen(stringTareas);
-	printf("%d\n", strlen(stringTareas));
-
-	void* stream = malloc(buffer->size);
-
-	int offset = 0;
-
-	// TCB_DISCORDIADOR * a = malloc(sizeof(a));
-	// a->posicionX = 4;
-
-	// memcpy(stream+offset, &(a->posicionX), sizeof(uint32_t));
-	// offset += sizeof(uint32_t);
-	
-	memcpy(stream + offset, stringTareas, buffer->size);
-
-	buffer-> stream = stream;
-
-	t_paquete* paquete = malloc(sizeof(t_paquete));
-	paquete->buffer = malloc(sizeof(buffer->size));
-
-	paquete->header = CREAR_PCB;
-	paquete->buffer = buffer;
-	
-	void* a_enviar = malloc(buffer->size + sizeof(int) + sizeof(uint32_t) ); //PUSE INT EN VEZ DE UINT_8 PQ NUESTRO HEADER ES UN INT
-	int offset2 = 0;
-
-	memcpy(a_enviar + offset2, &(paquete->header), sizeof(int));
-	offset2 += sizeof(int);
-
-	memcpy(a_enviar + offset2, &(paquete->buffer->size), sizeof(uint32_t));
-	offset2 += sizeof(uint32_t);
-
-	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
-	
-	send(socket, a_enviar, buffer->size + sizeof(int) + sizeof(uint32_t),0);
-	 
+	serializarYMandarPCB(pathTareas, socket);
 	//  free(a_enviar);
 	//  free(paquete->buffer->size);
 	//  free(paquete->buffer); DA ERROR
@@ -235,8 +197,8 @@ uint32_t iniciarPCB(char * pathTareas, int socket){
 	//  free(a);
 
 	uint32_t * punteroPCB = malloc(sizeof(uint32_t));
-	int prueba = recv(socket, (void*)punteroPCB, sizeof(uint32_t),0);
 
+	int prueba = recv(socket, (void*)punteroPCB, sizeof(uint32_t),0);
 	return *punteroPCB;
 }
 
@@ -266,51 +228,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t punteroAPCB){
 
 void tripulanteVivo(TCB_DISCORDIADOR * tripulante) { 
 
-	int socket = conectarMiRAM();
-	log_info(loggerDiscordiador, "Tripulante conectado con Mi RAM");
-
-	t_buffer* buffer = malloc(sizeof(t_buffer));
-
-	buffer-> size = sizeof(uint32_t) * 4  + sizeof(char);
-
-	void* stream = malloc(buffer->size);
-
-	int offset = 0; //desplazamiento
-
-	memcpy(stream+offset, &(tripulante->tid), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy(stream+offset, &(tripulante->posicionX), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy(stream+offset, &(tripulante->posicionY), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy(stream+offset, &(tripulante->punteroPCB), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy(stream+offset, &(tripulante->estado), sizeof(char));
-
-	buffer-> stream = stream;
-
-	t_paquete* paquete = malloc(sizeof(t_paquete));
-	 paquete->buffer = malloc(sizeof(buffer->size));
-
-	paquete->header = CREAR_TCB;
-	paquete->buffer = buffer;
-
-	void* a_enviar = malloc(buffer->size + sizeof(int) + sizeof(uint32_t) ); //PUSE INT EN VEZ DE UINT_8 PQ NUESTRO HEADER ES UN INT
-	int offset2 = 0;
-
-	memcpy(a_enviar + offset2, &(paquete->header), sizeof(int));
-	offset2 += sizeof(int);
-
-	memcpy(a_enviar + offset2, &(paquete->buffer->size), sizeof(uint32_t));
-	offset2 += sizeof(uint32_t);
-
-	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
-
-	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
+	serializarYMandarTripulante(tripulante);
 
 	//  free(a_enviar);
 	//  free(paquete->buffer->size);
@@ -424,3 +342,79 @@ char * leerTareas(char* pathTareas) {
 
 //-----------------------------PAQUETES---------------------------------------------------------------------------------------------------
 
+void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
+
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+	 paquete->buffer = malloc(sizeof(buffer->size));
+
+	paquete->header = header;
+	paquete->buffer = buffer;
+
+	void* a_enviar = malloc(buffer->size + sizeof(int) + sizeof(uint32_t) ); //PUSE INT EN VEZ DE UINT_8 PQ NUESTRO HEADER ES UN INT
+	int offset2 = 0;
+
+	memcpy(a_enviar + offset2, &(paquete->header), sizeof(int));
+	offset2 += sizeof(int);
+
+	memcpy(a_enviar + offset2, &(paquete->buffer->size), sizeof(uint32_t));
+	offset2 += sizeof(uint32_t);
+
+	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
+
+	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
+
+}
+
+void serializarYMandarTripulante(TCB_DISCORDIADOR * tripulante){
+
+	int socket = conectarMiRAM();
+
+	log_info(loggerDiscordiador, "Tripulante conectado con Mi RAM");
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = sizeof(uint32_t) * 4  + sizeof(char);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0; //desplazamiento
+
+	memcpy(stream+offset, &(tripulante->tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->posicionX), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->posicionY), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->punteroPCB), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->estado), sizeof(char));
+
+	buffer-> stream = stream;
+
+
+	mandarPaqueteSerializado(buffer, socket, CREAR_TCB);
+}
+
+void serializarYMandarPCB(char * pathTareas, int socket){
+	char * stringTareas = leerTareas(pathTareas);
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = strlen(stringTareas);
+	printf("%d\n", strlen(stringTareas));
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+	
+	memcpy(stream + offset, stringTareas, buffer->size);
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, CREAR_PCB);
+
+}
