@@ -1,6 +1,6 @@
 #include "discordiador.h"
 
-// FACU: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+// FACU: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
 
 
 int main(int argc, char ** argv){
@@ -87,17 +87,15 @@ void consola(){
 
 			if(strcmp(tipoAlgoritmo,"FIFO") == 0){
 				pthread_t  hiloTrabajadorFIFO; 
-				pthread_create(&hiloTrabajadorFIFO, NULL, ponerATrabajar, NULL );	
+				pthread_create(&hiloTrabajadorFIFO, NULL, ponerATrabajarFIFO, NULL );	
 			} 
 			if (strcmp(tipoAlgoritmo, "RR") == 0){
-				//PLANIFICACION RR 
-			}
-
+				pthread_t  hiloTrabajadorRR; 
+				pthread_create(&hiloTrabajadorRR, NULL, ponerATrabajarRR, NULL );			}
 		}
-		
 
 	
-		
+
 		if(strcmp(vectorInstruccion[0], "LISTAR_TRIPULANTES") == 0) {
 			
 			listarTripulantes();
@@ -190,6 +188,7 @@ void iniciarPatota(char ** vectorInstruccion){
 uint32_t iniciarPCB(char * pathTareas, int socket){
 
 	serializarYMandarPCB(pathTareas, socket);
+
 	//  free(a_enviar);
 	//  free(paquete->buffer->size);
 	//  free(paquete->buffer); DA ERROR
@@ -239,11 +238,55 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 	while (1) 
 	{
 		sem_wait(&tripulante->semaforoTrabajo);
-		log_info(loggerDiscordiador, "tripulante %d trabajando, estado: %c", tripulante->tid, tripulante->estado);
-		sleep(5);
+		log_info(loggerDiscordiador, "Tripulante %d trabajando, estado: %c", tripulante->tid, tripulante->estado);
+		
+		// recibir tarea
+
+		char* tarea = "GENERAR_OXIGENO 12;2;3;5";
+		char ** vectorTarea;
+		char ** requerimientosTarea;
+
+		vectorTarea = string_split(tarea, " ");
+		requerimientosTarea = string_split(vectorTarea[1],";");
+
+		int parametros = atoi(requerimientosTarea[0]);
+		int posicionX = atoi(requerimientosTarea[1]);
+		int posicionY = atoi(requerimientosTarea[2]);
+		int tiempo = atoi(requerimientosTarea[3]);
+
+		trasladarseA(posicionX,posicionY, tripulante);
+
+		if( strcmp(vectorTarea[0],"GENERAR_OXIGENO") == 0 ){
+			 generarOxigeno(parametros,tiempo);
+		} 
+
+		else if(strcmp(vectorTarea[0],"CONSUMIR_OXIGENO") == 0){
+			consumirOxigeno(parametros,tiempo);
+		}
+
+		else if(strcmp(vectorTarea[0],"GENERAR_COMIDA") == 0){
+			generarComida(parametros,tiempo);
+		}
+
+		else if(strcmp(vectorTarea[0],"CONSUMIR_COMIDA") == 0){
+			consumirComida(parametros,tiempo);
+		}
+
+		else if(strcmp(vectorTarea[0],"GENERAR_BASURA") == 0){
+			generarBasura(parametros,tiempo);
+		}
+
+		else if(strcmp(vectorTarea[0],"DESCARTAR_BASURA") == 0){
+			descartarBasura(parametros,tiempo);
+		}
+
+		else { //Ir a hacer tiempo al lugar 
+			transportarseAPosicionPorXTiempo(tiempo);
+		}
+
 		sem_post(&semaforoTripulantes); 
 		tripulante->estado = 'R';
-		log_info(loggerDiscordiador, "tripulante %d terminó de trabajar, estado: %c", tripulante->tid, tripulante->estado);
+		log_info(loggerDiscordiador, "Tripulante %d terminó de trabajar, estado: %c", tripulante->tid, tripulante->estado);
 		list_add(listaReady, tripulante); 
 								
 					
@@ -253,26 +296,42 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 }
 
 
-void ponerATrabajar(){
+void ponerATrabajarFIFO(){
 	 
 	
-			while(1){  
+	while(1){  
 
-				sem_wait(&semaforoTripulantes); 
+			sem_wait(&semaforoTripulantes); 
 				
-				TCB_DISCORDIADOR* tripulantee = list_remove(listaReady, 0);
+			TCB_DISCORDIADOR* tripulantee = list_remove(listaReady, 0);
 
-				tripulantee->estado = 'E';
+			tripulantee->estado = 'E';
 				
-				sem_post(&tripulantee->semaforoTrabajo); // donde se pone? -> sem_destroy(&tripulantee->semaforoTrabajo);
+			sem_post(&tripulantee->semaforoTrabajo); // donde se pone? -> sem_destroy(&tripulantee->semaforoTrabajo);
 				
-				//mostrarLista(listaReady); 
+			//mostrarLista(listaReady); 
 
 				} 
+			
+			
+}
 
-				
-			
-			
+void ponerATrabajarRR(){
+
+	while(1){
+			sem_wait(&semaforoTripulantes); 
+
+			TCB_DISCORDIADOR* tripulantee = list_remove(listaReady, 0);
+
+			tripulantee->estado = 'E';
+
+
+
+
+
+
+	}
+
 }
 
 //-----------------------------LISTAR TRIPULANTES---------------------------------------------------------------------------------------
@@ -308,6 +367,44 @@ void mostrarLista(t_list * unaLista){
 
 //-----------------------------TAREAS---------------------------------------------------------------------------------------------------
 
+void trasladarseA(int posicionX,int posicionY, TCB_DISCORDIADOR * tripulante){
+
+	for (tripulante->posicionX; tripulante->posicionX < posicionX; tripulante->posicionX ++) 
+	{
+		sleep(1);
+		// MANDAR POSICION A MI RAM
+	}
+	
+	for(tripulante->posicionY; tripulante->posicionY < posicionY; tripulante->posicionY ++){
+		sleep(1);
+		// MANDAR POSICION A MI RAM
+
+	}
+
+	printf("Soy el tripulante %d y ahora estoy en X: %d    Y: %d \n",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
+}
+
+
+void generarOxigeno(int parametros,int tiempo){
+}
+
+void generarComida(int parametros,int tiempo){
+}
+
+void generarBasura(int parametros,int tiempo){
+}
+
+void consumirOxigeno(int parametros,int tiempo){
+}
+
+void consumirComida(int parametros,int tiempo){
+}
+
+void descartarBasura(int parametros,int tiempo){
+}
+void transportarseAPosicionPorXTiempo(int tiempo){
+
+}
 
 char * leerTareas(char* pathTareas) {
 	//TODO
@@ -404,7 +501,7 @@ void serializarYMandarPCB(char * pathTareas, int socket){
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = strlen(stringTareas);
+	buffer-> size = strlen(stringTareas) + 1;
 	printf("%d\n", strlen(stringTareas));
 
 	void* stream = malloc(buffer->size);

@@ -44,7 +44,17 @@ void serializarYMandarTripulante(TCB_DISCORDIADOR*);
 
 bool coincideID(TCB_DISCORDIADOR*);
 
-void ponerATrabajar();
+void ponerATrabajarFIFO();
+void ponerATrabajarRR();
+void trasladarseA(int,int,TCB_DISCORDIADOR*);
+void generarOxigeno(int,int);
+void consumirOxigeno(int,int);
+void generarComida(int,int);
+void consumirComida(int,int);
+void generarBasura(int,int);
+void descartarBasura(int,int);
+void transportarseAPosicionPorXTiempo(int);
+
 
 void pasarTripulante(TCB_DISCORDIADOR *);
 

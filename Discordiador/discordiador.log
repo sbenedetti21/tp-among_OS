@@ -1181,3 +1181,833 @@
 [INFO] 18:43:48:327 discordiador.c/(5152:5169): Tripulante conectado con Mi RAM
 [INFO] 18:43:48:327 discordiador.c/(5152:5168): Tripulante conectado con Mi RAM
 [INFO] 18:43:48:328 discordiador.c/(5152:5167): Tripulante conectado con Mi RAM
+[INFO] 20:29:27:333 discordiador.c/(7070:7070): ---------PROGRAMA INICIADO----------
+[INFO] 20:29:34:435 discordiador.c/(7070:7071): INSTRUCCION LEIDA: INICIAR_PATOTA 4 H
+[INFO] 20:29:34:436 discordiador.c/(7070:7071): Discordiador conectado con Mi RAM
+[INFO] 20:29:48:581 discordiador.c/(7095:7095): ---------PROGRAMA INICIADO----------
+[INFO] 20:29:54:483 discordiador.c/(7095:7096): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 20:29:54:484 discordiador.c/(7095:7096): Discordiador conectado con Mi RAM
+[INFO] 20:29:54:484 discordiador.c/(7095:7096): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 20:29:54:484 discordiador.c/(7095:7096): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:29:54:484 discordiador.c/(7095:7096): Estado tripulante 0 cambiado a R
+[INFO] 20:29:54:484 discordiador.c/(7095:7103): Tripulante conectado con Mi RAM
+[INFO] 20:29:54:485 discordiador.c/(7095:7096): Tripulante creado: ID: 1, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:29:54:485 discordiador.c/(7095:7096): Estado tripulante 1 cambiado a R
+[INFO] 20:29:54:485 discordiador.c/(7095:7105): Tripulante conectado con Mi RAM
+[INFO] 20:29:54:485 discordiador.c/(7095:7096): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:29:54:485 discordiador.c/(7095:7096): Estado tripulante 2 cambiado a R
+[INFO] 20:29:54:485 discordiador.c/(7095:7107): Tripulante conectado con Mi RAM
+[INFO] 20:29:54:486 discordiador.c/(7095:7096): Tripulante creado: ID: 3, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:29:54:486 discordiador.c/(7095:7096): Estado tripulante 3 cambiado a R
+[INFO] 20:29:54:486 discordiador.c/(7095:7109): Tripulante conectado con Mi RAM
+[INFO] 20:29:59:331 discordiador.c/(7095:7096): INSTRUCCION LEIDA: trabajar
+[INFO] 20:29:59:332 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:29:59:332 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:04:332 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:04:332 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:04:332 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:04:333 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:333 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:333 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:334 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:334 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:335 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:335 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:336 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:337 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:338 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:338 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:339 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:339 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:340 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:340 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:341 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:341 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:342 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:342 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7105): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7103): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7103): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7109): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7105): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7107): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:09:343 discordiador.c/(7095:7107): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:30:09:343 discordiador.c/(7095:7109): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:30:44:638 discordiador.c/(7164:7164): ---------PROGRAMA INICIADO----------
+[INFO] 20:30:49:332 discordiador.c/(7164:7165): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 20:30:49:332 discordiador.c/(7164:7165): Discordiador conectado con Mi RAM
+[INFO] 20:30:49:332 discordiador.c/(7164:7165): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 20:30:49:333 discordiador.c/(7164:7165): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:30:49:333 discordiador.c/(7164:7165): Estado tripulante 0 cambiado a R
+[INFO] 20:30:49:333 discordiador.c/(7164:7168): Tripulante conectado con Mi RAM
+[INFO] 20:30:49:333 discordiador.c/(7164:7165): Tripulante creado: ID: 1, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:30:49:333 discordiador.c/(7164:7165): Estado tripulante 1 cambiado a R
+[INFO] 20:30:49:333 discordiador.c/(7164:7170): Tripulante conectado con Mi RAM
+[INFO] 20:30:49:334 discordiador.c/(7164:7165): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:30:49:334 discordiador.c/(7164:7165): Estado tripulante 2 cambiado a R
+[INFO] 20:30:49:334 discordiador.c/(7164:7172): Tripulante conectado con Mi RAM
+[INFO] 20:30:49:334 discordiador.c/(7164:7165): Tripulante creado: ID: 3, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:30:49:334 discordiador.c/(7164:7165): Estado tripulante 3 cambiado a R
+[INFO] 20:30:49:334 discordiador.c/(7164:7174): Tripulante conectado con Mi RAM
+[INFO] 20:30:52:532 discordiador.c/(7164:7165): INSTRUCCION LEIDA: trabajar
+[INFO] 20:30:52:533 discordiador.c/(7164:7168): Tripulante 0 trabajando, estado: E
+[INFO] 20:30:52:533 discordiador.c/(7164:7170): Tripulante 1 trabajando, estado: E
+[INFO] 20:30:57:533 discordiador.c/(7164:7170): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:30:57:533 discordiador.c/(7164:7168): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:30:57:533 discordiador.c/(7164:7172): Tripulante 2 trabajando, estado: E
+[INFO] 20:30:57:533 discordiador.c/(7164:7174): Tripulante 3 trabajando, estado: E
+[INFO] 20:30:59:172 discordiador.c/(7164:7165): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 20:31:02:534 discordiador.c/(7164:7174): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:31:55:103 discordiador.c/(7222:7222): ---------PROGRAMA INICIADO----------
+[INFO] 20:32:13:565 discordiador.c/(7222:7223): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
+[INFO] 20:32:13:566 discordiador.c/(7222:7223): Discordiador conectado con Mi RAM
+[INFO] 20:32:13:566 discordiador.c/(7222:7223): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 20:32:13:566 discordiador.c/(7222:7223): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:32:13:566 discordiador.c/(7222:7223): Estado tripulante 0 cambiado a R
+[INFO] 20:32:13:566 discordiador.c/(7222:7235): Tripulante conectado con Mi RAM
+[INFO] 20:32:18:621 discordiador.c/(7222:7223): INSTRUCCION LEIDA: trabajar
+[INFO] 20:34:15:729 discordiador.c/(7301:7301): ---------PROGRAMA INICIADO----------
+[INFO] 20:34:22:071 discordiador.c/(7301:7302): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
+[INFO] 20:34:22:071 discordiador.c/(7301:7302): Discordiador conectado con Mi RAM
+[INFO] 20:34:22:071 discordiador.c/(7301:7302): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 20:34:22:072 discordiador.c/(7301:7302): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:34:22:072 discordiador.c/(7301:7302): Estado tripulante 0 cambiado a R
+[INFO] 20:34:22:072 discordiador.c/(7301:7309): Tripulante conectado con Mi RAM
+[INFO] 20:34:25:415 discordiador.c/(7301:7302): INSTRUCCION LEIDA: trabajar
+[INFO] 20:35:23:498 discordiador.c/(7351:7351): ---------PROGRAMA INICIADO----------
+[INFO] 20:35:47:872 discordiador.c/(7351:7352): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
+[INFO] 20:35:47:872 discordiador.c/(7351:7352): Discordiador conectado con Mi RAM
+[INFO] 20:35:47:872 discordiador.c/(7351:7352): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 20:35:47:873 discordiador.c/(7351:7352): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:35:47:873 discordiador.c/(7351:7352): Estado tripulante 0 cambiado a R
+[INFO] 20:35:47:873 discordiador.c/(7351:7352): Tripulante creado: ID: 1, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:35:47:873 discordiador.c/(7351:7352): Estado tripulante 1 cambiado a R
+[INFO] 20:35:47:873 discordiador.c/(7351:7373): Tripulante conectado con Mi RAM
+[INFO] 20:35:47:873 discordiador.c/(7351:7352): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:35:47:873 discordiador.c/(7351:7352): Estado tripulante 2 cambiado a R
+[INFO] 20:35:47:873 discordiador.c/(7351:7352): Tripulante creado: ID: 3, PosX: 0, PosY: 0, estado: N 
+[INFO] 20:35:47:873 discordiador.c/(7351:7352): Estado tripulante 3 cambiado a R
+[INFO] 20:35:47:874 discordiador.c/(7351:7374): Tripulante conectado con Mi RAM
+[INFO] 20:35:47:874 discordiador.c/(7351:7377): Tripulante conectado con Mi RAM
+[INFO] 20:35:47:874 discordiador.c/(7351:7375): Tripulante conectado con Mi RAM
+[INFO] 20:35:51:288 discordiador.c/(7351:7352): INSTRUCCION LEIDA: trabajar
+[INFO] 20:35:51:289 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:35:51:289 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:35:56:289 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:35:56:289 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:35:56:289 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:35:56:289 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:291 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:291 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:291 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:291 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:291 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:291 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:291 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:291 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:292 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:292 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:292 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:292 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:292 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:292 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:292 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:292 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:292 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:293 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:293 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:293 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:293 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:293 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:293 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:293 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:293 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:293 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:293 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:293 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:293 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:293 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:293 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:293 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:294 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:294 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7375): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7374): Tripulante 1 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7375): Tripulante 2 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7377): Tripulante 3 trabajando, estado: E
+[INFO] 20:36:01:295 discordiador.c/(7351:7377): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7374): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 20:36:01:295 discordiador.c/(7351:7373): Tripulante 0 trabajando, estado: E
+[INFO] 20:37:58:484 discordiador.c/(7439:7439): ---------PROGRAMA INICIADO----------
+[INFO] 21:35:26:714 discordiador.c/(7439:7440): INSTRUCCION LEIDA: make
+[INFO] 21:35:33:492 discordiador.c/(8143:8143): ---------PROGRAMA INICIADO----------
+[INFO] 21:36:39:003 discordiador.c/(8143:8144): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
+[INFO] 21:36:39:004 discordiador.c/(8143:8144): Discordiador conectado con Mi RAM
+[INFO] 21:36:39:004 discordiador.c/(8143:8144): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 21:36:39:004 discordiador.c/(8143:8144): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 21:36:39:004 discordiador.c/(8143:8144): Estado tripulante 0 cambiado a R
+[INFO] 21:36:39:004 discordiador.c/(8143:8144): Tripulante creado: ID: 1, PosX: 0, PosY: 0, estado: N 
+[INFO] 21:36:39:004 discordiador.c/(8143:8144): Estado tripulante 1 cambiado a R
+[INFO] 21:36:39:004 discordiador.c/(8143:8173): Tripulante conectado con Mi RAM
+[INFO] 21:36:39:004 discordiador.c/(8143:8144): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
+[INFO] 21:36:39:004 discordiador.c/(8143:8144): Estado tripulante 2 cambiado a R
+[INFO] 21:36:39:005 discordiador.c/(8143:8144): Tripulante creado: ID: 3, PosX: 0, PosY: 0, estado: N 
+[INFO] 21:36:39:005 discordiador.c/(8143:8144): Estado tripulante 3 cambiado a R
+[INFO] 21:36:39:005 discordiador.c/(8143:8175): Tripulante conectado con Mi RAM
+[INFO] 21:36:39:005 discordiador.c/(8143:8174): Tripulante conectado con Mi RAM
+[INFO] 21:36:39:005 discordiador.c/(8143:8177): Tripulante conectado con Mi RAM
+[INFO] 21:36:42:451 discordiador.c/(8143:8144): INSTRUCCION LEIDA: trabajar
+[INFO] 21:36:42:451 discordiador.c/(8143:8174): Tripulante 1 trabajando, estado: E
+[INFO] 21:36:42:451 discordiador.c/(8143:8173): Tripulante 0 trabajando, estado: E
+[INFO] 21:36:47:452 discordiador.c/(8143:8174): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 21:36:47:452 discordiador.c/(8143:8173): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 21:36:47:452 discordiador.c/(8143:8175): Tripulante 2 trabajando, estado: E
+[INFO] 21:36:47:452 discordiador.c/(8143:8177): Tripulante 3 trabajando, estado: E
+[INFO] 21:36:52:453 discordiador.c/(8143:8175): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 21:36:52:453 discordiador.c/(8143:8177): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 21:36:52:453 discordiador.c/(8143:8173): Tripulante 0 trabajando, estado: E
+[INFO] 21:36:52:453 discordiador.c/(8143:8173): Tripulante 0 terminó de trabajar, estado: R
+[INFO] 21:36:52:453 discordiador.c/(8143:8175): Tripulante 2 trabajando, estado: E
+[INFO] 21:36:52:453 discordiador.c/(8143:8174): Tripulante 1 trabajando, estado: E
+[INFO] 21:36:52:453 discordiador.c/(8143:8175): Tripulante 2 terminó de trabajar, estado: R
+[INFO] 21:36:52:453 discordiador.c/(8143:8174): Tripulante 1 terminó de trabajar, estado: R
+[INFO] 21:36:52:453 discordiador.c/(8143:8173): Tripulante 0 trabajando, estado: E
+[INFO] 21:36:52:453 discordiador.c/(8143:8177): Tripulante 3 trabajando, estado: E
+[INFO] 21:36:52:454 discordiador.c/(8143:8175): Tripulante 2 trabajando, estado: E
+[INFO] 21:36:52:454 discordiador.c/(8143:8174): Tripulante 1 trabajando, estado: E
+[INFO] 21:36:52:454 discordiador.c/(8143:8177): Tripulante 3 terminó de trabajar, estado: R
+[INFO] 21:36:52:454 discordiador.c/(8143:8173): Tripulante 0 terminó de trabajar, estado: R
