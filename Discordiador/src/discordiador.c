@@ -14,7 +14,7 @@ int main(int argc, char ** argv){
 	listaTripulantes = list_create();
 	listaReady = list_create();
 	listaBloqueados = list_create();
-	
+
 
 	t_config * configuracion = config_create("./cfg/discordiador.config");
 	sem_init(&semaforoTripulantes, 0,  config_get_int_value(configuracion, "GRADO_MULTITAREA"));
@@ -81,17 +81,13 @@ void consola(){
 		}
 
 		if(strcmp(vectorInstruccion[0], "trabajar") == 0){
-													
+
 			t_config * config = config_create("./cfg/discordiador.config");
 			char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
-
-			if(strcmp(tipoAlgoritmo,"FIFO") == 0){
+												
 				pthread_t  hiloTrabajadorFIFO; 
-				pthread_create(&hiloTrabajadorFIFO, NULL, ponerATrabajarFIFO, NULL );	
-			} 
-			if (strcmp(tipoAlgoritmo, "RR") == 0){
-				pthread_t  hiloTrabajadorRR; 
-				pthread_create(&hiloTrabajadorRR, NULL, ponerATrabajarRR, NULL );			}
+				pthread_create(&hiloTrabajadorFIFO, NULL, ponerATrabajar, NULL );	
+
 		}
 
 	
@@ -234,69 +230,116 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 	//  free(paquete->buffer); 
 	//  free(paquete);
 
+	bool tareaTerminada = false;
+	tarea_struct * tarea = malloc(sizeof(tarea_struct));
+
 
 	while (1) 
 	{
 		sem_wait(&tripulante->semaforoTrabajo);
 		log_info(loggerDiscordiador, "Tripulante %d trabajando, estado: %c", tripulante->tid, tripulante->estado);
 		
-		// recibir tarea
 
-		char* tarea = "GENERAR_OXIGENO 12;2;3;5";
-		char ** vectorTarea;
-		char ** requerimientosTarea;
-
-		vectorTarea = string_split(tarea, " ");
-		requerimientosTarea = string_split(vectorTarea[1],";");
-
-		int parametros = atoi(requerimientosTarea[0]);
-		int posicionX = atoi(requerimientosTarea[1]);
-		int posicionY = atoi(requerimientosTarea[2]);
-		int tiempo = atoi(requerimientosTarea[3]);
-
-		trasladarseA(posicionX,posicionY, tripulante);
-
-		if( strcmp(vectorTarea[0],"GENERAR_OXIGENO") == 0 ){
-			 generarOxigeno(parametros,tiempo);
-		} 
-
-		else if(strcmp(vectorTarea[0],"CONSUMIR_OXIGENO") == 0){
-			consumirOxigeno(parametros,tiempo);
+		if(tareaTerminada){
+				int socket = conectarMiRAM();
+				// recv(socket, tarea, sizeof(struct_tarea), 0);
+				char ** vectorTarea;
+				char ** requerimientosTarea;
+				vectorTarea = string_split(tarea, " ");
+				requerimientosTarea = string_split(vectorTarea[1],";");
+				int parametros = atoi(requerimientosTarea[0]);
+				int posicionX = atoi(requerimientosTarea[1]);
+				int posicionY = atoi(requerimientosTarea[2]);
+				int tiempo = atoi(requerimientosTarea[3]);
 		}
 
-		else if(strcmp(vectorTarea[0],"GENERAR_COMIDA") == 0){
-			generarComida(parametros,tiempo);
-		}
+		tareaTerminada = tarea->tareaTerminada;
 
-		else if(strcmp(vectorTarea[0],"CONSUMIR_COMIDA") == 0){
-			consumirComida(parametros,tiempo);
-		}
+		t_config * config = config_create("./cfg/discordiador.config");
+		char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
 
-		else if(strcmp(vectorTarea[0],"GENERAR_BASURA") == 0){
-			generarBasura(parametros,tiempo);
-		}
+		tarea->parametro =12;
+		tarea->posicionX = 2;
+		tarea->posicionY = 3;
+		tarea->tiempo = 5;
+		tarea->tareaTerminada = false;
+		tarea->descripcionTarea = "GENERAR_OXIGENO";
 
-		else if(strcmp(vectorTarea[0],"DESCARTAR_BASURA") == 0){
-			descartarBasura(parametros,tiempo);
-		}
+	
 
-		else { //Ir a hacer tiempo al lugar 
-			transportarseAPosicionPorXTiempo(tiempo);
-		}
+		if(strcmp(tipoAlgoritmo, "FIFO")){
+				trasladarseA(tarea->posicionX,tarea->posicionY, tripulante); // poner dentro de fifo y rr pq gasta quantum
+				sleep(tarea -> tiempo);	
+				gestionarTarea(tarea);	// ver si  cuando termina el tiempo recien ejecutar la tarea		
+									     } else{
+											 	int contador = 0;
 
+												t_config * config = config_create("./cfg/discordiador.config");
+												int quantum = atoi(config_get_string_value(config, "QUANTUM"));
+													
+													// Moverse en x
+
+												if( tripulante->posicionX != tarea->posicionX){
+
+													for(contador; contador < quantum ;  contador ++){
+														sleep(1);
+														tripulante->posicionX ++;
+
+														if( tripulante->posicionX == tarea->posicionX){
+															break; //chequear si sale del for
+														}
+													}
+
+												}
+
+													// Moverse en y
+
+												if(tripulante->posicionY != tarea->posicionY){
+													
+													for(contador; contador < quantum ;  contador ++){
+														sleep(1);
+														tripulante->posicionY++;
+
+														if(tripulante->posicionY == tarea->posicionY){
+															break; //chequear si sale del for
+														}
+			
+													}
+
+												}
+
+												
+
+												for( contador ; contador < quantum ;  contador ++){
+
+													sleep(1);
+													tarea->tiempo --;
+
+													if(tarea->tiempo == 0){
+															break; //checkear si sale del for
+															tarea->tareaTerminada = true;
+															gestionarTarea(tarea);
+															}
+													   																	
+																						}
+
+		
+											}
+
+		
+		
 		sem_post(&semaforoTripulantes); 
 		tripulante->estado = 'R';
 		log_info(loggerDiscordiador, "Tripulante %d terminó de trabajar, estado: %c", tripulante->tid, tripulante->estado);
 		list_add(listaReady, tripulante); 
-								
-					
+															
 	}
 
 
 }
 
 
-void ponerATrabajarFIFO(){
+void ponerATrabajar(){
 	 
 	
 	while(1){  
@@ -306,7 +349,16 @@ void ponerATrabajarFIFO(){
 			TCB_DISCORDIADOR* tripulantee = list_remove(listaReady, 0);
 
 			tripulantee->estado = 'E';
-				
+
+			/*
+			 TODO aca antes de poner a trabajar a un tripulante deberia chequear que tenga proxima tarea
+			
+			una opcion que se me ocurre es terminar el hilo de pone a trabjar al tripulante: pseudocodigo
+
+			if(tripulante->proximaInstruccion == null){
+				break;
+			}
+			*/
 			sem_post(&tripulantee->semaforoTrabajo); // donde se pone? -> sem_destroy(&tripulantee->semaforoTrabajo);
 				
 			//mostrarLista(listaReady); 
@@ -316,23 +368,7 @@ void ponerATrabajarFIFO(){
 			
 }
 
-void ponerATrabajarRR(){
 
-	while(1){
-			sem_wait(&semaforoTripulantes); 
-
-			TCB_DISCORDIADOR* tripulantee = list_remove(listaReady, 0);
-
-			tripulantee->estado = 'E';
-
-
-
-
-
-
-	}
-
-}
 
 //-----------------------------LISTAR TRIPULANTES---------------------------------------------------------------------------------------
 
@@ -385,24 +421,52 @@ void trasladarseA(int posicionX,int posicionY, TCB_DISCORDIADOR * tripulante){
 }
 
 
-void generarOxigeno(int parametros,int tiempo){
+void generarOxigeno(int parametros){
+	printf("EStoy laburando arduamente \n");
 }
 
-void generarComida(int parametros,int tiempo){
+void generarComida(int parametros){
 }
 
-void generarBasura(int parametros,int tiempo){
+void generarBasura(int parametros){
 }
 
-void consumirOxigeno(int parametros,int tiempo){
+void consumirOxigeno(int parametros){
 }
 
-void consumirComida(int parametros,int tiempo){
+void consumirComida(int parametros){
 }
 
-void descartarBasura(int parametros,int tiempo){
+void descartarBasura(int parametros){
 }
-void transportarseAPosicionPorXTiempo(int tiempo){
+
+
+gestionarTarea(tarea_struct * tarea){
+	char * descripcionTarea = tarea->descripcionTarea;
+	int parametros = tarea->parametro;
+				if( strcmp(descripcionTarea,"GENERAR_OXIGENO") == 0 ){
+						generarOxigeno(parametros);
+					} 
+
+					else if(strcmp(tarea->descripcionTarea,"CONSUMIR_OXIGENO") == 0){
+						consumirOxigeno(parametros);
+					}
+
+					else if(strcmp(descripcionTarea,"GENERAR_COMIDA") == 0){
+						generarComida(parametros);
+					}
+
+					else if(strcmp(descripcionTarea,"CONSUMIR_COMIDA") == 0){
+						consumirComida(parametros);
+					}
+
+					else if(strcmp(descripcionTarea,"GENERAR_BASURA") == 0){
+						generarBasura(parametros);
+					}
+
+					else if(strcmp(descripcionTarea,"DESCARTAR_BASURA") == 0){
+						descartarBasura(parametros);
+					}
 
 }
 
