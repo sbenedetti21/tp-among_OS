@@ -10,24 +10,32 @@ int main(int argc, char ** argv){
 		leerBitMap();
 		mapearBlocks();
 	}
-	generarOxigeno(15);
-	generarBasura(30);
-	generarOxigeno(32);
-	generarBasura(25);
-	generarOxigeno(32);
-	generarBasura(2);
-	generarOxigeno(26);
-	consumirOxigeno(15);
-	consumirOxigeno(60);
-	generarBasura(33);
+	
+	recibirTripulante(GENERAR_OXIGENO, 15);
+	recibirTripulante(GENERAR_OXIGENO, 35);
+	recibirTripulante(GENERAR_COMIDA, 15);
+	recibirTripulante(GENERAR_BASURA, 15);
+	recibirTripulante(CONSUMIR_OXIGENO, 15);
+	/*
+	generarOxigeno(15, mapBlocksAux);
+	generarBasura(30, mapBlocksAux);
+	generarOxigeno(32, mapBlocksAux);
+	generarBasura(25, mapBlocksAux);
+	generarOxigeno(32, mapBlocksAux);
+	generarBasura(2, mapBlocksAux);
+	generarOxigeno(26, mapBlocksAux);
+	consumirOxigeno(15, mapBlocksAux);
+	consumirOxigeno(60, mapBlocksAux);
+	generarBasura(33, mapBlocksAux);
+	*/
+	
 	
 	//conectarAlCliente();
 
 	printf("Prueba\n");
 
 	//Necesario al finalizar
-	msync(mapBlocks, tamanioDeBloque*cantidadDeBloques, MS_SYNC);
-	munmap(mapBlocks,tamanioDeBloque*cantidadDeBloques);
+	munmap(mapBlocks,tamanioBlocks);
 	close(archivoBlocks);
 	liberarBitMap(punteroBitmap);
 	return 0;

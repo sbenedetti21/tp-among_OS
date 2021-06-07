@@ -22,6 +22,7 @@ int proximoBlock;
 
 //Variables del map blocks
 char *mapBlocks;
+size_t tamanioBlocks;
 int archivoBlocks;
 
 //Superbloque
@@ -31,6 +32,16 @@ t_bitarray *punteroBitmap;
 //FilesRecurso
 t_config * configRecurso;
 char * ubicacionArchivoRecurso;
+
+//Tareas
+typedef enum {
+	GENERAR_OXIGENO,
+	CONSUMIR_OXIGENO,
+	GENERAR_COMIDA,
+	CONSUMIR_COMIDA,
+	GENERAR_BASURA,
+	DESCARTAR_BASURA
+}tareasTripulantes;
 
 void leerConfig(){ 
 	t_config * config = config_create("./cfg/imongo.config");
@@ -104,13 +115,13 @@ void crearSuperBloque(){
 
 void mapearBlocks(){
 	char * ubicacionBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
-	size_t tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
+	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 	archivoBlocks = open(ubicacionBlocks, O_RDWR , S_IRUSR | S_IWUSR);
 	mapBlocks = mmap(NULL, tamanioBlocks, PROT_READ | PROT_WRITE, MAP_SHARED, archivoBlocks,0);
 	free(ubicacionBlocks);
 }
 
-void creacionArchivoRecurso(char *caracterLlenado){
+void creacionArchivoRecurso(char caracterLlenado){
 	FILE *fileRecurso = fopen(ubicacionArchivoRecurso,"w");
 	fclose(fileRecurso);
 
@@ -118,7 +129,7 @@ void creacionArchivoRecurso(char *caracterLlenado){
 	config_set_value(configRecurso,"SIZE",string_itoa(0));
 	config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(0));
 	config_set_value(configRecurso,"BLOCKS","[]");
-	config_set_value(configRecurso,"CARACTER_LLENADO",caracterLlenado);
+	config_set_value(configRecurso,"CARACTER_LLENADO",string_repeat(caracterLlenado,1));
 	config_set_value(configRecurso,"MD5_ARCHIVO","");
 }
 
@@ -151,7 +162,7 @@ void leerUltimoBloque(){
 	}
 }
  
-void llenarBlocks(char caracterLlenado, int cantLlenar){
+void llenarBlocks(char caracterLlenado, int cantLlenar, char *mapBlocksAux){
 	int cantAux = cantLlenar;
 
 	leerUltimoBloque(ubicacionArchivoRecurso);
@@ -163,13 +174,13 @@ void llenarBlocks(char caracterLlenado, int cantLlenar){
 		
 		int cant = proximoBlock * tamanioDeBloque;
 		
-		if(mapBlocks[cant]=='\0')
+		if(mapBlocksAux[cant]=='\0')
 			agregarBloqueAlFile(proximoBlock);
 
 		for(int i=0; i<cantAux && i<tamanioDeBloque;i++){
 			int j = cant + i;
-			if(mapBlocks[j]!=caracterLlenado)
-				mapBlocks[j]=caracterLlenado;
+			if(mapBlocksAux[j]!=caracterLlenado)
+				mapBlocksAux[j]=caracterLlenado;
 			else
 				cantAux++;
 		}
@@ -203,7 +214,7 @@ void borrarUltimoBloque(){
 	//Actualizar size;
 }
 
-void vaciarBlocks(char caracterVaciado, int cantAVaciar){
+void vaciarBlocks(char caracterVaciado, int cantAVaciar, char *mapBlocksAux){
 	int cantAux = cantAVaciar;
 
 	int nuevaSize = config_get_int_value(configRecurso,"SIZE");
@@ -217,13 +228,13 @@ void vaciarBlocks(char caracterVaciado, int cantAVaciar){
 		for(int i = tamanioDeBloque; cantAux>0 && i>0; i--){
 			int j = cant + i - 1;
 			
-			if(mapBlocks[j]==caracterVaciado){
-				mapBlocks[j]='\0';
+			if(mapBlocksAux[j]==caracterVaciado){
+				mapBlocksAux[j]='\0';
 				cantAux--;
 			}
 		}
 
-		if(mapBlocks[cant]=='\0'){
+		if(mapBlocksAux[cant]=='\0'){
 			bitarray_clean_bit(punteroBitmap,proximoBlock);
 			borrarUltimoBloque();
 		}
@@ -249,45 +260,65 @@ void crearFileSystem(){
 	mkdir(string_from_format("%s/Files/Bitacoras",puntoDeMontaje),0777);
 }
 
-void generarOxigeno(int cantidadALlenar){
-	ubicacionArchivoRecurso = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
+void generarRecurso(char *recurso, int cantidadALlenar, char *mapBlocksAux){
+	ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
 	if(access(ubicacionArchivoRecurso, F_OK ))
-		creacionArchivoRecurso("O");
+		creacionArchivoRecurso(recurso[0]);
 	else
 		configRecurso = config_create(ubicacionArchivoRecurso);
-
-	llenarBlocks('O', cantidadALlenar);
+	
+	llenarBlocks(recurso[0], cantidadALlenar, mapBlocksAux);
 	config_save(configRecurso);
 	config_destroy(configRecurso);
 	free(ubicacionArchivoRecurso);
 }
 
-void generarBasura(int cantidadALlenar){
-	ubicacionArchivoRecurso = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
-	if(access(ubicacionArchivoRecurso, F_OK ))
-		creacionArchivoRecurso("B");
-	else
-		configRecurso = config_create(ubicacionArchivoRecurso);
-
-	llenarBlocks('B', cantidadALlenar);
-	config_save(configRecurso);
-	config_destroy(configRecurso);
-	free(ubicacionArchivoRecurso);
-}
-
-bool consumirOxigeno(int cantidadAConsumir){
+bool consumirOxigeno(int cantidadAConsumir, char *mapBlocksAux){
 	ubicacionArchivoRecurso = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
 	
 	if(access(ubicacionArchivoRecurso, F_OK ))
 		return false;
 
 	configRecurso = config_create(ubicacionArchivoRecurso);
-	vaciarBlocks('O', cantidadAConsumir);
+	vaciarBlocks('O', cantidadAConsumir, mapBlocksAux);
 	config_save(configRecurso);
 	config_destroy(configRecurso);
 	free(ubicacionArchivoRecurso);
 
 	return true;
+}
+
+void recibirTripulante(tareasTripulantes tarea, int cantidadRecurso){
+	char *mapBlocksAux = malloc(tamanioBlocks);
+	memcpy(mapBlocksAux, mapBlocks, tamanioBlocks);
+
+	switch (tarea)
+	{
+	case GENERAR_OXIGENO:
+		generarRecurso("Oxigeno",cantidadRecurso,mapBlocksAux);
+		break;
+	case CONSUMIR_OXIGENO:
+		consumirOxigeno(cantidadRecurso,mapBlocksAux);
+		break;
+	case GENERAR_COMIDA:
+		generarRecurso("Comida",cantidadRecurso,mapBlocksAux);
+		break;
+	case CONSUMIR_COMIDA:
+		//consumirOxigeno(cantidadRecurso,mapBlocksAux);
+		break;
+	case GENERAR_BASURA:
+		generarRecurso("Basura",cantidadRecurso,mapBlocksAux);
+		break;
+	case DESCARTAR_BASURA:
+		//Descartar toda la basura
+		break;
+
+	default:
+		break;
+	}
+	memcpy(mapBlocks, mapBlocksAux, tamanioBlocks);
+	msync(mapBlocks, tamanioBlocks, MS_SYNC);
+	free(mapBlocksAux);
 }
 
 void conectarAlCliente(){
