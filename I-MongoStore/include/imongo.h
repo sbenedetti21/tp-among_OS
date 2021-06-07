@@ -9,6 +9,8 @@
 #include <commons/bitarray.h>
 #include <commons/collections/list.h>
 #include <fcntl.h>
+#include <pthread.h>
+#include <semaphore.h>
 
 //Informacion config
 char * puertoImongoStore;
@@ -42,6 +44,13 @@ typedef enum {
 	GENERAR_BASURA,
 	DESCARTAR_BASURA
 }tareasTripulantes;
+
+typedef struct prueba {
+	tareasTripulantes tarea;
+	int cantidadRecurso;
+}prueba;
+
+sem_t semBitArray;
 
 void leerConfig(){ 
 	t_config * config = config_create("./cfg/imongo.config");
@@ -80,10 +89,12 @@ void leerBitMap(){
 }
 
 int bitLibreBitMap(){
+	sem_wait(&semBitArray);
 	proximoBlock=0;
 	while(bitarray_test_bit(punteroBitmap,proximoBlock))
 			proximoBlock++;
 	bitarray_set_bit(punteroBitmap,proximoBlock);
+	sem_post(&semBitArray);
 	return proximoBlock;
 }
 
@@ -273,14 +284,14 @@ void generarRecurso(char *recurso, int cantidadALlenar, char *mapBlocksAux){
 	free(ubicacionArchivoRecurso);
 }
 
-bool consumirOxigeno(int cantidadAConsumir, char *mapBlocksAux){
-	ubicacionArchivoRecurso = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
+bool consumirRecurso(char *recurso, int cantidadAConsumir, char *mapBlocksAux){
+	ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
 	
 	if(access(ubicacionArchivoRecurso, F_OK ))
 		return false;
 
 	configRecurso = config_create(ubicacionArchivoRecurso);
-	vaciarBlocks('O', cantidadAConsumir, mapBlocksAux);
+	vaciarBlocks(recurso[0], cantidadAConsumir, mapBlocksAux);
 	config_save(configRecurso);
 	config_destroy(configRecurso);
 	free(ubicacionArchivoRecurso);
@@ -288,26 +299,27 @@ bool consumirOxigeno(int cantidadAConsumir, char *mapBlocksAux){
 	return true;
 }
 
-void recibirTripulante(tareasTripulantes tarea, int cantidadRecurso){
+//void recibirTripulante(tareasTripulantes tarea, int cantidadRecurso){
+void *recibirTripulante(prueba *parametrosPrueba){
 	char *mapBlocksAux = malloc(tamanioBlocks);
 	memcpy(mapBlocksAux, mapBlocks, tamanioBlocks);
-
-	switch (tarea)
+	
+	switch (parametrosPrueba->tarea)
 	{
 	case GENERAR_OXIGENO:
-		generarRecurso("Oxigeno",cantidadRecurso,mapBlocksAux);
+		generarRecurso("Oxigeno",parametrosPrueba->cantidadRecurso,mapBlocksAux);
 		break;
 	case CONSUMIR_OXIGENO:
-		consumirOxigeno(cantidadRecurso,mapBlocksAux);
+		consumirRecurso("Oxigeno", parametrosPrueba->cantidadRecurso,mapBlocksAux);
 		break;
 	case GENERAR_COMIDA:
-		generarRecurso("Comida",cantidadRecurso,mapBlocksAux);
+		generarRecurso("Comida",parametrosPrueba->cantidadRecurso,mapBlocksAux);
 		break;
 	case CONSUMIR_COMIDA:
-		//consumirOxigeno(cantidadRecurso,mapBlocksAux);
+		consumirRecurso("Comida", parametrosPrueba->cantidadRecurso,mapBlocksAux);
 		break;
 	case GENERAR_BASURA:
-		generarRecurso("Basura",cantidadRecurso,mapBlocksAux);
+		generarRecurso("Basura",parametrosPrueba->cantidadRecurso,mapBlocksAux);
 		break;
 	case DESCARTAR_BASURA:
 		//Descartar toda la basura
@@ -319,6 +331,7 @@ void recibirTripulante(tareasTripulantes tarea, int cantidadRecurso){
 	memcpy(mapBlocks, mapBlocksAux, tamanioBlocks);
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	free(mapBlocksAux);
+	return NULL;
 }
 
 void conectarAlCliente(){
