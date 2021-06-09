@@ -72,6 +72,14 @@ typedef struct{
 	bool tareaTerminada;
 } tarea_struct;
 
-
+//Tareas
+typedef enum {
+	GENERAR_OXIGENO,
+	CONSUMIR_OXIGENO,
+	GENERAR_COMIDA,
+	CONSUMIR_COMIDA,
+	GENERAR_BASURA,
+	DESCARTAR_BASURA
+}tareasTripulantes;
 
 #endif

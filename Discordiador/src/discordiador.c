@@ -48,11 +48,7 @@ int conectarMiRAM(){
 
 	 int conexion = crear_conexion(ip, puerto);
 
-	
-
 	 return conexion; 
-
-
 }
 
 //-----------------------------CONSOLA---------------------------------------------------------------------------------------
@@ -119,6 +115,17 @@ void consola(){
 
 		if(strcmp(vectorInstruccion[0], "EXIT") == 0){
 			log_info(loggerDiscordiador, "-------------PROGRAMA TERMINADO-------------"); 
+			return 0; 
+		}
+
+		if(strcmp(vectorInstruccion[0], "generarOxigeno") == 0){
+
+			tarea_struct * tarea = malloc(sizeof(tarea_struct));
+			tarea->parametro = 5;
+			tarea->descripcionTarea = "GENERAR_OXIGENO";
+
+			gestionarTarea(tarea);
+
 			return 0; 
 		}
 	
@@ -288,6 +295,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 														if( tripulante->posicionX == tarea->posicionX){
 															break; //chequear si sale del for
 														}
+
+														// mandar posicion a mi ram
 													}
 
 												}
@@ -303,7 +312,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 														if(tripulante->posicionY == tarea->posicionY){
 															break; //chequear si sale del for
 														}
-			
+
+														//mandar posicion a mi ram
 													}
 
 												}
@@ -421,51 +431,31 @@ void trasladarseA(int posicionX,int posicionY, TCB_DISCORDIADOR * tripulante){
 }
 
 
-void generarOxigeno(int parametros){ //ver int y uint_32
-	
-}
-
-void generarComida(int parametros){
-}
-
-void generarBasura(int parametros){
-}
-
-void consumirOxigeno(int parametros){
-}
-
-void consumirComida(int parametros){
-}
-
-void descartarBasura(int parametros){
-}
-
-
-gestionarTarea(tarea_struct * tarea){
+void gestionarTarea(tarea_struct * tarea){
 	char * descripcionTarea = tarea->descripcionTarea;
 	int parametros = tarea->parametro;
 				if( strcmp(descripcionTarea,"GENERAR_OXIGENO") == 0 ){
-						generarOxigeno(parametros);
+						serializarYMandarTarea(parametros, GENERAR_OXIGENO);
 					} 
 
 					else if(strcmp(tarea->descripcionTarea,"CONSUMIR_OXIGENO") == 0){
-						consumirOxigeno(parametros);
+						serializarYMandarTarea(parametros, CONSUMIR_OXIGENO);
 					}
 
 					else if(strcmp(descripcionTarea,"GENERAR_COMIDA") == 0){
-						generarComida(parametros);
+						serializarYMandarTarea(parametros, GENERAR_COMIDA);
 					}
 
 					else if(strcmp(descripcionTarea,"CONSUMIR_COMIDA") == 0){
-						consumirComida(parametros);
+						serializarYMandarTarea(parametros, CONSUMIR_COMIDA);
 					}
 
 					else if(strcmp(descripcionTarea,"GENERAR_BASURA") == 0){
-						generarBasura(parametros);
+						serializarYMandarTarea(parametros, GENERAR_BASURA);
 					}
 
 					else if(strcmp(descripcionTarea,"DESCARTAR_BASURA") == 0){
-						descartarBasura(parametros);
+						serializarYMandarTarea(parametros, DESCARTAR_BASURA);
 					}
 
 }
@@ -578,4 +568,27 @@ void serializarYMandarPCB(char * pathTareas, int socket){
 
 	mandarPaqueteSerializado(buffer, socket, CREAR_PCB);
 
+}
+
+void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea ){
+	int socket = conectarImongo();
+
+	int * punteroParametro = malloc(sizeof(int));
+	*punteroParametro = parametro;
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = sizeof(int);
+
+	void* stream = malloc(buffer->size);
+
+	memcpy(stream, &(punteroParametro), sizeof(uint32_t));
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, tipoTarea);
+}
+
+void serializarYMandarPosicionTripulante(){
+	
 }

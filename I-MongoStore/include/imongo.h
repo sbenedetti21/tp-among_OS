@@ -39,15 +39,7 @@ t_bitarray *punteroBitmap;
 t_config * configRecurso;
 char * ubicacionArchivoRecurso;
 
-//Tareas
-typedef enum {
-	GENERAR_OXIGENO,
-	CONSUMIR_OXIGENO,
-	GENERAR_COMIDA,
-	CONSUMIR_COMIDA,
-	GENERAR_BASURA,
-	DESCARTAR_BASURA
-}tareasTripulantes;
+
 
 
 //---Prueba de ilos, struck del ilo prueba ---//
@@ -362,7 +354,6 @@ void *recibirTripulante(prueba *parametrosPrueba){
 
 void servidorPrincipal() {
 	int listeningSocket = crear_conexionServer(puertoImongoStore);
-
 	int socketCliente;
 
 	struct sockaddr_in addr;
@@ -392,22 +383,15 @@ void atenderDiscordiador(int socketCliente){
 
 	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
 
-
 	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(int), 0);
-
 
 	paquete->buffer->stream = malloc(paquete->buffer->size);
 
 	int PAQUETE_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size,0);
 
-//----------------------------DESEREALIZAR----------------------------//
 	void* stream = paquete->buffer->stream;
 
-	//Deserializamos los campos que tenemos en el buffer
 	memcpy(&(parametro), stream, sizeof(int));
-	
-
-//--------------------------------------------------//
 
 	char *mapBlocksAux = malloc(tamanioBlocks);
 	memcpy(mapBlocksAux, mapBlocks, tamanioBlocks);
@@ -436,13 +420,11 @@ void atenderDiscordiador(int socketCliente){
 	default:
 		break;
 	}
+
 	memcpy(mapBlocks, mapBlocksAux, tamanioBlocks);
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	free(mapBlocksAux);
 
 }
-
-
-
 
 #endif

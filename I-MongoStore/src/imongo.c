@@ -12,9 +12,11 @@ int main(int argc, char ** argv){
 		mapearBlocks();
 	}
 
+	printf("pitos");
 
     pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
+	pthread_join(servidor, NULL);
 
 
 //CREACION DEL HILO PRUEBA CON TOMI

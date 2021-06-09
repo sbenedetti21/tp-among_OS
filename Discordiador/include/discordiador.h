@@ -41,18 +41,13 @@ void consola();
 void mandarPaqueteSerializado(t_buffer*,int, int);
 void serializarYMandarPCB(char*,int);
 void serializarYMandarTripulante(TCB_DISCORDIADOR*);
+void serializarYMandarTarea(int, tareasTripulantes);
+void serializarYMandarPosicionTripulante();
 
 bool coincideID(TCB_DISCORDIADOR*);
 
 void ponerATrabajar();
 void trasladarseA(int,int,TCB_DISCORDIADOR*);
-void generarOxigeno(int);
-void consumirOxigeno(int);
-void generarComida(int);
-void consumirComida(int);
-void generarBasura(int);
-void descartarBasura(int);
-
 
 void pasarTripulante(TCB_DISCORDIADOR *);
 
