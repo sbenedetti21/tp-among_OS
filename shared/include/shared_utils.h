@@ -63,6 +63,15 @@ typedef struct {
 	t_buffer* buffer;
 }t_paquete;
 
+typedef struct{
+	char * descripcionTarea;
+	int posicionX;
+	int posicionY;
+	int tiempo;
+	int parametro;
+	bool tareaTerminada;
+} tarea_struct;
+
 
 
 #endif

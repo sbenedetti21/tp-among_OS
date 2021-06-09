@@ -11,21 +11,6 @@
 #include <fcntl.h>
 #include <pthread.h>
 #include <semaphore.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <commons/log.h>
-#include <commons/string.h>
-#include <commons/config.h>
-#include <readline/readline.h>
-#include <signal.h>
-#include <unistd.h>
-#include <sys/socket.h>
-#include <netdb.h>
-#include <string.h>
-#include <commons/collections/list.h>
-#include <commons/temporal.h>
-#include <semaphore.h>
 
 //Conectar al Discordiador
 void servidorPrincipal();
@@ -403,12 +388,12 @@ void atenderDiscordiador(int socketCliente){
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->buffer = malloc(sizeof(t_buffer));
 
-	uint32_t *parametro; 
+	int *parametro; 
 
 	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
 
 
-	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(int), 0);
 
 
 	paquete->buffer->stream = malloc(paquete->buffer->size);
@@ -419,7 +404,7 @@ void atenderDiscordiador(int socketCliente){
 	void* stream = paquete->buffer->stream;
 
 	//Deserializamos los campos que tenemos en el buffer
-	memcpy(&(parametro), stream, sizeof(uint32_t));
+	memcpy(&(parametro), stream, sizeof(int));
 	
 
 //--------------------------------------------------//
