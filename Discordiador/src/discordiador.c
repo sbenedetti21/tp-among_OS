@@ -571,8 +571,8 @@ void serializarYMandarPCB(char * pathTareas, int socket){
 void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea ){
 	int socket = conectarImongo();
 
-	int * punteroParametro = malloc(sizeof(int));
-	*punteroParametro = parametro;
+	t_parametro * parametroS = malloc(sizeof(parametroS));
+	parametroS->parametro = parametro;
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
@@ -580,7 +580,9 @@ void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea ){
 
 	void* stream = malloc(buffer->size);
 
-	memcpy(stream, &(punteroParametro), sizeof(uint32_t));
+	int offset = 0;
+
+	memcpy(stream+offset, &(parametroS->parametro), sizeof(int));
 
 	buffer-> stream = stream;
 

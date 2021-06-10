@@ -389,39 +389,43 @@ void atenderDiscordiador(int socketCliente){
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->buffer = malloc(sizeof(t_buffer));
 
-	int *parametro; 
+	t_parametro * parametroS = malloc(sizeof(int)); 
 
 	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
 
-	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(int), 0);
+	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
 
 	paquete->buffer->stream = malloc(paquete->buffer->size);
 
 	int PAQUETE_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size,0);
 
-	void* stream = paquete->buffer->stream;
+	memcpy(&(parametroS->parametro), paquete->buffer->stream, sizeof(int));
+	paquete->buffer->stream += sizeof(int);
 
-	memcpy(&(parametro), stream, sizeof(uint32_t));
-	log_info(loggerImongoStore,string_from_format("valorPramtro %d",*parametro));
+	log_info(loggerImongoStore,string_from_format("valorParamtro %d", parametroS->parametro));
+
+
 	char *mapBlocksAux = malloc(tamanioBlocks);
 	memcpy(mapBlocksAux, mapBlocks, tamanioBlocks);
+
 	
 	switch (paquete->header)
 	{
 	case GENERAR_OXIGENO:
-		generarRecurso("Oxigeno",parametro,mapBlocksAux);
+		log_info(loggerImongoStore,string_from_format("entre a generar oxigeno"));
+		generarRecurso("Oxigeno",parametroS->parametro,mapBlocksAux);
 		break;
 	case CONSUMIR_OXIGENO:
-		consumirRecurso("Oxigeno",parametro,mapBlocksAux);
+		consumirRecurso("Oxigeno",parametroS->parametro,mapBlocksAux);
 		break;
 	case GENERAR_COMIDA:
-		generarRecurso("Comida",parametro,mapBlocksAux);
+		generarRecurso("Comida",parametroS->parametro,mapBlocksAux);
 		break;
 	case CONSUMIR_COMIDA:
-		consumirRecurso("Comida", parametro,mapBlocksAux);
+		consumirRecurso("Comida", parametroS->parametro,mapBlocksAux);
 		break;
 	case GENERAR_BASURA:
-		generarRecurso("Basura",parametro,mapBlocksAux);
+		generarRecurso("Basura",parametroS->parametro,mapBlocksAux);
 		break;
 	case DESCARTAR_BASURA:
 		//Descartar toda la basura

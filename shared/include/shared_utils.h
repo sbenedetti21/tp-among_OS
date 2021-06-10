@@ -74,12 +74,17 @@ typedef struct{
 
 //Tareas
 typedef enum {
-	GENERAR_OXIGENO,
 	CONSUMIR_OXIGENO,
+	GENERAR_OXIGENO,
 	GENERAR_COMIDA,
 	CONSUMIR_COMIDA,
 	GENERAR_BASURA,
 	DESCARTAR_BASURA
 }tareasTripulantes;
+
+typedef struct {
+	int parametro;
+}t_parametro;
+
 
 #endif
