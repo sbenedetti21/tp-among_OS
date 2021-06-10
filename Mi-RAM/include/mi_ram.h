@@ -9,13 +9,28 @@
 #include <nivel-gui/tad_nivel.h>
 #include "shared_utils.h"
 
+// ----------------------------------------  PAGINAS
+
+typedef struct {
+	void * contenido;
+} frame;
+
+typedef struct {
+	uint32_t numeroPagina;
+	uint32_t numeroFrame;
+	// ultimaReferencia
+} paginaStruct;
+
+
+// ----------------------------------------  SEGMENTOS
+
 t_list * tablaSegmentos; 
 typedef struct{
-	int numeroSegmento; 
-	int direccionBase; 
-	int tamanio; 
+	uint32_t numeroSegmento; 
+	uint32_t direccionBase; 
+	uint32_t tamanio; 
 // no se si va aca -- 	void * contenido; 
-}segmento; 
+} segmento; 
 
 t_log * loggerMiram; 
 void servidorPrincipal(t_config*);

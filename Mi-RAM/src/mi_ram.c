@@ -95,6 +95,9 @@ void atenderDiscordiador(int socketCliente){
 		log_info(loggerMiram, tareas); 
 		//printf("%s \n", tareas);
 
+		// Meter en memoria el PCB -> en primer espacio libre
+		// Meter tareas
+
 		send(socketCliente, punteroPCB, sizeof(uint32_t),0);
 
 		free(punteroPCB);
@@ -107,13 +110,15 @@ void atenderDiscordiador(int socketCliente){
 
 		TCB * tripulante = deserializar_TCB(paquete->buffer);
 
+		// Meter en memoria al TCB
+
 			log_info(loggerMiram, "tripulante recibido. ID: %d, X: %d, Y: %d ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 
 			//printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 			//agregarTripulanteAlMapa(tripulante);
 
-		//	int personaje = personaje_crear(navePrincipal, '0', tripulante->posicionX, tripulante->posicionY); 
-		//	nivel_gui_dibujar(navePrincipal); 
+			//	int personaje = personaje_crear(navePrincipal, '0', tripulante->posicionX, tripulante->posicionY); 
+			//	nivel_gui_dibujar(navePrincipal); 
 
 			//pthread_t hiloDibujante; 
 
