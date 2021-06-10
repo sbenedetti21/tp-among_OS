@@ -1,23 +1,24 @@
 #include "imongo.h"
 
 int main(int argc, char ** argv){
-
+	loggerImongoStore = log_create("imongo.log", "imongo.c", 0, LOG_LEVEL_INFO); 
 
 	leerConfig();
-	if(true)
+	if(true){
 		crearFileSystem();
-	else{
+		log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
+	} else{
 		ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 		leerBitMap();
 		mapearBlocks();
 	}
 
-	printf("pitos");
 
     pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
-	pthread_join(servidor, NULL);
+    pthread_join(servidor, NULL);
 
+	
 
 //CREACION DEL HILO PRUEBA CON TOMI
 /* 

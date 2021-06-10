@@ -125,8 +125,6 @@ void consola(){
 			tarea->descripcionTarea = "GENERAR_OXIGENO";
 
 			gestionarTarea(tarea);
-
-			return 0; 
 		}
 	
 		
@@ -559,7 +557,7 @@ void serializarYMandarPCB(char * pathTareas, int socket){
 	printf("%d\n", strlen(stringTareas));
 
 	void* stream = malloc(buffer->size);
-
+ 
 	int offset = 0;
 	
 	memcpy(stream + offset, stringTareas, buffer->size);

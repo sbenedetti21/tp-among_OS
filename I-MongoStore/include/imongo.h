@@ -12,6 +12,9 @@
 #include <pthread.h>
 #include <semaphore.h>
 
+//Log
+t_log *loggerImongoStore;
+
 //Conectar al Discordiador
 void servidorPrincipal();
 void atenderDiscordiador(int);
@@ -86,12 +89,12 @@ void leerBitMap(){
 }
 
 int bitLibreBitMap(){
-	sem_wait(&semBitArray);
+
 	proximoBlock=0;
 	while(bitarray_test_bit(punteroBitmap,proximoBlock))
 			proximoBlock++;
 	bitarray_set_bit(punteroBitmap,proximoBlock);
-	sem_post(&semBitArray);
+	
 	return proximoBlock;
 }
 
@@ -117,11 +120,12 @@ void creacionArchivoRecurso(char caracterLlenado){
 	fclose(fileRecurso);
 
 	configRecurso = config_create(ubicacionArchivoRecurso);
-	config_set_value(configRecurso,"SIZE",string_itoa(0));
-	config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(0));
-	config_set_value(configRecurso,"BLOCKS","[]");
-	config_set_value(configRecurso,"CARACTER_LLENADO",string_repeat(caracterLlenado,1));
-	config_set_value(configRecurso,"MD5_ARCHIVO","");
+	 config_set_value(configRecurso,"SIZE",string_itoa(0));
+	 config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(0));
+	 config_set_value(configRecurso,"BLOCKS","[]");
+	 config_set_value(configRecurso,"CARACTER_LLENADO",string_repeat(caracterLlenado,1));
+	 config_set_value(configRecurso,"MD5_ARCHIVO","");
+	 config_save_in_file(configRecurso,ubicacionArchivoRecurso);
 }
 //-------------------------------------------------------------------------------//
 
@@ -152,25 +156,31 @@ void agregarBloqueAlFile(int nuevoBloque){
 }
 
 void leerUltimoBloque(){
+	log_info(loggerImongoStore,string_from_format("ENTRE AL llerbloque"));
 	char *listaBlocks = config_get_string_value(configRecurso,"BLOCKS");
-	
-	if(listaBlocks[1]!=']'){
+	log_info(loggerImongoStore,string_from_format("lista %s",listaBlocks));
+	if(listaBlocks[1]!=']'){ 
+		log_info(loggerImongoStore,string_from_format("entre al if"));
 		int indiceFinal = strlen(listaBlocks);
 		while(listaBlocks[indiceFinal]!=',' && indiceFinal>0)
 			indiceFinal--;
 		proximoBlock = atoi(string_substring_from(listaBlocks,indiceFinal+1)) - 1;
 	}else{
+		log_info(loggerImongoStore,string_from_format("entre al else "));
 		proximoBlock = bitLibreBitMap(punteroBitmap);
+		
 	}
+
 }
  
 void llenarBlocks(char caracterLlenado, int cantLlenar, char *mapBlocksAux){
+	log_info(loggerImongoStore,string_from_format("ENTRE AL BLOCKS %c,%d",caracterLlenado,cantLlenar));
 	int cantAux = cantLlenar;
-
-	leerUltimoBloque(ubicacionArchivoRecurso);
+	leerUltimoBloque();
 	int nuevaSize = config_get_int_value(configRecurso,"SIZE");
 	nuevaSize+=cantLlenar;
 	config_set_value(configRecurso, "SIZE", string_itoa(nuevaSize));
+	config_save_in_file(configRecurso,ubicacionArchivoRecurso);
 	
 	while(cantAux>0){
 		
@@ -282,7 +292,7 @@ void crearFileSystem(){
 	mkdir(string_from_format("%s/Files/Bitacoras",puntoDeMontaje),0777);
 }
 //-------------------------------------------------------------------------------//
-
+//------------------------------MENSAJES QUE RECIVE -------------------------------------------//
 
 void generarRecurso(char *recurso, int cantidadALlenar, char *mapBlocksAux){
 	ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
@@ -346,7 +356,7 @@ void *recibirTripulante(prueba *parametrosPrueba){
 	free(mapBlocksAux);
 	return NULL;
 }
-
+//-------------------------------------------------------------------------------//
 
 //----------------------------------------------------ATENDER DISCORDIADOR-------------------------------------------------------------------------/////
 
@@ -391,8 +401,8 @@ void atenderDiscordiador(int socketCliente){
 
 	void* stream = paquete->buffer->stream;
 
-	memcpy(&(parametro), stream, sizeof(int));
-
+	memcpy(&(parametro), stream, sizeof(uint32_t));
+	log_info(loggerImongoStore,string_from_format("valorPramtro %d",*parametro));
 	char *mapBlocksAux = malloc(tamanioBlocks);
 	memcpy(mapBlocksAux, mapBlocks, tamanioBlocks);
 	
