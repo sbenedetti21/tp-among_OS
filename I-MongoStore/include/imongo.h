@@ -436,6 +436,8 @@ void atenderDiscordiador(int socketCliente){
 	char *mapBlocksAux = malloc(tamanioBlocks);
 	memcpy(mapBlocksAux, mapBlocks, tamanioBlocks);
 
+	uint32_t * tid = malloc(sizeof(uint32_t));
+	*tid = parametroS->tid;   // ID TRIPULANTE
 	
 	switch (paquete->header)
 	{

@@ -124,7 +124,25 @@ void consola(){
 			tarea->parametro = 5;
 			tarea->descripcionTarea = "GENERAR_OXIGENO";
 
-			gestionarTarea(tarea);
+			gestionarTarea(tarea, 1);
+		}
+
+		if(strcmp(vectorInstruccion[0], "generarBasura") == 0){
+
+			tarea_struct * tarea = malloc(sizeof(tarea_struct));
+			tarea->parametro = 5;
+			tarea->descripcionTarea = "GENERAR_BASURA";
+
+			gestionarTarea(tarea, 1);
+		}
+
+		if(strcmp(vectorInstruccion[0], "consumirOxigeno") == 0){
+
+			tarea_struct * tarea = malloc(sizeof(tarea_struct));
+			tarea->parametro = 5;
+			tarea->descripcionTarea = "CONSUMIR_OXIGENO";
+
+			gestionarTarea(tarea, 1);
 		}
 	
 		
@@ -152,26 +170,26 @@ void iniciarPatota(char ** vectorInstruccion){
 	int socket = conectarMiRAM();
 	log_info(loggerDiscordiador, "Discordiador conectado con Mi RAM");
 
-	uint32_t punteroPCB = iniciarPCB(vectorInstruccion[2], socket);
-
-	//INICIAR_PATOTA 3 txt 1|1 1|2 1|3
-
 				char * posicionBase = "0|0";
 				int i;
 				int indice_posiciones = 3;
 				int cantidadTripulantes = atoi(vectorInstruccion[1]);
 				pthread_t tripulantes[cantidadTripulantes];
+				listaTCBs = list_create();
 
-				for(i = 0; i < cantidadTripulantes; i++ ) {  // DEBERIA SER <, NO <=
+
+				for(i = 0; i < cantidadTripulantes; i++ ) {  
 					pthread_t hilo;
 
 					TCB_DISCORDIADOR* tripulante = malloc(sizeof(TCB_DISCORDIADOR));
 					if (vectorInstruccion[indice_posiciones] != NULL) {
-						tripulante = crearTCB(vectorInstruccion[3 + i],punteroPCB);
+						tripulante = crearTCB(vectorInstruccion[3 + i]);
 						indice_posiciones++;
 					} else {
-						tripulante = crearTCB(posicionBase, punteroPCB);
+						tripulante = crearTCB(posicionBase);
 					}
+
+					list_add(listaTCBs, tripulante);
 
 					pthread_create(&tripulantes[i], NULL, tripulanteVivo , tripulante);
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, PosX: %d, PosY: %d, estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
@@ -181,29 +199,15 @@ void iniciarPatota(char ** vectorInstruccion){
 					
 				}
 
+
+				serializarYMandarPCB(vectorInstruccion[2],socket, cantidadTripulantes, listaTCBs);
+				
+
 	close(socket);
-
+	
 }
 
-
-uint32_t iniciarPCB(char * pathTareas, int socket){
-
-	serializarYMandarPCB(pathTareas, socket);
-
-	//  free(a_enviar);
-	//  free(paquete->buffer->size);
-	//  free(paquete->buffer); DA ERROR
-	//  free(paquete);
-	//  free(a);
-
-	uint32_t * punteroPCB = malloc(sizeof(uint32_t));
-
-	int prueba = recv(socket, (void*)punteroPCB, sizeof(uint32_t),0);
-	return *punteroPCB;
-}
-
-
-TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t punteroAPCB){
+TCB_DISCORDIADOR * crearTCB(char * posiciones){
 
 		char ** vectorPosiciones = string_split(posiciones,"|" );
 		TCB_DISCORDIADOR * tripulante = malloc(sizeof(TCB_DISCORDIADOR));
@@ -214,7 +218,6 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t punteroAPCB){
 		tripulante->tid = proximoTID;
 		tripulante->posicionX = atoi(vectorPosiciones[0]);
 		tripulante->posicionY = atoi(vectorPosiciones[1]);
-		tripulante->punteroPCB = punteroAPCB;  
 		//tripulante->proximaInstruccion; //falta
 
 		list_add(listaTripulantes, tripulante);
@@ -228,14 +231,12 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t punteroAPCB){
 
 void tripulanteVivo(TCB_DISCORDIADOR * tripulante) { 
 
-	serializarYMandarTripulante(tripulante);
-
 	//  free(a_enviar);
 	//  free(paquete->buffer->size);
 	//  free(paquete->buffer); 
 	//  free(paquete);
 
-	bool tareaTerminada = false;
+	bool tareaTerminada = true;
 	tarea_struct * tarea = malloc(sizeof(tarea_struct));
 
 
@@ -256,6 +257,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				int posicionX = atoi(requerimientosTarea[1]);
 				int posicionY = atoi(requerimientosTarea[2]);
 				int tiempo = atoi(requerimientosTarea[3]);
+
+
 		}
 
 		tareaTerminada = tarea->tareaTerminada;
@@ -272,10 +275,10 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 	
 
-		if(strcmp(tipoAlgoritmo, "FIFO")){
+		if(strcmp(tipoAlgoritmo, "FIFO") == 0){
 				trasladarseA(tarea->posicionX,tarea->posicionY, tripulante); // poner dentro de fifo y rr pq gasta quantum
 				sleep(tarea -> tiempo);	
-				gestionarTarea(tarea);	// ver si  cuando termina el tiempo recien ejecutar la tarea		
+				gestionarTarea(tarea,tripulante->tid);	// ver si  cuando termina el tiempo recien ejecutar la tarea		
 									     } else{
 											 	int contador = 0;
 
@@ -326,7 +329,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 													if(tarea->tiempo == 0){
 															break; //checkear si sale del for
 															tarea->tareaTerminada = true;
-															gestionarTarea(tarea);
+															gestionarTarea(tarea,tripulante->tid);
 															}
 													   																	
 																						}
@@ -429,31 +432,31 @@ void trasladarseA(int posicionX,int posicionY, TCB_DISCORDIADOR * tripulante){
 }
 
 
-void gestionarTarea(tarea_struct * tarea){
+void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 	char * descripcionTarea = tarea->descripcionTarea;
 	int parametros = tarea->parametro;
 				if( strcmp(descripcionTarea,"GENERAR_OXIGENO") == 0 ){
-						serializarYMandarTarea(parametros, GENERAR_OXIGENO);
+						serializarYMandarTarea(parametros, GENERAR_OXIGENO,tid);
 					} 
 
 					else if(strcmp(tarea->descripcionTarea,"CONSUMIR_OXIGENO") == 0){
-						serializarYMandarTarea(parametros, CONSUMIR_OXIGENO);
+						serializarYMandarTarea(parametros, CONSUMIR_OXIGENO,tid);
 					}
 
 					else if(strcmp(descripcionTarea,"GENERAR_COMIDA") == 0){
-						serializarYMandarTarea(parametros, GENERAR_COMIDA);
+						serializarYMandarTarea(parametros, GENERAR_COMIDA,tid);
 					}
 
 					else if(strcmp(descripcionTarea,"CONSUMIR_COMIDA") == 0){
-						serializarYMandarTarea(parametros, CONSUMIR_COMIDA);
+						serializarYMandarTarea(parametros, CONSUMIR_COMIDA,tid);
 					}
 
 					else if(strcmp(descripcionTarea,"GENERAR_BASURA") == 0){
-						serializarYMandarTarea(parametros, GENERAR_BASURA);
+						serializarYMandarTarea(parametros, GENERAR_BASURA,tid);
 					}
 
 					else if(strcmp(descripcionTarea,"DESCARTAR_BASURA") == 0){
-						serializarYMandarTarea(parametros, DESCARTAR_BASURA);
+						serializarYMandarTarea(parametros, DESCARTAR_BASURA,tid);
 					}
 
 }
@@ -514,75 +517,80 @@ void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
 
 }
 
-void serializarYMandarTripulante(TCB_DISCORDIADOR * tripulante){
+void serializarYMandarTripulante(TCB_DISCORDIADOR * tripulante, void * stream,int * offset){
 
-	int socket = conectarMiRAM();
+	memcpy(stream+*offset, &(tripulante->tid), sizeof(uint32_t));
+	*offset += sizeof(uint32_t);
 
-	log_info(loggerDiscordiador, "Tripulante conectado con Mi RAM");
+	memcpy(stream+*offset, &(tripulante->posicionX), sizeof(uint32_t));
+	*offset += sizeof(uint32_t);
 
-	t_buffer* buffer = malloc(sizeof(t_buffer));
+	memcpy(stream+*offset, &(tripulante->posicionY), sizeof(uint32_t));
+	*offset += sizeof(uint32_t);
 
-	buffer-> size = sizeof(uint32_t) * 4  + sizeof(char);
-
-	void* stream = malloc(buffer->size);
-
-	int offset = 0; //desplazamiento
-
-	memcpy(stream+offset, &(tripulante->tid), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy(stream+offset, &(tripulante->posicionX), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy(stream+offset, &(tripulante->posicionY), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy(stream+offset, &(tripulante->punteroPCB), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy(stream+offset, &(tripulante->estado), sizeof(char));
-
-	buffer-> stream = stream;
-
-
-	mandarPaqueteSerializado(buffer, socket, CREAR_TCB);
+	memcpy(stream+*offset, &(tripulante->estado), sizeof(char));
+	*offset += sizeof(char);
 }
 
-void serializarYMandarPCB(char * pathTareas, int socket){
-	char * stringTareas = leerTareas(pathTareas);
+void serializarYMandarPCB(char * pathTareas, int socket, int cantidadTCB, t_list * listaTCBS){
+
+	int * offset = 0;
+
+	PCB_TAREAS_TCB_struct * estructura = malloc(sizeof(PCB_TAREAS_TCB_struct));
+	
+	estructura->tareas = leerTareas(pathTareas);
+	estructura->tamanioTareas = strlen(estructura->tareas) + 1;
+	estructura->cantidadTCB = cantidadTCB;
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = strlen(stringTareas) + 1;
-	printf("%d\n", strlen(stringTareas));
+	buffer-> size = sizeof(estructura->tamanioTareas) + sizeof(estructura->tareas) + sizeof(cantidadTCB) + sizeof(TCB) * cantidadTCB;
 
 	void* stream = malloc(buffer->size);
- 
-	int offset = 0;
-	
-	memcpy(stream + offset, stringTareas, buffer->size);
 
-	buffer-> stream = stream;
+	memcpy(stream+*offset,&estructura->tamanioTareas, sizeof(estructura->tamanioTareas));
+	*offset += sizeof(estructura->tamanioTareas);
+
+	memcpy(stream+*offset,&estructura->tareas, sizeof(estructura->tareas));
+	*offset += sizeof(estructura->tareas);
+
+	memcpy(stream+*offset,&estructura->cantidadTCB, sizeof(estructura->cantidadTCB));
+	*offset += sizeof(estructura->cantidadTCB);
+
+	for(int i = 0;i<cantidadTCB; i++){
+
+		TCB_DISCORDIADOR * tripulante = malloc(sizeof(tripulante));
+		tripulante = list_get(listaTCBS,i);
+		serializarYMandarPosicionTripulante(tripulante,stream,&offset);
+
+	}
+
+	buffer->stream = stream;
 
 	mandarPaqueteSerializado(buffer, socket, CREAR_PCB);
 
+	list_clean(listaTCBs);
 }
 
-void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea ){
+void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea, uint32_t tid ){
 	int socket = conectarImongo();
 
 	t_parametro * parametroS = malloc(sizeof(parametroS));
 	parametroS->parametro = parametro;
+	parametroS->tid = tid;
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = sizeof(int);
+	buffer-> size = sizeof(int) + sizeof(uint32_t);
 
 	void* stream = malloc(buffer->size);
 
 	int offset = 0;
 
 	memcpy(stream+offset, &(parametroS->parametro), sizeof(int));
+	offset += sizeof(int);
+
+	memcpy(stream+offset, &(parametroS->parametro), sizeof(uint32_t));
 
 	buffer-> stream = stream;
 

@@ -13,7 +13,6 @@ typedef struct tcb_discordiador{
 	uint32_t posicionX;
 	uint32_t posicionY;
 	//uint32_t proximaInstruccion;
-	uint32_t punteroPCB;
 	sem_t semaforoTrabajo;
 } TCB_DISCORDIADOR;
 
@@ -31,6 +30,7 @@ t_log * loggerDiscordiador;
 t_list * listaTripulantes;
 t_list * listaReady;
 t_list * listaBloqueados;
+t_list * listaTCBs;
 
 uint32_t iniciarPCB(char*, int);
 int conectarImongo();
@@ -39,10 +39,12 @@ void iniciarPatota(char **);
 void listarTripulantes();
 void consola();
 void mandarPaqueteSerializado(t_buffer*,int, int);
-void serializarYMandarPCB(char*,int);
-void serializarYMandarTripulante(TCB_DISCORDIADOR*);
-void serializarYMandarTarea(int, tareasTripulantes);
+void serializarYMandarPCB(char*,int,int, t_list *);
+void serializarYMandarTripulante(TCB_DISCORDIADOR*, void*, int *);
+void serializarYMandarTarea(int, tareasTripulantes, uint32_t);
 void serializarYMandarPosicionTripulante();
+void gestionarTarea(tarea_struct * , uint32_t);
+
 
 bool coincideID(TCB_DISCORDIADOR*);
 
@@ -53,7 +55,7 @@ void pasarTripulante(TCB_DISCORDIADOR *);
 
 void tripulanteVivo(TCB_DISCORDIADOR *);
 
-TCB_DISCORDIADOR * crearTCB(char *, uint32_t); // chequear lo de la lista
+TCB_DISCORDIADOR * crearTCB(char *); // chequear lo de la lista
 
 void mostrarLista(t_list *); 
 

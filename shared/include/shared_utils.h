@@ -84,7 +84,17 @@ typedef enum {
 
 typedef struct {
 	int parametro;
+	uint32_t tid;
 }t_parametro;
+
+typedef struct {
+	PCB * pcb;
+	int tamanioTareas;
+	char * tareas;
+	int cantidadTCB;
+	// lista TCBs ???
+} PCB_TAREAS_TCB_struct;
+
 
 
 #endif
