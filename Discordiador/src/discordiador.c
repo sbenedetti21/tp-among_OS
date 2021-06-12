@@ -1,6 +1,7 @@
 #include "discordiador.h"
 
 // FACU: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
+// INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
 
 
 int main(int argc, char ** argv){
@@ -348,20 +349,20 @@ void serializarYMandarPCB(char * pathTareas, int socket, int cantidadTCB, t_list
 	int  offset = 0;
 	
 	char * tareas = leerTareas(pathTareas);
-	int  tamanioTareas = strlen(tareas) + 1;
+	int  tamanioTareas = strlen(tareas);
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = sizeof(tamanioTareas) + sizeof(tareas) + sizeof(cantidadTCB) + sizeof(TCB) * cantidadTCB;
+	buffer-> size = sizeof(tamanioTareas) + tamanioTareas + sizeof(cantidadTCB) + sizeof(TCB) * cantidadTCB;
 
 	void* stream = malloc(buffer->size);
 
 	memcpy(stream+offset, &tamanioTareas, sizeof(tamanioTareas));
-	offset += sizeof(tamanioTareas);
+	offset += sizeof(int);
 
-	memcpy(stream+offset, tareas, sizeof(tareas));
-	offset += sizeof(tareas);
-
+	memcpy(stream+offset, tareas, tamanioTareas);
+	offset += tamanioTareas;
+	
 	memcpy(stream+offset, & cantidadTCB, sizeof(cantidadTCB));
 	offset += sizeof(cantidadTCB);
 

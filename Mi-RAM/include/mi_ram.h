@@ -23,9 +23,9 @@ void servidorPrincipal(t_config*);
 void atenderDiscordiador(int);
 void recibir_TCB(int);
 uint32_t crearPCB(char*);
-TCB * deserializar_TCB(void *);
 char * deserializar_Tareas(t_buffer * );
 
+//TCB * deserializar_TCB(void *);
 
 typedef struct {
 

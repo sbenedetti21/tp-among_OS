@@ -97,17 +97,42 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(tareas, stream, tamanioTareas);
 		stream += tamanioTareas;
 
+		printf("%s \n", tareas);
+
 		//Deserializar TCBs
 		int cantidadTCBs = 0;
 		memcpy(&cantidadTCBs, stream, sizeof(int));
-		stream += cantidadTCBs;
+		stream += sizeof(int);
+
 		
-		printf("cantidad tcbs: %d", cantidadTCBs);
+		printf("cantidad tcbs: %d \n", cantidadTCBs);
 
 		for(int i = 0 ; i < cantidadTCBs ;  i++ ){
 			TCB * tripulante = malloc(sizeof(TCB));
-			tripulante = deserializar_TCB(stream);
-			//printf("ID: %d \n", tripulante->tid);
+			//tripulante = deserializar_TCB(stream);
+
+			uint32_t id, x, y = 0;
+			char e = 0;
+
+			//Deserializamos los campos que tenemos en el buffer
+			memcpy(&id, stream, sizeof(uint32_t));
+			stream += sizeof(uint32_t);
+
+			memcpy(&x, stream, sizeof(uint32_t));
+			stream += sizeof(uint32_t);
+
+			memcpy(&y, stream, sizeof(uint32_t));
+			stream += sizeof(uint32_t);
+
+			memcpy(&e, stream, sizeof(char));
+			stream += sizeof(char);
+
+			tripulante->tid = id;
+			tripulante->posicionX = x;
+			tripulante->posicionY = y;
+			tripulante->estado = e;
+
+			printf("ID: %d \n", tripulante->tid);
 		}
 
 		break;
@@ -133,24 +158,24 @@ void atenderDiscordiador(int socketCliente){
 }
 
 
-TCB * deserializar_TCB(void * stream){ // Agregar stuff
-	TCB * tripulante = malloc(sizeof(TCB));
+// TCB * deserializar_TCB(void * stream){ // Agregar stuff
+// 	TCB * tripulante = malloc(sizeof(TCB));
 
-	//Deserializamos los campos que tenemos en el buffer
-	memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
-	stream += sizeof(uint32_t);
+// 	//Deserializamos los campos que tenemos en el buffer
+// 	memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
+// 	stream += sizeof(uint32_t);
 
-	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
-	stream += sizeof(uint32_t);
+// 	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
+// 	stream += sizeof(uint32_t);
 
-	memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
-	stream += sizeof(uint32_t);
+// 	memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
+// 	stream += sizeof(uint32_t);
 
-	memcpy(&(tripulante->estado), stream, sizeof(char));
-	stream += sizeof(char);
+// 	memcpy(&(tripulante->estado), stream, sizeof(char));
+// 	stream += sizeof(char);
 
-	return tripulante;
-}
+// 	return tripulante;
+// }
 
 char * deserializar_Tareas(t_buffer * buffer) {
 	int tamanioBuffer = buffer->size;
