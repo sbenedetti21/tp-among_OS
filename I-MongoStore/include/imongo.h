@@ -447,15 +447,15 @@ void servidorPrincipal() {
 	}
 
 	close(socketCliente);
-	close(listeningSocket);
-}
+	close(listeningSocket);   
+	}
 
 void atenderDiscordiador(int socketCliente){
 
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->buffer = malloc(sizeof(t_buffer));
 
-	t_parametro * parametroS = malloc(sizeof(int)); 
+	t_parametro * parametroS = malloc(sizeof(int));  
 
 	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
 

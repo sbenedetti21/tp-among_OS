@@ -30,7 +30,7 @@ t_log * loggerDiscordiador;
 t_list * listaTripulantes;
 t_list * listaReady;
 t_list * listaBloqueados;
-t_list * listaTCBs;
+
 
 uint32_t iniciarPCB(char*, int);
 int conectarImongo();
@@ -40,9 +40,7 @@ void listarTripulantes();
 void consola();
 void mandarPaqueteSerializado(t_buffer*,int, int);
 void serializarYMandarPCB(char*,int,int, t_list *);
-void serializarYMandarTripulante(TCB_DISCORDIADOR*, void*, int *);
 void serializarYMandarTarea(int, tareasTripulantes, uint32_t);
-void serializarYMandarPosicionTripulante();
 void gestionarTarea(tarea_struct * , uint32_t);
 
 

@@ -165,6 +165,7 @@ void consola(){
 
 //-----------------------------INICIAR PATOTA---------------------------------------------------------------------------------------
 
+
 void iniciarPatota(char ** vectorInstruccion){
 
 	int socket = conectarMiRAM();
@@ -175,6 +176,7 @@ void iniciarPatota(char ** vectorInstruccion){
 				int indice_posiciones = 3;
 				int cantidadTripulantes = atoi(vectorInstruccion[1]);
 				pthread_t tripulantes[cantidadTripulantes];
+				t_list * listaTCBs;
 				listaTCBs = list_create();
 
 
@@ -207,6 +209,7 @@ void iniciarPatota(char ** vectorInstruccion){
 	
 }
 
+
 TCB_DISCORDIADOR * crearTCB(char * posiciones){
 
 		char ** vectorPosiciones = string_split(posiciones,"|" );
@@ -226,7 +229,6 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones){
 
 		return tripulante;   //preguntar liberar malloc
 	} 
-
 
 
 void tripulanteVivo(TCB_DISCORDIADOR * tripulante) { 
@@ -379,8 +381,6 @@ void ponerATrabajar(){
 			
 }
 
-
-
 //-----------------------------LISTAR TRIPULANTES---------------------------------------------------------------------------------------
 
 
@@ -414,6 +414,7 @@ void mostrarLista(t_list * unaLista){
 
 //-----------------------------TAREAS---------------------------------------------------------------------------------------------------
 
+
 void trasladarseA(int posicionX,int posicionY, TCB_DISCORDIADOR * tripulante){
 
 	for (tripulante->posicionX; tripulante->posicionX < posicionX; tripulante->posicionX ++) 
@@ -430,7 +431,6 @@ void trasladarseA(int posicionX,int posicionY, TCB_DISCORDIADOR * tripulante){
 
 	printf("Soy el tripulante %d y ahora estoy en X: %d    Y: %d \n",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
 }
-
 
 void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 	char * descripcionTarea = tarea->descripcionTarea;
@@ -460,6 +460,7 @@ void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 					}
 
 }
+
 
 char * leerTareas(char* pathTareas) {
 	//TODO
@@ -517,59 +518,53 @@ void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
 
 }
 
-void serializarYMandarTripulante(TCB_DISCORDIADOR * tripulante, void * stream,int * offset){
-
-	memcpy(stream+*offset, &(tripulante->tid), sizeof(uint32_t));
-	*offset += sizeof(uint32_t);
-
-	memcpy(stream+*offset, &(tripulante->posicionX), sizeof(uint32_t));
-	*offset += sizeof(uint32_t);
-
-	memcpy(stream+*offset, &(tripulante->posicionY), sizeof(uint32_t));
-	*offset += sizeof(uint32_t);
-
-	memcpy(stream+*offset, &(tripulante->estado), sizeof(char));
-	*offset += sizeof(char);
-}
 
 void serializarYMandarPCB(char * pathTareas, int socket, int cantidadTCB, t_list * listaTCBS){
 
-	int * offset = 0;
-
-	PCB_TAREAS_TCB_struct * estructura = malloc(sizeof(PCB_TAREAS_TCB_struct));
+	int  offset = 0;
 	
-	estructura->tareas = leerTareas(pathTareas);
-	estructura->tamanioTareas = strlen(estructura->tareas) + 1;
-	estructura->cantidadTCB = cantidadTCB;
+	char * tareas = leerTareas(pathTareas);
+	int  tamanioTareas = strlen(tareas);
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = sizeof(estructura->tamanioTareas) + sizeof(estructura->tareas) + sizeof(cantidadTCB) + sizeof(TCB) * cantidadTCB;
+	buffer-> size = sizeof(tamanioTareas) + tamanioTareas + sizeof(cantidadTCB) + sizeof(TCB) * cantidadTCB;
 
 	void* stream = malloc(buffer->size);
 
-	memcpy(stream+*offset,&estructura->tamanioTareas, sizeof(estructura->tamanioTareas));
-	*offset += sizeof(estructura->tamanioTareas);
+	memcpy(stream+offset, &tamanioTareas, sizeof(tamanioTareas));
+	offset += sizeof(int);
 
-	memcpy(stream+*offset,&estructura->tareas, sizeof(estructura->tareas));
-	*offset += sizeof(estructura->tareas);
-
-	memcpy(stream+*offset,&estructura->cantidadTCB, sizeof(estructura->cantidadTCB));
-	*offset += sizeof(estructura->cantidadTCB);
+	memcpy(stream+offset, tareas, tamanioTareas);
+	offset += tamanioTareas;
+	
+	memcpy(stream+offset, & cantidadTCB, sizeof(cantidadTCB));
+	offset += sizeof(cantidadTCB);
 
 	for(int i = 0;i<cantidadTCB; i++){
 
 		TCB_DISCORDIADOR * tripulante = malloc(sizeof(tripulante));
 		tripulante = list_get(listaTCBS,i);
-		serializarYMandarPosicionTripulante(tripulante,stream,&offset);
+		
+			memcpy(stream+offset, &(tripulante->tid), sizeof(uint32_t));
+			offset += sizeof(uint32_t);
+
+			memcpy(stream+offset, &(tripulante->posicionX), sizeof(uint32_t));
+			offset += sizeof(uint32_t);
+
+			memcpy(stream+offset, &(tripulante->posicionY), sizeof(uint32_t));
+			offset += sizeof(uint32_t);
+
+			memcpy(stream+offset, &(tripulante->estado), sizeof(char));
+			offset += sizeof(char);
 
 	}
 
 	buffer->stream = stream;
 
-	mandarPaqueteSerializado(buffer, socket, CREAR_PCB);
+	mandarPaqueteSerializado(buffer, socket, INICIAR_PATOTA);
 
-	list_clean(listaTCBs);
+	list_destroy(listaTCBS);
 }
 
 void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea, uint32_t tid ){
@@ -595,8 +590,5 @@ void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea, uint32_t
 	buffer-> stream = stream;
 
 	mandarPaqueteSerializado(buffer, socket, tipoTarea);
-}
 
-void serializarYMandarPosicionTripulante(){
-	
 }

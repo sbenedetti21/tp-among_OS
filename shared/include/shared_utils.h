@@ -31,7 +31,7 @@ typedef struct tcb{
 	uint32_t posicionX;
 	uint32_t posicionY;
 	//uint32_t proximaInstruccion;
-	uint32_t punteroPCB;
+	//uint32_t punteroPCB;
 } TCB;
 
 
@@ -45,7 +45,7 @@ typedef struct pcb{
 } PCB;
 
 enum protocoloMIRAM{
-	CREAR_PCB, CREAR_TCB, PRUEBA
+	INICIAR_PATOTA, PEDIR_TAREA
 };
 
 typedef struct Dato{
