@@ -24,12 +24,12 @@ int main(int argc, char ** argv){
 
 
 
-	nivel_gui_inicializar();
-	NIVEL* navePrincipal = nivel_crear("Nave Principal");
-	nivel_gui_dibujar(navePrincipal);
-	//pthread_t mapa;
-	//pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	//pthread_join(mapa, NULL);
+	// nivel_gui_inicializar();
+	// NIVEL* navePrincipal = nivel_crear("Nave Principal");
+	// nivel_gui_dibujar(navePrincipal);
+	// //pthread_t mapa;
+	// //pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	// //pthread_join(mapa, NULL);
 	 
 	pthread_join(servidor, NULL);
 	free(punteroMemoria);
@@ -68,63 +68,51 @@ void atenderDiscordiador(int socketCliente){
 	paquete->buffer = malloc(sizeof(t_buffer));
 
 	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
-
-	if(headerRECV) { log_info(loggerMiram, "Recibi header: %d\n", paquete->header);} else{ log_info(loggerMiram, "No se pudo recibir el header");}
-
-	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
-
-	if(! tamanioPAQUETE_RECV){ log_info(loggerMiram, "No se pudo recibir el tamanio del buffer ");}
+	if(headerRECV) { log_info(loggerMiram, "Recibi header: %d\n", paquete->header);} else{ log_error(loggerMiram, "No se pudo recibir el header");}
+	
+	int BUFFER_RECV  = 0;
+	
+	int statusTamanioBuffer = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+	if(! statusTamanioBuffer){ log_error(loggerMiram, "No se pudo recibir el tamanio del buffer ");}
 
 	paquete->buffer->stream = malloc(paquete->buffer->size);
 
-	int PAQUETE_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size,0);
+	BUFFER_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
 
-	if(! PAQUETE_RECV){ log_info(loggerMiram,"No se pudo recibir el paquete");}
-	
+	if(! BUFFER_RECV){ log_error(loggerMiram,"No se pudo recibir el buffer");}
+
 
 	switch (paquete->header)
 	{
-	case CREAR_PCB: ; 
-	
-		uint32_t * punteroPCB = malloc(sizeof(punteroPCB));
-		*punteroPCB = crearPCB("pathTareas");
+	case INICIAR_PATOTA: ; 
 
-		char * tareas = malloc(paquete->buffer->size);
-		tareas = deserializar_Tareas(paquete->buffer);
+		void* stream = malloc(paquete->buffer->size);
+		stream = paquete->buffer->stream;
 
-		log_info(loggerMiram, tareas); 
-		//printf("%s \n", tareas);
+		// Deserializamos tareas
+		int tamanioTareas;
+		memcpy(&tamanioTareas, stream, sizeof(int));
+		stream += sizeof(int);
+		char* tareas = malloc(tamanioTareas);
+		memcpy(tareas, stream, tamanioTareas);
+		stream += tamanioTareas;
 
-		send(socketCliente, punteroPCB, sizeof(uint32_t),0);
+		//Deserializar TCBs
+		int cantidadTCBs = 0;
+		memcpy(&cantidadTCBs, stream, sizeof(int));
+		stream += cantidadTCBs;
+		
+		printf("cantidad tcbs: %d", cantidadTCBs);
 
-		free(punteroPCB);
-
-		break;
-
-	case CREAR_TCB: ; 
-
-
-
-		TCB * tripulante = deserializar_TCB(paquete->buffer);
-
-			log_info(loggerMiram, "tripulante recibido. ID: %d, X: %d, Y: %d ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
-
-			//printf("ID: %d \n X: %d \n Y: %d \n ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
-			//agregarTripulanteAlMapa(tripulante);
-
-		//	int personaje = personaje_crear(navePrincipal, '0', tripulante->posicionX, tripulante->posicionY); 
-		//	nivel_gui_dibujar(navePrincipal); 
-
-			//pthread_t hiloDibujante; 
-
-			//pthread_create(&hiloDibujante, NULL, agregarTripulanteAlMapa, tripulante); 
-
-			
-			//free(tripulante);
+		for(int i = 0 ; i < cantidadTCBs ;  i++ ){
+			TCB * tripulante = malloc(sizeof(TCB));
+			tripulante = deserializar_TCB(stream);
+			//printf("ID: %d \n", tripulante->tid);
+		}
 
 		break;
 
-	case PRUEBA: ;
+	case PEDIR_TAREA: ;
 
 	
 		break;
@@ -145,10 +133,8 @@ void atenderDiscordiador(int socketCliente){
 }
 
 
-TCB * deserializar_TCB(t_buffer * buffer){
+TCB * deserializar_TCB(void * stream){ // Agregar stuff
 	TCB * tripulante = malloc(sizeof(TCB));
-
-	void* stream = buffer->stream;
 
 	//Deserializamos los campos que tenemos en el buffer
 	memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
@@ -158,9 +144,6 @@ TCB * deserializar_TCB(t_buffer * buffer){
 	stream += sizeof(uint32_t);
 
 	memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
-	stream += sizeof(uint32_t);
-
-	memcpy(&(tripulante->punteroPCB), stream, sizeof(uint32_t));
 	stream += sizeof(uint32_t);
 
 	memcpy(&(tripulante->estado), stream, sizeof(char));

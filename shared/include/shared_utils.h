@@ -31,7 +31,7 @@ typedef struct tcb{
 	uint32_t posicionX;
 	uint32_t posicionY;
 	//uint32_t proximaInstruccion;
-	uint32_t punteroPCB;
+	//uint32_t punteroPCB;
 } TCB;
 
 
@@ -45,7 +45,7 @@ typedef struct pcb{
 } PCB;
 
 enum protocoloMIRAM{
-	CREAR_PCB, CREAR_TCB, PRUEBA
+	INICIAR_PATOTA, PEDIR_TAREA
 };
 
 typedef struct Dato{
@@ -62,6 +62,38 @@ typedef struct {
 	int header;
 	t_buffer* buffer;
 }t_paquete;
+
+typedef struct{
+	char * descripcionTarea;
+	int posicionX;
+	int posicionY;
+	int tiempo;
+	int parametro;
+	bool tareaTerminada;
+} tarea_struct;
+
+//Tareas
+typedef enum {
+	CONSUMIR_OXIGENO,
+	GENERAR_OXIGENO,
+	GENERAR_COMIDA,
+	CONSUMIR_COMIDA,
+	GENERAR_BASURA,
+	DESCARTAR_BASURA
+}tareasTripulantes;
+
+typedef struct {
+	int parametro;
+	uint32_t tid;
+}t_parametro;
+
+typedef struct {
+	PCB * pcb;
+	int tamanioTareas;
+	char * tareas;
+	int cantidadTCB;
+	// lista TCBs ???
+} PCB_TAREAS_TCB_struct;
 
 
 
