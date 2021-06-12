@@ -12,12 +12,12 @@ int main(int argc, char ** argv){
 
 	t_config * config = config_create("./cfg/miram.config");
 
-	char * esquemaMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA"); 
+	 esquemaMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA"); 
 
 	//if (strcmp(esquemaMemoria, "PAGINACION") == 0) .... 
 	//if (strcmp(esquemaMemoria, "SEGMENTACION") == =) ....
 
-	void * punteroMemoria = malloc(config_get_int_value(config, "TAMANIO_MEMORIA"));
+	void * memoriaPrincipal = malloc(config_get_int_value(config, "TAMANIO_MEMORIA"));
 
 	pthread_t servidor;
 	pthread_create(&servidor, NULL, servidorPrincipal, config);
@@ -32,7 +32,7 @@ int main(int argc, char ** argv){
 	// //pthread_join(mapa, NULL);
 	 
 	pthread_join(servidor, NULL);
-	free(punteroMemoria);
+	free(memoriaPrincipal);
 
 	return 0; 
 }
@@ -86,6 +86,8 @@ void atenderDiscordiador(int socketCliente){
 	{
 	case INICIAR_PATOTA: ; 
 
+		
+
 		void* stream = malloc(paquete->buffer->size);
 		stream = paquete->buffer->stream;
 
@@ -104,10 +106,25 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&cantidadTCBs, stream, sizeof(int));
 		stream += sizeof(int);
 
+		//Nos aseguramos de que hay espacio para recibir la patota 
+
+		int cantidadMemoriaNecesaria = tamanioTareas + sizeof(TCB) * cantidadTCBs + sizeof(PCB); 
+		int hayLugar = buscarEspacioNecesario(cantidadMemoriaNecesaria); 
 		
+
 		printf("cantidad tcbs: %d \n", cantidadTCBs);
 
-		for(int i = 0 ; i < cantidadTCBs ;  i++ ){
+		if(hayLugar){
+
+			PCB * pcb = crearPCB(); 
+			uint32_t direccionPCB = asignarMemoria(pcb); 
+
+			uint32_t direccionTareas = asignarMemoriaTareas(tareas); 
+			
+				//preguntar como asignar direccion de tareas  
+
+
+			for(int i = 0 ; i < cantidadTCBs ;  i++ ){
 			TCB * tripulante = malloc(sizeof(TCB));
 			//tripulante = deserializar_TCB(stream);
 
@@ -131,9 +148,16 @@ void atenderDiscordiador(int socketCliente){
 			tripulante->posicionX = x;
 			tripulante->posicionY = y;
 			tripulante->estado = e;
+			tripulante->punteroPCB = direccionPCB; 
+			tripulante->proximaInstruccion = direccionTareas; 
+
+			uint32_t direccionLogica = asignarMemoria(tripulante); 
 
 			printf("ID: %d \n", tripulante->tid);
 		}
+
+		}
+		
 
 		break;
 
@@ -186,20 +210,18 @@ char * deserializar_Tareas(t_buffer * buffer) {
 	return tareas;
 }
 
-uint32_t crearPCB(char* tareas){
+PCB * crearPCB(){
 	// uint32_t punteroTareas = *tareas; //ESTO ESTA RARI
 
 	PCB * patota = malloc(sizeof(PCB));
 	patota->pid = proximoPID; 				
-	// patota->tareas = punteroTareas; // hABRIA QUE ALMACENAR LA PATOTA EN ALGUN LADO
-
+	
+	//deberia tener un semaforo mutex
 	proximoPID++;
 
 
-	uint32_t a = patota->pid;
-
-	free(patota);
-	return a;
+	
+return patota; 
 }
 
 
@@ -232,4 +254,45 @@ void moverTripulanteEnMapa(TCB * tripulante, int x, int y) {
 void expulsarTripulanteDelMapa(TCB* tripulante) {
 	char id = '0' + tripulante->tid;
 	item_borrar(navePrincipal, id);
+}
+
+
+// ------------ASIGNAR MEMORIA-------------
+
+uint32_t asignarMemoria(void * contenido){
+
+	if(strcmp(esquemaMemoria, "PAGINACION") == 0){
+		asignarMemoriaPaginacion(contenido); 
+	}
+
+	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0){
+		asignarMemoriaSegmentacion(contenido); 
+	}
+}
+
+uint32_t asignarMemoriaTareas(char * tareas){
+
+	if(strcmp(esquemaMemoria, "PAGINACION") == 0){
+		asignarMemoriaTareasPaginacion(tareas); 
+	}
+
+	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0){
+		asignarMemoriaTareasSegmentacion(tareas); 
+	}
+}
+
+uint32_t asignarMemoriaPaginacion(void * contenido){
+
+}
+
+uint32_t asignarMemoriaSegmentacion(void * contenido){
+
+}
+
+uint32_t asignarMemoriaTareasPaginacion(char * contenido){
+
+}
+
+uint32_t asignarMemoriaTareasSegmentacion(char * contenido){
+	
 }

@@ -9,6 +9,8 @@
 #include <nivel-gui/tad_nivel.h>
 #include "shared_utils.h"
 
+char * esquemaMemoria; 
+
 // ----------------------------------------  PAGINAS
 
 typedef struct {
@@ -37,9 +39,13 @@ void servidorPrincipal(t_config*);
 
 void atenderDiscordiador(int);
 void recibir_TCB(int);
-uint32_t crearPCB(char*);
-char * deserializar_Tareas(t_buffer * );
-
+PCB * crearPCB();
+uint32_t asignarMemoria(void *); 
+uint32_t asignarMemoriaTareas(char *); 
+uint32_t asignarMemoriaPaginacion(void *);
+uint32_t asignarMemoriaSegmentacion(void *);
+uint32_t asignarMemoriaTareasPaginacion(char *);
+uint32_t asignarMemoriaTareasSegmentacion(char *);
 //TCB * deserializar_TCB(void *);
 
 typedef struct {
