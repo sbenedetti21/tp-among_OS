@@ -8,6 +8,7 @@ int main(int argc, char ** argv){
 		crearFileSystem();
 		log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
 	} else{
+		log_info(loggerImongoStore, "---------LEYO FILESYSTEM----------");
 		ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 		leerBitMap();
 		mapearBlocks();
@@ -58,6 +59,7 @@ int main(int argc, char ** argv){
 	//Necesario al finalizar
 	munmap(mapBlocks,tamanioBlocks);
 	close(archivoBlocks);
+	guardarBitMap();
 	liberarBitMap(punteroBitmap);
 	return 0;
 }

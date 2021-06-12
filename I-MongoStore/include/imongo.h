@@ -24,7 +24,7 @@ char * puertoImongoStore;
 uint32_t tamanioDeBloque;
 uint32_t cantidadDeBloques;
 char * puntoDeMontaje;
-char *  tiempoDeSinc;
+int tiempoDeSinc;
 
 //Variables del map blocks
 char *mapBlocks;
@@ -43,19 +43,18 @@ typedef struct prueba {
 
 sem_t semBitArray;
 
-//---------------------- LEE CONFIG -------------------------------------------//
+//-------------------------------------------- LEE CONFIG --------------------------------------------//
 void leerConfig(){ 
 	t_config * config = config_create("./cfg/imongo.config");
 	
 	puntoDeMontaje = config_get_string_value(config, "PUNTO_MONTAJE");
 	puertoImongoStore = config_get_string_value(config, "PUERTO");
-	tiempoDeSinc = config_get_string_value(config, "TIEMPO_SINCRONIZACION");
+	tiempoDeSinc = config_get_int_value(config, "TIEMPO_SINCRONIZACION");
 	tamanioDeBloque = config_get_int_value(config, "BLOCK_SIZE");
     cantidadDeBloques = config_get_int_value(config, "CANTIDAD_BLOCKS");
 }
-//-------------------------------------------------------------------------------//
-//---------------------- BITMAP  -------------------------------------------//
-
+//----------------------------------------------------------------------------------------------------//
+//---------------------------------------------- BITMAP ----------------------------------------------//
 void crearBitMap(){
 	size_t sizeBitMap = cantidadDeBloques / 8; 
 	char * bitMap = (char *) malloc(sizeBitMap);
@@ -98,9 +97,8 @@ void liberarBitMap(){
 	free(punteroBitmap->bitarray);
  	bitarray_destroy(punteroBitmap);
 }
-
-//-------------------------------------------------------------------------------//
-//--------------------------------CREACION DEL FYLESISTEM ----------------------------------//
+//---------------------------------------------------------------------------------------------------//
+//------------------------------------- CREACION DEL FYLESISTEM -------------------------------------//
 void mapearBlocks(){
 	char * ubicacionBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
 	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
@@ -111,10 +109,10 @@ void mapearBlocks(){
 
 void crearBlocks(){
 	char * ubicacionBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
-	FILE *archivoBlocks = fopen(ubicacionBlocks, "w");
+	FILE *archivoCrearBlocks = fopen(ubicacionBlocks, "w");
 	size_t tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
-	ftruncate(fileno(archivoBlocks), tamanioBlocks);
-	fclose(archivoBlocks);
+	ftruncate(fileno(archivoCrearBlocks), tamanioBlocks);
+	fclose(archivoCrearBlocks);
 	mapearBlocks();
 }
 
@@ -130,7 +128,6 @@ void crearSuperBloque(){
 	fflush(superBloque);
 
  	crearBitMap();
-
 	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
 
 	fclose(superBloque);
@@ -143,9 +140,8 @@ void crearFileSystem(){
 	mkdir(string_from_format("%s/Files",puntoDeMontaje),0777);
 	mkdir(string_from_format("%s/Files/Bitacoras",puntoDeMontaje),0777);
 }
-//-------------------------------------------------------------------------------//
-//------------------------- CREARCION ARCHIVO RECURSO  -------------------------//
-
+//---------------------------------------------------------------------------------------------------//
+//------------------------------------ CREARCION ARCHIVO RECURSO ------------------------------------//
 t_config *creacionArchivoRecurso(char caracterLlenado, char *ubicacionArchivoRecurso){
 	FILE *fileRecurso = fopen(ubicacionArchivoRecurso,"w");
 	fclose(fileRecurso);
@@ -160,23 +156,46 @@ t_config *creacionArchivoRecurso(char caracterLlenado, char *ubicacionArchivoRec
 	
 	return configRecurso;
 }
-//------------------------------------------------------------------------------//
-//------------------------- CREARCION ARCHIVO BITACORA  ------------------------------------//
-
-t_config *creacionArchivoBitacora(int idTripulante){
+//---------------------------------------------------------------------------------------------------//
+//------------------------------------ CREARCION ARCHIVO BITACORA -----------------------------------//
+t_config *archivoBitacora(int idTripulante){
 	char * ubicacionArchivoBitacora = string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,idTripulante);
-	FILE *fileBitacora= fopen(ubicacionArchivoBitacora,"w");
-	fclose(fileBitacora);
-										//VERIFICAR SI EXISTE ARCHIVO 
 	t_config * configBitacora;
-	configBitacora = config_create(ubicacionArchivoBitacora);
-	 config_set_value(configBitacora,"SIZE",string_itoa(0));
-	 config_set_value(configBitacora,"BLOCKS","[]");
-	 config_save_in_file(configBitacora,ubicacionArchivoBitacora);
-	 return configBitacora;
+	
+	if(access(ubicacionArchivoBitacora, F_OK )){
+		FILE *fileBitacora= fopen(ubicacionArchivoBitacora,"w");
+		fclose(fileBitacora);	
+		
+		configBitacora = config_create(ubicacionArchivoBitacora);
+	 	config_set_value(configBitacora,"SIZE",string_itoa(0));
+	 	config_set_value(configBitacora,"BLOCKS","[]");
+	 	config_save_in_file(configBitacora,ubicacionArchivoBitacora);
+	} else {
+		configBitacora = config_create(ubicacionArchivoBitacora);
+	}
+
+	return configBitacora;
 }
-//--------------------------------------------------------------------------------//
-//------------------------- USAR FYLESTISTEM ------------------------------------//
+//---------------------------------------------------------------------------------------------------//
+//---------------------------------------- USAR FYLESTISTEM -----------------------------------------//
+void agregarBloqueAlArchivo(int nuevoBloque, t_config * configGeneral){
+	if(config_has_property(configGeneral,"BLOCK_COUNT")){
+		int nuevaCantidadBloques = config_get_int_value(configGeneral,"BLOCK_COUNT");
+		nuevaCantidadBloques++;
+		config_set_value(configGeneral,"BLOCK_COUNT",string_itoa(nuevaCantidadBloques));
+	}
+
+	char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
+	char *nuevaListablocks = string_substring_until(listaBlocks,strlen(listaBlocks)-1);
+
+	if(listaBlocks[1]!=']')
+		string_append(&nuevaListablocks, ",");
+	
+	string_append(&nuevaListablocks, string_itoa(nuevoBloque + 1));
+	string_append(&nuevaListablocks, "]");
+	config_set_value(configGeneral,"BLOCKS",nuevaListablocks);
+	config_save(configGeneral);
+}
 
 int leerUltimoBloque(t_config * configGeneral){
 
@@ -190,61 +209,43 @@ int leerUltimoBloque(t_config * configGeneral){
 		proximoBlock = atoi(string_substring_from(listaBlocks,indiceFinal+1)) - 1;
 	}else{
 		proximoBlock = bloqueLibreBitMap();
+		agregarBloqueAlArchivo(proximoBlock, configGeneral);
 	}
 	return proximoBlock;
 }
-
-//------------------------------------------------------------------------------//
-//--------------------- CODIGO DE LOS BLOCKS DE RECURSOS  ---------------------//
-
-void agregarBloqueAlFile(int nuevoBloque, t_config * configRecurso){
-	int nuevaCantidadBloques = config_get_int_value(configRecurso,"BLOCK_COUNT");
-	nuevaCantidadBloques++;
-	config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(nuevaCantidadBloques));
-
-	char *listaBlocks = config_get_string_value(configRecurso,"BLOCKS");
-	char *nuevaListablocks = string_substring_until(listaBlocks,strlen(listaBlocks)-1);
-
-	if(listaBlocks[1]!=']')
-		string_append(&nuevaListablocks, ",");
-	
-	string_append(&nuevaListablocks, string_itoa(nuevoBloque + 1));
-	string_append(&nuevaListablocks, "]");
-	config_set_value(configRecurso,"BLOCKS",nuevaListablocks);
-}
-
- 
-void llenarBlocks(char caracterLlenado, int cantLlenar, char *mapBlocksAux, t_config *configRecurso){
-	int cantAux = cantLlenar;
+//---------------------------------------------------------------------------------------------------//
+//-------------------------------- CODIGO DE LOS BLOCKS DE RECURSOS ---------------------------------//
+void llenarBlocks(char caracterLlenado, int cantALlenar, char *mapBlocksAux, t_config *configRecurso){
+	int cantFaltante = cantALlenar;
 	int proximoBlock = leerUltimoBloque(configRecurso);
 
 	int nuevaSize = config_get_int_value(configRecurso,"SIZE");
-	nuevaSize+=cantLlenar;
+	nuevaSize+=cantALlenar;
 	config_set_value(configRecurso, "SIZE", string_itoa(nuevaSize));
 	config_save(configRecurso);
 	
-	while(cantAux>0){
+	while(cantFaltante>0){
+		int marcador = proximoBlock * tamanioDeBloque;
+		int limite = marcador+tamanioDeBloque;
 		
-		int cant = proximoBlock * tamanioDeBloque;
-		
-		if(mapBlocksAux[cant]=='\0')
-			agregarBloqueAlFile(proximoBlock, configRecurso);
+		while(mapBlocksAux[marcador] !='\0' && marcador < limite)
+			marcador++;
 
-		for(int i=0; i<cantAux && i<tamanioDeBloque;i++){
-			int j = cant + i;
-			if(mapBlocksAux[j]!=caracterLlenado)
-				mapBlocksAux[j]=caracterLlenado;
-			else
-				cantAux++;
-		}
+		int cantidadLibreBlock = limite-marcador;
+		char *caracteresLlenado;
 
-		cantAux-=tamanioDeBloque;
+		if(cantidadLibreBlock>cantFaltante)
+			cantidadLibreBlock=cantFaltante;
 
-		if(cantAux>0)
+		caracteresLlenado = string_repeat(caracterLlenado,cantidadLibreBlock);
+		memcpy(&(mapBlocksAux[marcador]), caracteresLlenado, cantidadLibreBlock);
+		cantFaltante-=cantidadLibreBlock;
+
+		if(cantFaltante>0){
 			proximoBlock = bloqueLibreBitMap();
+			agregarBloqueAlArchivo(proximoBlock, configRecurso);
+		}
 	}
-
-	guardarBitMap();
 }
 
 void borrarUltimoBloque(t_config *configRecurso){
@@ -264,59 +265,46 @@ void borrarUltimoBloque(t_config *configRecurso){
 		listaBlocks = "[]";
 	}
 	config_set_value(configRecurso,"BLOCKS",listaBlocks);
+	config_save(configRecurso);
 }
 
 void vaciarBlocks(char caracterVaciado, int cantAVaciar, char *mapBlocksAux, t_config *configRecurso){
-	int cantAux = cantAVaciar;
+	int cantFaltante = cantAVaciar;
 	
 	int nuevaSize = config_get_int_value(configRecurso,"SIZE");
 	nuevaSize-=cantAVaciar;
 	config_set_value(configRecurso, "SIZE", string_itoa(nuevaSize));
 	config_save(configRecurso);
 
-	int proximoBlock = leerUltimoBloque(configRecurso);
-
-	while(cantAux>0){
-		int cant = proximoBlock * proximoBlock;
+	int proximoBlock;
+	
+	while(cantFaltante>0){
+		proximoBlock = leerUltimoBloque(configRecurso);
+		int limite = proximoBlock * tamanioDeBloque;
+		int marcador = limite + tamanioDeBloque - 1;
 		
-		for(int i = tamanioDeBloque; cantAux>0 && i>0; i--){
-			int j = cant + i - 1;
+		while(mapBlocksAux[marcador] == '\0' && marcador > limite)
+			marcador--;
 			
-			if(mapBlocksAux[j]==caracterVaciado){
-				mapBlocksAux[j]='\0';
-				cantAux--;
-			}
-		}
-
-		if(mapBlocksAux[cant]=='\0'){
-			bitarray_clean_bit(punteroBitmap,proximoBlock);
+		int cantidadOcupadaBlock = marcador-limite;
+		if(cantidadOcupadaBlock>cantFaltante){
+			marcador-=cantFaltante;
+			cantidadOcupadaBlock=cantFaltante;
+		} else {
+			marcador = limite;
 			borrarUltimoBloque(configRecurso);
 		}
+		
+		memcpy(&(mapBlocksAux[marcador + 1]), string_repeat('\0',cantidadOcupadaBlock), cantidadOcupadaBlock);
+		cantFaltante-=cantidadOcupadaBlock;
 	}
-
-	guardarBitMap();
 }
-
-//-------------------------------------------------------------------------------//
-
-//--------------------- CODIGO DE LOS BLOCKS DE BITACORAS  ----------------------------------------//
-
-void agregarBloqueABitacora(int nuevoBloque, t_config * configBitacora){
-	char *listaBlocksBitacora = config_get_string_value(configBitacora,"BLOCKS");
-	char *nuevaListablocks = string_substring_until(listaBlocksBitacora,strlen(listaBlocksBitacora)-1);
-
-	if(listaBlocksBitacora[1]!=']')
-		string_append(&nuevaListablocks, ",");
-	
-	string_append(&nuevaListablocks, string_itoa(nuevoBloque + 1));
-	string_append(&nuevaListablocks, "]");
-	config_set_value(configBitacora,"BLOCKS",nuevaListablocks);
-	config_save(configBitacora);
-}
-
+//---------------------------------------------------------------------------------------------------//
+//-------------------------------- CODIGO DE LOS BLOCKS DE BITACORAS --------------------------------//
 void llenarBlocksBitcoras(char * informacionDeLenado, t_config * configBitacora, char *mapBlocksAux){
 	int cantLlenado = 0;
 	int cantFaltante = strlen(informacionDeLenado);
+	char *copiaInformacion = informacionDeLenado;
 
 	int proximoBlock = leerUltimoBloque(configBitacora);
 	
@@ -327,34 +315,37 @@ void llenarBlocksBitcoras(char * informacionDeLenado, t_config * configBitacora,
 
 	while(cantFaltante>0){
 		int marcador = proximoBlock * tamanioDeBloque;
-
-		if(mapBlocksAux[marcador]=='\0')
-			agregarBloqueABitacora(proximoBlock, configBitacora);
-
 		int limite = marcador+tamanioDeBloque;
+		
 		while(mapBlocksAux[marcador] !='\0' && marcador < limite)
 			marcador++;
 
-		for(int i=marcador; 0<cantFaltante && i<limite;i++){
-			mapBlocksAux[i] = informacionDeLenado[cantLlenado];
-			cantFaltante--;
-			cantLlenado++;
-		}
+		int cantidadLibreBlock = limite-marcador;
 
-		if(cantFaltante>0)
+		if(cantidadLibreBlock>cantFaltante){
+			cantidadLibreBlock=cantFaltante;
+			memcpy(&(mapBlocksAux[marcador]), copiaInformacion, cantidadLibreBlock);
+		} else {
+			memcpy(&(mapBlocksAux[marcador]), string_substring_until(copiaInformacion,cantidadLibreBlock), cantidadLibreBlock);
+			copiaInformacion = string_substring_from(copiaInformacion,cantidadLibreBlock);
+		}
+		
+		cantFaltante-=cantidadLibreBlock;
+
+		if(cantFaltante>0){
 			proximoBlock = bloqueLibreBitMap();
+			agregarBloqueAlArchivo(proximoBlock, configBitacora);
+		}
 	}
 
-	guardarBitMap();
+	free(copiaInformacion);
 }
-
-//-------------------------------------------------------------------------------//
-//------------------------------MENSAJES QUE RECIBE -------------------------------------------//
-
-void generarRecurso(char *recurso, int cantidadALlenar, uint32_t *idTripulante, char *mapBlocksAux){
-	log_info(loggerImongoStore,string_from_format("Tripulante %d genera %d de %s",*idTripulante, cantidadALlenar, recurso));
+//---------------------------------------------------------------------------------------------------//
+//--------------------------------------- MENSAJES QUE RECIBE ---------------------------------------//
+void generarRecurso(char *recurso, int cantidadALlenar, uint32_t idTripulante, char *mapBlocksAux){
+	log_info(loggerImongoStore,string_from_format("Tripulante %d genera %d de %s",idTripulante, cantidadALlenar, recurso));
 	
-	t_config *configBitacora = creacionArchivoBitacora(*idTripulante);
+	t_config *configBitacora = archivoBitacora(idTripulante);
 	llenarBlocksBitcoras(string_from_format("Comienza la ejecucion de la tarea Generar %s\n",recurso),configBitacora,mapBlocksAux);
 
 	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
@@ -369,26 +360,26 @@ void generarRecurso(char *recurso, int cantidadALlenar, uint32_t *idTripulante, 
 
 	llenarBlocksBitcoras(string_from_format("Se finaliza la tarea Generar %s\n",recurso),configBitacora,mapBlocksAux);
 
-	config_save(configRecurso);
 	config_destroy(configRecurso);
-	config_save(configBitacora);
 	config_destroy(configBitacora);
 	free(ubicacionArchivoRecurso);
 
 	log_info(loggerImongoStore,string_from_format("Se genero %d de %s",cantidadALlenar, recurso));
 }
 
-bool consumirRecurso(char *recurso, int cantidadAConsumir, uint32_t *idTripulante, char *mapBlocksAux){
-	log_info(loggerImongoStore,string_from_format("Tripulante %d consume %d de %s",*idTripulante,cantidadAConsumir,recurso));
+bool consumirRecurso(char *recurso, int cantidadAConsumir, uint32_t idTripulante, char *mapBlocksAux){
+	log_info(loggerImongoStore,string_from_format("Tripulante %d consume %d de %s",idTripulante,cantidadAConsumir,recurso));
 	
-	t_config *configBitacora = creacionArchivoBitacora(*idTripulante);
+	t_config *configBitacora = archivoBitacora(idTripulante);
 	llenarBlocksBitcoras(string_from_format("Comienza la ejecucion de la tarea Consumir %s\n",recurso),configBitacora,mapBlocksAux);
 
 	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
 	t_config *configRecurso;
 
 	if(access(ubicacionArchivoRecurso, F_OK )){
-		log_info(loggerImongoStore,"No hay oxigeno que consumir");
+		log_info(loggerImongoStore,"No hay recurso que consumir");
+		config_destroy(configBitacora);
+		free(ubicacionArchivoRecurso);
 		return false;
 	}
 
@@ -397,7 +388,7 @@ bool consumirRecurso(char *recurso, int cantidadAConsumir, uint32_t *idTripulant
 
 	llenarBlocksBitcoras(string_from_format("Se finaliza la tarea Consumir %s\n",recurso),configBitacora,mapBlocksAux);
 
-	config_save(configRecurso);
+	config_destroy(configBitacora);
 	config_destroy(configRecurso);
 	free(ubicacionArchivoRecurso);
 
@@ -405,29 +396,38 @@ bool consumirRecurso(char *recurso, int cantidadAConsumir, uint32_t *idTripulant
 	return true;
 }
 
-void descartarBasura(uint32_t *idTripulante, char *mapBlocksAux){
-	log_info(loggerImongoStore,string_from_format("Tripulante %d descarta Basura",*idTripulante));
+void descartarBasura(uint32_t idTripulante, char *mapBlocksAux){
+	log_info(loggerImongoStore,string_from_format("Tripulante %d descarta Basura",idTripulante));
 	
-	t_config *configBitacora = creacionArchivoBitacora(*idTripulante);
+	t_config *configBitacora = archivoBitacora(idTripulante);
 	llenarBlocksBitcoras("Comienza la ejecucion de la tarea Descartar Basura\n",configBitacora,mapBlocksAux);
 
-	char *ubicacionArchivoRecurso = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
-	t_config *configRecurso = config_create(ubicacionArchivoRecurso);
+	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
+
+	t_config *configRecurso = config_create(ubicacionArchivoBasura);
 	int cantidadBasura = config_get_int_value(configRecurso, "SIZE");
+
 	vaciarBlocks('B', cantidadBasura, mapBlocksAux, configRecurso);
+	
+	config_destroy(configRecurso);
+	remove(ubicacionArchivoBasura);
 
 	llenarBlocksBitcoras("Se finaliza la tarea Descartar Basura\n",configBitacora,mapBlocksAux);
 
-	config_save(configRecurso);
-	config_destroy(configRecurso);
-	free(ubicacionArchivoRecurso);
+	free(ubicacionArchivoBasura);
 
 	log_info(loggerImongoStore,"Se descarto la Basura");
 }
-
-//-------------------------------------------------------------------------------//
-
-//--------------------------------ATENDER DISCORDIADOR--------------------------------//
+//---------------------------------------------------------------------------------------------------//
+//-------------------------------------- SINCRONIZACION BLOCKS --------------------------------------//
+void sincronizacionMapBlocks(){
+	while(1){
+		sleep(tiempoDeSinc);
+		msync(mapBlocks, tamanioBlocks, MS_SYNC);
+	}
+}
+//---------------------------------------------------------------------------------------------------//
+//-------------------------------------- ATENDER DISCORDIADOR ---------------------------------------//
 void servidorPrincipal() {
 	int listeningSocket = crear_conexionServer(puertoImongoStore);
 	int socketCliente;
@@ -450,7 +450,6 @@ void servidorPrincipal() {
 	close(listeningSocket);
 }
 
-
 void atenderDiscordiador(int socketCliente){
 
 	t_paquete* paquete = malloc(sizeof(t_paquete));
@@ -472,28 +471,29 @@ void atenderDiscordiador(int socketCliente){
 	char *mapBlocksAux = malloc(tamanioBlocks);
 	memcpy(mapBlocksAux, mapBlocks, tamanioBlocks);
 
-	uint32_t * tid = malloc(sizeof(uint32_t));
+	uint32_t *tid = malloc(sizeof(uint32_t));
 	tid = &parametroS->tid;   // ID TRIPULANTE
+	log_info(loggerImongoStore,string_from_format("Llego el tripulante %d",parametroS->tid));
 	
 	switch (paquete->header)
 	{
 	case GENERAR_OXIGENO:
-		generarRecurso("Oxigeno",parametroS->parametro,tid,mapBlocksAux);
+		generarRecurso("Oxigeno",parametroS->parametro,*tid,mapBlocksAux);
 		break;
 	case CONSUMIR_OXIGENO:
-		consumirRecurso("Oxigeno",parametroS->parametro,tid,mapBlocksAux);
+		consumirRecurso("Oxigeno",parametroS->parametro,*tid,mapBlocksAux);
 		break;
 	case GENERAR_COMIDA:
-		generarRecurso("Comida",parametroS->parametro,tid,mapBlocksAux);
+		generarRecurso("Comida",parametroS->parametro,*tid,mapBlocksAux);
 		break;
 	case CONSUMIR_COMIDA:
-		consumirRecurso("Comida", parametroS->parametro,tid,mapBlocksAux);
+		consumirRecurso("Comida", parametroS->parametro,*tid,mapBlocksAux);
 		break;
 	case GENERAR_BASURA:
-		generarRecurso("Basura",parametroS->parametro,tid,mapBlocksAux);
+		generarRecurso("Basura",parametroS->parametro,*tid,mapBlocksAux);
 		break;
 	case DESCARTAR_BASURA:
-		descartarBasura(tid,mapBlocksAux);
+		descartarBasura(*tid,mapBlocksAux);
 		break;
 
 	default:
@@ -503,7 +503,6 @@ void atenderDiscordiador(int socketCliente){
 	memcpy(mapBlocks, mapBlocksAux, tamanioBlocks);
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	free(mapBlocksAux);
-
 }
 
 #endif
