@@ -114,26 +114,15 @@ void atenderDiscordiador(int socketCliente){
 			uint32_t id, x, y = 0;
 			char e = 0;
 
-<<<<<<< HEAD
-		// Meter en memoria al TCB
-
-			log_info(loggerMiram, "tripulante recibido. ID: %d, X: %d, Y: %d ", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
-=======
 			//Deserializamos los campos que tenemos en el buffer
 			memcpy(&id, stream, sizeof(uint32_t));
 			stream += sizeof(uint32_t);
->>>>>>> pruebaCsnexionPCB
 
 			memcpy(&x, stream, sizeof(uint32_t));
 			stream += sizeof(uint32_t);
 
-<<<<<<< HEAD
-			//	int personaje = personaje_crear(navePrincipal, '0', tripulante->posicionX, tripulante->posicionY); 
-			//	nivel_gui_dibujar(navePrincipal); 
-=======
 			memcpy(&y, stream, sizeof(uint32_t));
 			stream += sizeof(uint32_t);
->>>>>>> pruebaCsnexionPCB
 
 			memcpy(&e, stream, sizeof(char));
 			stream += sizeof(char);
