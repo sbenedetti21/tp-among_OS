@@ -167,7 +167,7 @@ t_config *creacionArchivoBitacora(int idTripulante){
 	char * ubicacionArchivoBitacora = string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,idTripulante);
 	FILE *fileBitacora= fopen(ubicacionArchivoBitacora,"w");
 	fclose(fileBitacora);
-
+										//VERIFICAR SI EXISTE ARCHIVO 
 	t_config * configBitacora;
 	configBitacora = config_create(ubicacionArchivoBitacora);
 	 config_set_value(configBitacora,"SIZE",string_itoa(0));
