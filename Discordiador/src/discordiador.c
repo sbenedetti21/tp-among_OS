@@ -77,9 +77,6 @@ void consola(){
 		}
 
 		if(strcmp(vectorInstruccion[0], "trabajar") == 0){
-
-			t_config * config = config_create("./cfg/discordiador.config");
-			char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
 												
 				pthread_t  hiloTrabajadorFIFO; 
 				pthread_create(&hiloTrabajadorFIFO, NULL, ponerATrabajar, NULL );	
@@ -238,7 +235,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 	//  free(paquete->buffer); 
 	//  free(paquete);
 
-	bool tareaTerminada = true;
+	bool tareaTerminada = false; // PONER EN TRUE CUANDOR RECIBA TAREAS
 	tarea_struct * tarea = malloc(sizeof(tarea_struct));
 
 
@@ -250,16 +247,27 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 		if(tareaTerminada){
 				int socket = conectarMiRAM();
-				// recv(socket, tarea, sizeof(struct_tarea), 0);
 				char ** vectorTarea;
+
+				// send() hay que pedir la tarea para despues recibirla
+				// recv(socket, vectorTarea, sizeof(strlen(vectorTarea)), 0);
+				
 				char ** requerimientosTarea;
+
+				if(string_is_empty(vectorTarea)){				// Se fija que la tarea no este vacía
+
 				vectorTarea = string_split(tarea, " ");
 				requerimientosTarea = string_split(vectorTarea[1],";");
-				int parametros = atoi(requerimientosTarea[0]);
-				int posicionX = atoi(requerimientosTarea[1]);
-				int posicionY = atoi(requerimientosTarea[2]);
-				int tiempo = atoi(requerimientosTarea[3]);
+				tarea->descripcionTarea = vectorTarea[0];
+				tarea->parametro = atoi(requerimientosTarea[0]);			//Llena el struct tarea 
+				tarea->posicionX = atoi(requerimientosTarea[1]);
+				tarea->posicionY = atoi(requerimientosTarea[2]);
+				tarea->tiempo = atoi(requerimientosTarea[3]);
+				tarea->tareaTerminada = false;
 
+				} else {
+					break;					//Si la tarea esta vacía entonces procedera a salir del while para terminar con el hilo.
+				}
 
 		}
 
@@ -268,7 +276,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 		t_config * config = config_create("./cfg/discordiador.config");
 		char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
 
-		tarea->parametro =12;
+		tarea->parametro =12; // Esto es solo de prueba
 		tarea->posicionX = 2;
 		tarea->posicionY = 3;
 		tarea->tiempo = 5;
@@ -278,60 +286,68 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 	
 
 		if(strcmp(tipoAlgoritmo, "FIFO") == 0){
-				trasladarseA(tarea->posicionX,tarea->posicionY, tripulante); // poner dentro de fifo y rr pq gasta quantum
+			
+				trasladarseA(tarea->posicionX,tarea->posicionY, tripulante); 
 				sleep(tarea -> tiempo);	
-				gestionarTarea(tarea,tripulante->tid);	// ver si  cuando termina el tiempo recien ejecutar la tarea		
+				gestionarTarea(tarea,tripulante->tid);	// ver si  cuando termina el tiempo recien ejecutar la tarea
+				tareaTerminada = true;
+				log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
+		
 									     } else{
-											 	int contador = 0;
+											 	int contador = 0; // cantidad de quantum ya utilizado
 
 												t_config * config = config_create("./cfg/discordiador.config");
 												int quantum = atoi(config_get_string_value(config, "QUANTUM"));
+
+												// Primero tiene que ir a la posicion en la que esta la tarea, y para esto gasta
+												// quantum. Es por eso que primero se mueve en X lo que pueda, y cuando llega a 
+												// su posicion en X, hace lo mismo con Y. Una vez haya llegado a donde se encuentra
+												// la tarea la ejecuta poco a poco respetando el quantum
 													
 													// Moverse en x
 
-												if( tripulante->posicionX != tarea->posicionX){
+												if( tripulante->posicionX != tarea->posicionX){  // Aca se fija que no haya llegado a su posicion en x, si llego ni entra
 
 													for(contador; contador < quantum ;  contador ++){
 														sleep(1);
 														tripulante->posicionX ++;
 
-														if( tripulante->posicionX == tarea->posicionX){
-															break; //chequear si sale del for
+														if( tripulante->posicionX == tarea->posicionX){ // si llego sale del for y pasa a Y
+															break; 
 														}
-
-														// mandar posicion a mi ram
 													}
 
 												}
 
 													// Moverse en y
 
-												if(tripulante->posicionY != tarea->posicionY){
+												if(tripulante->posicionY != tarea->posicionY){ // Igual que con x
 													
 													for(contador; contador < quantum ;  contador ++){
 														sleep(1);
 														tripulante->posicionY++;
 
 														if(tripulante->posicionY == tarea->posicionY){
-															break; //chequear si sale del for
+															break; 
 														}
 
-														//mandar posicion a mi ram
+														// TODO mandar posicion a mi ram
 													}
 
 												}
 
 												
 
-												for( contador ; contador < quantum ;  contador ++){
+												for( contador ; contador < quantum ;  contador ++){ //Si entra aca, es porque ya llego a la psocion y todavia le queda quantum para ejecutar
 
 													sleep(1);
-													tarea->tiempo --;
+													tarea->tiempo --; // Cada tarea tiene un tiempo, cuando ese tiempo llegue a 0 va a gestionar la tarea en el if de abajo, si no llega a 0 va a seguir haciendo tiempo si su quantum lo permite
 
 													if(tarea->tiempo == 0){
-															break; //checkear si sale del for
 															tarea->tareaTerminada = true;
 															gestionarTarea(tarea,tripulante->tid);
+															log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
+															break; 
 															}
 													   																	
 																						}
@@ -343,11 +359,12 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 		
 		sem_post(&semaforoTripulantes); 
 		tripulante->estado = 'R';
-		log_info(loggerDiscordiador, "Tripulante %d terminó de trabajar, estado: %c", tripulante->tid, tripulante->estado);
 		list_add(listaReady, tripulante); 
-															
-	}
 
+		}
+															
+		tripulante->estado = 'F';
+		log_info(loggerDiscordiador, "Tripulante %d terminó de trabajar, estado: %c", tripulante->tid, tripulante->estado);
 
 }
 
@@ -363,20 +380,9 @@ void ponerATrabajar(){
 
 			tripulantee->estado = 'E';
 
-			/*
-			 TODO aca antes de poner a trabajar a un tripulante deberia chequear que tenga proxima tarea
-			
-			una opcion que se me ocurre es terminar el hilo de pone a trabjar al tripulante: pseudocodigo
-
-			if(tripulante->proximaInstruccion == null){
-				break;
-			}
-			*/
 			sem_post(&tripulantee->semaforoTrabajo); // donde se pone? -> sem_destroy(&tripulantee->semaforoTrabajo);
 				
-			//mostrarLista(listaReady); 
-
-				} 
+		 } 
 			
 			
 }
