@@ -591,7 +591,8 @@ void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea, uint32_t
 	memcpy(stream+offset, &(parametroS->parametro), sizeof(int));
 	offset += sizeof(int);
 
-	memcpy(stream+offset, &(parametroS->parametro), sizeof(uint32_t));
+	memcpy(stream+offset, &(parametroS->tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
 
 	buffer-> stream = stream;
 

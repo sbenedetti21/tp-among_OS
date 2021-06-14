@@ -468,11 +468,15 @@ void atenderDiscordiador(int socketCliente){
 	memcpy(&(parametroS->parametro), paquete->buffer->stream, sizeof(int));
 	paquete->buffer->stream += sizeof(int);
 
+	memcpy(&(parametroS->tid), paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
 	char *mapBlocksAux = malloc(tamanioBlocks);
 	memcpy(mapBlocksAux, mapBlocks, tamanioBlocks);
 
 	uint32_t *tid = malloc(sizeof(uint32_t));
-	tid = &parametroS->tid;   // ID TRIPULANTE
+	*tid = parametroS->tid;   // ID TRIPULANTE
+	
 	log_info(loggerImongoStore,string_from_format("Llego el tripulante %d",parametroS->tid));
 	
 	switch (paquete->header)
