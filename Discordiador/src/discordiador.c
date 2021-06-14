@@ -1,6 +1,7 @@
 #include "discordiador.h"
 
 // FACU: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
+// FRAN: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
 
 
 int main(int argc, char ** argv){
@@ -248,15 +249,15 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 		if(tareaTerminada){
 				int socket = conectarMiRAM();
 				char ** vectorTarea;
-
+				char * stringTarea = ""; 
 				// send() hay que pedir la tarea para despues recibirla
-				// recv(socket, vectorTarea, sizeof(strlen(vectorTarea)), 0);
+				// recv(socket, stringTarea, sizeof(strlen(vectorTarea)), 0);
 				
 				char ** requerimientosTarea;
 
-				if(string_is_empty(vectorTarea)){				// Se fija que la tarea no este vacía
+				if(strcmp(stringTarea, "") != 0){			// Se fija que la tarea no este vacía
 
-				vectorTarea = string_split(tarea, " ");
+				vectorTarea = string_split(stringTarea, " ");
 				requerimientosTarea = string_split(vectorTarea[1],";");
 				tarea->descripcionTarea = vectorTarea[0];
 				tarea->parametro = atoi(requerimientosTarea[0]);			//Llena el struct tarea 

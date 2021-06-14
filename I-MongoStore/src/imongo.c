@@ -14,6 +14,9 @@ int main(int argc, char ** argv){
 		mapearBlocks();
 	}
 
+	sem_init(&semaforoBloques, 0,  1 ); 
+
+
 
     pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);

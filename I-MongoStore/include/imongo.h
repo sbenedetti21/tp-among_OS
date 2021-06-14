@@ -12,6 +12,9 @@
 #include <pthread.h>
 #include <semaphore.h>
 
+//Semaforo
+sem_t semaforoBloques;
+
 //Log
 t_log *loggerImongoStore;
 
@@ -77,12 +80,14 @@ void leerBitMap(){
 }
 
 int bloqueLibreBitMap(){
+	sem_wait(&semaforoBloques);
 	int proximoBlock = 0;
 	while(bitarray_test_bit(punteroBitmap,proximoBlock))
 			proximoBlock++;
 	bitarray_set_bit(punteroBitmap,proximoBlock);
 	
 	return proximoBlock;
+	sem_post(&semaforoBloques);
 }
 
 void guardarBitMap(){
@@ -476,9 +481,10 @@ void atenderDiscordiador(int socketCliente){
 
 	uint32_t *tid = malloc(sizeof(uint32_t));
 	*tid = parametroS->tid;   // ID TRIPULANTE
-	
+
+	log_info(loggerImongoStore,string_from_format("cantidad de Parametros %d",parametroS->parametro));
 	log_info(loggerImongoStore,string_from_format("Llego el tripulante %d",parametroS->tid));
-	
+
 	switch (paquete->header)
 	{
 	case GENERAR_OXIGENO:
