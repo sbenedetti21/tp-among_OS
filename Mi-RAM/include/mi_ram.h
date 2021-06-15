@@ -21,6 +21,8 @@ void * memoriaPrincipal;
 
 int buscarEspacioNecesario(int, int);
 
+sem_t mutexProximoPID; 
+
 // ----------------------------------------  PAGINAS
 
 t_list * listaFrames;
@@ -42,7 +44,7 @@ typedef struct {
 	// SecondChance
 } t_pagina;
 
-int divisionRedondeadaParaAriba(int , int );
+int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
 uint32_t buscarFrame();
 void iniciarFrames();
@@ -50,13 +52,31 @@ void iniciarFrames();
 
 // ----------------------------------------  SEGMENTOS
 
-t_list * tablaSegmentos; 
+t_list * tablaSegmentosGlobal; 
+t_list * tablaDeTablasSegmentos; 
+
 typedef struct{
-	uint32_t numeroSegmento; 
-	uint32_t direccionBase; 
+	
+	uint32_t base; 
 	uint32_t tamanio; 
-// no se si va aca -- 	void * contenido; 
-} segmento; 
+ 
+} t_segmento; 
+
+uint32_t asignarMemoriaSegmentacionTCB(TCB *, t_list *); 
+uint32_t asignarMemoriaSegmentacionPCB(PCB * , t_list *);
+uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * );
+uint32_t encontrarLugarSegmentacion(int );
+uint32_t firstFit(int );
+uint32_t bestFit(int );
+t_list *  obtenerSegmentosLibres(t_list * );
+int buscarEspacioSegmentacion(int , int );
+bool seEncuentraPrimeroEnMemoria(t_segmento * , t_segmento* );
+bool segmentoMasPequenio(t_segmento * , t_segmento * );
+bool cabePCB(t_segmento * );
+bool cabeTCB(t_segmento * );
+
+
+// --------------------- Generales
 
 t_log * loggerMiram; 
 void servidorPrincipal();
@@ -64,11 +84,6 @@ void servidorPrincipal();
 void atenderDiscordiador(int);
 void recibir_TCB(int);
 PCB * crearPCB();
-uint32_t asignarMemoria(void *); 
-uint32_t asignarMemoriaTareas(char *); 
-uint32_t asignarMemoriaSegmentacion(void *);
-uint32_t asignarMemoriaTareasSegmentacion(char *);
-//TCB * deserializar_TCB(void *);
 
 typedef struct {
 

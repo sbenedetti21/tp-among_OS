@@ -10,9 +10,7 @@ int main(int argc, char ** argv){
 
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
 	leerConfig();
-
-	//if (strcmp(esquemaMemoria, "PAGINACION") == 0) .... 
-	//if (strcmp(esquemaMemoria, "SEGMENTACION") == =) ....
+	sem_init(&mutexProximoPID, 0, 1);
 
 	memoriaPrincipal = malloc(tamanioMemoria);
 	iniciarMemoria();
@@ -127,7 +125,7 @@ void atenderDiscordiador(int socketCliente){
 
 			if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
 				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs;
-				int framesNecesarios = divisionRedondeadaParaAriba(memoriaNecesaria, tamanioPagina);
+				int framesNecesarios = divisionRedondeadaParaArriba(memoriaNecesaria, tamanioPagina);
 				void * streamPatota = malloc(memoriaNecesaria);
 
 				t_list * tablaDePaginas = list_create();
@@ -142,7 +140,7 @@ void atenderDiscordiador(int socketCliente){
 				memcpy(streamPatota, (void *) tareas, tamanioTareas);
 				offset += tamanioTareas;
 
-
+//agregar al stream los TCBs
 
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas);
 			}
@@ -236,8 +234,9 @@ PCB * crearPCB(){
 	patota->pid = proximoPID;
 	patota->tareas = SIZEOF_PCB;
 	
-	//deberia tener un semaforo mutex
+	sem_wait(&mutexProximoPID); 
 	proximoPID++;
+	sem_post(&mutexProximoPID); 
 	
 	return patota; 
 }
@@ -279,7 +278,8 @@ void expulsarTripulanteDelMapa(TCB* tripulante) {
 void iniciarMemoria() {
 	
 	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
-		
+		tablaSegmentosGlobal = list_create(); 
+		tablaDeTablasSegmentos = list_create();
 	}
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
@@ -289,68 +289,20 @@ void iniciarMemoria() {
 	}
 }
 
+
 int buscarEspacioNecesario(int tamanioTareas, int cantidadTripulantes) {
 
-	// if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
-	// 	t_list * copiaSegmentosOcupados = list_duplicate(tablaSegmentosGlobal); 
-	// 	t_list * copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados);
+	if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 
-	// 	bool cabenTareasEnElSegmento(t_segmento * segmento){
-
-	// 		if((segmento->tamanio) >= tamanioTareas){
-	// 			return true; 
-	// 		}
-	// 		else{
-	// 			return false; 
-	// 		}
-	// 	}
+		return buscarEspacioSegmentacion(tamanioTareas, cantidadTripulantes);
 		
-		
-	// 	t_segmento * segmentoPosible = malloc(sizeof(t_segmento));
-	// 	segmentoPosible = list_find(copiaSegmentosLibres, cabenTareasEnElSegmento); 
-		
-	// 	if(segmentoPosible != NULL){
-	// 		t_segmento * copiaSegmentoTareas = malloc(sizeof(t_segmento)); 
-	// 		copiaSegmentoTareas -> base = segmentoPosible -> base; 
-	// 		copiaSegmentoTareas -> tamanio = tamanioTareas; 
-	// 		list_add(copiaSegmentosOcupados, copiaSegmentoTareas); 
-	// 	}
-	// 	else{
-	// 		return -1; 
-	// 	}
-
-	// 	for(int i = 0 ; i < cantidadTripulantes; i ++){
-
-	// 		copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados); 
-	// 		segmentoPosible = list_find(copiaSegmentosLibres, cabeTCB); 
-	// 		if(segmentoPosible != NULL){
-	// 			t_segmento * copiaSegmentoTCB = malloc(sizeof(TCB)); 
-	// 			copiaSegmentoTCB -> base = segmentoPosible -> base; 
-	// 			copiaSegmentoTCB -> tamanio = sizeof(TCB); 
-	// 			list_add(copiaSegmentosOcupados, copiaSegmentoTCB); 
-	// 		}
-	// 		else{
-	// 			return -1; 
-	// 		}
-
-	// 	}
-
-	// 	copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados); 
-	// 	segmentoPosible = list_find(copiaSegmentosLibres, cabePCB); 
-	// 	if(segmentoPosible != NULL){
-	// 		return 1;  
-
-	// 	}
-	// 	else{
-	// 		return -1; 
-	// 	}
-	// }
+	}
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 		int cantidadMemoriaNecesaria = tamanioTareas + SIZEOF_TCB * cantidadTripulantes + SIZEOF_PCB;
 		int cantidadFramesDisponibles = framesDisponibles();
 
-		if (divisionRedondeadaParaAriba(cantidadMemoriaNecesaria, tamanioPagina) < cantidadFramesDisponibles) {
+		if (divisionRedondeadaParaArriba(cantidadMemoriaNecesaria, tamanioPagina) < cantidadFramesDisponibles) {
 			return 1;
 		}
 		
@@ -360,35 +312,7 @@ int buscarEspacioNecesario(int tamanioTareas, int cantidadTripulantes) {
 
 } 
 
-uint32_t asignarMemoria(void * contenido){
-
-	// if(strcmp(esquemaMemoria, "PAGINACION") == 0){
-	// 	asignarMemoriaPaginacion(contenido); 
-	// }
-
-	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0){
-		asignarMemoriaSegmentacion(contenido); 
-	}
-}
-
-uint32_t asignarMemoriaTareas(char * tareas){
-
-	// if(strcmp(esquemaMemoria, "PAGINACION") == 0){
-	// 	asignarMemoriaTareasPaginacion(tareas); 
-	// }
-
-	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0){
-		asignarMemoriaTareasSegmentacion(tareas); 
-	}
-}
-
-uint32_t asignarMemoriaSegmentacion(void * contenido){
-
-}
-
-uint32_t asignarMemoriaTareasSegmentacion(char * contenido){
-	
-}
+//ver como generalizar el asignar memoria
 
 // -------------------- PAGINACION ------------------------------
 
@@ -472,6 +396,263 @@ void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int c
 
 }
 
-int divisionRedondeadaParaAriba(int x, int y) {
+int divisionRedondeadaParaArriba(int x, int y) {
 	return (x -1)/y +1;
+}
+
+
+//----------------SEGMENTACION
+
+uint32_t asignarMemoriaSegmentacionTCB(TCB * contenido, t_list * tablaSegmentos){
+
+		//busco un lugar de memoria (segun algoritmo)
+		uint32_t direccionLogica = 0;
+		direccionLogica = encontrarLugarSegmentacion(sizeof(TCB)); 
+		//le asigno el lugar de memoria encontrado
+		memcpy(memoriaPrincipal + direccionLogica, contenido, sizeof(TCB)); 
+
+		//creo el segmento para la estructura nueva
+		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
+		segmentoNuevo -> tamanio = sizeof(TCB); 
+		segmentoNuevo -> base = direccionLogica; 
+
+		//agrego el segmento a la tabla de segmentos 
+		list_add(tablaSegmentos, segmentoNuevo);
+		list_add(tablaSegmentosGlobal, segmentoNuevo);  
+		return direccionLogica;
+}
+
+uint32_t asignarMemoriaSegmentacionPCB(PCB * pcb , t_list * tablaSegmentos){
+	//busco un lugar de memoria (segun algoritmo)
+	
+		int direccionLogica = encontrarLugarSegmentacion(sizeof(PCB)); 
+		//le asigno el lugar de memoria encontrado
+		memcpy(memoriaPrincipal + direccionLogica, pcb, sizeof(PCB)); 
+
+		//creo el segmento para la estructura nueva
+		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
+		segmentoNuevo -> tamanio = sizeof(PCB); 
+		segmentoNuevo -> base = direccionLogica; 
+
+		//agrego el segmento a la tabla de segmentos 
+		list_add(tablaSegmentos, segmentoNuevo);
+		list_add(tablaSegmentosGlobal, segmentoNuevo); 
+		printf("Direccion logica asignada %d \n", direccionLogica);  
+		return direccionLogica;
+}
+
+uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_list * tablaSegmentos){
+
+	uint32_t direccionLogica = encontrarLugarSegmentacion(tamanioTareas); 
+	memcpy(memoriaPrincipal + direccionLogica, tareas, tamanioTareas); 
+
+	t_segmento * segmentoTareas = malloc(tamanioTareas); 
+	segmentoTareas->tamanio = tamanioTareas; 
+	segmentoTareas ->base = direccionLogica; 
+	list_add(tablaSegmentos, segmentoTareas);
+	list_add(tablaSegmentosGlobal, segmentoTareas);  
+	return direccionLogica;
+
+}
+
+uint32_t encontrarLugarSegmentacion(int tamanioSegmento){
+	if(strcmp(algoritmoReemplazo, "FIRST_FIT") == 0){return firstFit(tamanioSegmento); }
+	if(strcmp(algoritmoReemplazo, "BEST_FIT") == 0){ return bestFit(tamanioSegmento);}
+	//es realmente un algoritmo de reemplazo para segmentacion¿? o algoritmo de busqueda de lugar 
+}
+
+uint32_t firstFit(int tamanioContenido){
+	int i = 0; 
+	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal); 
+	t_segmento * segmentoLibre = list_get(segmentosLibres, i); 
+	
+	while((segmentoLibre -> tamanio) < tamanioContenido){
+		i++; 
+		segmentoLibre = list_get(segmentosLibres, i); 
+	}
+	printf("La base del primer segmento libre es : %d \n", (segmentoLibre -> base));
+	printf("El tamanio del primer segmento libre es %d \n", segmentoLibre->tamanio);
+
+	
+	return (segmentoLibre -> base);
+
+}
+
+uint32_t bestFit(int tamanioContenido){
+
+	int i = 0;  
+	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal); 
+	t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
+	t_list * lugaresPosibles = list_create(); 
+
+	while(i < (list_size(segmentosLibres))){
+		segmentoLibre = list_get(segmentosLibres, i); 
+		if((segmentoLibre ->tamanio) > tamanioContenido){
+			list_add(lugaresPosibles, segmentoLibre); 
+		}
+
+		i++;
+
+	}
+
+	list_sort(lugaresPosibles, segmentoMasPequenio); 
+	t_segmento * segmentoElegido = list_get(lugaresPosibles, 0); 
+	
+
+	return (segmentoElegido -> base);  
+
+}
+
+t_list *  obtenerSegmentosLibres(t_list * tablaSegmentos){
+int i = 0; 
+
+t_list * segmentosLibres = list_create(); 
+list_sort(tablaSegmentos, seEncuentraPrimeroEnMemoria); 
+t_segmento * primerSegmentoOCupado = malloc(sizeof(t_segmento));
+ primerSegmentoOCupado = list_get(tablaSegmentos, 0);
+ 
+
+if(primerSegmentoOCupado -> base != 0){
+	t_segmento * primerSegmentoLibre = malloc(sizeof(t_segmento)); 
+	primerSegmentoLibre -> base = 0; 
+	primerSegmentoLibre -> tamanio = (primerSegmentoOCupado -> base)  - (primerSegmentoLibre -> base); 
+	list_add(segmentosLibres, primerSegmentoLibre); 
+	
+	 
+} 
+
+while(i < (list_size(tablaSegmentos)-1)){
+	t_segmento * segmentoActual = malloc(sizeof(t_segmento)); 
+	t_segmento * segmentoLibre = malloc(sizeof(t_segmento));
+	t_segmento * proximoSegmento = malloc(sizeof(t_segmento));
+	segmentoActual = list_get(tablaSegmentos, i); 
+	proximoSegmento = list_get(tablaSegmentos, i +1); 
+	segmentoLibre; 
+	segmentoLibre->base = segmentoActual->base + segmentoActual-> tamanio ; 
+	segmentoLibre-> tamanio = (proximoSegmento -> base) - segmentoLibre -> base;
+	if((segmentoLibre -> tamanio) != 0) {
+			list_add(segmentosLibres, segmentoLibre); 
+
+	}
+
+	i++;
+	
+}
+
+t_segmento * ultimoSegmentoOcupado = malloc(sizeof(t_segmento));  
+ultimoSegmentoOcupado = list_get(tablaSegmentos, i); 
+int finalUltimoSegmento = ultimoSegmentoOcupado ->base + ultimoSegmentoOcupado -> tamanio; 
+
+
+if(finalUltimoSegmento < tamanioMemoria){
+	t_segmento * ultimoSegmentoLibre = malloc(sizeof(t_segmento));
+	ultimoSegmentoLibre -> base = ultimoSegmentoOcupado ->base + ultimoSegmentoOcupado ->tamanio ; 
+	ultimoSegmentoLibre -> tamanio = tamanioMemoria - (ultimoSegmentoLibre -> base); 
+	
+	list_add(segmentosLibres, ultimoSegmentoLibre);
+}
+printf("Hay %d segmentos libres \n", list_size(segmentosLibres));
+for(int z = 0; z < list_size(segmentosLibres); z++){
+	t_segmento * segmento = list_get(segmentosLibres, z); 
+
+	
+
+}
+
+return segmentosLibres;
+
+}
+
+
+int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
+t_list * copiaSegmentosOcupados = list_duplicate(tablaSegmentosGlobal); 
+		t_list * copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados);
+
+		bool cabenTareasEnElSegmento(t_segmento * segmento){
+
+			if((segmento->tamanio) >= tamanioTareas){
+				return true; 
+			}
+			else{
+				return false; 
+			}
+		}
+		
+		
+		t_segmento * segmentoPosible = malloc(sizeof(t_segmento));
+		segmentoPosible = list_find(copiaSegmentosLibres, cabenTareasEnElSegmento); 
+		
+		if(segmentoPosible != NULL){
+			t_segmento * copiaSegmentoTareas = malloc(sizeof(t_segmento)); 
+			copiaSegmentoTareas -> base = segmentoPosible -> base; 
+			copiaSegmentoTareas -> tamanio = tamanioTareas; 
+			list_add(copiaSegmentosOcupados, copiaSegmentoTareas); 
+		}
+		else{
+			return -1; 
+		}
+
+		for(int i = 0 ; i < cantidadTripulantes; i ++){
+
+			copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados); 
+			segmentoPosible = list_find(copiaSegmentosLibres, cabeTCB); 
+			if(segmentoPosible != NULL){
+				t_segmento * copiaSegmentoTCB = malloc(sizeof(TCB)); 
+				copiaSegmentoTCB -> base = segmentoPosible -> base; 
+				copiaSegmentoTCB -> tamanio = sizeof(TCB); 
+				list_add(copiaSegmentosOcupados, copiaSegmentoTCB); 
+			}
+			else{
+				return -1; 
+			}
+
+		}
+
+		copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados); 
+		segmentoPosible = list_find(copiaSegmentosLibres, cabePCB); 
+		if(segmentoPosible != NULL){
+			return 1;  
+
+		}
+		else{
+			return -1; 
+		}
+	}
+
+bool seEncuentraPrimeroEnMemoria(t_segmento * unSegmento, t_segmento* otroSegmento){
+
+	 if((unSegmento->base) <( otroSegmento->base)){
+		 return true; 
+	 }
+	 else{
+		 return false; 
+	 }
+}
+
+bool segmentoMasPequenio(t_segmento * unSegmento, t_segmento * otroSegmento){
+
+	if((unSegmento ->tamanio < (otroSegmento->tamanio))){
+		return true; 
+	}
+
+	else{
+		return false; 
+	}
+}
+
+bool cabePCB(t_segmento * segmento){
+	if( (segmento->tamanio) >= sizeof(PCB)){
+		return true; 
+	}
+
+	else {return false; }
+}
+
+
+bool cabeTCB(t_segmento * segmento){
+	if( (segmento->tamanio) >= sizeof(TCB)){
+		return true; 
+	}
+
+	else {return false; }
 }
