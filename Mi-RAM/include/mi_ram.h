@@ -1,6 +1,5 @@
 #ifndef MI_RAM_H
 #define MI_RAM_H
-#define BACKLOG 10 //TODO
 
 #include <stdio.h>
 #include <commons/log.h>
@@ -9,19 +8,44 @@
 #include <nivel-gui/tad_nivel.h>
 #include "shared_utils.h"
 
-char * esquemaMemoria; 
+#define BACKLOG 10 //TODO
+#define SIZEOF_PCB 8
+#define SIZEOF_TCB 21
+
+// --------------------------------------- MEMORIA GENERAL
+
+char * esquemaMemoria;
+char * algoritmoReemplazo;
+char * puertoMemoria;
+void * memoriaPrincipal; 
+
+int buscarEspacioNecesario(int, int);
 
 // ----------------------------------------  PAGINAS
 
+t_list * listaFrames;
+t_list * listaTablasDePaginas;
+int tamanioPagina, tamanioMemoria;
+char * path_SWAP;
+
 typedef struct {
-	void * contenido;
-} frame;
+	uint32_t inicio;
+	uint32_t ocupado;
+}  t_frame;
+
+t_list * listaFrames;
 
 typedef struct {
 	uint32_t numeroPagina;
 	uint32_t numeroFrame;
 	// ultimaReferencia
-} paginaStruct;
+	// SecondChance
+} t_pagina;
+
+int divisionRedondeadaParaAriba(int , int );
+int framesDisponibles();
+uint32_t buscarFrame();
+void iniciarFrames();
 
 
 // ----------------------------------------  SEGMENTOS
@@ -35,16 +59,14 @@ typedef struct{
 } segmento; 
 
 t_log * loggerMiram; 
-void servidorPrincipal(t_config*);
+void servidorPrincipal();
 
 void atenderDiscordiador(int);
 void recibir_TCB(int);
 PCB * crearPCB();
 uint32_t asignarMemoria(void *); 
 uint32_t asignarMemoriaTareas(char *); 
-uint32_t asignarMemoriaPaginacion(void *);
 uint32_t asignarMemoriaSegmentacion(void *);
-uint32_t asignarMemoriaTareasPaginacion(char *);
 uint32_t asignarMemoriaTareasSegmentacion(char *);
 //TCB * deserializar_TCB(void *);
 
