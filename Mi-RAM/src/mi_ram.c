@@ -90,7 +90,6 @@ void atenderDiscordiador(int socketCliente){
 	switch (paquete->header)
 	{
 	case INICIAR_PATOTA: ; 
-
 		
 
 		void* stream = malloc(paquete->buffer->size);
@@ -141,32 +140,35 @@ void atenderDiscordiador(int socketCliente){
 				memcpy(streamPatota, (void *) tareas, tamanioTareas);
 				offset += tamanioTareas;
 
-			
-			
-			//tripulantes
-
+				uint32_t proximaInstruccion = 0, direccionPCB = 0;
+				for (int i = 0; i < cantidadTCBs; i++) {
+					memcpy(streamPatota + offset, stream, SIZEOF_TCB);
+					stream += SIZEOF_TCB; offset += SIZEOF_TCB;
+					memcpy(streamPatota + offset, &proximaInstruccion, sizeof(uint32_t));
+					offset += sizeof(uint32_t);
+					memcpy(streamPatota + offset, &direccionPCB, sizeof(uint32_t));
+					offset += sizeof(uint32_t);
+				};
+				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas);
 			}
 
-			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
+			// if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 
-				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
-			TCB * tripulante = malloc(sizeof(TCB));
-			tripulante = deserializar_TCB(stream);
-			
-			
-			tripulante->punteroPCB = direccionPCB; 
-			tripulante->proximaInstruccion = direccionTareas; 
+			// 	for(int i = 0 ; i < cantidadTCBs ;  i++ ){
+			// TCB * tripulante = malloc(sizeof(TCB));
+			// tripulante = deserializar_TCB(stream);
 
-			uint32_t direccionLogica = asignarMemoria(tripulante); 
 
-			printf("ID: %d \n", tripulante->tid);
-			}
+			// uint32_t direccionLogica = asignarMemoria(tripulante); 
 
-				uint32_t direccionPCB = asignarMemoria(pcb); 
+			// printf("ID: %d \n", tripulante->tid);
+			// }
 
-				uint32_t direccionTareas = asignarMemoriaTareas(tareas); 
-			}
+			// 	//uint32_t direccionPCB = asignarMemoria(pcb); 
+
+			// 	uint32_t direccionTareas = asignarMemoriaTareas(tareas); 
+			// }
 
 			
 			
@@ -193,9 +195,9 @@ void atenderDiscordiador(int socketCliente){
 		break;
 	}
 
-	free(paquete->buffer->stream);
-	free(paquete->buffer);
-	free(paquete);
+	// free(paquete->buffer->stream);
+	// free(paquete->buffer);
+	// free(paquete);
 	
 
 
@@ -326,7 +328,7 @@ uint32_t buscarFrame() {
   t_frame * frameLibre = malloc(sizeof(t_frame));
   frameLibre = list_find(listaFrames, estaLibre);
   uint32_t direccionFrame = frameLibre->inicio;
-  free(frameLibre);
+  //free(frameLibre);
 
   return direccionFrame;
 }
