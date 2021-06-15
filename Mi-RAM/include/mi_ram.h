@@ -20,6 +20,7 @@ char * puertoMemoria;
 void * memoriaPrincipal; 
 
 int buscarEspacioNecesario(int, int);
+TCB * deserializarTCB(void *);
 
 sem_t mutexProximoPID; 
 

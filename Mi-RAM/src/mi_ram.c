@@ -109,12 +109,13 @@ void atenderDiscordiador(int socketCliente){
 
 		printf("%s \n", tareas);
 
-		//Deserializar TCBs
+		//Deserializar CantidadDeTCBs
 		int cantidadTCBs = 0;
 		memcpy(&cantidadTCBs, stream, sizeof(int));
 		stream += sizeof(int); //lo que sigue en el stream son los tcbs
 
 		//Nos aseguramos de que hay espacio para recibir la patota 
+		
 
 		int hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs); 
 		
@@ -140,47 +141,40 @@ void atenderDiscordiador(int socketCliente){
 				memcpy(streamPatota, (void *) tareas, tamanioTareas);
 				offset += tamanioTareas;
 
-//agregar al stream los TCBs
+			
+			
+			//tripulantes
 
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas);
 			}
 
 			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 
+				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
+			TCB * tripulante = malloc(sizeof(TCB));
+			tripulante = deserializar_TCB(stream);
+			
+			
+			tripulante->punteroPCB = direccionPCB; 
+			tripulante->proximaInstruccion = direccionTareas; 
+
+			uint32_t direccionLogica = asignarMemoria(tripulante); 
+
+			printf("ID: %d \n", tripulante->tid);
+			}
+
+				uint32_t direccionPCB = asignarMemoria(pcb); 
+
+				uint32_t direccionTareas = asignarMemoriaTareas(tareas); 
 			}
 
 			
-			// uint32_t direccionPCB = asignarMemoria(pcb); 
-
-			// uint32_t direccionTareas = asignarMemoriaTareas(tareas); 
 			
-			// 	//preguntar como asignar direccion de tareas  
+			
+				//preguntar como asignar direccion de tareas  
 
 
-			// for(int i = 0 ; i < cantidadTCBs ;  i++ ){
-			// TCB * tripulante = malloc(sizeof(TCB));
-			// //tripulante = deserializar_TCB(stream);
-
-			// //Deserializamos los campos que tenemos en el buffer
-			// memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
-			// stream += sizeof(uint32_t);
-
-			// memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
-			// stream += sizeof(uint32_t);
-
-			// memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
-			// stream += sizeof(uint32_t);
-
-			// memcpy(&(tripulante->estado), stream, sizeof(char));
-			// stream += sizeof(char);
-
-			// tripulante->punteroPCB = direccionPCB; 
-			// tripulante->proximaInstruccion = direccionTareas; 
-
-			// uint32_t direccionLogica = asignarMemoria(tripulante); 
-
-			// printf("ID: %d \n", tripulante->tid);
-			// }
+			
 
 		}
 		
@@ -208,24 +202,24 @@ void atenderDiscordiador(int socketCliente){
 }
 
 
-// TCB * deserializar_TCB(void * stream){ // Agregar stuff
-// 	TCB * tripulante = malloc(sizeof(TCB));
+TCB * deserializar_TCB(void * stream){ 
+	TCB * tripulante = malloc(sizeof(TCB));
 
-// 	//Deserializamos los campos que tenemos en el buffer
-// 	memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
-// 	stream += sizeof(uint32_t);
+	//Deserializamos los campos que tenemos en el buffer
+	memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
+	stream += sizeof(uint32_t);
 
-// 	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
-// 	stream += sizeof(uint32_t);
+	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
+	stream += sizeof(uint32_t);
 
-// 	memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
-// 	stream += sizeof(uint32_t);
+	memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
+	stream += sizeof(uint32_t);
 
-// 	memcpy(&(tripulante->estado), stream, sizeof(char));
-// 	stream += sizeof(char);
+	memcpy(&(tripulante->estado), stream, sizeof(char));
+	stream += sizeof(char);
 
-// 	return tripulante;
-// }
+	return tripulante;
+}
 
 PCB * crearPCB(){
 	// uint32_t punteroTareas = *tareas; //ESTO ESTA RARI
@@ -242,35 +236,7 @@ PCB * crearPCB(){
 }
 
 
-// ------------------------------------------------------ MAPA ----------------------------------------------
 
-void iniciarMapa() {
-	
-	nivel_gui_inicializar();
-	NIVEL* navePrincipal = nivel_crear("Nave Principal");
-	nivel_gui_dibujar(navePrincipal);
-
-}
-
-void agregarTripulanteAlMapa(TCB* tripulante) {
-	char id = '0';
-	id = '0' + tripulante->tid; //aca el tid es un uint 
-	printf("%c", id);
-	int posicionX = tripulante->posicionX;
-	int posicionY = tripulante->posicionY;
-	personaje_crear(navePrincipal, id, posicionX, posicionY);
-	nivel_gui_dibujar(navePrincipal);
-}
-
-void moverTripulanteEnMapa(TCB * tripulante, int x, int y) {
-	char id = '0' + tripulante->tid;
-	item_mover(navePrincipal, id, x, y);
-}
-
-void expulsarTripulanteDelMapa(TCB* tripulante) {
-	char id = '0' + tripulante->tid;
-	item_borrar(navePrincipal, id);
-}
 
 
 // ------------ASIGNAR MEMORIA-------------
@@ -597,9 +563,9 @@ t_list * copiaSegmentosOcupados = list_duplicate(tablaSegmentosGlobal);
 			copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados); 
 			segmentoPosible = list_find(copiaSegmentosLibres, cabeTCB); 
 			if(segmentoPosible != NULL){
-				t_segmento * copiaSegmentoTCB = malloc(sizeof(TCB)); 
+				t_segmento * copiaSegmentoTCB = malloc(SIZEOF_TCB); 
 				copiaSegmentoTCB -> base = segmentoPosible -> base; 
-				copiaSegmentoTCB -> tamanio = sizeof(TCB); 
+				copiaSegmentoTCB -> tamanio = SIZEOF_TCB;
 				list_add(copiaSegmentosOcupados, copiaSegmentoTCB); 
 			}
 			else{
@@ -655,4 +621,34 @@ bool cabeTCB(t_segmento * segmento){
 	}
 
 	else {return false; }
+}
+
+// ------------------------------------------------------ MAPA ----------------------------------------------
+
+void iniciarMapa() {
+	
+	nivel_gui_inicializar();
+	NIVEL* navePrincipal = nivel_crear("Nave Principal");
+	nivel_gui_dibujar(navePrincipal);
+
+}
+
+void agregarTripulanteAlMapa(TCB* tripulante) {
+	char id = '0';
+	id = '0' + tripulante->tid; //aca el tid es un uint 
+	printf("%c", id);
+	int posicionX = tripulante->posicionX;
+	int posicionY = tripulante->posicionY;
+	personaje_crear(navePrincipal, id, posicionX, posicionY);
+	nivel_gui_dibujar(navePrincipal);
+}
+
+void moverTripulanteEnMapa(TCB * tripulante, int x, int y) {
+	char id = '0' + tripulante->tid;
+	item_mover(navePrincipal, id, x, y);
+}
+
+void expulsarTripulanteDelMapa(TCB* tripulante) {
+	char id = '0' + tripulante->tid;
+	item_borrar(navePrincipal, id);
 }
