@@ -296,3 +296,22 @@ uint32_t asignarMemoriaTareasPaginacion(char * contenido){
 uint32_t asignarMemoriaTareasSegmentacion(char * contenido){
 	
 }
+
+// -------------------- PAGINACION ------------------------------
+
+int iniciarFrames(){
+	printf("--------------------------------------------------------------------- \n");
+	printf("Iniciando Frames... \n\n");
+	int cantidadFrames = 0;
+
+	for(int desplazamiento = 0; desplazamiento< tamanioMemoria; desplazamiento += tamanioPagina){
+		t_frame * frame = malloc(sizeof(t_frame));
+		frame->inicio = desplazamiento;
+		frame->ocupado = 0;
+
+		list_add(listaFrames, frame);
+		cantidadFrames ++;
+	}
+
+	return cantidadFrames;
+}
