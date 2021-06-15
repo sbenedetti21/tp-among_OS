@@ -150,28 +150,26 @@ void atenderDiscordiador(int socketCliente){
 
 			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 
+				t_list * tablaSegmentos = malloc(sizeof(t_list));
+				PCB * pcb = crearPCB(); 
+				uint32_t direccionTareas = asignarMemoriaSegmentacionTareas(tareas, tamanioTareas, tablaSegmentos); 
+				pcb ->tareas = direccionTareas; 
+				uint32_t direccionPCB = asignarMemoriaSegmentacionPCB(pcb, tablaSegmentos); 
+
 				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
-			TCB * tripulante = malloc(sizeof(TCB));
-			tripulante = deserializar_TCB(stream);
-			
-			
-			tripulante->punteroPCB = direccionPCB; 
-			tripulante->proximaInstruccion = direccionTareas; 
+					TCB * tripulante = malloc(sizeof(TCB));
+					tripulante = deserializar_TCB(stream);
+					tripulante->punteroPCB = direccionPCB; 
+					tripulante->proximaInstruccion = direccionTareas; 
 
-			uint32_t direccionLogica = asignarMemoria(tripulante); 
-
-			printf("ID: %d \n", tripulante->tid);
+					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tablaSegmentos); 
+					log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
+			
 			}
 
-				uint32_t direccionPCB = asignarMemoria(pcb); 
-
-				uint32_t direccionTareas = asignarMemoriaTareas(tareas); 
+				
 			}
 
-			
-			
-			
-				//preguntar como asignar direccion de tareas  
 
 
 			
@@ -231,6 +229,8 @@ PCB * crearPCB(){
 	sem_wait(&mutexProximoPID); 
 	proximoPID++;
 	sem_post(&mutexProximoPID); 
+
+
 	
 	return patota; 
 }
@@ -401,7 +401,7 @@ uint32_t asignarMemoriaSegmentacionPCB(PCB * pcb , t_list * tablaSegmentos){
 		segmentoNuevo -> base = direccionLogica; 
 
 		//agrego el segmento a la tabla de segmentos 
-		list_add(tablaSegmentos, segmentoNuevo);
+		list_add_in_index(tablaSegmentos, 0,segmentoNuevo);
 		list_add(tablaSegmentosGlobal, segmentoNuevo); 
 		printf("Direccion logica asignada %d \n", direccionLogica);  
 		return direccionLogica;
@@ -415,7 +415,7 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 	t_segmento * segmentoTareas = malloc(tamanioTareas); 
 	segmentoTareas->tamanio = tamanioTareas; 
 	segmentoTareas ->base = direccionLogica; 
-	list_add(tablaSegmentos, segmentoTareas);
+	list_add_in_index(tablaSegmentos, 1, segmentoTareas);
 	list_add(tablaSegmentosGlobal, segmentoTareas);  
 	return direccionLogica;
 
