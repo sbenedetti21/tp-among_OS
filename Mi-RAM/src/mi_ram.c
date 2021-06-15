@@ -153,27 +153,28 @@ void atenderDiscordiador(int socketCliente){
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas);
 			}
 
-			// if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
+			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 
-			// 	for(int i = 0 ; i < cantidadTCBs ;  i++ ){
-			// TCB * tripulante = malloc(sizeof(TCB));
-			// tripulante = deserializar_TCB(stream);
+				t_list * tablaSegmentos = malloc(sizeof(t_list));
+				PCB * pcb = crearPCB(); 
+				uint32_t direccionTareas = asignarMemoriaSegmentacionTareas(tareas, tamanioTareas, tablaSegmentos); 
+				pcb ->tareas = direccionTareas; 
+				uint32_t direccionPCB = asignarMemoriaSegmentacionPCB(pcb, tablaSegmentos); 
 
+				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
+					TCB * tripulante = malloc(SIZEOF_TCB);
+					tripulante = deserializar_TCB(stream);
+					tripulante->punteroPCB = direccionPCB; 
+					tripulante->proximaInstruccion = direccionTareas; 
 
-			// uint32_t direccionLogica = asignarMemoria(tripulante); 
-
-			// printf("ID: %d \n", tripulante->tid);
-			// }
-
-			// 	//uint32_t direccionPCB = asignarMemoria(pcb); 
-
-			// 	uint32_t direccionTareas = asignarMemoriaTareas(tareas); 
-			// }
-
+					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tablaSegmentos); 
+					log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
 			
-			
-			
-				//preguntar como asignar direccion de tareas  
+			}
+
+				
+			}
+
 
 
 			
@@ -205,7 +206,7 @@ void atenderDiscordiador(int socketCliente){
 
 
 TCB * deserializar_TCB(void * stream){ 
-	TCB * tripulante = malloc(sizeof(TCB));
+	TCB * tripulante = malloc(SIZEOF_TCB);
 
 	//Deserializamos los campos que tenemos en el buffer
 	memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
@@ -233,6 +234,8 @@ PCB * crearPCB(){
 	sem_wait(&mutexProximoPID); 
 	proximoPID++;
 	sem_post(&mutexProximoPID); 
+
+
 	
 	return patota; 
 }
@@ -375,13 +378,13 @@ uint32_t asignarMemoriaSegmentacionTCB(TCB * contenido, t_list * tablaSegmentos)
 
 		//busco un lugar de memoria (segun algoritmo)
 		uint32_t direccionLogica = 0;
-		direccionLogica = encontrarLugarSegmentacion(sizeof(TCB)); 
+		direccionLogica = encontrarLugarSegmentacion(SIZEOF_TCB); 
 		//le asigno el lugar de memoria encontrado
-		memcpy(memoriaPrincipal + direccionLogica, contenido, sizeof(TCB)); 
+		memcpy(memoriaPrincipal + direccionLogica, contenido, SIZEOF_TCB); 
 
 		//creo el segmento para la estructura nueva
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
-		segmentoNuevo -> tamanio = sizeof(TCB); 
+		segmentoNuevo -> tamanio = SIZEOF_TCB; 
 		segmentoNuevo -> base = direccionLogica; 
 
 		//agrego el segmento a la tabla de segmentos 
@@ -393,17 +396,17 @@ uint32_t asignarMemoriaSegmentacionTCB(TCB * contenido, t_list * tablaSegmentos)
 uint32_t asignarMemoriaSegmentacionPCB(PCB * pcb , t_list * tablaSegmentos){
 	//busco un lugar de memoria (segun algoritmo)
 	
-		int direccionLogica = encontrarLugarSegmentacion(sizeof(PCB)); 
+		int direccionLogica = encontrarLugarSegmentacion(SIZEOF_PCB); 
 		//le asigno el lugar de memoria encontrado
-		memcpy(memoriaPrincipal + direccionLogica, pcb, sizeof(PCB)); 
+		memcpy(memoriaPrincipal + direccionLogica, pcb, SIZEOF_PCB); 
 
 		//creo el segmento para la estructura nueva
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
-		segmentoNuevo -> tamanio = sizeof(PCB); 
+		segmentoNuevo -> tamanio = SIZEOF_PCB; 
 		segmentoNuevo -> base = direccionLogica; 
 
 		//agrego el segmento a la tabla de segmentos 
-		list_add(tablaSegmentos, segmentoNuevo);
+		list_add_in_index(tablaSegmentos, 0,segmentoNuevo);
 		list_add(tablaSegmentosGlobal, segmentoNuevo); 
 		printf("Direccion logica asignada %d \n", direccionLogica);  
 		return direccionLogica;
@@ -417,7 +420,7 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 	t_segmento * segmentoTareas = malloc(tamanioTareas); 
 	segmentoTareas->tamanio = tamanioTareas; 
 	segmentoTareas ->base = direccionLogica; 
-	list_add(tablaSegmentos, segmentoTareas);
+	list_add_in_index(tablaSegmentos, 1, segmentoTareas);
 	list_add(tablaSegmentosGlobal, segmentoTareas);  
 	return direccionLogica;
 
@@ -609,7 +612,7 @@ bool segmentoMasPequenio(t_segmento * unSegmento, t_segmento * otroSegmento){
 }
 
 bool cabePCB(t_segmento * segmento){
-	if( (segmento->tamanio) >= sizeof(PCB)){
+	if( (segmento->tamanio) >= SIZEOF_PCB){
 		return true; 
 	}
 
@@ -618,7 +621,7 @@ bool cabePCB(t_segmento * segmento){
 
 
 bool cabeTCB(t_segmento * segmento){
-	if( (segmento->tamanio) >= sizeof(TCB)){
+	if( (segmento->tamanio) >= SIZEOF_TCB){
 		return true; 
 	}
 
