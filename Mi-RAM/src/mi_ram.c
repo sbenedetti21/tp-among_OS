@@ -90,7 +90,6 @@ void atenderDiscordiador(int socketCliente){
 	switch (paquete->header)
 	{
 	case INICIAR_PATOTA: ; 
-
 		
 
 		void* stream = malloc(paquete->buffer->size);
@@ -141,10 +140,16 @@ void atenderDiscordiador(int socketCliente){
 				memcpy(streamPatota, (void *) tareas, tamanioTareas);
 				offset += tamanioTareas;
 
-			
-			
-			//tripulantes
-
+				uint32_t proximaInstruccion = 0, direccionPCB = 0;
+				for (int i = 0; i < cantidadTCBs; i++) {
+					memcpy(streamPatota + offset, stream, SIZEOF_TCB);
+					stream += SIZEOF_TCB; offset += SIZEOF_TCB;
+					memcpy(streamPatota + offset, &proximaInstruccion, sizeof(uint32_t));
+					offset += sizeof(uint32_t);
+					memcpy(streamPatota + offset, &direccionPCB, sizeof(uint32_t));
+					offset += sizeof(uint32_t);
+				};
+				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas);
 			}
 
@@ -191,9 +196,9 @@ void atenderDiscordiador(int socketCliente){
 		break;
 	}
 
-	free(paquete->buffer->stream);
-	free(paquete->buffer);
-	free(paquete);
+	// free(paquete->buffer->stream);
+	// free(paquete->buffer);
+	// free(paquete);
 	
 
 
@@ -326,7 +331,7 @@ uint32_t buscarFrame() {
   t_frame * frameLibre = malloc(sizeof(t_frame));
   frameLibre = list_find(listaFrames, estaLibre);
   uint32_t direccionFrame = frameLibre->inicio;
-  free(frameLibre);
+  //free(frameLibre);
 
   return direccionFrame;
 }
@@ -478,7 +483,7 @@ t_segmento * primerSegmentoOCupado = malloc(sizeof(t_segmento));
  primerSegmentoOCupado = list_get(tablaSegmentos, 0);
  
 
-if(primerSegmentoOCupado -> base != 0){
+if((primerSegmentoOCupado -> base) != 0){
 	t_segmento * primerSegmentoLibre = malloc(sizeof(t_segmento)); 
 	primerSegmentoLibre -> base = 0; 
 	primerSegmentoLibre -> tamanio = (primerSegmentoOCupado -> base)  - (primerSegmentoLibre -> base); 
