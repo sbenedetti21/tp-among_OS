@@ -392,7 +392,7 @@ void ponerATrabajar(){
 			if(list_is_empty(listaReady)){ sem_wait(&esperarAlgunTripulante); } // Preguntar si una vez que se INICIO_PLANIFICACION se pueden agregar mas patotas para despues ponerlas a trabajar	
 
 			TCB_DISCORDIADOR* tripulantee = list_remove(listaReady, 0);
-			list_add(listaTrabajando, tripulantee);
+	
 
 			tripulantee->estado = 'E';
 

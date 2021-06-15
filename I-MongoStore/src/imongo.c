@@ -4,19 +4,17 @@ int main(int argc, char ** argv){
 	loggerImongoStore = log_create("imongo.log", "imongo.c", 0, LOG_LEVEL_INFO); 
 
 	leerConfig();
-	if(true){
+	struct stat st = {0};
+
+	if(stat(puntoDeMontaje,&st) == -1){
 		crearFileSystem();
 		log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
-	} else{
+	} else{	
+		leerFileSystem();
 		log_info(loggerImongoStore, "---------LEYO FILESYSTEM----------");
-		ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
-		leerBitMap();
-		mapearBlocks();
 	}
 
 	sem_init(&semaforoBloques, 0,  1 ); 
-
-
 
     pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);

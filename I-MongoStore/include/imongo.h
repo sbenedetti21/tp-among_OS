@@ -86,8 +86,11 @@ int bloqueLibreBitMap(){
 			proximoBlock++;
 	bitarray_set_bit(punteroBitmap,proximoBlock);
 	
-	return proximoBlock;
+	guardarBitMap();
 	sem_post(&semaforoBloques);
+
+	return proximoBlock;
+	
 }
 
 void guardarBitMap(){
@@ -145,6 +148,32 @@ void crearFileSystem(){
 	mkdir(string_from_format("%s/Files",puntoDeMontaje),0777);
 	mkdir(string_from_format("%s/Files/Bitacoras",puntoDeMontaje),0777);
 }
+
+
+void leerFileSystem(){
+	ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+//superBocke	
+	FILE * superBloque; 
+	superBloque = fopen(ubicacionSuperBloque,"r");
+	
+	fread(&tamanioDeBloque, sizeof(uint32_t), 1, superBloque);
+	fflush(superBloque);
+	
+	fread(&cantidadDeBloques, sizeof(uint32_t), 1, superBloque);
+	fflush(superBloque);
+//bitmap
+	crearBitMap();
+ 	fread(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
+
+	fclose(superBloque);
+
+//Blocks
+	mapearBlocks();
+}
+
+
+
+
 //---------------------------------------------------------------------------------------------------//
 //------------------------------------ CREARCION ARCHIVO RECURSO ------------------------------------//
 t_config *creacionArchivoRecurso(char caracterLlenado, char *ubicacionArchivoRecurso){
@@ -206,7 +235,8 @@ int leerUltimoBloque(t_config * configGeneral){
 
 	char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
 	int proximoBlock;
-
+	log_info(loggerImongoStore,string_from_format("Lista de Blocks %s", listaBlocks));
+	
 	if(listaBlocks[1]!=']'){ 
 		int indiceFinal = strlen(listaBlocks);
 		while(listaBlocks[indiceFinal]!=',' && indiceFinal>0)
@@ -356,10 +386,12 @@ void generarRecurso(char *recurso, int cantidadALlenar, uint32_t idTripulante, c
 	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
 	t_config *configRecurso;
 
+	sem_wait(&semaforoBloques);
 	if(access(ubicacionArchivoRecurso, F_OK ))
 		configRecurso = creacionArchivoRecurso(recurso[0], ubicacionArchivoRecurso);
 	else
 		configRecurso = config_create(ubicacionArchivoRecurso);
+	sem_post(&semaforoBloques);
 
 	llenarBlocks(recurso[0], cantidadALlenar, mapBlocksAux, configRecurso);
 
