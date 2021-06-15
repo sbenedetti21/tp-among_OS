@@ -12,8 +12,8 @@ typedef struct tcb_discordiador{
 	char estado;
 	uint32_t posicionX;
 	uint32_t posicionY;
-	//uint32_t proximaInstruccion;
 	sem_t semaforoTrabajo;
+	uint32_t pid;
 } TCB_DISCORDIADOR;
 
 
@@ -25,11 +25,15 @@ typedef struct TCBySocket_t {
 
 int proximoTID = 0;
 sem_t semaforoTripulantes; 
+sem_t consultarSiHayVacios;
+sem_t esperarAlgunTripulante; 
+sem_t consultarSiHayVacios2;
 
 t_log * loggerDiscordiador; 
 t_list * listaTripulantes;
 t_list * listaReady;
 t_list * listaBloqueados;
+t_list * listaTrabajando;
 
 
 uint32_t iniciarPCB(char*, int);

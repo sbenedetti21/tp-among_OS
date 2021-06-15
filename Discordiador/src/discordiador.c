@@ -15,10 +15,16 @@ int main(int argc, char ** argv){
 	listaTripulantes = list_create();
 	listaReady = list_create();
 	listaBloqueados = list_create();
+	listaTrabajando = list_create();
 
 
 	t_config * configuracion = config_create("./cfg/discordiador.config");
 	sem_init(&semaforoTripulantes, 0,  config_get_int_value(configuracion, "GRADO_MULTITAREA"));
+	sem_init(&consultarSiHayVacios, 0,  1);
+	sem_init(&consultarSiHayVacios, 0,  2);
+	sem_init(&esperarAlgunTripulante, 0,  0);
+
+
 
 	 pthread_t hiloConsola;
 	 pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
@@ -231,11 +237,6 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones){
 
 void tripulanteVivo(TCB_DISCORDIADOR * tripulante) { 
 
-	//  free(a_enviar);
-	//  free(paquete->buffer->size);
-	//  free(paquete->buffer); 
-	//  free(paquete);
-
 	bool tareaTerminada = false; // PONER EN TRUE CUANDOR RECIBA TAREAS
 	tarea_struct * tarea = malloc(sizeof(tarea_struct));
 
@@ -267,6 +268,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				tarea->tareaTerminada = false;
 
 				} else {
+					printf("pase");
 					break;					//Si la tarea esta vacía entonces procedera a salir del while para terminar con el hilo.
 				}
 
@@ -277,7 +279,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 		t_config * config = config_create("./cfg/discordiador.config");
 		char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
 
-		tarea->parametro =12; // Esto es solo de prueba
+		tarea->parametro = 12; // Esto es solo de prueba
 		tarea->posicionX = 2;
 		tarea->posicionY = 3;
 		tarea->tiempo = 5;
@@ -358,12 +360,21 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 		
 		
+
+		if(list_is_empty(listaReady)){ 
+			list_add(listaReady, tripulante);  // Esto esta así para despreocuparse por la sincronizacion
+			sem_post(&esperarAlgunTripulante); 
+			} else {
+				list_add(listaReady, tripulante); 
+			}
+		
+		
 		sem_post(&semaforoTripulantes); 
 		tripulante->estado = 'R';
-		list_add(listaReady, tripulante); 
 
 		}
-															
+
+		sem_post(&semaforoTripulantes); 					
 		tripulante->estado = 'F';
 		log_info(loggerDiscordiador, "Tripulante %d terminó de trabajar, estado: %c", tripulante->tid, tripulante->estado);
 
@@ -375,9 +386,13 @@ void ponerATrabajar(){
 	
 	while(1){  
 
-			sem_wait(&semaforoTripulantes); 
-				
+
+			sem_wait(&semaforoTripulantes);
+
+			if(list_is_empty(listaReady)){ sem_wait(&esperarAlgunTripulante); } // Preguntar si una vez que se INICIO_PLANIFICACION se pueden agregar mas patotas para despues ponerlas a trabajar	
+
 			TCB_DISCORDIADOR* tripulantee = list_remove(listaReady, 0);
+			list_add(listaTrabajando, tripulantee);
 
 			tripulantee->estado = 'E';
 
