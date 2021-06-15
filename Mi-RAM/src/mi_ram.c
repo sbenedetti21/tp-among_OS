@@ -157,7 +157,7 @@ void atenderDiscordiador(int socketCliente){
 				uint32_t direccionPCB = asignarMemoriaSegmentacionPCB(pcb, tablaSegmentos); 
 
 				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
-					TCB * tripulante = malloc(sizeof(TCB));
+					TCB * tripulante = malloc(SIZEOF_TCB);
 					tripulante = deserializar_TCB(stream);
 					tripulante->punteroPCB = direccionPCB; 
 					tripulante->proximaInstruccion = direccionTareas; 
@@ -201,7 +201,7 @@ void atenderDiscordiador(int socketCliente){
 
 
 TCB * deserializar_TCB(void * stream){ 
-	TCB * tripulante = malloc(sizeof(TCB));
+	TCB * tripulante = malloc(SIZEOF_TCB);
 
 	//Deserializamos los campos que tenemos en el buffer
 	memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
@@ -373,13 +373,13 @@ uint32_t asignarMemoriaSegmentacionTCB(TCB * contenido, t_list * tablaSegmentos)
 
 		//busco un lugar de memoria (segun algoritmo)
 		uint32_t direccionLogica = 0;
-		direccionLogica = encontrarLugarSegmentacion(sizeof(TCB)); 
+		direccionLogica = encontrarLugarSegmentacion(SIZEOF_TCB); 
 		//le asigno el lugar de memoria encontrado
-		memcpy(memoriaPrincipal + direccionLogica, contenido, sizeof(TCB)); 
+		memcpy(memoriaPrincipal + direccionLogica, contenido, SIZEOF_TCB); 
 
 		//creo el segmento para la estructura nueva
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
-		segmentoNuevo -> tamanio = sizeof(TCB); 
+		segmentoNuevo -> tamanio = SIZEOF_TCB; 
 		segmentoNuevo -> base = direccionLogica; 
 
 		//agrego el segmento a la tabla de segmentos 
@@ -391,13 +391,13 @@ uint32_t asignarMemoriaSegmentacionTCB(TCB * contenido, t_list * tablaSegmentos)
 uint32_t asignarMemoriaSegmentacionPCB(PCB * pcb , t_list * tablaSegmentos){
 	//busco un lugar de memoria (segun algoritmo)
 	
-		int direccionLogica = encontrarLugarSegmentacion(sizeof(PCB)); 
+		int direccionLogica = encontrarLugarSegmentacion(SIZEOF_PCB); 
 		//le asigno el lugar de memoria encontrado
-		memcpy(memoriaPrincipal + direccionLogica, pcb, sizeof(PCB)); 
+		memcpy(memoriaPrincipal + direccionLogica, pcb, SIZEOF_PCB); 
 
 		//creo el segmento para la estructura nueva
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
-		segmentoNuevo -> tamanio = sizeof(PCB); 
+		segmentoNuevo -> tamanio = SIZEOF_PCB; 
 		segmentoNuevo -> base = direccionLogica; 
 
 		//agrego el segmento a la tabla de segmentos 
@@ -607,7 +607,7 @@ bool segmentoMasPequenio(t_segmento * unSegmento, t_segmento * otroSegmento){
 }
 
 bool cabePCB(t_segmento * segmento){
-	if( (segmento->tamanio) >= sizeof(PCB)){
+	if( (segmento->tamanio) >= SIZEOF_PCB){
 		return true; 
 	}
 
@@ -616,7 +616,7 @@ bool cabePCB(t_segmento * segmento){
 
 
 bool cabeTCB(t_segmento * segmento){
-	if( (segmento->tamanio) >= sizeof(TCB)){
+	if( (segmento->tamanio) >= SIZEOF_TCB){
 		return true; 
 	}
 
