@@ -155,24 +155,12 @@ void consola(){
 
 			planificacionPausada = true;
 
-			for(int i = 0 ; i < list_size(listaTripulantes) ; i ++){
-				TCB_DISCORDIADOR * tripulante = list_get(listaTripulantes,i); 
-
-				if(tripulante->estado != 'F'){
-					
-					tripulante->estado = 'B';
-
-				}
-
-			}
+			cambiarEstadoTripulantesA('B');
 
 		}
 
 		if(strcmp(vectorInstruccion[0], "OBTENER_BITACORA") == 0) {
 		}
-
-		
-
 		
 
 		//	mostrarLista(listaReady); 
@@ -214,7 +202,11 @@ void iniciarPatota(char ** vectorInstruccion){
 
 					pthread_create(&tripulantes[i], NULL, tripulanteVivo , tripulante);
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, PosX: %d, PosY: %d, estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
+					
+					if(!planificacionPausada){
 					tripulante->estado = 'R'; 
+					}
+
 					log_info(loggerDiscordiador, "Estado tripulante %d cambiado a %c", tripulante->tid, tripulante->estado);
 					list_add(listaReady, tripulante);
 					sem_post(&esperarAlgunTripulante); 
@@ -382,7 +374,12 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 		sem_post(&esperarAlgunTripulante); 
 		
 		sem_post(&semaforoTripulantes); 
+
+		if(!planificacionPausada){
 		tripulante->estado = 'R';
+		} else {
+				tripulante->estado = 'B';
+			}
 
 		}
 
@@ -394,6 +391,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 
 void ponerATrabajar(){
+
+	cambiarEstadoTripulantesA('R');
 	 
 	 planificacionPausada = false;
 	
@@ -445,6 +444,19 @@ void mostrarLista(t_list * unaLista){
 				}
 }
 
+void cambiarEstadoTripulantesA(char estado){
+	for(int i = 0 ; i < list_size(listaTripulantes) ; i ++){
+				TCB_DISCORDIADOR * tripulante = list_get(listaTripulantes,i); 
+
+				if(tripulante->estado != 'F'){
+					
+					tripulante->estado = estado;
+
+				}
+
+			}
+}
+
 
 
 //-----------------------------TAREAS---------------------------------------------------------------------------------------------------
@@ -493,6 +505,9 @@ void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 					else if(strcmp(descripcionTarea,"DESCARTAR_BASURA") == 0){
 						serializarYMandarTarea(parametros, DESCARTAR_BASURA,tid);
 					}
+					else{
+					}
+					
 
 }
 

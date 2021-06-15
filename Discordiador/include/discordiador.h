@@ -40,6 +40,7 @@ t_list * listaTrabajando;
 uint32_t iniciarPCB(char*, int);
 int conectarImongo();
 int conectarMiRAM();
+void cambiarEstadoTripulantesA(char);
 void iniciarPatota(char **);
 void listarTripulantes();
 void consola();
