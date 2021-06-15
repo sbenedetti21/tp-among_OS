@@ -391,11 +391,14 @@ void generarRecurso(char *recurso, int cantidadALlenar, uint32_t idTripulante, c
 		configRecurso = creacionArchivoRecurso(recurso[0], ubicacionArchivoRecurso);
 	else
 		configRecurso = config_create(ubicacionArchivoRecurso);
-	sem_post(&semaforoBloques);
-
+		
+	//aca se puede hacer con un semaforo entero
+	
 	llenarBlocks(recurso[0], cantidadALlenar, mapBlocksAux, configRecurso);
-
 	llenarBlocksBitcoras(string_from_format("Se finaliza la tarea Generar %s\n",recurso),configBitacora,mapBlocksAux);
+
+	sem_post(&semaforoBloques);
+	
 
 	config_destroy(configRecurso);
 	config_destroy(configBitacora);
