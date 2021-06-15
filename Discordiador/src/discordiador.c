@@ -150,13 +150,28 @@ void consola(){
 		}
 	
 		
-		/*
+		
 		if(strcmp(vectorInstruccion[0], "PAUSAR_PLANIFICACION") == 0) {
+
+			planificacionPausada = true;
+
+			for(int i = 0 ; i < list_size(listaTripulantes) ; i ++){
+				TCB_DISCORDIADOR * tripulante = list_get(listaTripulantes,i); 
+
+				if(tripulante->estado != 'F'){
+					
+					tripulante->estado = 'B';
+
+				}
+
+			}
+
 		}
+
 		if(strcmp(vectorInstruccion[0], "OBTENER_BITACORA") == 0) {
 		}
 
-		*/
+		
 
 		
 
@@ -201,7 +216,9 @@ void iniciarPatota(char ** vectorInstruccion){
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, PosX: %d, PosY: %d, estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
 					tripulante->estado = 'R'; 
 					log_info(loggerDiscordiador, "Estado tripulante %d cambiado a %c", tripulante->tid, tripulante->estado);
-					list_add(listaReady, tripulante); 
+					list_add(listaReady, tripulante);
+					sem_post(&esperarAlgunTripulante); 
+
 					
 				}
 
@@ -268,7 +285,6 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				tarea->tareaTerminada = false;
 
 				} else {
-					printf("pase");
 					break;					//Si la tarea esta vacía entonces procedera a salir del while para terminar con el hilo.
 				}
 
@@ -361,13 +377,9 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 		
 		
 
-		if(list_is_empty(listaReady)){ 
-			list_add(listaReady, tripulante);  // Esto esta así para despreocuparse por la sincronizacion
-			sem_post(&esperarAlgunTripulante); 
-			} else {
-				list_add(listaReady, tripulante); 
-			}
-		
+
+		list_add(listaReady, tripulante);  
+		sem_post(&esperarAlgunTripulante); 
 		
 		sem_post(&semaforoTripulantes); 
 		tripulante->estado = 'R';
@@ -383,16 +395,17 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 void ponerATrabajar(){
 	 
+	 planificacionPausada = false;
 	
-	while(1){  
+	while(1){ 
 
+			if(planificacionPausada){ break; } 
 
 			sem_wait(&semaforoTripulantes);
 
-			if(list_is_empty(listaReady)){ sem_wait(&esperarAlgunTripulante); } // Preguntar si una vez que se INICIO_PLANIFICACION se pueden agregar mas patotas para despues ponerlas a trabajar	
+			sem_wait(&esperarAlgunTripulante);
 
 			TCB_DISCORDIADOR* tripulantee = list_remove(listaReady, 0);
-	
 
 			tripulantee->estado = 'E';
 

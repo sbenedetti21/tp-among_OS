@@ -22,6 +22,7 @@ typedef struct TCBySocket_t {
 	TCB_DISCORDIADOR * tripulante;
 } TCBySocket;
 
+bool planificacionPausada;
 
 int proximoTID = 0;
 sem_t semaforoTripulantes; 
