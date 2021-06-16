@@ -1,6 +1,6 @@
 #include "mi_ram.h"
 
-
+//comentario prueba
 
 NIVEL* navePrincipal;
 
