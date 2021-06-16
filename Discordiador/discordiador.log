@@ -2118,3 +2118,288 @@
 [INFO] 23:33:15:268 discordiador.c/(12713:12714): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
 [INFO] 23:33:15:268 discordiador.c/(12713:12714): Estado tripulante 2 cambiado a R
 [INFO] 23:33:15:268 discordiador.c/(12713:12714): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:38:02:625 discordiador.c/(12713:12714): INSTRUCCION LEIDA: int obtenerProximaTarea(int direccionLogica){
+[INFO] 23:38:02:625 discordiador.c/(12713:12714): INSTRUCCION LEIDA: char * tareaObtenida = malloc(30); 
+[INFO] 23:38:02:625 discordiador.c/(12713:12714): INSTRUCCION LEIDA: char caracterComparacion = 'a'; 
+[INFO] 23:38:02:625 discordiador.c/(12713:12714): INSTRUCCION LEIDA: int desplazamiento = 0; 
+[INFO] 23:38:02:626 discordiador.c/(12713:12714): INSTRUCCION LEIDA: 
+[INFO] 23:38:02:626 discordiador.c/(12713:12714): INSTRUCCION LEIDA: while(caracterComparacion != '\n' && caracterComparacion != '|'){
+[INFO] 23:38:02:626 discordiador.c/(12713:12714): INSTRUCCION LEIDA: 
+[INFO] 23:38:02:627 discordiador.c/(12713:12714): INSTRUCCION LEIDA: memcpy(tareaObtenida + desplazamiento, memoriaPrincipal+direccionLogica+desplazamiento, 1 ); 
+[INFO] 23:38:02:627 discordiador.c/(12713:12714): INSTRUCCION LEIDA: 
+[INFO] 23:38:02:631 discordiador.c/(12713:12714): INSTRUCCION LEIDA: memcpy(&caracterComparacion, memoriaPrincipal + direccionLogica + desplazamiento + 1, 1); 
+[INFO] 23:38:02:631 discordiador.c/(12713:12714): INSTRUCCION LEIDA: desplazamiento ++; 
+[INFO] 23:38:02:631 discordiador.c/(12713:12714): INSTRUCCION LEIDA: }
+[INFO] 23:38:02:631 discordiador.c/(12713:12714): INSTRUCCION LEIDA: direccionLogica = direccionLogica + desplazamiento;
+[INFO] 23:38:02:631 discordiador.c/(12713:12714): INSTRUCCION LEIDA: 
+[INFO] 23:38:02:632 discordiador.c/(12713:12714): INSTRUCCION LEIDA: printf("La proxima tarea es %s \n", tareaObtenida); 
+[INFO] 23:38:02:632 discordiador.c/(12713:12714): INSTRUCCION LEIDA: 
+[INFO] 23:38:02:632 discordiador.c/(12713:12714): INSTRUCCION LEIDA: //actualizarProximaTarea(tcb, direccionLogica); 
+[INFO] 23:38:02:633 discordiador.c/(12713:12714): INSTRUCCION LEIDA: return direccionLogica;
+[INFO] 23:38:07:767 discordiador.c/(12996:12996): ---------PROGRAMA INICIADO----------
+[INFO] 23:38:21:569 discordiador.c/(12996:12997): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:38:21:569 discordiador.c/(12996:12997): Discordiador conectado con Mi RAM
+[INFO] 23:38:21:569 discordiador.c/(12996:12997): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:38:21:569 discordiador.c/(12996:12997): Estado tripulante 0 cambiado a R
+[INFO] 23:38:21:569 discordiador.c/(12996:12997): Tripulante creado: ID: 1, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:38:21:569 discordiador.c/(12996:12997): Estado tripulante 1 cambiado a R
+[INFO] 23:38:21:569 discordiador.c/(12996:12997): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:38:21:569 discordiador.c/(12996:12997): Estado tripulante 2 cambiado a R
+[INFO] 23:38:21:569 discordiador.c/(12996:12997): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:39:13:132 discordiador.c/(12996:12997): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:39:13:133 discordiador.c/(12996:12997): Discordiador conectado con Mi RAM
+[INFO] 23:39:13:133 discordiador.c/(12996:12997): Tripulante creado: ID: 3, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:39:13:133 discordiador.c/(12996:12997): Estado tripulante 3 cambiado a R
+[INFO] 23:39:13:133 discordiador.c/(12996:12997): Tripulante creado: ID: 4, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:39:13:133 discordiador.c/(12996:12997): Estado tripulante 4 cambiado a R
+[INFO] 23:39:13:133 discordiador.c/(12996:12997): Tripulante creado: ID: 5, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:39:13:133 discordiador.c/(12996:12997): Estado tripulante 5 cambiado a R
+[INFO] 23:39:13:133 discordiador.c/(12996:12997): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:41:24:832 discordiador.c/(13093:13093): ---------PROGRAMA INICIADO----------
+[INFO] 23:41:29:190 discordiador.c/(13093:13094): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:41:29:190 discordiador.c/(13093:13094): Discordiador conectado con Mi RAM
+[INFO] 23:41:29:191 discordiador.c/(13093:13094): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:41:29:191 discordiador.c/(13093:13094): Estado tripulante 0 cambiado a R
+[INFO] 23:41:29:191 discordiador.c/(13093:13094): Tripulante creado: ID: 1, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:41:29:191 discordiador.c/(13093:13094): Estado tripulante 1 cambiado a R
+[INFO] 23:41:29:191 discordiador.c/(13093:13094): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:41:29:191 discordiador.c/(13093:13094): Estado tripulante 2 cambiado a R
+[INFO] 23:41:29:191 discordiador.c/(13093:13094): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:41:39:231 discordiador.c/(13114:13114): ---------PROGRAMA INICIADO----------
+[INFO] 23:41:42:171 discordiador.c/(13114:13115): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:41:42:172 discordiador.c/(13114:13115): Discordiador conectado con Mi RAM
+[INFO] 23:41:42:172 discordiador.c/(13114:13115): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:41:42:172 discordiador.c/(13114:13115): Estado tripulante 0 cambiado a R
+[INFO] 23:41:42:172 discordiador.c/(13114:13115): Tripulante creado: ID: 1, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:41:42:172 discordiador.c/(13114:13115): Estado tripulante 1 cambiado a R
+[INFO] 23:41:42:172 discordiador.c/(13114:13115): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:41:42:172 discordiador.c/(13114:13115): Estado tripulante 2 cambiado a R
+[INFO] 23:41:42:172 discordiador.c/(13114:13115): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:43:06:636 discordiador.c/(13114:13115): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:43:06:637 discordiador.c/(13114:13115): Discordiador conectado con Mi RAM
+[INFO] 23:43:06:637 discordiador.c/(13114:13115): Tripulante creado: ID: 3, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:43:06:637 discordiador.c/(13114:13115): Estado tripulante 3 cambiado a R
+[INFO] 23:43:06:637 discordiador.c/(13114:13115): Tripulante creado: ID: 4, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:43:06:637 discordiador.c/(13114:13115): Estado tripulante 4 cambiado a R
+[INFO] 23:43:06:637 discordiador.c/(13114:13115): Tripulante creado: ID: 5, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:43:06:637 discordiador.c/(13114:13115): Estado tripulante 5 cambiado a R
+[INFO] 23:43:06:637 discordiador.c/(13114:13115): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:44:28:648 discordiador.c/(13114:13115): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:44:28:649 discordiador.c/(13114:13115): Discordiador conectado con Mi RAM
+[INFO] 23:44:28:649 discordiador.c/(13114:13115): Tripulante creado: ID: 6, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:44:28:649 discordiador.c/(13114:13115): Estado tripulante 6 cambiado a R
+[INFO] 23:44:28:649 discordiador.c/(13114:13115): Tripulante creado: ID: 7, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:44:28:649 discordiador.c/(13114:13115): Estado tripulante 7 cambiado a R
+[INFO] 23:44:28:649 discordiador.c/(13114:13115): Tripulante creado: ID: 8, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:44:28:649 discordiador.c/(13114:13115): Estado tripulante 8 cambiado a R
+[INFO] 23:44:28:649 discordiador.c/(13114:13115): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:44:52:210 discordiador.c/(13114:13115): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:44:52:210 discordiador.c/(13114:13115): Discordiador conectado con Mi RAM
+[INFO] 23:44:52:210 discordiador.c/(13114:13115): Tripulante creado: ID: 9, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:44:52:210 discordiador.c/(13114:13115): Estado tripulante 9 cambiado a R
+[INFO] 23:44:52:210 discordiador.c/(13114:13115): Tripulante creado: ID: 10, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:44:52:210 discordiador.c/(13114:13115): Estado tripulante 10 cambiado a R
+[INFO] 23:44:52:210 discordiador.c/(13114:13115): Tripulante creado: ID: 11, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:44:52:210 discordiador.c/(13114:13115): Estado tripulante 11 cambiado a R
+[INFO] 23:44:52:210 discordiador.c/(13114:13115): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:45:09:149 discordiador.c/(13114:13115): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:45:09:149 discordiador.c/(13114:13115): Discordiador conectado con Mi RAM
+[INFO] 23:45:09:149 discordiador.c/(13114:13115): Tripulante creado: ID: 12, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:45:09:149 discordiador.c/(13114:13115): Estado tripulante 12 cambiado a R
+[INFO] 23:45:09:149 discordiador.c/(13114:13115): Tripulante creado: ID: 13, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:45:09:149 discordiador.c/(13114:13115): Estado tripulante 13 cambiado a R
+[INFO] 23:45:09:149 discordiador.c/(13114:13115): Tripulante creado: ID: 14, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:45:09:150 discordiador.c/(13114:13115): Estado tripulante 14 cambiado a R
+[INFO] 23:45:09:150 discordiador.c/(13114:13115): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:46:10:883 discordiador.c/(13333:13333): ---------PROGRAMA INICIADO----------
+[INFO] 23:46:15:817 discordiador.c/(13333:13334): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:46:15:817 discordiador.c/(13333:13334): Discordiador conectado con Mi RAM
+[INFO] 23:46:15:817 discordiador.c/(13333:13334): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:46:15:817 discordiador.c/(13333:13334): Estado tripulante 0 cambiado a R
+[INFO] 23:46:15:817 discordiador.c/(13333:13334): Tripulante creado: ID: 1, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:46:15:817 discordiador.c/(13333:13334): Estado tripulante 1 cambiado a R
+[INFO] 23:46:15:817 discordiador.c/(13333:13334): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:46:15:817 discordiador.c/(13333:13334): Estado tripulante 2 cambiado a R
+[INFO] 23:46:15:817 discordiador.c/(13333:13334): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:46:36:075 discordiador.c/(13333:13334): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:46:36:076 discordiador.c/(13333:13334): Discordiador conectado con Mi RAM
+[INFO] 23:46:36:076 discordiador.c/(13333:13334): Tripulante creado: ID: 3, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:46:36:076 discordiador.c/(13333:13334): Estado tripulante 3 cambiado a R
+[INFO] 23:46:36:076 discordiador.c/(13333:13334): Tripulante creado: ID: 4, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:46:36:076 discordiador.c/(13333:13334): Estado tripulante 4 cambiado a R
+[INFO] 23:46:36:076 discordiador.c/(13333:13334): Tripulante creado: ID: 5, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:46:36:076 discordiador.c/(13333:13334): Estado tripulante 5 cambiado a R
+[INFO] 23:46:36:076 discordiador.c/(13333:13334): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:47:20:054 discordiador.c/(13333:13334): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:47:20:055 discordiador.c/(13333:13334): Discordiador conectado con Mi RAM
+[INFO] 23:47:20:056 discordiador.c/(13333:13334): Tripulante creado: ID: 6, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:47:20:056 discordiador.c/(13333:13334): Estado tripulante 6 cambiado a R
+[INFO] 23:47:20:056 discordiador.c/(13333:13334): Tripulante creado: ID: 7, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:47:20:056 discordiador.c/(13333:13334): Estado tripulante 7 cambiado a R
+[INFO] 23:47:20:056 discordiador.c/(13333:13334): Tripulante creado: ID: 8, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:47:20:056 discordiador.c/(13333:13334): Estado tripulante 8 cambiado a R
+[INFO] 23:47:20:056 discordiador.c/(13333:13334): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:47:43:484 discordiador.c/(13333:13334): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:47:43:484 discordiador.c/(13333:13334): Discordiador conectado con Mi RAM
+[INFO] 23:47:43:484 discordiador.c/(13333:13334): Tripulante creado: ID: 9, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:47:43:484 discordiador.c/(13333:13334): Estado tripulante 9 cambiado a R
+[INFO] 23:47:43:485 discordiador.c/(13333:13334): Tripulante creado: ID: 10, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:47:43:485 discordiador.c/(13333:13334): Estado tripulante 10 cambiado a R
+[INFO] 23:47:43:485 discordiador.c/(13333:13334): Tripulante creado: ID: 11, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:47:43:485 discordiador.c/(13333:13334): Estado tripulante 11 cambiado a R
+[INFO] 23:47:43:485 discordiador.c/(13333:13334): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:48:24:050 discordiador.c/(13333:13334): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:48:24:051 discordiador.c/(13333:13334): Discordiador conectado con Mi RAM
+[INFO] 23:48:24:051 discordiador.c/(13333:13334): Tripulante creado: ID: 12, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:48:24:051 discordiador.c/(13333:13334): Estado tripulante 12 cambiado a R
+[INFO] 23:48:24:051 discordiador.c/(13333:13334): Tripulante creado: ID: 13, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:48:24:051 discordiador.c/(13333:13334): Estado tripulante 13 cambiado a R
+[INFO] 23:48:24:051 discordiador.c/(13333:13334): Tripulante creado: ID: 14, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:48:24:051 discordiador.c/(13333:13334): Estado tripulante 14 cambiado a R
+[INFO] 23:48:24:051 discordiador.c/(13333:13334): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:49:57:619 discordiador.c/(13333:13334): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:49:57:619 discordiador.c/(13333:13334): Discordiador conectado con Mi RAM
+[INFO] 23:49:57:619 discordiador.c/(13333:13334): Tripulante creado: ID: 15, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:49:57:619 discordiador.c/(13333:13334): Estado tripulante 15 cambiado a R
+[INFO] 23:49:57:619 discordiador.c/(13333:13334): Tripulante creado: ID: 16, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:49:57:619 discordiador.c/(13333:13334): Estado tripulante 16 cambiado a R
+[INFO] 23:49:57:619 discordiador.c/(13333:13334): Tripulante creado: ID: 17, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:49:57:619 discordiador.c/(13333:13334): Estado tripulante 17 cambiado a R
+[INFO] 23:49:57:619 discordiador.c/(13333:13334): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:50:40:092 discordiador.c/(13712:13712): ---------PROGRAMA INICIADO----------
+[INFO] 23:50:44:039 discordiador.c/(13712:13713): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:50:44:042 discordiador.c/(13712:13713): Discordiador conectado con Mi RAM
+[INFO] 23:50:44:042 discordiador.c/(13712:13713): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:50:44:042 discordiador.c/(13712:13713): Estado tripulante 0 cambiado a R
+[INFO] 23:50:44:042 discordiador.c/(13712:13713): Tripulante creado: ID: 1, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:50:44:042 discordiador.c/(13712:13713): Estado tripulante 1 cambiado a R
+[INFO] 23:50:44:042 discordiador.c/(13712:13713): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:50:44:042 discordiador.c/(13712:13713): Estado tripulante 2 cambiado a R
+[INFO] 23:50:44:042 discordiador.c/(13712:13713): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:52:10:426 discordiador.c/(13712:13713): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:52:10:426 discordiador.c/(13712:13713): Discordiador conectado con Mi RAM
+[INFO] 23:52:10:426 discordiador.c/(13712:13713): Tripulante creado: ID: 3, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:52:10:426 discordiador.c/(13712:13713): Estado tripulante 3 cambiado a R
+[INFO] 23:52:10:426 discordiador.c/(13712:13713): Tripulante creado: ID: 4, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:52:10:426 discordiador.c/(13712:13713): Estado tripulante 4 cambiado a R
+[INFO] 23:52:10:426 discordiador.c/(13712:13713): Tripulante creado: ID: 5, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:52:10:426 discordiador.c/(13712:13713): Estado tripulante 5 cambiado a R
+[INFO] 23:52:10:426 discordiador.c/(13712:13713): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:52:18:568 discordiador.c/(13712:13713): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:52:18:569 discordiador.c/(13712:13713): Discordiador conectado con Mi RAM
+[INFO] 23:52:18:569 discordiador.c/(13712:13713): Tripulante creado: ID: 6, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:52:18:569 discordiador.c/(13712:13713): Estado tripulante 6 cambiado a R
+[INFO] 23:52:18:569 discordiador.c/(13712:13713): Tripulante creado: ID: 7, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:52:18:569 discordiador.c/(13712:13713): Estado tripulante 7 cambiado a R
+[INFO] 23:52:18:569 discordiador.c/(13712:13713): Tripulante creado: ID: 8, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:52:18:569 discordiador.c/(13712:13713): Estado tripulante 8 cambiado a R
+[INFO] 23:52:18:569 discordiador.c/(13712:13713): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:52:35:184 discordiador.c/(13712:13713): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:52:35:186 discordiador.c/(13712:13713): Discordiador conectado con Mi RAM
+[INFO] 23:52:35:186 discordiador.c/(13712:13713): Tripulante creado: ID: 9, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:52:35:186 discordiador.c/(13712:13713): Estado tripulante 9 cambiado a R
+[INFO] 23:52:35:186 discordiador.c/(13712:13713): Tripulante creado: ID: 10, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:52:35:186 discordiador.c/(13712:13713): Estado tripulante 10 cambiado a R
+[INFO] 23:52:35:186 discordiador.c/(13712:13713): Tripulante creado: ID: 11, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:52:35:186 discordiador.c/(13712:13713): Estado tripulante 11 cambiado a R
+[INFO] 23:52:35:186 discordiador.c/(13712:13713): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:54:05:360 discordiador.c/(13836:13836): ---------PROGRAMA INICIADO----------
+[INFO] 23:54:13:658 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:54:13:658 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:54:13:659 discordiador.c/(13836:13837): Tripulante creado: ID: 0, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:54:13:659 discordiador.c/(13836:13837): Estado tripulante 0 cambiado a R
+[INFO] 23:54:13:659 discordiador.c/(13836:13837): Tripulante creado: ID: 1, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:54:13:659 discordiador.c/(13836:13837): Estado tripulante 1 cambiado a R
+[INFO] 23:54:13:659 discordiador.c/(13836:13837): Tripulante creado: ID: 2, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:54:13:659 discordiador.c/(13836:13837): Estado tripulante 2 cambiado a R
+[INFO] 23:54:13:659 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:54:27:767 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:54:27:767 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:54:27:767 discordiador.c/(13836:13837): Tripulante creado: ID: 3, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:54:27:767 discordiador.c/(13836:13837): Estado tripulante 3 cambiado a R
+[INFO] 23:54:27:767 discordiador.c/(13836:13837): Tripulante creado: ID: 4, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:54:27:767 discordiador.c/(13836:13837): Estado tripulante 4 cambiado a R
+[INFO] 23:54:27:767 discordiador.c/(13836:13837): Tripulante creado: ID: 5, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:54:27:767 discordiador.c/(13836:13837): Estado tripulante 5 cambiado a R
+[INFO] 23:54:27:767 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:54:50:617 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:54:50:617 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:54:50:617 discordiador.c/(13836:13837): Tripulante creado: ID: 6, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:54:50:618 discordiador.c/(13836:13837): Estado tripulante 6 cambiado a R
+[INFO] 23:54:50:618 discordiador.c/(13836:13837): Tripulante creado: ID: 7, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:54:50:618 discordiador.c/(13836:13837): Estado tripulante 7 cambiado a R
+[INFO] 23:54:50:618 discordiador.c/(13836:13837): Tripulante creado: ID: 8, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:54:50:618 discordiador.c/(13836:13837): Estado tripulante 8 cambiado a R
+[INFO] 23:54:50:618 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:07:498 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:07:498 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:55:07:498 discordiador.c/(13836:13837): Tripulante creado: ID: 9, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:07:498 discordiador.c/(13836:13837): Estado tripulante 9 cambiado a R
+[INFO] 23:55:07:498 discordiador.c/(13836:13837): Tripulante creado: ID: 10, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:07:498 discordiador.c/(13836:13837): Estado tripulante 10 cambiado a R
+[INFO] 23:55:07:499 discordiador.c/(13836:13837): Tripulante creado: ID: 11, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:07:499 discordiador.c/(13836:13837): Estado tripulante 11 cambiado a R
+[INFO] 23:55:07:499 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:12:984 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:12:984 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:55:12:984 discordiador.c/(13836:13837): Tripulante creado: ID: 12, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:12:984 discordiador.c/(13836:13837): Estado tripulante 12 cambiado a R
+[INFO] 23:55:12:984 discordiador.c/(13836:13837): Tripulante creado: ID: 13, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:12:984 discordiador.c/(13836:13837): Estado tripulante 13 cambiado a R
+[INFO] 23:55:12:984 discordiador.c/(13836:13837): Tripulante creado: ID: 14, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:12:984 discordiador.c/(13836:13837): Estado tripulante 14 cambiado a R
+[INFO] 23:55:12:984 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:27:600 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:27:601 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:55:27:601 discordiador.c/(13836:13837): Tripulante creado: ID: 15, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:27:601 discordiador.c/(13836:13837): Estado tripulante 15 cambiado a R
+[INFO] 23:55:27:601 discordiador.c/(13836:13837): Tripulante creado: ID: 16, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:27:601 discordiador.c/(13836:13837): Estado tripulante 16 cambiado a R
+[INFO] 23:55:27:601 discordiador.c/(13836:13837): Tripulante creado: ID: 17, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:27:601 discordiador.c/(13836:13837): Estado tripulante 17 cambiado a R
+[INFO] 23:55:27:601 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:31:950 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:31:950 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:55:31:950 discordiador.c/(13836:13837): Tripulante creado: ID: 18, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:31:950 discordiador.c/(13836:13837): Estado tripulante 18 cambiado a R
+[INFO] 23:55:31:950 discordiador.c/(13836:13837): Tripulante creado: ID: 19, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:31:950 discordiador.c/(13836:13837): Estado tripulante 19 cambiado a R
+[INFO] 23:55:31:950 discordiador.c/(13836:13837): Tripulante creado: ID: 20, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:31:950 discordiador.c/(13836:13837): Estado tripulante 20 cambiado a R
+[INFO] 23:55:31:950 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:37:427 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:37:427 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:55:37:427 discordiador.c/(13836:13837): Tripulante creado: ID: 21, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:37:427 discordiador.c/(13836:13837): Estado tripulante 21 cambiado a R
+[INFO] 23:55:37:427 discordiador.c/(13836:13837): Tripulante creado: ID: 22, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:37:427 discordiador.c/(13836:13837): Estado tripulante 22 cambiado a R
+[INFO] 23:55:37:427 discordiador.c/(13836:13837): Tripulante creado: ID: 23, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:37:427 discordiador.c/(13836:13837): Estado tripulante 23 cambiado a R
+[INFO] 23:55:37:427 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:40:467 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:40:467 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:55:40:467 discordiador.c/(13836:13837): Tripulante creado: ID: 24, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:40:467 discordiador.c/(13836:13837): Estado tripulante 24 cambiado a R
+[INFO] 23:55:40:467 discordiador.c/(13836:13837): Tripulante creado: ID: 25, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:40:467 discordiador.c/(13836:13837): Estado tripulante 25 cambiado a R
+[INFO] 23:55:40:467 discordiador.c/(13836:13837): Tripulante creado: ID: 26, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:40:467 discordiador.c/(13836:13837): Estado tripulante 26 cambiado a R
+[INFO] 23:55:40:467 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:42:181 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:42:181 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:55:42:181 discordiador.c/(13836:13837): Tripulante creado: ID: 27, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:42:181 discordiador.c/(13836:13837): Estado tripulante 27 cambiado a R
+[INFO] 23:55:42:181 discordiador.c/(13836:13837): Tripulante creado: ID: 28, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:42:181 discordiador.c/(13836:13837): Estado tripulante 28 cambiado a R
+[INFO] 23:55:42:181 discordiador.c/(13836:13837): Tripulante creado: ID: 29, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:42:181 discordiador.c/(13836:13837): Estado tripulante 29 cambiado a R
+[INFO] 23:55:42:181 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:44:353 discordiador.c/(13836:13837): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 23:55:44:353 discordiador.c/(13836:13837): Discordiador conectado con Mi RAM
+[INFO] 23:55:44:353 discordiador.c/(13836:13837): Tripulante creado: ID: 30, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:44:353 discordiador.c/(13836:13837): Estado tripulante 30 cambiado a R
+[INFO] 23:55:44:353 discordiador.c/(13836:13837): Tripulante creado: ID: 31, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:44:353 discordiador.c/(13836:13837): Estado tripulante 31 cambiado a R
+[INFO] 23:55:44:353 discordiador.c/(13836:13837): Tripulante creado: ID: 32, PosX: 0, PosY: 0, estado: N 
+[INFO] 23:55:44:353 discordiador.c/(13836:13837): Estado tripulante 32 cambiado a R
+[INFO] 23:55:44:353 discordiador.c/(13836:13837): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
