@@ -29,6 +29,7 @@ sem_t semaforoTripulantes;
 sem_t consultarSiHayVacios;
 sem_t esperarAlgunTripulante; 
 sem_t consultarSiHayVacios2;
+sem_t IO;
 
 t_log * loggerDiscordiador; 
 t_list * listaTripulantes;
@@ -60,7 +61,7 @@ void pasarTripulante(TCB_DISCORDIADOR *);
 void tripulanteVivo(TCB_DISCORDIADOR *);
 
 TCB_DISCORDIADOR * crearTCB(char *); // chequear lo de la lista
-
+TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t, uint32_t);
 void mostrarLista(t_list *); 
 
 char * leerTareas(char *);

@@ -1,6 +1,6 @@
 #include "discordiador.h"
 
-// FACU: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
+// FACU: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 // FRAN: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
 
 
@@ -8,7 +8,7 @@ int main(int argc, char ** argv){
 
 	 loggerDiscordiador = log_create("discordiador.log", "discordiador.c", 0, LOG_LEVEL_INFO); 
 
-	log_info(loggerDiscordiador, "---------PROGRAMA INICIADO----------");
+	log_info(loggerDiscordiador, "---------PROGRAMA INICIADO---------- ");
 
 	printf("Ingrese un comando o ingrese EXIT para salir del programa \n");
 
@@ -17,12 +17,15 @@ int main(int argc, char ** argv){
 	listaBloqueados = list_create();
 	listaTrabajando = list_create();
 
+	//HACER ACA ATENDER I MONGO
+
 
 	t_config * configuracion = config_create("./cfg/discordiador.config");
 	sem_init(&semaforoTripulantes, 0,  config_get_int_value(configuracion, "GRADO_MULTITAREA"));
 	sem_init(&consultarSiHayVacios, 0,  1);
 	sem_init(&consultarSiHayVacios, 0,  2);
 	sem_init(&esperarAlgunTripulante, 0,  0);
+	sem_init(&IO,0,1);
 
 
 
@@ -160,6 +163,11 @@ void consola(){
 		}
 
 		if(strcmp(vectorInstruccion[0], "OBTENER_BITACORA") == 0) {
+		}
+
+		if(strcmp(vectorInstruccion[0], "cerca") == 0) {
+			TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(3,4);
+			printf("El tripulante mas cercano esta en: %d|%d \n", tripulante->posicionX, tripulante->posicionY);
 		}
 		
 
@@ -483,27 +491,39 @@ void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 	char * descripcionTarea = tarea->descripcionTarea;
 	int parametros = tarea->parametro;
 				if( strcmp(descripcionTarea,"GENERAR_OXIGENO") == 0 ){
+						sem_wait(&IO);
 						serializarYMandarTarea(parametros, GENERAR_OXIGENO,tid);
+						sem_post(&IO);
 					} 
 
 					else if(strcmp(tarea->descripcionTarea,"CONSUMIR_OXIGENO") == 0){
+						sem_wait(&IO);
 						serializarYMandarTarea(parametros, CONSUMIR_OXIGENO,tid);
+						sem_post(&IO);
 					}
 
 					else if(strcmp(descripcionTarea,"GENERAR_COMIDA") == 0){
+						sem_wait(&IO);
 						serializarYMandarTarea(parametros, GENERAR_COMIDA,tid);
+						sem_post(&IO);
 					}
 
 					else if(strcmp(descripcionTarea,"CONSUMIR_COMIDA") == 0){
+						sem_wait(&IO);
 						serializarYMandarTarea(parametros, CONSUMIR_COMIDA,tid);
+						sem_post(&IO);
 					}
 
 					else if(strcmp(descripcionTarea,"GENERAR_BASURA") == 0){
+						sem_wait(&IO);
 						serializarYMandarTarea(parametros, GENERAR_BASURA,tid);
+						sem_post(&IO);
 					}
 
 					else if(strcmp(descripcionTarea,"DESCARTAR_BASURA") == 0){
+						sem_wait(&IO);
 						serializarYMandarTarea(parametros, DESCARTAR_BASURA,tid);
+						sem_wait(&IO);
 					}
 					else{
 					}
@@ -641,5 +661,39 @@ void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea, uint32_t
 	buffer-> stream = stream;
 
 	mandarPaqueteSerializado(buffer, socket, tipoTarea);
+
+}
+
+//-----------------------------SABOTAJES---------------------------------------------------------------------------------------------------
+
+TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t posX, uint32_t posY){
+
+	uint32_t distanciaMenor;
+	uint32_t tidMasCercano;
+
+	for(int a = 0 ; a < list_size(listaTripulantes) ; a++){
+
+		TCB_DISCORDIADOR * tripulante = list_get(listaTripulantes,a); 
+
+		uint32_t * distanciaASabotaje = abs(posX - tripulante->posicionX) + abs(posY - tripulante->posicionY);
+
+		if(a == 0){
+			distanciaMenor = distanciaASabotaje; //Al primero lo asigna asi
+		}
+
+		if(distanciaASabotaje < distanciaMenor){
+			distanciaMenor = distanciaASabotaje;
+			tidMasCercano = tripulante->tid;
+		}
+
+	
+	}
+
+	bool coincideID(TCB_DISCORDIADOR * tripulante){
+				return tripulante->tid ==  tidMasCercano;
+			}
+
+	return list_find(listaTripulantes, coincideID); 
+
 
 }
