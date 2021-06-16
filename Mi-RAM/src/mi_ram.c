@@ -4,6 +4,32 @@
 
 NIVEL* navePrincipal;
 
+void mostrarMemoriaChar(int nroDeFrame, int offset, int cant) {
+	printf("--------------------------------------------------------------------- \n");
+	printf("A partir del frame %d con %d offset, leyendo %d bytes: \n\n", nroDeFrame, offset, cant);
+	int i = 0;
+	int inicio = nroDeFrame * tamanioPagina + offset;
+	while (i < cant) {
+		printf("%c", ((char*) memoriaPrincipal)[i+inicio]);
+		i++;
+	}
+	printf("\n--------------------------------------------------------------------- \n");
+}
+
+void mostrarMemoriaInt(int nroDeFrame, int offset, int cant) {
+	printf("--------------------------------------------------------------------- \n");
+	printf("A partir del frame %d con %d offset, leyendo %d int: \n\n", nroDeFrame, offset, cant);
+	int i = 0;
+	int inicio = nroDeFrame * tamanioPagina + offset;
+	void * memAuxiliar = malloc(cant * 4);
+	memcpy(memAuxiliar, memoriaPrincipal + inicio, cant * 4);
+	while (i < cant) {
+		printf("%i ", *((int *)memAuxiliar + i));
+		i ++;
+	}
+	printf("\n--------------------------------------------------------------------- \n");
+}
+
 
 
 int main(int argc, char ** argv){
@@ -99,14 +125,15 @@ void atenderDiscordiador(int socketCliente){
 		int tamanioTareas;
 		memcpy(&tamanioTareas, stream, sizeof(int));
 		stream += sizeof(int);
-		char* tareas = malloc(tamanioTareas + 1);
+		char* tareas = malloc(tamanioTareas + 2);
 		memcpy(tareas, stream, tamanioTareas);
 		stream += tamanioTareas;
 
-		string_append(&tareas, "|");
+		char pipe = '|';
+		memcpy(tareas + tamanioTareas, &pipe, 1);	
 		tamanioTareas++;
 
-		printf("%s \n", tareas);
+		printf("%s \n", tareas); // tira un invalid read valgrind o unitialised values
 
 		//Deserializar CantidadDeTCBs
 		int cantidadTCBs = 0;
@@ -151,6 +178,21 @@ void atenderDiscordiador(int socketCliente){
 				};
 				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas);
+
+				mostrarMemoriaInt(0, 0, 2);
+				mostrarMemoriaChar(0, 8, 73);
+
+				mostrarMemoriaInt(1, 17, 1);
+				mostrarMemoriaChar(1, 22, 1);
+				mostrarMemoriaInt(1, 22, 4);
+
+				// mostrarMemoriaInt(20, 17, 1);
+				// mostrarMemoriaChar(21, 1, 1);
+				// mostrarMemoriaInt(21, 2, 4);
+
+				// mostrarMemoriaInt(21, 18, 1);
+				// mostrarMemoriaChar(22, 2, 1);
+				// mostrarMemoriaInt(22, 3, 4);
 			}
 
 			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
