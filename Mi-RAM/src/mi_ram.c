@@ -26,6 +26,7 @@ int main(int argc, char ** argv){
 	// //pthread_join(mapa, NULL);
 	 
 	pthread_join(servidor, NULL);
+	
 	free(memoriaPrincipal);
 
 	return 0; 
@@ -99,7 +100,7 @@ void atenderDiscordiador(int socketCliente){
 		int tamanioTareas;
 		memcpy(&tamanioTareas, stream, sizeof(int));
 		stream += sizeof(int);
-		char* tareas = malloc(tamanioTareas + 1);
+		char* tareas = malloc(tamanioTareas+1);
 		memcpy(tareas, stream, tamanioTareas);
 		stream += tamanioTareas;
 
@@ -115,11 +116,12 @@ void atenderDiscordiador(int socketCliente){
 
 		//Nos aseguramos de que hay espacio para recibir la patota 
 		
+printf("cantidad tcbs: %d \n", cantidadTCBs);
 
 		int hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs); 
 		
 
-		printf("cantidad tcbs: %d \n", cantidadTCBs);
+		
 
 		if(hayLugar){
 
@@ -163,14 +165,31 @@ void atenderDiscordiador(int socketCliente){
 
 				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
 					TCB * tripulante = malloc(SIZEOF_TCB);
-					tripulante = deserializar_TCB(stream);
+					
+					//Deserializamos los campos que tenemos en el buffer
+					memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
+					stream += sizeof(uint32_t);
+					printf("tripulante id deserializaicon %d\n", tripulante->tid);
+
+					memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
+					stream += sizeof(uint32_t);
+
+					memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
+					stream += sizeof(uint32_t);
+
+					memcpy(&(tripulante->estado), stream, sizeof(char));
+					stream += sizeof(char);
+
 					tripulante->punteroPCB = direccionPCB; 
 					tripulante->proximaInstruccion = direccionTareas; 
-
+					printf("tripulante id: %d \n", tripulante->tid);
 					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tablaSegmentos); 
 					log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
+					
 			
 			}
+
+			
 
 				
 			}
@@ -205,12 +224,36 @@ void atenderDiscordiador(int socketCliente){
 }
 
 
+
+int obtenerProximaTarea(int direccionLogica){
+	char * tareaObtenida = malloc(30); 
+	char caracterComparacion = 'a'; 
+	int desplazamiento = 0; 
+	
+	while(caracterComparacion != '\n' && caracterComparacion != '|'){
+
+	memcpy(tareaObtenida + desplazamiento, memoriaPrincipal+direccionLogica+desplazamiento, 1 ); 
+	
+	memcpy(&caracterComparacion, memoriaPrincipal + direccionLogica + desplazamiento + 1, 1); 
+	desplazamiento ++; 
+	}
+	direccionLogica = direccionLogica + desplazamiento;
+
+	printf("La proxima tarea es %s \n", tareaObtenida); 
+
+	//actualizarProximaTarea(tcb, direccionLogica); 
+	return direccionLogica;
+} 
+
+
 TCB * deserializar_TCB(void * stream){ 
 	TCB * tripulante = malloc(SIZEOF_TCB);
 
+	
 	//Deserializamos los campos que tenemos en el buffer
 	memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
 	stream += sizeof(uint32_t);
+	printf("tripulante id deserializaicon %d\n", tripulante->tid);
 
 	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
 	stream += sizeof(uint32_t);
@@ -420,7 +463,7 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 	t_segmento * segmentoTareas = malloc(tamanioTareas); 
 	segmentoTareas->tamanio = tamanioTareas; 
 	segmentoTareas ->base = direccionLogica; 
-	list_add_in_index(tablaSegmentos, 1, segmentoTareas);
+	list_add(tablaSegmentos, segmentoTareas);
 	list_add(tablaSegmentosGlobal, segmentoTareas);  
 	return direccionLogica;
 
@@ -476,8 +519,17 @@ uint32_t bestFit(int tamanioContenido){
 
 t_list *  obtenerSegmentosLibres(t_list * tablaSegmentos){
 int i = 0; 
-
 t_list * segmentosLibres = list_create(); 
+
+if(list_size(tablaSegmentos) == 0){
+	t_segmento * segmento = malloc(sizeof(t_segmento)); 
+	segmento-> base = 0 ; 
+	segmento-> tamanio = tamanioMemoria; 
+	list_add(segmentosLibres, segmento);
+	return segmentosLibres;
+}
+
+
 list_sort(tablaSegmentos, seEncuentraPrimeroEnMemoria); 
 t_segmento * primerSegmentoOCupado = malloc(sizeof(t_segmento));
  primerSegmentoOCupado = list_get(tablaSegmentos, 0);
@@ -537,7 +589,7 @@ return segmentosLibres;
 
 int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
 t_list * copiaSegmentosOcupados = list_duplicate(tablaSegmentosGlobal); 
-		t_list * copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados);
+t_list * copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados);
 
 		bool cabenTareasEnElSegmento(t_segmento * segmento){
 
