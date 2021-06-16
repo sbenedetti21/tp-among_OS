@@ -159,6 +159,7 @@ printf("cantidad tcbs: %d \n", cantidadTCBs);
 
 				t_list * tablaSegmentos = malloc(sizeof(t_list));
 				PCB * pcb = crearPCB(); 
+				printf("ID DE LA PATOTA %d \n", pcb->pid);
 				uint32_t direccionTareas = asignarMemoriaSegmentacionTareas(tareas, tamanioTareas, tablaSegmentos); 
 				pcb ->tareas = direccionTareas; 
 				uint32_t direccionPCB = asignarMemoriaSegmentacionPCB(pcb, tablaSegmentos); 
@@ -190,7 +191,11 @@ printf("cantidad tcbs: %d \n", cantidadTCBs);
 			}
 
 			
+				int proximaTarea = obtenerProximaTarea(direccionTareas);
+				int proximaTarea1 = obtenerProximaTarea(proximaTarea);
 
+
+				
 				
 			}
 
@@ -230,16 +235,20 @@ int obtenerProximaTarea(int direccionLogica){
 	char caracterComparacion = 'a'; 
 	int desplazamiento = 0; 
 	
+	
 	while(caracterComparacion != '\n' && caracterComparacion != '|'){
 
 	memcpy(tareaObtenida + desplazamiento, memoriaPrincipal+direccionLogica+desplazamiento, 1 ); 
 	
 	memcpy(&caracterComparacion, memoriaPrincipal + direccionLogica + desplazamiento + 1, 1); 
 	desplazamiento ++; 
+	
 	}
 	direccionLogica = direccionLogica + desplazamiento;
 
-	printf("La proxima tarea es %s \n", tareaObtenida); 
+	printf("La proxima tarea es %s \n \n", tareaObtenida); 
+	log_info(loggerMiram,"Proxima tarea: %s", tareaObtenida);
+	printf("Caracteres leidos %d \n ", desplazamiento);
 
 	//actualizarProximaTarea(tcb, direccionLogica); 
 	return direccionLogica;

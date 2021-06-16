@@ -21,6 +21,7 @@ void * memoriaPrincipal;
 
 int buscarEspacioNecesario(int, int);
 TCB * deserializar_TCB(void *);
+int obtenerProximaTarea(int);
 
 sem_t mutexProximoPID; 
 
