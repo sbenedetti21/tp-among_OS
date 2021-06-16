@@ -17,6 +17,7 @@
 #include <commons/collections/list.h>
 #include <commons/temporal.h>
 #include <semaphore.h>
+#include <inttypes.h>
 
 int crear_conexion(char *, char*);
 
