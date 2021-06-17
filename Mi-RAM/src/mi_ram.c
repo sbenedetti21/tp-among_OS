@@ -200,34 +200,45 @@ printf("cantidad tcbs: %d \n", cantidadTCBs);
 			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 
 				t_list * tablaSegmentos = malloc(sizeof(t_list));
-				PCB * pcb = crearPCB(); 
+				PCB * pcb = crearPCB();
+				 
 				printf("ID DE LA PATOTA %d \n", pcb->pid);
 				uint32_t direccionTareas = asignarMemoriaSegmentacionTareas(tareas, tamanioTareas, tablaSegmentos); 
 				pcb ->tareas = direccionTareas; 
-				uint32_t direccionPCB = asignarMemoriaSegmentacionPCB(pcb, tablaSegmentos); 
+
+				void * streamPCB = malloc(SIZEOF_PCB);
+				memcpy(streamPCB, &(pcb->pid), sizeof(uint32_t)); 
+				memcpy(streamPCB + sizeof(uint32_t), &(pcb->tareas), sizeof(uint32_t)); 
+				uint32_t direccionPCB = asignarMemoriaSegmentacionPCB(streamPCB, tablaSegmentos); 
 
 				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
-					TCB * tripulante = malloc(SIZEOF_TCB);
-					
+					void * tripulante = malloc(SIZEOF_TCB);
+					int offset = 0; 
 					//Deserializamos los campos que tenemos en el buffer
-					memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
+					memcpy(tripulante + offset, stream, sizeof(uint32_t));
 					stream += sizeof(uint32_t);
-					printf("tripulante id deserializaicon %d\n", tripulante->tid);
+					offset = offset + sizeof(uint32_t);
 
-					memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
+					memcpy(tripulante + offset, stream, sizeof(uint32_t));
 					stream += sizeof(uint32_t);
+					offset = offset + sizeof(uint32_t); 
 
-					memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
+					memcpy(tripulante + offset, stream, sizeof(uint32_t));
 					stream += sizeof(uint32_t);
+					offset = offset + sizeof(uint32_t); 
 
-					memcpy(&(tripulante->estado), stream, sizeof(char));
+					memcpy(tripulante + offset, stream, sizeof(char));
 					stream += sizeof(char);
+					offset = offset + sizeof(char); 
 
-					tripulante->punteroPCB = direccionPCB; 
-					tripulante->proximaInstruccion = direccionTareas; 
-					printf("tripulante id: %d \n", tripulante->tid);
+					memcpy(tripulante + offset, &direccionTareas, sizeof(uint32_t)); 
+					offset = offset + sizeof(uint32_t);
+
+					memcpy(tripulante + offset, &direccionPCB, sizeof(uint32_t));
+
+					
 					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tablaSegmentos); 
-					//log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
+					log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
 					
 			
 			}
@@ -250,7 +261,7 @@ printf("cantidad tcbs: %d \n", cantidadTCBs);
 				printf("Me trae el PCB id %d cuyas tareas están en %d \n", pcbObtenido ->pid, pcbObtenido->tareas); 
 				printf("Direccion de las tareas %d \n", direccionTareas);
 				imprimirSegmentosLibres();
-/*ENCONTRAR UNA TABLA DE PATOTA POR SU REFERENCIA EN LA TABLA DE TABLAS DE SEGMENTO */
+				/*ENCONTRAR UNA TABLA DE PATOTA POR SU REFERENCIA EN LA TABLA DE TABLAS DE SEGMENTO */
 				bool coincidePatota(referenciaTablaPatota * referencia){
 					return (referencia->pid == pcb -> pid);
 				}
@@ -496,13 +507,15 @@ int divisionRedondeadaParaArriba(int x, int y) {
 
 //----------------SEGMENTACION
 
-uint32_t asignarMemoriaSegmentacionTCB(TCB * contenido, t_list * tablaSegmentos){
+uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, t_list * tablaSegmentos){
 
 		//busco un lugar de memoria (segun algoritmo)
 		uint32_t direccionLogica = 0;
+		
 		direccionLogica = encontrarLugarSegmentacion(SIZEOF_TCB); 
 		//le asigno el lugar de memoria encontrado
-		memcpy(memoriaPrincipal + direccionLogica, contenido, SIZEOF_TCB); 
+		memcpy(memoriaPrincipal + direccionLogica, tripulante, sizeof(SIZEOF_TCB)); 
+		
 
 		//creo el segmento para la estructura nueva
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
@@ -517,13 +530,13 @@ uint32_t asignarMemoriaSegmentacionTCB(TCB * contenido, t_list * tablaSegmentos)
 		return direccionLogica;
 }
 
-uint32_t asignarMemoriaSegmentacionPCB(PCB * pcb , t_list * tablaSegmentos){
+uint32_t asignarMemoriaSegmentacionPCB(void * pcb , t_list * tablaSegmentos){
 	//busco un lugar de memoria (segun algoritmo)
-	
+		
 		int direccionLogica = encontrarLugarSegmentacion(SIZEOF_PCB); 
 		//le asigno el lugar de memoria encontrado
-		memcpy(memoriaPrincipal + direccionLogica, pcb, SIZEOF_PCB); 
-
+		memcpy(memoriaPrincipal + direccionLogica , pcb, SIZEOF_PCB); 
+		
 		//creo el segmento para la estructura nueva
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
 		segmentoNuevo -> tamanio = SIZEOF_PCB; 

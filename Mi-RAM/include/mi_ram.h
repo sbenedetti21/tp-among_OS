@@ -61,6 +61,8 @@ sem_t mutexTablaDeTablas;
 
 typedef struct{
 	uint32_t pid; 
+	uint32_t * tripulantesDeLaPatota;
+	uint32_t tamanioTareas;
 	t_list * tablaPatota; 
 } referenciaTablaPatota; 
 
@@ -71,8 +73,13 @@ typedef struct{
  
 } t_segmento; 
 
-uint32_t asignarMemoriaSegmentacionTCB(TCB *, t_list *); 
-uint32_t asignarMemoriaSegmentacionPCB(PCB * , t_list *);
+struct {
+	uint32_t tid; 
+
+}
+
+uint32_t asignarMemoriaSegmentacionTCB(void *, t_list *); 
+uint32_t asignarMemoriaSegmentacionPCB(void * , t_list *);
 uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * );
 uint32_t encontrarLugarSegmentacion(int );
 uint32_t firstFit(int );
