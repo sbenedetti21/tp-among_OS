@@ -50,6 +50,7 @@ int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
 uint32_t buscarFrame();
 void iniciarFrames();
+void llenarFramesConPatota(t_list *, void *, int , int , int , int );
 
 
 // ----------------------------------------  SEGMENTOS

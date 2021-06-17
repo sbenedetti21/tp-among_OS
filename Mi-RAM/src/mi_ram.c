@@ -31,8 +31,6 @@ void mostrarMemoriaInt(int nroDeFrame, int offset, int cant) {
 	free(memAuxiliar);
 }
 
-
-
 int main(int argc, char ** argv){
 
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
@@ -160,41 +158,36 @@ void atenderDiscordiador(int socketCliente){
 
 				t_list * tablaDePaginas = list_create();
 
-				// PCB * pcb = crearPCB();
-				PCB * pcb = malloc(SIZEOF_PCB);
-				pcb->pid = proximoPID;
-				pcb->tareas = SIZEOF_PCB;
-				
-				sem_wait(&mutexProximoPID); 
-				proximoPID++;
-				sem_post(&mutexProximoPID);
+				PCB * pcb = crearPCB();
 
 				int offset = 0;
 				memcpy(streamPatota + offset, &(pcb->pid), sizeof(uint32_t) );
 				offset += sizeof(uint32_t);
 				memcpy(streamPatota + offset, &(pcb->tareas), sizeof(uint32_t) );
 				offset += sizeof(uint32_t);
-				memcpy(streamPatota, tareas, tamanioTareas);
+				memcpy(streamPatota + offset, tareas, tamanioTareas);
 				offset += tamanioTareas;
 
 				uint32_t proximaInstruccion = 0, direccionPCB = 0;
 				for (int i = 0; i < cantidadTCBs; i++) {
 					memcpy(streamPatota + offset, stream, SIZEOF_TCB);
-					stream += SIZEOF_TCB; offset += SIZEOF_TCB;
-					memcpy(streamPatota + offset, &proximaInstruccion, sizeof(uint32_t));
+					stream += SIZEOF_TCB; offset += (SIZEOF_TCB - 8);
+					//memcpy(streamPatota + offset, &proximaInstruccion, sizeof(uint32_t));
+					memset(streamPatota + offset, 0, sizeof(uint32_t));
 					offset += sizeof(uint32_t);
-					memcpy(streamPatota + offset, &direccionPCB, sizeof(uint32_t));
+					//memcpy(streamPatota + offset, &direccionPCB, sizeof(uint32_t));
+					memset(streamPatota + offset, 0, sizeof(uint32_t));
 					offset += sizeof(uint32_t);
 				};
-				
-				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas);
+
+				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria);
 
 				mostrarMemoriaInt(0, 0, 2);
-				mostrarMemoriaChar(0, 0, 73);
+				mostrarMemoriaChar(0, 8, 73);
 
-				mostrarMemoriaInt(1, 17, 1);
-				mostrarMemoriaChar(1, 22, 1);
-				mostrarMemoriaInt(1, 22, 4);
+				mostrarMemoriaInt(1, 17, 3);
+				mostrarMemoriaChar(1, 29, 1);
+				mostrarMemoriaInt(1, 30, 2);
 
 				// mostrarMemoriaInt(20, 17, 1);
 				// mostrarMemoriaChar(21, 1, 1);
@@ -328,9 +321,8 @@ TCB * deserializar_TCB(void * stream){
 }
 
 PCB * crearPCB(){
-	// uint32_t punteroTareas = *tareas; //ESTO ESTA RARI
 
-	PCB * patota = malloc(sizeof(PCB));
+	PCB * patota = malloc(SIZEOF_PCB);
 	patota->pid = proximoPID;
 	patota->tareas = SIZEOF_PCB;
 	
@@ -439,7 +431,7 @@ uint32_t buscarFrame() {
   return direccionFrame;
 }
 
-void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas) {
+void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas, int memoriaAGuardar) {
 
 	int i = 0, j = 0;
 
@@ -447,8 +439,9 @@ void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int c
 		uint32_t direcProximoFrame = buscarFrame();
 		printf("direc prox frame a escribir %d \n", direcProximoFrame);
 
-		for (j = 0; j < tamanioPagina; j++) {
-			memcpy( memoriaPrincipal + (direcProximoFrame + j) , (char *)streamDePatota + (j + i*tamanioPagina), 1); //copio byte a byte (ojala que ande)
+		while ((i * tamanioPagina + j) < (memoriaAGuardar) && j < tamanioPagina){
+			memcpy( memoriaPrincipal + (direcProximoFrame + j) , streamDePatota + (j + i*tamanioPagina), 1); //copio byte a byte (ojala que ande)	
+			j++;
 		}
 
 		uint32_t numeroDeFrame = direcProximoFrame / tamanioPagina;  // no hace falta redondear porque la division de int redondea pra abajo
@@ -462,6 +455,7 @@ void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int c
 		pagina->numeroFrame = numeroDeFrame;
 		pagina->numeroPagina = (uint32_t) i;
 		list_add(tablaDePaginas, pagina);
+		j = 0;
 	}
 
 	list_add(listaTablasDePaginas, tablaDePaginas);
