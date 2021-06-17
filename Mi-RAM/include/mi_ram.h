@@ -56,7 +56,16 @@ void llenarFramesConPatota(t_list *, void *, int , int , int , int );
 // ----------------------------------------  SEGMENTOS
 
 t_list * tablaSegmentosGlobal; 
-t_list * tablaDeTablasSegmentos; 
+t_list * tablaDeTablasSegmentos;  // va a estar conformado por muchos struct de tipo referenciaTablaPatota
+sem_t mutexTablaGlobal;
+sem_t mutexTablaDeTablas; 
+
+typedef struct{
+	uint32_t pid; 
+	uint32_t * tripulantesDeLaPatota;
+	uint32_t tamanioTareas;
+	t_list * tablaPatota; 
+} referenciaTablaPatota; 
 
 typedef struct{
 	
@@ -65,8 +74,13 @@ typedef struct{
  
 } t_segmento; 
 
-uint32_t asignarMemoriaSegmentacionTCB(TCB *, t_list *); 
-uint32_t asignarMemoriaSegmentacionPCB(PCB * , t_list *);
+struct {
+	uint32_t tid; 
+
+}
+
+uint32_t asignarMemoriaSegmentacionTCB(void *, t_list *); 
+uint32_t asignarMemoriaSegmentacionPCB(void * , t_list *);
 uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * );
 uint32_t encontrarLugarSegmentacion(int );
 uint32_t firstFit(int );
@@ -77,6 +91,7 @@ bool seEncuentraPrimeroEnMemoria(t_segmento * , t_segmento* );
 bool segmentoMasPequenio(t_segmento * , t_segmento * );
 bool cabePCB(t_segmento * );
 bool cabeTCB(t_segmento * );
+void imprimirSegmentosLibres();
 
 
 // --------------------- Generales
