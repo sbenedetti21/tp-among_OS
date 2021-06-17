@@ -6,6 +6,7 @@ int main(int argc, char ** argv){
 	leerConfig();
 	struct stat st = {0};
 
+
 	if(stat(puntoDeMontaje,&st) == -1){
 		crearFileSystem();
 		log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
@@ -13,6 +14,8 @@ int main(int argc, char ** argv){
 		leerFileSystem();
 		log_info(loggerImongoStore, "---------LEYO FILESYSTEM----------");
 	}
+
+
 	mapBlocksCopia = malloc(tamanioBlocks);
 	memcpy(mapBlocksCopia, mapBlocks, tamanioBlocks);
 
@@ -68,6 +71,11 @@ int main(int argc, char ** argv){
 	close(archivoBlocks);
 	guardarBitMap();
 	liberarBitMap(punteroBitmap);
+	sem_destroy(&semaforoArchivoRecurso);
+	sem_destroy(&semaforoBloques);
+	sem_destroy(&semaforoOxigeno);
+	sem_destroy(&semaforoBasura);
+	sem_destroy(&semaforoComida);
 	free(mapBlocksCopia);
 	return 0;
 }

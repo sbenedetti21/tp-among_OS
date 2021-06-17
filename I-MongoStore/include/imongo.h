@@ -20,6 +20,9 @@ sem_t semaforoOxigeno, semaforoBasura, semaforoComida;
 //Log
 t_log *loggerImongoStore;
 
+//Preguntar si crearFileSistem
+//void preguntarFileSystem(int);
+
 //Conectar al Discordiador
 void servidorPrincipal();
 void atenderDiscordiador(int);
@@ -216,6 +219,7 @@ t_config *archivoBitacora(int idTripulante){
 //--------------------------------- CODIGO DE LOS FILES DE RECURSOS ----------------------------------//
 void semaforoEsperaRecurso(char *recurso){
 	if(!strcmp(recurso,"Oxigeno")){
+		log_info(loggerImongoStore,"entre al semaforo oxigeno");
 		sem_wait(&semaforoOxigeno);
 	} else if(!strcmp(recurso,"Basura")){
 		sem_wait(&semaforoBasura);
@@ -227,6 +231,7 @@ void semaforoEsperaRecurso(char *recurso){
 void semaforoListoRecurso(char *recurso){
 	if(!strcmp(recurso,"Oxigeno")){
 		sem_post(&semaforoOxigeno);
+		log_info(loggerImongoStore,"sali del semaforo oxigeno");
 	} else if(!strcmp(recurso,"Basura")){
 		sem_post(&semaforoBasura);
 	} else {
@@ -276,12 +281,13 @@ void agregarSizeFile(char *recurso, int nuevaSize){
 }
 
 int ultimoBloqueFile(char *recurso){
+	semaforoEsperaRecurso(recurso);
 	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
 	t_config *configGeneral = config_create(ubicacionArchivoRecurso);
 
 	char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
 	int proximoBlock;
-	log_info(loggerImongoStore,string_from_format("Lista de Blocks %s", listaBlocks));
+	log_info(loggerImongoStore,string_from_format("Lista de Blocks recurso %s", listaBlocks));
 	
 	if(listaBlocks[1]!=']'){ 
 		int indiceFinal = strlen(listaBlocks);
@@ -293,7 +299,7 @@ int ultimoBloqueFile(char *recurso){
 		agregarBloqueAlArchivo(proximoBlock, configGeneral);
 	}
 	config_destroy(configGeneral);
-
+	semaforoListoRecurso(recurso);
 	return proximoBlock;
 }
 //---------------------------------------------------------------------------------------------------//
@@ -621,5 +627,26 @@ void atenderDiscordiador(int socketCliente){
 	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 }
+
+//void borrarFileYBitacora(){
+//rmdir()
+//}
+
+/* 
+void preguntarFileSystem(int valorRespuesta){
+
+	switch (valorRespuesta)
+	{	
+	case 0:
+		borrarFileSystem();
+		crearFileSystem();
+		break;
+	
+	default:
+
+		break;
+	}
+}
+*/
 
 #endif
