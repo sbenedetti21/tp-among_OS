@@ -366,6 +366,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones){
 void tripulanteVivo(TCB_DISCORDIADOR * tripulante) { 
 
 	bool tareaTerminada = false; // PONER EN TRUE CUANDOR RECIBA TAREAS
+	bool noHayMasTareas = false;
 	tarea_struct * tarea = malloc(sizeof(tarea_struct));
 
 
@@ -378,35 +379,65 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 		if(tareaTerminada){
 				int socket = conectarMiRAM();
 				char ** vectorTarea;
-				char ** requerimientosTarea;
-				char * stringTarea = ""; 
-				// send() hay que pedir la tarea para despues recibirla
-				// recv(socket, stringTarea, sizeof(strlen(vectorTarea)), 0);
-			
+				char ** requerimientosTarea; //MALLOC ???
 
-				if(strcmp(stringTarea, "") != 0){			// Se fija que la tarea no este vacía
+				printf("que demonios hago aqui");
 
-				vectorTarea = string_split(stringTarea, ";");
-				requerimientosTarea = string_split(vectorTarea[1]," "); 
+				serializarYMandarPedidoDETarea(socket, tripulante->tid);
 
-				tarea->descripcionTarea = requerimientosTarea[0];
+				t_paquete* paquete = malloc(sizeof(t_paquete));
+				paquete->buffer = malloc(sizeof(t_buffer));
 
-				if(requerimientosTarea[1] != NULL){
-				tarea->parametro = atoi(requerimientosTarea[1]);	//Esto esta rari cuanto menos
+				int headerRECV = recv(socket, &(paquete->header) , sizeof(int), 0);
+	
+				int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+
+				paquete->buffer->stream = malloc(paquete->buffer->size);
+
+				int BUFFER_RECV = recv(socket,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+
+				switch (paquete->header)
+				{
+				case HAY_TAREA:;
+
+					void* stream = malloc(paquete->buffer->size);
+					stream = paquete->buffer->stream;
+
+					int tamanioTareas;
+					memcpy(&tamanioTareas, stream, sizeof(int));
+					stream += sizeof(int);
+					char* stringTarea = malloc(tamanioTareas);
+					memcpy(stringTarea, stream, tamanioTareas);
+					stream += tamanioTareas;
+
+					vectorTarea = string_split(stringTarea, ";");
+					requerimientosTarea = string_split(vectorTarea[1]," "); 
+
+					tarea->descripcionTarea = requerimientosTarea[0];
+
+					if(requerimientosTarea[1] != NULL){
+						tarea->parametro = atoi(requerimientosTarea[1]);	//Esto esta rari cuanto menos
+					}
+
+					tarea->posicionX = atoi(vectorTarea[1]);			//Llena el struct tarea 
+					tarea->posicionY = atoi(vectorTarea[2]);
+					tarea->tiempo = atoi(vectorTarea[3]);
+					tarea->tareaTerminada = false;
+
+					tripulante->tareaActual = tarea;
+					
+					break;
+				
+				case NO_HAY_TAREA:
+									noHayMasTareas = true;
+									break;
 				}
-
-				tarea->posicionX = atoi(vectorTarea[1]);			//Llena el struct tarea 
-				tarea->posicionY = atoi(vectorTarea[2]);
-				tarea->tiempo = atoi(vectorTarea[3]);
-				tarea->tareaTerminada = false;
-
-				tripulante->tareaActual = tarea;
-
-				} else {
-					break;					//Si la tarea esta vacía entonces procedera a salir del while para terminar con el hilo.
-				}
+				
+				
 
 		}
+
+		if(noHayMasTareas){ break;} //Si MIRAM avisa que no hay mas tareas termina el hilo
 
 		tareaTerminada = tarea->tareaTerminada;
 
@@ -433,6 +464,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 					sem_post(&gestionarIO);
 					sleep((tarea -> tiempo) * cicloCPU + cicloCPU);	
 					sem_wait(&tripulante->termineIO);
+					printf("alo %d \n", tripulante->tid);
 					sem_post(&esperarAlgunTripulante);
 				}
 
@@ -444,11 +476,10 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				}
 
 				
-				tareaTerminada = true;
+				// tareaTerminada = true; ESTO TIENE QUE ESTAR
+				// noHayMasTareas = true; // ESTO NO
 				log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
 
-
-		
 									     } else{
 											 	int contador = 0; // cantidad de quantum ya utilizado
 
@@ -594,7 +625,7 @@ void gestionadorIO(){
 			TCB_DISCORDIADOR* tripulantee = list_get(listaBloqueados, 0);
 			sem_post(&cambiarABloqueado);
 
-			gestionarTarea(tripulantee->tareaActual,tripulantee->tid);	
+			//gestionarTarea(tripulantee->tareaActual,tripulantee->tid);	
 
 			cambiarDeEstado(tripulantee,'R');
 
@@ -671,39 +702,27 @@ void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 	char * descripcionTarea = tarea->descripcionTarea;
 	int parametros = tarea->parametro;
 				if( strcmp(descripcionTarea,"GENERAR_OXIGENO") == 0 ){
-						sem_wait(&IO);
 						serializarYMandarTarea(parametros, GENERAR_OXIGENO,tid);
-						sem_post(&IO);
 					} 
 
 					else if(strcmp(tarea->descripcionTarea,"CONSUMIR_OXIGENO") == 0){
-						sem_wait(&IO);
 						serializarYMandarTarea(parametros, CONSUMIR_OXIGENO,tid);
-						sem_post(&IO);
 					}
 
 					else if(strcmp(descripcionTarea,"GENERAR_COMIDA") == 0){
-						sem_wait(&IO);
 						serializarYMandarTarea(parametros, GENERAR_COMIDA,tid);
-						sem_post(&IO);
 					}
 
 					else if(strcmp(descripcionTarea,"CONSUMIR_COMIDA") == 0){
-						sem_wait(&IO);
 						serializarYMandarTarea(parametros, CONSUMIR_COMIDA,tid);
-						sem_post(&IO);
 					}
 
 					else if(strcmp(descripcionTarea,"GENERAR_BASURA") == 0){
-						sem_wait(&IO);
 						serializarYMandarTarea(parametros, GENERAR_BASURA,tid);
-						sem_post(&IO);
 					}
 
 					else if(strcmp(descripcionTarea,"DESCARTAR_BASURA") == 0){
-						sem_wait(&IO);
 						serializarYMandarTarea(parametros, DESCARTAR_BASURA,tid);
-						sem_wait(&IO);
 					}
 					else{
 					}
@@ -853,6 +872,23 @@ void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea, uint32_t
 
 	mandarPaqueteSerializado(buffer, socket, tipoTarea);
 
+}
+
+void serializarYMandarPedidoDETarea(int socket, uint32_t tid){
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+	buffer-> size = sizeof(uint32_t);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, PEDIR_TAREA);
 }
 
 //-----------------------------SABOTAJES---------------------------------------------------------------------------------------------------
