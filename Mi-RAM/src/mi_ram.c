@@ -347,6 +347,8 @@ void iniciarMemoria() {
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 		listaFrames = list_create();
 		listaTablasDePaginas = list_create();
+		pthread_mutex_init(&mutexMemoriaPrincipal, NULL);
+		pthread_mutex_init(&mutexListaTablas, NULL);
 		iniciarFrames();	
 	}
 }
@@ -433,10 +435,12 @@ void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int c
 		uint32_t direcProximoFrame = buscarFrame();
 		printf("direc prox frame a escribir %d \n", direcProximoFrame);
 
+		pthread_mutex_lock(&mutexMemoriaPrincipal);
 		while ((i * tamanioPagina + j) < (memoriaAGuardar) && j < tamanioPagina){
 			memcpy( memoriaPrincipal + (direcProximoFrame + j) , streamDePatota + (j + i*tamanioPagina), 1); //copio byte a byte (ojala que ande)	
 			j++;
 		}
+		pthread_mutex_unlock(&mutexMemoriaPrincipal);
 
 		uint32_t numeroDeFrame = direcProximoFrame / tamanioPagina;  // no hace falta redondear porque la division de int redondea pra abajo
 		t_frame * frameOcupado = malloc(sizeof(t_frame));
@@ -452,8 +456,9 @@ void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int c
 		j = 0;
 	}
 
+	pthread_mutex_lock(&mutexListaTablas);
 	list_add(listaTablasDePaginas, tablaDePaginas);
-
+	pthread_mutex_unlock(&mutexListaTablas);
 }
 
 int divisionRedondeadaParaArriba(int x, int y) {

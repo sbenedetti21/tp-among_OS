@@ -27,17 +27,17 @@ sem_t mutexProximoPID;
 
 // ----------------------------------------  PAGINAS
 
+char * path_SWAP;
 t_list * listaFrames;
 t_list * listaTablasDePaginas;
 int tamanioPagina, tamanioMemoria;
-char * path_SWAP;
+pthread_mutex_t mutexMemoriaPrincipal;
+pthread_mutex_t mutexListaTablas;
 
 typedef struct {
 	uint32_t inicio;
 	uint32_t ocupado;
 }  t_frame;
-
-t_list * listaFrames;
 
 typedef struct {
 	uint32_t numeroPagina;
