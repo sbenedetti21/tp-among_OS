@@ -48,6 +48,7 @@ int main(int argc, char ** argv){
 	sem_init(&cambiarANuevo,0,1);
 	sem_init(&cambiarAReady,0,1);
 	sem_init(&cambiarATrabajando,0,1);
+	sem_init(&gestionarIO,0,0);
 
 
 
@@ -235,6 +236,47 @@ void consola(){
 			printf("El tripulante termino: %d \n", tripulante->tid);
 			}
 		}
+
+		if(strcmp(vectorInstruccion[0], "mostarListas") == 0) {
+			
+			printf("\n");
+			printf("Lista NEW: ");
+			for(int a = 0 ; a < list_size(listaNuevos) ; a++){
+			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
+			printf("%d ", tripulante->tid);
+			}
+			printf("\n");
+
+			printf("Lista READY: ");
+			for(int a = 0 ; a < list_size(listaReady) ; a++){
+			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
+			printf("%d ", tripulante->tid);
+			}
+			printf("\n");
+
+			printf("Lista BLOQUEADOS: ");
+			for(int a = 0 ; a < list_size(listaBloqueados) ; a++){
+			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
+			printf("%d ", tripulante->tid);
+			}
+			printf("\n");
+
+			printf("Lista TRABAJANDO: ");
+			for(int a = 0 ; a < list_size(listaTrabajando) ; a++){
+			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
+			printf("%d ", tripulante->tid);
+			}
+			printf("\n");
+
+			printf("Lista TERMINADOS: ");
+			for(int a = 0 ; a < list_size(listaTerminados) ; a++){
+			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
+			printf("%d ", tripulante->tid);
+			}
+			printf("\n");
+			printf("\n");
+
+		}
 		
 
 		//	mostrarLista(listaReady); 
@@ -301,6 +343,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones){
 		TCB_DISCORDIADOR * tripulante = malloc(sizeof(TCB_DISCORDIADOR));
 
 		sem_init(&tripulante->semaforoTrabajo, 0, 0); 
+		sem_init(&tripulante->termineIO,0,0);
 	
 		tripulante->estado = 'N';
 		tripulante->tid = proximoTID;
@@ -376,6 +419,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 		tarea->tiempo = 5;
 		tarea->tareaTerminada = false;
 		tarea->descripcionTarea = "GENERAR_OXIGENO";
+		tripulante->tareaActual = tarea;
 
 	
 
@@ -386,9 +430,9 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				if(esTareaDeIO(tarea->descripcionTarea)){
 					sem_post(&semaforoTripulantes);
 					cambiarDeEstado(tripulante,'B');
-					sleep((tarea -> tiempo) * cicloCPU);	
-					gestionarTarea(tarea,tripulante->tid);
-					cambiarDeEstado(tripulante,'R');
+					sem_post(&gestionarIO);
+					sleep((tarea -> tiempo) * cicloCPU + cicloCPU);	
+					sem_wait(&tripulante->termineIO);
 					sem_post(&esperarAlgunTripulante);
 				}
 
@@ -458,9 +502,9 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 															tarea->tareaTerminada = true;
 															sem_post(&semaforoTripulantes); 
 															cambiarDeEstado(tripulante,'B');
-															sleep((tarea -> tiempo) * cicloCPU + cicloCPU);	
-															gestionarTarea(tarea,tripulante->tid);
-															cambiarDeEstado(tripulante,'R');	
+															sem_post(&gestionarIO);
+															sleep((tarea -> tiempo) * cicloCPU + cicloCPU);											
+															sem_wait(&tripulante->termineIO);
 															sem_post(&esperarAlgunTripulante);			
 															log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
 															break;
@@ -507,6 +551,9 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 void ponerATrabajar(){
 
+	pthread_t gestionarIO;
+	pthread_create(&gestionarIO, NULL, (void*) gestionadorIO, NULL);
+
 	cambiarEstadoTripulantesA('R');
 	 
 	 planificacionPausada = false;
@@ -533,6 +580,7 @@ void ponerATrabajar(){
 }
 
 void gestionadorIO(){
+
 	 
 	planificacionPausada = false;
 	
@@ -540,14 +588,17 @@ void gestionadorIO(){
 
 			if(planificacionPausada){ break; } 
 
-			//sem_wait(&gestionarIO);
+			sem_wait(&gestionarIO);
 
 			sem_wait(&cambiarABloqueado);
 			TCB_DISCORDIADOR* tripulantee = list_get(listaBloqueados, 0);
 			sem_post(&cambiarABloqueado);
 
 			gestionarTarea(tripulantee->tareaActual,tripulantee->tid);	
-				
+
+			cambiarDeEstado(tripulantee,'R');
+
+			sem_post(&tripulantee->termineIO);
 		 } 
 			
 			

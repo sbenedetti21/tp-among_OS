@@ -16,6 +16,7 @@ typedef struct tcb_discordiador{
 	uint32_t posicionX;
 	uint32_t posicionY;
 	sem_t semaforoTrabajo;
+	sem_t termineIO;
 	uint32_t pid;
 	tarea_struct * tareaActual;
 } TCB_DISCORDIADOR;
@@ -28,7 +29,7 @@ sem_t consultarSiHayVacios;
 sem_t esperarAlgunTripulante; 
 sem_t consultarSiHayVacios2;
 sem_t IO;
-
+sem_t gestionarIO;
 sem_t cambiarAReady;
 sem_t cambiarANuevo;
 sem_t cambiarATrabajando;
@@ -70,6 +71,7 @@ void cambiarDeEstado(TCB_DISCORDIADOR *, char);
 void pasarTripulante(TCB_DISCORDIADOR *);
 void salirDeListaEstado(TCB_DISCORDIADOR *);
 void tripulanteVivo(TCB_DISCORDIADOR *);
+void gestionadorIO();
 
 TCB_DISCORDIADOR * crearTCB(char *); // chequear lo de la lista
 TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t, uint32_t);
