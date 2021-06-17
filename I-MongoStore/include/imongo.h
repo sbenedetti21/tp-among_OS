@@ -14,6 +14,8 @@
 
 //Semaforo
 sem_t semaforoBloques;
+sem_t semaforoArchivoRecurso;
+sem_t semaforoOxigeno, semaforoBasura, semaforoComida;
 
 //Log
 t_log *loggerImongoStore;
@@ -177,7 +179,7 @@ void leerFileSystem(){
 
 //---------------------------------------------------------------------------------------------------//
 //------------------------------------ CREARCION ARCHIVO RECURSO ------------------------------------//
-t_config *creacionArchivoRecurso(char caracterLlenado, char *ubicacionArchivoRecurso){
+void creacionArchivoRecurso(char caracterLlenado, char *ubicacionArchivoRecurso){
 	FILE *fileRecurso = fopen(ubicacionArchivoRecurso,"w");
 	fclose(fileRecurso);
 
@@ -188,8 +190,7 @@ t_config *creacionArchivoRecurso(char caracterLlenado, char *ubicacionArchivoRec
 	 config_set_value(configRecurso,"CARACTER_LLENADO",string_repeat(caracterLlenado,1));
 	 config_set_value(configRecurso,"MD5_ARCHIVO","");
 	 config_save_in_file(configRecurso,ubicacionArchivoRecurso);
-	
-	return configRecurso;
+	 config_destroy(configRecurso);
 }
 //---------------------------------------------------------------------------------------------------//
 //------------------------------------ CREARCION ARCHIVO BITACORA -----------------------------------//
@@ -212,8 +213,33 @@ t_config *archivoBitacora(int idTripulante){
 	return configBitacora;
 }
 //---------------------------------------------------------------------------------------------------//
-//---------------------------------------- USAR FYLESTISTEM -----------------------------------------//
-void agregarBloqueAlArchivo(int nuevoBloque, t_config * configGeneral){
+//--------------------------------- CODIGO DE LOS FILES DE RECURSOS ----------------------------------//
+void semaforoEsperaRecurso(char *recurso){
+	if(!strcmp(recurso,"Oxigeno")){
+		sem_wait(&semaforoOxigeno);
+	} else if(!strcmp(recurso,"Basura")){
+		sem_wait(&semaforoBasura);
+	} else {
+		sem_wait(&semaforoComida);
+	}
+}
+
+void semaforoListoRecurso(char *recurso){
+	if(!strcmp(recurso,"Oxigeno")){
+		sem_post(&semaforoOxigeno);
+	} else if(!strcmp(recurso,"Basura")){
+		sem_post(&semaforoBasura);
+	} else {
+		sem_post(&semaforoComida);
+	}
+}
+
+void agregarBloqueAlFile(int nuevoBloque, char *recurso){
+	semaforoEsperaRecurso(recurso);
+
+	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
+	t_config *configGeneral = config_create(ubicacionArchivoRecurso);
+
 	if(config_has_property(configGeneral,"BLOCK_COUNT")){
 		int nuevaCantidadBloques = config_get_int_value(configGeneral,"BLOCK_COUNT");
 		nuevaCantidadBloques++;
@@ -230,9 +256,28 @@ void agregarBloqueAlArchivo(int nuevoBloque, t_config * configGeneral){
 	string_append(&nuevaListablocks, "]");
 	config_set_value(configGeneral,"BLOCKS",nuevaListablocks);
 	config_save(configGeneral);
+	config_destroy(configGeneral);
+
+	semaforoListoRecurso(recurso);
 }
 
-int leerUltimoBloque(t_config * configGeneral){
+void agregarSizeFile(char *recurso, int nuevaSize){
+	semaforoEsperaRecurso(recurso);
+	
+	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
+	t_config *configGeneral = config_create(ubicacionArchivoRecurso);
+	int archivoSize = config_get_int_value(configGeneral,"SIZE");
+	archivoSize+=nuevaSize;
+	config_set_value(configGeneral, "SIZE", string_itoa(archivoSize));
+	config_save(configGeneral);
+	config_destroy(configGeneral);
+
+	semaforoListoRecurso(recurso);
+}
+
+int ultimoBloqueFile(char *recurso){
+	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
+	t_config *configGeneral = config_create(ubicacionArchivoRecurso);
 
 	char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
 	int proximoBlock;
@@ -247,18 +292,17 @@ int leerUltimoBloque(t_config * configGeneral){
 		proximoBlock = bloqueLibreBitMap();
 		agregarBloqueAlArchivo(proximoBlock, configGeneral);
 	}
+	config_destroy(configGeneral);
+
 	return proximoBlock;
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------- CODIGO DE LOS BLOCKS DE RECURSOS ---------------------------------//
-void llenarBlocks(char caracterLlenado, int cantALlenar, char *mapBlocksAux, t_config *configRecurso){
+void llenarBlocks(char *recurso, int cantALlenar, char *mapBlocksAux){
 	int cantFaltante = cantALlenar;
-	int proximoBlock = leerUltimoBloque(configRecurso);
+	int proximoBlock = ultimoBloqueFile(recurso);
 
-	int nuevaSize = config_get_int_value(configRecurso,"SIZE");
-	nuevaSize+=cantALlenar;
-	config_set_value(configRecurso, "SIZE", string_itoa(nuevaSize));
-	config_save(configRecurso);
+	agregarSizeFile(recurso, cantALlenar);
 	
 	while(cantFaltante>0){
 		int marcador = proximoBlock * tamanioDeBloque;
@@ -273,13 +317,13 @@ void llenarBlocks(char caracterLlenado, int cantALlenar, char *mapBlocksAux, t_c
 		if(cantidadLibreBlock>cantFaltante)
 			cantidadLibreBlock=cantFaltante;
 
-		caracteresLlenado = string_repeat(caracterLlenado,cantidadLibreBlock);
+		caracteresLlenado = string_repeat(recurso[0],cantidadLibreBlock);
 		memcpy(&(mapBlocksAux[marcador]), caracteresLlenado, cantidadLibreBlock);
 		cantFaltante-=cantidadLibreBlock;
 
 		if(cantFaltante>0){
 			proximoBlock = bloqueLibreBitMap();
-			agregarBloqueAlArchivo(proximoBlock, configRecurso);
+			agregarBloqueAlFile(proximoBlock, recurso);
 		}
 	}
 }
@@ -307,10 +351,7 @@ void borrarUltimoBloque(t_config *configRecurso){
 void vaciarBlocks(char caracterVaciado, int cantAVaciar, char *mapBlocksAux, t_config *configRecurso){
 	int cantFaltante = cantAVaciar;
 	
-	int nuevaSize = config_get_int_value(configRecurso,"SIZE");
-	nuevaSize-=cantAVaciar;
-	config_set_value(configRecurso, "SIZE", string_itoa(nuevaSize));
-	config_save(configRecurso);
+	agregarSize(configRecurso, cantAVaciar *(-1));
 
 	int proximoBlock;
 	
@@ -337,6 +378,50 @@ void vaciarBlocks(char caracterVaciado, int cantAVaciar, char *mapBlocksAux, t_c
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------- CODIGO DE LOS BLOCKS DE BITACORAS --------------------------------//
+int leerUltimoBloque(t_config * configGeneral){
+
+	char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
+	int proximoBlock;
+	log_info(loggerImongoStore,string_from_format("Lista de Blocks %s", listaBlocks));
+	
+	if(listaBlocks[1]!=']'){ 
+		int indiceFinal = strlen(listaBlocks);
+		while(listaBlocks[indiceFinal]!=',' && indiceFinal>0)
+			indiceFinal--;
+		proximoBlock = atoi(string_substring_from(listaBlocks,indiceFinal+1)) - 1;
+	}else{
+		proximoBlock = bloqueLibreBitMap();
+		agregarBloqueAlArchivo(proximoBlock, configGeneral);
+	}
+	return proximoBlock;
+}
+
+void agregarBloqueAlArchivo(int nuevoBloque, t_config * configGeneral){
+	if(config_has_property(configGeneral,"BLOCK_COUNT")){
+		int nuevaCantidadBloques = config_get_int_value(configGeneral,"BLOCK_COUNT");
+		nuevaCantidadBloques++;
+		config_set_value(configGeneral,"BLOCK_COUNT",string_itoa(nuevaCantidadBloques));
+	}
+
+	char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
+	char *nuevaListablocks = string_substring_until(listaBlocks,strlen(listaBlocks)-1);
+
+	if(listaBlocks[1]!=']')
+		string_append(&nuevaListablocks, ",");
+	
+	string_append(&nuevaListablocks, string_itoa(nuevoBloque + 1));
+	string_append(&nuevaListablocks, "]");
+	config_set_value(configGeneral,"BLOCKS",nuevaListablocks);
+	config_save(configGeneral);
+}
+
+void agregarSize(t_config * configGeneral, int nuevaSize){
+	int archivoSize = config_get_int_value(configGeneral,"SIZE");
+	archivoSize+=nuevaSize;
+	config_set_value(configGeneral, "SIZE", string_itoa(archivoSize));
+	config_save(configGeneral);
+}
+
 void llenarBlocksBitcoras(char * informacionDeLenado, t_config * configBitacora, char *mapBlocksAux){
 	int cantLlenado = 0;
 	int cantFaltante = strlen(informacionDeLenado);
@@ -344,10 +429,7 @@ void llenarBlocksBitcoras(char * informacionDeLenado, t_config * configBitacora,
 
 	int proximoBlock = leerUltimoBloque(configBitacora);
 	
-	int nuevaSize = config_get_int_value(configBitacora,"SIZE");
-	nuevaSize+=cantFaltante;
-	config_set_value(configBitacora, "SIZE", string_itoa(nuevaSize));
-	config_save(configBitacora);
+	agregarSize(configBitacora, cantFaltante);
 
 	while(cantFaltante>0){
 		int marcador = proximoBlock * tamanioDeBloque;
@@ -385,23 +467,15 @@ void generarRecurso(char *recurso, int cantidadALlenar, uint32_t idTripulante, c
 	llenarBlocksBitcoras(string_from_format("Comienza la ejecucion de la tarea Generar %s\n",recurso),configBitacora,mapBlocksAux);
 
 	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
-	t_config *configRecurso;
 
-	sem_wait(&semaforoBloques);
+	sem_wait(&semaforoArchivoRecurso);
 	if(access(ubicacionArchivoRecurso, F_OK ))
-		configRecurso = creacionArchivoRecurso(recurso[0], ubicacionArchivoRecurso);
-	else
-		configRecurso = config_create(ubicacionArchivoRecurso);
-		
-	sem_post(&semaforoBloques);
+		creacionArchivoRecurso(recurso[0], ubicacionArchivoRecurso);		
+	sem_post(&semaforoArchivoRecurso);
 	
-	llenarBlocks(recurso[0], cantidadALlenar, mapBlocksAux, configRecurso);
+	llenarBlocks(recurso, cantidadALlenar, mapBlocksAux);
 	llenarBlocksBitcoras(string_from_format("Se finaliza la tarea Generar %s\n",recurso),configBitacora,mapBlocksAux);
 
-	
-	
-
-	config_destroy(configRecurso);
 	config_destroy(configBitacora);
 	free(ubicacionArchivoRecurso);
 

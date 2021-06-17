@@ -17,6 +17,10 @@ int main(int argc, char ** argv){
 	memcpy(mapBlocksCopia, mapBlocks, tamanioBlocks);
 
 	sem_init(&semaforoBloques, 0,  1 ); 
+	sem_init(&semaforoArchivoRecurso, 0, 1);
+	sem_init(&semaforoOxigeno, 0, 1);
+	sem_init(&semaforoBasura, 0, 1);
+	sem_init(&semaforoComida, 0, 1);
 
     pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
