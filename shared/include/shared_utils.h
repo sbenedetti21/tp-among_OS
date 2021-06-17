@@ -46,7 +46,7 @@ typedef struct pcb{
 } PCB;
 
 enum protocoloMIRAM{
-	INICIAR_PATOTA, PEDIR_TAREA
+	INICIAR_PATOTA, PEDIR_TAREA, HAY_TAREA, NO_HAY_TAREA
 };
 
 typedef struct Dato{

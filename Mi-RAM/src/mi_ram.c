@@ -287,7 +287,21 @@ void atenderDiscordiador(int socketCliente){
 
 	case PEDIR_TAREA: ;
 
-	
+		/*
+		uint32_t idTripulante = 0;
+		memcpy(&idTripulante, paquete->buffer->stream, sizeof(uint32_t));
+		//buscarTripulante
+		
+		char * tarea = obtenerProximaTarea(); //modificar puntero instruccion en tripulante
+		
+		// meter en un paquete
+		int header;
+		int longitudStreamTarea;
+		void * streamTarea;
+
+		send(socketCliente, )
+		 */
+
 		break;
 	
 	default:	
