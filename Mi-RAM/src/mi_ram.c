@@ -4,28 +4,6 @@
  
 NIVEL* navePrincipal;
 
-void mostrarMemoriaChar(int nroDeFrame, int offset, int cant) {
-	log_info(loggerMiram, "A partir del frame %d con %d offset, leyendo %d bytes: ", nroDeFrame, offset, cant);
-	int i = 0;
-	int inicio = nroDeFrame * tamanioPagina + offset;
-	while (i < cant) {
-		log_info(loggerMiram,"%c", ((char*) memoriaPrincipal)[i+inicio]);
-		i++;
-	}
-}
-
-void mostrarMemoriaInt(int nroDeFrame, int offset, int cant) {
-	log_info(loggerMiram,"A partir del frame %d con %d offset, leyendo %d int:", nroDeFrame, offset, cant);
-	int i = 0;
-	int inicio = nroDeFrame * tamanioPagina + offset;
-	void * memAuxiliar = malloc(cant * 4);
-	memcpy(memAuxiliar, memoriaPrincipal + inicio, cant * 4);
-	while (i < cant) {
-		log_info(loggerMiram, "%i ", *((int *)memAuxiliar + i));
-		i ++;
-	}
-	free(memAuxiliar);
-}
 
 int main(int argc, char ** argv){
 
@@ -154,7 +132,12 @@ void atenderDiscordiador(int socketCliente){
 
 				t_list * tablaDePaginas = list_create();
 
+				referenciaTablaPatota * referenciaPatota = malloc(sizeof(referenciaTablaPatota));
+
+	
 				PCB * pcb = crearPCB();
+
+				int pid = pcb->pid;
 
 				int offset = 0;
 				memcpy(streamPatota + offset, &(pcb->pid), sizeof(uint32_t) );
@@ -164,8 +147,11 @@ void atenderDiscordiador(int socketCliente){
 				memcpy(streamPatota + offset, tareas, tamanioTareas);
 				offset += tamanioTareas;
 
+
 				uint32_t proximaInstruccion = 0, direccionPCB = 0;
+				uint32_t idTripulante[cantidadTCBs];
 				for (int i = 0; i < cantidadTCBs; i++) {
+
 					memcpy(streamPatota + offset, stream, SIZEOF_TCB);
 					stream += SIZEOF_TCB; offset += (SIZEOF_TCB - 8);
 					//memcpy(streamPatota + offset, &proximaInstruccion, sizeof(uint32_t));
@@ -175,16 +161,17 @@ void atenderDiscordiador(int socketCliente){
 					memset(streamPatota + offset, 0, sizeof(uint32_t));
 					offset += sizeof(uint32_t);
 				};
+			
+				
 
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria);
 
-				mostrarMemoriaInt(0, 0, 2);
-				mostrarMemoriaChar(0, 8, 73);
+				mem_hexdump(memoriaPrincipal, 2048);
 
-				mostrarMemoriaInt(1, 17, 3);
-				mostrarMemoriaChar(1, 29, 1);
-				mostrarMemoriaInt(1, 30, 2);
-
+				// void mostrarCosas(char * key, void * value) {
+				// 	printf("%c %d \n", key, *(int*)value);
+				// }
+				// dictionary_iterator(diccionarioTripulantes, mostrarCosas);
 				// mostrarMemoriaInt(20, 17, 1);
 				// mostrarMemoriaChar(21, 1, 1);
 				// mostrarMemoriaInt(21, 2, 4);
@@ -197,7 +184,7 @@ void atenderDiscordiador(int socketCliente){
 
 			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 
-				t_list * tablaSegmentos = malloc(sizeof(t_list));
+				t_list * tablaSegmentos = list_create();
 				PCB * pcb = crearPCB();
 				 
 				printf("ID DE LA PATOTA %d \n", pcb->pid);
@@ -236,7 +223,7 @@ void atenderDiscordiador(int socketCliente){
 
 					
 					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tablaSegmentos); 
-					log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
+					//log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
 					
 			
 				}
@@ -278,7 +265,7 @@ void atenderDiscordiador(int socketCliente){
 
 
 
-			
+			//mem_hexdump(memoriaPrincipal, 2048);
 
 		}
 		
@@ -300,7 +287,7 @@ void atenderDiscordiador(int socketCliente){
 		void * streamTarea;
 
 		send(socketCliente, )
-		 */
+		 */ 
 
 		break;
 	
@@ -322,7 +309,7 @@ void atenderDiscordiador(int socketCliente){
 
 
 int obtenerProximaTarea(int direccionLogica){
-	char * tareaObtenida = malloc(30); 
+	char * tareaObtenida = malloc(40); 
 	char caracterComparacion = 'a'; 
 	int desplazamiento = 0; 
 	
@@ -402,6 +389,7 @@ void iniciarMemoria() {
 		listaTablasDePaginas = list_create();
 		pthread_mutex_init(&mutexMemoriaPrincipal, NULL);
 		pthread_mutex_init(&mutexListaTablas, NULL);
+		//diccionarioTripulantes = dictionary_create(); // mirar si el tamaño alcanza
 		iniciarFrames();	
 	}
 }
@@ -630,71 +618,61 @@ uint32_t bestFit(int tamanioContenido){
 }
 
 t_list *  obtenerSegmentosLibres(t_list * tablaSegmentos){
-int i = 0; 
-t_list * segmentosLibres = list_create(); 
+	int i = 0; 
+	t_list * segmentosLibres = list_create(); 
 
-if(list_size(tablaSegmentos) == 0){
-	t_segmento * segmento = malloc(sizeof(t_segmento)); 
-	segmento-> base = 0 ; 
-	segmento-> tamanio = tamanioMemoria; 
-	list_add(segmentosLibres, segmento);
-	return segmentosLibres;
-}
-
-
-list_sort(tablaSegmentos, seEncuentraPrimeroEnMemoria); 
-t_segmento * primerSegmentoOCupado = malloc(sizeof(t_segmento));
- primerSegmentoOCupado = list_get(tablaSegmentos, 0);
- 
-
-if((primerSegmentoOCupado -> base) != 0){
-	t_segmento * primerSegmentoLibre = malloc(sizeof(t_segmento)); 
-	primerSegmentoLibre -> base = 0; 
-	primerSegmentoLibre -> tamanio = (primerSegmentoOCupado -> base)  - (primerSegmentoLibre -> base); 
-	list_add(segmentosLibres, primerSegmentoLibre); 
-	
-	 
-} 
-
-while(i < (list_size(tablaSegmentos)-1)){
-	t_segmento * segmentoActual = malloc(sizeof(t_segmento)); 
-	t_segmento * segmentoLibre = malloc(sizeof(t_segmento));
-	t_segmento * proximoSegmento = malloc(sizeof(t_segmento));
-	segmentoActual = list_get(tablaSegmentos, i); 
-	proximoSegmento = list_get(tablaSegmentos, i +1); 
-	segmentoLibre; 
-	segmentoLibre->base = segmentoActual->base + segmentoActual-> tamanio ; 
-	segmentoLibre-> tamanio = (proximoSegmento -> base) - segmentoLibre -> base;
-	if((segmentoLibre -> tamanio) != 0) {
-			list_add(segmentosLibres, segmentoLibre); 
-
+	if(list_size(tablaSegmentos) == 0){
+		t_segmento * segmento = malloc(sizeof(t_segmento)); 
+		segmento-> base = 0 ; 
+		segmento-> tamanio = tamanioMemoria; 
+		list_add(segmentosLibres, segmento);
+		return segmentosLibres;
 	}
 
-	i++;
-	
-}
 
-t_segmento * ultimoSegmentoOcupado = malloc(sizeof(t_segmento));  
-ultimoSegmentoOcupado = list_get(tablaSegmentos, i); 
-int finalUltimoSegmento = ultimoSegmentoOcupado ->base + ultimoSegmentoOcupado -> tamanio; 
-
-
-if(finalUltimoSegmento < tamanioMemoria){
-	t_segmento * ultimoSegmentoLibre = malloc(sizeof(t_segmento));
-	ultimoSegmentoLibre -> base = ultimoSegmentoOcupado ->base + ultimoSegmentoOcupado ->tamanio ; 
-	ultimoSegmentoLibre -> tamanio = tamanioMemoria - (ultimoSegmentoLibre -> base); 
-	
-	list_add(segmentosLibres, ultimoSegmentoLibre);
-}
-printf("Hay %d segmentos libres \n", list_size(segmentosLibres));
-for(int z = 0; z < list_size(segmentosLibres); z++){
-	t_segmento * segmento = list_get(segmentosLibres, z); 
-
+	list_sort(tablaSegmentos, seEncuentraPrimeroEnMemoria); 
+	t_segmento * primerSegmentoOCupado = malloc(sizeof(t_segmento));
+	primerSegmentoOCupado = list_get(tablaSegmentos, 0);
 	
 
-}
+	if((primerSegmentoOCupado -> base) != 0){
+		t_segmento * primerSegmentoLibre = malloc(sizeof(t_segmento)); 
+		primerSegmentoLibre -> base = 0; 
+		primerSegmentoLibre -> tamanio = (primerSegmentoOCupado -> base)  - (primerSegmentoLibre -> base); 
+		list_add(segmentosLibres, primerSegmentoLibre); 
+	} 
 
-return segmentosLibres;
+	while(i < (list_size(tablaSegmentos)-1)){
+		t_segmento * segmentoActual = malloc(sizeof(t_segmento)); 
+		t_segmento * segmentoLibre = malloc(sizeof(t_segmento));
+		t_segmento * proximoSegmento = malloc(sizeof(t_segmento));
+		segmentoActual = list_get(tablaSegmentos, i); 
+		proximoSegmento = list_get(tablaSegmentos, i +1);
+		segmentoLibre->base = segmentoActual->base + segmentoActual-> tamanio ; 
+		segmentoLibre-> tamanio = (proximoSegmento -> base) - segmentoLibre -> base;
+		if((segmentoLibre -> tamanio) != 0) {
+				list_add(segmentosLibres, segmentoLibre); 
+
+		}
+
+		i++;
+		
+	}
+
+	t_segmento * ultimoSegmentoOcupado = malloc(sizeof(t_segmento));  
+	ultimoSegmentoOcupado = list_get(tablaSegmentos, i); 
+	int finalUltimoSegmento = ultimoSegmentoOcupado ->base + ultimoSegmentoOcupado -> tamanio; 
+
+
+	if(finalUltimoSegmento < tamanioMemoria){
+		t_segmento * ultimoSegmentoLibre = malloc(sizeof(t_segmento));
+		ultimoSegmentoLibre -> base = ultimoSegmentoOcupado ->base + ultimoSegmentoOcupado ->tamanio ; 
+		ultimoSegmentoLibre -> tamanio = tamanioMemoria - (ultimoSegmentoLibre -> base); 
+		
+		list_add(segmentosLibres, ultimoSegmentoLibre);
+	}
+
+	return segmentosLibres;
 
 }
 

@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <commons/log.h>
+#include <commons/collections/dictionary.h>
+#include <commons/memory.h>
 #include <stdbool.h>
 #include <nivel-gui/nivel-gui.h>
 #include <nivel-gui/tad_nivel.h>
@@ -34,6 +36,8 @@ int tamanioPagina, tamanioMemoria;
 pthread_mutex_t mutexMemoriaPrincipal;
 pthread_mutex_t mutexListaTablas;
 
+t_dictionary * diccionarioTripulantes;
+
 typedef struct {
 	uint32_t inicio;
 	uint32_t ocupado;
@@ -61,11 +65,11 @@ sem_t mutexTablaGlobal;
 sem_t mutexTablaDeTablas; 
 
 typedef struct{
-	uint32_t pid; 
+	uint32_t pid;
 	uint32_t * tripulantesDeLaPatota;
 	uint32_t tamanioTareas;
-	t_list * tablaPatota; 
-} referenciaTablaPatota; 
+	t_list * tablaPatota;
+} referenciaTablaPatota;
 
 typedef struct{
 	
