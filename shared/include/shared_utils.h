@@ -48,6 +48,10 @@ enum protocoloMIRAM{
 	INICIAR_PATOTA, PEDIR_TAREA
 };
 
+enum protocoloDiscordiador{
+	ALERTA_DE_SABOTAJE
+};
+
 typedef struct Dato{
 	TCB * tripulante; 
 	int header; 
@@ -65,8 +69,8 @@ typedef struct {
 
 typedef struct{
 	char * descripcionTarea;
-	int posicionX;
-	int posicionY;
+	uint32_t posicionX;
+	uint32_t posicionY;
 	int tiempo;
 	int parametro;
 	bool tareaTerminada;
