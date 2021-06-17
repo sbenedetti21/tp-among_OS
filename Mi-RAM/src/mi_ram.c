@@ -5,29 +5,25 @@
 NIVEL* navePrincipal;
 
 void mostrarMemoriaChar(int nroDeFrame, int offset, int cant) {
-	printf("--------------------------------------------------------------------- \n");
-	printf("A partir del frame %d con %d offset, leyendo %d bytes: \n\n", nroDeFrame, offset, cant);
+	log_info(loggerMiram, "A partir del frame %d con %d offset, leyendo %d bytes: ", nroDeFrame, offset, cant);
 	int i = 0;
 	int inicio = nroDeFrame * tamanioPagina + offset;
 	while (i < cant) {
-		printf("%c", ((char*) memoriaPrincipal)[i+inicio]);
+		log_info(loggerMiram,"%c", ((char*) memoriaPrincipal)[i+inicio]);
 		i++;
 	}
-	printf("\n--------------------------------------------------------------------- \n");
 }
 
 void mostrarMemoriaInt(int nroDeFrame, int offset, int cant) {
-	printf("--------------------------------------------------------------------- \n");
-	printf("A partir del frame %d con %d offset, leyendo %d int: \n\n", nroDeFrame, offset, cant);
+	log_info(loggerMiram,"A partir del frame %d con %d offset, leyendo %d int:", nroDeFrame, offset, cant);
 	int i = 0;
 	int inicio = nroDeFrame * tamanioPagina + offset;
 	void * memAuxiliar = malloc(cant * 4);
 	memcpy(memAuxiliar, memoriaPrincipal + inicio, cant * 4);
 	while (i < cant) {
-		printf("%i ", *((int *)memAuxiliar + i));
+		log_info(loggerMiram, "%i ", *((int *)memAuxiliar + i));
 		i ++;
 	}
-	printf("\n--------------------------------------------------------------------- \n");
 	free(memAuxiliar);
 }
 
@@ -133,6 +129,7 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(tareas + tamanioTareas, &pipe, 1);	
 		tamanioTareas++;
 
+		log_info(loggerMiram, "%s", tareas);
 		printf("%s \n", tareas); // tira un invalid read valgrind o unitialised values
 
 		//Deserializar CantidadDeTCBs
@@ -140,14 +137,13 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&cantidadTCBs, stream, sizeof(int));
 		stream += sizeof(int); //lo que sigue en el stream son los tcbs
 
-		//Nos aseguramos de que hay espacio para recibir la patota 
-		
-		printf("cantidad tcbs: %d \n", cantidadTCBs);
+		log_info(loggerMiram, "cantidad tcbs recibidos: %d \n", cantidadTCBs);
 
+		//Nos aseguramos de que hay espacio para recibir la patota 
 		int hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs); 
 		
 
-		
+		log_info(loggerMiram, "hay lugar disponible (1 -> si, -1 -> no): %d \n", hayLugar);
 
 		if(hayLugar){
 
@@ -383,8 +379,7 @@ int buscarEspacioNecesario(int tamanioTareas, int cantidadTripulantes) {
 // -------------------- PAGINACION ------------------------------
 
 void iniciarFrames(){
-	printf("--------------------------------------------------------------------- \n");
-	printf("Iniciando Frames... \n\n");
+	log_info(loggerMiram, "Iniciando Frames... ");
 	int cantidadFrames = 0;
 
 	for(int desplazamiento = 0; desplazamiento< tamanioMemoria; desplazamiento += tamanioPagina){
@@ -395,12 +390,11 @@ void iniciarFrames(){
 		list_add(listaFrames, frame);
 		cantidadFrames ++;
 	}
-
-	  	printf("--------------------------------------------------------------------- \n");
-		printf("Disponibilidad de frames: \n");
+		log_info(loggerMiram, "-------------------------");
+		log_info(loggerMiram, "Disponibilidad de frames: ");
 		int x = 0;
 		void estaOcupado(t_frame * frame) {
-			printf("el frame %d esta ocupado: %d \n", x, frame->ocupado);
+			log_info(loggerMiram, "el frame %d esta ocupado: %d ", x, frame->ocupado);
 			x++;
 		};
 		list_iterate(listaFrames, estaOcupado);
