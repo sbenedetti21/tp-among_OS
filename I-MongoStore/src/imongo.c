@@ -13,6 +13,8 @@ int main(int argc, char ** argv){
 		leerFileSystem();
 		log_info(loggerImongoStore, "---------LEYO FILESYSTEM----------");
 	}
+	mapBlocksCopia = malloc(tamanioBlocks);
+	memcpy(mapBlocksCopia, mapBlocks, tamanioBlocks);
 
 	sem_init(&semaforoBloques, 0,  1 ); 
 
@@ -62,5 +64,6 @@ int main(int argc, char ** argv){
 	close(archivoBlocks);
 	guardarBitMap();
 	liberarBitMap(punteroBitmap);
+	free(mapBlocksCopia);
 	return 0;
 }

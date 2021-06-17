@@ -33,6 +33,7 @@ int tiempoDeSinc;
 char *mapBlocks;
 size_t tamanioBlocks;
 int archivoBlocks;
+char *mapBlocksCopia;
 
 //Superbloque
 char * ubicacionSuperBloque;
@@ -392,12 +393,12 @@ void generarRecurso(char *recurso, int cantidadALlenar, uint32_t idTripulante, c
 	else
 		configRecurso = config_create(ubicacionArchivoRecurso);
 		
-	//aca se puede hacer con un semaforo entero
+	sem_post(&semaforoBloques);
 	
 	llenarBlocks(recurso[0], cantidadALlenar, mapBlocksAux, configRecurso);
 	llenarBlocksBitcoras(string_from_format("Se finaliza la tarea Generar %s\n",recurso),configBitacora,mapBlocksAux);
 
-	sem_post(&semaforoBloques);
+	
 	
 
 	config_destroy(configRecurso);
@@ -463,6 +464,7 @@ void descartarBasura(uint32_t idTripulante, char *mapBlocksAux){
 void sincronizacionMapBlocks(){
 	while(1){
 		sleep(tiempoDeSinc);
+		memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 		msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	}
 }
@@ -488,7 +490,7 @@ void servidorPrincipal() {
 
 	close(socketCliente);
 	close(listeningSocket);   
-	}
+}
 
 void atenderDiscordiador(int socketCliente){
 
@@ -511,9 +513,6 @@ void atenderDiscordiador(int socketCliente){
 	memcpy(&(parametroS->tid), paquete->buffer->stream, sizeof(uint32_t));
 	paquete->buffer->stream += sizeof(uint32_t);
 
-	char *mapBlocksAux = malloc(tamanioBlocks);
-	memcpy(mapBlocksAux, mapBlocks, tamanioBlocks);
-
 	uint32_t *tid = malloc(sizeof(uint32_t));
 	*tid = parametroS->tid;   // ID TRIPULANTE
 
@@ -523,31 +522,30 @@ void atenderDiscordiador(int socketCliente){
 	switch (paquete->header)
 	{
 	case GENERAR_OXIGENO:
-		generarRecurso("Oxigeno",parametroS->parametro,*tid,mapBlocksAux);
+		generarRecurso("Oxigeno",parametroS->parametro,*tid,mapBlocksCopia);
 		break;
 	case CONSUMIR_OXIGENO:
-		consumirRecurso("Oxigeno",parametroS->parametro,*tid,mapBlocksAux);
+		consumirRecurso("Oxigeno",parametroS->parametro,*tid,mapBlocksCopia);
 		break;
 	case GENERAR_COMIDA:
-		generarRecurso("Comida",parametroS->parametro,*tid,mapBlocksAux);
+		generarRecurso("Comida",parametroS->parametro,*tid,mapBlocksCopia);
 		break;
 	case CONSUMIR_COMIDA:
-		consumirRecurso("Comida", parametroS->parametro,*tid,mapBlocksAux);
+		consumirRecurso("Comida", parametroS->parametro,*tid,mapBlocksCopia);
 		break;
 	case GENERAR_BASURA:
-		generarRecurso("Basura",parametroS->parametro,*tid,mapBlocksAux);
+		generarRecurso("Basura",parametroS->parametro,*tid,mapBlocksCopia);
 		break;
 	case DESCARTAR_BASURA:
-		descartarBasura(*tid,mapBlocksAux);
+		descartarBasura(*tid,mapBlocksCopia);
 		break;
 
 	default:
 		break;
 	}
 
-	memcpy(mapBlocks, mapBlocksAux, tamanioBlocks);
+	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
-	free(mapBlocksAux);
 }
 
 #endif
