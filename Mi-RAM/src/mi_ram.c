@@ -1,7 +1,7 @@
 #include "mi_ram.h"
 
 
-
+ 
 NIVEL* navePrincipal;
 
 void mostrarMemoriaChar(int nroDeFrame, int offset, int cant) {
@@ -28,6 +28,7 @@ void mostrarMemoriaInt(int nroDeFrame, int offset, int cant) {
 		i ++;
 	}
 	printf("\n--------------------------------------------------------------------- \n");
+	free(memAuxiliar);
 }
 
 
@@ -143,7 +144,7 @@ void atenderDiscordiador(int socketCliente){
 
 		//Nos aseguramos de que hay espacio para recibir la patota 
 		
-printf("cantidad tcbs: %d \n", cantidadTCBs);
+		printf("cantidad tcbs: %d \n", cantidadTCBs);
 
 		int hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs); 
 		
@@ -153,20 +154,27 @@ printf("cantidad tcbs: %d \n", cantidadTCBs);
 		if(hayLugar){
 
 			if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
-				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs;
+				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs + 8;
 				int framesNecesarios = divisionRedondeadaParaArriba(memoriaNecesaria, tamanioPagina);
 				void * streamPatota = malloc(memoriaNecesaria);
 
 				t_list * tablaDePaginas = list_create();
 
-				PCB * pcb = crearPCB();
+				// PCB * pcb = crearPCB();
+				PCB * pcb = malloc(SIZEOF_PCB);
+				pcb->pid = proximoPID;
+				pcb->tareas = SIZEOF_PCB;
+				
+				sem_wait(&mutexProximoPID); 
+				proximoPID++;
+				sem_post(&mutexProximoPID);
 
 				int offset = 0;
 				memcpy(streamPatota + offset, &(pcb->pid), sizeof(uint32_t) );
 				offset += sizeof(uint32_t);
 				memcpy(streamPatota + offset, &(pcb->tareas), sizeof(uint32_t) );
 				offset += sizeof(uint32_t);
-				memcpy(streamPatota, (void *) tareas, tamanioTareas);
+				memcpy(streamPatota, tareas, tamanioTareas);
 				offset += tamanioTareas;
 
 				uint32_t proximaInstruccion = 0, direccionPCB = 0;
@@ -182,7 +190,7 @@ printf("cantidad tcbs: %d \n", cantidadTCBs);
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas);
 
 				mostrarMemoriaInt(0, 0, 2);
-				mostrarMemoriaChar(0, 8, 73);
+				mostrarMemoriaChar(0, 0, 73);
 
 				mostrarMemoriaInt(1, 17, 1);
 				mostrarMemoriaChar(1, 22, 1);
@@ -195,6 +203,7 @@ printf("cantidad tcbs: %d \n", cantidadTCBs);
 				// mostrarMemoriaInt(21, 18, 1);
 				// mostrarMemoriaChar(22, 2, 1);
 				// mostrarMemoriaInt(22, 3, 4);
+				free(streamPatota);
 			}
 
 			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
@@ -230,7 +239,7 @@ printf("cantidad tcbs: %d \n", cantidadTCBs);
 					log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
 					
 			
-			}
+				}
 
 			
 				int proximaTarea = obtenerProximaTarea(direccionTareas);
@@ -434,8 +443,8 @@ void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int c
 
 	int i = 0, j = 0;
 
-	uint32_t direcProximoFrame = buscarFrame();
 	for (i = 0; i < cantidadFrames; i++){
+		uint32_t direcProximoFrame = buscarFrame();
 		printf("direc prox frame a escribir %d \n", direcProximoFrame);
 
 		for (j = 0; j < tamanioPagina; j++) {
@@ -453,8 +462,6 @@ void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int c
 		pagina->numeroFrame = numeroDeFrame;
 		pagina->numeroPagina = (uint32_t) i;
 		list_add(tablaDePaginas, pagina);
-
-		direcProximoFrame = buscarFrame();
 	}
 
 	list_add(listaTablasDePaginas, tablaDePaginas);
