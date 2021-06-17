@@ -55,7 +55,14 @@ void iniciarFrames();
 // ----------------------------------------  SEGMENTOS
 
 t_list * tablaSegmentosGlobal; 
-t_list * tablaDeTablasSegmentos; 
+t_list * tablaDeTablasSegmentos;  // va a estar conformado por muchos struct de tipo referenciaTablaPatota
+sem_t mutexTablaGlobal;
+sem_t mutexTablaDeTablas; 
+
+typedef struct{
+	uint32_t pid; 
+	t_list * tablaPatota; 
+} referenciaTablaPatota; 
 
 typedef struct{
 	
@@ -76,6 +83,7 @@ bool seEncuentraPrimeroEnMemoria(t_segmento * , t_segmento* );
 bool segmentoMasPequenio(t_segmento * , t_segmento * );
 bool cabePCB(t_segmento * );
 bool cabeTCB(t_segmento * );
+void imprimirSegmentosLibres();
 
 
 // --------------------- Generales

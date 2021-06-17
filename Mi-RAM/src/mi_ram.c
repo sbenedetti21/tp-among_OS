@@ -227,17 +227,43 @@ printf("cantidad tcbs: %d \n", cantidadTCBs);
 					tripulante->proximaInstruccion = direccionTareas; 
 					printf("tripulante id: %d \n", tripulante->tid);
 					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tablaSegmentos); 
-					log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
+					//log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
 					
 			
 			}
 
-			
+			referenciaTablaPatota * referencia = malloc(sizeof(referenciaTablaPatota)); 
+			referencia ->pid = pcb -> pid; 
+			referencia->tablaPatota = tablaSegmentos;
+
+			sem_wait(&mutexTablaDeTablas);
+			list_add(tablaDeTablasSegmentos, referencia); 
+			sem_post(&mutexTablaDeTablas);
+
 				int proximaTarea = obtenerProximaTarea(direccionTareas);
 				int proximaTarea1 = obtenerProximaTarea(proximaTarea);
 
+				PCB * pcbObtenido = malloc(SIZEOF_PCB);
 
-				
+				memcpy(pcbObtenido, memoriaPrincipal + direccionPCB, SIZEOF_PCB); 
+
+				printf("Me trae el PCB id %d cuyas tareas están en %d \n", pcbObtenido ->pid, pcbObtenido->tareas); 
+				printf("Direccion de las tareas %d \n", direccionTareas);
+				imprimirSegmentosLibres();
+/*ENCONTRAR UNA TABLA DE PATOTA POR SU REFERENCIA EN LA TABLA DE TABLAS DE SEGMENTO */
+				bool coincidePatota(referenciaTablaPatota * referencia){
+					return (referencia->pid == pcb -> pid);
+				}
+
+			referenciaTablaPatota * referenciaObtenida = list_find(tablaDeTablasSegmentos, coincidePatota); 
+
+			t_list * tablaObtenida = referenciaObtenida->tablaPatota; 
+			t_segmento * segmentoObtenido = list_get(tablaObtenida, 1); 
+
+			printf("La direccion logica de las tareas es %d \n EL tamaño de las tareas %d \n", segmentoObtenido ->base, segmentoObtenido ->tamanio);
+
+
+
 				
 			}
 
@@ -345,6 +371,8 @@ void iniciarMemoria() {
 	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 		tablaSegmentosGlobal = list_create(); 
 		tablaDeTablasSegmentos = list_create();
+		sem_init(&mutexTablaGlobal, 0, 1);
+		sem_init(&mutexTablaDeTablas, 0, 1);
 	}
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
@@ -483,7 +511,9 @@ uint32_t asignarMemoriaSegmentacionTCB(TCB * contenido, t_list * tablaSegmentos)
 
 		//agrego el segmento a la tabla de segmentos 
 		list_add(tablaSegmentos, segmentoNuevo);
+		sem_wait(&mutexTablaGlobal);
 		list_add(tablaSegmentosGlobal, segmentoNuevo);  
+		sem_post(&mutexTablaGlobal);
 		return direccionLogica;
 }
 
@@ -501,7 +531,9 @@ uint32_t asignarMemoriaSegmentacionPCB(PCB * pcb , t_list * tablaSegmentos){
 
 		//agrego el segmento a la tabla de segmentos 
 		list_add_in_index(tablaSegmentos, 0,segmentoNuevo);
+		sem_wait(&mutexTablaGlobal);
 		list_add(tablaSegmentosGlobal, segmentoNuevo); 
+		sem_post(&mutexTablaGlobal);
 		printf("Direccion logica asignada %d \n", direccionLogica);  
 		return direccionLogica;
 }
@@ -515,7 +547,9 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 	segmentoTareas->tamanio = tamanioTareas; 
 	segmentoTareas ->base = direccionLogica; 
 	list_add(tablaSegmentos, segmentoTareas);
+	sem_wait(&mutexTablaGlobal);
 	list_add(tablaSegmentosGlobal, segmentoTareas);  
+	sem_post(&mutexTablaGlobal);
 	return direccionLogica;
 
 }
@@ -637,6 +671,14 @@ return segmentosLibres;
 
 }
 
+void imprimirSegmentosLibres(){
+	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal);
+	for(int i = 0; i < (list_size(segmentosLibres)); i++){
+	   t_segmento * segmento = list_get(segmentosLibres, i); 
+	   printf("Segmento libre que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
+	}
+
+}
 
 int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
 t_list * copiaSegmentosOcupados = list_duplicate(tablaSegmentosGlobal); 
