@@ -19,6 +19,7 @@ int main(int argc, char ** argv){
 	tareasDeIO = list_create();
 	listaTerminados = list_create();
 	listaNuevos = list_create(); 
+	listaBloqueadosEmergencia = list_create();
 
 
 	list_add(tareasDeIO,"GENERAR_OXIGENO");
@@ -49,6 +50,7 @@ int main(int argc, char ** argv){
 	sem_init(&cambiarAReady,0,1);
 	sem_init(&cambiarATrabajando,0,1);
 	sem_init(&gestionarIO,0,0);
+	sem_init(&cambiarABloqueadosEmergencia,0,1);
 
 
 
@@ -464,7 +466,6 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 					sem_post(&gestionarIO);
 					sleep((tarea -> tiempo) * cicloCPU + cicloCPU);	
 					sem_wait(&tripulante->termineIO);
-					printf("alo %d \n", tripulante->tid);
 					sem_post(&esperarAlgunTripulante);
 				}
 
@@ -477,7 +478,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 				
 				// tareaTerminada = true; ESTO TIENE QUE ESTAR
-				// noHayMasTareas = true; // ESTO NO
+				noHayMasTareas = true; // ESTO NO
+
 				log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
 
 									     } else{
@@ -625,7 +627,7 @@ void gestionadorIO(){
 			TCB_DISCORDIADOR* tripulantee = list_get(listaBloqueados, 0);
 			sem_post(&cambiarABloqueado);
 
-			//gestionarTarea(tripulantee->tareaActual,tripulantee->tid);	
+			gestionarTarea(tripulantee->tareaActual,tripulantee->tid);	
 
 			cambiarDeEstado(tripulantee,'R');
 
@@ -934,19 +936,22 @@ void atenderImongo(int socketCliente){
 
 		trasladarseA(posX, posY, tripulante);
 
-		//MOVER A LA COLA DE EMERGENCIA
+		cambiarDeEstado(tripulante, 'S');
 
 		sleep(tiempoSabotaje);
 
 		// send() mandar a imongo que active el protocolo fsck
 
-		// recv() señal de que termino fsck
-
-		// PASAR A ESTADOS CORRESPONDIENTES
+		
 		
 		break;
 	
-	default:
+	case SABOTAJE_TERMINADO:;
+
+		// recv() señal de que termino fsck
+
+		// PASAR A ESTADOS CORRESPONDIENTES
+
 		break;
 	}
 
@@ -1034,6 +1039,14 @@ void cambiarDeEstado(TCB_DISCORDIADOR * tripulante, char estado){
 
 		break;
 
+		case 'S': ;
+		
+		sem_wait(&cambiarABloqueadosEmergencia);		
+		list_add(listaBloqueadosEmergencia, tripulante);
+		sem_post(&cambiarABloqueadosEmergencia);
+
+		break;
+
 	default:
 		break;
 	}
@@ -1085,6 +1098,14 @@ void salirDeListaEstado(TCB_DISCORDIADOR * tripulante){
 		sem_wait(&cambiarANuevo);	
 		list_remove_by_condition(listaNuevos, coincideID); 
 		sem_post(&cambiarANuevo);
+
+		break;
+
+	case 'S': ;
+
+		sem_wait(&cambiarABloqueadosEmergencia);
+		list_remove_by_condition(listaBloqueadosEmergencia, coincideID); 
+		sem_post(&cambiarABloqueadosEmergencia);
 
 		break;
 

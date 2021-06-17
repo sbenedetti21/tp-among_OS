@@ -35,6 +35,7 @@ sem_t cambiarANuevo;
 sem_t cambiarATrabajando;
 sem_t cambiarAFinalizado;
 sem_t cambiarABloqueado;
+sem_t cambiarABloqueadosEmergencia;
 
 
 t_log * loggerDiscordiador; 
@@ -46,6 +47,7 @@ t_list * listaNuevos;
 t_list * listaTerminados;
 t_list * tareasDeIO;
 t_list * listaTCBsNuevos;
+t_list * listaBloqueadosEmergencia;
 
 
 uint32_t iniciarPCB(char*, int);

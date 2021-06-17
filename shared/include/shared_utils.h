@@ -49,7 +49,7 @@ enum protocoloMIRAM{
 };
 
 enum protocoloDiscordiador{
-	ALERTA_DE_SABOTAJE, HAY_TAREA, NO_HAY_TAREA
+	ALERTA_DE_SABOTAJE, SABOTAJE_TERMINADO, HAY_TAREA, NO_HAY_TAREA
 };
 
 typedef struct Dato{
