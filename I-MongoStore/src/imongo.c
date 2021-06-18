@@ -8,8 +8,7 @@ int main(int argc, char ** argv){
 	char * valorInicio = readline("Para crear un nuevo FileSystem ingrese 0, de lo contrario ingrese cualquier otro Numero \n");
 	int valor = atoi(valorInicio);
 
-	preguntarFileSystem(valor);
-	
+	inicializarFileSystem(valor);
 	
 	mapBlocksCopia = malloc(tamanioBlocks);
 	memcpy(mapBlocksCopia, mapBlocks, tamanioBlocks);
@@ -165,6 +164,72 @@ void leerFileSystem(){
 //Blocks
 	mapearBlocks();
 }
+
+//---------------------------------------------------------------------------------------------------//
+//---------------------------------------- INICIALIZAR FILESYSTEM ---------------------------------------//
+
+void inicializarFileSystem(int valorRespuesta){
+	struct stat st = {0};
+	switch (valorRespuesta)
+	{	
+	case 0:
+		borrarFileSystem(puntoDeMontaje);
+		crearFileSystem();
+		log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
+		break;
+	
+	default:
+	
+	if(stat(puntoDeMontaje,&st) == -1){
+		crearFileSystem();
+		log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
+	} else{	
+		leerFileSystem();
+		log_info(loggerImongoStore, "---------LEYO FILESYSTEM----------");
+	}
+		break;
+	}
+}
+
+void borrarFileSystem(const char *path){
+
+ struct dirent *de;
+        char fname[300];
+        DIR *dr = opendir(path);
+        if(dr == NULL)
+        {
+            printf("La carpeta FileSystem no existe, ingrese otro numero\n");
+            return;
+        }
+        while((de = readdir(dr)) != NULL)
+        {
+            int ret = -1;
+            struct stat statbuf;
+            sprintf(fname,"%s/%s",path,de->d_name);
+            if (!strcmp(de->d_name, ".") || !strcmp(de->d_name, ".."))
+                        continue;
+            if(!stat(fname, &statbuf))
+            {
+                if(S_ISDIR(statbuf.st_mode))
+                {
+                   ret = unlinkat(dirfd(dr),fname,AT_REMOVEDIR);
+
+                    if(ret != 0)
+                    {
+                       borrarFileSystem(fname);
+                       ret = unlinkat(dirfd(dr),fname,AT_REMOVEDIR);
+                    }
+                }
+                else
+                {
+                   unlink(fname);
+                }
+            }
+        }
+        closedir(dr);
+		rmdir(path);
+}
+
 
 //---------------------------------------------------------------------------------------------------//
 //---------------------------------------- USO DEL FILESYSTEM ---------------------------------------//
