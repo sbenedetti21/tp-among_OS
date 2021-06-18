@@ -147,23 +147,17 @@ void atenderDiscordiador(int socketCliente){
 				offset += tamanioTareas;
 
 				uint32_t proximaInstruccion = 0, direccionPCB = 0;
-				uint32_t idTripulante[cantidadTCBs];
 				for (int i = 0; i < cantidadTCBs; i++) {
-
 					memcpy(streamPatota + offset, stream, (SIZEOF_TCB - 8));
 					stream += (SIZEOF_TCB - 8); offset += (SIZEOF_TCB - 8);
-					mem_hexdump(streamPatota, memoriaNecesaria);
 					memcpy(streamPatota + offset, &proximaInstruccion, sizeof(uint32_t));
 					//memset(streamPatota + offset, 0, sizeof(uint32_t));
-					mem_hexdump(streamPatota, memoriaNecesaria);
 					offset += sizeof(uint32_t);
 					memcpy(streamPatota + offset, &direccionPCB, sizeof(uint32_t));
 					//memset(streamPatota + offset, 0, sizeof(uint32_t));
 					offset += sizeof(uint32_t);
-					mem_hexdump(streamPatota, memoriaNecesaria);
 				};
-			
-				mem_hexdump(streamPatota, memoriaNecesaria);
+				log_info(loggerMiram, "streamPatota a ser alojado en memoria %s", mem_hexstring(streamPatota, memoriaNecesaria));
 
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria);
 
@@ -260,13 +254,13 @@ void atenderDiscordiador(int socketCliente){
 			printf("La direccion logica de las tareas es %d \n EL tamaño de las tareas %d \n", segmentoObtenido ->base, segmentoObtenido ->tamanio);
 
 
+			//mem_hexdump(memoriaPrincipal, 2048);
 
 				
 			}
 
+			
 
-
-			//mem_hexdump(memoriaPrincipal, 2048);
 
 		}
 		

@@ -11952,3 +11952,780 @@ CONSUMIR_OXIGENO 4;1;3;4|
 
 [INFO] 22:57:36:556 mi_ram.c/(10647:10660): hay lugar disponible (1 -> si, -1 -> no): 1 
 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): Iniciando Frames... 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): -------------------------
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): Disponibilidad de frames: 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 0 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 1 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 2 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 3 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 4 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 5 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 6 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 7 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 8 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 9 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 10 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 11 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 12 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 13 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 14 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 15 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 16 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 17 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 18 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 19 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 20 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 21 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 22 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 23 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 24 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 25 esta ocupado: 0 
+[INFO] 23:14:53:564 mi_ram.c/(12160:12160): el frame 26 esta ocupado: 0 
+[INFO] 23:14:53:565 mi_ram.c/(12160:12160): el frame 27 esta ocupado: 0 
+[INFO] 23:14:53:565 mi_ram.c/(12160:12160): el frame 28 esta ocupado: 0 
+[INFO] 23:14:53:565 mi_ram.c/(12160:12160): el frame 29 esta ocupado: 0 
+[INFO] 23:14:53:565 mi_ram.c/(12160:12160): el frame 30 esta ocupado: 0 
+[INFO] 23:14:53:565 mi_ram.c/(12160:12160): el frame 31 esta ocupado: 0 
+[INFO] 23:15:19:196 mi_ram.c/(12160:12161): ConexiÃ³n establecida con Discordiador
+[INFO] 23:15:19:197 mi_ram.c/(12160:12216): Recibi header: 0
+
+[INFO] 23:15:19:197 mi_ram.c/(12160:12216): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:15:19:197 mi_ram.c/(12160:12216): cantidad tcbs recibidos: 5 
+
+[INFO] 23:15:19:197 mi_ram.c/(12160:12216): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:15:19:198 mi_ram.c/(12160:12216): 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 03 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 04 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): Iniciando Frames... 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): -------------------------
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): Disponibilidad de frames: 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 0 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 1 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 2 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 3 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 4 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 5 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 6 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 7 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 8 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 9 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 10 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 11 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 12 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 13 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 14 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 15 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 16 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 17 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 18 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 19 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 20 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 21 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 22 esta ocupado: 0 
+[INFO] 23:15:56:567 mi_ram.c/(12299:12299): el frame 23 esta ocupado: 0 
+[INFO] 23:15:56:568 mi_ram.c/(12299:12299): el frame 24 esta ocupado: 0 
+[INFO] 23:15:56:568 mi_ram.c/(12299:12299): el frame 25 esta ocupado: 0 
+[INFO] 23:15:56:568 mi_ram.c/(12299:12299): el frame 26 esta ocupado: 0 
+[INFO] 23:15:56:568 mi_ram.c/(12299:12299): el frame 27 esta ocupado: 0 
+[INFO] 23:15:56:568 mi_ram.c/(12299:12299): el frame 28 esta ocupado: 0 
+[INFO] 23:15:56:568 mi_ram.c/(12299:12299): el frame 29 esta ocupado: 0 
+[INFO] 23:15:56:568 mi_ram.c/(12299:12299): el frame 30 esta ocupado: 0 
+[INFO] 23:15:56:568 mi_ram.c/(12299:12299): el frame 31 esta ocupado: 0 
+[INFO] 23:15:59:463 mi_ram.c/(12299:12300): ConexiÃ³n establecida con Discordiador
+[INFO] 23:15:59:463 mi_ram.c/(12299:12305): Recibi header: 0
+
+[INFO] 23:15:59:463 mi_ram.c/(12299:12305): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:15:59:463 mi_ram.c/(12299:12305): cantidad tcbs recibidos: 5 
+
+[INFO] 23:15:59:463 mi_ram.c/(12299:12305): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:15:59:464 mi_ram.c/(12299:12305): Patota a ser alojada en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 05 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 06 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 07 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 08 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 09 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:06:419 mi_ram.c/(12443:12443): Iniciando Frames... 
+[INFO] 23:17:06:458 mi_ram.c/(12443:12443): -------------------------
+[INFO] 23:17:06:458 mi_ram.c/(12443:12443): Disponibilidad de frames: 
+[INFO] 23:17:06:459 mi_ram.c/(12443:12443): el frame 0 esta ocupado: 0 
+[INFO] 23:17:06:459 mi_ram.c/(12443:12443): el frame 1 esta ocupado: 0 
+[INFO] 23:17:06:460 mi_ram.c/(12443:12443): el frame 2 esta ocupado: 0 
+[INFO] 23:17:06:460 mi_ram.c/(12443:12443): el frame 3 esta ocupado: 0 
+[INFO] 23:17:06:460 mi_ram.c/(12443:12443): el frame 4 esta ocupado: 0 
+[INFO] 23:17:06:460 mi_ram.c/(12443:12443): el frame 5 esta ocupado: 0 
+[INFO] 23:17:06:460 mi_ram.c/(12443:12443): el frame 6 esta ocupado: 0 
+[INFO] 23:17:06:460 mi_ram.c/(12443:12443): el frame 7 esta ocupado: 0 
+[INFO] 23:17:06:460 mi_ram.c/(12443:12443): el frame 8 esta ocupado: 0 
+[INFO] 23:17:06:460 mi_ram.c/(12443:12443): el frame 9 esta ocupado: 0 
+[INFO] 23:17:06:460 mi_ram.c/(12443:12443): el frame 10 esta ocupado: 0 
+[INFO] 23:17:06:460 mi_ram.c/(12443:12443): el frame 11 esta ocupado: 0 
+[INFO] 23:17:06:461 mi_ram.c/(12443:12443): el frame 12 esta ocupado: 0 
+[INFO] 23:17:06:461 mi_ram.c/(12443:12443): el frame 13 esta ocupado: 0 
+[INFO] 23:17:06:461 mi_ram.c/(12443:12443): el frame 14 esta ocupado: 0 
+[INFO] 23:17:06:461 mi_ram.c/(12443:12443): el frame 15 esta ocupado: 0 
+[INFO] 23:17:06:461 mi_ram.c/(12443:12443): el frame 16 esta ocupado: 0 
+[INFO] 23:17:06:461 mi_ram.c/(12443:12443): el frame 17 esta ocupado: 0 
+[INFO] 23:17:06:461 mi_ram.c/(12443:12443): el frame 18 esta ocupado: 0 
+[INFO] 23:17:06:461 mi_ram.c/(12443:12443): el frame 19 esta ocupado: 0 
+[INFO] 23:17:06:461 mi_ram.c/(12443:12443): el frame 20 esta ocupado: 0 
+[INFO] 23:17:06:461 mi_ram.c/(12443:12443): el frame 21 esta ocupado: 0 
+[INFO] 23:17:06:462 mi_ram.c/(12443:12443): el frame 22 esta ocupado: 0 
+[INFO] 23:17:06:462 mi_ram.c/(12443:12443): el frame 23 esta ocupado: 0 
+[INFO] 23:17:06:462 mi_ram.c/(12443:12443): el frame 24 esta ocupado: 0 
+[INFO] 23:17:06:462 mi_ram.c/(12443:12443): el frame 25 esta ocupado: 0 
+[INFO] 23:17:06:462 mi_ram.c/(12443:12443): el frame 26 esta ocupado: 0 
+[INFO] 23:17:06:462 mi_ram.c/(12443:12443): el frame 27 esta ocupado: 0 
+[INFO] 23:17:06:462 mi_ram.c/(12443:12443): el frame 28 esta ocupado: 0 
+[INFO] 23:17:06:462 mi_ram.c/(12443:12443): el frame 29 esta ocupado: 0 
+[INFO] 23:17:06:462 mi_ram.c/(12443:12443): el frame 30 esta ocupado: 0 
+[INFO] 23:17:06:462 mi_ram.c/(12443:12443): el frame 31 esta ocupado: 0 
+[INFO] 23:17:10:635 mi_ram.c/(12443:12445): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:10:638 mi_ram.c/(12443:12458): Recibi header: 0
+
+[INFO] 23:17:10:640 mi_ram.c/(12443:12458): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:17:10:643 mi_ram.c/(12443:12458): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:10:644 mi_ram.c/(12443:12458): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:10:655 mi_ram.c/(12443:12458): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 03 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 04 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:35:433 mi_ram.c/(12500:12500): Iniciando Frames... 
+[INFO] 23:17:35:472 mi_ram.c/(12500:12500): -------------------------
+[INFO] 23:17:35:473 mi_ram.c/(12500:12500): Disponibilidad de frames: 
+[INFO] 23:17:35:473 mi_ram.c/(12500:12500): el frame 0 esta ocupado: 0 
+[INFO] 23:17:35:474 mi_ram.c/(12500:12500): el frame 1 esta ocupado: 0 
+[INFO] 23:17:35:474 mi_ram.c/(12500:12500): el frame 2 esta ocupado: 0 
+[INFO] 23:17:35:474 mi_ram.c/(12500:12500): el frame 3 esta ocupado: 0 
+[INFO] 23:17:35:474 mi_ram.c/(12500:12500): el frame 4 esta ocupado: 0 
+[INFO] 23:17:35:474 mi_ram.c/(12500:12500): el frame 5 esta ocupado: 0 
+[INFO] 23:17:35:474 mi_ram.c/(12500:12500): el frame 6 esta ocupado: 0 
+[INFO] 23:17:35:474 mi_ram.c/(12500:12500): el frame 7 esta ocupado: 0 
+[INFO] 23:17:35:474 mi_ram.c/(12500:12500): el frame 8 esta ocupado: 0 
+[INFO] 23:17:35:475 mi_ram.c/(12500:12500): el frame 9 esta ocupado: 0 
+[INFO] 23:17:35:475 mi_ram.c/(12500:12500): el frame 10 esta ocupado: 0 
+[INFO] 23:17:35:475 mi_ram.c/(12500:12500): el frame 11 esta ocupado: 0 
+[INFO] 23:17:35:475 mi_ram.c/(12500:12500): el frame 12 esta ocupado: 0 
+[INFO] 23:17:35:475 mi_ram.c/(12500:12500): el frame 13 esta ocupado: 0 
+[INFO] 23:17:35:475 mi_ram.c/(12500:12500): el frame 14 esta ocupado: 0 
+[INFO] 23:17:35:475 mi_ram.c/(12500:12500): el frame 15 esta ocupado: 0 
+[INFO] 23:17:35:475 mi_ram.c/(12500:12500): el frame 16 esta ocupado: 0 
+[INFO] 23:17:35:475 mi_ram.c/(12500:12500): el frame 17 esta ocupado: 0 
+[INFO] 23:17:35:475 mi_ram.c/(12500:12500): el frame 18 esta ocupado: 0 
+[INFO] 23:17:35:476 mi_ram.c/(12500:12500): el frame 19 esta ocupado: 0 
+[INFO] 23:17:35:476 mi_ram.c/(12500:12500): el frame 20 esta ocupado: 0 
+[INFO] 23:17:35:476 mi_ram.c/(12500:12500): el frame 21 esta ocupado: 0 
+[INFO] 23:17:35:476 mi_ram.c/(12500:12500): el frame 22 esta ocupado: 0 
+[INFO] 23:17:35:476 mi_ram.c/(12500:12500): el frame 23 esta ocupado: 0 
+[INFO] 23:17:35:476 mi_ram.c/(12500:12500): el frame 24 esta ocupado: 0 
+[INFO] 23:17:35:476 mi_ram.c/(12500:12500): el frame 25 esta ocupado: 0 
+[INFO] 23:17:35:476 mi_ram.c/(12500:12500): el frame 26 esta ocupado: 0 
+[INFO] 23:17:35:476 mi_ram.c/(12500:12500): el frame 27 esta ocupado: 0 
+[INFO] 23:17:35:476 mi_ram.c/(12500:12500): el frame 28 esta ocupado: 0 
+[INFO] 23:17:35:477 mi_ram.c/(12500:12500): el frame 29 esta ocupado: 0 
+[INFO] 23:17:35:477 mi_ram.c/(12500:12500): el frame 30 esta ocupado: 0 
+[INFO] 23:17:35:477 mi_ram.c/(12500:12500): el frame 31 esta ocupado: 0 
+[INFO] 23:17:37:144 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:37:147 mi_ram.c/(12500:12511): Recibi header: 0
+
+[INFO] 23:17:37:149 mi_ram.c/(12500:12511): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:17:37:152 mi_ram.c/(12500:12511): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:37:154 mi_ram.c/(12500:12511): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:37:165 mi_ram.c/(12500:12511): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 05 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 06 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 07 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 08 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 09 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:38:291 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:38:292 mi_ram.c/(12500:12515): Recibi header: 0
+
+[INFO] 23:17:38:292 mi_ram.c/(12500:12515): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:17:38:292 mi_ram.c/(12500:12515): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:38:292 mi_ram.c/(12500:12515): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:38:296 mi_ram.c/(12500:12515): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 0a 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 0b 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 0c 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 0d 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 0e 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:39:138 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:39:139 mi_ram.c/(12500:12523): Recibi header: 0
+
+[INFO] 23:17:39:139 mi_ram.c/(12500:12523): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:17:39:139 mi_ram.c/(12500:12523): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:39:139 mi_ram.c/(12500:12523): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:39:143 mi_ram.c/(12500:12523): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 0f 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 10 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 11 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 12 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 13 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:39:895 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:39:896 mi_ram.c/(12500:12534): Recibi header: 0
+
+[INFO] 23:17:39:899 mi_ram.c/(12500:12534): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|00 00 00 00  |.
+[INFO] 23:17:39:900 mi_ram.c/(12500:12534): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:39:901 mi_ram.c/(12500:12534): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:39:905 mi_ram.c/(12500:12534): streamPatota a ser alojado en memoria 
+0x00000000: 03 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 14 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 15 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 16 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 17 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 18 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:40:546 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:40:547 mi_ram.c/(12500:12544): Recibi header: 0
+
+[INFO] 23:17:40:547 mi_ram.c/(12500:12544): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|0720: 00 00 00 00 00 00
+[INFO] 23:17:40:547 mi_ram.c/(12500:12544): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:40:547 mi_ram.c/(12500:12544): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:40:551 mi_ram.c/(12500:12544): streamPatota a ser alojado en memoria 
+0x00000000: 04 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 19 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 1a 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 1b 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 1c 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 1d 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:43:435 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:43:436 mi_ram.c/(12500:12555): Recibi header: 0
+
+[INFO] 23:17:43:436 mi_ram.c/(12500:12555): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+0x00000090: 08 00 00 0
+[INFO] 23:17:43:436 mi_ram.c/(12500:12555): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:43:436 mi_ram.c/(12500:12555): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:43:440 mi_ram.c/(12500:12555): streamPatota a ser alojado en memoria 
+0x00000000: 05 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 1e 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 1f 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 20 00 00 00 00  |..R........ ....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 21 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |!...........R...|
+0x000000a0: 00 00 00 00 00 22 00 00  00 00 00 00 00 00 00 00  |....."..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:44:259 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:44:259 mi_ram.c/(12500:12571): Recibi header: 0
+
+[INFO] 23:17:44:260 mi_ram.c/(12500:12571): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|00: 05 00 00 00 08 00 0
+[INFO] 23:17:44:260 mi_ram.c/(12500:12571): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:44:260 mi_ram.c/(12500:12571): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:44:264 mi_ram.c/(12500:12571): streamPatota a ser alojado en memoria 
+0x00000000: 06 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 23 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||#...........R..|
+0x00000060: 00 00 00 00 00 00 24 00  00 00 00 00 00 00 00 00  |......$.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 25 00 00 00 00  |..R........%....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 26 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |&...........R...|
+0x000000a0: 00 00 00 00 00 27 00 00  00 00 00 00 00 00 00 00  |.....'..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:44:956 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:44:957 mi_ram.c/(12500:12574): Recibi header: 0
+
+[INFO] 23:17:44:957 mi_ram.c/(12500:12574): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|00 00 00 00 00 00 00 52
+[INFO] 23:17:44:957 mi_ram.c/(12500:12574): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:44:957 mi_ram.c/(12500:12574): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:44:961 mi_ram.c/(12500:12574): streamPatota a ser alojado en memoria 
+0x00000000: 07 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 28 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||(...........R..|
+0x00000060: 00 00 00 00 00 00 29 00  00 00 00 00 00 00 00 00  |......).........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 2a 00 00 00 00  |..R........*....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 2b 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |+...........R...|
+0x000000a0: 00 00 00 00 00 2c 00 00  00 00 00 00 00 00 00 00  |.....,..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:45:748 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:45:749 mi_ram.c/(12500:12582): Recibi header: 0
+
+[INFO] 23:17:45:750 mi_ram.c/(12500:12582): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:17:45:750 mi_ram.c/(12500:12582): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:45:750 mi_ram.c/(12500:12582): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:45:754 mi_ram.c/(12500:12582): streamPatota a ser alojado en memoria 
+0x00000000: 08 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 2d 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||-...........R..|
+0x00000060: 00 00 00 00 00 00 2e 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 2f 00 00 00 00  |..R......../....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 30 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |0...........R...|
+0x000000a0: 00 00 00 00 00 31 00 00  00 00 00 00 00 00 00 00  |.....1..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:17:46:451 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:17:46:451 mi_ram.c/(12500:12593): Recibi header: 0
+
+[INFO] 23:17:46:453 mi_ram.c/(12500:12593): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4| 52 00 00  ||(.
+[INFO] 23:17:46:453 mi_ram.c/(12500:12593): cantidad tcbs recibidos: 5 
+
+[INFO] 23:17:46:453 mi_ram.c/(12500:12593): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:17:46:457 mi_ram.c/(12500:12593): streamPatota a ser alojado en memoria 
+0x00000000: 09 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 32 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||2...........R..|
+0x00000060: 00 00 00 00 00 00 33 00  00 00 00 00 00 00 00 00  |......3.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 34 00 00 00 00  |..R........4....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 35 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |5...........R...|
+0x000000a0: 00 00 00 00 00 36 00 00  00 00 00 00 00 00 00 00  |.....6..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:12:368 mi_ram.c/(12500:12501): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:12:369 mi_ram.c/(12500:12637): Recibi header: 0
+
+[INFO] 23:18:12:369 mi_ram.c/(12500:12637): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|0  |.R..............|
+0
+[INFO] 23:18:12:371 mi_ram.c/(12500:12637): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:12:371 mi_ram.c/(12500:12637): hay lugar disponible (1 -> si, -1 -> no): -1 
+
+[INFO] 23:18:12:375 mi_ram.c/(12500:12637): streamPatota a ser alojado en memoria 
+0x00000000: 0a 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 37 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||7...........R..|
+0x00000060: 00 00 00 00 00 00 38 00  00 00 00 00 00 00 00 00  |......8.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 39 00 00 00 00  |..R........9....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 3a 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |:...........R...|
+0x000000a0: 00 00 00 00 00 3b 00 00  00 00 00 00 00 00 00 00  |.....;..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:35:366 mi_ram.c/(12678:12678): Iniciando Frames... 
+[INFO] 23:18:35:405 mi_ram.c/(12678:12678): -------------------------
+[INFO] 23:18:35:406 mi_ram.c/(12678:12678): Disponibilidad de frames: 
+[INFO] 23:18:35:407 mi_ram.c/(12678:12678): el frame 0 esta ocupado: 0 
+[INFO] 23:18:35:407 mi_ram.c/(12678:12678): el frame 1 esta ocupado: 0 
+[INFO] 23:18:35:407 mi_ram.c/(12678:12678): el frame 2 esta ocupado: 0 
+[INFO] 23:18:35:407 mi_ram.c/(12678:12678): el frame 3 esta ocupado: 0 
+[INFO] 23:18:35:407 mi_ram.c/(12678:12678): el frame 4 esta ocupado: 0 
+[INFO] 23:18:35:407 mi_ram.c/(12678:12678): el frame 5 esta ocupado: 0 
+[INFO] 23:18:35:408 mi_ram.c/(12678:12678): el frame 6 esta ocupado: 0 
+[INFO] 23:18:35:408 mi_ram.c/(12678:12678): el frame 7 esta ocupado: 0 
+[INFO] 23:18:35:408 mi_ram.c/(12678:12678): el frame 8 esta ocupado: 0 
+[INFO] 23:18:35:408 mi_ram.c/(12678:12678): el frame 9 esta ocupado: 0 
+[INFO] 23:18:35:408 mi_ram.c/(12678:12678): el frame 10 esta ocupado: 0 
+[INFO] 23:18:35:408 mi_ram.c/(12678:12678): el frame 11 esta ocupado: 0 
+[INFO] 23:18:35:408 mi_ram.c/(12678:12678): el frame 12 esta ocupado: 0 
+[INFO] 23:18:35:408 mi_ram.c/(12678:12678): el frame 13 esta ocupado: 0 
+[INFO] 23:18:35:409 mi_ram.c/(12678:12678): el frame 14 esta ocupado: 0 
+[INFO] 23:18:35:409 mi_ram.c/(12678:12678): el frame 15 esta ocupado: 0 
+[INFO] 23:18:35:409 mi_ram.c/(12678:12678): el frame 16 esta ocupado: 0 
+[INFO] 23:18:35:409 mi_ram.c/(12678:12678): el frame 17 esta ocupado: 0 
+[INFO] 23:18:35:409 mi_ram.c/(12678:12678): el frame 18 esta ocupado: 0 
+[INFO] 23:18:35:409 mi_ram.c/(12678:12678): el frame 19 esta ocupado: 0 
+[INFO] 23:18:35:409 mi_ram.c/(12678:12678): el frame 20 esta ocupado: 0 
+[INFO] 23:18:35:410 mi_ram.c/(12678:12678): el frame 21 esta ocupado: 0 
+[INFO] 23:18:35:410 mi_ram.c/(12678:12678): el frame 22 esta ocupado: 0 
+[INFO] 23:18:35:410 mi_ram.c/(12678:12678): el frame 23 esta ocupado: 0 
+[INFO] 23:18:35:410 mi_ram.c/(12678:12678): el frame 24 esta ocupado: 0 
+[INFO] 23:18:35:410 mi_ram.c/(12678:12678): el frame 25 esta ocupado: 0 
+[INFO] 23:18:35:410 mi_ram.c/(12678:12678): el frame 26 esta ocupado: 0 
+[INFO] 23:18:35:410 mi_ram.c/(12678:12678): el frame 27 esta ocupado: 0 
+[INFO] 23:18:35:411 mi_ram.c/(12678:12678): el frame 28 esta ocupado: 0 
+[INFO] 23:18:35:411 mi_ram.c/(12678:12678): el frame 29 esta ocupado: 0 
+[INFO] 23:18:35:411 mi_ram.c/(12678:12678): el frame 30 esta ocupado: 0 
+[INFO] 23:18:35:411 mi_ram.c/(12678:12678): el frame 31 esta ocupado: 0 
+[INFO] 23:18:38:143 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:38:146 mi_ram.c/(12678:12689): Recibi header: 0
+
+[INFO] 23:18:38:148 mi_ram.c/(12678:12689): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:18:38:151 mi_ram.c/(12678:12689): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:38:152 mi_ram.c/(12678:12689): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:38:165 mi_ram.c/(12678:12689): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 3c 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||<...........R..|
+0x00000060: 00 00 00 00 00 00 3d 00  00 00 00 00 00 00 00 00  |......=.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 3e 00 00 00 00  |..R........>....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 3f 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |?...........R...|
+0x000000a0: 00 00 00 00 00 40 00 00  00 00 00 00 00 00 00 00  |.....@..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:39:445 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:39:446 mi_ram.c/(12678:12696): Recibi header: 0
+
+[INFO] 23:18:39:449 mi_ram.c/(12678:12696): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|¸Ôp0ÿÿÿÿº}Àÿÿÿÿºµ£°ÿÿÿ
+[INFO] 23:18:39:451 mi_ram.c/(12678:12696): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:39:451 mi_ram.c/(12678:12696): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:39:455 mi_ram.c/(12678:12696): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 41 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||A...........R..|
+0x00000060: 00 00 00 00 00 00 42 00  00 00 00 00 00 00 00 00  |......B.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 43 00 00 00 00  |..R........C....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 44 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |D...........R...|
+0x000000a0: 00 00 00 00 00 45 00 00  00 00 00 00 00 00 00 00  |.....E..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:41:144 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:41:146 mi_ram.c/(12678:12708): Recibi header: 0
+
+[INFO] 23:18:41:146 mi_ram.c/(12678:12708): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|be nece
+[INFO] 23:18:41:146 mi_ram.c/(12678:12708): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:41:146 mi_ram.c/(12678:12708): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:41:150 mi_ram.c/(12678:12708): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 46 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||F...........R..|
+0x00000060: 00 00 00 00 00 00 47 00  00 00 00 00 00 00 00 00  |......G.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 48 00 00 00 00  |..R........H....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 49 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |I...........R...|
+0x000000a0: 00 00 00 00 00 4a 00 00  00 00 00 00 00 00 00 00  |.....J..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:42:091 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:42:092 mi_ram.c/(12678:12716): Recibi header: 0
+
+[INFO] 23:18:42:093 mi_ram.c/(12678:12716): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:18:42:093 mi_ram.c/(12678:12716): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:42:093 mi_ram.c/(12678:12716): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:42:098 mi_ram.c/(12678:12716): streamPatota a ser alojado en memoria 
+0x00000000: 03 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 4b 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||K...........R..|
+0x00000060: 00 00 00 00 00 00 4c 00  00 00 00 00 00 00 00 00  |......L.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 4d 00 00 00 00  |..R........M....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 4e 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |N...........R...|
+0x000000a0: 00 00 00 00 00 4f 00 00  00 00 00 00 00 00 00 00  |.....O..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:42:952 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:42:953 mi_ram.c/(12678:12724): Recibi header: 0
+
+[INFO] 23:18:42:953 mi_ram.c/(12678:12724): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:18:42:953 mi_ram.c/(12678:12724): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:42:954 mi_ram.c/(12678:12724): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:42:958 mi_ram.c/(12678:12724): streamPatota a ser alojado en memoria 
+0x00000000: 04 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 50 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||P...........R..|
+0x00000060: 00 00 00 00 00 00 51 00  00 00 00 00 00 00 00 00  |......Q.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 52 00 00 00 00  |..R........R....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 53 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |S...........R...|
+0x000000a0: 00 00 00 00 00 54 00 00  00 00 00 00 00 00 00 00  |.....T..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:43:713 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:43:714 mi_ram.c/(12678:12732): Recibi header: 0
+
+[INFO] 23:18:43:715 mi_ram.c/(12678:12732): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4| 00 00 00 00 00
+[INFO] 23:18:43:715 mi_ram.c/(12678:12732): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:43:715 mi_ram.c/(12678:12732): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:43:719 mi_ram.c/(12678:12732): streamPatota a ser alojado en memoria 
+0x00000000: 05 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 55 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||U...........R..|
+0x00000060: 00 00 00 00 00 00 56 00  00 00 00 00 00 00 00 00  |......V.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 57 00 00 00 00  |..R........W....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 58 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |X...........R...|
+0x000000a0: 00 00 00 00 00 59 00 00  00 00 00 00 00 00 00 00  |.....Y..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:44:433 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:44:434 mi_ram.c/(12678:12744): Recibi header: 0
+
+[INFO] 23:18:44:436 mi_ram.c/(12678:12744): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|iÃ³n es
+[INFO] 23:18:44:436 mi_ram.c/(12678:12744): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:44:436 mi_ram.c/(12678:12744): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:44:440 mi_ram.c/(12678:12744): streamPatota a ser alojado en memoria 
+0x00000000: 06 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 5a 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||Z...........R..|
+0x00000060: 00 00 00 00 00 00 5b 00  00 00 00 00 00 00 00 00  |......[.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 5c 00 00 00 00  |..R........\....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 5d 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |]...........R...|
+0x000000a0: 00 00 00 00 00 5e 00 00  00 00 00 00 00 00 00 00  |.....^..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:45:121 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:45:122 mi_ram.c/(12678:12752): Recibi header: 0
+
+[INFO] 23:18:45:123 mi_ram.c/(12678:12752): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|.......4a 
+[INFO] 23:18:45:123 mi_ram.c/(12678:12752): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:45:123 mi_ram.c/(12678:12752): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:45:127 mi_ram.c/(12678:12752): streamPatota a ser alojado en memoria 
+0x00000000: 07 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 5f 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||_...........R..|
+0x00000060: 00 00 00 00 00 00 60 00  00 00 00 00 00 00 00 00  |......`.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 61 00 00 00 00  |..R........a....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 62 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |b...........R...|
+0x000000a0: 00 00 00 00 00 63 00 00  00 00 00 00 00 00 00 00  |.....c..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:45:792 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:45:793 mi_ram.c/(12678:12760): Recibi header: 0
+
+[INFO] 23:18:45:793 mi_ram.c/(12678:12760): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 23:18:45:793 mi_ram.c/(12678:12760): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:45:793 mi_ram.c/(12678:12760): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:45:797 mi_ram.c/(12678:12760): streamPatota a ser alojado en memoria 
+0x00000000: 08 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 64 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||d...........R..|
+0x00000060: 00 00 00 00 00 00 65 00  00 00 00 00 00 00 00 00  |......e.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 66 00 00 00 00  |..R........f....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 67 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |g...........R...|
+0x000000a0: 00 00 00 00 00 68 00 00  00 00 00 00 00 00 00 00  |.....h..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:46:533 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:46:534 mi_ram.c/(12678:12771): Recibi header: 0
+
+[INFO] 23:18:46:534 mi_ram.c/(12678:12771): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|0 
+[INFO] 23:18:46:535 mi_ram.c/(12678:12771): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:46:535 mi_ram.c/(12678:12771): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:46:539 mi_ram.c/(12678:12771): streamPatota a ser alojado en memoria 
+0x00000000: 09 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 69 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||i...........R..|
+0x00000060: 00 00 00 00 00 00 6a 00  00 00 00 00 00 00 00 00  |......j.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 6b 00 00 00 00  |..R........k....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 6c 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |l...........R...|
+0x000000a0: 00 00 00 00 00 6d 00 00  00 00 00 00 00 00 00 00  |.....m..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:18:47:750 mi_ram.c/(12678:12679): ConexiÃ³n establecida con Discordiador
+[INFO] 23:18:47:751 mi_ram.c/(12678:12779): Recibi header: 0
+
+[INFO] 23:18:47:751 mi_ram.c/(12678:12779): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4| 52 41 
+[INFO] 23:18:47:752 mi_ram.c/(12678:12779): cantidad tcbs recibidos: 5 
+
+[INFO] 23:18:47:752 mi_ram.c/(12678:12779): hay lugar disponible (1 -> si, -1 -> no): -1 
+
+[INFO] 23:18:47:756 mi_ram.c/(12678:12779): streamPatota a ser alojado en memoria 
+0x00000000: 0a 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 6e 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||n...........R..|
+0x00000060: 00 00 00 00 00 00 6f 00  00 00 00 00 00 00 00 00  |......o.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 70 00 00 00 00  |..R........p....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 71 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |q...........R...|
+0x000000a0: 00 00 00 00 00 72 00 00  00 00 00 00 00 00 00 00  |.....r..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
