@@ -56,66 +56,62 @@ char *mapBlocksCopia;
 char * ubicacionSuperBloque;
 t_bitarray *punteroBitmap;
 
-//---Prueba de hilos, struck del ilo prueba ---//
-typedef struct prueba {
-	tareasTripulantes tarea;
-	int cantidadRecurso;
-}prueba;
-
-
-
-//----FUNCIONES----//
-
-//leer configuracion
+//-----------FUNCIONES-----------//
+//LEE CONFIG
 void leerConfig();
 
-//creacion y utilizacion del FileSystem
+//ARCHIVO BLOCKS Y SUPERBLOQUE
+void crearBlocks();
+void mapearBlocks();
+void crearSuperBloque();
+
+//USO DEL FILESYSTEM
 void crearFileSystem();
 void leerFileSystem();
 void inicializarFileSystem(int);
-//borar fileSSYtem existente
 void borrarFileSystem(const char *);
 
-//creacion y utilizacion del Bitmap
+//USO DEL BITMAP
 void crearBitmap();
+void guardarBitMap();
 void leerBitMap();
 int bloqueLibreBitMap();
-void guardarBitMap();
+void liberarBloqueBitMap(int);
 void liberarBitMap();
 
-//creacion y utilizacion del SuperBloque
-void crearSuperBloque();
-
-//creacion y utilizacion de los bloques
-void mapearBlocks();
-void crearBlocks();
-void llenarBlocks(char *, int , char *);
-void vaciarBlocks(char , int , char *, t_config *);
-void borrarUltimoBloque(t_config *);
+//CODIGO DE LOS FILES Y BITACORAS
 int leerUltimoBloque(t_config *);
+void agregarBloqueArchivo(int, t_config * );
+void agregarSizeArchivo(t_config *, int);
 
-//creacion y utilizacion de Files
-void agregarBloqueAlFile(int, char *);
-void agregarSizeFile(char *, int );
-int ultimoBloqueFile(char *);
+//CREARCION ARCHIVO BITACORA
+t_config *crarArchivoBitacora(int);
 
-// creacion y utilizacion de Archivo Recurso
-void creacionArchivoRecurso(char , char *);
-void generarRecurso(char *, int, uint32_t , char *);
-bool consumirRecurso(char *, int , uint32_t , char *);
-void descartarBasura(uint32_t , char *);
-void agregarSize(t_config *, int);
-void agregarBloqueAlArchivo(int, t_config * );
+//CODIGO DE LOS BLOCKS DE BITACORAS
+void llenarBlocksBitcoras(char *, t_config *);
 
-//creacion y eliminacion de semaforos en los recursos
+//SEMAFOROS PARA LOS FILES DE RECURSOS
 void semaforoEsperaRecurso(char *);
 void semaforoListoRecurso(char *);
 
-// creacion y utilizacion de Archivo Bitacora
-t_config *archivoBitacora(int);
-void llenarBlocksBitcoras(char * , t_config * , char *);
+//CODIGO DE LOS FILES DE RECURSOS
+void creacionFileRecurso(char , char *);
+void agregarBloqueFile(int, char *);
+void agregarSizeFile(char *, int );
+int ultimoBloqueFile(char *);
+int conseguirSizeBlocks(char *);
+void borrarBloqueFile(char *, int);
 
-// utilizacion del MSYNC (tiempo de sincronizacion) 
+//CODIGO DE LOS BLOCKS DE RECURSOS
+void llenarBlocksRecursos(char *, int);
+void vaciarBlocksRecursos(char *, int);
+
+//MENSAJES QUE RECIBE
+void generarRecurso(char *, int, uint32_t);
+bool consumirRecurso(char *, int , uint32_t);
+void descartarBasura(uint32_t);
+
+//SINCRONIZACION BLOCKS
 void sincronizacionMapBlocks();
 
 //atender las peticiones del discordiador
