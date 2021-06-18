@@ -178,7 +178,7 @@ void atenderDiscordiador(int socketCliente){
 
 				// list_iterate(listaTripulantes, mostrarContenido);
 
-				printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
+				//printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
 				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
 				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
 				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
@@ -200,13 +200,6 @@ void atenderDiscordiador(int socketCliente){
 			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 
 				t_list * tablaSegmentos = list_create();
-				//referenciaTablaPatota * referencia = malloc(sizeof(referenciaTablaPatota)); 
-				
-				/*for(int x = 0; x<10; x++){
-					
-					referencia->tripulantesDeLaPatota[x] = -1; 
-				}
- */
 				PCB * pcb = crearPCB();
 				 
 				printf("ID DE LA PATOTA %d \n", pcb->pid);
@@ -221,10 +214,8 @@ void atenderDiscordiador(int socketCliente){
 				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
 					void * tripulante = malloc(SIZEOF_TCB);
 					int offset = 0; 
-					referenciaTripulante * referencia = malloc(sizeof(referenciaTripulante));
 					//Deserializamos los campos que tenemos en el buffer
 					memcpy(tripulante + offset, stream, sizeof(uint32_t));
-					memcpy(&(referencia->tid), stream, sizeof(uint32_t));
 					stream += sizeof(uint32_t);
 					offset = offset + sizeof(uint32_t);
 
@@ -250,66 +241,46 @@ void atenderDiscordiador(int socketCliente){
 					
 
 					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tablaSegmentos); 
-					referencia->direccionLogicaTarea = direccionTareas;
-					referencia->direccionLogica = direccionLogica;
-
-					list_add(tablaTripulantes, referencia);
-					//referencia ->tripulantesDeLaPatota[i] = idTripulante;
-					
+					//log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
 					
 			
 				}
 
-			
-			/*referencia ->pid = pcb -> pid; 
+			referenciaTablaPatota * referencia = malloc(sizeof(referenciaTablaPatota)); 
+			referencia ->pid = pcb -> pid; 
 			referencia->tablaPatota = tablaSegmentos;
-			referencia->tamanioTareas = tamanioTareas; 
 
 			sem_wait(&mutexTablaDeTablas);
 			list_add(tablaDeTablasSegmentos, referencia); 
 			sem_post(&mutexTablaDeTablas);
 
+				int proximaTarea = obtenerProximaTarea(direccionTareas);
+				int proximaTarea1 = obtenerProximaTarea(proximaTarea);
 
-			for(int z = 0; z< 10; z++){
+				PCB * pcbObtenido = malloc(SIZEOF_PCB);
 
-				printf("Posicion %d del vector tripulantes tiene el numero %d \n", z, referencia->tripulantesDeLaPatota[z]); 
-			} */
+				memcpy(pcbObtenido, memoriaPrincipal + direccionPCB, SIZEOF_PCB); 
 
-			for(int o = 0; o < (list_size(tablaTripulantes)); o++){
+				printf("Me trae el PCB id %d cuyas tareas están en %d \n", pcbObtenido ->pid, pcbObtenido->tareas); 
+				printf("Direccion de las tareas %d \n", direccionTareas);
+				imprimirSegmentosLibres();
+				/*ENCONTRAR UNA TABLA DE PATOTA POR SU REFERENCIA EN LA TABLA DE TABLAS DE SEGMENTO */
+				bool coincidePatota(referenciaTablaPatota * referencia){
+					return (referencia->pid == pcb -> pid);
+				}
 
-				referenciaTripulante * referencia = malloc(sizeof(referenciaTripulante)); 
-				referencia = list_get(tablaTripulantes, o); 
+			referenciaTablaPatota * referenciaObtenida = list_find(tablaDeTablasSegmentos, coincidePatota); 
 
-				printf("El tripulante es el numero %d y tiene su tarea en %d \n", referencia ->tid, referencia ->direccionLogicaTarea);
+			t_list * tablaObtenida = referenciaObtenida->tablaPatota; 
+			t_segmento * segmentoObtenido = list_get(tablaObtenida, 1); 
 
+			printf("La direccion logica de las tareas es %d \n EL tamaño de las tareas %d \n", segmentoObtenido ->base, segmentoObtenido ->tamanio);
+
+
+			mem_hexdump(memoriaPrincipal, 2048);
+
+				
 			}
-
-			
-			mem_hexdump(memoriaPrincipal, 300);
-			uint32_t direccion = obtenerDireccionTripulante(2); 
-			uint32_t direccionTarea = obtenerDireccionProximaTarea(2); 
-			char * tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion); 
-			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
-			mem_hexdump(memoriaPrincipal, 300);
-
-			direccionTarea = obtenerDireccionProximaTarea(2); 
-			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
-			tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion); 
-			
-			mem_hexdump(memoriaPrincipal, 300);
-
-			direccionTarea = obtenerDireccionProximaTarea(2); 
-			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
-			tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion);
-			direccionTarea = obtenerDireccionProximaTarea(2); 
-			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
-
-			tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion); 
-			printf("%s \n", tarea);
-			}
-			
-
-			
 
 			
 
@@ -333,13 +304,12 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&idTripulante, paquete->buffer->stream, sizeof(uint32_t));
 		//buscarTripulante
 		
-		char * tarea = obtenerProximaTareaSegmentacio(); //modificar puntero instruccion en tripulante
+		char * tarea = obtenerProximaTarea(); //modificar puntero instruccion en tripulante
 		
 		// meter en un paquete
 		int header;
 		int longitudStreamTarea;
 		void * streamTarea;
-
 		send(socketCliente, )
 		 */
 	
@@ -389,12 +359,9 @@ void atenderDiscordiador(int socketCliente){
 
 }
 
-char * obtenerProximaTarea(uint32_t tid) {
+char * obtenerProximaTarea(int tid) {
 	
 	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
-		uint32_t direccionTCB = obtenerDireccionTripulante(tid); 
-		uint32_t direccionTarea = obtenerDireccionProximaTarea(tid);
-		return obtenerProximaTareaSegmentacion(direccionTarea,  direccionTCB);
 	
 	}
 
@@ -415,84 +382,30 @@ char * obtenerProximaTarea(uint32_t tid) {
 
 }
 
-
-uint32_t obtenerDireccionTripulante(uint32_t tid){
-
-		bool coincideID(referenciaTripulante * referencia){
-
-		return (referencia->tid == tid);
-	}
-	referenciaTripulante * referencia = malloc(sizeof(referenciaTripulante));
-	referencia = list_find(tablaTripulantes, coincideID);
-
-	return (referencia->direccionLogica);
-}
-
-uint32_t obtenerDireccionProximaTarea(uint32_t tid){
-	
-	bool coincideID(referenciaTripulante * referencia){
-
-		return (referencia->tid == tid);
-	}
-	referenciaTripulante * referencia = malloc(sizeof(referenciaTripulante));
-	referencia = list_find(tablaTripulantes, coincideID);
-
-	return (referencia->direccionLogicaTarea);
-
-}
-
-char * obtenerProximaTareaSegmentacion(uint32_t direccionLogicaTarea, uint32_t direccionTCB){
+int obtenerProximaTareaSegmentacion(int direccionLogica){
 	char * tareaObtenida = malloc(40); 
 	char caracterComparacion = 'a'; 
 	int desplazamiento = 0; 
-	char termino = '\0';
-	if(direccionLogicaTarea == (tamanioMemoria + 1)){
-		
-		return "NO_HAY_TAREA"; 
-	}
+	
 	
 	while(caracterComparacion != '\n' && caracterComparacion != '|'){
 
-	memcpy(tareaObtenida + desplazamiento, memoriaPrincipal+direccionLogicaTarea+desplazamiento, 1 ); 
+	memcpy(tareaObtenida + desplazamiento, memoriaPrincipal+direccionLogica+desplazamiento, 1 ); 
 	
-	memcpy(&caracterComparacion, memoriaPrincipal + direccionLogicaTarea + desplazamiento + 1, 1); 
+	memcpy(&caracterComparacion, memoriaPrincipal + direccionLogica + desplazamiento + 1, 1); 
 	desplazamiento ++; 
 	
 	}
+	direccionLogica = direccionLogica + desplazamiento;
 
-	if(caracterComparacion == '\n'){
-	memcpy(tareaObtenida + desplazamiento, &termino, 1);
-	int direccionProximaTarea = direccionLogicaTarea + desplazamiento +1;
-
-	printf("La proxima tarea es %s  \n", tareaObtenida); 
+	printf("La proxima tarea es %s \n \n", tareaObtenida); 
 	log_info(loggerMiram,"Proxima tarea: %s", tareaObtenida);
 	printf("Caracteres leidos %d \n ", desplazamiento);
 
-	actualizarProximaTarea(direccionTCB, direccionProximaTarea);
-
-	}
-	if(caracterComparacion == '|'){
-		actualizarProximaTarea(direccionTCB, tamanioMemoria + 1); 
-		
-	}
-	
-	return tareaObtenida;
-	
+	//actualizarProximaTarea(tcb, direccionLogica); 
+	return direccionLogica;
 } 
 
-void actualizarProximaTarea(uint32_t direccionTCB, uint32_t direccionTarea){
-
-		bool coincideID(referenciaTripulante * referencia){
-
-		return (referencia->direccionLogica == direccionTCB);
-	}
-		referenciaTripulante * tripulante = list_find(tablaTripulantes,coincideID); 
-		tripulante->direccionLogicaTarea = direccionTarea;
-		memcpy(memoriaPrincipal + direccionTCB + 2* sizeof(uint32_t) + sizeof(char), &direccionTarea, sizeof(uint32_t));
-
-	
-
-}
 
 TCB * deserializar_TCB(void * stream){ 
 	TCB * tripulante = malloc(SIZEOF_TCB);
@@ -503,11 +416,11 @@ TCB * deserializar_TCB(void * stream){
 	stream += sizeof(uint32_t);
 	printf("tripulante id deserializaicon %d\n", tripulante->tid);
 
-// 	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
-// 	stream += sizeof(uint32_t);
+	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
+	stream += sizeof(uint32_t);
 
-// 	memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
-// 	stream += sizeof(uint32_t);
+	memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
+	stream += sizeof(uint32_t);
 
 	memcpy(&(tripulante->estado), stream, sizeof(char));
 	stream += sizeof(char);
@@ -562,7 +475,6 @@ void iniciarMemoria() {
 	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 		tablaSegmentosGlobal = list_create(); 
 		tablaDeTablasSegmentos = list_create();
-		tablaTripulantes = list_create();
 		sem_init(&mutexTablaGlobal, 0, 1);
 		sem_init(&mutexTablaDeTablas, 0, 1);
 	}
