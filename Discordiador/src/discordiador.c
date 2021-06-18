@@ -313,7 +313,7 @@ void consola(){
 					stream += tamanioTareas;
 
 					vectorTarea = string_split(stringTarea, ";");
-					requerimientosTarea = string_split(vectorTarea[1]," "); 
+					requerimientosTarea = string_split(vectorTarea[0]," "); 
 
 					tarea->descripcionTarea = requerimientosTarea[0];
 
@@ -326,7 +326,7 @@ void consola(){
 					tarea->tiempo = atoi(vectorTarea[3]);
 					tarea->tareaTerminada = false;
 
-					printf("Nombre tarea: %s \n Posicion: %d|%d \n Duracion: %d \n",tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
+					log_info(loggerDiscordiador,"Nombre tarea: %s \n Posicion: %d|%d \n Duracion: %d \n",tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
 					
 					break;
 				
@@ -468,11 +468,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 					memcpy(stringTarea, stream, tamanioTareas);
 					stream += tamanioTareas;
 
-					log_info(loggerDiscordiador, "La tarea recibida es: %s", stringTarea);
-
-
 					vectorTarea = string_split(stringTarea, ";");
-					requerimientosTarea = string_split(vectorTarea[1]," "); 
+					requerimientosTarea = string_split(vectorTarea[0]," "); 
 
 					tarea->descripcionTarea = requerimientosTarea[0];
 
@@ -484,6 +481,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 					tarea->posicionY = atoi(vectorTarea[2]);
 					tarea->tiempo = atoi(vectorTarea[3]);
 					tarea->tareaTerminada = false;
+
+					log_info(loggerDiscordiador,"Nombre tarea: %s Posicion: %d|%d Duracion: %d ",tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
 
 					tripulante->tareaActual = tarea;
 					
@@ -796,7 +795,7 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 		// MANDAR POSICION A MI RAM e IMONGO
 	}
 	
-	log_info(loggerDiscordiador, "Tripulante %d ahora esta en %d|%d \n",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
+	log_info(loggerDiscordiador, "Tripulante %d ahora esta en %d|%d ",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
 
 }
 
