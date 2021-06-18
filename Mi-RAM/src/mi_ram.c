@@ -146,7 +146,7 @@ void atenderDiscordiador(int socketCliente){
 				offset += tamanioTareas;
 
 
-				uint32_t proximaInstruccion = 0, direccionPCB = 0;
+				uint32_t proximaInstruccion = 8, direccionPCB = 0;
 				for (int i = 0; i < cantidadTCBs; i++) {
 					// t_tripulanteConPID * tripu = malloc(sizeof(t_tripulanteConPID)); 
 					// tripu->idPatota = pid;
@@ -170,7 +170,7 @@ void atenderDiscordiador(int socketCliente){
 
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria);
 
-				//mem_hexdump(memoriaPrincipal, 2048);
+				mem_hexdump(memoriaPrincipal, 2048);
 
 				// void mostrarContenido(t_tripulanteConPID * tripulante) {
 				// 	mem_hexdump(tripulante, 12);
@@ -178,7 +178,11 @@ void atenderDiscordiador(int socketCliente){
 
 				// list_iterate(listaTripulantes, mostrarContenido);
 
-				
+				//printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
+				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
+				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
+				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
+
 				// bool coincideID(t_tripulanteConPID * tripulante) {
 				// 	return tripulante->idTripulante == 7;
 				// }
@@ -294,6 +298,7 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&tid, stream, sizeof(uint32_t));
 		// en tid ya tenes el tid del tripulante que te lo pidio
 
+
 		/*
 		uint32_t idTripulante = 0;
 		memcpy(&idTripulante, paquete->buffer->stream, sizeof(uint32_t));
@@ -308,31 +313,33 @@ void atenderDiscordiador(int socketCliente){
 
 		send(socketCliente, )
 		 */
+	
 
-		char * stringTarea; //este es el string de tareas que despues tenes que cambiar por el que uses
+		char * stringTarea = malloc(40); //este es el string de tareas que despues tenes que cambiar por el que uses
+		stringTarea = obtenerProximaTarea(tid);
 		int tamanioTarea = strlen(stringTarea) + 1;
-		bool hayTarea = true;
 
-		if(hayTarea){ //Esto cambialo cuando sepas si hay tarea o no
+		if(strcmp(stringTarea, "NO_HAY_TAREA")){ //Esto cambialo cuando sepas si hay tarea o no
 
-		t_buffer* buffer = malloc(sizeof(t_buffer));
+			t_buffer* buffer = malloc(sizeof(t_buffer));
 
-		buffer-> size = sizeof(int) + tamanioTarea;
+			buffer-> size = sizeof(int) + tamanioTarea;
 
-		int offset = 0;
+			int offset = 0;
 
-		memcpy(stream+offset, &tamanioTarea , sizeof(int));
-		offset += sizeof(int);
+			memcpy(stream+offset, &tamanioTarea , sizeof(int));
+			offset += sizeof(int);
 
-		memcpy(stream+offset, stringTarea, tamanioTarea);
+			memcpy(stream+offset, stringTarea, tamanioTarea);
 
-		buffer-> stream = stream;
+			buffer-> stream = stream;
 
-		mandarPaqueteSerializado(buffer, socket, HAY_TAREA);
+			mandarPaqueteSerializado(buffer, socket, HAY_TAREA);
 		}
 		else{
 			t_buffer* buffer = malloc(sizeof(t_buffer)); // se puede mandar un buffer vacio????????????
-
+			buffer->size = 0;
+			buffer->stream = NULL;
 			mandarPaqueteSerializado(buffer, socket, NO_HAY_TAREA);
 		}
 
@@ -353,9 +360,30 @@ void atenderDiscordiador(int socketCliente){
 
 }
 
+char * obtenerProximaTarea(int tid) {
+	
+	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
+	
+	}
 
+	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
+		bool coincideID(t_tripulanteConPID * tripulante) {
+			return tripulante->idTripulante == tid;
+		}
 
-int obtenerProximaTarea(int direccionLogica){
+		t_tripulanteConPID * tripuPrueba = list_find(listaTripulantes, coincideID);
+		if (tripuPrueba == NULL) {
+
+		} else {
+			int patotaID = *((int*)tripuPrueba+1);
+			int longitudTareas = *((int*)tripuPrueba+2);
+			return obtenerProximaTareaPaginacion(patotaID, tid, longitudTareas);
+		}	
+	}
+
+}
+
+int obtenerProximaTareaSegmentacion(int direccionLogica){
 	char * tareaObtenida = malloc(40); 
 	char caracterComparacion = 'a'; 
 	int desplazamiento = 0; 
@@ -582,6 +610,109 @@ void llenarFramesConPatota(t_list* tablaDePaginas, void * streamDePatota, int ca
 
 int divisionRedondeadaParaArriba(int x, int y) {
 	return (x -1)/y +1;
+}
+
+char * obtenerProximaTareaPaginacion(int patotaId, int tripuID, int longitudTareas) {
+	t_list * tablaPaginas = list_get(listaTablasDePaginas, patotaId);
+
+	int * frames = malloc(list_size(tablaPaginas) * 4);
+	int i = 0;
+
+	void almacenarFrames(t_pagina * pagina) {
+		frames[i] = pagina->numeroFrame;
+		i++;
+	}
+
+	list_iterate(tablaPaginas, almacenarFrames);
+
+	void * streamPatota = malloc(tamanioPagina * i);
+
+	for(int j = 0; j < i; j++) {
+		memcpy(streamPatota + j * tamanioPagina, memoriaPrincipal + tamanioPagina * frames[j], tamanioPagina);
+	}
+
+	return encontrarTareasDeTripulanteEnStream(streamPatota, tripuID, longitudTareas, patotaId);
+}
+
+char * encontrarTareasDeTripulanteEnStream(void * stream, int id, int longitudTareas, int patotaID) {
+	int tamanioPCByTareas = longitudTareas + 8;
+	int direccionPunteroTarea = 0;
+	int direccionTripu = 0;
+	int i = 0;
+	for (i = 0; i < 10; i++){
+		int idTripulante = 0;
+		memcpy(&idTripulante, (char *)stream + tamanioPCByTareas + i * SIZEOF_TCB, 4);
+		if (idTripulante == id) {
+			direccionPunteroTarea = tamanioPCByTareas + i * SIZEOF_TCB + (SIZEOF_TCB - 8);
+			direccionTripu = tamanioPCByTareas + i * SIZEOF_TCB;
+			i=10;
+		}
+	}
+	
+
+	int proximaTarea = 0;
+	memcpy(&proximaTarea, (char *)stream + direccionPunteroTarea, 4);
+	if ((proximaTarea) == 0) {
+		return "NO_HAY_TAREA";
+	}
+	char * tarea = malloc(40); //como se cuanto ocupan las tareas
+	char c = 'a';
+	i = proximaTarea;
+	int j = 0;
+	memcpy(&c, stream + i, 1);
+	while(c != '|' && c != '\n') {
+		memcpy(tarea + j, stream + i, 1);
+		i++;
+		memcpy(&c, stream + i, 1);
+		j++;
+	}
+
+	if(c == '\n') {
+		proximaTarea = i + 1;
+	}
+
+	if(c == '|') {
+		proximaTarea = 0;
+	}
+	realloc(tarea, j + 1);
+	char barraCero = '\0';
+	memcpy(tarea + j, &barraCero, 1);
+	// Cambiar el puntero de las tareas
+	actualizarPunteroTarea(direccionTripu, patotaID, proximaTarea);
+
+	return tarea;
+}
+
+void actualizarPunteroTarea(int direccionTripulante, int pid, int direcProximaTarea) {
+	t_list * tablaPaginas = list_get(listaTablasDePaginas, pid);
+
+	int * frames = malloc(list_size(tablaPaginas) * 4);
+	int i = 0;
+	int j = 0;
+
+	void almacenarFrames(t_pagina * pagina) {
+		frames[i] = pagina->numeroFrame;
+		i++;
+	}
+	list_iterate(tablaPaginas, almacenarFrames);
+
+	int paginaUbicada = (direccionTripulante+(SIZEOF_TCB-8))/tamanioPagina;
+	int offset = (direccionTripulante+(SIZEOF_TCB-8))%tamanioPagina;
+
+	if (offset + 4 < tamanioPagina) {
+		memcpy(memoriaPrincipal + tamanioPagina * frames[paginaUbicada] + offset, &direcProximaTarea, 4);
+	} else {
+		void * memAux = malloc(4);
+		memcpy(memAux, &direcProximaTarea, 4);
+		while (j < 4) {
+			while (offset + j < tamanioPagina){
+				memcpy(memoriaPrincipal + tamanioPagina * frames[paginaUbicada] + offset + j, memAux + j, 1);
+				j++;
+			}
+			paginaUbicada++;
+		}
+	}
+
 }
 
 

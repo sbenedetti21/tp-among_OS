@@ -23,7 +23,7 @@ void * memoriaPrincipal;
 
 int buscarEspacioNecesario(int, int);
 TCB * deserializar_TCB(void *);
-int obtenerProximaTarea(int);
+char * obtenerProximaTarea(int);
 
 sem_t mutexProximoPID; 
 
@@ -56,6 +56,10 @@ typedef struct {
 	uint32_t longitudTareas;
 } t_tripulanteConPID;
 t_list * listaTripulantes;
+
+char * obtenerProximaTareaPaginacion(int, int, int);
+char * encontrarTareasDeTripulanteEnStream(void *, int, int, int);
+void actualizarPunteroTarea(int, int, int);
 
 int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
@@ -90,6 +94,7 @@ typedef struct{
  
 } t_segmento; 
 
+int obtenerProximaTareaSegmentacion(int);
 uint32_t asignarMemoriaSegmentacionTCB(void *, t_list *); 
 uint32_t asignarMemoriaSegmentacionPCB(void * , t_list *);
 uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * );
