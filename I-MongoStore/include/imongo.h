@@ -12,6 +12,14 @@
 #include <pthread.h>
 #include <semaphore.h>
 
+//para borrar fileSistem
+	#include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <dirent.h>
+    #include <unistd.h>
+    #include <sys/types.h>
+    
 
 //Semaforo
 sem_t semaforoBloques;
@@ -116,25 +124,68 @@ void atenderDiscordiador(int);
 
 
 
-//void borrarFileYBitacora(){
-//rmdir()
-//}
+void borrarFileSystem(const char *path){
 
-/* 
+ struct dirent *de;
+        char fname[300];
+        DIR *dr = opendir(path);
+        if(dr == NULL)
+        {
+            printf("La carpeta FileSystem no existe, ingrese otro numero\n");
+            return;
+        }
+        while((de = readdir(dr)) != NULL)
+        {
+            int ret = -1;
+            struct stat statbuf;
+            sprintf(fname,"%s/%s",path,de->d_name);
+            if (!strcmp(de->d_name, ".") || !strcmp(de->d_name, ".."))
+                        continue;
+            if(!stat(fname, &statbuf))
+            {
+                if(S_ISDIR(statbuf.st_mode))
+                {
+                   ret = unlinkat(dirfd(dr),fname,AT_REMOVEDIR);
+
+                    if(ret != 0)
+                    {
+                       borrarFileSystem(fname);
+                       ret = unlinkat(dirfd(dr),fname,AT_REMOVEDIR);
+                    }
+                }
+                else
+                {
+                   unlink(fname);
+                }
+            }
+        }
+        closedir(dr);
+		rmdir(path);
+}
+
+
 void preguntarFileSystem(int valorRespuesta){
-
+	struct stat st = {0};
 	switch (valorRespuesta)
 	{	
 	case 0:
-		borrarFileSystem();
+		borrarFileSystem(puntoDeMontaje);
 		crearFileSystem();
+		log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
 		break;
 	
 	default:
-
+	
+	if(stat(puntoDeMontaje,&st) == -1){
+		crearFileSystem();
+		log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
+	} else{	
+		leerFileSystem();
+		log_info(loggerImongoStore, "---------LEYO FILESYSTEM----------");
+	}
 		break;
 	}
 }
-*/
+
 
 #endif

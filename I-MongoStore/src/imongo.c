@@ -4,18 +4,13 @@ int main(int argc, char ** argv){
 	loggerImongoStore = log_create("imongo.log", "imongo.c", 0, LOG_LEVEL_INFO); 
 
 	leerConfig();
-	struct stat st = {0};
 
+	char * valorInicio = readline("Para crear un nuevo FileSystem ingrese 0, de lo contrario ingrese cualquier otro Numero \n");
+	int valor = atoi(valorInicio);
 
-	if(stat(puntoDeMontaje,&st) == -1){
-		crearFileSystem();
-		log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
-	} else{	
-		leerFileSystem();
-		log_info(loggerImongoStore, "---------LEYO FILESYSTEM----------");
-	}
-
-
+	preguntarFileSystem(valor);
+	
+	
 	mapBlocksCopia = malloc(tamanioBlocks);
 	memcpy(mapBlocksCopia, mapBlocks, tamanioBlocks);
 
