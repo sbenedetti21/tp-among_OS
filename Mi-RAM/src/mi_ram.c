@@ -168,6 +168,8 @@ void atenderDiscordiador(int socketCliente){
 				};
 				log_info(loggerMiram, "streamPatota a ser alojado en memoria %s", mem_hexstring(streamPatota, memoriaNecesaria));
 
+				mem_hexdump(streamPatota, memoriaNecesaria);
+				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria);
 
 				mem_hexdump(memoriaPrincipal, 2048);
@@ -663,7 +665,7 @@ void llenarFramesConPatota(t_list* tablaDePaginas, void * streamDePatota, int ca
 
 	int i = 0, j = 0;
 
-	for (i = 0; i < cantidadFrames - 1; i++){
+	for (i = 0; i < cantidadFrames; i++){
 		uint32_t direcProximoFrame = buscarFrame();
 		printf("direc prox frame a escribir %d \n", direcProximoFrame);
 
