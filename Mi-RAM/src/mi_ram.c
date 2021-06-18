@@ -503,11 +503,11 @@ TCB * deserializar_TCB(void * stream){
 	stream += sizeof(uint32_t);
 	printf("tripulante id deserializaicon %d\n", tripulante->tid);
 
-	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
-	stream += sizeof(uint32_t);
+// 	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
+// 	stream += sizeof(uint32_t);
 
-	memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
-	stream += sizeof(uint32_t);
+// 	memcpy(&(tripulante->posicionY), stream, sizeof(uint32_t));
+// 	stream += sizeof(uint32_t);
 
 	memcpy(&(tripulante->estado), stream, sizeof(char));
 	stream += sizeof(char);
