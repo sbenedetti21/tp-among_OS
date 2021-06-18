@@ -61,12 +61,15 @@ void listarTripulantes();
 void consola();
 void mandarPaqueteSerializado(t_buffer*,int, int);
 void serializarYMandarPCB(char*,int,int, t_list *);
-void serializarYMandarTarea(int, tareasTripulantes, uint32_t);
+void serializarYMandarInicioTareaIO(int, int, uint32_t);
+void serializarYMandarInicioTareaNormal(uint32_t, char*);
 void gestionarTarea(tarea_struct * , uint32_t);
+void serializarYMandarElegidoDelSabotaje(uint32_t);
 
 bool esTareaDeIO(char*);
 bool coincideID(TCB_DISCORDIADOR*);
 
+void serializarYMandarPosicion(TCB_DISCORDIADOR *);
 void ponerATrabajar();
 void trasladarseA(uint32_t,uint32_t,TCB_DISCORDIADOR*);
 void cambiarDeEstado(TCB_DISCORDIADOR *, char);

@@ -117,7 +117,7 @@ int conectarMiRAM(){
 
 void consola(){
 
-	char * instruccion;
+	char * instruccion; 
 	char ** vectorInstruccion;
 
 
@@ -397,12 +397,17 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				paquete->buffer = malloc(sizeof(t_buffer));
 
 				int headerRECV = recv(socket, &(paquete->header) , sizeof(int), 0);
+				if(!headerRECV) { log_error(loggerDiscordiador, "No se pudo recibir el header al recibir una tarea");}
+
 	
 				int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+				if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer al recibir una tarea");}
 
 				paquete->buffer->stream = malloc(paquete->buffer->size);
 
 				int BUFFER_RECV = recv(socket,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+				if(! BUFFER_RECV){ log_error(loggerDiscordiador,"No se pudo recibir el buffer al recibir una tarea");}
+
 
 				switch (paquete->header)
 				{
@@ -751,27 +756,27 @@ void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 	char * descripcionTarea = tarea->descripcionTarea;
 	int parametros = tarea->parametro;
 				if( strcmp(descripcionTarea,"GENERAR_OXIGENO") == 0 ){
-						serializarYMandarTarea(parametros, GENERAR_OXIGENO,tid);
+						serializarYMandarInicioTareaIO(parametros, GENERAR_OXIGENO,tid);
 					} 
 
 					else if(strcmp(tarea->descripcionTarea,"CONSUMIR_OXIGENO") == 0){
-						serializarYMandarTarea(parametros, CONSUMIR_OXIGENO,tid);
+						serializarYMandarInicioTareaIO(parametros, CONSUMIR_OXIGENO,tid);
 					}
 
 					else if(strcmp(descripcionTarea,"GENERAR_COMIDA") == 0){
-						serializarYMandarTarea(parametros, GENERAR_COMIDA,tid);
+						serializarYMandarInicioTareaIO(parametros, GENERAR_COMIDA,tid);
 					}
 
 					else if(strcmp(descripcionTarea,"CONSUMIR_COMIDA") == 0){
-						serializarYMandarTarea(parametros, CONSUMIR_COMIDA,tid);
+						serializarYMandarInicioTareaIO(parametros, CONSUMIR_COMIDA,tid);
 					}
 
 					else if(strcmp(descripcionTarea,"GENERAR_BASURA") == 0){
-						serializarYMandarTarea(parametros, GENERAR_BASURA,tid);
+						serializarYMandarInicioTareaIO(parametros, GENERAR_BASURA,tid);
 					}
 
 					else if(strcmp(descripcionTarea,"DESCARTAR_BASURA") == 0){
-						serializarYMandarTarea(parametros, DESCARTAR_BASURA,tid);
+						serializarYMandarInicioTareaIO(parametros, DESCARTAR_BASURA,tid);
 					}
 					else{
 					}
@@ -896,7 +901,7 @@ void serializarYMandarPCB(char * pathTareas, int socket, int cantidadTCB, t_list
 	list_destroy(listaTCBS);
 }
 
-void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea, uint32_t tid ){
+void serializarYMandarInicioTareaIO(int parametro, int tipoTarea, uint32_t tid ){
 	int socket = conectarImongo();
 
 	t_parametro * parametroS = malloc(sizeof(parametroS));
@@ -940,10 +945,100 @@ void serializarYMandarPedidoDETarea(int socket, uint32_t tid){
 	mandarPaqueteSerializado(buffer, socket, PEDIR_TAREA);
 }
 
+void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
+
+	int socketIMONGO = conectarImongo();
+	int socketMIRAM = conectarMiRAM();
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+	buffer-> size = sizeof(uint32_t) * 2;
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tripulante->posicionX), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->posicionY), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socketIMONGO, NUEVA_POSICION);
+	mandarPaqueteSerializado(buffer, socketMIRAM, PEDIR_TAREA);  // VER HEADER
+
+}
+
+void serializarYMandarInicioTareaNormal(uint32_t tid, char * stringTareas){
+	int socket = conectarImongo();
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	int tamanioTarea = strlen(stringTareas) + 1;
+
+	buffer-> size = sizeof(int) + sizeof(uint32_t) + tamanioTarea;
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tamanioTarea), sizeof(int));
+	offset += sizeof(int);
+
+	memcpy(stream+offset, stringTareas, tamanioTarea);
+	offset += tamanioTarea;
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, INICIO_TAREA_NORMAL);
+}
+
+void serializarYMandarFinalizacionTarea(uint32_t tid){
+	int socket = conectarImongo();
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = sizeof(uint32_t);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, FINALIZO_TAREA_NORMAL);
+}
+
+void serializarYMandarElegidoDelSabotaje(uint32_t tid){
+	int socket = conectarImongo();
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = sizeof(uint32_t);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, INICIO_SABOTAJE);
+}
+
 //-----------------------------SABOTAJES---------------------------------------------------------------------------------------------------
 
 void atenderImongo(int socketCliente){
-
+ 
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->buffer = malloc(sizeof(t_buffer));
 
@@ -987,9 +1082,7 @@ void atenderImongo(int socketCliente){
 
 		sleep(tiempoSabotaje);
 
-		// send() mandar a imongo que active el protocolo fsck
-
-		
+		serializarYMandarElegidoDelSabotaje(tripulante->tid);
 		
 		break;
 	
@@ -1160,7 +1253,7 @@ void salirDeListaEstado(TCB_DISCORDIADOR * tripulante){
 		break;
 
 	default:
-		break;
+		break; // Se puede sacar?????
 	}
 
 }

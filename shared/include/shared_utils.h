@@ -77,14 +77,18 @@ typedef struct{
 } tarea_struct;
 
 //Tareas
-typedef enum {
+enum protocoloImongo{
 	CONSUMIR_OXIGENO,
 	GENERAR_OXIGENO,
 	GENERAR_COMIDA,
 	CONSUMIR_COMIDA,
 	GENERAR_BASURA,
-	DESCARTAR_BASURA
-}tareasTripulantes;
+	DESCARTAR_BASURA,
+	NUEVA_POSICION,
+	INICIO_TAREA_NORMAL,
+	FINALIZO_TAREA_NORMAL,
+	INICIO_SABOTAJE
+};
 
 typedef struct {
 	int parametro;
