@@ -168,6 +168,8 @@ void atenderDiscordiador(int socketCliente){
 				};
 				log_info(loggerMiram, "streamPatota a ser alojado en memoria %s", mem_hexstring(streamPatota, memoriaNecesaria));
 
+				mem_hexdump(streamPatota, memoriaNecesaria);
+				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria);
 
 				mem_hexdump(memoriaPrincipal, 2048);
@@ -285,24 +287,27 @@ void atenderDiscordiador(int socketCliente){
 			}
 
 			
-			mem_hexdump(memoriaPrincipal, 300);
 			uint32_t direccion = obtenerDireccionTripulante(2); 
 			uint32_t direccionTarea = obtenerDireccionProximaTarea(2); 
 			char * tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion); 
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
 			mem_hexdump(memoriaPrincipal, 300);
+			
+			
 
 			direccionTarea = obtenerDireccionProximaTarea(2); 
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
 			tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion); 
-			
 			mem_hexdump(memoriaPrincipal, 300);
+			 
+			
 
 			direccionTarea = obtenerDireccionProximaTarea(2); 
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
 			tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion);
 			direccionTarea = obtenerDireccionProximaTarea(2); 
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
+			mem_hexdump(memoriaPrincipal, 300);
 
 			tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion); 
 			printf("%s \n", tarea);
@@ -488,7 +493,7 @@ void actualizarProximaTarea(uint32_t direccionTCB, uint32_t direccionTarea){
 	}
 		referenciaTripulante * tripulante = list_find(tablaTripulantes,coincideID); 
 		tripulante->direccionLogicaTarea = direccionTarea;
-		memcpy(memoriaPrincipal + direccionTCB + 2* sizeof(uint32_t) + sizeof(char), &direccionTarea, sizeof(uint32_t));
+		memcpy(memoriaPrincipal + direccionTCB + 3* sizeof(uint32_t) + sizeof(char), &direccionTarea, sizeof(uint32_t));
 
 	
 
@@ -663,7 +668,7 @@ void llenarFramesConPatota(t_list* tablaDePaginas, void * streamDePatota, int ca
 
 	int i = 0, j = 0;
 
-	for (i = 0; i < cantidadFrames - 1; i++){
+	for (i = 0; i < cantidadFrames; i++){
 		uint32_t direcProximoFrame = buscarFrame();
 		printf("direc prox frame a escribir %d \n", direcProximoFrame);
 
@@ -812,7 +817,7 @@ uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, t_list * tablaSegmento
 		direccionLogica = encontrarLugarSegmentacion(SIZEOF_TCB); 
 		//le asigno el lugar de memoria encontrado
 		memcpy(memoriaPrincipal + direccionLogica, tripulante, SIZEOF_TCB); 
-		
+		   
 
 		//creo el segmento para la estructura nueva
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
