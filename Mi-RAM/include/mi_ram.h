@@ -26,6 +26,7 @@ TCB * deserializar_TCB(void *);
 char * obtenerProximaTareaSegmentacion(uint32_t, uint32_t);
 uint32_t obtenerDireccionTripulante(uint32_t );
 uint32_t obtenerDireccionProximaTarea(uint32_t);
+char * obtenerProximaTarea(uint32_t);
 
 sem_t mutexProximoPID; 
 
@@ -51,6 +52,17 @@ typedef struct {
 	// ultimaReferencia
 	// SecondChance
 } t_pagina;
+
+typedef struct {
+	uint32_t idTripulante;
+	uint32_t idPatota;
+	uint32_t longitudTareas;
+} t_tripulanteConPID;
+t_list * listaTripulantes;
+
+char * obtenerProximaTareaPaginacion(int, int, int);
+char * encontrarTareasDeTripulanteEnStream(void *, int, int, int);
+void actualizarPunteroTarea(int, int, int);
 
 int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
@@ -92,6 +104,7 @@ typedef struct{
  
 } t_segmento; 
 
+
 uint32_t asignarMemoriaSegmentacionTCB(void *, t_list *); 
 uint32_t asignarMemoriaSegmentacionPCB(void * , t_list *);
 uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * );
@@ -126,7 +139,7 @@ typedef struct {
  
 } structConexion;
 
-
+void mandarPaqueteSerializado(t_buffer *, int, int);
 int proximoPID = 0; 
 
 //--------------- MAPA ---------------------

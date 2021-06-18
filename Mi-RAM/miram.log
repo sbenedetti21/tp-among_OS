@@ -12895,6 +12895,7 @@ CONSUMIR_OXIGENO 4;1;3;4|.R.
 0x000006c0: 00 
 [INFO] 00:28:10:705 mi_ram.c/(7779:7852): Proxima tarea: 
 GENERAR_OXIGENO 4;2;3;8:705
+<<<<<<< HEAD
 [INFO] 10:27:09:558 mi_ram.c/(3474:3475): Conexión establecida con Discordiador
 [INFO] 10:27:09:579 mi_ram.c/(3474:3494): Recibi header: 0
 
@@ -13565,6 +13566,1073 @@ CONSUMIR_OXIGENO 4;1;3;4|
 
 [INFO] 18:16:16:717 mi_ram.c/(6654:6664): streamPatota a ser alojado en memoria 
 0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+=======
+[INFO] 10:53:38:246 mi_ram.c/(6213:6214): Conexión establecida con Discordiador
+[INFO] 10:53:38:250 mi_ram.c/(6213:6341): Recibi header: 0
+
+[INFO] 10:53:38:251 mi_ram.c/(6213:6341): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 10:53:38:251 mi_ram.c/(6213:6341): cantidad tcbs recibidos: 5 
+
+[INFO] 10:53:38:251 mi_ram.c/(6213:6341): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 10:53:43:255 mi_ram.c/(6213:6341): Proxima tarea: GENERAR_OXIGENO 3;1;2;6
+[INFO] 10:53:43:255 mi_ram.c/(6213:6341): Proxima tarea: 
+GENERAR_OXIGENO 4;2;3;8
+
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): Iniciando Frames... 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): -------------------------
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): Disponibilidad de frames: 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 0 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 1 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 2 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 3 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 4 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 5 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 6 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 7 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 8 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 9 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 10 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 11 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 12 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 13 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 14 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 15 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 16 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 17 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 18 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 19 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 20 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 21 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 22 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 23 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 24 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 25 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 26 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 27 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 28 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 29 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 30 esta ocupado: 0 
+[INFO] 10:53:53:329 mi_ram.c/(6394:6394): el frame 31 esta ocupado: 0 
+[INFO] 10:54:04:084 mi_ram.c/(6394:6395): Conexión establecida con Discordiador
+[INFO] 10:54:04:088 mi_ram.c/(6394:6412): Recibi header: 0
+
+[INFO] 10:54:04:089 mi_ram.c/(6394:6412): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 10:54:04:089 mi_ram.c/(6394:6412): cantidad tcbs recibidos: 5 
+
+[INFO] 10:54:04:089 mi_ram.c/(6394:6412): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 10:54:10:049 mi_ram.c/(6431:6431): Iniciando Frames... 
+[INFO] 10:54:10:090 mi_ram.c/(6431:6431): -------------------------
+[INFO] 10:54:10:091 mi_ram.c/(6431:6431): Disponibilidad de frames: 
+[INFO] 10:54:10:091 mi_ram.c/(6431:6431): el frame 0 esta ocupado: 0 
+[INFO] 10:54:10:091 mi_ram.c/(6431:6431): el frame 1 esta ocupado: 0 
+[INFO] 10:54:10:092 mi_ram.c/(6431:6431): el frame 2 esta ocupado: 0 
+[INFO] 10:54:10:092 mi_ram.c/(6431:6431): el frame 3 esta ocupado: 0 
+[INFO] 10:54:10:092 mi_ram.c/(6431:6431): el frame 4 esta ocupado: 0 
+[INFO] 10:54:10:092 mi_ram.c/(6431:6431): el frame 5 esta ocupado: 0 
+[INFO] 10:54:10:092 mi_ram.c/(6431:6431): el frame 6 esta ocupado: 0 
+[INFO] 10:54:10:092 mi_ram.c/(6431:6431): el frame 7 esta ocupado: 0 
+[INFO] 10:54:10:092 mi_ram.c/(6431:6431): el frame 8 esta ocupado: 0 
+[INFO] 10:54:10:092 mi_ram.c/(6431:6431): el frame 9 esta ocupado: 0 
+[INFO] 10:54:10:092 mi_ram.c/(6431:6431): el frame 10 esta ocupado: 0 
+[INFO] 10:54:10:092 mi_ram.c/(6431:6431): el frame 11 esta ocupado: 0 
+[INFO] 10:54:10:093 mi_ram.c/(6431:6431): el frame 12 esta ocupado: 0 
+[INFO] 10:54:10:093 mi_ram.c/(6431:6431): el frame 13 esta ocupado: 0 
+[INFO] 10:54:10:093 mi_ram.c/(6431:6431): el frame 14 esta ocupado: 0 
+[INFO] 10:54:10:093 mi_ram.c/(6431:6431): el frame 15 esta ocupado: 0 
+[INFO] 10:54:10:093 mi_ram.c/(6431:6431): el frame 16 esta ocupado: 0 
+[INFO] 10:54:10:093 mi_ram.c/(6431:6431): el frame 17 esta ocupado: 0 
+[INFO] 10:54:10:093 mi_ram.c/(6431:6431): el frame 18 esta ocupado: 0 
+[INFO] 10:54:10:093 mi_ram.c/(6431:6431): el frame 19 esta ocupado: 0 
+[INFO] 10:54:10:093 mi_ram.c/(6431:6431): el frame 20 esta ocupado: 0 
+[INFO] 10:54:10:093 mi_ram.c/(6431:6431): el frame 21 esta ocupado: 0 
+[INFO] 10:54:10:094 mi_ram.c/(6431:6431): el frame 22 esta ocupado: 0 
+[INFO] 10:54:10:094 mi_ram.c/(6431:6431): el frame 23 esta ocupado: 0 
+[INFO] 10:54:10:094 mi_ram.c/(6431:6431): el frame 24 esta ocupado: 0 
+[INFO] 10:54:10:094 mi_ram.c/(6431:6431): el frame 25 esta ocupado: 0 
+[INFO] 10:54:10:094 mi_ram.c/(6431:6431): el frame 26 esta ocupado: 0 
+[INFO] 10:54:10:094 mi_ram.c/(6431:6431): el frame 27 esta ocupado: 0 
+[INFO] 10:54:10:094 mi_ram.c/(6431:6431): el frame 28 esta ocupado: 0 
+[INFO] 10:54:10:094 mi_ram.c/(6431:6431): el frame 29 esta ocupado: 0 
+[INFO] 10:54:10:094 mi_ram.c/(6431:6431): el frame 30 esta ocupado: 0 
+[INFO] 10:54:10:095 mi_ram.c/(6431:6431): el frame 31 esta ocupado: 0 
+[INFO] 10:54:12:657 mi_ram.c/(6431:6432): Conexión establecida con Discordiador
+[INFO] 10:54:12:660 mi_ram.c/(6431:6443): Recibi header: 0
+
+[INFO] 10:54:12:662 mi_ram.c/(6431:6443): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 10:54:12:665 mi_ram.c/(6431:6443): cantidad tcbs recibidos: 5 
+
+[INFO] 10:54:12:666 mi_ram.c/(6431:6443): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 10:54:58:961 mi_ram.c/(6555:6555): Iniciando Frames... 
+[INFO] 10:54:59:005 mi_ram.c/(6555:6555): -------------------------
+[INFO] 10:54:59:007 mi_ram.c/(6555:6555): Disponibilidad de frames: 
+[INFO] 10:54:59:008 mi_ram.c/(6555:6555): el frame 0 esta ocupado: 0 
+[INFO] 10:54:59:008 mi_ram.c/(6555:6555): el frame 1 esta ocupado: 0 
+[INFO] 10:54:59:008 mi_ram.c/(6555:6555): el frame 2 esta ocupado: 0 
+[INFO] 10:54:59:008 mi_ram.c/(6555:6555): el frame 3 esta ocupado: 0 
+[INFO] 10:54:59:008 mi_ram.c/(6555:6555): el frame 4 esta ocupado: 0 
+[INFO] 10:54:59:008 mi_ram.c/(6555:6555): el frame 5 esta ocupado: 0 
+[INFO] 10:54:59:008 mi_ram.c/(6555:6555): el frame 6 esta ocupado: 0 
+[INFO] 10:54:59:009 mi_ram.c/(6555:6555): el frame 7 esta ocupado: 0 
+[INFO] 10:54:59:009 mi_ram.c/(6555:6555): el frame 8 esta ocupado: 0 
+[INFO] 10:54:59:009 mi_ram.c/(6555:6555): el frame 9 esta ocupado: 0 
+[INFO] 10:54:59:009 mi_ram.c/(6555:6555): el frame 10 esta ocupado: 0 
+[INFO] 10:54:59:009 mi_ram.c/(6555:6555): el frame 11 esta ocupado: 0 
+[INFO] 10:54:59:009 mi_ram.c/(6555:6555): el frame 12 esta ocupado: 0 
+[INFO] 10:54:59:009 mi_ram.c/(6555:6555): el frame 13 esta ocupado: 0 
+[INFO] 10:54:59:009 mi_ram.c/(6555:6555): el frame 14 esta ocupado: 0 
+[INFO] 10:54:59:009 mi_ram.c/(6555:6555): el frame 15 esta ocupado: 0 
+[INFO] 10:54:59:010 mi_ram.c/(6555:6555): el frame 16 esta ocupado: 0 
+[INFO] 10:54:59:010 mi_ram.c/(6555:6555): el frame 17 esta ocupado: 0 
+[INFO] 10:54:59:010 mi_ram.c/(6555:6555): el frame 18 esta ocupado: 0 
+[INFO] 10:54:59:010 mi_ram.c/(6555:6555): el frame 19 esta ocupado: 0 
+[INFO] 10:54:59:010 mi_ram.c/(6555:6555): el frame 20 esta ocupado: 0 
+[INFO] 10:54:59:010 mi_ram.c/(6555:6555): el frame 21 esta ocupado: 0 
+[INFO] 10:54:59:010 mi_ram.c/(6555:6555): el frame 22 esta ocupado: 0 
+[INFO] 10:54:59:010 mi_ram.c/(6555:6555): el frame 23 esta ocupado: 0 
+[INFO] 10:54:59:011 mi_ram.c/(6555:6555): el frame 24 esta ocupado: 0 
+[INFO] 10:54:59:011 mi_ram.c/(6555:6555): el frame 25 esta ocupado: 0 
+[INFO] 10:54:59:011 mi_ram.c/(6555:6555): el frame 26 esta ocupado: 0 
+[INFO] 10:54:59:011 mi_ram.c/(6555:6555): el frame 27 esta ocupado: 0 
+[INFO] 10:54:59:011 mi_ram.c/(6555:6555): el frame 28 esta ocupado: 0 
+[INFO] 10:54:59:011 mi_ram.c/(6555:6555): el frame 29 esta ocupado: 0 
+[INFO] 10:54:59:011 mi_ram.c/(6555:6555): el frame 30 esta ocupado: 0 
+[INFO] 10:54:59:011 mi_ram.c/(6555:6555): el frame 31 esta ocupado: 0 
+[INFO] 10:55:00:813 mi_ram.c/(6555:6557): Conexión establecida con Discordiador
+[INFO] 10:55:00:817 mi_ram.c/(6555:6569): Recibi header: 0
+
+[INFO] 10:55:00:823 mi_ram.c/(6555:6569): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 10:55:00:826 mi_ram.c/(6555:6569): cantidad tcbs recibidos: 5 
+
+[INFO] 10:55:00:831 mi_ram.c/(6555:6569): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 10:55:00:841 mi_ram.c/(6555:6569): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 0f 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 10 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 11 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 12 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 13 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 10:57:19:592 mi_ram.c/(6803:6803): Iniciando Frames... 
+[INFO] 10:57:19:630 mi_ram.c/(6803:6803): -------------------------
+[INFO] 10:57:19:631 mi_ram.c/(6803:6803): Disponibilidad de frames: 
+[INFO] 10:57:19:632 mi_ram.c/(6803:6803): el frame 0 esta ocupado: 0 
+[INFO] 10:57:19:632 mi_ram.c/(6803:6803): el frame 1 esta ocupado: 0 
+[INFO] 10:57:19:632 mi_ram.c/(6803:6803): el frame 2 esta ocupado: 0 
+[INFO] 10:57:19:632 mi_ram.c/(6803:6803): el frame 3 esta ocupado: 0 
+[INFO] 10:57:19:632 mi_ram.c/(6803:6803): el frame 4 esta ocupado: 0 
+[INFO] 10:57:19:632 mi_ram.c/(6803:6803): el frame 5 esta ocupado: 0 
+[INFO] 10:57:19:632 mi_ram.c/(6803:6803): el frame 6 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 7 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 8 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 9 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 10 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 11 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 12 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 13 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 14 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 15 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 16 esta ocupado: 0 
+[INFO] 10:57:19:633 mi_ram.c/(6803:6803): el frame 17 esta ocupado: 0 
+[INFO] 10:57:19:634 mi_ram.c/(6803:6803): el frame 18 esta ocupado: 0 
+[INFO] 10:57:19:634 mi_ram.c/(6803:6803): el frame 19 esta ocupado: 0 
+[INFO] 10:57:19:634 mi_ram.c/(6803:6803): el frame 20 esta ocupado: 0 
+[INFO] 10:57:19:634 mi_ram.c/(6803:6803): el frame 21 esta ocupado: 0 
+[INFO] 10:57:19:634 mi_ram.c/(6803:6803): el frame 22 esta ocupado: 0 
+[INFO] 10:57:19:634 mi_ram.c/(6803:6803): el frame 23 esta ocupado: 0 
+[INFO] 10:57:19:634 mi_ram.c/(6803:6803): el frame 24 esta ocupado: 0 
+[INFO] 10:57:19:634 mi_ram.c/(6803:6803): el frame 25 esta ocupado: 0 
+[INFO] 10:57:19:634 mi_ram.c/(6803:6803): el frame 26 esta ocupado: 0 
+[INFO] 10:57:19:635 mi_ram.c/(6803:6803): el frame 27 esta ocupado: 0 
+[INFO] 10:57:19:635 mi_ram.c/(6803:6803): el frame 28 esta ocupado: 0 
+[INFO] 10:57:19:635 mi_ram.c/(6803:6803): el frame 29 esta ocupado: 0 
+[INFO] 10:57:19:635 mi_ram.c/(6803:6803): el frame 30 esta ocupado: 0 
+[INFO] 10:57:19:636 mi_ram.c/(6803:6803): el frame 31 esta ocupado: 0 
+[INFO] 10:57:30:509 mi_ram.c/(6803:6804): Conexión establecida con Discordiador
+[INFO] 10:57:30:513 mi_ram.c/(6803:6829): Recibi header: 0
+
+[INFO] 10:57:30:518 mi_ram.c/(6803:6829): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 10:57:30:521 mi_ram.c/(6803:6829): cantidad tcbs recibidos: 5 
+
+[INFO] 10:57:30:524 mi_ram.c/(6803:6829): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 10:57:30:534 mi_ram.c/(6803:6829): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 14 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 15 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 16 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 17 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 18 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 10:58:38:022 mi_ram.c/(6952:6952): Iniciando Frames... 
+[INFO] 10:58:38:067 mi_ram.c/(6952:6952): -------------------------
+[INFO] 10:58:38:068 mi_ram.c/(6952:6952): Disponibilidad de frames: 
+[INFO] 10:58:38:068 mi_ram.c/(6952:6952): el frame 0 esta ocupado: 0 
+[INFO] 10:58:38:069 mi_ram.c/(6952:6952): el frame 1 esta ocupado: 0 
+[INFO] 10:58:38:069 mi_ram.c/(6952:6952): el frame 2 esta ocupado: 0 
+[INFO] 10:58:38:069 mi_ram.c/(6952:6952): el frame 3 esta ocupado: 0 
+[INFO] 10:58:38:069 mi_ram.c/(6952:6952): el frame 4 esta ocupado: 0 
+[INFO] 10:58:38:069 mi_ram.c/(6952:6952): el frame 5 esta ocupado: 0 
+[INFO] 10:58:38:069 mi_ram.c/(6952:6952): el frame 6 esta ocupado: 0 
+[INFO] 10:58:38:069 mi_ram.c/(6952:6952): el frame 7 esta ocupado: 0 
+[INFO] 10:58:38:069 mi_ram.c/(6952:6952): el frame 8 esta ocupado: 0 
+[INFO] 10:58:38:069 mi_ram.c/(6952:6952): el frame 9 esta ocupado: 0 
+[INFO] 10:58:38:070 mi_ram.c/(6952:6952): el frame 10 esta ocupado: 0 
+[INFO] 10:58:38:070 mi_ram.c/(6952:6952): el frame 11 esta ocupado: 0 
+[INFO] 10:58:38:070 mi_ram.c/(6952:6952): el frame 12 esta ocupado: 0 
+[INFO] 10:58:38:070 mi_ram.c/(6952:6952): el frame 13 esta ocupado: 0 
+[INFO] 10:58:38:070 mi_ram.c/(6952:6952): el frame 14 esta ocupado: 0 
+[INFO] 10:58:38:070 mi_ram.c/(6952:6952): el frame 15 esta ocupado: 0 
+[INFO] 10:58:38:070 mi_ram.c/(6952:6952): el frame 16 esta ocupado: 0 
+[INFO] 10:58:38:070 mi_ram.c/(6952:6952): el frame 17 esta ocupado: 0 
+[INFO] 10:58:38:071 mi_ram.c/(6952:6952): el frame 18 esta ocupado: 0 
+[INFO] 10:58:38:071 mi_ram.c/(6952:6952): el frame 19 esta ocupado: 0 
+[INFO] 10:58:38:071 mi_ram.c/(6952:6952): el frame 20 esta ocupado: 0 
+[INFO] 10:58:38:071 mi_ram.c/(6952:6952): el frame 21 esta ocupado: 0 
+[INFO] 10:58:38:071 mi_ram.c/(6952:6952): el frame 22 esta ocupado: 0 
+[INFO] 10:58:38:071 mi_ram.c/(6952:6952): el frame 23 esta ocupado: 0 
+[INFO] 10:58:38:071 mi_ram.c/(6952:6952): el frame 24 esta ocupado: 0 
+[INFO] 10:58:38:071 mi_ram.c/(6952:6952): el frame 25 esta ocupado: 0 
+[INFO] 10:58:38:071 mi_ram.c/(6952:6952): el frame 26 esta ocupado: 0 
+[INFO] 10:58:38:071 mi_ram.c/(6952:6952): el frame 27 esta ocupado: 0 
+[INFO] 10:58:38:072 mi_ram.c/(6952:6952): el frame 28 esta ocupado: 0 
+[INFO] 10:58:38:072 mi_ram.c/(6952:6952): el frame 29 esta ocupado: 0 
+[INFO] 10:58:38:072 mi_ram.c/(6952:6952): el frame 30 esta ocupado: 0 
+[INFO] 10:58:38:072 mi_ram.c/(6952:6952): el frame 31 esta ocupado: 0 
+[INFO] 10:58:39:983 mi_ram.c/(6952:6954): Conexión establecida con Discordiador
+[INFO] 10:58:39:986 mi_ram.c/(6952:6965): Recibi header: 0
+
+[INFO] 10:58:39:992 mi_ram.c/(6952:6965): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 10:58:39:999 mi_ram.c/(6952:6965): cantidad tcbs recibidos: 5 
+
+[INFO] 10:58:40:000 mi_ram.c/(6952:6965): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 10:58:40:010 mi_ram.c/(6952:6965): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 19 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 1a 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 1b 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 1c 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 1d 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 10:58:46:807 mi_ram.c/(6952:6954): Conexión establecida con Discordiador
+[INFO] 10:58:46:808 mi_ram.c/(6952:6985): Recibi header: 0
+
+[INFO] 10:58:46:808 mi_ram.c/(6952:6985): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 10:58:46:808 mi_ram.c/(6952:6985): cantidad tcbs recibidos: 5 
+
+[INFO] 10:58:46:808 mi_ram.c/(6952:6985): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 10:58:46:812 mi_ram.c/(6952:6985): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 1e 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 1f 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 20 00 00 00 00  |..R........ ....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 21 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |!...........R...|
+0x000000a0: 00 00 00 00 00 22 00 00  00 00 00 00 00 00 00 00  |....."..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:00:10:972 mi_ram.c/(7131:7131): Iniciando Frames... 
+[INFO] 11:00:11:014 mi_ram.c/(7131:7131): -------------------------
+[INFO] 11:00:11:016 mi_ram.c/(7131:7131): Disponibilidad de frames: 
+[INFO] 11:00:11:016 mi_ram.c/(7131:7131): el frame 0 esta ocupado: 0 
+[INFO] 11:00:11:018 mi_ram.c/(7131:7131): el frame 1 esta ocupado: 0 
+[INFO] 11:00:11:018 mi_ram.c/(7131:7131): el frame 2 esta ocupado: 0 
+[INFO] 11:00:11:018 mi_ram.c/(7131:7131): el frame 3 esta ocupado: 0 
+[INFO] 11:00:11:018 mi_ram.c/(7131:7131): el frame 4 esta ocupado: 0 
+[INFO] 11:00:11:018 mi_ram.c/(7131:7131): el frame 5 esta ocupado: 0 
+[INFO] 11:00:11:018 mi_ram.c/(7131:7131): el frame 6 esta ocupado: 0 
+[INFO] 11:00:11:018 mi_ram.c/(7131:7131): el frame 7 esta ocupado: 0 
+[INFO] 11:00:11:019 mi_ram.c/(7131:7131): el frame 8 esta ocupado: 0 
+[INFO] 11:00:11:019 mi_ram.c/(7131:7131): el frame 9 esta ocupado: 0 
+[INFO] 11:00:11:019 mi_ram.c/(7131:7131): el frame 10 esta ocupado: 0 
+[INFO] 11:00:11:019 mi_ram.c/(7131:7131): el frame 11 esta ocupado: 0 
+[INFO] 11:00:11:019 mi_ram.c/(7131:7131): el frame 12 esta ocupado: 0 
+[INFO] 11:00:11:019 mi_ram.c/(7131:7131): el frame 13 esta ocupado: 0 
+[INFO] 11:00:11:019 mi_ram.c/(7131:7131): el frame 14 esta ocupado: 0 
+[INFO] 11:00:11:019 mi_ram.c/(7131:7131): el frame 15 esta ocupado: 0 
+[INFO] 11:00:11:019 mi_ram.c/(7131:7131): el frame 16 esta ocupado: 0 
+[INFO] 11:00:11:020 mi_ram.c/(7131:7131): el frame 17 esta ocupado: 0 
+[INFO] 11:00:11:020 mi_ram.c/(7131:7131): el frame 18 esta ocupado: 0 
+[INFO] 11:00:11:020 mi_ram.c/(7131:7131): el frame 19 esta ocupado: 0 
+[INFO] 11:00:11:020 mi_ram.c/(7131:7131): el frame 20 esta ocupado: 0 
+[INFO] 11:00:11:020 mi_ram.c/(7131:7131): el frame 21 esta ocupado: 0 
+[INFO] 11:00:11:020 mi_ram.c/(7131:7131): el frame 22 esta ocupado: 0 
+[INFO] 11:00:11:020 mi_ram.c/(7131:7131): el frame 23 esta ocupado: 0 
+[INFO] 11:00:11:020 mi_ram.c/(7131:7131): el frame 24 esta ocupado: 0 
+[INFO] 11:00:11:020 mi_ram.c/(7131:7131): el frame 25 esta ocupado: 0 
+[INFO] 11:00:11:021 mi_ram.c/(7131:7131): el frame 26 esta ocupado: 0 
+[INFO] 11:00:11:021 mi_ram.c/(7131:7131): el frame 27 esta ocupado: 0 
+[INFO] 11:00:11:021 mi_ram.c/(7131:7131): el frame 28 esta ocupado: 0 
+[INFO] 11:00:11:021 mi_ram.c/(7131:7131): el frame 29 esta ocupado: 0 
+[INFO] 11:00:11:021 mi_ram.c/(7131:7131): el frame 30 esta ocupado: 0 
+[INFO] 11:00:11:021 mi_ram.c/(7131:7131): el frame 31 esta ocupado: 0 
+[INFO] 11:00:12:422 mi_ram.c/(7131:7136): Conexión establecida con Discordiador
+[INFO] 11:00:12:425 mi_ram.c/(7131:7144): Recibi header: 0
+
+[INFO] 11:00:12:430 mi_ram.c/(7131:7144): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:00:12:433 mi_ram.c/(7131:7144): cantidad tcbs recibidos: 5 
+
+[INFO] 11:00:12:434 mi_ram.c/(7131:7144): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:00:12:446 mi_ram.c/(7131:7144): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 23 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||#...........R..|
+0x00000060: 00 00 00 00 00 00 24 00  00 00 00 00 00 00 00 00  |......$.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 25 00 00 00 00  |..R........%....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 26 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |&...........R...|
+0x000000a0: 00 00 00 00 00 27 00 00  00 00 00 00 00 00 00 00  |.....'..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:05:35:322 mi_ram.c/(7660:7660): Iniciando Frames... 
+[INFO] 11:05:35:361 mi_ram.c/(7660:7660): -------------------------
+[INFO] 11:05:35:361 mi_ram.c/(7660:7660): Disponibilidad de frames: 
+[INFO] 11:05:35:362 mi_ram.c/(7660:7660): el frame 0 esta ocupado: 0 
+[INFO] 11:05:35:362 mi_ram.c/(7660:7660): el frame 1 esta ocupado: 0 
+[INFO] 11:05:35:363 mi_ram.c/(7660:7660): el frame 2 esta ocupado: 0 
+[INFO] 11:05:35:363 mi_ram.c/(7660:7660): el frame 3 esta ocupado: 0 
+[INFO] 11:05:35:363 mi_ram.c/(7660:7660): el frame 4 esta ocupado: 0 
+[INFO] 11:05:35:363 mi_ram.c/(7660:7660): el frame 5 esta ocupado: 0 
+[INFO] 11:05:35:363 mi_ram.c/(7660:7660): el frame 6 esta ocupado: 0 
+[INFO] 11:05:35:363 mi_ram.c/(7660:7660): el frame 7 esta ocupado: 0 
+[INFO] 11:05:35:363 mi_ram.c/(7660:7660): el frame 8 esta ocupado: 0 
+[INFO] 11:05:35:363 mi_ram.c/(7660:7660): el frame 9 esta ocupado: 0 
+[INFO] 11:05:35:363 mi_ram.c/(7660:7660): el frame 10 esta ocupado: 0 
+[INFO] 11:05:35:363 mi_ram.c/(7660:7660): el frame 11 esta ocupado: 0 
+[INFO] 11:05:35:364 mi_ram.c/(7660:7660): el frame 12 esta ocupado: 0 
+[INFO] 11:05:35:364 mi_ram.c/(7660:7660): el frame 13 esta ocupado: 0 
+[INFO] 11:05:35:364 mi_ram.c/(7660:7660): el frame 14 esta ocupado: 0 
+[INFO] 11:05:35:364 mi_ram.c/(7660:7660): el frame 15 esta ocupado: 0 
+[INFO] 11:05:35:364 mi_ram.c/(7660:7660): el frame 16 esta ocupado: 0 
+[INFO] 11:05:35:364 mi_ram.c/(7660:7660): el frame 17 esta ocupado: 0 
+[INFO] 11:05:35:364 mi_ram.c/(7660:7660): el frame 18 esta ocupado: 0 
+[INFO] 11:05:35:364 mi_ram.c/(7660:7660): el frame 19 esta ocupado: 0 
+[INFO] 11:05:35:364 mi_ram.c/(7660:7660): el frame 20 esta ocupado: 0 
+[INFO] 11:05:35:364 mi_ram.c/(7660:7660): el frame 21 esta ocupado: 0 
+[INFO] 11:05:35:365 mi_ram.c/(7660:7660): el frame 22 esta ocupado: 0 
+[INFO] 11:05:35:365 mi_ram.c/(7660:7660): el frame 23 esta ocupado: 0 
+[INFO] 11:05:35:365 mi_ram.c/(7660:7660): el frame 24 esta ocupado: 0 
+[INFO] 11:05:35:365 mi_ram.c/(7660:7660): el frame 25 esta ocupado: 0 
+[INFO] 11:05:35:365 mi_ram.c/(7660:7660): el frame 26 esta ocupado: 0 
+[INFO] 11:05:35:365 mi_ram.c/(7660:7660): el frame 27 esta ocupado: 0 
+[INFO] 11:05:35:365 mi_ram.c/(7660:7660): el frame 28 esta ocupado: 0 
+[INFO] 11:05:35:365 mi_ram.c/(7660:7660): el frame 29 esta ocupado: 0 
+[INFO] 11:05:35:365 mi_ram.c/(7660:7660): el frame 30 esta ocupado: 0 
+[INFO] 11:05:35:365 mi_ram.c/(7660:7660): el frame 31 esta ocupado: 0 
+[INFO] 11:05:43:162 mi_ram.c/(7660:7661): Conexión establecida con Discordiador
+[INFO] 11:05:43:165 mi_ram.c/(7660:7678): Recibi header: 0
+
+[INFO] 11:05:43:170 mi_ram.c/(7660:7678): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:05:43:173 mi_ram.c/(7660:7678): cantidad tcbs recibidos: 5 
+
+[INFO] 11:05:43:174 mi_ram.c/(7660:7678): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:05:43:186 mi_ram.c/(7660:7678): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 28 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||(...........R..|
+0x00000060: 00 00 00 00 00 00 29 00  00 00 00 00 00 00 00 00  |......).........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 2a 00 00 00 00  |..R........*....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 2b 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |+...........R...|
+0x000000a0: 00 00 00 00 00 2c 00 00  00 00 00 00 00 00 00 00  |.....,..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): Iniciando Frames... 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): -------------------------
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): Disponibilidad de frames: 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 0 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 1 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 2 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 3 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 4 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 5 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 6 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 7 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 8 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 9 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 10 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 11 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 12 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 13 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 14 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 15 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 16 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 17 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 18 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 19 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 20 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 21 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 22 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 23 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 24 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 25 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 26 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 27 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 28 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 29 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 30 esta ocupado: 0 
+[INFO] 11:06:43:987 mi_ram.c/(7828:7828): el frame 31 esta ocupado: 0 
+[INFO] 11:06:47:341 mi_ram.c/(7828:7839): Conexión establecida con Discordiador
+[INFO] 11:06:47:347 mi_ram.c/(7828:7844): Recibi header: 0
+
+[INFO] 11:06:47:347 mi_ram.c/(7828:7844): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:06:47:348 mi_ram.c/(7828:7844): cantidad tcbs recibidos: 5 
+
+[INFO] 11:06:47:348 mi_ram.c/(7828:7844): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:08:35:497 mi_ram.c/(7828:7844): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 2d 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||-...........R..|
+0x00000060: 00 00 00 00 00 00 2e 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 2f 00 00 00 00  |..R......../....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 30 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |0...........R...|
+0x000000a0: 00 00 00 00 00 31 00 00  00 00 00 00 00 00 00 00  |.....1..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): Iniciando Frames... 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): -------------------------
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): Disponibilidad de frames: 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 0 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 1 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 2 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 3 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 4 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 5 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 6 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 7 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 8 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 9 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 10 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 11 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 12 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 13 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 14 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 15 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 16 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 17 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 18 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 19 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 20 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 21 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 22 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 23 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 24 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 25 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 26 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 27 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 28 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 29 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 30 esta ocupado: 0 
+[INFO] 11:10:26:178 mi_ram.c/(8210:8210): el frame 31 esta ocupado: 0 
+[INFO] 11:10:30:270 mi_ram.c/(8210:8219): Conexión establecida con Discordiador
+[INFO] 11:10:30:276 mi_ram.c/(8210:8231): Recibi header: 0
+
+[INFO] 11:10:30:276 mi_ram.c/(8210:8231): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:10:30:277 mi_ram.c/(8210:8231): cantidad tcbs recibidos: 5 
+
+[INFO] 11:10:30:277 mi_ram.c/(8210:8231): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:10:51:779 mi_ram.c/(8210:8231): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 32 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||2...........R..|
+0x00000060: 00 00 00 00 00 00 33 00  00 00 00 00 00 00 00 00  |......3.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 34 00 00 00 00  |..R........4....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 35 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |5...........R...|
+0x000000a0: 00 00 00 00 00 36 00 00  00 00 00 00 00 00 00 00  |.....6..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): Iniciando Frames... 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): -------------------------
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): Disponibilidad de frames: 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 0 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 1 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 2 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 3 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 4 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 5 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 6 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 7 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 8 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 9 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 10 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 11 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 12 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 13 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 14 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 15 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 16 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 17 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 18 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 19 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 20 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 21 esta ocupado: 0 
+[INFO] 11:10:57:818 mi_ram.c/(8319:8319): el frame 22 esta ocupado: 0 
+[INFO] 11:10:57:819 mi_ram.c/(8319:8319): el frame 23 esta ocupado: 0 
+[INFO] 11:10:57:819 mi_ram.c/(8319:8319): el frame 24 esta ocupado: 0 
+[INFO] 11:10:57:819 mi_ram.c/(8319:8319): el frame 25 esta ocupado: 0 
+[INFO] 11:10:57:819 mi_ram.c/(8319:8319): el frame 26 esta ocupado: 0 
+[INFO] 11:10:57:819 mi_ram.c/(8319:8319): el frame 27 esta ocupado: 0 
+[INFO] 11:10:57:819 mi_ram.c/(8319:8319): el frame 28 esta ocupado: 0 
+[INFO] 11:10:57:819 mi_ram.c/(8319:8319): el frame 29 esta ocupado: 0 
+[INFO] 11:10:57:819 mi_ram.c/(8319:8319): el frame 30 esta ocupado: 0 
+[INFO] 11:10:57:819 mi_ram.c/(8319:8319): el frame 31 esta ocupado: 0 
+[INFO] 11:11:01:614 mi_ram.c/(8319:8325): Conexión establecida con Discordiador
+[INFO] 11:11:01:620 mi_ram.c/(8319:8342): Recibi header: 0
+
+[INFO] 11:11:01:620 mi_ram.c/(8319:8342): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:11:01:621 mi_ram.c/(8319:8342): cantidad tcbs recibidos: 5 
+
+[INFO] 11:11:01:621 mi_ram.c/(8319:8342): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:11:22:224 mi_ram.c/(8319:8342): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 37 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||7...........R..|
+0x00000060: 00 00 00 00 00 00 38 00  00 00 00 00 00 00 00 00  |......8.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 39 00 00 00 00  |..R........9....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 3a 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |:...........R...|
+0x000000a0: 00 00 00 00 00 3b 00 00  00 00 00 00 00 00 00 00  |.....;..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): Iniciando Frames... 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): -------------------------
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): Disponibilidad de frames: 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 0 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 1 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 2 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 3 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 4 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 5 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 6 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 7 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 8 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 9 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 10 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 11 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 12 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 13 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 14 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 15 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 16 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 17 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 18 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 19 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 20 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 21 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 22 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 23 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 24 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 25 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 26 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 27 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 28 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 29 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 30 esta ocupado: 0 
+[INFO] 11:13:43:893 mi_ram.c/(8714:8714): el frame 31 esta ocupado: 0 
+[INFO] 11:13:46:277 mi_ram.c/(8714:8719): Conexión establecida con Discordiador
+[INFO] 11:13:46:283 mi_ram.c/(8714:8724): Recibi header: 0
+
+[INFO] 11:13:46:283 mi_ram.c/(8714:8724): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:13:46:283 mi_ram.c/(8714:8724): cantidad tcbs recibidos: 5 
+
+[INFO] 11:13:46:283 mi_ram.c/(8714:8724): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:14:34:363 mi_ram.c/(8714:8724): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 3c 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||<...........R..|
+0x00000060: 00 00 00 00 00 00 3d 00  00 00 00 00 00 00 00 00  |......=.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 3e 00 00 00 00  |..R........>....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 3f 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |?...........R...|
+0x000000a0: 00 00 00 00 00 40 00 00  00 00 00 00 00 00 00 00  |.....@..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:15:55:933 mi_ram.c/(8941:8941): Iniciando Frames... 
+[INFO] 11:15:55:971 mi_ram.c/(8941:8941): -------------------------
+[INFO] 11:15:55:972 mi_ram.c/(8941:8941): Disponibilidad de frames: 
+[INFO] 11:15:55:972 mi_ram.c/(8941:8941): el frame 0 esta ocupado: 0 
+[INFO] 11:15:55:973 mi_ram.c/(8941:8941): el frame 1 esta ocupado: 0 
+[INFO] 11:15:55:973 mi_ram.c/(8941:8941): el frame 2 esta ocupado: 0 
+[INFO] 11:15:55:973 mi_ram.c/(8941:8941): el frame 3 esta ocupado: 0 
+[INFO] 11:15:55:973 mi_ram.c/(8941:8941): el frame 4 esta ocupado: 0 
+[INFO] 11:15:55:973 mi_ram.c/(8941:8941): el frame 5 esta ocupado: 0 
+[INFO] 11:15:55:973 mi_ram.c/(8941:8941): el frame 6 esta ocupado: 0 
+[INFO] 11:15:55:973 mi_ram.c/(8941:8941): el frame 7 esta ocupado: 0 
+[INFO] 11:15:55:973 mi_ram.c/(8941:8941): el frame 8 esta ocupado: 0 
+[INFO] 11:15:55:973 mi_ram.c/(8941:8941): el frame 9 esta ocupado: 0 
+[INFO] 11:15:55:974 mi_ram.c/(8941:8941): el frame 10 esta ocupado: 0 
+[INFO] 11:15:55:974 mi_ram.c/(8941:8941): el frame 11 esta ocupado: 0 
+[INFO] 11:15:55:974 mi_ram.c/(8941:8941): el frame 12 esta ocupado: 0 
+[INFO] 11:15:55:974 mi_ram.c/(8941:8941): el frame 13 esta ocupado: 0 
+[INFO] 11:15:55:974 mi_ram.c/(8941:8941): el frame 14 esta ocupado: 0 
+[INFO] 11:15:55:974 mi_ram.c/(8941:8941): el frame 15 esta ocupado: 0 
+[INFO] 11:15:55:974 mi_ram.c/(8941:8941): el frame 16 esta ocupado: 0 
+[INFO] 11:15:55:974 mi_ram.c/(8941:8941): el frame 17 esta ocupado: 0 
+[INFO] 11:15:55:974 mi_ram.c/(8941:8941): el frame 18 esta ocupado: 0 
+[INFO] 11:15:55:975 mi_ram.c/(8941:8941): el frame 19 esta ocupado: 0 
+[INFO] 11:15:55:975 mi_ram.c/(8941:8941): el frame 20 esta ocupado: 0 
+[INFO] 11:15:55:975 mi_ram.c/(8941:8941): el frame 21 esta ocupado: 0 
+[INFO] 11:15:55:975 mi_ram.c/(8941:8941): el frame 22 esta ocupado: 0 
+[INFO] 11:15:55:975 mi_ram.c/(8941:8941): el frame 23 esta ocupado: 0 
+[INFO] 11:15:55:975 mi_ram.c/(8941:8941): el frame 24 esta ocupado: 0 
+[INFO] 11:15:55:975 mi_ram.c/(8941:8941): el frame 25 esta ocupado: 0 
+[INFO] 11:15:55:975 mi_ram.c/(8941:8941): el frame 26 esta ocupado: 0 
+[INFO] 11:15:55:975 mi_ram.c/(8941:8941): el frame 27 esta ocupado: 0 
+[INFO] 11:15:55:975 mi_ram.c/(8941:8941): el frame 28 esta ocupado: 0 
+[INFO] 11:15:55:976 mi_ram.c/(8941:8941): el frame 29 esta ocupado: 0 
+[INFO] 11:15:55:976 mi_ram.c/(8941:8941): el frame 30 esta ocupado: 0 
+[INFO] 11:15:55:976 mi_ram.c/(8941:8941): el frame 31 esta ocupado: 0 
+[INFO] 11:15:58:294 mi_ram.c/(8941:8942): Conexión establecida con Discordiador
+[INFO] 11:15:58:297 mi_ram.c/(8941:8953): Recibi header: 0
+
+[INFO] 11:15:58:303 mi_ram.c/(8941:8953): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:15:58:306 mi_ram.c/(8941:8953): cantidad tcbs recibidos: 5 
+
+[INFO] 11:15:58:309 mi_ram.c/(8941:8953): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:15:58:320 mi_ram.c/(8941:8953): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 41 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||A...........R..|
+0x00000060: 00 00 00 00 00 00 42 00  00 00 00 00 00 00 00 00  |......B.........|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 43 00 00 00 00  |..R........C....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 44 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |D...........R...|
+0x000000a0: 00 00 00 00 00 45 00 00  00 00 00 00 00 00 00 00  |.....E..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:33:12:319 mi_ram.c/(10627:10627): Iniciando Frames... 
+[INFO] 11:33:12:357 mi_ram.c/(10627:10627): -------------------------
+[INFO] 11:33:12:358 mi_ram.c/(10627:10627): Disponibilidad de frames: 
+[INFO] 11:33:12:359 mi_ram.c/(10627:10627): el frame 0 esta ocupado: 0 
+[INFO] 11:33:12:359 mi_ram.c/(10627:10627): el frame 1 esta ocupado: 0 
+[INFO] 11:33:12:359 mi_ram.c/(10627:10627): el frame 2 esta ocupado: 0 
+[INFO] 11:33:12:359 mi_ram.c/(10627:10627): el frame 3 esta ocupado: 0 
+[INFO] 11:33:12:359 mi_ram.c/(10627:10627): el frame 4 esta ocupado: 0 
+[INFO] 11:33:12:359 mi_ram.c/(10627:10627): el frame 5 esta ocupado: 0 
+[INFO] 11:33:12:359 mi_ram.c/(10627:10627): el frame 6 esta ocupado: 0 
+[INFO] 11:33:12:360 mi_ram.c/(10627:10627): el frame 7 esta ocupado: 0 
+[INFO] 11:33:12:360 mi_ram.c/(10627:10627): el frame 8 esta ocupado: 0 
+[INFO] 11:33:12:360 mi_ram.c/(10627:10627): el frame 9 esta ocupado: 0 
+[INFO] 11:33:12:360 mi_ram.c/(10627:10627): el frame 10 esta ocupado: 0 
+[INFO] 11:33:12:360 mi_ram.c/(10627:10627): el frame 11 esta ocupado: 0 
+[INFO] 11:33:12:360 mi_ram.c/(10627:10627): el frame 12 esta ocupado: 0 
+[INFO] 11:33:12:360 mi_ram.c/(10627:10627): el frame 13 esta ocupado: 0 
+[INFO] 11:33:12:360 mi_ram.c/(10627:10627): el frame 14 esta ocupado: 0 
+[INFO] 11:33:12:360 mi_ram.c/(10627:10627): el frame 15 esta ocupado: 0 
+[INFO] 11:33:12:360 mi_ram.c/(10627:10627): el frame 16 esta ocupado: 0 
+[INFO] 11:33:12:361 mi_ram.c/(10627:10627): el frame 17 esta ocupado: 0 
+[INFO] 11:33:12:361 mi_ram.c/(10627:10627): el frame 18 esta ocupado: 0 
+[INFO] 11:33:12:361 mi_ram.c/(10627:10627): el frame 19 esta ocupado: 0 
+[INFO] 11:33:12:361 mi_ram.c/(10627:10627): el frame 20 esta ocupado: 0 
+[INFO] 11:33:12:361 mi_ram.c/(10627:10627): el frame 21 esta ocupado: 0 
+[INFO] 11:33:12:361 mi_ram.c/(10627:10627): el frame 22 esta ocupado: 0 
+[INFO] 11:33:12:361 mi_ram.c/(10627:10627): el frame 23 esta ocupado: 0 
+[INFO] 11:33:12:361 mi_ram.c/(10627:10627): el frame 24 esta ocupado: 0 
+[INFO] 11:33:12:361 mi_ram.c/(10627:10627): el frame 25 esta ocupado: 0 
+[INFO] 11:33:12:362 mi_ram.c/(10627:10627): el frame 26 esta ocupado: 0 
+[INFO] 11:33:12:362 mi_ram.c/(10627:10627): el frame 27 esta ocupado: 0 
+[INFO] 11:33:12:362 mi_ram.c/(10627:10627): el frame 28 esta ocupado: 0 
+[INFO] 11:33:12:362 mi_ram.c/(10627:10627): el frame 29 esta ocupado: 0 
+[INFO] 11:33:12:362 mi_ram.c/(10627:10627): el frame 30 esta ocupado: 0 
+[INFO] 11:33:12:362 mi_ram.c/(10627:10627): el frame 31 esta ocupado: 0 
+[INFO] 11:33:14:424 mi_ram.c/(10627:10628): Conexión establecida con Discordiador
+[INFO] 11:33:14:430 mi_ram.c/(10627:10639): Recibi header: 0
+
+[INFO] 11:33:14:433 mi_ram.c/(10627:10639): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:33:14:436 mi_ram.c/(10627:10639): cantidad tcbs recibidos: 5 
+
+[INFO] 11:33:14:437 mi_ram.c/(10627:10639): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): Iniciando Frames... 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): -------------------------
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): Disponibilidad de frames: 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 0 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 1 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 2 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 3 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 4 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 5 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 6 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 7 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 8 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 9 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 10 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 11 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 12 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 13 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 14 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 15 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 16 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 17 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 18 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 19 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 20 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 21 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 22 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 23 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 24 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 25 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 26 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 27 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 28 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 29 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 30 esta ocupado: 0 
+[INFO] 11:33:48:172 mi_ram.c/(10727:10727): el frame 31 esta ocupado: 0 
+[INFO] 11:33:49:243 mi_ram.c/(10727:10733): Conexión establecida con Discordiador
+[INFO] 11:33:49:245 mi_ram.c/(10727:10735): Recibi header: 0
+
+[INFO] 11:33:49:245 mi_ram.c/(10727:10735): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:33:49:246 mi_ram.c/(10727:10735): cantidad tcbs recibidos: 5 
+
+[INFO] 11:33:49:246 mi_ram.c/(10727:10735): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): Iniciando Frames... 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): -------------------------
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): Disponibilidad de frames: 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 0 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 1 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 2 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 3 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 4 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 5 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 6 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 7 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 8 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 9 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 10 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 11 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 12 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 13 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 14 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 15 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 16 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 17 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 18 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 19 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 20 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 21 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 22 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 23 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 24 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 25 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 26 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 27 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 28 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 29 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 30 esta ocupado: 0 
+[INFO] 11:35:32:737 mi_ram.c/(10960:10960): el frame 31 esta ocupado: 0 
+[INFO] 11:35:36:585 mi_ram.c/(10960:10965): Conexión establecida con Discordiador
+[INFO] 11:35:36:591 mi_ram.c/(10960:10973): Recibi header: 0
+
+[INFO] 11:35:36:591 mi_ram.c/(10960:10973): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:35:36:591 mi_ram.c/(10960:10973): cantidad tcbs recibidos: 5 
+
+[INFO] 11:35:36:591 mi_ram.c/(10960:10973): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:35:57:207 mi_ram.c/(11026:11026): Iniciando Frames... 
+[INFO] 11:35:57:253 mi_ram.c/(11026:11026): -------------------------
+[INFO] 11:35:57:253 mi_ram.c/(11026:11026): Disponibilidad de frames: 
+[INFO] 11:35:57:254 mi_ram.c/(11026:11026): el frame 0 esta ocupado: 0 
+[INFO] 11:35:57:254 mi_ram.c/(11026:11026): el frame 1 esta ocupado: 0 
+[INFO] 11:35:57:254 mi_ram.c/(11026:11026): el frame 2 esta ocupado: 0 
+[INFO] 11:35:57:255 mi_ram.c/(11026:11026): el frame 3 esta ocupado: 0 
+[INFO] 11:35:57:255 mi_ram.c/(11026:11026): el frame 4 esta ocupado: 0 
+[INFO] 11:35:57:255 mi_ram.c/(11026:11026): el frame 5 esta ocupado: 0 
+[INFO] 11:35:57:255 mi_ram.c/(11026:11026): el frame 6 esta ocupado: 0 
+[INFO] 11:35:57:255 mi_ram.c/(11026:11026): el frame 7 esta ocupado: 0 
+[INFO] 11:35:57:255 mi_ram.c/(11026:11026): el frame 8 esta ocupado: 0 
+[INFO] 11:35:57:255 mi_ram.c/(11026:11026): el frame 9 esta ocupado: 0 
+[INFO] 11:35:57:255 mi_ram.c/(11026:11026): el frame 10 esta ocupado: 0 
+[INFO] 11:35:57:255 mi_ram.c/(11026:11026): el frame 11 esta ocupado: 0 
+[INFO] 11:35:57:256 mi_ram.c/(11026:11026): el frame 12 esta ocupado: 0 
+[INFO] 11:35:57:256 mi_ram.c/(11026:11026): el frame 13 esta ocupado: 0 
+[INFO] 11:35:57:256 mi_ram.c/(11026:11026): el frame 14 esta ocupado: 0 
+[INFO] 11:35:57:256 mi_ram.c/(11026:11026): el frame 15 esta ocupado: 0 
+[INFO] 11:35:57:256 mi_ram.c/(11026:11026): el frame 16 esta ocupado: 0 
+[INFO] 11:35:57:256 mi_ram.c/(11026:11026): el frame 17 esta ocupado: 0 
+[INFO] 11:35:57:256 mi_ram.c/(11026:11026): el frame 18 esta ocupado: 0 
+[INFO] 11:35:57:256 mi_ram.c/(11026:11026): el frame 19 esta ocupado: 0 
+[INFO] 11:35:57:257 mi_ram.c/(11026:11026): el frame 20 esta ocupado: 0 
+[INFO] 11:35:57:257 mi_ram.c/(11026:11026): el frame 21 esta ocupado: 0 
+[INFO] 11:35:57:257 mi_ram.c/(11026:11026): el frame 22 esta ocupado: 0 
+[INFO] 11:35:57:257 mi_ram.c/(11026:11026): el frame 23 esta ocupado: 0 
+[INFO] 11:35:57:257 mi_ram.c/(11026:11026): el frame 24 esta ocupado: 0 
+[INFO] 11:35:57:257 mi_ram.c/(11026:11026): el frame 25 esta ocupado: 0 
+[INFO] 11:35:57:257 mi_ram.c/(11026:11026): el frame 26 esta ocupado: 0 
+[INFO] 11:35:57:257 mi_ram.c/(11026:11026): el frame 27 esta ocupado: 0 
+[INFO] 11:35:57:257 mi_ram.c/(11026:11026): el frame 28 esta ocupado: 0 
+[INFO] 11:35:57:258 mi_ram.c/(11026:11026): el frame 29 esta ocupado: 0 
+[INFO] 11:35:57:258 mi_ram.c/(11026:11026): el frame 30 esta ocupado: 0 
+[INFO] 11:35:57:258 mi_ram.c/(11026:11026): el frame 31 esta ocupado: 0 
+[INFO] 11:35:59:041 mi_ram.c/(11026:11028): Conexión establecida con Discordiador
+[INFO] 11:35:59:044 mi_ram.c/(11026:11038): Recibi header: 0
+
+[INFO] 11:35:59:051 mi_ram.c/(11026:11038): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:35:59:057 mi_ram.c/(11026:11038): cantidad tcbs recibidos: 5 
+
+[INFO] 11:35:59:058 mi_ram.c/(11026:11038): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:35:59:068 mi_ram.c/(11026:11038): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 0f 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 10 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 11 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 12 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 13 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:38:00:752 mi_ram.c/(11249:11249): Iniciando Frames... 
+[INFO] 11:38:00:798 mi_ram.c/(11249:11249): -------------------------
+[INFO] 11:38:00:799 mi_ram.c/(11249:11249): Disponibilidad de frames: 
+[INFO] 11:38:00:800 mi_ram.c/(11249:11249): el frame 0 esta ocupado: 0 
+[INFO] 11:38:00:800 mi_ram.c/(11249:11249): el frame 1 esta ocupado: 0 
+[INFO] 11:38:00:800 mi_ram.c/(11249:11249): el frame 2 esta ocupado: 0 
+[INFO] 11:38:00:800 mi_ram.c/(11249:11249): el frame 3 esta ocupado: 0 
+[INFO] 11:38:00:801 mi_ram.c/(11249:11249): el frame 4 esta ocupado: 0 
+[INFO] 11:38:00:801 mi_ram.c/(11249:11249): el frame 5 esta ocupado: 0 
+[INFO] 11:38:00:801 mi_ram.c/(11249:11249): el frame 6 esta ocupado: 0 
+[INFO] 11:38:00:801 mi_ram.c/(11249:11249): el frame 7 esta ocupado: 0 
+[INFO] 11:38:00:801 mi_ram.c/(11249:11249): el frame 8 esta ocupado: 0 
+[INFO] 11:38:00:801 mi_ram.c/(11249:11249): el frame 9 esta ocupado: 0 
+[INFO] 11:38:00:801 mi_ram.c/(11249:11249): el frame 10 esta ocupado: 0 
+[INFO] 11:38:00:801 mi_ram.c/(11249:11249): el frame 11 esta ocupado: 0 
+[INFO] 11:38:00:801 mi_ram.c/(11249:11249): el frame 12 esta ocupado: 0 
+[INFO] 11:38:00:802 mi_ram.c/(11249:11249): el frame 13 esta ocupado: 0 
+[INFO] 11:38:00:802 mi_ram.c/(11249:11249): el frame 14 esta ocupado: 0 
+[INFO] 11:38:00:802 mi_ram.c/(11249:11249): el frame 15 esta ocupado: 0 
+[INFO] 11:38:00:802 mi_ram.c/(11249:11249): el frame 16 esta ocupado: 0 
+[INFO] 11:38:00:802 mi_ram.c/(11249:11249): el frame 17 esta ocupado: 0 
+[INFO] 11:38:00:802 mi_ram.c/(11249:11249): el frame 18 esta ocupado: 0 
+[INFO] 11:38:00:802 mi_ram.c/(11249:11249): el frame 19 esta ocupado: 0 
+[INFO] 11:38:00:802 mi_ram.c/(11249:11249): el frame 20 esta ocupado: 0 
+[INFO] 11:38:00:803 mi_ram.c/(11249:11249): el frame 21 esta ocupado: 0 
+[INFO] 11:38:00:803 mi_ram.c/(11249:11249): el frame 22 esta ocupado: 0 
+[INFO] 11:38:00:803 mi_ram.c/(11249:11249): el frame 23 esta ocupado: 0 
+[INFO] 11:38:00:803 mi_ram.c/(11249:11249): el frame 24 esta ocupado: 0 
+[INFO] 11:38:00:803 mi_ram.c/(11249:11249): el frame 25 esta ocupado: 0 
+[INFO] 11:38:00:803 mi_ram.c/(11249:11249): el frame 26 esta ocupado: 0 
+[INFO] 11:38:00:803 mi_ram.c/(11249:11249): el frame 27 esta ocupado: 0 
+[INFO] 11:38:00:803 mi_ram.c/(11249:11249): el frame 28 esta ocupado: 0 
+[INFO] 11:38:00:805 mi_ram.c/(11249:11249): el frame 29 esta ocupado: 0 
+[INFO] 11:38:00:805 mi_ram.c/(11249:11249): el frame 30 esta ocupado: 0 
+[INFO] 11:38:00:805 mi_ram.c/(11249:11249): el frame 31 esta ocupado: 0 
+[INFO] 11:38:02:774 mi_ram.c/(11249:11253): Conexión establecida con Discordiador
+[INFO] 11:38:02:776 mi_ram.c/(11249:11261): Recibi header: 0
+
+[INFO] 11:38:02:781 mi_ram.c/(11249:11261): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:38:02:784 mi_ram.c/(11249:11261): cantidad tcbs recibidos: 5 
+
+[INFO] 11:38:02:785 mi_ram.c/(11249:11261): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:38:02:797 mi_ram.c/(11249:11261): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 14 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 15 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 16 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 17 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 18 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:38:12:447 mi_ram.c/(11249:11253): Conexión establecida con Discordiador
+[INFO] 11:38:12:451 mi_ram.c/(11249:11285): Recibi header: 0
+
+[INFO] 11:38:12:454 mi_ram.c/(11249:11285): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|��*0�����A7�������0���
+[INFO] 11:38:12:456 mi_ram.c/(11249:11285): cantidad tcbs recibidos: 5 
+
+[INFO] 11:38:12:456 mi_ram.c/(11249:11285): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:38:12:460 mi_ram.c/(11249:11285): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 19 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 1a 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 1b 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 1c 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 1d 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:38:13:864 mi_ram.c/(11249:11253): Conexión establecida con Discordiador
+[INFO] 11:38:13:865 mi_ram.c/(11249:11297): Recibi header: 0
+
+[INFO] 11:38:13:865 mi_ram.c/(11249:11297): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:38:13:865 mi_ram.c/(11249:11297): cantidad tcbs recibidos: 5 
+
+[INFO] 11:38:13:866 mi_ram.c/(11249:11297): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:38:13:870 mi_ram.c/(11249:11297): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 1e 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 1f 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 20 00 00 00 00  |..R........ ....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 21 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |!...........R...|
+0x000000a0: 00 00 00 00 00 22 00 00  00 00 00 00 00 00 00 00  |....."..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): Iniciando Frames... 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): -------------------------
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): Disponibilidad de frames: 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 0 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 1 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 2 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 3 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 4 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 5 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 6 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 7 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 8 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 9 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 10 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 11 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 12 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 13 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 14 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 15 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 16 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 17 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 18 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 19 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 20 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 21 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 22 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 23 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 24 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 25 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 26 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 27 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 28 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 29 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 30 esta ocupado: 0 
+[INFO] 11:38:25:637 mi_ram.c/(11353:11353): el frame 31 esta ocupado: 0 
+[INFO] 11:38:38:109 mi_ram.c/(11353:11362): Conexión establecida con Discordiador
+[INFO] 11:38:38:112 mi_ram.c/(11353:11386): Recibi header: 0
+
+[INFO] 11:38:38:112 mi_ram.c/(11353:11386): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:38:38:112 mi_ram.c/(11353:11386): cantidad tcbs recibidos: 5 
+
+[INFO] 11:38:38:112 mi_ram.c/(11353:11386): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:39:11:532 mi_ram.c/(11353:11386): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
 0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
 0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
 0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
@@ -13573,4 +14641,1136 @@ CONSUMIR_OXIGENO 4;1;3;4|
 0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
 0x00000070: 00 00 52 00 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
 0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 03 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 04 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:43:09:309 mi_ram.c/(11799:11799): Iniciando Frames... 
+[INFO] 11:43:09:347 mi_ram.c/(11799:11799): -------------------------
+[INFO] 11:43:09:348 mi_ram.c/(11799:11799): Disponibilidad de frames: 
+[INFO] 11:43:09:348 mi_ram.c/(11799:11799): el frame 0 esta ocupado: 0 
+[INFO] 11:43:09:349 mi_ram.c/(11799:11799): el frame 1 esta ocupado: 0 
+[INFO] 11:43:09:349 mi_ram.c/(11799:11799): el frame 2 esta ocupado: 0 
+[INFO] 11:43:09:349 mi_ram.c/(11799:11799): el frame 3 esta ocupado: 0 
+[INFO] 11:43:09:349 mi_ram.c/(11799:11799): el frame 4 esta ocupado: 0 
+[INFO] 11:43:09:349 mi_ram.c/(11799:11799): el frame 5 esta ocupado: 0 
+[INFO] 11:43:09:349 mi_ram.c/(11799:11799): el frame 6 esta ocupado: 0 
+[INFO] 11:43:09:349 mi_ram.c/(11799:11799): el frame 7 esta ocupado: 0 
+[INFO] 11:43:09:349 mi_ram.c/(11799:11799): el frame 8 esta ocupado: 0 
+[INFO] 11:43:09:350 mi_ram.c/(11799:11799): el frame 9 esta ocupado: 0 
+[INFO] 11:43:09:350 mi_ram.c/(11799:11799): el frame 10 esta ocupado: 0 
+[INFO] 11:43:09:350 mi_ram.c/(11799:11799): el frame 11 esta ocupado: 0 
+[INFO] 11:43:09:350 mi_ram.c/(11799:11799): el frame 12 esta ocupado: 0 
+[INFO] 11:43:09:350 mi_ram.c/(11799:11799): el frame 13 esta ocupado: 0 
+[INFO] 11:43:09:350 mi_ram.c/(11799:11799): el frame 14 esta ocupado: 0 
+[INFO] 11:43:09:350 mi_ram.c/(11799:11799): el frame 15 esta ocupado: 0 
+[INFO] 11:43:09:350 mi_ram.c/(11799:11799): el frame 16 esta ocupado: 0 
+[INFO] 11:43:09:350 mi_ram.c/(11799:11799): el frame 17 esta ocupado: 0 
+[INFO] 11:43:09:350 mi_ram.c/(11799:11799): el frame 18 esta ocupado: 0 
+[INFO] 11:43:09:351 mi_ram.c/(11799:11799): el frame 19 esta ocupado: 0 
+[INFO] 11:43:09:351 mi_ram.c/(11799:11799): el frame 20 esta ocupado: 0 
+[INFO] 11:43:09:351 mi_ram.c/(11799:11799): el frame 21 esta ocupado: 0 
+[INFO] 11:43:09:351 mi_ram.c/(11799:11799): el frame 22 esta ocupado: 0 
+[INFO] 11:43:09:351 mi_ram.c/(11799:11799): el frame 23 esta ocupado: 0 
+[INFO] 11:43:09:351 mi_ram.c/(11799:11799): el frame 24 esta ocupado: 0 
+[INFO] 11:43:09:351 mi_ram.c/(11799:11799): el frame 25 esta ocupado: 0 
+[INFO] 11:43:09:351 mi_ram.c/(11799:11799): el frame 26 esta ocupado: 0 
+[INFO] 11:43:09:351 mi_ram.c/(11799:11799): el frame 27 esta ocupado: 0 
+[INFO] 11:43:09:351 mi_ram.c/(11799:11799): el frame 28 esta ocupado: 0 
+[INFO] 11:43:09:352 mi_ram.c/(11799:11799): el frame 29 esta ocupado: 0 
+[INFO] 11:43:09:352 mi_ram.c/(11799:11799): el frame 30 esta ocupado: 0 
+[INFO] 11:43:09:352 mi_ram.c/(11799:11799): el frame 31 esta ocupado: 0 
+[INFO] 11:43:17:575 mi_ram.c/(11799:11800): Conexión establecida con Discordiador
+[INFO] 11:43:17:578 mi_ram.c/(11799:11817): Recibi header: 0
+
+[INFO] 11:43:17:583 mi_ram.c/(11799:11817): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:43:17:586 mi_ram.c/(11799:11817): cantidad tcbs recibidos: 5 
+
+[INFO] 11:43:17:587 mi_ram.c/(11799:11817): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:43:17:599 mi_ram.c/(11799:11817): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 05 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 06 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 07 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 08 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 09 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 11:43:33:902 mi_ram.c/(11869:11869): Iniciando Frames... 
+[INFO] 11:43:33:946 mi_ram.c/(11869:11869): -------------------------
+[INFO] 11:43:33:946 mi_ram.c/(11869:11869): Disponibilidad de frames: 
+[INFO] 11:43:33:947 mi_ram.c/(11869:11869): el frame 0 esta ocupado: 0 
+[INFO] 11:43:33:947 mi_ram.c/(11869:11869): el frame 1 esta ocupado: 0 
+[INFO] 11:43:33:947 mi_ram.c/(11869:11869): el frame 2 esta ocupado: 0 
+[INFO] 11:43:33:947 mi_ram.c/(11869:11869): el frame 3 esta ocupado: 0 
+[INFO] 11:43:33:948 mi_ram.c/(11869:11869): el frame 4 esta ocupado: 0 
+[INFO] 11:43:33:948 mi_ram.c/(11869:11869): el frame 5 esta ocupado: 0 
+[INFO] 11:43:33:948 mi_ram.c/(11869:11869): el frame 6 esta ocupado: 0 
+[INFO] 11:43:33:948 mi_ram.c/(11869:11869): el frame 7 esta ocupado: 0 
+[INFO] 11:43:33:948 mi_ram.c/(11869:11869): el frame 8 esta ocupado: 0 
+[INFO] 11:43:33:948 mi_ram.c/(11869:11869): el frame 9 esta ocupado: 0 
+[INFO] 11:43:33:948 mi_ram.c/(11869:11869): el frame 10 esta ocupado: 0 
+[INFO] 11:43:33:948 mi_ram.c/(11869:11869): el frame 11 esta ocupado: 0 
+[INFO] 11:43:33:948 mi_ram.c/(11869:11869): el frame 12 esta ocupado: 0 
+[INFO] 11:43:33:948 mi_ram.c/(11869:11869): el frame 13 esta ocupado: 0 
+[INFO] 11:43:33:949 mi_ram.c/(11869:11869): el frame 14 esta ocupado: 0 
+[INFO] 11:43:33:949 mi_ram.c/(11869:11869): el frame 15 esta ocupado: 0 
+[INFO] 11:43:33:949 mi_ram.c/(11869:11869): el frame 16 esta ocupado: 0 
+[INFO] 11:43:33:949 mi_ram.c/(11869:11869): el frame 17 esta ocupado: 0 
+[INFO] 11:43:33:949 mi_ram.c/(11869:11869): el frame 18 esta ocupado: 0 
+[INFO] 11:43:33:949 mi_ram.c/(11869:11869): el frame 19 esta ocupado: 0 
+[INFO] 11:43:33:949 mi_ram.c/(11869:11869): el frame 20 esta ocupado: 0 
+[INFO] 11:43:33:949 mi_ram.c/(11869:11869): el frame 21 esta ocupado: 0 
+[INFO] 11:43:33:950 mi_ram.c/(11869:11869): el frame 22 esta ocupado: 0 
+[INFO] 11:43:33:950 mi_ram.c/(11869:11869): el frame 23 esta ocupado: 0 
+[INFO] 11:43:33:950 mi_ram.c/(11869:11869): el frame 24 esta ocupado: 0 
+[INFO] 11:43:33:950 mi_ram.c/(11869:11869): el frame 25 esta ocupado: 0 
+[INFO] 11:43:33:950 mi_ram.c/(11869:11869): el frame 26 esta ocupado: 0 
+[INFO] 11:43:33:950 mi_ram.c/(11869:11869): el frame 27 esta ocupado: 0 
+[INFO] 11:43:33:950 mi_ram.c/(11869:11869): el frame 28 esta ocupado: 0 
+[INFO] 11:43:33:950 mi_ram.c/(11869:11869): el frame 29 esta ocupado: 0 
+[INFO] 11:43:33:950 mi_ram.c/(11869:11869): el frame 30 esta ocupado: 0 
+[INFO] 11:43:33:951 mi_ram.c/(11869:11869): el frame 31 esta ocupado: 0 
+[INFO] 11:43:36:505 mi_ram.c/(11869:11871): Conexión establecida con Discordiador
+[INFO] 11:43:36:508 mi_ram.c/(11869:11882): Recibi header: 0
+
+[INFO] 11:43:36:514 mi_ram.c/(11869:11882): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 11:43:36:517 mi_ram.c/(11869:11882): cantidad tcbs recibidos: 5 
+
+[INFO] 11:43:36:521 mi_ram.c/(11869:11882): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 11:43:36:531 mi_ram.c/(11869:11882): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 0a 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 0b 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 0c 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 0d 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 0e 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:01:51:141 mi_ram.c/(13417:13417): Iniciando Frames... 
+[INFO] 12:01:51:185 mi_ram.c/(13417:13417): -------------------------
+[INFO] 12:01:51:185 mi_ram.c/(13417:13417): Disponibilidad de frames: 
+[INFO] 12:01:51:186 mi_ram.c/(13417:13417): el frame 0 esta ocupado: 0 
+[INFO] 12:01:51:186 mi_ram.c/(13417:13417): el frame 1 esta ocupado: 0 
+[INFO] 12:01:51:186 mi_ram.c/(13417:13417): el frame 2 esta ocupado: 0 
+[INFO] 12:01:51:187 mi_ram.c/(13417:13417): el frame 3 esta ocupado: 0 
+[INFO] 12:01:51:187 mi_ram.c/(13417:13417): el frame 4 esta ocupado: 0 
+[INFO] 12:01:51:187 mi_ram.c/(13417:13417): el frame 5 esta ocupado: 0 
+[INFO] 12:01:51:187 mi_ram.c/(13417:13417): el frame 6 esta ocupado: 0 
+[INFO] 12:01:51:187 mi_ram.c/(13417:13417): el frame 7 esta ocupado: 0 
+[INFO] 12:01:51:187 mi_ram.c/(13417:13417): el frame 8 esta ocupado: 0 
+[INFO] 12:01:51:187 mi_ram.c/(13417:13417): el frame 9 esta ocupado: 0 
+[INFO] 12:01:51:187 mi_ram.c/(13417:13417): el frame 10 esta ocupado: 0 
+[INFO] 12:01:51:187 mi_ram.c/(13417:13417): el frame 11 esta ocupado: 0 
+[INFO] 12:01:51:188 mi_ram.c/(13417:13417): el frame 12 esta ocupado: 0 
+[INFO] 12:01:51:188 mi_ram.c/(13417:13417): el frame 13 esta ocupado: 0 
+[INFO] 12:01:51:188 mi_ram.c/(13417:13417): el frame 14 esta ocupado: 0 
+[INFO] 12:01:51:188 mi_ram.c/(13417:13417): el frame 15 esta ocupado: 0 
+[INFO] 12:01:51:188 mi_ram.c/(13417:13417): el frame 16 esta ocupado: 0 
+[INFO] 12:01:51:188 mi_ram.c/(13417:13417): el frame 17 esta ocupado: 0 
+[INFO] 12:01:51:188 mi_ram.c/(13417:13417): el frame 18 esta ocupado: 0 
+[INFO] 12:01:51:188 mi_ram.c/(13417:13417): el frame 19 esta ocupado: 0 
+[INFO] 12:01:51:188 mi_ram.c/(13417:13417): el frame 20 esta ocupado: 0 
+[INFO] 12:01:51:188 mi_ram.c/(13417:13417): el frame 21 esta ocupado: 0 
+[INFO] 12:01:51:189 mi_ram.c/(13417:13417): el frame 22 esta ocupado: 0 
+[INFO] 12:01:51:189 mi_ram.c/(13417:13417): el frame 23 esta ocupado: 0 
+[INFO] 12:01:51:189 mi_ram.c/(13417:13417): el frame 24 esta ocupado: 0 
+[INFO] 12:01:51:189 mi_ram.c/(13417:13417): el frame 25 esta ocupado: 0 
+[INFO] 12:01:51:189 mi_ram.c/(13417:13417): el frame 26 esta ocupado: 0 
+[INFO] 12:01:51:189 mi_ram.c/(13417:13417): el frame 27 esta ocupado: 0 
+[INFO] 12:01:51:189 mi_ram.c/(13417:13417): el frame 28 esta ocupado: 0 
+[INFO] 12:01:51:189 mi_ram.c/(13417:13417): el frame 29 esta ocupado: 0 
+[INFO] 12:01:51:189 mi_ram.c/(13417:13417): el frame 30 esta ocupado: 0 
+[INFO] 12:01:51:190 mi_ram.c/(13417:13417): el frame 31 esta ocupado: 0 
+[INFO] 12:01:57:989 mi_ram.c/(13417:13419): Conexión establecida con Discordiador
+[INFO] 12:01:57:992 mi_ram.c/(13417:13441): Recibi header: 0
+
+[INFO] 12:01:57:998 mi_ram.c/(13417:13441): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:01:58:001 mi_ram.c/(13417:13441): cantidad tcbs recibidos: 5 
+
+[INFO] 12:01:58:002 mi_ram.c/(13417:13441): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:01:58:015 mi_ram.c/(13417:13441): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 0f 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 10 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 11 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 12 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 13 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): Iniciando Frames... 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): -------------------------
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): Disponibilidad de frames: 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 0 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 1 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 2 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 3 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 4 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 5 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 6 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 7 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 8 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 9 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 10 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 11 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 12 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 13 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 14 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 15 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 16 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 17 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 18 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 19 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 20 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 21 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 22 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 23 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 24 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 25 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 26 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 27 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 28 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 29 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 30 esta ocupado: 0 
+[INFO] 12:03:25:087 mi_ram.c/(13641:13641): el frame 31 esta ocupado: 0 
+[INFO] 12:03:34:620 mi_ram.c/(13641:13646): Conexión establecida con Discordiador
+[INFO] 12:03:34:624 mi_ram.c/(13641:13665): Recibi header: 0
+
+[INFO] 12:03:34:624 mi_ram.c/(13641:13665): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:03:34:625 mi_ram.c/(13641:13665): cantidad tcbs recibidos: 5 
+
+[INFO] 12:03:34:625 mi_ram.c/(13641:13665): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:04:06:190 mi_ram.c/(13641:13665): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 14 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 15 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 16 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 17 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 18 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:06:01:200 mi_ram.c/(13910:13910): Iniciando Frames... 
+[INFO] 12:06:01:243 mi_ram.c/(13910:13910): -------------------------
+[INFO] 12:06:01:244 mi_ram.c/(13910:13910): Disponibilidad de frames: 
+[INFO] 12:06:01:245 mi_ram.c/(13910:13910): el frame 0 esta ocupado: 0 
+[INFO] 12:06:01:245 mi_ram.c/(13910:13910): el frame 1 esta ocupado: 0 
+[INFO] 12:06:01:245 mi_ram.c/(13910:13910): el frame 2 esta ocupado: 0 
+[INFO] 12:06:01:245 mi_ram.c/(13910:13910): el frame 3 esta ocupado: 0 
+[INFO] 12:06:01:245 mi_ram.c/(13910:13910): el frame 4 esta ocupado: 0 
+[INFO] 12:06:01:245 mi_ram.c/(13910:13910): el frame 5 esta ocupado: 0 
+[INFO] 12:06:01:245 mi_ram.c/(13910:13910): el frame 6 esta ocupado: 0 
+[INFO] 12:06:01:245 mi_ram.c/(13910:13910): el frame 7 esta ocupado: 0 
+[INFO] 12:06:01:246 mi_ram.c/(13910:13910): el frame 8 esta ocupado: 0 
+[INFO] 12:06:01:246 mi_ram.c/(13910:13910): el frame 9 esta ocupado: 0 
+[INFO] 12:06:01:246 mi_ram.c/(13910:13910): el frame 10 esta ocupado: 0 
+[INFO] 12:06:01:246 mi_ram.c/(13910:13910): el frame 11 esta ocupado: 0 
+[INFO] 12:06:01:246 mi_ram.c/(13910:13910): el frame 12 esta ocupado: 0 
+[INFO] 12:06:01:246 mi_ram.c/(13910:13910): el frame 13 esta ocupado: 0 
+[INFO] 12:06:01:246 mi_ram.c/(13910:13910): el frame 14 esta ocupado: 0 
+[INFO] 12:06:01:246 mi_ram.c/(13910:13910): el frame 15 esta ocupado: 0 
+[INFO] 12:06:01:246 mi_ram.c/(13910:13910): el frame 16 esta ocupado: 0 
+[INFO] 12:06:01:247 mi_ram.c/(13910:13910): el frame 17 esta ocupado: 0 
+[INFO] 12:06:01:247 mi_ram.c/(13910:13910): el frame 18 esta ocupado: 0 
+[INFO] 12:06:01:247 mi_ram.c/(13910:13910): el frame 19 esta ocupado: 0 
+[INFO] 12:06:01:247 mi_ram.c/(13910:13910): el frame 20 esta ocupado: 0 
+[INFO] 12:06:01:247 mi_ram.c/(13910:13910): el frame 21 esta ocupado: 0 
+[INFO] 12:06:01:247 mi_ram.c/(13910:13910): el frame 22 esta ocupado: 0 
+[INFO] 12:06:01:247 mi_ram.c/(13910:13910): el frame 23 esta ocupado: 0 
+[INFO] 12:06:01:247 mi_ram.c/(13910:13910): el frame 24 esta ocupado: 0 
+[INFO] 12:06:01:247 mi_ram.c/(13910:13910): el frame 25 esta ocupado: 0 
+[INFO] 12:06:01:248 mi_ram.c/(13910:13910): el frame 26 esta ocupado: 0 
+[INFO] 12:06:01:248 mi_ram.c/(13910:13910): el frame 27 esta ocupado: 0 
+[INFO] 12:06:01:248 mi_ram.c/(13910:13910): el frame 28 esta ocupado: 0 
+[INFO] 12:06:01:248 mi_ram.c/(13910:13910): el frame 29 esta ocupado: 0 
+[INFO] 12:06:01:248 mi_ram.c/(13910:13910): el frame 30 esta ocupado: 0 
+[INFO] 12:06:01:248 mi_ram.c/(13910:13910): el frame 31 esta ocupado: 0 
+[INFO] 12:06:22:356 mi_ram.c/(13910:13912): Conexión establecida con Discordiador
+[INFO] 12:06:22:359 mi_ram.c/(13910:13978): Recibi header: 0
+
+[INFO] 12:06:22:361 mi_ram.c/(13910:13978): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:06:22:364 mi_ram.c/(13910:13978): cantidad tcbs recibidos: 5 
+
+[INFO] 12:06:22:365 mi_ram.c/(13910:13978): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:06:22:378 mi_ram.c/(13910:13978): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 03 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 04 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:06:39:774 mi_ram.c/(14025:14025): Iniciando Frames... 
+[INFO] 12:06:39:815 mi_ram.c/(14025:14025): -------------------------
+[INFO] 12:06:39:815 mi_ram.c/(14025:14025): Disponibilidad de frames: 
+[INFO] 12:06:39:816 mi_ram.c/(14025:14025): el frame 0 esta ocupado: 0 
+[INFO] 12:06:39:816 mi_ram.c/(14025:14025): el frame 1 esta ocupado: 0 
+[INFO] 12:06:39:816 mi_ram.c/(14025:14025): el frame 2 esta ocupado: 0 
+[INFO] 12:06:39:816 mi_ram.c/(14025:14025): el frame 3 esta ocupado: 0 
+[INFO] 12:06:39:816 mi_ram.c/(14025:14025): el frame 4 esta ocupado: 0 
+[INFO] 12:06:39:817 mi_ram.c/(14025:14025): el frame 5 esta ocupado: 0 
+[INFO] 12:06:39:817 mi_ram.c/(14025:14025): el frame 6 esta ocupado: 0 
+[INFO] 12:06:39:817 mi_ram.c/(14025:14025): el frame 7 esta ocupado: 0 
+[INFO] 12:06:39:817 mi_ram.c/(14025:14025): el frame 8 esta ocupado: 0 
+[INFO] 12:06:39:817 mi_ram.c/(14025:14025): el frame 9 esta ocupado: 0 
+[INFO] 12:06:39:817 mi_ram.c/(14025:14025): el frame 10 esta ocupado: 0 
+[INFO] 12:06:39:817 mi_ram.c/(14025:14025): el frame 11 esta ocupado: 0 
+[INFO] 12:06:39:817 mi_ram.c/(14025:14025): el frame 12 esta ocupado: 0 
+[INFO] 12:06:39:817 mi_ram.c/(14025:14025): el frame 13 esta ocupado: 0 
+[INFO] 12:06:39:817 mi_ram.c/(14025:14025): el frame 14 esta ocupado: 0 
+[INFO] 12:06:39:818 mi_ram.c/(14025:14025): el frame 15 esta ocupado: 0 
+[INFO] 12:06:39:818 mi_ram.c/(14025:14025): el frame 16 esta ocupado: 0 
+[INFO] 12:06:39:818 mi_ram.c/(14025:14025): el frame 17 esta ocupado: 0 
+[INFO] 12:06:39:818 mi_ram.c/(14025:14025): el frame 18 esta ocupado: 0 
+[INFO] 12:06:39:818 mi_ram.c/(14025:14025): el frame 19 esta ocupado: 0 
+[INFO] 12:06:39:818 mi_ram.c/(14025:14025): el frame 20 esta ocupado: 0 
+[INFO] 12:06:39:818 mi_ram.c/(14025:14025): el frame 21 esta ocupado: 0 
+[INFO] 12:06:39:818 mi_ram.c/(14025:14025): el frame 22 esta ocupado: 0 
+[INFO] 12:06:39:818 mi_ram.c/(14025:14025): el frame 23 esta ocupado: 0 
+[INFO] 12:06:39:819 mi_ram.c/(14025:14025): el frame 24 esta ocupado: 0 
+[INFO] 12:06:39:819 mi_ram.c/(14025:14025): el frame 25 esta ocupado: 0 
+[INFO] 12:06:39:819 mi_ram.c/(14025:14025): el frame 26 esta ocupado: 0 
+[INFO] 12:06:39:819 mi_ram.c/(14025:14025): el frame 27 esta ocupado: 0 
+[INFO] 12:06:39:819 mi_ram.c/(14025:14025): el frame 28 esta ocupado: 0 
+[INFO] 12:06:39:819 mi_ram.c/(14025:14025): el frame 29 esta ocupado: 0 
+[INFO] 12:06:39:819 mi_ram.c/(14025:14025): el frame 30 esta ocupado: 0 
+[INFO] 12:06:39:819 mi_ram.c/(14025:14025): el frame 31 esta ocupado: 0 
+[INFO] 12:06:42:567 mi_ram.c/(14025:14026): Conexión establecida con Discordiador
+[INFO] 12:06:42:570 mi_ram.c/(14025:14041): Recibi header: 0
+
+[INFO] 12:06:42:572 mi_ram.c/(14025:14041): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:06:42:575 mi_ram.c/(14025:14041): cantidad tcbs recibidos: 5 
+
+[INFO] 12:06:42:576 mi_ram.c/(14025:14041): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:06:42:589 mi_ram.c/(14025:14041): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 03 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 04 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:07:29:005 mi_ram.c/(14134:14134): Iniciando Frames... 
+[INFO] 12:07:29:046 mi_ram.c/(14134:14134): -------------------------
+[INFO] 12:07:29:046 mi_ram.c/(14134:14134): Disponibilidad de frames: 
+[INFO] 12:07:29:047 mi_ram.c/(14134:14134): el frame 0 esta ocupado: 0 
+[INFO] 12:07:29:048 mi_ram.c/(14134:14134): el frame 1 esta ocupado: 0 
+[INFO] 12:07:29:048 mi_ram.c/(14134:14134): el frame 2 esta ocupado: 0 
+[INFO] 12:07:29:048 mi_ram.c/(14134:14134): el frame 3 esta ocupado: 0 
+[INFO] 12:07:29:048 mi_ram.c/(14134:14134): el frame 4 esta ocupado: 0 
+[INFO] 12:07:29:048 mi_ram.c/(14134:14134): el frame 5 esta ocupado: 0 
+[INFO] 12:07:29:048 mi_ram.c/(14134:14134): el frame 6 esta ocupado: 0 
+[INFO] 12:07:29:048 mi_ram.c/(14134:14134): el frame 7 esta ocupado: 0 
+[INFO] 12:07:29:048 mi_ram.c/(14134:14134): el frame 8 esta ocupado: 0 
+[INFO] 12:07:29:049 mi_ram.c/(14134:14134): el frame 9 esta ocupado: 0 
+[INFO] 12:07:29:049 mi_ram.c/(14134:14134): el frame 10 esta ocupado: 0 
+[INFO] 12:07:29:049 mi_ram.c/(14134:14134): el frame 11 esta ocupado: 0 
+[INFO] 12:07:29:049 mi_ram.c/(14134:14134): el frame 12 esta ocupado: 0 
+[INFO] 12:07:29:049 mi_ram.c/(14134:14134): el frame 13 esta ocupado: 0 
+[INFO] 12:07:29:049 mi_ram.c/(14134:14134): el frame 14 esta ocupado: 0 
+[INFO] 12:07:29:049 mi_ram.c/(14134:14134): el frame 15 esta ocupado: 0 
+[INFO] 12:07:29:049 mi_ram.c/(14134:14134): el frame 16 esta ocupado: 0 
+[INFO] 12:07:29:049 mi_ram.c/(14134:14134): el frame 17 esta ocupado: 0 
+[INFO] 12:07:29:050 mi_ram.c/(14134:14134): el frame 18 esta ocupado: 0 
+[INFO] 12:07:29:050 mi_ram.c/(14134:14134): el frame 19 esta ocupado: 0 
+[INFO] 12:07:29:050 mi_ram.c/(14134:14134): el frame 20 esta ocupado: 0 
+[INFO] 12:07:29:050 mi_ram.c/(14134:14134): el frame 21 esta ocupado: 0 
+[INFO] 12:07:29:050 mi_ram.c/(14134:14134): el frame 22 esta ocupado: 0 
+[INFO] 12:07:29:050 mi_ram.c/(14134:14134): el frame 23 esta ocupado: 0 
+[INFO] 12:07:29:050 mi_ram.c/(14134:14134): el frame 24 esta ocupado: 0 
+[INFO] 12:07:29:050 mi_ram.c/(14134:14134): el frame 25 esta ocupado: 0 
+[INFO] 12:07:29:050 mi_ram.c/(14134:14134): el frame 26 esta ocupado: 0 
+[INFO] 12:07:29:051 mi_ram.c/(14134:14134): el frame 27 esta ocupado: 0 
+[INFO] 12:07:29:051 mi_ram.c/(14134:14134): el frame 28 esta ocupado: 0 
+[INFO] 12:07:29:051 mi_ram.c/(14134:14134): el frame 29 esta ocupado: 0 
+[INFO] 12:07:29:051 mi_ram.c/(14134:14134): el frame 30 esta ocupado: 0 
+[INFO] 12:07:29:051 mi_ram.c/(14134:14134): el frame 31 esta ocupado: 0 
+[INFO] 12:07:31:882 mi_ram.c/(14134:14136): Conexión establecida con Discordiador
+[INFO] 12:07:31:889 mi_ram.c/(14134:14155): Recibi header: 0
+
+[INFO] 12:07:31:892 mi_ram.c/(14134:14155): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:07:31:897 mi_ram.c/(14134:14155): cantidad tcbs recibidos: 5 
+
+[INFO] 12:07:31:898 mi_ram.c/(14134:14155): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:07:31:908 mi_ram.c/(14134:14155): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 05 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 06 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 07 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 08 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 09 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:07:42:911 mi_ram.c/(14134:14136): Conexión establecida con Discordiador
+[INFO] 12:07:42:915 mi_ram.c/(14134:14179): Recibi header: 0
+
+[INFO] 12:07:42:915 mi_ram.c/(14134:14179): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:07:42:915 mi_ram.c/(14134:14179): cantidad tcbs recibidos: 5 
+
+[INFO] 12:07:42:916 mi_ram.c/(14134:14179): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:07:42:921 mi_ram.c/(14134:14179): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 0a 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 0b 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 0c 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 0d 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 0e 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:07:54:598 mi_ram.c/(14134:14136): Conexión establecida con Discordiador
+[INFO] 12:07:54:602 mi_ram.c/(14134:14199): Recibi header: 0
+
+[INFO] 12:07:54:603 mi_ram.c/(14134:14199): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:07:54:604 mi_ram.c/(14134:14199): cantidad tcbs recibidos: 5 
+
+[INFO] 12:07:54:604 mi_ram.c/(14134:14199): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:07:54:609 mi_ram.c/(14134:14199): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 0f 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 10 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 11 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 12 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 13 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:08:53:767 mi_ram.c/(14310:14310): Iniciando Frames... 
+[INFO] 12:08:53:808 mi_ram.c/(14310:14310): -------------------------
+[INFO] 12:08:53:809 mi_ram.c/(14310:14310): Disponibilidad de frames: 
+[INFO] 12:08:53:809 mi_ram.c/(14310:14310): el frame 0 esta ocupado: 0 
+[INFO] 12:08:53:809 mi_ram.c/(14310:14310): el frame 1 esta ocupado: 0 
+[INFO] 12:08:53:810 mi_ram.c/(14310:14310): el frame 2 esta ocupado: 0 
+[INFO] 12:08:53:810 mi_ram.c/(14310:14310): el frame 3 esta ocupado: 0 
+[INFO] 12:08:53:810 mi_ram.c/(14310:14310): el frame 4 esta ocupado: 0 
+[INFO] 12:08:53:810 mi_ram.c/(14310:14310): el frame 5 esta ocupado: 0 
+[INFO] 12:08:53:810 mi_ram.c/(14310:14310): el frame 6 esta ocupado: 0 
+[INFO] 12:08:53:810 mi_ram.c/(14310:14310): el frame 7 esta ocupado: 0 
+[INFO] 12:08:53:810 mi_ram.c/(14310:14310): el frame 8 esta ocupado: 0 
+[INFO] 12:08:53:810 mi_ram.c/(14310:14310): el frame 9 esta ocupado: 0 
+[INFO] 12:08:53:810 mi_ram.c/(14310:14310): el frame 10 esta ocupado: 0 
+[INFO] 12:08:53:811 mi_ram.c/(14310:14310): el frame 11 esta ocupado: 0 
+[INFO] 12:08:53:811 mi_ram.c/(14310:14310): el frame 12 esta ocupado: 0 
+[INFO] 12:08:53:811 mi_ram.c/(14310:14310): el frame 13 esta ocupado: 0 
+[INFO] 12:08:53:811 mi_ram.c/(14310:14310): el frame 14 esta ocupado: 0 
+[INFO] 12:08:53:811 mi_ram.c/(14310:14310): el frame 15 esta ocupado: 0 
+[INFO] 12:08:53:811 mi_ram.c/(14310:14310): el frame 16 esta ocupado: 0 
+[INFO] 12:08:53:811 mi_ram.c/(14310:14310): el frame 17 esta ocupado: 0 
+[INFO] 12:08:53:811 mi_ram.c/(14310:14310): el frame 18 esta ocupado: 0 
+[INFO] 12:08:53:811 mi_ram.c/(14310:14310): el frame 19 esta ocupado: 0 
+[INFO] 12:08:53:812 mi_ram.c/(14310:14310): el frame 20 esta ocupado: 0 
+[INFO] 12:08:53:812 mi_ram.c/(14310:14310): el frame 21 esta ocupado: 0 
+[INFO] 12:08:53:812 mi_ram.c/(14310:14310): el frame 22 esta ocupado: 0 
+[INFO] 12:08:53:812 mi_ram.c/(14310:14310): el frame 23 esta ocupado: 0 
+[INFO] 12:08:53:812 mi_ram.c/(14310:14310): el frame 24 esta ocupado: 0 
+[INFO] 12:08:53:812 mi_ram.c/(14310:14310): el frame 25 esta ocupado: 0 
+[INFO] 12:08:53:812 mi_ram.c/(14310:14310): el frame 26 esta ocupado: 0 
+[INFO] 12:08:53:812 mi_ram.c/(14310:14310): el frame 27 esta ocupado: 0 
+[INFO] 12:08:53:812 mi_ram.c/(14310:14310): el frame 28 esta ocupado: 0 
+[INFO] 12:08:53:812 mi_ram.c/(14310:14310): el frame 29 esta ocupado: 0 
+[INFO] 12:08:53:813 mi_ram.c/(14310:14310): el frame 30 esta ocupado: 0 
+[INFO] 12:08:53:813 mi_ram.c/(14310:14310): el frame 31 esta ocupado: 0 
+[INFO] 12:08:55:878 mi_ram.c/(14310:14312): Conexión establecida con Discordiador
+[INFO] 12:08:55:884 mi_ram.c/(14310:14328): Recibi header: 0
+
+[INFO] 12:08:55:887 mi_ram.c/(14310:14328): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:08:55:893 mi_ram.c/(14310:14328): cantidad tcbs recibidos: 5 
+
+[INFO] 12:08:55:894 mi_ram.c/(14310:14328): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:08:55:905 mi_ram.c/(14310:14328): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 14 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 15 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 16 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 17 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 18 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:08:59:680 mi_ram.c/(14310:14312): Conexión establecida con Discordiador
+[INFO] 12:08:59:681 mi_ram.c/(14310:14338): Recibi header: 0
+
+[INFO] 12:08:59:681 mi_ram.c/(14310:14338): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:08:59:681 mi_ram.c/(14310:14338): cantidad tcbs recibidos: 5 
+
+[INFO] 12:08:59:681 mi_ram.c/(14310:14338): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:08:59:686 mi_ram.c/(14310:14338): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 19 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 1a 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 1b 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 1c 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 1d 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:09:03:000 mi_ram.c/(14310:14312): Conexión establecida con Discordiador
+[INFO] 12:09:03:004 mi_ram.c/(14310:14351): Recibi header: 0
+
+[INFO] 12:09:03:004 mi_ram.c/(14310:14351): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:09:03:004 mi_ram.c/(14310:14351): cantidad tcbs recibidos: 5 
+
+[INFO] 12:09:03:005 mi_ram.c/(14310:14351): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:09:03:010 mi_ram.c/(14310:14351): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 1e 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 1f 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 20 00 00 00 00  |..R........ ....|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 21 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |!...........R...|
+0x000000a0: 00 00 00 00 00 22 00 00  00 00 00 00 00 00 00 00  |....."..........|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:14:48:310 mi_ram.c/(14899:14899): Iniciando Frames... 
+[INFO] 12:14:48:353 mi_ram.c/(14899:14899): -------------------------
+[INFO] 12:14:48:353 mi_ram.c/(14899:14899): Disponibilidad de frames: 
+[INFO] 12:14:48:354 mi_ram.c/(14899:14899): el frame 0 esta ocupado: 0 
+[INFO] 12:14:48:354 mi_ram.c/(14899:14899): el frame 1 esta ocupado: 0 
+[INFO] 12:14:48:354 mi_ram.c/(14899:14899): el frame 2 esta ocupado: 0 
+[INFO] 12:14:48:354 mi_ram.c/(14899:14899): el frame 3 esta ocupado: 0 
+[INFO] 12:14:48:355 mi_ram.c/(14899:14899): el frame 4 esta ocupado: 0 
+[INFO] 12:14:48:355 mi_ram.c/(14899:14899): el frame 5 esta ocupado: 0 
+[INFO] 12:14:48:355 mi_ram.c/(14899:14899): el frame 6 esta ocupado: 0 
+[INFO] 12:14:48:355 mi_ram.c/(14899:14899): el frame 7 esta ocupado: 0 
+[INFO] 12:14:48:355 mi_ram.c/(14899:14899): el frame 8 esta ocupado: 0 
+[INFO] 12:14:48:355 mi_ram.c/(14899:14899): el frame 9 esta ocupado: 0 
+[INFO] 12:14:48:355 mi_ram.c/(14899:14899): el frame 10 esta ocupado: 0 
+[INFO] 12:14:48:356 mi_ram.c/(14899:14899): el frame 11 esta ocupado: 0 
+[INFO] 12:14:48:356 mi_ram.c/(14899:14899): el frame 12 esta ocupado: 0 
+[INFO] 12:14:48:356 mi_ram.c/(14899:14899): el frame 13 esta ocupado: 0 
+[INFO] 12:14:48:356 mi_ram.c/(14899:14899): el frame 14 esta ocupado: 0 
+[INFO] 12:14:48:356 mi_ram.c/(14899:14899): el frame 15 esta ocupado: 0 
+[INFO] 12:14:48:356 mi_ram.c/(14899:14899): el frame 16 esta ocupado: 0 
+[INFO] 12:14:48:356 mi_ram.c/(14899:14899): el frame 17 esta ocupado: 0 
+[INFO] 12:14:48:356 mi_ram.c/(14899:14899): el frame 18 esta ocupado: 0 
+[INFO] 12:14:48:356 mi_ram.c/(14899:14899): el frame 19 esta ocupado: 0 
+[INFO] 12:14:48:357 mi_ram.c/(14899:14899): el frame 20 esta ocupado: 0 
+[INFO] 12:14:48:357 mi_ram.c/(14899:14899): el frame 21 esta ocupado: 0 
+[INFO] 12:14:48:357 mi_ram.c/(14899:14899): el frame 22 esta ocupado: 0 
+[INFO] 12:14:48:357 mi_ram.c/(14899:14899): el frame 23 esta ocupado: 0 
+[INFO] 12:14:48:357 mi_ram.c/(14899:14899): el frame 24 esta ocupado: 0 
+[INFO] 12:14:48:357 mi_ram.c/(14899:14899): el frame 25 esta ocupado: 0 
+[INFO] 12:14:48:357 mi_ram.c/(14899:14899): el frame 26 esta ocupado: 0 
+[INFO] 12:14:48:357 mi_ram.c/(14899:14899): el frame 27 esta ocupado: 0 
+[INFO] 12:14:48:358 mi_ram.c/(14899:14899): el frame 28 esta ocupado: 0 
+[INFO] 12:14:48:358 mi_ram.c/(14899:14899): el frame 29 esta ocupado: 0 
+[INFO] 12:14:48:358 mi_ram.c/(14899:14899): el frame 30 esta ocupado: 0 
+[INFO] 12:14:48:358 mi_ram.c/(14899:14899): el frame 31 esta ocupado: 0 
+[INFO] 12:14:58:774 mi_ram.c/(14899:14900): Conexión establecida con Discordiador
+[INFO] 12:14:58:780 mi_ram.c/(14899:14930): Recibi header: 0
+
+[INFO] 12:14:58:783 mi_ram.c/(14899:14930): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:14:58:786 mi_ram.c/(14899:14930): cantidad tcbs recibidos: 5 
+
+[INFO] 12:14:58:787 mi_ram.c/(14899:14930): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:14:58:800 mi_ram.c/(14899:14930): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 03 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 04 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:15:01:386 mi_ram.c/(14899:14900): Conexión establecida con Discordiador
+[INFO] 12:15:01:388 mi_ram.c/(14899:14941): Recibi header: 0
+
+[INFO] 12:15:01:388 mi_ram.c/(14899:14941): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:15:01:388 mi_ram.c/(14899:14941): cantidad tcbs recibidos: 5 
+
+[INFO] 12:15:01:389 mi_ram.c/(14899:14941): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:15:01:393 mi_ram.c/(14899:14941): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 05 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 06 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 07 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 08 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 09 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:15:48:085 mi_ram.c/(15039:15039): Iniciando Frames... 
+[INFO] 12:15:48:126 mi_ram.c/(15039:15039): -------------------------
+[INFO] 12:15:48:126 mi_ram.c/(15039:15039): Disponibilidad de frames: 
+[INFO] 12:15:48:127 mi_ram.c/(15039:15039): el frame 0 esta ocupado: 0 
+[INFO] 12:15:48:127 mi_ram.c/(15039:15039): el frame 1 esta ocupado: 0 
+[INFO] 12:15:48:127 mi_ram.c/(15039:15039): el frame 2 esta ocupado: 0 
+[INFO] 12:15:48:127 mi_ram.c/(15039:15039): el frame 3 esta ocupado: 0 
+[INFO] 12:15:48:127 mi_ram.c/(15039:15039): el frame 4 esta ocupado: 0 
+[INFO] 12:15:48:128 mi_ram.c/(15039:15039): el frame 5 esta ocupado: 0 
+[INFO] 12:15:48:128 mi_ram.c/(15039:15039): el frame 6 esta ocupado: 0 
+[INFO] 12:15:48:128 mi_ram.c/(15039:15039): el frame 7 esta ocupado: 0 
+[INFO] 12:15:48:128 mi_ram.c/(15039:15039): el frame 8 esta ocupado: 0 
+[INFO] 12:15:48:128 mi_ram.c/(15039:15039): el frame 9 esta ocupado: 0 
+[INFO] 12:15:48:128 mi_ram.c/(15039:15039): el frame 10 esta ocupado: 0 
+[INFO] 12:15:48:128 mi_ram.c/(15039:15039): el frame 11 esta ocupado: 0 
+[INFO] 12:15:48:128 mi_ram.c/(15039:15039): el frame 12 esta ocupado: 0 
+[INFO] 12:15:48:128 mi_ram.c/(15039:15039): el frame 13 esta ocupado: 0 
+[INFO] 12:15:48:129 mi_ram.c/(15039:15039): el frame 14 esta ocupado: 0 
+[INFO] 12:15:48:129 mi_ram.c/(15039:15039): el frame 15 esta ocupado: 0 
+[INFO] 12:15:48:129 mi_ram.c/(15039:15039): el frame 16 esta ocupado: 0 
+[INFO] 12:15:48:129 mi_ram.c/(15039:15039): el frame 17 esta ocupado: 0 
+[INFO] 12:15:48:129 mi_ram.c/(15039:15039): el frame 18 esta ocupado: 0 
+[INFO] 12:15:48:129 mi_ram.c/(15039:15039): el frame 19 esta ocupado: 0 
+[INFO] 12:15:48:129 mi_ram.c/(15039:15039): el frame 20 esta ocupado: 0 
+[INFO] 12:15:48:129 mi_ram.c/(15039:15039): el frame 21 esta ocupado: 0 
+[INFO] 12:15:48:129 mi_ram.c/(15039:15039): el frame 22 esta ocupado: 0 
+[INFO] 12:15:48:130 mi_ram.c/(15039:15039): el frame 23 esta ocupado: 0 
+[INFO] 12:15:48:130 mi_ram.c/(15039:15039): el frame 24 esta ocupado: 0 
+[INFO] 12:15:48:130 mi_ram.c/(15039:15039): el frame 25 esta ocupado: 0 
+[INFO] 12:15:48:130 mi_ram.c/(15039:15039): el frame 26 esta ocupado: 0 
+[INFO] 12:15:48:130 mi_ram.c/(15039:15039): el frame 27 esta ocupado: 0 
+[INFO] 12:15:48:130 mi_ram.c/(15039:15039): el frame 28 esta ocupado: 0 
+[INFO] 12:15:48:130 mi_ram.c/(15039:15039): el frame 29 esta ocupado: 0 
+[INFO] 12:15:48:130 mi_ram.c/(15039:15039): el frame 30 esta ocupado: 0 
+[INFO] 12:15:48:130 mi_ram.c/(15039:15039): el frame 31 esta ocupado: 0 
+[INFO] 12:15:50:376 mi_ram.c/(15039:15040): Conexión establecida con Discordiador
+[INFO] 12:15:50:379 mi_ram.c/(15039:15051): Recibi header: 0
+
+[INFO] 12:15:50:384 mi_ram.c/(15039:15051): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:15:50:387 mi_ram.c/(15039:15051): cantidad tcbs recibidos: 5 
+
+[INFO] 12:15:50:388 mi_ram.c/(15039:15051): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:15:50:401 mi_ram.c/(15039:15051): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 0a 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 0b 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 0c 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 0d 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 0e 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:15:52:011 mi_ram.c/(15039:15040): Conexión establecida con Discordiador
+[INFO] 12:15:52:012 mi_ram.c/(15039:15060): Recibi header: 0
+
+[INFO] 12:15:52:012 mi_ram.c/(15039:15060): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:15:52:012 mi_ram.c/(15039:15060): cantidad tcbs recibidos: 5 
+
+[INFO] 12:15:52:012 mi_ram.c/(15039:15060): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:15:52:017 mi_ram.c/(15039:15060): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 0f 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 10 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 11 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 12 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 13 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:15:56:665 mi_ram.c/(15039:15040): Conexión establecida con Discordiador
+[INFO] 12:15:56:666 mi_ram.c/(15039:15071): Recibi header: 0
+
+[INFO] 12:15:56:666 mi_ram.c/(15039:15071): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:15:56:666 mi_ram.c/(15039:15071): cantidad tcbs recibidos: 5 
+
+[INFO] 12:15:56:666 mi_ram.c/(15039:15071): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:15:56:671 mi_ram.c/(15039:15071): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 14 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 15 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 16 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 17 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 18 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:16:00:726 mi_ram.c/(15039:15040): Conexión establecida con Discordiador
+[INFO] 12:16:00:727 mi_ram.c/(15039:15090): Recibi header: 0
+
+[INFO] 12:16:00:727 mi_ram.c/(15039:15090): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:16:00:728 mi_ram.c/(15039:15090): cantidad tcbs recibidos: 5 
+
+[INFO] 12:16:00:728 mi_ram.c/(15039:15090): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:16:00:732 mi_ram.c/(15039:15090): streamPatota a ser alojado en memoria 
+0x00000000: 03 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 03 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 04 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:16:02:256 mi_ram.c/(15039:15040): Conexión establecida con Discordiador
+[INFO] 12:16:02:257 mi_ram.c/(15039:15103): Recibi header: 0
+
+[INFO] 12:16:02:257 mi_ram.c/(15039:15103): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:16:02:257 mi_ram.c/(15039:15103): cantidad tcbs recibidos: 5 
+
+[INFO] 12:16:02:257 mi_ram.c/(15039:15103): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:16:02:262 mi_ram.c/(15039:15103): streamPatota a ser alojado en memoria 
+0x00000000: 04 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 05 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 06 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 07 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 08 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 09 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:16:30:781 mi_ram.c/(15185:15185): Iniciando Frames... 
+[INFO] 12:16:30:821 mi_ram.c/(15185:15185): -------------------------
+[INFO] 12:16:30:822 mi_ram.c/(15185:15185): Disponibilidad de frames: 
+[INFO] 12:16:30:822 mi_ram.c/(15185:15185): el frame 0 esta ocupado: 0 
+[INFO] 12:16:30:823 mi_ram.c/(15185:15185): el frame 1 esta ocupado: 0 
+[INFO] 12:16:30:823 mi_ram.c/(15185:15185): el frame 2 esta ocupado: 0 
+[INFO] 12:16:30:823 mi_ram.c/(15185:15185): el frame 3 esta ocupado: 0 
+[INFO] 12:16:30:823 mi_ram.c/(15185:15185): el frame 4 esta ocupado: 0 
+[INFO] 12:16:30:823 mi_ram.c/(15185:15185): el frame 5 esta ocupado: 0 
+[INFO] 12:16:30:823 mi_ram.c/(15185:15185): el frame 6 esta ocupado: 0 
+[INFO] 12:16:30:823 mi_ram.c/(15185:15185): el frame 7 esta ocupado: 0 
+[INFO] 12:16:30:823 mi_ram.c/(15185:15185): el frame 8 esta ocupado: 0 
+[INFO] 12:16:30:823 mi_ram.c/(15185:15185): el frame 9 esta ocupado: 0 
+[INFO] 12:16:30:823 mi_ram.c/(15185:15185): el frame 10 esta ocupado: 0 
+[INFO] 12:16:30:824 mi_ram.c/(15185:15185): el frame 11 esta ocupado: 0 
+[INFO] 12:16:30:824 mi_ram.c/(15185:15185): el frame 12 esta ocupado: 0 
+[INFO] 12:16:30:824 mi_ram.c/(15185:15185): el frame 13 esta ocupado: 0 
+[INFO] 12:16:30:824 mi_ram.c/(15185:15185): el frame 14 esta ocupado: 0 
+[INFO] 12:16:30:824 mi_ram.c/(15185:15185): el frame 15 esta ocupado: 0 
+[INFO] 12:16:30:824 mi_ram.c/(15185:15185): el frame 16 esta ocupado: 0 
+[INFO] 12:16:30:824 mi_ram.c/(15185:15185): el frame 17 esta ocupado: 0 
+[INFO] 12:16:30:824 mi_ram.c/(15185:15185): el frame 18 esta ocupado: 0 
+[INFO] 12:16:30:824 mi_ram.c/(15185:15185): el frame 19 esta ocupado: 0 
+[INFO] 12:16:30:825 mi_ram.c/(15185:15185): el frame 20 esta ocupado: 0 
+[INFO] 12:16:30:825 mi_ram.c/(15185:15185): el frame 21 esta ocupado: 0 
+[INFO] 12:16:30:825 mi_ram.c/(15185:15185): el frame 22 esta ocupado: 0 
+[INFO] 12:16:30:825 mi_ram.c/(15185:15185): el frame 23 esta ocupado: 0 
+[INFO] 12:16:30:825 mi_ram.c/(15185:15185): el frame 24 esta ocupado: 0 
+[INFO] 12:16:30:825 mi_ram.c/(15185:15185): el frame 25 esta ocupado: 0 
+[INFO] 12:16:30:825 mi_ram.c/(15185:15185): el frame 26 esta ocupado: 0 
+[INFO] 12:16:30:825 mi_ram.c/(15185:15185): el frame 27 esta ocupado: 0 
+[INFO] 12:16:30:825 mi_ram.c/(15185:15185): el frame 28 esta ocupado: 0 
+[INFO] 12:16:30:826 mi_ram.c/(15185:15185): el frame 29 esta ocupado: 0 
+[INFO] 12:16:30:826 mi_ram.c/(15185:15185): el frame 30 esta ocupado: 0 
+[INFO] 12:16:30:826 mi_ram.c/(15185:15185): el frame 31 esta ocupado: 0 
+[INFO] 12:16:34:940 mi_ram.c/(15185:15186): Conexión establecida con Discordiador
+[INFO] 12:16:34:942 mi_ram.c/(15185:15204): Recibi header: 0
+
+[INFO] 12:16:34:945 mi_ram.c/(15185:15204): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:16:34:948 mi_ram.c/(15185:15204): cantidad tcbs recibidos: 5 
+
+[INFO] 12:16:34:949 mi_ram.c/(15185:15204): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:16:34:962 mi_ram.c/(15185:15204): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 03 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 04 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:16:37:471 mi_ram.c/(15185:15186): Conexión establecida con Discordiador
+[INFO] 12:16:37:472 mi_ram.c/(15185:15210): Recibi header: 0
+
+[INFO] 12:16:37:472 mi_ram.c/(15185:15210): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:16:37:473 mi_ram.c/(15185:15210): cantidad tcbs recibidos: 5 
+
+[INFO] 12:16:37:473 mi_ram.c/(15185:15210): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:16:37:478 mi_ram.c/(15185:15210): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 05 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 06 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 07 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 08 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 09 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:17:08:825 mi_ram.c/(15289:15289): Iniciando Frames... 
+[INFO] 12:17:08:871 mi_ram.c/(15289:15289): -------------------------
+[INFO] 12:17:08:871 mi_ram.c/(15289:15289): Disponibilidad de frames: 
+[INFO] 12:17:08:872 mi_ram.c/(15289:15289): el frame 0 esta ocupado: 0 
+[INFO] 12:17:08:872 mi_ram.c/(15289:15289): el frame 1 esta ocupado: 0 
+[INFO] 12:17:08:872 mi_ram.c/(15289:15289): el frame 2 esta ocupado: 0 
+[INFO] 12:17:08:873 mi_ram.c/(15289:15289): el frame 3 esta ocupado: 0 
+[INFO] 12:17:08:873 mi_ram.c/(15289:15289): el frame 4 esta ocupado: 0 
+[INFO] 12:17:08:873 mi_ram.c/(15289:15289): el frame 5 esta ocupado: 0 
+[INFO] 12:17:08:873 mi_ram.c/(15289:15289): el frame 6 esta ocupado: 0 
+[INFO] 12:17:08:873 mi_ram.c/(15289:15289): el frame 7 esta ocupado: 0 
+[INFO] 12:17:08:873 mi_ram.c/(15289:15289): el frame 8 esta ocupado: 0 
+[INFO] 12:17:08:873 mi_ram.c/(15289:15289): el frame 9 esta ocupado: 0 
+[INFO] 12:17:08:873 mi_ram.c/(15289:15289): el frame 10 esta ocupado: 0 
+[INFO] 12:17:08:874 mi_ram.c/(15289:15289): el frame 11 esta ocupado: 0 
+[INFO] 12:17:08:874 mi_ram.c/(15289:15289): el frame 12 esta ocupado: 0 
+[INFO] 12:17:08:874 mi_ram.c/(15289:15289): el frame 13 esta ocupado: 0 
+[INFO] 12:17:08:874 mi_ram.c/(15289:15289): el frame 14 esta ocupado: 0 
+[INFO] 12:17:08:874 mi_ram.c/(15289:15289): el frame 15 esta ocupado: 0 
+[INFO] 12:17:08:874 mi_ram.c/(15289:15289): el frame 16 esta ocupado: 0 
+[INFO] 12:17:08:874 mi_ram.c/(15289:15289): el frame 17 esta ocupado: 0 
+[INFO] 12:17:08:874 mi_ram.c/(15289:15289): el frame 18 esta ocupado: 0 
+[INFO] 12:17:08:874 mi_ram.c/(15289:15289): el frame 19 esta ocupado: 0 
+[INFO] 12:17:08:875 mi_ram.c/(15289:15289): el frame 20 esta ocupado: 0 
+[INFO] 12:17:08:875 mi_ram.c/(15289:15289): el frame 21 esta ocupado: 0 
+[INFO] 12:17:08:875 mi_ram.c/(15289:15289): el frame 22 esta ocupado: 0 
+[INFO] 12:17:08:875 mi_ram.c/(15289:15289): el frame 23 esta ocupado: 0 
+[INFO] 12:17:08:875 mi_ram.c/(15289:15289): el frame 24 esta ocupado: 0 
+[INFO] 12:17:08:875 mi_ram.c/(15289:15289): el frame 25 esta ocupado: 0 
+[INFO] 12:17:08:875 mi_ram.c/(15289:15289): el frame 26 esta ocupado: 0 
+[INFO] 12:17:08:875 mi_ram.c/(15289:15289): el frame 27 esta ocupado: 0 
+[INFO] 12:17:08:876 mi_ram.c/(15289:15289): el frame 28 esta ocupado: 0 
+[INFO] 12:17:08:876 mi_ram.c/(15289:15289): el frame 29 esta ocupado: 0 
+[INFO] 12:17:08:876 mi_ram.c/(15289:15289): el frame 30 esta ocupado: 0 
+[INFO] 12:17:08:876 mi_ram.c/(15289:15289): el frame 31 esta ocupado: 0 
+[INFO] 12:17:12:381 mi_ram.c/(15289:15290): Conexión establecida con Discordiador
+[INFO] 12:17:12:383 mi_ram.c/(15289:15308): Recibi header: 0
+
+[INFO] 12:17:12:386 mi_ram.c/(15289:15308): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:17:12:389 mi_ram.c/(15289:15308): cantidad tcbs recibidos: 5 
+
+[INFO] 12:17:12:390 mi_ram.c/(15289:15308): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:17:12:403 mi_ram.c/(15289:15308): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 03 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 04 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:17:13:919 mi_ram.c/(15289:15290): Conexión establecida con Discordiador
+[INFO] 12:17:13:920 mi_ram.c/(15289:15311): Recibi header: 0
+
+[INFO] 12:17:13:920 mi_ram.c/(15289:15311): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:17:13:920 mi_ram.c/(15289:15311): cantidad tcbs recibidos: 5 
+
+[INFO] 12:17:13:921 mi_ram.c/(15289:15311): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:17:13:926 mi_ram.c/(15289:15311): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 05 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 06 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 07 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 08 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 09 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 12:17:15:618 mi_ram.c/(15289:15290): Conexión establecida con Discordiador
+[INFO] 12:17:15:619 mi_ram.c/(15289:15323): Recibi header: 0
+
+[INFO] 12:17:15:619 mi_ram.c/(15289:15323): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 12:17:15:619 mi_ram.c/(15289:15323): cantidad tcbs recibidos: 5 
+
+[INFO] 12:17:15:620 mi_ram.c/(15289:15323): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 12:17:15:624 mi_ram.c/(15289:15323): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+>>>>>>> 7d3cad7cc1cf149bf1ed64e4a73f9555e17286ef
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+<<<<<<< HEAD
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
 0x00000090: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+=======
+0x00000050: 7c 0a 00 00 00 00 00 00  00 00 00 00 00 52 00 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 0b 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 00 00 00 00 00  00 00 00 0c 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  00 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 0d 00 00 00 00 00 00 00  00 00 00 00 52 00 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 0e 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000b0: 00 52 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |.R..............|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+>>>>>>> 7d3cad7cc1cf149bf1ed64e4a73f9555e17286ef
+[INFO] 18:25:11:299 mi_ram.c/(6906:6906): Iniciando Frames... 
+[INFO] 18:25:11:300 mi_ram.c/(6906:6906): -------------------------
+[INFO] 18:25:11:301 mi_ram.c/(6906:6906): Disponibilidad de frames: 
+[INFO] 18:25:11:301 mi_ram.c/(6906:6906): el frame 0 esta ocupado: 0 
+[INFO] 18:25:11:301 mi_ram.c/(6906:6906): el frame 1 esta ocupado: 0 
+[INFO] 18:25:11:302 mi_ram.c/(6906:6906): el frame 2 esta ocupado: 0 
+[INFO] 18:25:11:302 mi_ram.c/(6906:6906): el frame 3 esta ocupado: 0 
+[INFO] 18:25:11:302 mi_ram.c/(6906:6906): el frame 4 esta ocupado: 0 
+[INFO] 18:25:11:302 mi_ram.c/(6906:6906): el frame 5 esta ocupado: 0 
+[INFO] 18:25:11:302 mi_ram.c/(6906:6906): el frame 6 esta ocupado: 0 
+[INFO] 18:25:11:302 mi_ram.c/(6906:6906): el frame 7 esta ocupado: 0 
+[INFO] 18:25:11:302 mi_ram.c/(6906:6906): el frame 8 esta ocupado: 0 
+[INFO] 18:25:11:302 mi_ram.c/(6906:6906): el frame 9 esta ocupado: 0 
+[INFO] 18:25:11:302 mi_ram.c/(6906:6906): el frame 10 esta ocupado: 0 
+[INFO] 18:25:11:302 mi_ram.c/(6906:6906): el frame 11 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 12 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 13 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 14 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 15 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 16 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 17 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 18 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 19 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 20 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 21 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 22 esta ocupado: 0 
+[INFO] 18:25:11:303 mi_ram.c/(6906:6906): el frame 23 esta ocupado: 0 
+[INFO] 18:25:11:304 mi_ram.c/(6906:6906): el frame 24 esta ocupado: 0 
+[INFO] 18:25:11:304 mi_ram.c/(6906:6906): el frame 25 esta ocupado: 0 
+[INFO] 18:25:11:304 mi_ram.c/(6906:6906): el frame 26 esta ocupado: 0 
+[INFO] 18:25:11:304 mi_ram.c/(6906:6906): el frame 27 esta ocupado: 0 
+[INFO] 18:25:11:304 mi_ram.c/(6906:6906): el frame 28 esta ocupado: 0 
+[INFO] 18:25:11:304 mi_ram.c/(6906:6906): el frame 29 esta ocupado: 0 
+[INFO] 18:25:11:304 mi_ram.c/(6906:6906): el frame 30 esta ocupado: 0 
+[INFO] 18:25:11:304 mi_ram.c/(6906:6906): el frame 31 esta ocupado: 0 
+[INFO] 18:25:21:655 mi_ram.c/(6906:6908): Conexión establecida con Discordiador
+[INFO] 18:25:21:657 mi_ram.c/(6906:6917): Recibi header: 0
+
+[INFO] 18:25:21:657 mi_ram.c/(6906:6917): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 18:25:21:660 mi_ram.c/(6906:6917): cantidad tcbs recibidos: 3 
+
+[INFO] 18:25:21:660 mi_ram.c/(6906:6917): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 18:25:21:660 mi_ram.c/(6906:6917): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 08 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 08 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  08 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 18:26:03:656 mi_ram.c/(6951:6951): Iniciando Frames... 
+[INFO] 18:26:03:656 mi_ram.c/(6951:6951): -------------------------
+[INFO] 18:26:03:656 mi_ram.c/(6951:6951): Disponibilidad de frames: 
+[INFO] 18:26:03:657 mi_ram.c/(6951:6951): el frame 0 esta ocupado: 0 
+[INFO] 18:26:03:657 mi_ram.c/(6951:6951): el frame 1 esta ocupado: 0 
+[INFO] 18:26:03:657 mi_ram.c/(6951:6951): el frame 2 esta ocupado: 0 
+[INFO] 18:26:03:657 mi_ram.c/(6951:6951): el frame 3 esta ocupado: 0 
+[INFO] 18:26:03:657 mi_ram.c/(6951:6951): el frame 4 esta ocupado: 0 
+[INFO] 18:26:03:657 mi_ram.c/(6951:6951): el frame 5 esta ocupado: 0 
+[INFO] 18:26:03:657 mi_ram.c/(6951:6951): el frame 6 esta ocupado: 0 
+[INFO] 18:26:03:657 mi_ram.c/(6951:6951): el frame 7 esta ocupado: 0 
+[INFO] 18:26:03:657 mi_ram.c/(6951:6951): el frame 8 esta ocupado: 0 
+[INFO] 18:26:03:658 mi_ram.c/(6951:6951): el frame 9 esta ocupado: 0 
+[INFO] 18:26:03:658 mi_ram.c/(6951:6951): el frame 10 esta ocupado: 0 
+[INFO] 18:26:03:658 mi_ram.c/(6951:6951): el frame 11 esta ocupado: 0 
+[INFO] 18:26:03:658 mi_ram.c/(6951:6951): el frame 12 esta ocupado: 0 
+[INFO] 18:26:03:658 mi_ram.c/(6951:6951): el frame 13 esta ocupado: 0 
+[INFO] 18:26:03:658 mi_ram.c/(6951:6951): el frame 14 esta ocupado: 0 
+[INFO] 18:26:03:658 mi_ram.c/(6951:6951): el frame 15 esta ocupado: 0 
+[INFO] 18:26:03:658 mi_ram.c/(6951:6951): el frame 16 esta ocupado: 0 
+[INFO] 18:26:03:658 mi_ram.c/(6951:6951): el frame 17 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 18 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 19 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 20 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 21 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 22 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 23 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 24 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 25 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 26 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 27 esta ocupado: 0 
+[INFO] 18:26:03:659 mi_ram.c/(6951:6951): el frame 28 esta ocupado: 0 
+[INFO] 18:26:03:660 mi_ram.c/(6951:6951): el frame 29 esta ocupado: 0 
+[INFO] 18:26:03:660 mi_ram.c/(6951:6951): el frame 30 esta ocupado: 0 
+[INFO] 18:26:03:660 mi_ram.c/(6951:6951): el frame 31 esta ocupado: 0 
+[INFO] 18:26:11:599 mi_ram.c/(6951:6952): Conexión establecida con Discordiador
+[INFO] 18:26:11:600 mi_ram.c/(6951:6971): Recibi header: 0
+
+[INFO] 18:26:11:601 mi_ram.c/(6951:6971): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 18:26:11:603 mi_ram.c/(6951:6971): cantidad tcbs recibidos: 3 
+
+[INFO] 18:26:11:603 mi_ram.c/(6951:6971): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 18:26:11:603 mi_ram.c/(6951:6971): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 36 0a  |OXIGENO 3;1;2;6.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 38 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;8.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 34 3b 31 3b 33 3b 34  |_OXIGENO 4;1;3;4|
+0x00000050: 7c 00 00 00 00 00 00 00  00 00 00 00 00 52 08 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 00 00 00 00 00 00  |................|
+0x00000070: 00 00 52 08 00 00 00 00  00 00 00 02 00 00 00 00  |..R.............|
+0x00000080: 00 00 00 00 00 00 00 52  08 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 18:26:49:092 mi_ram.c/(7008:7009): Conexión establecida con Discordiador
+[INFO] 18:26:49:102 mi_ram.c/(7008:7010): Recibi header: 0
+
+[INFO] 18:26:49:107 mi_ram.c/(7008:7010): GENERAR_OXIGENO 3;1;2;6
+GENERAR_OXIGENO 4;2;3;8
+CONSUMIR_OXIGENO 4;1;3;4|
+[INFO] 18:26:49:107 mi_ram.c/(7008:7010): cantidad tcbs recibidos: 3 
+
+[INFO] 18:26:49:107 mi_ram.c/(7008:7010): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 18:26:49:110 mi_ram.c/(7008:7010): Proxima tarea: GENERAR_OXIGENO 3;1;2;6
+[INFO] 18:26:49:112 mi_ram.c/(7008:7010): Proxima tarea: GENERAR_OXIGENO 4;2;3;8
