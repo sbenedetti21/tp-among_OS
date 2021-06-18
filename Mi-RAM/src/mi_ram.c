@@ -4,7 +4,6 @@
  
 NIVEL* navePrincipal;
 
-
 int main(int argc, char ** argv){
 
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
@@ -12,6 +11,7 @@ int main(int argc, char ** argv){
 	sem_init(&mutexProximoPID, 0, 1);
 
 	memoriaPrincipal = malloc(tamanioMemoria);
+	memset(memoriaPrincipal, 0, tamanioMemoria);
 	iniciarMemoria();
 
 	pthread_t servidor;
@@ -129,10 +129,9 @@ void atenderDiscordiador(int socketCliente){
 				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs + 8;
 				int framesNecesarios = divisionRedondeadaParaArriba(memoriaNecesaria, tamanioPagina);
 				void * streamPatota = malloc(memoriaNecesaria);
+				memset(streamPatota, 0, memoriaNecesaria);
 
 				t_list * tablaDePaginas = list_create();
-
-				referenciaTablaPatota * referenciaPatota = malloc(sizeof(referenciaTablaPatota));
 
 	
 				PCB * pcb = crearPCB();
@@ -147,22 +146,24 @@ void atenderDiscordiador(int socketCliente){
 				memcpy(streamPatota + offset, tareas, tamanioTareas);
 				offset += tamanioTareas;
 
-
 				uint32_t proximaInstruccion = 0, direccionPCB = 0;
 				uint32_t idTripulante[cantidadTCBs];
 				for (int i = 0; i < cantidadTCBs; i++) {
 
-					memcpy(streamPatota + offset, stream, SIZEOF_TCB);
-					stream += SIZEOF_TCB; offset += (SIZEOF_TCB - 8);
-					//memcpy(streamPatota + offset, &proximaInstruccion, sizeof(uint32_t));
-					memset(streamPatota + offset, 0, sizeof(uint32_t));
+					memcpy(streamPatota + offset, stream, (SIZEOF_TCB - 8));
+					stream += (SIZEOF_TCB - 8); offset += (SIZEOF_TCB - 8);
+					mem_hexdump(streamPatota, memoriaNecesaria);
+					memcpy(streamPatota + offset, &proximaInstruccion, sizeof(uint32_t));
+					//memset(streamPatota + offset, 0, sizeof(uint32_t));
+					mem_hexdump(streamPatota, memoriaNecesaria);
 					offset += sizeof(uint32_t);
-					//memcpy(streamPatota + offset, &direccionPCB, sizeof(uint32_t));
-					memset(streamPatota + offset, 0, sizeof(uint32_t));
+					memcpy(streamPatota + offset, &direccionPCB, sizeof(uint32_t));
+					//memset(streamPatota + offset, 0, sizeof(uint32_t));
 					offset += sizeof(uint32_t);
+					mem_hexdump(streamPatota, memoriaNecesaria);
 				};
 			
-				
+				mem_hexdump(streamPatota, memoriaNecesaria);
 
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria);
 
@@ -179,7 +180,7 @@ void atenderDiscordiador(int socketCliente){
 				// mostrarMemoriaInt(21, 18, 1);
 				// mostrarMemoriaChar(22, 2, 1);
 				// mostrarMemoriaInt(22, 3, 4);
-				free(streamPatota);
+				
 			}
 
 			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
@@ -472,7 +473,7 @@ void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int c
 
 	int i = 0, j = 0;
 
-	for (i = 0; i < cantidadFrames; i++){
+	for (i = 0; i < cantidadFrames - 1; i++){
 		uint32_t direcProximoFrame = buscarFrame();
 		printf("direc prox frame a escribir %d \n", direcProximoFrame);
 
@@ -496,6 +497,8 @@ void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int c
 		list_add(tablaDePaginas, pagina);
 		j = 0;
 	}
+
+
 
 	pthread_mutex_lock(&mutexListaTablas);
 	list_add(listaTablasDePaginas, tablaDePaginas);
