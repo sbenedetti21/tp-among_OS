@@ -66,15 +66,15 @@ sem_t mutexTablaDeTablas;
 
 typedef struct{
 	uint32_t pid;
-	uint32_t * tripulantesDeLaPatota;
+	uint32_t tripulantesDeLaPatota[10];
 	uint32_t tamanioTareas;
 	t_list * tablaPatota;
 } referenciaTablaPatota;
 
-// typedef struct {
-// 	uint32_t patotaID;
-// 	uint32_t tripulanteID;
-// } t_tripuAsociado;
+typedef struct {
+	uint32_t patotaID;
+	uint32_t tripulanteID;
+} t_tripuAsociado;
 
 typedef struct{
 	
