@@ -84,14 +84,15 @@ void atenderDiscordiador(int socketCliente){
 
 	if(! BUFFER_RECV){ log_error(loggerMiram,"No se pudo recibir el buffer");}
 
+	void* stream = malloc(paquete->buffer->size);
+	stream = paquete->buffer->stream;
 
 	switch (paquete->header)
 	{
 	case INICIAR_PATOTA: ; 
 		
 
-		void* stream = malloc(paquete->buffer->size);
-		stream = paquete->buffer->stream;
+		
 
 		// Deserializamos tareas
 		int tamanioTareas;
@@ -287,6 +288,12 @@ void atenderDiscordiador(int socketCliente){
 
 	case PEDIR_TAREA: ;
 
+		void* stream = malloc(paquete->buffer->size);
+		stream = paquete->buffer->stream;
+		uint32_t tid;
+		memcpy(&tid, stream, sizeof(uint32_t));
+		// en tid ya tenes el tid del tripulante que te lo pidio
+
 		/*
 		uint32_t idTripulante = 0;
 		memcpy(&idTripulante, paquete->buffer->stream, sizeof(uint32_t));
@@ -300,7 +307,34 @@ void atenderDiscordiador(int socketCliente){
 		void * streamTarea;
 
 		send(socketCliente, )
-		 */ 
+		 */
+
+		char * stringTarea; //este es el string de tareas que despues tenes que cambiar por el que uses
+		int tamanioTarea = strlen(stringTarea) + 1;
+		bool hayTarea = true;
+
+		if(hayTarea){ //Esto cambialo cuando sepas si hay tarea o no
+
+		t_buffer* buffer = malloc(sizeof(t_buffer));
+
+		buffer-> size = sizeof(int) + tamanioTarea;
+
+		int offset = 0;
+
+		memcpy(stream+offset, &tamanioTarea , sizeof(int));
+		offset += sizeof(int);
+
+		memcpy(stream+offset, stringTarea, tamanioTarea);
+
+		buffer-> stream = stream;
+
+		mandarPaqueteSerializado(buffer, socket, HAY_TAREA);
+		}
+		else{
+			t_buffer* buffer = malloc(sizeof(t_buffer)); // se puede mandar un buffer vacio????????????
+
+			mandarPaqueteSerializado(buffer, socket, NO_HAY_TAREA);
+		}
 
 		break;
 	
@@ -383,7 +417,28 @@ PCB * crearPCB(){
 }
 
 
+void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
 
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+	 paquete->buffer = malloc(sizeof(buffer->size));
+
+	paquete->header = header;
+	paquete->buffer = buffer;
+
+	void* a_enviar = malloc(buffer->size + sizeof(int) + sizeof(uint32_t) ); //PUSE INT EN VEZ DE UINT_8 PQ NUESTRO HEADER ES UN INT
+	int offset2 = 0;
+
+	memcpy(a_enviar + offset2, &(paquete->header), sizeof(int));
+	offset2 += sizeof(int);
+
+	memcpy(a_enviar + offset2, &(paquete->buffer->size), sizeof(uint32_t));
+	offset2 += sizeof(uint32_t);
+
+	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
+
+	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
+
+}
 
 
 // ------------ASIGNAR MEMORIA-------------
