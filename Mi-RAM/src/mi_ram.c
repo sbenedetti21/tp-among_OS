@@ -275,7 +275,7 @@ void atenderDiscordiador(int socketCliente){
 			for(int z = 0; z< 10; z++){
 
 				printf("Posicion %d del vector tripulantes tiene el numero %d \n", z, referencia->tripulantesDeLaPatota[z]); 
-			} */
+			} 
 
 			for(int o = 0; o < (list_size(tablaTripulantes)); o++){
 
@@ -310,7 +310,7 @@ void atenderDiscordiador(int socketCliente){
 			mem_hexdump(memoriaPrincipal, 300);
 
 			tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion); 
-			printf("%s \n", tarea);
+			printf("%s \n", tarea);*/
 			}
 			
 
@@ -353,8 +353,17 @@ void atenderDiscordiador(int socketCliente){
 		stringTarea = obtenerProximaTarea(tid);
 		int tamanioTarea = strlen(stringTarea) + 1;
 
-		if(strcmp(stringTarea, "NO_HAY_TAREA")){ //Esto cambialo cuando sepas si hay tarea o no
+		log_info(loggerMiram, "La tarea a enviar es: %s", stringTarea);
 
+		if(strcmp(stringTarea, "NO_HAY_TAREA") == 0){ //Esto cambialo cuando sepas si hay tarea o no
+
+			t_buffer* buffer = malloc(sizeof(t_buffer)); // se puede mandar un buffer vacio????????????
+			buffer->size = 0;
+			buffer->stream = NULL;
+			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
+
+		}
+		else{	
 			t_buffer* buffer = malloc(sizeof(t_buffer));
 
 			buffer-> size = sizeof(int) + tamanioTarea;
@@ -368,13 +377,7 @@ void atenderDiscordiador(int socketCliente){
 
 			buffer-> stream = stream;
 
-			mandarPaqueteSerializado(buffer, socket, HAY_TAREA);
-		}
-		else{
-			t_buffer* buffer = malloc(sizeof(t_buffer)); // se puede mandar un buffer vacio????????????
-			buffer->size = 0;
-			buffer->stream = NULL;
-			mandarPaqueteSerializado(buffer, socket, NO_HAY_TAREA);
+			mandarPaqueteSerializado(buffer, socketCliente, HAY_TAREA);
 		}
 
 		break;

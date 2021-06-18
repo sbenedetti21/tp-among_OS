@@ -138,7 +138,7 @@ void consola(){
 			
 		}
 
-		if(strcmp(vectorInstruccion[0], "trabajar") == 0){
+		if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0){
 												
 				pthread_t  hiloTrabajadorFIFO; 
 				pthread_create(&hiloTrabajadorFIFO, NULL, ponerATrabajar, NULL );	
@@ -167,10 +167,6 @@ void consola(){
 
 		}
 		
-		if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0) {
-		
-
-		}
 
 		if(strcmp(vectorInstruccion[0], "EXIT") == 0){
 			log_info(loggerDiscordiador, "-------------PROGRAMA TERMINADO-------------"); 
@@ -441,8 +437,6 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				char ** vectorTarea;
 				char ** requerimientosTarea; //MALLOC ???
 
-				printf("que demonios hago aqui");
-
 				serializarYMandarPedidoDETarea(socket, tripulante->tid);
 
 				t_paquete* paquete = malloc(sizeof(t_paquete));
@@ -451,7 +445,6 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				int headerRECV = recv(socket, &(paquete->header) , sizeof(int), 0);
 				if(!headerRECV) { log_error(loggerDiscordiador, "No se pudo recibir el header al recibir una tarea");}
 
-	
 				int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
 				if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer al recibir una tarea");}
 
@@ -474,6 +467,9 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 					char* stringTarea = malloc(tamanioTareas);
 					memcpy(stringTarea, stream, tamanioTareas);
 					stream += tamanioTareas;
+
+					log_info(loggerDiscordiador, "La tarea recibida es: %s", stringTarea);
+
 
 					vectorTarea = string_split(stringTarea, ";");
 					requerimientosTarea = string_split(vectorTarea[1]," "); 
