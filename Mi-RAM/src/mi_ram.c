@@ -1,6 +1,4 @@
 #include "mi_ram.h"
-
-
  
 NIVEL* navePrincipal;
 
@@ -130,14 +128,14 @@ void atenderDiscordiador(int socketCliente){
 				int framesNecesarios = divisionRedondeadaParaArriba(memoriaNecesaria, tamanioPagina);
 				void * streamPatota = malloc(memoriaNecesaria);
 				memset(streamPatota, 0, memoriaNecesaria);
-
+				
 				t_list * tablaDePaginas = list_create();
-
+								
 	
 				PCB * pcb = crearPCB();
 
 				int pid = pcb->pid;
-
+				
 				int offset = 0;
 				memcpy(streamPatota + offset, &(pcb->pid), sizeof(uint32_t) );
 				offset += sizeof(uint32_t);
@@ -146,8 +144,18 @@ void atenderDiscordiador(int socketCliente){
 				memcpy(streamPatota + offset, tareas, tamanioTareas);
 				offset += tamanioTareas;
 
+
 				uint32_t proximaInstruccion = 0, direccionPCB = 0;
 				for (int i = 0; i < cantidadTCBs; i++) {
+					// t_tripulanteConPID * tripu = malloc(sizeof(t_tripulanteConPID)); 
+					// tripu->idPatota = pid;
+					// tripu->longitudTareas = tamanioTareas;
+					int tid = 0;
+					memcpy(&tid, stream, 4);
+					// tripu->idTripulante = tid;
+					// list_add(listaTripulantes, tripu);
+					agregarTripulante(pid, tamanioTareas, tid);
+
 					memcpy(streamPatota + offset, stream, (SIZEOF_TCB - 8));
 					stream += (SIZEOF_TCB - 8); offset += (SIZEOF_TCB - 8);
 					memcpy(streamPatota + offset, &proximaInstruccion, sizeof(uint32_t));
@@ -161,19 +169,26 @@ void atenderDiscordiador(int socketCliente){
 
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria);
 
-				mem_hexdump(memoriaPrincipal, 2048);
+				//mem_hexdump(memoriaPrincipal, 2048);
 
-				// void mostrarCosas(char * key, void * value) {
-				// 	printf("%c %d \n", key, *(int*)value);
+				// void mostrarContenido(t_tripulanteConPID * tripulante) {
+				// 	mem_hexdump(tripulante, 12);
 				// }
-				// dictionary_iterator(diccionarioTripulantes, mostrarCosas);
-				// mostrarMemoriaInt(20, 17, 1);
-				// mostrarMemoriaChar(21, 1, 1);
-				// mostrarMemoriaInt(21, 2, 4);
 
-				// mostrarMemoriaInt(21, 18, 1);
-				// mostrarMemoriaChar(22, 2, 1);
-				// mostrarMemoriaInt(22, 3, 4);
+				// list_iterate(listaTripulantes, mostrarContenido);
+
+				
+				// bool coincideID(t_tripulanteConPID * tripulante) {
+				// 	return tripulante->idTripulante == 7;
+				// }
+
+				// t_tripulanteConPID * tripuPrueba = list_find(listaTripulantes, coincideID);
+				// if (tripuPrueba == NULL) {
+
+				// } else {
+				// 	printf("Patota nro: %d", *((int*)tripuPrueba+1));
+				// }
+				
 				
 			}
 
@@ -218,7 +233,7 @@ void atenderDiscordiador(int socketCliente){
 
 					
 					mem_hexdump(tripulante, SIZEOF_TCB);
-					sleep(1);
+					
 
 					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tablaSegmentos); 
 					//log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
@@ -385,9 +400,9 @@ void iniciarMemoria() {
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 		listaFrames = list_create();
 		listaTablasDePaginas = list_create();
+		listaTripulantes = list_create();
 		pthread_mutex_init(&mutexMemoriaPrincipal, NULL);
 		pthread_mutex_init(&mutexListaTablas, NULL);
-		//diccionarioTripulantes = dictionary_create(); // mirar si el tamaño alcanza
 		iniciarFrames();	
 	}
 }
@@ -466,7 +481,15 @@ uint32_t buscarFrame() {
   return direccionFrame;
 }
 
-void llenarFramesConPatota(t_list * tablaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas, int memoriaAGuardar) {
+void agregarTripulante(uint32_t pid, uint32_t tamanioTareas, uint32_t tid) {
+	t_tripulanteConPID * tripu = malloc(sizeof(t_tripulanteConPID)); 
+	tripu->idPatota = pid;
+	tripu->longitudTareas = tamanioTareas;
+	tripu->idTripulante = tid;
+	list_add(listaTripulantes, tripu);
+}
+
+void llenarFramesConPatota(t_list* tablaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas, int memoriaAGuardar) {
 
 	int i = 0, j = 0;
 

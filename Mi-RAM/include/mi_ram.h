@@ -50,6 +50,13 @@ typedef struct {
 	// SecondChance
 } t_pagina;
 
+typedef struct {
+	uint32_t idTripulante;
+	uint32_t idPatota;
+	uint32_t longitudTareas;
+} t_tripulanteConPID;
+t_list * listaTripulantes;
+
 int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
 uint32_t buscarFrame();
