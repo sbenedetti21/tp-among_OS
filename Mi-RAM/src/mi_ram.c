@@ -392,6 +392,9 @@ void atenderDiscordiador(int socketCliente){
 char * obtenerProximaTarea(uint32_t tid) {
 	
 	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
+		uint32_t direccionTCB = obtenerDireccionTripulante(tid); 
+		uint32_t direccionTarea = obtenerDireccionProximaTarea(tid);
+		return obtenerProximaTareaSegmentacion(direccionTarea,  direccionTCB);
 	
 	}
 
@@ -425,11 +428,11 @@ uint32_t obtenerDireccionTripulante(uint32_t tid){
 	return (referencia->direccionLogica);
 }
 
-uint32_t obtenerDireccionProximaTarea(uint32_t direccionTCB){
+uint32_t obtenerDireccionProximaTarea(uint32_t tid){
 	
 	bool coincideID(referenciaTripulante * referencia){
 
-		return (referencia->tid == direccionTCB);
+		return (referencia->tid == tid);
 	}
 	referenciaTripulante * referencia = malloc(sizeof(referenciaTripulante));
 	referencia = list_find(tablaTripulantes, coincideID);
@@ -438,7 +441,7 @@ uint32_t obtenerDireccionProximaTarea(uint32_t direccionTCB){
 
 }
 
-char * obtenerProximaTareaSegmentacion(uint32_t direccionLogicaTarea, uint32_t tid){
+char * obtenerProximaTareaSegmentacion(uint32_t direccionLogicaTarea, uint32_t direccionTCB){
 	char * tareaObtenida = malloc(40); 
 	char caracterComparacion = 'a'; 
 	int desplazamiento = 0; 
@@ -465,11 +468,11 @@ char * obtenerProximaTareaSegmentacion(uint32_t direccionLogicaTarea, uint32_t t
 	log_info(loggerMiram,"Proxima tarea: %s", tareaObtenida);
 	printf("Caracteres leidos %d \n ", desplazamiento);
 
-	actualizarProximaTarea(tid, direccionProximaTarea);
+	actualizarProximaTarea(direccionTCB, direccionProximaTarea);
 
 	}
 	if(caracterComparacion == '|'){
-		actualizarProximaTarea(tid, tamanioMemoria + 1); 
+		actualizarProximaTarea(direccionTCB, tamanioMemoria + 1); 
 		
 	}
 	
