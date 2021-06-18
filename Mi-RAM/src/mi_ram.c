@@ -254,7 +254,7 @@ void atenderDiscordiador(int socketCliente){
 			printf("La direccion logica de las tareas es %d \n EL tamaño de las tareas %d \n", segmentoObtenido ->base, segmentoObtenido ->tamanio);
 
 
-			//mem_hexdump(memoriaPrincipal, 2048);
+			mem_hexdump(memoriaPrincipal, 2048);
 
 				
 			}
