@@ -239,7 +239,7 @@ void consola(){
 			}
 		}
 
-		if(strcmp(vectorInstruccion[0], "mostarListas") == 0) {
+		if(strcmp(vectorInstruccion[0], "mostrarListas") == 0) {
 			
 			printf("\n");
 			printf("Lista NEW: ");
@@ -324,7 +324,6 @@ void iniciarPatota(char ** vectorInstruccion){
 					cambiarDeEstado(tripulante,'R');	
 					}
 
-					log_info(loggerDiscordiador, "Estado tripulante %d cambiado a %c", tripulante->tid, tripulante->estado);
 					sem_post(&esperarAlgunTripulante); 
 
 					
@@ -371,14 +370,21 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 	bool noHayMasTareas = false;
 	tarea_struct * tarea = malloc(sizeof(tarea_struct));
 
+	tarea->parametro = 12; // Esto es solo de prueba
+		tarea->posicionX = 2;
+		tarea->posicionY = 3;
+		tarea->tiempo = 5;
+		tarea->tareaTerminada = false;
+		tarea->descripcionTarea = "GENERAR_OXIGENO";
+		tripulante->tareaActual = tarea;
+
 
 	while (1) 
 	{
-		sem_wait(&tripulante->semaforoTrabajo);
-		log_info(loggerDiscordiador, "Tripulante %d trabajando, estado: %c", tripulante->tid, tripulante->estado);
-		
+		sem_wait(&tripulante->semaforoTrabajo);		
 
 		if(tareaTerminada){
+				break;  //SACAR
 				int socket = conectarMiRAM();
 				char ** vectorTarea;
 				char ** requerimientosTarea; //MALLOC ???
@@ -446,14 +452,6 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 		t_config * config = config_create("./cfg/discordiador.config");
 		char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
 
-		tarea->parametro = 12; // Esto es solo de prueba
-		tarea->posicionX = 2;
-		tarea->posicionY = 3;
-		tarea->tiempo = 5;
-		tarea->tareaTerminada = false;
-		tarea->descripcionTarea = "GENERAR_OXIGENO";
-		tripulante->tareaActual = tarea;
-
 	
 
 		if(strcmp(tipoAlgoritmo, "FIFO") == 0){
@@ -479,7 +477,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				
 				// tareaTerminada = true; ESTO TIENE QUE ESTAR
 				noHayMasTareas = true; // ESTO NO
-
+				
 				log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
 
 									     } else{
@@ -498,30 +496,56 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 												if( tripulante->posicionX != tarea->posicionX){  // Aca se fija que no haya llegado a su posicion en x, si llego ni entra
 
 													for(contador; contador < quantum ;  contador ++){
+
 														sleep(cicloCPU);
-														tripulante->posicionX ++;
+														
+														if(tarea->posicionX < tripulante->posicionX){
+															tripulante->posicionX--;
+														} else {
+															tripulante->posicionX++;
+														}	
 
 														if( tripulante->posicionX == tarea->posicionX){ // si llego sale del for y pasa a Y
+															contador++;
 															break; 
 														}
+
+
+														// mandar posi a imongo y miram
 													}
 
+													if(tripulante->posicionY != tarea->posicionY){
+													log_info(loggerDiscordiador, "Tripulante %d termino su Q en %d|%d", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+													}
 												}
 
 													// Moverse en y
 
-												if(tripulante->posicionY != tarea->posicionY){ // Igual que con x
+												if(tripulante->posicionY != tarea->posicionY && contador > 0 ){ // Igual que con x
 													
 													for(contador; contador < quantum ;  contador ++){
 														sleep(cicloCPU);
-														tripulante->posicionY++;
+
+														if(tarea->posicionY < tripulante->posicionY){
+															tripulante->posicionY--;
+														} else {
+															tripulante->posicionY++;
+														}	
 
 														if(tripulante->posicionY == tarea->posicionY){
+															contador++;
 															break; 
 														}
 
-														// TODO mandar posicion a mi ram
+														// TODO mandar posicion a mi ram e imongo
 													}
+
+													if(tripulante->posicionY != tarea->posicionY){
+														log_info(loggerDiscordiador, "Tripulante %d termino su Q en %d|%d", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
+													} else{
+														log_info(loggerDiscordiador, "Tripulante %d llego a la posicion de su tarea, le queda %d de quantum", tripulante->tid, quantum - contador);
+													}
+												
 
 												}
 
@@ -532,6 +556,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 													
 
 													if(esTareaDeIO(tarea->descripcionTarea)){
+															tareaTerminada = true;
 															tarea->tareaTerminada = true;
 															sem_post(&semaforoTripulantes); 
 															cambiarDeEstado(tripulante,'B');
@@ -540,6 +565,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 															sem_wait(&tripulante->termineIO);
 															sem_post(&esperarAlgunTripulante);			
 															log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
+															contador++;
 															break;
 														}
 
@@ -547,24 +573,34 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 															sleep(cicloCPU);
 															tarea->tiempo --; // Cada tarea tiene un tiempo, cuando ese tiempo llegue a 0 va a gestionar la tarea en el if de abajo, si no llega a 0 va a seguir haciendo tiempo si su quantum lo permite
-
+															
+																
 																if(tarea->tiempo == 0){
-																	tarea->tareaTerminada = true;
+																	tareaTerminada = true;
+																	tarea->tareaTerminada = true; 
 
 																	sleep((tarea -> tiempo) * cicloCPU);	
 																	cambiarDeEstado(tripulante,'R');
 																	sem_post(&esperarAlgunTripulante);																			 
 																	sem_post(&semaforoTripulantes); 
 																	log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
+																	contador++;
 																	break;
 																}
 
 															
 														}
-													
+
+																log_info(loggerDiscordiador, "Tripulante  %d le faltan %ds para terminar la tarea y le queda %d quantum restante", tripulante->tid, tarea->tiempo, quantum-contador);
+
 													
 																	}
 
+
+												if(!tareaTerminada){
+												cambiarDeEstado(tripulante, 'R');
+												sem_post(&esperarAlgunTripulante);
+												sem_post(&semaforoTripulantes);} 
 		
 											}
 
@@ -577,7 +613,6 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 		sem_post(&semaforoTripulantes); 					
 		cambiarDeEstado(tripulante,'F');				
-		log_info(loggerDiscordiador, "Tripulante %d terminó de trabajar, estado: %c", tripulante->tid, tripulante->estado);
 
 }
 
@@ -587,7 +622,7 @@ void ponerATrabajar(){
 	pthread_t gestionarIO;
 	pthread_create(&gestionarIO, NULL, (void*) gestionadorIO, NULL);
 
-	cambiarEstadoTripulantesA('R');
+	cambiarEstadoTripulantesA('R'); //RARI
 	 
 	 planificacionPausada = false;
 	
@@ -685,16 +720,28 @@ void cambiarEstadoTripulantesA(char estado){
 
 void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * tripulante){
 
-	for (tripulante->posicionX; tripulante->posicionX < posicionX; tripulante->posicionX ++) 
+	while(posicionX != tripulante->posicionX)
 	{
+		if(posicionX < tripulante->posicionX){
+			tripulante->posicionX--;
+		} else {
+			tripulante->posicionX++;
+		}
+
 		sleep(cicloCPU);
-		// MANDAR POSICION A MI RAM
+		// MANDAR POSICION A MI RAM e IMONGO
 	}
 	
-	for(tripulante->posicionY; tripulante->posicionY < posicionY; tripulante->posicionY ++){
-		sleep(cicloCPU);
-		// MANDAR POSICION A MI RAM
+	while(posicionY != tripulante->posicionY)
+	{
+		if(posicionY < tripulante->posicionY){
+			tripulante->posicionY--;
+		} else {
+			tripulante->posicionY++;
+		}
 
+		sleep(cicloCPU);
+		// MANDAR POSICION A MI RAM e IMONGO
 	}
 
 	printf("Soy el tripulante %d y ahora estoy en X: %d    Y: %d \n",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
@@ -1050,6 +1097,9 @@ void cambiarDeEstado(TCB_DISCORDIADOR * tripulante, char estado){
 	default:
 		break;
 	}
+
+		log_info(loggerDiscordiador, "Tripulante %d cambio su estado a %c", tripulante->tid, tripulante->estado);
+
 
 }
 
