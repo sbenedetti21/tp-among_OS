@@ -122,10 +122,70 @@ void consola(){
 		/*
 		if(strcmp(vectorInstruccion[0], "PAUSAR_PLANIFICACION") == 0) {
 		}
-		if(strcmp(vectorInstruccion[0], "OBTENER_BITACORA") == 0) {
+		*/
+
+		if(strcmp(vectorInstruccion[0], "pedirTarea") == 0) {
+
+			tarea_struct * tarea = malloc(sizeof(tarea_struct));
+			TCB_DISCORDIADOR * tripulante = list_get(listaTripulantes,0);
+
+			int socket = conectarMiRAM();
+				char ** vectorTarea;
+				char ** requerimientosTarea; //MALLOC ???
+
+				serializarYMandarPedidoDETarea(socket, tripulante->tid);
+
+				t_paquete* paquete = malloc(sizeof(t_paquete));
+				paquete->buffer = malloc(sizeof(t_buffer));
+
+				int headerRECV = recv(socket, &(paquete->header) , sizeof(int), 0);
+	
+				int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+
+				paquete->buffer->stream = malloc(paquete->buffer->size);
+
+				int BUFFER_RECV = recv(socket,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+
+				switch (paquete->header)
+				{
+				case HAY_TAREA:;
+
+					void* stream = malloc(paquete->buffer->size);
+					stream = paquete->buffer->stream;
+
+					int tamanioTareas;
+					memcpy(&tamanioTareas, stream, sizeof(int));
+					stream += sizeof(int);
+					char* stringTarea = malloc(tamanioTareas);
+					memcpy(stringTarea, stream, tamanioTareas);
+					stream += tamanioTareas;
+
+					vectorTarea = string_split(stringTarea, ";");
+					requerimientosTarea = string_split(vectorTarea[1]," "); 
+
+					tarea->descripcionTarea = requerimientosTarea[0];
+
+					if(requerimientosTarea[1] != NULL){
+						tarea->parametro = atoi(requerimientosTarea[1]);	//Esto esta rari cuanto menos
+					}
+
+					tarea->posicionX = atoi(vectorTarea[1]);			//Llena el struct tarea 
+					tarea->posicionY = atoi(vectorTarea[2]);
+					tarea->tiempo = atoi(vectorTarea[3]);
+					tarea->tareaTerminada = false;
+
+					printf("Nombre tarea: %s \n Posicion: %d|%d \n Duracion: %d \n",tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
+					
+					break;
+				
+				case NO_HAY_TAREA:
+									printf("NO RECIBI TAREA");
+									break;
+				}
+
 		}
 
-		*/
+		
 
 		
 
@@ -418,3 +478,21 @@ void serializarYMandarTarea(int parametro, tareasTripulantes tipoTarea, uint32_t
 
 }
 
+
+
+void serializarYMandarPedidoDETarea(int socket, uint32_t tid){
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+	buffer-> size = sizeof(uint32_t);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, PEDIR_TAREA);
+}

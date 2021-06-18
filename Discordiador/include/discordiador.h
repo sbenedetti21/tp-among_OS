@@ -42,6 +42,7 @@ void mandarPaqueteSerializado(t_buffer*,int, int);
 void serializarYMandarPCB(char*,int,int, t_list *);
 void serializarYMandarTarea(int, tareasTripulantes, uint32_t);
 void gestionarTarea(tarea_struct * , uint32_t);
+void serializarYMandarTarea(int, tareasTripulantes, uint32_t);
 
 
 bool coincideID(TCB_DISCORDIADOR*);

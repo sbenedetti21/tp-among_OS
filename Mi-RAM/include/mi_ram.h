@@ -116,7 +116,7 @@ typedef struct {
  
 } structConexion;
 
-
+void mandarPaqueteSerializado(t_buffer *, int, int);
 int proximoPID = 0; 
 
 //--------------- MAPA ---------------------
