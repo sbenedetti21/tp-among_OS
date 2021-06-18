@@ -285,24 +285,27 @@ void atenderDiscordiador(int socketCliente){
 			}
 
 			
-			mem_hexdump(memoriaPrincipal, 300);
 			uint32_t direccion = obtenerDireccionTripulante(2); 
 			uint32_t direccionTarea = obtenerDireccionProximaTarea(2); 
 			char * tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion); 
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
 			mem_hexdump(memoriaPrincipal, 300);
+			
+			
 
 			direccionTarea = obtenerDireccionProximaTarea(2); 
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
 			tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion); 
-			
 			mem_hexdump(memoriaPrincipal, 300);
+			 
+			
 
 			direccionTarea = obtenerDireccionProximaTarea(2); 
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
 			tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion);
 			direccionTarea = obtenerDireccionProximaTarea(2); 
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
+			mem_hexdump(memoriaPrincipal, 300);
 
 			tarea = obtenerProximaTareaSegmentacion(direccionTarea, direccion); 
 			printf("%s \n", tarea);
@@ -488,7 +491,7 @@ void actualizarProximaTarea(uint32_t direccionTCB, uint32_t direccionTarea){
 	}
 		referenciaTripulante * tripulante = list_find(tablaTripulantes,coincideID); 
 		tripulante->direccionLogicaTarea = direccionTarea;
-		memcpy(memoriaPrincipal + direccionTCB + 2* sizeof(uint32_t) + sizeof(char), &direccionTarea, sizeof(uint32_t));
+		memcpy(memoriaPrincipal + direccionTCB + 3* sizeof(uint32_t) + sizeof(char), &direccionTarea, sizeof(uint32_t));
 
 	
 
@@ -812,7 +815,7 @@ uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, t_list * tablaSegmento
 		direccionLogica = encontrarLugarSegmentacion(SIZEOF_TCB); 
 		//le asigno el lugar de memoria encontrado
 		memcpy(memoriaPrincipal + direccionLogica, tripulante, SIZEOF_TCB); 
-		
+		   
 
 		//creo el segmento para la estructura nueva
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
