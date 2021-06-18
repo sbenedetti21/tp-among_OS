@@ -380,7 +380,7 @@ void iniciarPatota(char ** vectorInstruccion){
 					list_add(listaTCBsNuevos, tripulante);
 
 					pthread_create(&tripulantes[i], NULL, tripulanteVivo , tripulante);
-					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, PosX: %d, PosY: %d, estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
+					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
 					
 					if(!planificacionPausada){
 					cambiarDeEstado(tripulante,'R');	
@@ -420,26 +420,17 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones){
 
 		list_add(listaTripulantes, tripulante);
 
-		proximoTID ++; //ver sincronizacion
+		proximoTID ++; 
 
-		return tripulante;   //preguntar liberar malloc
+		return tripulante;  
 	} 
 
 
 void tripulanteVivo(TCB_DISCORDIADOR * tripulante) { 
 
-	bool tareaTerminada = false; // PONER EN TRUE CUANDOR RECIBA TAREAS
+	bool tareaTerminada = true; 
 	bool noHayMasTareas = false;
 	tarea_struct * tarea = malloc(sizeof(tarea_struct));
-
-	tarea->parametro = 12; // Esto es solo de prueba
-		tarea->posicionX = 2;
-		tarea->posicionY = 3;
-		tarea->tiempo = 5;
-		tarea->tareaTerminada = false;
-		tarea->descripcionTarea = "GENERAR_OXIGENO";
-		tripulante->tareaActual = tarea;
-
 
 	while (1) 
 	{
@@ -541,8 +532,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				}
 
 				
-				// tareaTerminada = true; ESTO TIENE QUE ESTAR
-				noHayMasTareas = true; // ESTO NO
+				tareaTerminada = true; 
 				
 				log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
 
@@ -809,8 +799,9 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 		sleep(cicloCPU);
 		// MANDAR POSICION A MI RAM e IMONGO
 	}
+	
+	log_info(loggerDiscordiador, "Tripulante %d ahora esta en %d|%d \n",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
 
-	printf("Soy el tripulante %d y ahora estoy en X: %d    Y: %d \n",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
 }
 
 void gestionarTarea(tarea_struct * tarea, uint32_t tid){
