@@ -217,6 +217,9 @@ void atenderDiscordiador(int socketCliente){
 					memcpy(tripulante + offset, &direccionPCB, sizeof(uint32_t));
 
 					
+					mem_hexdump(tripulante, SIZEOF_TCB);
+					sleep(1);
+
 					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tablaSegmentos); 
 					//log_info(loggerMiram, "Asigno al tripulante %d la dirección logica %d \n", tripulante->tid, direccionLogica);
 					
@@ -510,10 +513,9 @@ uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, t_list * tablaSegmento
 
 		//busco un lugar de memoria (segun algoritmo)
 		uint32_t direccionLogica = 0;
-		
 		direccionLogica = encontrarLugarSegmentacion(SIZEOF_TCB); 
 		//le asigno el lugar de memoria encontrado
-		memcpy(memoriaPrincipal + direccionLogica, tripulante, sizeof(SIZEOF_TCB)); 
+		memcpy(memoriaPrincipal + direccionLogica, tripulante, SIZEOF_TCB); 
 		
 
 		//creo el segmento para la estructura nueva
@@ -683,8 +685,8 @@ void imprimirSegmentosLibres(){
 }
 
 int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
-t_list * copiaSegmentosOcupados = list_duplicate(tablaSegmentosGlobal); 
-t_list * copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados);
+		t_list * copiaSegmentosOcupados = list_duplicate(tablaSegmentosGlobal); 
+		t_list * copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados);
 
 		bool cabenTareasEnElSegmento(t_segmento * segmento){
 

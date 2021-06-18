@@ -71,6 +71,11 @@ typedef struct{
 	t_list * tablaPatota;
 } referenciaTablaPatota;
 
+// typedef struct {
+// 	uint32_t patotaID;
+// 	uint32_t tripulanteID;
+// } t_tripuAsociado;
+
 typedef struct{
 	
 	uint32_t base; 
