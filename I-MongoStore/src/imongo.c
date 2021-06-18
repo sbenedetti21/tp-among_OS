@@ -5,8 +5,9 @@ int main(int argc, char ** argv){
 
 	leerConfig();
 
-	char * valorInicio = readline("Para crear un nuevo FileSystem ingrese 0, de lo contrario ingrese cualquier otro Numero \n");
+	char * valorInicio = readline("Ingrese 0 si se quiere crear un FileSystem limpio, cualquier otro caracter si se busca leer un FileSystem existente\n");
 	int valor = atoi(valorInicio);
+	free(valorInicio);
 
 	inicializarFileSystem(valor);
 	
@@ -125,14 +126,17 @@ void inicializarFileSystem(int valorRespuesta){
 		borrarFileSystem(puntoDeMontaje);
 		crearFileSystem();
 		log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
+		printf("Se creo el FileSystem\n");
 		break;
 	default:
 		if(stat(puntoDeMontaje,&st) == -1){
 			crearFileSystem();
 			log_info(loggerImongoStore, "---------CREO FILESYSTEM----------");
+			printf("Se creo el FileSystem\n");
 		} else{	
 			leerFileSystem();
 			log_info(loggerImongoStore, "---------LEYO FILESYSTEM----------");
+			printf("Se leyo el FileSystem existente\n");
 		}
 		break;
 	}
@@ -145,7 +149,7 @@ void borrarFileSystem(const char *path){
         DIR *dr = opendir(path);
         if(dr == NULL)
         {
-            printf("La carpeta FileSystem no existe, ingrese otro numero\n");
+            printf("La carpeta FileSystem no existe\n");
             return;
         }
         while((de = readdir(dr)) != NULL)
@@ -597,11 +601,12 @@ void sincronizacionMapBlocks(){
 void servidorPrincipal() {
 	int listeningSocket = crear_conexionServer(puertoImongoStore);
 	int socketCliente;
+		
+	printf("Conectado con el servidor, esperando tripulantes\n");
 
 	struct sockaddr_in addr;
 	socklen_t addrlen = sizeof(addr);
 	pthread_t receptorDiscordiador;
-
 
 	while(1){
 		socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
@@ -617,7 +622,7 @@ void servidorPrincipal() {
 }
 
 void atenderDiscordiador(int socketCliente){
-
+	printf("Esperando mensaje del Discordiador\n");
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->buffer = malloc(sizeof(t_buffer));
 
