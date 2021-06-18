@@ -23,7 +23,9 @@ void * memoriaPrincipal;
 
 int buscarEspacioNecesario(int, int);
 TCB * deserializar_TCB(void *);
-int obtenerProximaTarea(int);
+char * obtenerProximaTareaSegmentacion(uint32_t, uint32_t);
+uint32_t obtenerDireccionTripulante(uint32_t );
+uint32_t obtenerDireccionProximaTarea(uint32_t);
 
 sem_t mutexProximoPID; 
 
@@ -36,7 +38,7 @@ int tamanioPagina, tamanioMemoria;
 pthread_mutex_t mutexMemoriaPrincipal;
 pthread_mutex_t mutexListaTablas;
 
-t_dictionary * diccionarioTripulantes;
+
 
 typedef struct {
 	uint32_t inicio;
@@ -63,6 +65,13 @@ t_list * tablaSegmentosGlobal;
 t_list * tablaDeTablasSegmentos;  // va a estar conformado por muchos struct de tipo referenciaTablaPatota
 sem_t mutexTablaGlobal;
 sem_t mutexTablaDeTablas; 
+t_list * tablaTripulantes; 
+
+typedef struct{
+	uint32_t tid; 
+	uint32_t direccionLogicaTarea;
+	uint32_t direccionLogica; 
+} referenciaTripulante; 
 
 typedef struct{
 	uint32_t pid;
@@ -96,6 +105,7 @@ bool segmentoMasPequenio(t_segmento * , t_segmento * );
 bool cabePCB(t_segmento * );
 bool cabeTCB(t_segmento * );
 void imprimirSegmentosLibres();
+void actualizarProximaTarea(uint32_t, uint32_t);
 
 
 // --------------------- Generales
