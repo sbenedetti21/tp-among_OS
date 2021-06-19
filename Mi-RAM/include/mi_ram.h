@@ -78,35 +78,30 @@ t_list * tablaSegmentosGlobal;
 t_list * tablaDeTablasSegmentos;  // va a estar conformado por muchos struct de tipo referenciaTablaPatota
 sem_t mutexTablaGlobal;
 sem_t mutexTablaDeTablas; 
-t_list * tablaTripulantes; 
+sem_t mutexTripulantesPatotas; 
+t_list * tripulantesPatotas; 
 
-typedef struct{
-	uint32_t tid; 
-	uint32_t direccionLogicaTarea;
-	uint32_t direccionLogica; 
-} referenciaTripulante; 
 
 typedef struct{
 	uint32_t pid;
-	uint32_t tripulantesDeLaPatota[10];
-	uint32_t tamanioTareas;
 	t_list * tablaPatota;
 } referenciaTablaPatota;
 
 typedef struct {
-	uint32_t patotaID;
-	uint32_t tripulanteID;
-} t_tripuAsociado;
+	uint32_t pid;
+	uint32_t tid;
+} referenciaTripulante;
 
 typedef struct{
 	
+	int tid; 
 	uint32_t base; 
 	uint32_t tamanio; 
  
 } t_segmento; 
 
 
-uint32_t asignarMemoriaSegmentacionTCB(void *, t_list *); 
+uint32_t asignarMemoriaSegmentacionTCB(void *, int, t_list *); 
 uint32_t asignarMemoriaSegmentacionPCB(void * , t_list *);
 uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * );
 uint32_t encontrarLugarSegmentacion(int );
