@@ -873,8 +873,9 @@ bool esTareaDeIO(char * tarea){
 			return true;
 		}
 
-		return false;
+		
 	}
+	return false;
 }
 
 
