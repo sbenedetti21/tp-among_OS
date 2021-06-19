@@ -2,6 +2,7 @@
  
 // FACU: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 // FRAN: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
+// FRAN: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
 
   
 int main(int argc, char ** argv){
@@ -45,7 +46,7 @@ int main(int argc, char ** argv){
 	sem_init(&esperarAlgunTripulante, 0,  0);
 	sem_init(&IO,0,1);
 	sem_init(&cambiarABloqueado,0,1);
-	sem_init(&cambiarAFinalizado,0,1);
+	sem_init(&cambiarAFinalizado,0,1); 
 	sem_init(&cambiarANuevo,0,1);
 	sem_init(&cambiarAReady,0,1);
 	sem_init(&cambiarATrabajando,0,1);
@@ -442,7 +443,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				t_paquete* paquete = malloc(sizeof(t_paquete));
 				paquete->buffer = malloc(sizeof(t_buffer));
 
-				int headerRECV = recv(socket, &(paquete->header) , sizeof(int), 0);
+				int headerRECV = recv(socket, &(paquete->header) , sizeof(int), MSG_WAITALL);
 				if(!headerRECV) { log_error(loggerDiscordiador, "No se pudo recibir el header al recibir una tarea");}
 
 				int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
@@ -482,7 +483,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 					tarea->tiempo = atoi(vectorTarea[3]);
 					tarea->tareaTerminada = false;
 
-					log_info(loggerDiscordiador,"Nombre tarea: %s Posicion: %d|%d Duracion: %d ",tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
+					log_info(loggerDiscordiador,"Tarea pedida por tripulante %d: %s Posicion: %d|%d Duracion: %d ",tripulante->tid ,tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
 
 					tripulante->tareaActual = tarea;
 					
@@ -490,6 +491,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				
 				case NO_HAY_TAREA:
 									noHayMasTareas = true;
+									log_info(loggerDiscordiador,"Tripulante %d termino de trabajar ",tripulante->tid);
+
 									break;
 				}
 				
@@ -662,6 +665,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 		}
 
+		//sem_post(&esperarAlgunTripulante);
 		sem_post(&semaforoTripulantes); 					
 		cambiarDeEstado(tripulante,'F');				
 
@@ -869,8 +873,9 @@ bool esTareaDeIO(char * tarea){
 			return true;
 		}
 
-		return false;
+		
 	}
+	return false;
 }
 
 

@@ -180,7 +180,7 @@ void atenderDiscordiador(int socketCliente){
 
 				// list_iterate(listaTripulantes, mostrarContenido);
 
-				printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
+				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
 				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
 				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
 				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
@@ -331,24 +331,8 @@ void atenderDiscordiador(int socketCliente){
 		uint32_t tid;
 		memcpy(&tid, stream, sizeof(uint32_t));
 		// en tid ya tenes el tid del tripulante que te lo pidio
-
-
-		/*
-		uint32_t idTripulante = 0;
-		memcpy(&idTripulante, paquete->buffer->stream, sizeof(uint32_t));
-		//buscarTripulante
-		
-		char * tarea = obtenerProximaTareaSegmentacio(); //modificar puntero instruccion en tripulante
-		
-		// meter en un paquete
-		int header;
-		int longitudStreamTarea;
-		void * streamTarea;
-
-		send(socketCliente, )
-		 */
 	
-
+	 
 		char * stringTarea = malloc(40); //este es el string de tareas que despues tenes que cambiar por el que uses
 		stringTarea = obtenerProximaTarea(tid);
 		int tamanioTarea = strlen(stringTarea) + 1;
@@ -358,8 +342,17 @@ void atenderDiscordiador(int socketCliente){
 		if(strcmp(stringTarea, "NO_HAY_TAREA") == 0){ //Esto cambialo cuando sepas si hay tarea o no
 
 			t_buffer* buffer = malloc(sizeof(t_buffer)); // se puede mandar un buffer vacio????????????
-			buffer->size = 0;
-			buffer->stream = NULL;
+			buffer-> size = sizeof(int) + tamanioTarea;
+
+			int offset = 0;
+
+			memcpy(stream+offset, &tamanioTarea , sizeof(int));
+			offset += sizeof(int);
+
+			memcpy(stream+offset, stringTarea, tamanioTarea);
+
+			buffer-> stream = stream;
+			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 
 		}
@@ -407,6 +400,7 @@ char * obtenerProximaTarea(uint32_t tid) {
 	}
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
+
 		bool coincideID(t_tripulanteConPID * tripulante) {
 			return tripulante->idTripulante == tid;
 		}
@@ -419,6 +413,7 @@ char * obtenerProximaTarea(uint32_t tid) {
 			int longitudTareas = *((int*)tripuPrueba+2);
 			return obtenerProximaTareaPaginacion(patotaID, tid, longitudTareas);
 		}	
+
 	}
 
 }
@@ -469,12 +464,7 @@ char * obtenerProximaTareaSegmentacion(uint32_t direccionLogicaTarea, uint32_t d
 	}
 
 	if(caracterComparacion == '\n'){
-	memcpy(tareaObtenida + desplazamiento, &termino, 1);
 	int direccionProximaTarea = direccionLogicaTarea + desplazamiento +1;
-
-	printf("La proxima tarea es %s  \n", tareaObtenida); 
-	log_info(loggerMiram,"Proxima tarea: %s", tareaObtenida);
-	printf("Caracteres leidos %d \n ", desplazamiento);
 
 	actualizarProximaTarea(direccionTCB, direccionProximaTarea);
 
@@ -483,7 +473,7 @@ char * obtenerProximaTareaSegmentacion(uint32_t direccionLogicaTarea, uint32_t d
 		actualizarProximaTarea(direccionTCB, tamanioMemoria + 1); 
 		
 	}
-	
+	memcpy(tareaObtenida + desplazamiento, &termino, 1);
 	return tareaObtenida;
 	
 } 
@@ -581,6 +571,8 @@ void iniciarMemoria() {
 		listaTripulantes = list_create();
 		pthread_mutex_init(&mutexMemoriaPrincipal, NULL);
 		pthread_mutex_init(&mutexListaTablas, NULL);
+		pthread_mutex_init(&mutexListaFrames, NULL);
+		pthread_mutex_init(&mutexTareas, NULL);
 		iniciarFrames();	
 	}
 }
@@ -621,7 +613,9 @@ void iniciarFrames(){
 		frame->inicio = desplazamiento;
 		frame->ocupado = 0;
 
+		pthread_mutex_lock(&mutexListaFrames);
 		list_add(listaFrames, frame);
+		pthread_mutex_unlock(&mutexListaFrames);
 		cantidadFrames ++;
 	}
 		log_info(loggerMiram, "-------------------------");
@@ -631,7 +625,10 @@ void iniciarFrames(){
 			log_info(loggerMiram, "el frame %d esta ocupado: %d ", x, frame->ocupado);
 			x++;
 		};
+
+		pthread_mutex_lock(&mutexListaFrames);
 		list_iterate(listaFrames, estaOcupado);
+		pthread_mutex_unlock(&mutexListaFrames);
 
 	return;
 }
@@ -641,7 +638,10 @@ int framesDisponibles() {
 	void estaLibre(t_frame * frame) {
     	if (frame->ocupado == 0){ libre++; }
   	}
+	
+	pthread_mutex_lock(&mutexListaFrames);
 	list_iterate(listaFrames, estaLibre);
+	pthread_mutex_unlock(&mutexListaFrames);  
 	return libre;
 }
 
@@ -652,7 +652,10 @@ uint32_t buscarFrame() {
   }
 
   t_frame * frameLibre = malloc(sizeof(t_frame));
+
+		pthread_mutex_lock(&mutexListaFrames);
   frameLibre = list_find(listaFrames, estaLibre);
+		pthread_mutex_unlock(&mutexListaFrames);
   uint32_t direccionFrame = frameLibre->inicio;
   //free(frameLibre);
 
@@ -671,7 +674,7 @@ void llenarFramesConPatota(t_list* tablaDePaginas, void * streamDePatota, int ca
 
 	int i = 0, j = 0;
 
-	for (i = 0; i < cantidadFrames; i++){
+	for (i = 0; i < cantidadFrames; i++){ 
 		uint32_t direcProximoFrame = buscarFrame();
 		printf("direc prox frame a escribir %d \n", direcProximoFrame);
 
@@ -686,7 +689,10 @@ void llenarFramesConPatota(t_list* tablaDePaginas, void * streamDePatota, int ca
 		t_frame * frameOcupado = malloc(sizeof(t_frame));
 		frameOcupado->inicio = direcProximoFrame;
 		frameOcupado->ocupado = 1;
+
+		pthread_mutex_lock(&mutexListaFrames);
 		t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
+		pthread_mutex_unlock(&mutexListaFrames);
 		//free(frameParaLiberar);
 
 		t_pagina * pagina = malloc(sizeof(t_pagina));
@@ -794,6 +800,7 @@ void actualizarPunteroTarea(int direccionTripulante, int pid, int direcProximaTa
 	int paginaUbicada = (direccionTripulante+(SIZEOF_TCB-8))/tamanioPagina;
 	int offset = (direccionTripulante+(SIZEOF_TCB-8))%tamanioPagina;
 
+	pthread_mutex_lock(&mutexMemoriaPrincipal);
 	if (offset + 4 < tamanioPagina) {
 		memcpy(memoriaPrincipal + tamanioPagina * frames[paginaUbicada] + offset, &direcProximaTarea, 4);
 	} else {
@@ -807,7 +814,7 @@ void actualizarPunteroTarea(int direccionTripulante, int pid, int direcProximaTa
 			paginaUbicada++;
 		}
 	}
-
+	pthread_mutex_unlock(&mutexMemoriaPrincipal);
 }
 
 

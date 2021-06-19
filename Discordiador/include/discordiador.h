@@ -18,7 +18,7 @@ typedef struct tcb_discordiador{
 	sem_t semaforoTrabajo;
 	sem_t termineIO;
 	uint32_t pid;
-	tarea_struct * tareaActual;
+	tarea_struct * tareaActual; 
 } TCB_DISCORDIADOR;
 
 bool planificacionPausada;
