@@ -21,9 +21,8 @@ int main(int argc, char ** argv){
 	listaNuevos = list_create(); 
 	listaBloqueadosEmergencia = list_create();
 
-
-	list_add(tareasDeIO,"GENERAR_OXIGENO");
 	list_add(tareasDeIO,"CONSUMIR_OXIGENO");
+	list_add(tareasDeIO,"GENERAR_OXIGENO");
 	list_add(tareasDeIO,"GENERAR_COMIDA");
 	list_add(tareasDeIO,"CONSUMIR_COMIDA");
 	list_add(tareasDeIO,"GENERAR_BASURA");
@@ -370,12 +369,12 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 	bool noHayMasTareas = false;
 	tarea_struct * tarea = malloc(sizeof(tarea_struct));
 
-	tarea->parametro = 12; // Esto es solo de prueba
+	tarea->parametro = 1; // Esto es solo de prueba
 		tarea->posicionX = 2;
 		tarea->posicionY = 3;
 		tarea->tiempo = 5;
 		tarea->tareaTerminada = false;
-		tarea->descripcionTarea = "GENERAR_OXIGENO";
+		tarea->descripcionTarea = "CONSUMIR_OXIGENO";
 		tripulante->tareaActual = tarea;
 
 
@@ -755,11 +754,13 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 	char * descripcionTarea = tarea->descripcionTarea;
 	int parametros = tarea->parametro;
+	log_info(loggerDiscordiador, "Llego %s", descripcionTarea);
 				if( strcmp(descripcionTarea,"GENERAR_OXIGENO") == 0 ){
 						serializarYMandarInicioTareaIO(parametros, GENERAR_OXIGENO,tid);
+						log_info(loggerDiscordiador, "GENERAR_OXIGENO %d", parametros);
 					} 
 
-					else if(strcmp(tarea->descripcionTarea,"CONSUMIR_OXIGENO") == 0){
+					else if(strcmp(descripcionTarea,"CONSUMIR_OXIGENO") == 0){
 						serializarYMandarInicioTareaIO(parametros, CONSUMIR_OXIGENO,tid);
 					}
 
@@ -773,6 +774,7 @@ void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 
 					else if(strcmp(descripcionTarea,"GENERAR_BASURA") == 0){
 						serializarYMandarInicioTareaIO(parametros, GENERAR_BASURA,tid);
+						log_info(loggerDiscordiador, "GENERAR_BASURA %d", parametros);
 					}
 
 					else if(strcmp(descripcionTarea,"DESCARTAR_BASURA") == 0){
@@ -822,8 +824,9 @@ bool esTareaDeIO(char * tarea){
 			return true;
 		}
 
-		return false;
+		
 	}
+	return false;
 }
 
 
