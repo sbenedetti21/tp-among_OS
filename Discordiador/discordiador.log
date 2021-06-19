@@ -4457,3 +4457,331 @@
 [INFO] 11:42:19:068 discordiador.c/(13681:13697): Tripulante 3 termino de trabajar 
 [INFO] 11:42:19:068 discordiador.c/(13681:13697): Tripulante 3 cambio su estado a F
 [INFO] 11:42:27:730 discordiador.c/(13681:13682): INSTRUCCION LEIDA: b
+[INFO] 11:34:21:917 discordiador.c/(4299:4299): ---------PROGRAMA INICIADO---------- 
+[INFO] 11:36:21:530 discordiador.c/(4299:4300): INSTRUCCION LEIDA: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 11:36:21:530 discordiador.c/(4299:4300): Discordiador conectado con Mi RAM
+[INFO] 11:36:21:530 discordiador.c/(4299:4300): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 11:36:21:530 discordiador.c/(4299:4300): Tripulante 0 cambio su estado a R
+[INFO] 11:36:21:531 discordiador.c/(4299:4300): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 11:36:21:531 discordiador.c/(4299:4300): Tripulante 1 cambio su estado a R
+[INFO] 11:36:21:531 discordiador.c/(4299:4300): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 11:36:21:531 discordiador.c/(4299:4300): Tripulante 2 cambio su estado a R
+[INFO] 11:36:21:531 discordiador.c/(4299:4300): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 11:36:21:531 discordiador.c/(4299:4300): Tripulante 3 cambio su estado a R
+[INFO] 11:36:21:531 discordiador.c/(4299:4300): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 11:36:21:531 discordiador.c/(4299:4300): Tripulante 4 cambio su estado a R
+[INFO] 11:36:21:531 discordiador.c/(4299:4300): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 11:36:32:325 discordiador.c/(4299:4300): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 11:36:32:326 discordiador.c/(4299:4366): Tripulante 0 cambio su estado a R
+[INFO] 11:36:32:326 discordiador.c/(4299:4366): Tripulante 1 cambio su estado a R
+[INFO] 11:36:32:326 discordiador.c/(4299:4366): Tripulante 2 cambio su estado a R
+[INFO] 11:36:32:326 discordiador.c/(4299:4366): Tripulante 3 cambio su estado a R
+[INFO] 11:36:32:326 discordiador.c/(4299:4366): Tripulante 4 cambio su estado a R
+[INFO] 11:36:32:327 discordiador.c/(4299:4366): Tripulante 0 cambio su estado a E
+[INFO] 11:36:32:327 discordiador.c/(4299:4366): Tripulante 1 cambio su estado a E
+[INFO] 11:36:32:328 discordiador.c/(4299:4358): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 11:36:32:328 discordiador.c/(4299:4357): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 11:36:33:328 discordiador.c/(4299:4358): Tripulante 1 termino su Q en 1|0
+[INFO] 11:36:33:328 discordiador.c/(4299:4357): Tripulante 0 termino su Q en 1|0
+[INFO] 11:36:35:329 discordiador.c/(4299:4358): Tripulante 1 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:36:35:329 discordiador.c/(4299:4358): Tripulante 1 cambio su estado a R
+[INFO] 11:36:35:329 discordiador.c/(4299:4357): Tripulante 0 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:36:35:329 discordiador.c/(4299:4357): Tripulante 0 cambio su estado a R
+[INFO] 11:36:35:329 discordiador.c/(4299:4366): Tripulante 2 cambio su estado a E
+[INFO] 11:36:35:329 discordiador.c/(4299:4366): Tripulante 3 cambio su estado a E
+[INFO] 11:36:35:330 discordiador.c/(4299:4359): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[ERROR] 11:36:35:680 discordiador.c/(4299:4360): No se pudo recibir el tamanio del buffer al recibir una tarea
+[ERROR] 11:36:35:680 discordiador.c/(4299:4360): No se pudo recibir el buffer al recibir una tarea
+[INFO] 11:36:36:331 discordiador.c/(4299:4359): Tripulante 2 termino su Q en 1|0
+[INFO] 11:36:38:332 discordiador.c/(4299:4359): Tripulante 2 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:36:38:332 discordiador.c/(4299:4359): Tripulante 2 cambio su estado a R
+[INFO] 11:36:38:332 discordiador.c/(4299:4366): Tripulante 4 cambio su estado a E
+[INFO] 11:44:10:122 discordiador.c/(4534:4534): ---------PROGRAMA INICIADO---------- 
+[INFO] 11:44:23:058 discordiador.c/(4534:4535): INSTRUCCION LEIDA: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 11:44:23:059 discordiador.c/(4534:4535): Discordiador conectado con Mi RAM
+[INFO] 11:44:23:059 discordiador.c/(4534:4535): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 11:44:23:059 discordiador.c/(4534:4535): Tripulante 0 cambio su estado a R
+[INFO] 11:44:23:059 discordiador.c/(4534:4535): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 11:44:23:059 discordiador.c/(4534:4535): Tripulante 1 cambio su estado a R
+[INFO] 11:44:23:059 discordiador.c/(4534:4535): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 11:44:23:059 discordiador.c/(4534:4535): Tripulante 2 cambio su estado a R
+[INFO] 11:44:23:059 discordiador.c/(4534:4535): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 11:44:23:059 discordiador.c/(4534:4535): Tripulante 3 cambio su estado a R
+[INFO] 11:44:23:059 discordiador.c/(4534:4535): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 11:44:23:060 discordiador.c/(4534:4535): Tripulante 4 cambio su estado a R
+[INFO] 11:44:23:060 discordiador.c/(4534:4535): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 11:44:27:832 discordiador.c/(4534:4535): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 11:44:27:833 discordiador.c/(4534:4552): Tripulante 0 cambio su estado a R
+[INFO] 11:44:27:833 discordiador.c/(4534:4552): Tripulante 1 cambio su estado a R
+[INFO] 11:44:27:833 discordiador.c/(4534:4552): Tripulante 2 cambio su estado a R
+[INFO] 11:44:27:833 discordiador.c/(4534:4552): Tripulante 3 cambio su estado a R
+[INFO] 11:44:27:834 discordiador.c/(4534:4552): Tripulante 4 cambio su estado a R
+[INFO] 11:44:27:834 discordiador.c/(4534:4552): Tripulante 0 cambio su estado a E
+[INFO] 11:44:27:834 discordiador.c/(4534:4552): Tripulante 1 cambio su estado a E
+[INFO] 11:44:27:835 discordiador.c/(4534:4545): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 11:44:27:836 discordiador.c/(4534:4546): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 11:44:28:836 discordiador.c/(4534:4545): Tripulante 0 termino su Q en 1|0
+[INFO] 11:44:28:836 discordiador.c/(4534:4546): Tripulante 1 termino su Q en 1|0
+[INFO] 11:44:30:836 discordiador.c/(4534:4545): Tripulante 0 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:30:837 discordiador.c/(4534:4545): Tripulante 0 cambio su estado a R
+[INFO] 11:44:30:837 discordiador.c/(4534:4552): Tripulante 2 cambio su estado a E
+[INFO] 11:44:30:837 discordiador.c/(4534:4546): Tripulante 1 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:30:837 discordiador.c/(4534:4546): Tripulante 1 cambio su estado a R
+[INFO] 11:44:30:838 discordiador.c/(4534:4552): Tripulante 3 cambio su estado a E
+[INFO] 11:44:30:840 discordiador.c/(4534:4547): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 11:44:30:842 discordiador.c/(4534:4548): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 11:44:31:841 discordiador.c/(4534:4547): Tripulante 2 termino su Q en 1|0
+[INFO] 11:44:31:843 discordiador.c/(4534:4548): Tripulante 3 termino su Q en 1|0
+[INFO] 11:44:33:842 discordiador.c/(4534:4547): Tripulante 2 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:33:843 discordiador.c/(4534:4547): Tripulante 2 cambio su estado a R
+[INFO] 11:44:33:843 discordiador.c/(4534:4552): Tripulante 4 cambio su estado a E
+[INFO] 11:44:33:843 discordiador.c/(4534:4548): Tripulante 3 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:33:843 discordiador.c/(4534:4548): Tripulante 3 cambio su estado a R
+[INFO] 11:44:33:844 discordiador.c/(4534:4552): Tripulante 0 cambio su estado a E
+[INFO] 11:44:33:844 discordiador.c/(4534:4545): Tripulante 0 cambio su estado a B
+[INFO] 11:44:33:845 discordiador.c/(4534:4552): Tripulante 1 cambio su estado a E
+[INFO] 11:44:33:845 discordiador.c/(4534:4546): Tripulante 1 cambio su estado a B
+[INFO] 11:44:33:846 discordiador.c/(4534:4553): Tripulante 0 cambio su estado a R
+[INFO] 11:44:33:846 discordiador.c/(4534:4552): Tripulante 2 cambio su estado a E
+[INFO] 11:44:33:846 discordiador.c/(4534:4547): Tripulante 2 cambio su estado a B
+[INFO] 11:44:33:846 discordiador.c/(4534:4552): Tripulante 3 cambio su estado a E
+[INFO] 11:44:33:846 discordiador.c/(4534:4548): Tripulante 3 cambio su estado a B
+[INFO] 11:44:33:847 discordiador.c/(4534:4553): Tripulante 1 cambio su estado a R
+[INFO] 11:44:33:847 discordiador.c/(4534:4553): Tripulante 2 cambio su estado a R
+[INFO] 11:44:33:847 discordiador.c/(4534:4553): Tripulante 3 cambio su estado a R
+[INFO] 11:44:33:848 discordiador.c/(4534:4549): Tarea pedida por tripulante 4: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 11:44:34:848 discordiador.c/(4534:4549): Tripulante 4 termino su Q en 1|0
+[INFO] 11:44:35:845 discordiador.c/(4534:4545): Tripulante 0 terminó su tarea
+[INFO] 11:44:35:845 discordiador.c/(4534:4552): Tripulante 0 cambio su estado a E
+[INFO] 11:44:35:846 discordiador.c/(4534:4546): Tripulante 1 terminó su tarea
+[INFO] 11:44:35:847 discordiador.c/(4534:4547): Tripulante 2 terminó su tarea
+[INFO] 11:44:35:847 discordiador.c/(4534:4548): Tripulante 3 terminó su tarea
+[INFO] 11:44:35:848 discordiador.c/(4534:4545): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:36:849 discordiador.c/(4534:4545): Tripulante 0 termino su Q en 2|2
+[INFO] 11:44:36:849 discordiador.c/(4534:4549): Tripulante 4 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:36:849 discordiador.c/(4534:4549): Tripulante 4 cambio su estado a R
+[INFO] 11:44:36:850 discordiador.c/(4534:4552): Tripulante 1 cambio su estado a E
+[INFO] 11:44:36:851 discordiador.c/(4534:4546): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:37:849 discordiador.c/(4534:4545): Tripulante 0 llego a la posicion de su tarea, le queda 1 de quantum
+[INFO] 11:44:37:849 discordiador.c/(4534:4545): Tripulante 0 cambio su estado a B
+[INFO] 11:44:37:849 discordiador.c/(4534:4552): Tripulante 2 cambio su estado a E
+[INFO] 11:44:37:852 discordiador.c/(4534:4553): Tripulante 0 cambio su estado a R
+[INFO] 11:44:37:852 discordiador.c/(4534:4546): Tripulante 1 termino su Q en 2|2
+[INFO] 11:44:37:854 discordiador.c/(4534:4547): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:38:853 discordiador.c/(4534:4546): Tripulante 1 llego a la posicion de su tarea, le queda 1 de quantum
+[INFO] 11:44:38:853 discordiador.c/(4534:4546): Tripulante 1 cambio su estado a B
+[INFO] 11:44:38:853 discordiador.c/(4534:4552): Tripulante 3 cambio su estado a E
+[INFO] 11:44:38:854 discordiador.c/(4534:4553): Tripulante 1 cambio su estado a R
+[INFO] 11:44:38:855 discordiador.c/(4534:4547): Tripulante 2 termino su Q en 2|2
+[INFO] 11:44:38:857 discordiador.c/(4534:4548): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:39:850 discordiador.c/(4534:4545): Tripulante 0 terminó su tarea
+[INFO] 11:44:39:856 discordiador.c/(4534:4547): Tripulante 2 llego a la posicion de su tarea, le queda 1 de quantum
+[INFO] 11:44:39:856 discordiador.c/(4534:4547): Tripulante 2 cambio su estado a B
+[INFO] 11:44:39:856 discordiador.c/(4534:4552): Tripulante 4 cambio su estado a E
+[INFO] 11:44:39:857 discordiador.c/(4534:4549): Tripulante 4 cambio su estado a B
+[INFO] 11:44:39:857 discordiador.c/(4534:4552): Tripulante 0 cambio su estado a E
+[INFO] 11:44:39:858 discordiador.c/(4534:4548): Tripulante 3 termino su Q en 2|2
+[INFO] 11:44:39:858 discordiador.c/(4534:4553): Tripulante 2 cambio su estado a R
+[INFO] 11:44:39:859 discordiador.c/(4534:4553): Tripulante 4 cambio su estado a R
+[INFO] 11:44:39:865 discordiador.c/(4534:4545): Tarea pedida por tripulante 0: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 11:44:40:853 discordiador.c/(4534:4546): Tripulante 1 terminó su tarea
+[INFO] 11:44:40:858 discordiador.c/(4534:4548): Tripulante 3 llego a la posicion de su tarea, le queda 1 de quantum
+[INFO] 11:44:40:858 discordiador.c/(4534:4548): Tripulante 3 cambio su estado a B
+[INFO] 11:44:40:858 discordiador.c/(4534:4552): Tripulante 1 cambio su estado a E
+[INFO] 11:44:40:859 discordiador.c/(4534:4553): Tripulante 3 cambio su estado a R
+[INFO] 11:44:40:861 discordiador.c/(4534:4546): Tarea pedida por tripulante 1: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 11:44:40:865 discordiador.c/(4534:4545): Tripulante 0 termino su Q en 1|3
+[INFO] 11:44:41:856 discordiador.c/(4534:4547): Tripulante 2 terminó su tarea
+[INFO] 11:44:41:857 discordiador.c/(4534:4549): Tripulante 4 terminó su tarea
+[INFO] 11:44:41:861 discordiador.c/(4534:4546): Tripulante 1 termino su Q en 1|3
+[INFO] 11:44:42:858 discordiador.c/(4534:4548): Tripulante 3 terminó su tarea
+[INFO] 11:44:42:866 discordiador.c/(4534:4545): Tripulante 0 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:42:866 discordiador.c/(4534:4545): Tripulante 0 cambio su estado a R
+[INFO] 11:44:42:866 discordiador.c/(4534:4552): Tripulante 2 cambio su estado a E
+[INFO] 11:44:42:869 discordiador.c/(4534:4547): Tarea pedida por tripulante 2: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 11:44:43:862 discordiador.c/(4534:4546): Tripulante 1 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:43:862 discordiador.c/(4534:4546): Tripulante 1 cambio su estado a R
+[INFO] 11:44:43:862 discordiador.c/(4534:4552): Tripulante 4 cambio su estado a E
+[INFO] 11:44:43:864 discordiador.c/(4534:4549): Tarea pedida por tripulante 4: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:43:869 discordiador.c/(4534:4547): Tripulante 2 termino su Q en 1|3
+[INFO] 11:44:44:865 discordiador.c/(4534:4549): Tripulante 4 termino su Q en 2|2
+[INFO] 11:44:45:867 discordiador.c/(4534:4549): Tripulante 4 llego a la posicion de su tarea, le queda 1 de quantum
+[INFO] 11:44:45:867 discordiador.c/(4534:4549): Tripulante 4 cambio su estado a B
+[INFO] 11:44:45:867 discordiador.c/(4534:4552): Tripulante 3 cambio su estado a E
+[INFO] 11:44:45:869 discordiador.c/(4534:4553): Tripulante 4 cambio su estado a R
+[INFO] 11:44:45:870 discordiador.c/(4534:4547): Tripulante 2 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:45:870 discordiador.c/(4534:4547): Tripulante 2 cambio su estado a R
+[INFO] 11:44:45:870 discordiador.c/(4534:4552): Tripulante 0 cambio su estado a E
+[INFO] 11:44:45:870 discordiador.c/(4534:4545): Tripulante 0 cambio su estado a B
+[INFO] 11:44:45:871 discordiador.c/(4534:4552): Tripulante 1 cambio su estado a E
+[INFO] 11:44:45:871 discordiador.c/(4534:4546): Tripulante 1 cambio su estado a B
+[INFO] 11:44:45:871 discordiador.c/(4534:4553): Tripulante 0 cambio su estado a R
+[INFO] 11:44:45:872 discordiador.c/(4534:4552): Tripulante 4 cambio su estado a E
+[INFO] 11:44:45:872 discordiador.c/(4534:4553): Tripulante 1 cambio su estado a R
+[INFO] 11:44:45:873 discordiador.c/(4534:4548): Tarea pedida por tripulante 3: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 11:44:46:873 discordiador.c/(4534:4548): Tripulante 3 termino su Q en 1|3
+[INFO] 11:44:47:868 discordiador.c/(4534:4549): Tripulante 4 terminó su tarea
+[INFO] 11:44:47:869 discordiador.c/(4534:4549): Tarea pedida por tripulante 4: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 11:44:47:870 discordiador.c/(4534:4545): Tripulante 0 terminó su tarea
+[INFO] 11:44:47:871 discordiador.c/(4534:4546): Tripulante 1 terminó su tarea
+[INFO] 11:44:48:869 discordiador.c/(4534:4549): Tripulante 4 termino su Q en 1|3
+[INFO] 11:44:48:874 discordiador.c/(4534:4548): Tripulante 3 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:48:874 discordiador.c/(4534:4548): Tripulante 3 cambio su estado a R
+[INFO] 11:44:48:874 discordiador.c/(4534:4552): Tripulante 2 cambio su estado a E
+[INFO] 11:44:48:874 discordiador.c/(4534:4547): Tripulante 2 cambio su estado a B
+[INFO] 11:44:48:875 discordiador.c/(4534:4552): Tripulante 0 cambio su estado a E
+[INFO] 11:44:48:876 discordiador.c/(4534:4553): Tripulante 2 cambio su estado a R
+[INFO] 11:44:48:878 discordiador.c/(4534:4545): Tarea pedida por tripulante 0: GENERAR_BASURA Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:49:878 discordiador.c/(4534:4545): Tripulante 0 termino su Q en 2|1
+[INFO] 11:44:50:870 discordiador.c/(4534:4549): Tripulante 4 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:50:870 discordiador.c/(4534:4549): Tripulante 4 cambio su estado a R
+[INFO] 11:44:50:870 discordiador.c/(4534:4552): Tripulante 1 cambio su estado a E
+[INFO] 11:44:50:872 discordiador.c/(4534:4546): Tarea pedida por tripulante 1: GENERAR_BASURA Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:50:874 discordiador.c/(4534:4547): Tripulante 2 terminó su tarea
+[INFO] 11:44:51:872 discordiador.c/(4534:4546): Tripulante 1 termino su Q en 2|1
+[INFO] 11:44:51:880 discordiador.c/(4534:4545): Tripulante 0 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:51:880 discordiador.c/(4534:4545): Tripulante 0 cambio su estado a R
+[INFO] 11:44:51:880 discordiador.c/(4534:4552): Tripulante 3 cambio su estado a E
+[INFO] 11:44:51:880 discordiador.c/(4534:4548): Tripulante 3 cambio su estado a B
+[INFO] 11:44:51:881 discordiador.c/(4534:4552): Tripulante 2 cambio su estado a E
+[INFO] 11:44:51:882 discordiador.c/(4534:4553): Tripulante 3 cambio su estado a R
+[INFO] 11:44:51:891 discordiador.c/(4534:4547): Tarea pedida por tripulante 2: GENERAR_BASURA Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:52:891 discordiador.c/(4534:4547): Tripulante 2 termino su Q en 2|1
+[INFO] 11:44:53:873 discordiador.c/(4534:4546): Tripulante 1 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:53:873 discordiador.c/(4534:4546): Tripulante 1 cambio su estado a R
+[INFO] 11:44:53:873 discordiador.c/(4534:4552): Tripulante 4 cambio su estado a E
+[INFO] 11:44:53:874 discordiador.c/(4534:4549): Tripulante 4 cambio su estado a B
+[INFO] 11:44:53:874 discordiador.c/(4534:4552): Tripulante 0 cambio su estado a E
+[INFO] 11:44:53:874 discordiador.c/(4534:4545): Tripulante 0 cambio su estado a B
+[INFO] 11:44:53:875 discordiador.c/(4534:4552): Tripulante 3 cambio su estado a E
+[INFO] 11:44:53:875 discordiador.c/(4534:4553): Tripulante 4 cambio su estado a R
+[INFO] 11:44:53:876 discordiador.c/(4534:4553): Tripulante 0 cambio su estado a R
+[INFO] 11:44:53:881 discordiador.c/(4534:4548): Tripulante 3 terminó su tarea
+[INFO] 11:44:53:893 discordiador.c/(4534:4548): Tarea pedida por tripulante 3: GENERAR_BASURA Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:54:893 discordiador.c/(4534:4547): Tripulante 2 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:54:894 discordiador.c/(4534:4547): Tripulante 2 cambio su estado a R
+[INFO] 11:44:54:894 discordiador.c/(4534:4552): Tripulante 1 cambio su estado a E
+[INFO] 11:44:54:895 discordiador.c/(4534:4546): Tripulante 1 cambio su estado a B
+[INFO] 11:44:54:894 discordiador.c/(4534:4548): Tripulante 3 termino su Q en 2|1
+[INFO] 11:44:54:895 discordiador.c/(4534:4552): Tripulante 4 cambio su estado a E
+[INFO] 11:44:54:896 discordiador.c/(4534:4553): Tripulante 1 cambio su estado a R
+[INFO] 11:44:55:874 discordiador.c/(4534:4549): Tripulante 4 terminó su tarea
+[INFO] 11:44:55:875 discordiador.c/(4534:4545): Tripulante 0 terminó su tarea
+[INFO] 11:44:55:876 discordiador.c/(4534:4549): Tarea pedida por tripulante 4: GENERAR_BASURA Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:56:877 discordiador.c/(4534:4549): Tripulante 4 termino su Q en 2|1
+[INFO] 11:44:56:895 discordiador.c/(4534:4546): Tripulante 1 terminó su tarea
+[INFO] 11:44:56:896 discordiador.c/(4534:4548): Tripulante 3 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:56:897 discordiador.c/(4534:4548): Tripulante 3 cambio su estado a R
+[INFO] 11:44:56:897 discordiador.c/(4534:4552): Tripulante 0 cambio su estado a E
+[INFO] 11:44:56:899 discordiador.c/(4534:4545): Tarea pedida por tripulante 0: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:56:899 discordiador.c/(4534:4545): Tripulante 0 cambio su estado a B
+[INFO] 11:44:56:899 discordiador.c/(4534:4552): Tripulante 2 cambio su estado a E
+[INFO] 11:44:56:899 discordiador.c/(4534:4547): Tripulante 2 cambio su estado a B
+[INFO] 11:44:56:900 discordiador.c/(4534:4552): Tripulante 1 cambio su estado a E
+[INFO] 11:44:56:900 discordiador.c/(4534:4553): Tripulante 0 cambio su estado a R
+[INFO] 11:44:56:901 discordiador.c/(4534:4553): Tripulante 2 cambio su estado a R
+[INFO] 11:44:56:902 discordiador.c/(4534:4546): Tarea pedida por tripulante 1: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:56:902 discordiador.c/(4534:4546): Tripulante 1 cambio su estado a B
+[INFO] 11:44:56:902 discordiador.c/(4534:4552): Tripulante 3 cambio su estado a E
+[INFO] 11:44:56:903 discordiador.c/(4534:4548): Tripulante 3 cambio su estado a B
+[INFO] 11:44:56:903 discordiador.c/(4534:4553): Tripulante 1 cambio su estado a R
+[INFO] 11:44:56:903 discordiador.c/(4534:4553): Tripulante 3 cambio su estado a R
+[INFO] 11:44:58:878 discordiador.c/(4534:4549): Tripulante 4 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:44:58:878 discordiador.c/(4534:4549): Tripulante 4 cambio su estado a R
+[INFO] 11:44:58:878 discordiador.c/(4534:4552): Tripulante 0 cambio su estado a E
+[INFO] 11:44:58:900 discordiador.c/(4534:4545): Tripulante 0 terminó su tarea
+[INFO] 11:44:58:900 discordiador.c/(4534:4547): Tripulante 2 terminó su tarea
+[INFO] 11:44:58:900 discordiador.c/(4534:4552): Tripulante 2 cambio su estado a E
+[INFO] 11:44:58:903 discordiador.c/(4534:4547): Tarea pedida por tripulante 2: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:58:903 discordiador.c/(4534:4547): Tripulante 2 cambio su estado a B
+[INFO] 11:44:58:903 discordiador.c/(4534:4546): Tripulante 1 terminó su tarea
+[INFO] 11:44:58:903 discordiador.c/(4534:4548): Tripulante 3 terminó su tarea
+[INFO] 11:44:58:903 discordiador.c/(4534:4552): Tripulante 1 cambio su estado a E
+[INFO] 11:44:58:904 discordiador.c/(4534:4553): Tripulante 2 cambio su estado a R
+[INFO] 11:44:58:906 discordiador.c/(4534:4545): Tripulante 0 termino de trabajar 
+[INFO] 11:44:58:906 discordiador.c/(4534:4545): Tripulante 0 cambio su estado a F
+[INFO] 11:44:58:906 discordiador.c/(4534:4552): Tripulante 3 cambio su estado a E
+[INFO] 11:44:58:907 discordiador.c/(4534:4546): Tripulante 1 termino de trabajar 
+[INFO] 11:44:58:907 discordiador.c/(4534:4546): Tripulante 1 cambio su estado a F
+[INFO] 11:44:58:907 discordiador.c/(4534:4552): Tripulante 4 cambio su estado a E
+[INFO] 11:44:58:907 discordiador.c/(4534:4549): Tripulante 4 cambio su estado a B
+[INFO] 11:44:58:907 discordiador.c/(4534:4553): Tripulante 4 cambio su estado a R
+[INFO] 11:44:58:913 discordiador.c/(4534:4548): Tarea pedida por tripulante 3: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 11:44:58:913 discordiador.c/(4534:4548): Tripulante 3 cambio su estado a B
+[INFO] 11:44:58:913 discordiador.c/(4534:4553): Tripulante 3 cambio su estado a R
+[INFO] 11:45:00:903 discordiador.c/(4534:4547): Tripulante 2 terminó su tarea
+[INFO] 11:45:00:904 discordiador.c/(4534:4552): Tripulante 2 cambio su estado a E
+[INFO] 11:45:00:906 discordiador.c/(4534:4547): Tripulante 2 termino de trabajar 
+[INFO] 11:45:00:906 discordiador.c/(4534:4547): Tripulante 2 cambio su estado a F
+[INFO] 11:45:00:907 discordiador.c/(4534:4549): Tripulante 4 terminó su tarea
+[INFO] 11:45:00:908 discordiador.c/(4534:4552): Tripulante 4 cambio su estado a E
+[INFO] 11:45:00:910 discordiador.c/(4534:4549): Tarea pedida por tripulante 4: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 11:45:00:910 discordiador.c/(4534:4549): Tripulante 4 cambio su estado a B
+[INFO] 11:45:00:911 discordiador.c/(4534:4553): Tripulante 4 cambio su estado a R
+[INFO] 11:45:00:913 discordiador.c/(4534:4548): Tripulante 3 terminó su tarea
+[INFO] 11:45:00:914 discordiador.c/(4534:4552): Tripulante 3 cambio su estado a E
+[INFO] 11:45:00:927 discordiador.c/(4534:4548): Tripulante 3 termino de trabajar 
+[INFO] 11:45:00:927 discordiador.c/(4534:4548): Tripulante 3 cambio su estado a F
+[INFO] 11:45:02:911 discordiador.c/(4534:4549): Tripulante 4 terminó su tarea
+[INFO] 11:45:02:911 discordiador.c/(4534:4552): Tripulante 4 cambio su estado a E
+[INFO] 11:45:02:913 discordiador.c/(4534:4549): Tripulante 4 termino de trabajar 
+[INFO] 11:45:02:913 discordiador.c/(4534:4549): Tripulante 4 cambio su estado a F
+[INFO] 11:45:15:592 discordiador.c/(4534:4535): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): INSTRUCCION LEIDA: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Discordiador conectado con Mi RAM
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Tripulante creado: ID: 5, Posicion 0|0, Estado: N 
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Tripulante 5 cambio su estado a R
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Tripulante creado: ID: 6, Posicion 0|0, Estado: N 
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Tripulante 6 cambio su estado a R
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Tripulante creado: ID: 7, Posicion 0|0, Estado: N 
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Tripulante 7 cambio su estado a R
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Tripulante creado: ID: 8, Posicion 0|0, Estado: N 
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Tripulante 8 cambio su estado a R
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Tripulante creado: ID: 9, Posicion 0|0, Estado: N 
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): Tripulante 9 cambio su estado a R
+[INFO] 11:45:25:407 discordiador.c/(4534:4535): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 11:45:25:407 discordiador.c/(4534:4552): Tripulante 5 cambio su estado a E
+[INFO] 11:45:25:407 discordiador.c/(4534:4552): Tripulante 6 cambio su estado a E
+[ERROR] 11:45:25:712 discordiador.c/(4534:4692): No se pudo recibir el tamanio del buffer al recibir una tarea
+[ERROR] 11:45:25:712 discordiador.c/(4534:4692): No se pudo recibir el buffer al recibir una tarea
+[ERROR] 11:45:25:713 discordiador.c/(4534:4693): No se pudo recibir el header al recibir una tarea
+[ERROR] 11:45:25:713 discordiador.c/(4534:4693): No se pudo recibir el tamanio del buffer al recibir una tarea
+[ERROR] 11:45:25:713 discordiador.c/(4534:4693): No se pudo recibir el buffer al recibir una tarea
+[INFO] 11:45:28:714 discordiador.c/(4534:4692): Tripulante 5 termino su Q en 3|0
+[INFO] 11:45:28:714 discordiador.c/(4534:4692): Tripulante 5 termino su Q en 3|0
+[INFO] 11:45:28:714 discordiador.c/(4534:4692): Tripulante 5 cambio su estado a R
+[INFO] 11:45:28:714 discordiador.c/(4534:4693): Tripulante 6 termino su Q en 3|0
+[INFO] 11:45:28:714 discordiador.c/(4534:4693): Tripulante 6 termino su Q en 3|0
+[INFO] 11:45:28:714 discordiador.c/(4534:4693): Tripulante 6 cambio su estado a R
+[INFO] 11:45:28:714 discordiador.c/(4534:4552): Tripulante 7 cambio su estado a E
+[INFO] 11:45:28:715 discordiador.c/(4534:4552): Tripulante 8 cambio su estado a E
+[INFO] 11:45:47:985 discordiador.c/(4724:4724): ---------PROGRAMA INICIADO---------- 
+[INFO] 11:46:03:417 discordiador.c/(4724:4725): INSTRUCCION LEIDA: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 11:46:03:417 discordiador.c/(4724:4725): Discordiador conectado con Mi RAM
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): Tripulante 0 cambio su estado a R
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): Tripulante 1 cambio su estado a R
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): Tripulante 2 cambio su estado a R
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): Tripulante 3 cambio su estado a R
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): Tripulante 4 cambio su estado a R
+[INFO] 11:46:03:418 discordiador.c/(4724:4725): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 11:46:09:831 discordiador.c/(4724:4725): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 11:46:09:832 discordiador.c/(4724:4742): Tripulante 0 cambio su estado a R
+[INFO] 11:46:09:832 discordiador.c/(4724:4742): Tripulante 1 cambio su estado a R
+[INFO] 11:46:09:832 discordiador.c/(4724:4742): Tripulante 2 cambio su estado a R
+[INFO] 11:46:09:832 discordiador.c/(4724:4742): Tripulante 3 cambio su estado a R
+[INFO] 11:46:09:832 discordiador.c/(4724:4742): Tripulante 4 cambio su estado a R
+[INFO] 11:46:09:832 discordiador.c/(4724:4742): Tripulante 0 cambio su estado a E
+[INFO] 11:46:09:833 discordiador.c/(4724:4742): Tripulante 1 cambio su estado a E
+[INFO] 11:46:09:834 discordiador.c/(4724:4733): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[ERROR] 11:46:10:132 discordiador.c/(4724:4734): No se pudo recibir el header al recibir una tarea
+[ERROR] 11:46:10:132 discordiador.c/(4724:4734): No se pudo recibir el tamanio del buffer al recibir una tarea
+[ERROR] 11:46:10:132 discordiador.c/(4724:4734): No se pudo recibir el buffer al recibir una tarea
+[INFO] 11:46:10:834 discordiador.c/(4724:4733): Tripulante 0 termino su Q en 1|0
+[INFO] 11:46:12:834 discordiador.c/(4724:4733): Tripulante 0 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 11:46:12:835 discordiador.c/(4724:4733): Tripulante 0 cambio su estado a R
+[INFO] 11:46:12:835 discordiador.c/(4724:4742): Tripulante 2 cambio su estado a E

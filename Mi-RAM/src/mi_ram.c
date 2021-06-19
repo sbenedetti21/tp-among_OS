@@ -351,7 +351,7 @@ void atenderDiscordiador(int socketCliente){
 
 			memcpy(stream+offset, stringTarea, tamanioTarea);
 
-			buffer-> stream = stream;
+			buffer-> stream = stream; 
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 
