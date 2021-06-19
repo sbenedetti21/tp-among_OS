@@ -4826,3 +4826,208 @@ CONSUMIR_OXIGENO 5;1;1;1|
 [INFO] 10:15:58:194 mi_ram.c/(7606:7690): Recibi header: 1
 
 [INFO] 10:15:58:194 mi_ram.c/(7606:7690): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 10:25:55:611 mi_ram.c/(8245:8245): Iniciando Frames... 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): -------------------------
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): Disponibilidad de frames: 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 0 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 1 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 2 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 3 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 4 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 5 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 6 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 7 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 8 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 9 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 10 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 11 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 12 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 13 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 14 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 15 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 16 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 17 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 18 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 19 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 20 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 21 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 22 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 23 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 24 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 25 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 26 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 27 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 28 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 29 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 30 esta ocupado: 0 
+[INFO] 10:25:55:612 mi_ram.c/(8245:8245): el frame 31 esta ocupado: 0 
+[INFO] 10:26:17:583 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:26:17:584 mi_ram.c/(8245:8307): Recibi header: 0
+
+[INFO] 10:26:17:584 mi_ram.c/(8245:8307): GENERAR_OXIGENO 3;1;2;2
+GENERAR_OXIGENO 4;2;3;2
+CONSUMIR_OXIGENO 5;1;1;1|
+[INFO] 10:26:17:584 mi_ram.c/(8245:8307): cantidad tcbs recibidos: 4 
+
+[INFO] 10:26:17:584 mi_ram.c/(8245:8307): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 10:26:17:585 mi_ram.c/(8245:8307): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 32 0a  |OXIGENO 3;1;2;2.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 32 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;2.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 35 3b 31 3b 31 3b 31  |_OXIGENO 5;1;1;1|
+0x00000050: 7c 00 00 00 00 00 00 00  00 05 00 00 00 52 08 00  ||............R..|
+0x00000060: 00 00 00 00 00 00 01 00  00 00 02 00 00 00 01 00  |................|
+0x00000070: 00 00 52 08 00 00 00 00  00 00 00 02 00 00 00 09  |..R.............|
+0x00000080: 00 00 00 02 00 00 00 52  08 00 00 00 00 00 00 00  |.......R........|
+0x00000090: 03 00 00 00 06 00 00 00  04 00 00 00 52 08 00 00  |............R...|
+0x000000a0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 10:26:53:829 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:26:53:830 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:26:53:830 mi_ram.c/(8245:8319): Recibi header: 1
+
+[INFO] 10:26:53:830 mi_ram.c/(8245:8319): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;2
+[INFO] 10:26:53:830 mi_ram.c/(8245:8320): Recibi header: 1
+
+[INFO] 10:26:53:830 mi_ram.c/(8245:8320): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;2
+[INFO] 10:26:55:831 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:26:55:831 mi_ram.c/(8245:8323): Recibi header: 1
+
+[INFO] 10:26:55:831 mi_ram.c/(8245:8323): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;2
+[INFO] 10:26:57:831 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:26:57:831 mi_ram.c/(8245:8325): Recibi header: 1
+
+[INFO] 10:26:57:831 mi_ram.c/(8245:8325): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;2
+[INFO] 10:27:03:832 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:03:832 mi_ram.c/(8245:8330): Recibi header: 1
+
+[INFO] 10:27:03:832 mi_ram.c/(8245:8330): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;2
+[INFO] 10:27:04:832 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:04:832 mi_ram.c/(8245:8331): Recibi header: 1
+
+[INFO] 10:27:04:832 mi_ram.c/(8245:8331): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;2
+[INFO] 10:27:06:832 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:06:832 mi_ram.c/(8245:8334): Recibi header: 1
+
+[INFO] 10:27:06:832 mi_ram.c/(8245:8334): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;2
+[INFO] 10:27:07:832 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:07:832 mi_ram.c/(8245:8337): Recibi header: 1
+
+[INFO] 10:27:07:832 mi_ram.c/(8245:8337): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;2
+[INFO] 10:27:08:833 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:08:833 mi_ram.c/(8245:8338): Recibi header: 1
+
+[INFO] 10:27:08:833 mi_ram.c/(8245:8338): La tarea a enviar es: CONSUMIR_OXIGENO 5;1;1;1
+[INFO] 10:27:09:833 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:09:833 mi_ram.c/(8245:8342): Recibi header: 1
+
+[INFO] 10:27:09:833 mi_ram.c/(8245:8342): La tarea a enviar es: CONSUMIR_OXIGENO 5;1;1;1
+[INFO] 10:27:12:834 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:12:834 mi_ram.c/(8245:8344): Recibi header: 1
+
+[INFO] 10:27:12:834 mi_ram.c/(8245:8344): La tarea a enviar es: CONSUMIR_OXIGENO 5;1;1;1
+[INFO] 10:27:13:834 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:13:834 mi_ram.c/(8245:8345): Recibi header: 1
+
+[INFO] 10:27:13:835 mi_ram.c/(8245:8345): La tarea a enviar es: CONSUMIR_OXIGENO 5;1;1;1
+[INFO] 10:27:16:835 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:16:835 mi_ram.c/(8245:8347): Recibi header: 1
+
+[INFO] 10:27:16:835 mi_ram.c/(8245:8347): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 10:27:16:836 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:16:836 mi_ram.c/(8245:8348): Recibi header: 1
+
+[INFO] 10:27:16:836 mi_ram.c/(8245:8348): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 10:27:16:836 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:16:836 mi_ram.c/(8245:8349): Recibi header: 1
+
+[INFO] 10:27:16:836 mi_ram.c/(8245:8349): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 10:27:17:836 mi_ram.c/(8245:8246): Conexión establecida con Discordiador
+[INFO] 10:27:17:836 mi_ram.c/(8245:8356): Recibi header: 1
+
+[INFO] 10:27:17:836 mi_ram.c/(8245:8356): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 10:29:03:969 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:03:970 mi_ram.c/(8521:8560): Recibi header: 0
+
+[INFO] 10:29:03:970 mi_ram.c/(8521:8560): GENERAR_OXIGENO 3;1;2;2
+GENERAR_OXIGENO 4;2;3;2
+CONSUMIR_OXIGENO 5;1;1;1|
+[INFO] 10:29:03:970 mi_ram.c/(8521:8560): cantidad tcbs recibidos: 4 
+
+[INFO] 10:29:03:970 mi_ram.c/(8521:8560): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 10:29:32:751 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:32:751 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:32:751 mi_ram.c/(8521:8582): Recibi header: 1
+
+[INFO] 10:29:32:751 mi_ram.c/(8521:8582): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;2
+[INFO] 10:29:32:751 mi_ram.c/(8521:8583): Recibi header: 1
+
+[INFO] 10:29:32:751 mi_ram.c/(8521:8583): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;2
+[INFO] 10:29:34:752 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:34:752 mi_ram.c/(8521:8585): Recibi header: 1
+
+[INFO] 10:29:34:752 mi_ram.c/(8521:8585): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;2
+[INFO] 10:29:35:752 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:35:752 mi_ram.c/(8521:8586): Recibi header: 1
+
+[INFO] 10:29:35:752 mi_ram.c/(8521:8586): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;2
+[INFO] 10:29:37:753 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:37:753 mi_ram.c/(8521:8587): Recibi header: 1
+
+[INFO] 10:29:37:753 mi_ram.c/(8521:8587): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;2
+[INFO] 10:29:41:753 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:41:754 mi_ram.c/(8521:8592): Recibi header: 1
+
+[INFO] 10:29:41:754 mi_ram.c/(8521:8592): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;2
+[INFO] 10:29:42:754 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:42:754 mi_ram.c/(8521:8593): Recibi header: 1
+
+[INFO] 10:29:42:754 mi_ram.c/(8521:8593): La tarea a enviar es: CONSUMIR_OXIGENO 5;1;1;1
+[INFO] 10:29:45:755 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:45:755 mi_ram.c/(8521:8597): Recibi header: 1
+
+[INFO] 10:29:45:755 mi_ram.c/(8521:8597): La tarea a enviar es: CONSUMIR_OXIGENO 5;1;1;1
+[INFO] 10:29:47:755 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:47:755 mi_ram.c/(8521:8598): Recibi header: 1
+
+[INFO] 10:29:47:755 mi_ram.c/(8521:8598): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;2
+[INFO] 10:29:48:756 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:48:756 mi_ram.c/(8521:8599): Recibi header: 1
+
+[INFO] 10:29:48:756 mi_ram.c/(8521:8599): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;2
+[INFO] 10:29:52:756 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:52:756 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:52:756 mi_ram.c/(8521:8602): Recibi header: 1
+
+[INFO] 10:29:52:756 mi_ram.c/(8521:8602): La tarea a enviar es: CONSUMIR_OXIGENO 5;1;1;1
+[INFO] 10:29:52:757 mi_ram.c/(8521:8603): Recibi header: 1
+
+[INFO] 10:29:52:757 mi_ram.c/(8521:8603): La tarea a enviar es: CONSUMIR_OXIGENO 5;1;1;1
+[INFO] 10:29:55:757 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:55:757 mi_ram.c/(8521:8604): Recibi header: 1
+
+[INFO] 10:29:55:757 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:55:757 mi_ram.c/(8521:8604): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 10:29:55:758 mi_ram.c/(8521:8605): Recibi header: 1
+
+[INFO] 10:29:55:758 mi_ram.c/(8521:8605): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 10:29:56:758 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:56:758 mi_ram.c/(8521:8606): Recibi header: 1
+
+[INFO] 10:29:56:758 mi_ram.c/(8521:8606): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 10:29:56:758 mi_ram.c/(8521:8522): Conexión establecida con Discordiador
+[INFO] 10:29:56:758 mi_ram.c/(8521:8607): Recibi header: 1
+
+[INFO] 10:29:56:758 mi_ram.c/(8521:8607): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 10:57:28:994 mi_ram.c/(9332:9333): Conexión establecida con Discordiador
+[INFO] 10:57:29:009 mi_ram.c/(9332:9399): Recibi header: 0
+
+[INFO] 10:57:29:009 mi_ram.c/(9332:9399): GENERAR_OXIGENO 3;1;2;2
+GENERAR_OXIGENO 4;2;3;2
+CONSUMIR_OXIGENO 5;1;1;1|
+[INFO] 10:57:29:009 mi_ram.c/(9332:9399): cantidad tcbs recibidos: 150 
+
+[INFO] 10:57:29:023 mi_ram.c/(9332:9399): hay lugar disponible (1 -> si, -1 -> no): -1 
+

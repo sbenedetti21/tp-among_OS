@@ -3618,3 +3618,530 @@
 [INFO] 10:15:58:194 discordiador.c/(7648:7654): Tripulante 3 termino de trabajar 
 [INFO] 10:15:58:194 discordiador.c/(7648:7654): Tripulante 3 cambio su estado a F
 [INFO] 10:16:05:585 discordiador.c/(7648:7649): INSTRUCCION LEIDA: b
+[INFO] 10:26:14:276 discordiador.c/(8305:8305): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:26:17:580 discordiador.c/(8305:8306): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 10:26:17:583 discordiador.c/(8305:8306): Discordiador conectado con Mi RAM
+[INFO] 10:26:17:583 discordiador.c/(8305:8306): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 10:26:17:583 discordiador.c/(8305:8306): Tripulante 0 cambio su estado a R
+[INFO] 10:26:17:583 discordiador.c/(8305:8306): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 10:26:17:583 discordiador.c/(8305:8306): Tripulante 1 cambio su estado a R
+[INFO] 10:26:17:584 discordiador.c/(8305:8306): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 10:26:17:584 discordiador.c/(8305:8306): Tripulante 2 cambio su estado a R
+[INFO] 10:26:17:584 discordiador.c/(8305:8306): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 10:26:17:584 discordiador.c/(8305:8306): Tripulante 3 cambio su estado a R
+[INFO] 10:26:17:584 discordiador.c/(8305:8306): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:26:53:829 discordiador.c/(8305:8306): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 10:26:53:829 discordiador.c/(8305:8317): Tripulante 0 cambio su estado a R
+[INFO] 10:26:53:829 discordiador.c/(8305:8317): Tripulante 1 cambio su estado a R
+[INFO] 10:26:53:829 discordiador.c/(8305:8317): Tripulante 2 cambio su estado a R
+[INFO] 10:26:53:829 discordiador.c/(8305:8317): Tripulante 3 cambio su estado a R
+[INFO] 10:26:53:829 discordiador.c/(8305:8317): Tripulante 0 cambio su estado a E
+[INFO] 10:26:53:829 discordiador.c/(8305:8317): Tripulante 1 cambio su estado a E
+[INFO] 10:26:53:830 discordiador.c/(8305:8308): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 2 
+[INFO] 10:26:53:830 discordiador.c/(8305:8309): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 2 
+[INFO] 10:26:55:830 discordiador.c/(8305:8309): Tripulante 1 ahora esta en 1|2 
+[INFO] 10:26:55:830 discordiador.c/(8305:8309): Tripulante 1 cambio su estado a B
+[INFO] 10:26:55:830 discordiador.c/(8305:8317): Tripulante 2 cambio su estado a E
+[INFO] 10:26:55:831 discordiador.c/(8305:8318): Tripulante 1 cambio su estado a R
+[INFO] 10:26:55:831 discordiador.c/(8305:8310): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 2 
+[INFO] 10:26:57:830 discordiador.c/(8305:8308): Tripulante 0 ahora esta en 1|2 
+[INFO] 10:26:57:831 discordiador.c/(8305:8308): Tripulante 0 cambio su estado a B
+[INFO] 10:26:57:831 discordiador.c/(8305:8317): Tripulante 3 cambio su estado a E
+[INFO] 10:26:57:831 discordiador.c/(8305:8318): Tripulante 0 cambio su estado a R
+[INFO] 10:26:57:831 discordiador.c/(8305:8311): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 1|2 Duracion: 2 
+[INFO] 10:26:58:830 discordiador.c/(8305:8309): Tripulante 1 terminó su tarea
+[INFO] 10:27:00:831 discordiador.c/(8305:8308): Tripulante 0 terminó su tarea
+[INFO] 10:27:03:832 discordiador.c/(8305:8310): Tripulante 2 ahora esta en 1|2 
+[INFO] 10:27:03:832 discordiador.c/(8305:8310): Tripulante 2 cambio su estado a B
+[INFO] 10:27:03:832 discordiador.c/(8305:8317): Tripulante 1 cambio su estado a E
+[INFO] 10:27:03:832 discordiador.c/(8305:8318): Tripulante 2 cambio su estado a R
+[INFO] 10:27:03:832 discordiador.c/(8305:8309): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 2|3 Duracion: 2 
+[INFO] 10:27:04:832 discordiador.c/(8305:8311): Tripulante 3 ahora esta en 1|2 
+[INFO] 10:27:04:832 discordiador.c/(8305:8311): Tripulante 3 cambio su estado a B
+[INFO] 10:27:04:832 discordiador.c/(8305:8317): Tripulante 0 cambio su estado a E
+[INFO] 10:27:04:832 discordiador.c/(8305:8318): Tripulante 3 cambio su estado a R
+[INFO] 10:27:04:832 discordiador.c/(8305:8308): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 2|3 Duracion: 2 
+[INFO] 10:27:05:833 discordiador.c/(8305:8309): Tripulante 1 ahora esta en 2|3 
+[INFO] 10:27:05:833 discordiador.c/(8305:8309): Tripulante 1 cambio su estado a B
+[INFO] 10:27:05:833 discordiador.c/(8305:8318): Tripulante 1 cambio su estado a R
+[INFO] 10:27:06:832 discordiador.c/(8305:8310): Tripulante 2 terminó su tarea
+[INFO] 10:27:06:832 discordiador.c/(8305:8317): Tripulante 2 cambio su estado a E
+[INFO] 10:27:06:832 discordiador.c/(8305:8308): Tripulante 0 ahora esta en 2|3 
+[INFO] 10:27:06:832 discordiador.c/(8305:8310): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 2|3 Duracion: 2 
+[INFO] 10:27:06:832 discordiador.c/(8305:8308): Tripulante 0 cambio su estado a B
+[INFO] 10:27:06:832 discordiador.c/(8305:8318): Tripulante 0 cambio su estado a R
+[INFO] 10:27:07:832 discordiador.c/(8305:8311): Tripulante 3 terminó su tarea
+[INFO] 10:27:07:832 discordiador.c/(8305:8317): Tripulante 3 cambio su estado a E
+[INFO] 10:27:07:833 discordiador.c/(8305:8311): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 2|3 Duracion: 2 
+[INFO] 10:27:08:832 discordiador.c/(8305:8310): Tripulante 2 ahora esta en 2|3 
+[INFO] 10:27:08:833 discordiador.c/(8305:8309): Tripulante 1 terminó su tarea
+[INFO] 10:27:08:833 discordiador.c/(8305:8317): Tripulante 1 cambio su estado a E
+[INFO] 10:27:08:833 discordiador.c/(8305:8310): Tripulante 2 cambio su estado a B
+[INFO] 10:27:08:833 discordiador.c/(8305:8309): Tarea pedida por tripulante 1: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 10:27:08:833 discordiador.c/(8305:8318): Tripulante 2 cambio su estado a R
+[INFO] 10:27:09:832 discordiador.c/(8305:8308): Tripulante 0 terminó su tarea
+[INFO] 10:27:09:833 discordiador.c/(8305:8311): Tripulante 3 ahora esta en 2|3 
+[INFO] 10:27:09:833 discordiador.c/(8305:8317): Tripulante 0 cambio su estado a E
+[INFO] 10:27:09:833 discordiador.c/(8305:8311): Tripulante 3 cambio su estado a B
+[INFO] 10:27:09:834 discordiador.c/(8305:8308): Tarea pedida por tripulante 0: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 10:27:09:834 discordiador.c/(8305:8318): Tripulante 3 cambio su estado a R
+[INFO] 10:27:11:833 discordiador.c/(8305:8310): Tripulante 2 terminó su tarea
+[INFO] 10:27:11:834 discordiador.c/(8305:8309): Tripulante 1 ahora esta en 1|1 
+[INFO] 10:27:12:833 discordiador.c/(8305:8311): Tripulante 3 terminó su tarea
+[INFO] 10:27:12:834 discordiador.c/(8305:8309): Tripulante 1 cambio su estado a R
+[INFO] 10:27:12:834 discordiador.c/(8305:8308): Tripulante 0 ahora esta en 1|1 
+[INFO] 10:27:12:834 discordiador.c/(8305:8309): Tripulante 1 terminó su tarea
+[INFO] 10:27:12:834 discordiador.c/(8305:8317): Tripulante 2 cambio su estado a E
+[INFO] 10:27:12:834 discordiador.c/(8305:8310): Tarea pedida por tripulante 2: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 10:27:13:834 discordiador.c/(8305:8308): Tripulante 0 cambio su estado a R
+[INFO] 10:27:13:834 discordiador.c/(8305:8308): Tripulante 0 terminó su tarea
+[INFO] 10:27:13:834 discordiador.c/(8305:8317): Tripulante 3 cambio su estado a E
+[INFO] 10:27:13:835 discordiador.c/(8305:8311): Tarea pedida por tripulante 3: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 10:27:15:835 discordiador.c/(8305:8310): Tripulante 2 ahora esta en 1|1 
+[INFO] 10:27:16:835 discordiador.c/(8305:8311): Tripulante 3 ahora esta en 1|1 
+[INFO] 10:27:16:835 discordiador.c/(8305:8310): Tripulante 2 cambio su estado a R
+[INFO] 10:27:16:835 discordiador.c/(8305:8317): Tripulante 1 cambio su estado a E
+[INFO] 10:27:16:835 discordiador.c/(8305:8310): Tripulante 2 terminó su tarea
+[INFO] 10:27:16:835 discordiador.c/(8305:8309): Tripulante 1 termino de trabajar 
+[INFO] 10:27:16:835 discordiador.c/(8305:8309): Tripulante 1 cambio su estado a F
+[INFO] 10:27:16:836 discordiador.c/(8305:8317): Tripulante 0 cambio su estado a E
+[INFO] 10:27:16:836 discordiador.c/(8305:8308): Tripulante 0 termino de trabajar 
+[INFO] 10:27:16:836 discordiador.c/(8305:8308): Tripulante 0 cambio su estado a F
+[INFO] 10:27:16:836 discordiador.c/(8305:8317): Tripulante 2 cambio su estado a E
+[INFO] 10:27:16:836 discordiador.c/(8305:8310): Tripulante 2 termino de trabajar 
+[INFO] 10:27:16:836 discordiador.c/(8305:8310): Tripulante 2 cambio su estado a F
+[INFO] 10:27:17:835 discordiador.c/(8305:8311): Tripulante 3 cambio su estado a R
+[INFO] 10:27:17:835 discordiador.c/(8305:8311): Tripulante 3 terminó su tarea
+[INFO] 10:27:17:835 discordiador.c/(8305:8317): Tripulante 3 cambio su estado a E
+[INFO] 10:27:17:836 discordiador.c/(8305:8311): Tripulante 3 termino de trabajar 
+[INFO] 10:27:17:836 discordiador.c/(8305:8311): Tripulante 3 cambio su estado a F
+[INFO] 10:27:38:920 discordiador.c/(8305:8306): INSTRUCCION LEIDA: LISTAR_TRIPÚLANTES
+[INFO] 10:27:46:398 discordiador.c/(8305:8306): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 10:28:54:149 discordiador.c/(8484:8484): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:29:03:969 discordiador.c/(8484:8485): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 10:29:03:969 discordiador.c/(8484:8485): Discordiador conectado con Mi RAM
+[INFO] 10:29:03:970 discordiador.c/(8484:8485): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 10:29:03:970 discordiador.c/(8484:8485): Tripulante 0 cambio su estado a R
+[INFO] 10:29:03:970 discordiador.c/(8484:8485): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 10:29:03:970 discordiador.c/(8484:8485): Tripulante 1 cambio su estado a R
+[INFO] 10:29:03:970 discordiador.c/(8484:8485): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 10:29:03:970 discordiador.c/(8484:8485): Tripulante 2 cambio su estado a R
+[INFO] 10:29:03:970 discordiador.c/(8484:8485): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 10:29:03:970 discordiador.c/(8484:8485): Tripulante 3 cambio su estado a R
+[INFO] 10:29:03:970 discordiador.c/(8484:8485): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:29:32:750 discordiador.c/(8484:8485): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 10:29:32:750 discordiador.c/(8484:8580): Tripulante 0 cambio su estado a R
+[INFO] 10:29:32:750 discordiador.c/(8484:8580): Tripulante 1 cambio su estado a R
+[INFO] 10:29:32:750 discordiador.c/(8484:8580): Tripulante 2 cambio su estado a R
+[INFO] 10:29:32:750 discordiador.c/(8484:8580): Tripulante 3 cambio su estado a R
+[INFO] 10:29:32:750 discordiador.c/(8484:8580): Tripulante 0 cambio su estado a E
+[INFO] 10:29:32:750 discordiador.c/(8484:8580): Tripulante 1 cambio su estado a E
+[INFO] 10:29:32:751 discordiador.c/(8484:8561): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 2 
+[INFO] 10:29:32:751 discordiador.c/(8484:8562): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 2 
+[INFO] 10:29:33:751 discordiador.c/(8484:8561): Tripulante 0 termino su Q en 1|5
+[INFO] 10:29:33:751 discordiador.c/(8484:8562): Tripulante 1 termino su Q en 1|1
+[INFO] 10:29:34:751 discordiador.c/(8484:8562): Tripulante 1 llego a la posicion de su tarea, le queda 1 de quantum
+[INFO] 10:29:34:751 discordiador.c/(8484:8562): Tripulante 1 cambio su estado a B
+[INFO] 10:29:34:751 discordiador.c/(8484:8580): Tripulante 2 cambio su estado a E
+[INFO] 10:29:34:752 discordiador.c/(8484:8581): Tripulante 1 cambio su estado a R
+[INFO] 10:29:34:752 discordiador.c/(8484:8563): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 2 
+[INFO] 10:29:35:751 discordiador.c/(8484:8561): Tripulante 0 termino su Q en 1|3
+[INFO] 10:29:35:751 discordiador.c/(8484:8561): Tripulante 0 cambio su estado a R
+[INFO] 10:29:35:752 discordiador.c/(8484:8580): Tripulante 3 cambio su estado a E
+[INFO] 10:29:35:752 discordiador.c/(8484:8564): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 1|2 Duracion: 2 
+[INFO] 10:29:37:752 discordiador.c/(8484:8562): Tripulante 1 terminó su tarea
+[INFO] 10:29:37:752 discordiador.c/(8484:8563): Tripulante 2 cambio su estado a R
+[INFO] 10:29:37:753 discordiador.c/(8484:8580): Tripulante 1 cambio su estado a E
+[INFO] 10:29:37:753 discordiador.c/(8484:8562): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 2|3 Duracion: 2 
+[INFO] 10:29:38:752 discordiador.c/(8484:8564): Tripulante 3 termino su Q en 3|4
+[INFO] 10:29:38:752 discordiador.c/(8484:8564): Tripulante 3 termino su Q en 3|4
+[INFO] 10:29:38:752 discordiador.c/(8484:8564): Tripulante 3 cambio su estado a R
+[INFO] 10:29:38:752 discordiador.c/(8484:8580): Tripulante 0 cambio su estado a E
+[INFO] 10:29:38:752 discordiador.c/(8484:8561): Tripulante 0 cambio su estado a B
+[INFO] 10:29:38:753 discordiador.c/(8484:8580): Tripulante 2 cambio su estado a E
+[INFO] 10:29:38:753 discordiador.c/(8484:8581): Tripulante 0 cambio su estado a R
+[INFO] 10:29:38:753 discordiador.c/(8484:8562): Tripulante 1 termino su Q en 2|2
+[INFO] 10:29:39:753 discordiador.c/(8484:8562): Tripulante 1 llego a la posicion de su tarea, le queda 1 de quantum
+[INFO] 10:29:39:753 discordiador.c/(8484:8562): Tripulante 1 cambio su estado a B
+[INFO] 10:29:39:753 discordiador.c/(8484:8580): Tripulante 3 cambio su estado a E
+[INFO] 10:29:39:754 discordiador.c/(8484:8581): Tripulante 1 cambio su estado a R
+[INFO] 10:29:41:753 discordiador.c/(8484:8561): Tripulante 0 terminó su tarea
+[INFO] 10:29:41:753 discordiador.c/(8484:8563): Tripulante 2 cambio su estado a R
+[INFO] 10:29:41:753 discordiador.c/(8484:8580): Tripulante 0 cambio su estado a E
+[INFO] 10:29:41:754 discordiador.c/(8484:8564): Tripulante 3 termino su Q en 1|4
+[INFO] 10:29:41:754 discordiador.c/(8484:8561): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 2|3 Duracion: 2 
+[INFO] 10:29:42:753 discordiador.c/(8484:8562): Tripulante 1 terminó su tarea
+[INFO] 10:29:42:754 discordiador.c/(8484:8564): Tripulante 3 termino su Q en 1|3
+[INFO] 10:29:42:754 discordiador.c/(8484:8564): Tripulante 3 cambio su estado a R
+[INFO] 10:29:42:754 discordiador.c/(8484:8580): Tripulante 1 cambio su estado a E
+[INFO] 10:29:42:754 discordiador.c/(8484:8562): Tarea pedida por tripulante 1: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 10:29:42:755 discordiador.c/(8484:8561): Tripulante 0 cambio su estado a B
+[INFO] 10:29:42:755 discordiador.c/(8484:8580): Tripulante 2 cambio su estado a E
+[INFO] 10:29:42:755 discordiador.c/(8484:8581): Tripulante 0 cambio su estado a R
+[INFO] 10:29:43:754 discordiador.c/(8484:8562): Tripulante 1 termino su Q en 1|3
+[INFO] 10:29:44:755 discordiador.c/(8484:8580): Tripulante 3 cambio su estado a E
+[INFO] 10:29:44:755 discordiador.c/(8484:8563): Tripulante 2 cambio su estado a B
+[INFO] 10:29:44:755 discordiador.c/(8484:8564): Tripulante 3 cambio su estado a B
+[INFO] 10:29:44:755 discordiador.c/(8484:8581): Tripulante 2 cambio su estado a R
+[INFO] 10:29:44:755 discordiador.c/(8484:8581): Tripulante 3 cambio su estado a R
+[INFO] 10:29:45:754 discordiador.c/(8484:8562): Tripulante 1 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 10:29:45:755 discordiador.c/(8484:8562): Tripulante 1 cambio su estado a R
+[INFO] 10:29:45:755 discordiador.c/(8484:8580): Tripulante 0 cambio su estado a E
+[INFO] 10:29:45:755 discordiador.c/(8484:8561): Tripulante 0 terminó su tarea
+[INFO] 10:29:45:755 discordiador.c/(8484:8580): Tripulante 2 cambio su estado a E
+[INFO] 10:29:45:755 discordiador.c/(8484:8561): Tarea pedida por tripulante 0: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 10:29:46:755 discordiador.c/(8484:8561): Tripulante 0 termino su Q en 1|3
+[INFO] 10:29:47:755 discordiador.c/(8484:8563): Tripulante 2 terminó su tarea
+[INFO] 10:29:47:755 discordiador.c/(8484:8564): Tripulante 3 terminó su tarea
+[INFO] 10:29:47:755 discordiador.c/(8484:8563): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 2|3 Duracion: 2 
+[INFO] 10:29:48:755 discordiador.c/(8484:8561): Tripulante 0 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 10:29:48:756 discordiador.c/(8484:8561): Tripulante 0 cambio su estado a R
+[INFO] 10:29:48:756 discordiador.c/(8484:8580): Tripulante 3 cambio su estado a E
+[INFO] 10:29:48:756 discordiador.c/(8484:8563): Tripulante 2 termino su Q en 2|2
+[INFO] 10:29:48:756 discordiador.c/(8484:8564): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 2|3 Duracion: 2 
+[INFO] 10:29:49:756 discordiador.c/(8484:8563): Tripulante 2 llego a la posicion de su tarea, le queda 1 de quantum
+[INFO] 10:29:49:756 discordiador.c/(8484:8563): Tripulante 2 cambio su estado a B
+[INFO] 10:29:49:756 discordiador.c/(8484:8580): Tripulante 1 cambio su estado a E
+[INFO] 10:29:49:756 discordiador.c/(8484:8564): Tripulante 3 cambio su estado a B
+[INFO] 10:29:49:756 discordiador.c/(8484:8580): Tripulante 0 cambio su estado a E
+[INFO] 10:29:49:756 discordiador.c/(8484:8581): Tripulante 2 cambio su estado a R
+[INFO] 10:29:49:757 discordiador.c/(8484:8581): Tripulante 3 cambio su estado a R
+[INFO] 10:29:50:756 discordiador.c/(8484:8562): Tripulante 1 cambio su estado a R
+[INFO] 10:29:50:756 discordiador.c/(8484:8562): Tripulante 1 terminó su tarea
+[INFO] 10:29:50:756 discordiador.c/(8484:8580): Tripulante 2 cambio su estado a E
+[INFO] 10:29:50:757 discordiador.c/(8484:8561): Tripulante 0 cambio su estado a R
+[INFO] 10:29:50:757 discordiador.c/(8484:8561): Tripulante 0 terminó su tarea
+[INFO] 10:29:50:757 discordiador.c/(8484:8580): Tripulante 3 cambio su estado a E
+[INFO] 10:29:52:756 discordiador.c/(8484:8563): Tripulante 2 terminó su tarea
+[INFO] 10:29:52:756 discordiador.c/(8484:8564): Tripulante 3 terminó su tarea
+[INFO] 10:29:52:757 discordiador.c/(8484:8563): Tarea pedida por tripulante 2: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 10:29:52:757 discordiador.c/(8484:8564): Tarea pedida por tripulante 3: CONSUMIR_OXIGENO Posicion: 1|1 Duracion: 1 
+[INFO] 10:29:53:757 discordiador.c/(8484:8563): Tripulante 2 termino su Q en 1|3
+[INFO] 10:29:53:757 discordiador.c/(8484:8564): Tripulante 3 termino su Q en 1|3
+[INFO] 10:29:55:757 discordiador.c/(8484:8563): Tripulante 2 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 10:29:55:757 discordiador.c/(8484:8563): Tripulante 2 cambio su estado a R
+[INFO] 10:29:55:757 discordiador.c/(8484:8580): Tripulante 1 cambio su estado a E
+[INFO] 10:29:55:757 discordiador.c/(8484:8564): Tripulante 3 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 10:29:55:757 discordiador.c/(8484:8564): Tripulante 3 cambio su estado a R
+[INFO] 10:29:55:757 discordiador.c/(8484:8580): Tripulante 0 cambio su estado a E
+[INFO] 10:29:55:758 discordiador.c/(8484:8562): Tripulante 1 termino de trabajar 
+[INFO] 10:29:55:758 discordiador.c/(8484:8562): Tripulante 1 cambio su estado a F
+[INFO] 10:29:55:758 discordiador.c/(8484:8580): Tripulante 2 cambio su estado a E
+[INFO] 10:29:55:758 discordiador.c/(8484:8561): Tripulante 0 termino de trabajar 
+[INFO] 10:29:55:758 discordiador.c/(8484:8561): Tripulante 0 cambio su estado a F
+[INFO] 10:29:55:758 discordiador.c/(8484:8580): Tripulante 3 cambio su estado a E
+[INFO] 10:29:56:758 discordiador.c/(8484:8563): Tripulante 2 cambio su estado a R
+[INFO] 10:29:56:758 discordiador.c/(8484:8563): Tripulante 2 terminó su tarea
+[INFO] 10:29:56:758 discordiador.c/(8484:8580): Tripulante 2 cambio su estado a E
+[INFO] 10:29:56:758 discordiador.c/(8484:8564): Tripulante 3 cambio su estado a R
+[INFO] 10:29:56:758 discordiador.c/(8484:8564): Tripulante 3 terminó su tarea
+[INFO] 10:29:56:758 discordiador.c/(8484:8580): Tripulante 3 cambio su estado a E
+[INFO] 10:29:56:758 discordiador.c/(8484:8563): Tripulante 2 termino de trabajar 
+[INFO] 10:29:56:758 discordiador.c/(8484:8563): Tripulante 2 cambio su estado a F
+[INFO] 10:29:56:758 discordiador.c/(8484:8564): Tripulante 3 termino de trabajar 
+[INFO] 10:29:56:758 discordiador.c/(8484:8564): Tripulante 3 cambio su estado a F
+[INFO] 10:30:10:907 discordiador.c/(8484:8485): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 10:57:20:048 discordiador.c/(9394:9394): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:57:28:994 discordiador.c/(9394:9395): INSTRUCCION LEIDA: INICIAR_PATOTA 150 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 10:57:28:994 discordiador.c/(9394:9395): Discordiador conectado con Mi RAM
+[INFO] 10:57:28:994 discordiador.c/(9394:9395): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 10:57:28:994 discordiador.c/(9394:9395): Tripulante 0 cambio su estado a R
+[INFO] 10:57:28:994 discordiador.c/(9394:9395): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 10:57:28:994 discordiador.c/(9394:9395): Tripulante 1 cambio su estado a R
+[INFO] 10:57:28:995 discordiador.c/(9394:9395): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 10:57:28:995 discordiador.c/(9394:9395): Tripulante 2 cambio su estado a R
+[INFO] 10:57:28:995 discordiador.c/(9394:9395): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 10:57:28:995 discordiador.c/(9394:9395): Tripulante 3 cambio su estado a R
+[INFO] 10:57:28:995 discordiador.c/(9394:9395): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:995 discordiador.c/(9394:9395): Tripulante 4 cambio su estado a R
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante creado: ID: 5, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante 5 cambio su estado a R
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante creado: ID: 6, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante 6 cambio su estado a R
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante creado: ID: 7, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante 7 cambio su estado a R
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante creado: ID: 8, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante 8 cambio su estado a R
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante creado: ID: 9, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante 9 cambio su estado a R
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante creado: ID: 10, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante 10 cambio su estado a R
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante creado: ID: 11, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante 11 cambio su estado a R
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante creado: ID: 12, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante 12 cambio su estado a R
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante creado: ID: 13, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:996 discordiador.c/(9394:9395): Tripulante 13 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 14, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 14 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 15, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 15 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 16, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 16 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 17, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 17 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 18, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 18 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 19, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 19 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 20, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 20 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 21, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 21 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 22, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 22 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 23, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 23 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 24, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 24 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 25, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 25 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 26, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 26 cambio su estado a R
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante creado: ID: 27, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:997 discordiador.c/(9394:9395): Tripulante 27 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 28, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 28 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 29, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 29 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 30, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 30 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 31, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 31 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 32, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 32 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 33, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 33 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 34, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 34 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 35, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 35 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 36, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 36 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 37, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 37 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 38, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 38 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 39, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 39 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 40, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 40 cambio su estado a R
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante creado: ID: 41, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:998 discordiador.c/(9394:9395): Tripulante 41 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 42, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 42 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 43, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 43 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 44, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 44 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 45, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 45 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 46, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 46 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 47, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 47 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 48, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 48 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 49, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 49 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 50, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 50 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 51, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 51 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 52, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 52 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 53, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 53 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 54, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 54 cambio su estado a R
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante creado: ID: 55, Posicion 0|0, Estado: N 
+[INFO] 10:57:28:999 discordiador.c/(9394:9395): Tripulante 55 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 56, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 56 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 57, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 57 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 58, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 58 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 59, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 59 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 60, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 60 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 61, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 61 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 62, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 62 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 63, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 63 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 64, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 64 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 65, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 65 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 66, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 66 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 67, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 67 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 68, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 68 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 69, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante 69 cambio su estado a R
+[INFO] 10:57:29:000 discordiador.c/(9394:9395): Tripulante creado: ID: 70, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 70 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 71, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 71 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 72, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 72 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 73, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 73 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 74, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 74 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 75, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 75 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 76, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 76 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 77, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 77 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 78, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 78 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 79, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 79 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 80, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 80 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 81, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 81 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 82, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 82 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 83, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 83 cambio su estado a R
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante creado: ID: 84, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:001 discordiador.c/(9394:9395): Tripulante 84 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 85, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 85 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 86, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 86 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 87, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 87 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 88, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 88 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 89, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 89 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 90, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 90 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 91, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 91 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 92, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 92 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 93, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 93 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 94, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 94 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 95, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 95 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 96, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 96 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 97, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 97 cambio su estado a R
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante creado: ID: 98, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:002 discordiador.c/(9394:9395): Tripulante 98 cambio su estado a R
+[INFO] 10:57:29:003 discordiador.c/(9394:9395): Tripulante creado: ID: 99, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:003 discordiador.c/(9394:9395): Tripulante 99 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 100, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 100 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 101, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 101 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 102, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 102 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 103, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 103 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 104, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 104 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 105, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 105 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 106, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 106 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 107, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 107 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 108, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 108 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 109, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 109 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 110, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 110 cambio su estado a R
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante creado: ID: 111, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:005 discordiador.c/(9394:9395): Tripulante 111 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 112, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 112 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 113, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 113 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 114, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 114 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 115, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 115 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 116, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 116 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 117, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 117 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 118, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 118 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 119, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 119 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 120, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 120 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 121, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 121 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 122, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 122 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 123, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante 123 cambio su estado a R
+[INFO] 10:57:29:006 discordiador.c/(9394:9395): Tripulante creado: ID: 124, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 124 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 125, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 125 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 126, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 126 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 127, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 127 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 128, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 128 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 129, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 129 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 130, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 130 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 131, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 131 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 132, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 132 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 133, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 133 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 134, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 134 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 135, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 135 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 136, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante 136 cambio su estado a R
+[INFO] 10:57:29:007 discordiador.c/(9394:9395): Tripulante creado: ID: 137, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 137 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 138, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 138 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 139, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 139 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 140, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 140 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 141, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 141 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 142, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 142 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 143, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 143 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 144, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 144 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 145, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 145 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 146, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 146 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 147, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 147 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 148, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 148 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante creado: ID: 149, Posicion 0|0, Estado: N 
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): Tripulante 149 cambio su estado a R
+[INFO] 10:57:29:008 discordiador.c/(9394:9395): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
