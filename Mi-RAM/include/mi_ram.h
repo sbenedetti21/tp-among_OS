@@ -38,7 +38,7 @@ t_list * listaTablasDePaginas;
 int tamanioPagina, tamanioMemoria;
 pthread_mutex_t mutexMemoriaPrincipal;
 pthread_mutex_t mutexListaTablas;
-
+pthread_mutex_t mutexListaFrames;
 
 
 typedef struct {

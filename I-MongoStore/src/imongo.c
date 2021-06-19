@@ -10,7 +10,7 @@ int main(int argc, char ** argv){
 	free(valorInicio);
 
 	inicializarFileSystem(valor);
-	
+	 
 	//Copia del mapeo del blocks
 	mapBlocksCopia = malloc(tamanioBlocks);
 	memcpy(mapBlocksCopia, mapBlocks, tamanioBlocks);
