@@ -483,7 +483,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 					tarea->tiempo = atoi(vectorTarea[3]);
 					tarea->tareaTerminada = false;
 
-					log_info(loggerDiscordiador,"Nombre tarea: %s Posicion: %d|%d Duracion: %d ",tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
+					log_info(loggerDiscordiador,"Tarea pedida por tripulante %d: %s Posicion: %d|%d Duracion: %d ",tripulante->tid ,tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
 
 					tripulante->tareaActual = tarea;
 					
@@ -491,6 +491,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				
 				case NO_HAY_TAREA:
 									noHayMasTareas = true;
+									log_info(loggerDiscordiador,"Tripulante %d termino de trabajar ",tripulante->tid);
+
 									break;
 				}
 				
@@ -663,6 +665,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 		}
 
+		//sem_post(&esperarAlgunTripulante);
 		sem_post(&semaforoTripulantes); 					
 		cambiarDeEstado(tripulante,'F');				
 

@@ -342,8 +342,17 @@ void atenderDiscordiador(int socketCliente){
 		if(strcmp(stringTarea, "NO_HAY_TAREA") == 0){ //Esto cambialo cuando sepas si hay tarea o no
 
 			t_buffer* buffer = malloc(sizeof(t_buffer)); // se puede mandar un buffer vacio????????????
-			buffer->size = 0;
-			buffer->stream = NULL;
+			buffer-> size = sizeof(int) + tamanioTarea;
+
+			int offset = 0;
+
+			memcpy(stream+offset, &tamanioTarea , sizeof(int));
+			offset += sizeof(int);
+
+			memcpy(stream+offset, stringTarea, tamanioTarea);
+
+			buffer-> stream = stream;
+			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 
 		}
