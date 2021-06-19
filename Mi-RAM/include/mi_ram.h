@@ -39,6 +39,7 @@ int tamanioPagina, tamanioMemoria;
 pthread_mutex_t mutexMemoriaPrincipal;
 pthread_mutex_t mutexListaTablas;
 pthread_mutex_t mutexListaFrames;
+pthread_mutex_t mutexTareas;
 
 
 typedef struct {

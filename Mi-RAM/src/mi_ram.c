@@ -391,6 +391,7 @@ char * obtenerProximaTarea(uint32_t tid) {
 	}
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
+
 		bool coincideID(t_tripulanteConPID * tripulante) {
 			return tripulante->idTripulante == tid;
 		}
@@ -403,6 +404,7 @@ char * obtenerProximaTarea(uint32_t tid) {
 			int longitudTareas = *((int*)tripuPrueba+2);
 			return obtenerProximaTareaPaginacion(patotaID, tid, longitudTareas);
 		}	
+
 	}
 
 }
@@ -561,6 +563,7 @@ void iniciarMemoria() {
 		pthread_mutex_init(&mutexMemoriaPrincipal, NULL);
 		pthread_mutex_init(&mutexListaTablas, NULL);
 		pthread_mutex_init(&mutexListaFrames, NULL);
+		pthread_mutex_init(&mutexTareas, NULL);
 		iniciarFrames();	
 	}
 }
@@ -788,6 +791,7 @@ void actualizarPunteroTarea(int direccionTripulante, int pid, int direcProximaTa
 	int paginaUbicada = (direccionTripulante+(SIZEOF_TCB-8))/tamanioPagina;
 	int offset = (direccionTripulante+(SIZEOF_TCB-8))%tamanioPagina;
 
+	pthread_mutex_lock(&mutexMemoriaPrincipal);
 	if (offset + 4 < tamanioPagina) {
 		memcpy(memoriaPrincipal + tamanioPagina * frames[paginaUbicada] + offset, &direcProximaTarea, 4);
 	} else {
@@ -801,7 +805,7 @@ void actualizarPunteroTarea(int direccionTripulante, int pid, int direcProximaTa
 			paginaUbicada++;
 		}
 	}
-
+	pthread_mutex_unlock(&mutexMemoriaPrincipal);
 }
 
 
