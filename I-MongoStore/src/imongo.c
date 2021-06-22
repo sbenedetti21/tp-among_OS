@@ -21,7 +21,9 @@ int main(int argc, char ** argv){
 	sem_init(&semaforoOxigeno, 0, 1);
 	sem_init(&semaforoBasura, 0, 1);
 	sem_init(&semaforoComida, 0, 1);
-	
+
+	//pruebaDeSabotaje();
+
 	//Inicio de servidor
 	pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
@@ -97,7 +99,7 @@ void crearFileSystem(){
 	mkdir(string_from_format("%s/Files/Bitacoras",puntoDeMontaje),0777);
 }
 
-void leerFileSystem(){
+void leerSuperBloque(){
 	ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 //superBocke	
 	FILE * superBloque; 
@@ -113,6 +115,11 @@ void leerFileSystem(){
  	fread(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
 
 	fclose(superBloque);
+}	
+
+void leerFileSystem(){
+//superBocke	
+	leerSuperBloque();
 
 //Blocks
 	mapearBlocks();
@@ -436,10 +443,10 @@ void borrarBloqueFile(char *recurso, int cantidadBorrar){
 	if(indiceFinal>0){
 		listaBlocks = string_substring_until(listaBlocks, indiceFinal);
 		string_append(&listaBlocks, "]");
+		config_set_value(configRecurso,"BLOCKS",listaBlocks);
 	} else {
-		listaBlocks = "[]";
+		config_set_value(configRecurso,"BLOCKS","[]");
 	}
-	config_set_value(configRecurso,"BLOCKS",listaBlocks);
 
 	int sizeAcutal = config_get_int_value(configRecurso, "SIZE");
 	sizeAcutal-=cantidadBorrar;
@@ -456,11 +463,20 @@ void llenarBlocksRecursos(char *recurso, int cantALlenar){
 	int cantFaltante = cantALlenar;
 	int proximoBlock = ultimoBloqueFile(recurso);
 
-	int marcador = conseguirSizeBlocks(recurso) % tamanioDeBloque;
-	int cantidadLibreBlock = tamanioDeBloque-marcador;
-	marcador += proximoBlock * tamanioDeBloque;
+	int sizeRecurso = conseguirSizeBlocks(recurso);
 
+	int marcador = sizeRecurso % tamanioDeBloque;
+	int cantidadLibreBlock = tamanioDeBloque-marcador;
 	agregarSizeFile(recurso, cantALlenar);
+
+	if(cantidadLibreBlock==tamanioDeBloque && sizeRecurso>0){
+		proximoBlock = bloqueLibreBitMap();
+		agregarBloqueFile(proximoBlock, recurso);
+		marcador = proximoBlock * tamanioDeBloque;
+		cantidadLibreBlock=tamanioDeBloque;
+	} else {
+		marcador += proximoBlock * tamanioDeBloque;
+	}
 	
 	while(cantFaltante>0){
 		char *caracteresLlenado;
@@ -496,7 +512,9 @@ void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 		}
 
 		if(cantidadEliminar>cantFaltante){
+			marcador += cantidadEliminar;
 			cantidadEliminar = cantFaltante;
+			marcador -= cantidadEliminar;
 			cantFaltante*=(-1);
 			agregarSizeFile(recurso, cantFaltante);
 		} else {
@@ -570,7 +588,6 @@ void descartarBasura(uint32_t idTripulante){
 	
 	t_config *configBitacora = crarArchivoBitacora(idTripulante);
 	llenarBlocksBitcoras("Comienza la ejecucion de la tarea Descartar Basura\n",configBitacora);
-
 	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
 
 	t_config *configRecurso = config_create(ubicacionArchivoBasura);
@@ -586,6 +603,130 @@ void descartarBasura(uint32_t idTripulante){
 	free(ubicacionArchivoBasura);
 
 	log_info(loggerImongoStore,"Se descarto la Basura");
+}
+
+void tareaTripulante(char *tarea, uint32_t idTripulante){	
+	t_config *configBitacora = crarArchivoBitacora(idTripulante);
+	llenarBlocksBitcoras(string_from_format("Comienza la ejecucion de la tarea %s\n",tarea),configBitacora);
+	
+	llenarBlocksBitcoras(string_from_format("Se finaliza la tarea %s\n",tarea),configBitacora);
+
+	config_destroy(configBitacora);
+}
+
+void movimientoTripulante(uint32_t idTripulante){
+	t_config *configBitacora = crarArchivoBitacora(idTripulante);
+	llenarBlocksBitcoras(string_from_format("Se mueve de X|Y a X’|Y’"),configBitacora);
+	config_destroy(configBitacora);
+}
+//---------------------------------------------------------------------------------------------------//
+//-------------------------------------------- SABOTAJES --------------------------------------------//
+void pruebaDeSabotaje(){
+	generarRecurso("Oxigeno",30,0);
+	generarRecurso("Basura",40,0);
+	generarRecurso("Comida",50,0);
+
+	bloqueLibreBitMap();
+	bloqueLibreBitMap();
+
+
+	FILE * superBloque; 
+	superBloque = fopen(ubicacionSuperBloque,"r+");
+	fseek(superBloque, sizeof(uint32_t), SEEK_SET);
+	uint32_t prueba = cantidadDeBloques * 10;
+	fwrite(prueba,sizeof(uint32_t),1,superBloque);
+	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
+	fclose(superBloque);
+
+	sabotajeSuperBloque();
+}
+
+bool verificarBlocksBitMap(char *ubicacionArchivo){
+	t_config *configGeneral;
+	configGeneral = config_create(ubicacionArchivo);
+	if(configGeneral!=NULL){
+		char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
+		int blockOcupado;
+
+		if(listaBlocks[1]!=']'){ 
+			int inicio = 1;
+			int marcador = 1;
+
+			while(marcador<strlen(listaBlocks)){
+
+				while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']')
+					marcador++;
+				
+				
+				blockOcupado = atoi(string_substring(listaBlocks,inicio,marcador+inicio)) - 1;
+
+				if(!bitarray_test_bit(punteroBitmap, blockOcupado)){
+					bitarray_set_bit(punteroBitmap, blockOcupado);
+				}
+
+				inicio = marcador+1;
+			}
+			
+		}
+		return true;
+	} else {
+		return false;
+	}
+}
+
+void verificarBitacoraBitMap(){
+	int file_count = 0;
+	DIR * dirp;
+	struct dirent * entry;
+	dirp = opendir(string_from_format("%s/Files/Bitacoras/",puntoDeMontaje));
+	while ((entry = readdir(dirp)) != NULL) {
+    	if (entry->d_type == DT_REG) {
+        	file_count++;
+    	}
+	}
+	closedir(dirp);
+
+
+	int i = 0;
+	while(file_count>0){
+		if(verificarBlocksBitMap(string_from_format("%s/Files/Tripulante%d",puntoDeMontaje,i)))
+			file_count--;
+		i++;
+	}
+}
+
+void sabotajeSuperBloque(){
+	leerSuperBloque();
+
+	FILE * archivoBlocks; 
+	archivoBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
+	struct stat buf;
+	fstat(archivoBlocks, &buf);
+	off_t size = buf.st_size;
+	int cantidadBloquesReal = size / tamanioDeBloque;
+
+	FILE * superBloque; 
+	superBloque = fopen(ubicacionSuperBloque,"r+");
+	fseek(superBloque, sizeof(uint32_t), SEEK_SET);
+	fwrite(cantidadBloquesReal,sizeof(uint32_t),1,superBloque);
+
+	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
+	verificarBlocksBitMap(ubicacionArchivoBasura);
+
+	char *ubicacionArchivoComida = string_from_format("%s/Files/Comida.ims",puntoDeMontaje);
+	verificarBlocksBitMap(ubicacionArchivoComida);
+
+	char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
+	verificarBlocksBitMap(ubicacionArchivoOxigeno);
+
+	verificarBitacoraBitMap();
+
+	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);	
+	fclose(superBloque);
+}
+
+void sabotajeFile(){
+
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------- SINCRONIZACION BLOCKS --------------------------------------//
@@ -668,8 +809,8 @@ void atenderDiscordiador(int socketCliente){
 	case DESCARTAR_BASURA:
 		descartarBasura(*tid);
 		break;
-
 	default:
+		tareaTripulante("",*tid);
 		break;
 	}
 

@@ -67,6 +67,7 @@ void crearSuperBloque();
 
 //USO DEL FILESYSTEM
 void crearFileSystem();
+void leerSuperBloque();
 void leerFileSystem();
 void inicializarFileSystem(int);
 void borrarFileSystem(const char *);
@@ -110,6 +111,15 @@ void vaciarBlocksRecursos(char *, int);
 void generarRecurso(char *, int, uint32_t);
 bool consumirRecurso(char *, int , uint32_t);
 void descartarBasura(uint32_t);
+void tareaTripulante(char *, uint32_t);
+void movimientoTripulante(uint32_t);
+
+//SABOTAJES
+void pruebaDeSabotaje();
+bool verificarBlocksBitMap(char *);
+void verificarBitacoraBitMap();
+void sabotajeSuperBloque();
+void sabotajeFile();
 
 //SINCRONIZACION BLOCKS
 void sincronizacionMapBlocks();
