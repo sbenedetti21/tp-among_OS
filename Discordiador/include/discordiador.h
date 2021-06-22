@@ -36,6 +36,8 @@ sem_t cambiarATrabajando;
 sem_t cambiarAFinalizado;
 sem_t cambiarABloqueado;
 sem_t cambiarABloqueadosEmergencia;
+sem_t semaforoSabotaje;
+sem_t semaforoSabotajeBloqueados;
 
 
 t_log * loggerDiscordiador; 
@@ -66,19 +68,22 @@ void serializarYMandarInicioTareaIO(int, int, uint32_t);
 void serializarYMandarInicioTareaNormal(uint32_t, char*);
 void gestionarTarea(tarea_struct * , uint32_t);
 void serializarYMandarElegidoDelSabotaje(uint32_t);
-
+int gradoMultitarea;
 bool esTareaDeIO(char*);
 bool coincideID(TCB_DISCORDIADOR*);
-
+bool haySabotaje = false;
+int cantidadDeSabotajes;
 void serializarYMandarPosicion(TCB_DISCORDIADOR *);
 void ponerATrabajar();
 void trasladarseA(uint32_t,uint32_t,TCB_DISCORDIADOR*);
 void cambiarDeEstado(TCB_DISCORDIADOR *, char);
 void pasarTripulante(TCB_DISCORDIADOR *);
 void salirDeListaEstado(TCB_DISCORDIADOR *);
-void tripulanteVivo(TCB_DISCORDIADOR *);
+void subModuloTripulante(TCB_DISCORDIADOR *);
 void gestionadorIO();
-
+void cambiarEstadosABloqueadosEmergencias();
+void volverAEstadosPostSabotaje();
+bool tripulanteConIDMasChico(TCB_DISCORDIADOR *, TCB_DISCORDIADOR*);
 TCB_DISCORDIADOR * crearTCB(char *); // chequear lo de la lista
 TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t, uint32_t);
 void mostrarLista(t_list *); 
