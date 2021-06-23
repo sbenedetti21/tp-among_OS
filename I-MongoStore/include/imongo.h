@@ -86,10 +86,10 @@ void agregarBloqueArchivo(int, t_config * );
 void agregarSizeArchivo(t_config *, int);
 
 //CREARCION ARCHIVO BITACORA
-t_config *crarArchivoBitacora(int);
+t_config *crearArchivoBitacora(int);
 
 //CODIGO DE LOS BLOCKS DE BITACORAS
-void llenarBlocksBitcoras(char *, t_config *);
+void llenarBlocksBitcoras(char *, uint32_t);
 
 //SEMAFOROS PARA LOS FILES DE RECURSOS
 void semaforoEsperaRecurso(char *);
@@ -120,6 +120,9 @@ bool verificarBlocksBitMap(char *);
 void verificarBitacoraBitMap();
 void sabotajeSuperBloque();
 void sabotajeFile();
+
+//MENSAJES DEL LOG
+void mandarMensajeEnLog(char *);
 
 //SINCRONIZACION BLOCKS
 void sincronizacionMapBlocks();

@@ -188,7 +188,7 @@ void consola(){
 		if(strcmp(vectorInstruccion[0], "generarBasura") == 0){
 
 			tarea_struct * tarea = malloc(sizeof(tarea_struct));
-			tarea->parametro = 5;
+			tarea->parametro = 30;
 			tarea->descripcionTarea = "GENERAR_BASURA";
 
 			gestionarTarea(tarea, 1);
@@ -199,6 +199,15 @@ void consola(){
 			tarea_struct * tarea = malloc(sizeof(tarea_struct));
 			tarea->parametro = 5;
 			tarea->descripcionTarea = "CONSUMIR_OXIGENO";
+
+			gestionarTarea(tarea, 1);
+		}
+
+		if(strcmp(vectorInstruccion[0], "descartarBasura") == 0){
+
+			tarea_struct * tarea = malloc(sizeof(tarea_struct));
+			tarea->parametro = 5;
+			tarea->descripcionTarea = "DESCARTAR_BASURA";
 
 			gestionarTarea(tarea, 1);
 		}
