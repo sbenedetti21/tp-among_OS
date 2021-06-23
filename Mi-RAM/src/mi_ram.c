@@ -98,7 +98,7 @@ void atenderDiscordiador(int socketCliente){
 		int tamanioTareas;
 		memcpy(&tamanioTareas, stream, sizeof(int));
 		stream += sizeof(int);
-		char* tareas = malloc(tamanioTareas + 2);
+		char* tareas = malloc(tamanioTareas + 2); //mirar si no es +1
 		memcpy(tareas, stream, tamanioTareas);
 		stream += tamanioTareas;
 
@@ -108,6 +108,11 @@ void atenderDiscordiador(int socketCliente){
 
 		log_info(loggerMiram, "%s", tareas);
 		printf("%s \n", tareas); // tira un invalid read valgrind o unitialised values
+
+		//deserializar pid 
+		uint32_t idPatota = 0; 
+		memcpy(&idPatota, stream, sizeof(uint32_t)); 
+		stream += sizeof(uint32_t);
 
 		//Deserializar CantidadDeTCBs
 		int cantidadTCBs = 0;
@@ -133,7 +138,7 @@ void atenderDiscordiador(int socketCliente){
 				t_list * tablaDePaginas = list_create();
 								
 	
-				PCB * pcb = crearPCB();
+				PCB * pcb = crearPCB(idPatota);
 
 				int pid = pcb->pid;
 				
@@ -204,7 +209,7 @@ void atenderDiscordiador(int socketCliente){
 				t_list * tablaSegmentos = list_create();
 				referenciaTablaPatota * referencia = malloc(sizeof(referenciaTablaPatota)); 
 				
-				PCB * pcb = crearPCB();
+				PCB * pcb = crearPCB(idPatota);
 				 
 				printf("ID DE LA PATOTA %d \n", pcb->pid);
 				uint32_t direccionTareas = asignarMemoriaSegmentacionTareas(tareas, tamanioTareas, tablaSegmentos); 
@@ -243,15 +248,15 @@ void atenderDiscordiador(int socketCliente){
 					memcpy(tripulante + offset, &direccionPCB, sizeof(uint32_t));
 
 					
-					mem_hexdump(tripulante, SIZEOF_TCB);
 					
 
 					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tripulanteID, tablaSegmentos); 
 					
-					referenciaTripulante * referenciaTripulante = malloc(sizeof(referenciaTripulante)); 
-					referenciaTripulante->tid = tripulanteID; 
-					referenciaTripulante->pid = (pcb->pid);
+					referenciaTripulante * referenciaTripulante = malloc(2 * sizeof(uint32_t)); 
 
+					memcpy(&(referenciaTripulante->tid), &tripulanteID, sizeof(uint32_t));
+					memcpy(&(referenciaTripulante->pid), &(pcb->pid), sizeof(uint32_t));
+					
 					
 					sem_wait(&mutexTripulantesPatotas);
 					list_add(tripulantesPatotas, referenciaTripulante);
@@ -266,17 +271,18 @@ void atenderDiscordiador(int socketCliente){
 			list_add(tablaDeTablasSegmentos, referencia); 
 			sem_post(&mutexTablaDeTablas);
 			
-/*
-			uint32_t direccionTCB = obtenerDireccionTripulante(1); 
+
+			mem_hexdump(memoriaPrincipal, 300);
+		/*	uint32_t direccionTCB = obtenerDireccionTripulante(1); 
 			uint32_t direccionTarea = obtenerDireccionProximaTarea(direccionTCB);
 			printf("La direccion de la tarea es %d \n", direccionTarea);
 			char * proximaTarea = obtenerProximaTareaSegmentacion(direccionTarea, direccionTCB); 
 			direccionTarea = obtenerDireccionProximaTarea(direccionTCB);
-
+			mem_hexdump(memoriaPrincipal, 300);
 			printf("La proxima tarea es %s \n", proximaTarea);
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
 			proximaTarea = obtenerProximaTareaSegmentacion(direccionTarea, direccionTCB);
-			printf("La tarea es: %s \n", proximaTarea); */
+			printf("La tarea es: %s \n", proximaTarea);  */
 			}
 			
 
@@ -292,15 +298,21 @@ void atenderDiscordiador(int socketCliente){
 
 	case PEDIR_TAREA: ;
 
+	//enviar proxima tarea (mensaje de miram)
+
 		void* stream = malloc(paquete->buffer->size);
 		stream = paquete->buffer->stream;
-		uint32_t tid;
+		uint32_t tid = 0; 
 		memcpy(&tid, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
 		// en tid ya tenes el tid del tripulante que te lo pidio
+
+		uint32_t idPatota = 0; 
+		memcpy(&idPatota, stream, sizeof(uint32_t));
 	
 	 
 		char * stringTarea = malloc(40); //este es el string de tareas que despues tenes que cambiar por el que uses
-		stringTarea = obtenerProximaTarea(tid);
+		stringTarea = obtenerProximaTarea(idPatota, tid);
 		int tamanioTarea = strlen(stringTarea) + 1;
 
 		log_info(loggerMiram, "La tarea a enviar es: %s", stringTarea);
@@ -320,6 +332,7 @@ void atenderDiscordiador(int socketCliente){
 			buffer-> stream = stream; 
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
+			free(stringTarea);
 
 		}
 		else{	
@@ -337,9 +350,16 @@ void atenderDiscordiador(int socketCliente){
 			buffer-> stream = stream;
 
 			mandarPaqueteSerializado(buffer, socketCliente, HAY_TAREA);
+			free(buffer);
 		}
 
 		break;
+
+	case ACTUALIZAR_POS: ;
+
+
+	
+	break; 
 	
 	default:	
 
@@ -356,7 +376,7 @@ void atenderDiscordiador(int socketCliente){
 
 }
 
-char * obtenerProximaTarea(uint32_t tid) {
+char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 	
 	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 		uint32_t direccionTCB = obtenerDireccionTripulante(tid); 
@@ -384,7 +404,7 @@ char * obtenerProximaTarea(uint32_t tid) {
 
 }
 
-//comentarios
+
 uint32_t obtenerDireccionTripulante(uint32_t tripulanteID){
 
 	uint32_t patota; 
@@ -482,17 +502,13 @@ TCB * deserializar_TCB(void * stream){
 	return tripulante;
 }
 
-PCB * crearPCB(){
+PCB * crearPCB(uint32_t pid){
 
 	PCB * patota = malloc(SIZEOF_PCB);
-	patota->pid = proximoPID;
+	patota->pid = pid;
 	patota->tareas = SIZEOF_PCB;
 	
-	sem_wait(&mutexProximoPID); 
-	proximoPID++;
-	sem_post(&mutexProximoPID); 
-
-
+	
 	
 	return patota; 
 }
