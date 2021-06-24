@@ -46,14 +46,18 @@ uint32_t cantidadDeBloques;
 char * puntoDeMontaje;
 int tiempoDeSinc;
 
-//Variables del map blocks
-char *mapBlocks;
+//Variables de mapeo del Blocks
 size_t tamanioBlocks;
+char *mapBlocks;
 int archivoBlocks;
 char *mapBlocksCopia;
 
+//Variables del mapeo del SuperBloque
+size_t tamanioSuperBloqueBlocks;
+char *mapSuperBloque;
+int archivoSuperBloque;
+
 //Superbloque
-char * ubicacionSuperBloque;
 t_bitarray *punteroBitmap;
 
 //-----------FUNCIONES-----------//
@@ -64,6 +68,7 @@ void leerConfig();
 void crearBlocks();
 void mapearBlocks();
 void crearSuperBloque();
+void mapearSuperBloque();
 
 //USO DEL FILESYSTEM
 void crearFileSystem();
@@ -75,7 +80,6 @@ void borrarFileSystem(const char *);
 //USO DEL BITMAP
 void crearBitmap();
 void guardarBitMap();
-void leerBitMap();
 int bloqueLibreBitMap();
 void liberarBloqueBitMap(int);
 void liberarBitMap();

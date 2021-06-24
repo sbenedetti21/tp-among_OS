@@ -31,6 +31,8 @@ int main(int argc, char ** argv){
     pthread_join(servidor, NULL);
 
 	//Necesario al finalizar
+	munmap(mapSuperBloque,tamanioBlocks);
+	close(archivoSuperBloque);
 	munmap(mapBlocks,tamanioBlocks);
 	close(archivoBlocks);
 	guardarBitMap();
@@ -63,19 +65,17 @@ void crearBlocks(){
 	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 	ftruncate(fileno(archivoCrearBlocks), tamanioBlocks);
 	fclose(archivoCrearBlocks);
-	mapearBlocks();
 }
 
 void mapearBlocks(){
 	char * ubicacionBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
-	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 	archivoBlocks = open(ubicacionBlocks, O_RDWR , S_IRUSR | S_IWUSR);
 	mapBlocks = mmap(NULL, tamanioBlocks, PROT_READ | PROT_WRITE, MAP_SHARED, archivoBlocks,0);
 	free(ubicacionBlocks);
 }
 
 void crearSuperBloque(){
-	ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 	FILE * superBloque; 
 	superBloque = fopen(ubicacionSuperBloque,"w");
 	
@@ -89,19 +89,12 @@ void crearSuperBloque(){
 	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
 
 	fclose(superBloque);
-}
-//---------------------------------------------------------------------------------------------------//
-//---------------------------------------- USO DEL FILESYSTEM ---------------------------------------//
-void crearFileSystem(){
-	mkdir(puntoDeMontaje,0777);
-	crearSuperBloque();
-	crearBlocks();
-	mkdir(string_from_format("%s/Files",puntoDeMontaje),0777);
-	mkdir(string_from_format("%s/Files/Bitacoras",puntoDeMontaje),0777);
+
+	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 }
 
 void leerSuperBloque(){
-	ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+	char *ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 //superBocke	
 	FILE * superBloque; 
 	superBloque = fopen(ubicacionSuperBloque,"r");
@@ -116,14 +109,32 @@ void leerSuperBloque(){
  	fread(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
 
 	fclose(superBloque);
+	free(ubicacionSuperBloque);
+
+	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
+}
+
+void mapearSuperBloque(){
+	int tamanioBitMap = cantidadDeBloques / 8;
+	tamanioSuperBloqueBlocks = sizeof(uint32_t)*2 + tamanioBitMap;
+	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+	archivoSuperBloque = open(ubicacionSuperBloque, O_RDWR , S_IRUSR | S_IWUSR);
+	mapSuperBloque = mmap(NULL, tamanioSuperBloqueBlocks, PROT_READ | PROT_WRITE, MAP_SHARED, archivoSuperBloque,0);
+	free(ubicacionSuperBloque);
+}
+//---------------------------------------------------------------------------------------------------//
+//---------------------------------------- USO DEL FILESYSTEM ---------------------------------------//
+void crearFileSystem(){
+	mkdir(puntoDeMontaje,0777);
+	crearSuperBloque();
+	crearBlocks();
+	mkdir(string_from_format("%s/Files",puntoDeMontaje),0777);
+	mkdir(string_from_format("%s/Files/Bitacoras",puntoDeMontaje),0777);
 }	
 
 void leerFileSystem(){
 //superBocke	
 	leerSuperBloque();
-
-//Blocks
-	mapearBlocks();
 }
 
 void inicializarFileSystem(int valorRespuesta){
@@ -148,6 +159,9 @@ void inicializarFileSystem(int valorRespuesta){
 		}
 		break;
 	}
+
+	mapearSuperBloque();
+	mapearBlocks();
 }
 
 void borrarFileSystem(const char *path){
@@ -202,21 +216,10 @@ void crearBitMap(){
 
 void guardarBitMap(){
 	sem_wait(&semaforoBloques);
-	FILE * superBloque; 
-	superBloque = fopen(ubicacionSuperBloque,"r+");
-	fseek(superBloque, sizeof(uint32_t) * 2, SEEK_SET);
-	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
-	fclose(superBloque);
+	int marcador = sizeof(uint32_t) * 2;
+	memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, punteroBitmap->size);
+	msync(mapSuperBloque, tamanioBlocks, MS_SYNC);
 	sem_post(&semaforoBloques);
-}
-
-void leerBitMap(){
-	FILE * superBloque; 
-	superBloque = fopen(ubicacionSuperBloque,"r");
-	fseek(superBloque, sizeof(uint32_t) * 2, SEEK_SET);
-	crearBitMap();
- 	fread(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
-	fclose(superBloque);
 }
 
 int bloqueLibreBitMap(){
@@ -440,16 +443,13 @@ void borrarBloqueFile(char *recurso, int cantidadBorrar){
 
 	char *listaBlocks = config_get_string_value(configRecurso,"BLOCKS");
 	int indiceFinal = strlen(listaBlocks)-1;
-	while(listaBlocks[indiceFinal]!=',' && indiceFinal>0)
+	while(listaBlocks[indiceFinal]!=',' && indiceFinal>1)
 			indiceFinal--;
 	
-	if(indiceFinal>0){
-		listaBlocks = string_substring_until(listaBlocks, indiceFinal);
-		string_append(&listaBlocks, "]");
-		config_set_value(configRecurso,"BLOCKS",listaBlocks);
-	} else {
-		config_set_value(configRecurso,"BLOCKS","[]");
-	}
+	
+	listaBlocks = string_substring_until(listaBlocks, indiceFinal);
+	string_append(&listaBlocks, "]");
+	config_set_value(configRecurso,"BLOCKS",listaBlocks);
 
 	int sizeAcutal = config_get_int_value(configRecurso, "SIZE");
 	sizeAcutal-=cantidadBorrar;
@@ -566,9 +566,6 @@ bool consumirRecurso(char *recurso, int cantidadAConsumir, uint32_t idTripulante
 	llenarBlocksBitcoras(comienzaLaTarea,idTripulante);
 	free(comienzaLaTarea);
 
-	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
-	msync(mapBlocks, tamanioBlocks, MS_SYNC);
-
 	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
 
 	if(access(ubicacionArchivoRecurso, F_OK )){
@@ -592,7 +589,7 @@ bool consumirRecurso(char *recurso, int cantidadAConsumir, uint32_t idTripulante
 void descartarBasura(uint32_t idTripulante){
 	mandarMensajeEnLog(string_from_format("Tripulante %d descarta Basura",idTripulante));
 	
-	//llenarBlocksBitcoras("Comienza la ejecucion de la tarea Descartar Basura\n",idTripulante);
+	llenarBlocksBitcoras("Comienza la ejecucion de la tarea Descartar Basura\n",idTripulante);
 	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
 
 	if(access(ubicacionArchivoBasura, F_OK )){
@@ -607,9 +604,9 @@ void descartarBasura(uint32_t idTripulante){
 		config_destroy(configRecurso);
 		remove(ubicacionArchivoBasura);
 
-		//llenarBlocksBitcoras("Se finaliza la tarea Descartar Basura\n",idTripulante);
+		llenarBlocksBitcoras("Se finaliza la tarea Descartar Basura\n",idTripulante);
 
-		//free(ubicacionArchivoBasura);
+		free(ubicacionArchivoBasura);
 
 		log_info(loggerImongoStore,"Se descarto la Basura");
 	}
@@ -636,7 +633,7 @@ void pruebaDeSabotaje(){
 	bloqueLibreBitMap();
 	bloqueLibreBitMap();
 
-
+	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 	FILE * superBloque; 
 	superBloque = fopen(ubicacionSuperBloque,"r+");
 	fseek(superBloque, sizeof(uint32_t), SEEK_SET);
@@ -710,6 +707,7 @@ void sabotajeSuperBloque(){
 	off_t size = buf.st_size;
 	int cantidadBloquesReal = size / tamanioDeBloque;
 
+	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 	FILE * superBloque; 
 	superBloque = fopen(ubicacionSuperBloque,"r+");
 	fseek(superBloque, sizeof(uint32_t), SEEK_SET);
@@ -824,11 +822,7 @@ void atenderDiscordiador(int socketCliente){
 		tareaTripulante("",*tid);
 		break;
 	}
-	mandarMensajeEnLog(string_from_format("Prueba1 %d",parametroS->tid));
 	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
-	mandarMensajeEnLog(string_from_format("Prueba2 %d",parametroS->tid));
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
-	mandarMensajeEnLog(string_from_format("Prueba3 %d",parametroS->tid));
 	guardarBitMap();
-	mandarMensajeEnLog(string_from_format("Prueba4 %d",parametroS->tid));
 }
