@@ -6,7 +6,6 @@ int main(int argc, char ** argv){
 
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
 	leerConfig();
-	
 
 	memoriaPrincipal = malloc(tamanioMemoria);
 	memset(memoriaPrincipal, 0, tamanioMemoria);
@@ -87,6 +86,8 @@ void atenderDiscordiador(int socketCliente){
 	void* stream = malloc(paquete->buffer->size);
 	stream = paquete->buffer->stream;
 
+	uint32_t idPatota = 0;
+
 	switch (paquete->header)
 	{
 	case INICIAR_PATOTA: ; 
@@ -110,7 +111,7 @@ void atenderDiscordiador(int socketCliente){
 		printf("%s \n", tareas); // tira un invalid read valgrind o unitialised values
 
 		//deserializar pid 
-		uint32_t idPatota = 0; 
+		idPatota = 0; 
 		memcpy(&idPatota, stream, sizeof(uint32_t)); 
 		stream += sizeof(uint32_t);
 
@@ -160,7 +161,7 @@ void atenderDiscordiador(int socketCliente){
 					memcpy(&tid, stream, 4);
 					// tripu->idTripulante = tid;
 					// list_add(listaTripulantes, tripu);
-					agregarTripulante(pid, tamanioTareas, tid);
+					// agregarTripulante(pid, tamanioTareas, tid);
 
 					memcpy(streamPatota + offset, stream, (SIZEOF_TCB - 8));
 					stream += (SIZEOF_TCB - 8); offset += (SIZEOF_TCB - 8);
@@ -175,7 +176,7 @@ void atenderDiscordiador(int socketCliente){
 
 				mem_hexdump(streamPatota, memoriaNecesaria);
 				
-				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria);
+				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria, pid);
 
 				mem_hexdump(memoriaPrincipal, 2048);
 
@@ -307,12 +308,15 @@ void atenderDiscordiador(int socketCliente){
 		stream += sizeof(uint32_t);
 		// en tid ya tenes el tid del tripulante que te lo pidio
 
-		
-		memcpy(&idPatota, stream, sizeof(uint32_t));
+		uint32_t pid = 0; 
+		memcpy(&pid, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+
+		log_info(loggerMiram, "DATOS TRIPU QUE PIDIO TAREA, PID: %d, TID: %d", pid, tid);
 	
 	 
 		char * stringTarea = malloc(40); //este es el string de tareas que despues tenes que cambiar por el que uses
-		stringTarea = obtenerProximaTarea(idPatota, tid);
+		stringTarea = obtenerProximaTarea(pid, tid);
 		int tamanioTarea = strlen(stringTarea) + 1;
 
 		log_info(loggerMiram, "La tarea a enviar es: %s", stringTarea);
@@ -320,34 +324,35 @@ void atenderDiscordiador(int socketCliente){
 		if(strcmp(stringTarea, "NO_HAY_TAREA") == 0){ //Esto cambialo cuando sepas si hay tarea o no
 
 			t_buffer* buffer = malloc(sizeof(t_buffer)); // se puede mandar un buffer vacio????????????
-			buffer-> size = sizeof(int) + tamanioTarea;
+			buffer-> size = sizeof(int);
+			void * streamEnvio = malloc(buffer->size);
 
 			int offset = 0;
 
-			memcpy(stream+offset, &tamanioTarea , sizeof(int));
+			memcpy(streamEnvio+offset, &tamanioTarea , sizeof(int));
 			offset += sizeof(int);
 
-			memcpy(stream+offset, stringTarea, tamanioTarea);
+			// memcpy(streamEnvio+offset, stringTarea, tamanioTarea);
 
-			buffer-> stream = stream; 
+			// buffer-> stream = streamEnvio; 
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
-			free(stringTarea);
+			free(buffer);
 
 		}
 		else{	
 			t_buffer* buffer = malloc(sizeof(t_buffer));
-
 			buffer-> size = sizeof(int) + tamanioTarea;
+			void * streamEnvio = malloc(buffer->size);
 
 			int offset = 0;
 
-			memcpy(stream+offset, &tamanioTarea , sizeof(int));
+			memcpy(streamEnvio+offset, &tamanioTarea , sizeof(int));
 			offset += sizeof(int);
 
-			memcpy(stream+offset, stringTarea, tamanioTarea);
+			memcpy(streamEnvio+offset, stringTarea, tamanioTarea);
 
-			buffer-> stream = stream;
+			buffer-> stream = streamEnvio;
 
 			mandarPaqueteSerializado(buffer, socketCliente, HAY_TAREA);
 			free(buffer);
@@ -387,19 +392,19 @@ char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 
-		bool coincideID(t_tripulanteConPID * tripulante) {
-			return tripulante->idTripulante == tid;
+		bool coincideIDPatota(t_tablaDePaginas * tablaPagina) {
+			return tablaPagina->pid == idPatota;
 		}
+		
+		t_tablaDePaginas * tablaDeLaPatota = list_find(listaTablasDePaginas, coincideIDPatota);
 
-		t_tripulanteConPID * tripuPrueba = list_find(listaTripulantes, coincideID);
-		if (tripuPrueba == NULL) {
-
+		if (tablaDeLaPatota == NULL){
+			log_error(loggerMiram, "No se encontro la tabla de paginas de la patota %d", idPatota);
+			return "NO_ENCONTRE_TABLA";
 		} else {
-			int patotaID = *((int*)tripuPrueba+1);
-			int longitudTareas = *((int*)tripuPrueba+2);
-			return obtenerProximaTareaPaginacion(patotaID, tid, longitudTareas);
-		}	
-
+			return obtenerProximaTareaPaginacion(tablaDeLaPatota, tid);
+		}
+		
 	}
 
 }
@@ -541,7 +546,7 @@ void iniciarMemoria() {
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 		listaFrames = list_create();
 		listaTablasDePaginas = list_create();
-		listaTripulantes = list_create();
+		// listaTripulantes = list_create();
 		pthread_mutex_init(&mutexMemoriaPrincipal, NULL);
 		pthread_mutex_init(&mutexListaTablas, NULL);
 		pthread_mutex_init(&mutexListaFrames, NULL);
@@ -635,15 +640,15 @@ uint32_t buscarFrame() {
   return direccionFrame;
 }
 
-void agregarTripulante(uint32_t pid, uint32_t tamanioTareas, uint32_t tid) {
-	t_tripulanteConPID * tripu = malloc(sizeof(t_tripulanteConPID)); 
-	tripu->idPatota = pid;
-	tripu->longitudTareas = tamanioTareas;
-	tripu->idTripulante = tid;
-	list_add(listaTripulantes, tripu);
-}
+// void agregarTripulante(uint32_t pid, uint32_t tamanioTareas, uint32_t tid) {
+// 	t_tripulanteConPID * tripu = malloc(sizeof(t_tripulanteConPID)); 
+// 	tripu->idPatota = pid;
+// 	tripu->longitudTareas = tamanioTareas;
+// 	tripu->idTripulante = tid;
+// 	list_add(listaTripulantes, tripu);
+// }
 
-void llenarFramesConPatota(t_list* tablaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas, int memoriaAGuardar) {
+void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas, int memoriaAGuardar, uint32_t pid) {
 
 	int i = 0, j = 0;
 
@@ -671,11 +676,15 @@ void llenarFramesConPatota(t_list* tablaDePaginas, void * streamDePatota, int ca
 		t_pagina * pagina = malloc(sizeof(t_pagina));
 		pagina->numeroFrame = numeroDeFrame;
 		pagina->numeroPagina = (uint32_t) i;
-		list_add(tablaDePaginas, pagina);
+		pagina->pid = pid;
+		list_add(listaDePaginas, pagina);
 		j = 0;
 	}
 
-
+	t_tablaDePaginas * tablaDePaginas = malloc(sizeof(t_tablaDePaginas));
+	tablaDePaginas->longitudTareas = longitudTareas;
+	tablaDePaginas->pid = pid;
+	tablaDePaginas->listaPaginas = listaDePaginas;
 
 	pthread_mutex_lock(&mutexListaTablas);
 	list_add(listaTablasDePaginas, tablaDePaginas);
@@ -686,8 +695,10 @@ int divisionRedondeadaParaArriba(int x, int y) {
 	return (x -1)/y +1;
 }
 
-char * obtenerProximaTareaPaginacion(int patotaId, int tripuID, int longitudTareas) {
-	t_list * tablaPaginas = list_get(listaTablasDePaginas, patotaId);
+char * obtenerProximaTareaPaginacion(t_tablaDePaginas* tablaDePaginas, int tripuID) {
+
+	t_list * tablaPaginas = tablaDePaginas->listaPaginas;
+	int longitudTareas = tablaDePaginas->longitudTareas;
 
 	int * frames = malloc(list_size(tablaPaginas) * 4);
 	int i = 0;
@@ -705,10 +716,12 @@ char * obtenerProximaTareaPaginacion(int patotaId, int tripuID, int longitudTare
 		memcpy(streamPatota + j * tamanioPagina, memoriaPrincipal + tamanioPagina * frames[j], tamanioPagina);
 	}
 
-	return encontrarTareasDeTripulanteEnStream(streamPatota, tripuID, longitudTareas, patotaId);
+	return encontrarTareasDeTripulanteEnStream(streamPatota, tripuID, tablaDePaginas);
 }
 
-char * encontrarTareasDeTripulanteEnStream(void * stream, int id, int longitudTareas, int patotaID) {
+char * encontrarTareasDeTripulanteEnStream(void * stream, int id, t_tablaDePaginas * tablaDePaginas ) {
+	int longitudTareas = tablaDePaginas->longitudTareas;
+	int patotaID = tablaDePaginas ->pid;
 	int tamanioPCByTareas = longitudTareas + 8;
 	int direccionPunteroTarea = 0;
 	int direccionTripu = 0;
@@ -752,13 +765,13 @@ char * encontrarTareasDeTripulanteEnStream(void * stream, int id, int longitudTa
 	char barraCero = '\0';
 	memcpy(tarea + j, &barraCero, 1);
 	// Cambiar el puntero de las tareas
-	actualizarPunteroTarea(direccionTripu, patotaID, proximaTarea);
+	actualizarPunteroTarea(direccionTripu, tablaDePaginas, proximaTarea);
 
 	return tarea;
 }
 
-void actualizarPunteroTarea(int direccionTripulante, int pid, int direcProximaTarea) {
-	t_list * tablaPaginas = list_get(listaTablasDePaginas, pid);
+void actualizarPunteroTarea(int direccionTripulante, t_tablaDePaginas * tablaDePaginas, int direcProximaTarea) {
+	t_list * tablaPaginas = tablaDePaginas->listaPaginas;
 
 	int * frames = malloc(list_size(tablaPaginas) * 4);
 	int i = 0;
