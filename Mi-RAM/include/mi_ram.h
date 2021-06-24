@@ -1,31 +1,135 @@
 #ifndef MI_RAM_H
 #define MI_RAM_H
-#define BACKLOG 10 //TODO
 
 #include <stdio.h>
 #include <commons/log.h>
+#include <commons/collections/dictionary.h>
+#include <commons/memory.h>
 #include <stdbool.h>
 #include <nivel-gui/nivel-gui.h>
 #include <nivel-gui/tad_nivel.h>
 #include "shared_utils.h"
 
-t_list * tablaSegmentos; 
+#define BACKLOG 10 //TODO
+#define SIZEOF_PCB 8
+#define SIZEOF_TCB 21
+
+// --------------------------------------- MEMORIA GENERAL
+
+char * esquemaMemoria;
+char * algoritmoReemplazo;
+char * puertoMemoria;
+void * memoriaPrincipal; 
+
+int buscarEspacioNecesario(int, int);
+TCB * deserializar_TCB(void *);
+char * obtenerProximaTareaSegmentacion(uint32_t, uint32_t);
+uint32_t obtenerDireccionTripulante(uint32_t );
+uint32_t obtenerDireccionProximaTarea(uint32_t);
+char * obtenerProximaTarea(uint32_t);
+
+sem_t mutexProximoPID; 
+
+// ----------------------------------------  PAGINAS
+
+char * path_SWAP;
+t_list * listaFrames;
+t_list * listaTablasDePaginas;
+int tamanioPagina, tamanioMemoria;
+pthread_mutex_t mutexMemoriaPrincipal;
+pthread_mutex_t mutexListaTablas;
+pthread_mutex_t mutexListaFrames;
+pthread_mutex_t mutexTareas;
+
+
+typedef struct {
+	uint32_t inicio;
+	uint32_t ocupado;
+}  t_frame;
+
+typedef struct {
+	uint32_t numeroPagina;
+	uint32_t numeroFrame;
+	// ultimaReferencia
+	// SecondChance
+} t_pagina;
+
+typedef struct {
+	uint32_t idTripulante;
+	uint32_t idPatota;
+	uint32_t longitudTareas;
+} t_tripulanteConPID;
+t_list * listaTripulantes;
+
+char * obtenerProximaTareaPaginacion(int, int, int);
+char * encontrarTareasDeTripulanteEnStream(void *, int, int, int);
+void actualizarPunteroTarea(int, int, int);
+
+int divisionRedondeadaParaArriba(int , int );
+int framesDisponibles();
+uint32_t buscarFrame();
+void iniciarFrames();
+void llenarFramesConPatota(t_list *, void *, int , int , int , int );
+
+
+// ----------------------------------------  SEGMENTOS
+
+t_list * tablaSegmentosGlobal; 
+t_list * tablaDeTablasSegmentos;  // va a estar conformado por muchos struct de tipo referenciaTablaPatota
+sem_t mutexTablaGlobal;
+sem_t mutexTablaDeTablas; 
+t_list * tablaTripulantes; 
+
 typedef struct{
-	int numeroSegmento; 
-	int direccionBase; 
-	int tamanio; 
-// no se si va aca -- 	void * contenido; 
-}segmento; 
+	uint32_t tid; 
+	uint32_t direccionLogicaTarea;
+	uint32_t direccionLogica; 
+} referenciaTripulante; 
+
+typedef struct{
+	uint32_t pid;
+	uint32_t tripulantesDeLaPatota[10];
+	uint32_t tamanioTareas;
+	t_list * tablaPatota;
+} referenciaTablaPatota;
+
+typedef struct {
+	uint32_t patotaID;
+	uint32_t tripulanteID;
+} t_tripuAsociado;
+
+typedef struct{
+	
+	uint32_t base; 
+	uint32_t tamanio; 
+ 
+} t_segmento; 
+
+
+uint32_t asignarMemoriaSegmentacionTCB(void *, t_list *); 
+uint32_t asignarMemoriaSegmentacionPCB(void * , t_list *);
+uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * );
+uint32_t encontrarLugarSegmentacion(int );
+uint32_t firstFit(int );
+uint32_t bestFit(int );
+t_list *  obtenerSegmentosLibres(t_list * );
+int buscarEspacioSegmentacion(int , int );
+bool seEncuentraPrimeroEnMemoria(t_segmento * , t_segmento* );
+bool segmentoMasPequenio(t_segmento * , t_segmento * );
+bool cabePCB(t_segmento * );
+bool cabeTCB(t_segmento * );
+void imprimirSegmentosLibres();
+void actualizarProximaTarea(uint32_t, uint32_t);
+
+
+// --------------------- Generales
 
 t_log * loggerMiram; 
-void servidorPrincipal(t_config*);
+void servidorPrincipal();
 
 void atenderDiscordiador(int);
 void recibir_TCB(int);
-uint32_t crearPCB(char*);
-TCB * deserializar_TCB(t_buffer *);
-char * deserializar_Tareas(t_buffer * );
-
+PCB * crearPCB();
 
 typedef struct {
 
@@ -36,7 +140,7 @@ typedef struct {
  
 } structConexion;
 
-
+void mandarPaqueteSerializado(t_buffer *, int, int);
 int proximoPID = 0; 
 
 //--------------- MAPA ---------------------

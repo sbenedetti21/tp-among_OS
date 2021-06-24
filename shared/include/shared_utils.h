@@ -17,6 +17,7 @@
 #include <commons/collections/list.h>
 #include <commons/temporal.h>
 #include <semaphore.h>
+#include <inttypes.h>
 
 int crear_conexion(char *, char*);
 
@@ -30,8 +31,8 @@ typedef struct tcb{
 	char estado;
 	uint32_t posicionX;
 	uint32_t posicionY;
-	//uint32_t proximaInstruccion;
-	//uint32_t punteroPCB;
+	uint32_t proximaInstruccion;
+	uint32_t punteroPCB;
 } TCB;
 
 
@@ -45,11 +46,11 @@ typedef struct pcb{
 } PCB;
 
 enum protocoloMIRAM{
-	INICIAR_PATOTA, PEDIR_TAREA
+	INICIAR_PATOTA, PEDIR_TAREA, HAY_TAREA, NO_HAY_TAREA
 };
 
 enum protocoloDiscordiador{
-	ALERTA_DE_SABOTAJE, SABOTAJE_TERMINADO, HAY_TAREA, NO_HAY_TAREA
+	ALERTA_DE_SABOTAJE, SABOTAJE_TERMINADO
 };
 
 typedef struct Dato{

@@ -7,7 +7,7 @@
 
 //flag para liberar puerto 
 
-int cicloCPU;
+uint32_t cicloCPU;
 int tiempoSabotaje;
 
 typedef struct tcb_discordiador{
@@ -18,7 +18,7 @@ typedef struct tcb_discordiador{
 	sem_t semaforoTrabajo;
 	sem_t termineIO;
 	uint32_t pid;
-	tarea_struct * tareaActual;
+	tarea_struct * tareaActual; 
 } TCB_DISCORDIADOR;
 
 bool planificacionPausada;
@@ -36,6 +36,8 @@ sem_t cambiarATrabajando;
 sem_t cambiarAFinalizado;
 sem_t cambiarABloqueado;
 sem_t cambiarABloqueadosEmergencia;
+sem_t semaforoSabotaje;
+sem_t semaforoSabotajeBloqueados;
 
 
 t_log * loggerDiscordiador; 
@@ -48,6 +50,7 @@ t_list * listaTerminados;
 t_list * tareasDeIO;
 t_list * listaTCBsNuevos;
 t_list * listaBloqueadosEmergencia;
+t_list * listaBloqueadosSabotaje;
 
 
 uint32_t iniciarPCB(char*, int);
@@ -65,23 +68,27 @@ void serializarYMandarInicioTareaIO(int, int, uint32_t);
 void serializarYMandarInicioTareaNormal(uint32_t, char*);
 void gestionarTarea(tarea_struct * , uint32_t);
 void serializarYMandarElegidoDelSabotaje(uint32_t);
-
+int gradoMultitarea;
 bool esTareaDeIO(char*);
 bool coincideID(TCB_DISCORDIADOR*);
-
+bool haySabotaje = false;
+int cantidadDeSabotajes;
 void serializarYMandarPosicion(TCB_DISCORDIADOR *);
 void ponerATrabajar();
 void trasladarseA(uint32_t,uint32_t,TCB_DISCORDIADOR*);
+void trasladarseADuranteSabotaje(uint32_t,uint32_t,TCB_DISCORDIADOR*);
 void cambiarDeEstado(TCB_DISCORDIADOR *, char);
 void pasarTripulante(TCB_DISCORDIADOR *);
 void salirDeListaEstado(TCB_DISCORDIADOR *);
-void tripulanteVivo(TCB_DISCORDIADOR *);
+void subModuloTripulante(TCB_DISCORDIADOR *);
 void gestionadorIO();
-
+void cambiarEstadosABloqueadosEmergencias();
+void volverAEstadosPostSabotaje();
+bool tripulanteConIDMasChico(TCB_DISCORDIADOR *, TCB_DISCORDIADOR*);
 TCB_DISCORDIADOR * crearTCB(char *); // chequear lo de la lista
 TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t, uint32_t);
 void mostrarLista(t_list *); 
-
+void ponerReadyNuevosTripulantes();
 char * leerTareas(char *);
 
 #endif

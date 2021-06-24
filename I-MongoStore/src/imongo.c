@@ -10,7 +10,7 @@ int main(int argc, char ** argv){
 	free(valorInicio);
 
 	inicializarFileSystem(valor);
-	
+	 
 	//Copia del mapeo del blocks
 	mapBlocksCopia = malloc(tamanioBlocks);
 	memcpy(mapBlocksCopia, mapBlocks, tamanioBlocks);
@@ -24,7 +24,7 @@ int main(int argc, char ** argv){
 
 	//pruebaDeSabotaje();
 	//sabotajeSuperBloque();
-	conseguirBitacora(1);
+	//conseguirBitacora(1);
 	//Inicio de servidor
 	pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
@@ -45,7 +45,7 @@ int main(int argc, char ** argv){
 	free(mapBlocksCopia);
 	return 0;
 }
-
+ 
 //-----------------------------------------------------------------------------------------------------//
 //-------------------------------------------- LEE CONFIG --------------------------------------------//
 void leerConfig(){ 
@@ -830,6 +830,30 @@ void servidorPrincipal() {
 	close(listeningSocket);   
 }
 
+void deserealizarPosicion(t_paquete* paquete){
+	//id
+	uint32_t tid;
+	memcpy(&tid, paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
+	uint32_t posViejaX;
+	memcpy(&posViejaX, paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+	
+	uint32_t posViejaY;
+	memcpy(&posViejaY, paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
+	uint32_t posNuevaX;
+	memcpy(&posNuevaX, paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+	
+	uint32_t posNuevaY;
+	memcpy(&posNuevaY, paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
+}
+
 void atenderDiscordiador(int socketCliente){
 	printf("Esperando mensaje del Discordiador\n");
 	t_paquete* paquete = malloc(sizeof(t_paquete));
@@ -845,6 +869,7 @@ void atenderDiscordiador(int socketCliente){
 
 	int PAQUETE_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size,0);
 
+//--poner en un switch
 	memcpy(&(parametroS->parametro), paquete->buffer->stream, sizeof(int));
 	paquete->buffer->stream += sizeof(int);
 
@@ -856,6 +881,7 @@ void atenderDiscordiador(int socketCliente){
 
 	log_info(loggerImongoStore,string_from_format("cantidad de Parametros %d",parametroS->parametro));
 	log_info(loggerImongoStore,string_from_format("Llego el tripulante %d",parametroS->tid));
+//--
 
 	switch (paquete->header)
 	{
@@ -877,6 +903,9 @@ void atenderDiscordiador(int socketCliente){
 	case DESCARTAR_BASURA:
 		descartarBasura(*tid);
 		break;
+	case NUEVA_POSICION:
+		break;
+
 	default:
 		tareaTripulante("",*tid);
 		break;
@@ -885,3 +914,4 @@ void atenderDiscordiador(int socketCliente){
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	guardarBitMap();
 }
+
