@@ -84,7 +84,7 @@ void atenderDiscordiador(int socketCliente){
 	if(! BUFFER_RECV){ log_error(loggerMiram,"No se pudo recibir el buffer");}
 
 	void* stream = malloc(paquete->buffer->size);
-	stream = paquete->buffer->stream;
+	stream = paquete->buffer->stream; 
 
 	uint32_t idPatota = 0;
 
@@ -173,6 +173,7 @@ void atenderDiscordiador(int socketCliente){
 					offset += sizeof(uint32_t);
 				};
 				log_info(loggerMiram, "streamPatota a ser alojado en memoria %s", mem_hexstring(streamPatota, memoriaNecesaria));
+				log_info(loggerMiram, "Tamanio de las tareas: %d", tamanioTareas);
 
 				mem_hexdump(streamPatota, memoriaNecesaria);
 				
