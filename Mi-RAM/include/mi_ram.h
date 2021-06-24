@@ -49,26 +49,26 @@ typedef struct {
 typedef struct {
 	uint32_t numeroPagina;
 	uint32_t numeroFrame;
+	uint32_t pid;
 	// ultimaReferencia
 	// SecondChance
 } t_pagina;
 
 typedef struct {
-	uint32_t idTripulante;
-	uint32_t idPatota;
-	uint32_t longitudTareas;
-} t_tripulanteConPID;
-t_list * listaTripulantes;
+	int longitudTareas;
+	uint32_t pid;
+	t_list * listaPaginas;
+} t_tablaDePaginas;
 
-char * obtenerProximaTareaPaginacion(int, int, int);
-char * encontrarTareasDeTripulanteEnStream(void *, int, int, int);
-void actualizarPunteroTarea(int, int, int);
+char * obtenerProximaTareaPaginacion(t_tablaDePaginas* , int);
+char * encontrarTareasDeTripulanteEnStream(void *, int, t_tablaDePaginas*);
+void actualizarPunteroTarea(int, t_tablaDePaginas*, int);
 
 int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
 uint32_t buscarFrame();
 void iniciarFrames();
-void llenarFramesConPatota(t_list *, void *, int , int , int , int );
+void llenarFramesConPatota(t_list *, void *, int , int , int , int , uint32_t);
 
 
 // ----------------------------------------  SEGMENTOS

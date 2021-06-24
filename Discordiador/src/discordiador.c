@@ -15,7 +15,7 @@ int main(int argc, char ** argv){
 
 	listaTripulantes = list_create();
 	listaReady = list_create();
-	listaBloqueados = list_create();
+	listaBloqueados = list_create(); 
 	listaTrabajando = list_create();
 	tareasDeIO = list_create();
 	listaTerminados = list_create();
@@ -287,7 +287,7 @@ void consola(){
 				char ** vectorTarea;
 				char ** requerimientosTarea; //MALLOC ???
 
-				serializarYMandarPedidoDETarea(socket, tripulante->tid);
+				serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid);
 
 				t_paquete* paquete = malloc(sizeof(t_paquete));
 				paquete->buffer = malloc(sizeof(t_buffer));
@@ -444,7 +444,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				char ** vectorTarea;
 				char ** requerimientosTarea; //MALLOC ???
 
-				serializarYMandarPedidoDETarea(socket, tripulante->pid, tripulante->tid);
+				serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid);
 
 				t_paquete* paquete = malloc(sizeof(t_paquete));
 				paquete->buffer = malloc(sizeof(t_buffer));
@@ -452,18 +452,18 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				int headerRECV = recv(socket, &(paquete->header) , sizeof(int), MSG_WAITALL);
 				if(!headerRECV) { log_error(loggerDiscordiador, "No se pudo recibir el header al recibir una tarea");}
 
-				int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
-				if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer al recibir una tarea");}
-
-				paquete->buffer->stream = malloc(paquete->buffer->size);
-
-				int BUFFER_RECV = recv(socket,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
-				if(! BUFFER_RECV){ log_error(loggerDiscordiador,"No se pudo recibir el buffer al recibir una tarea");}
-
-
+				
 				switch (paquete->header)
 				{
 				case HAY_TAREA:;
+
+					int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), MSG_WAITALL);
+					if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer al recibir una tarea");}
+
+					paquete->buffer->stream = malloc(paquete->buffer->size);
+
+					int BUFFER_RECV = recv(socket,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+					if(! BUFFER_RECV){ log_error(loggerDiscordiador,"No se pudo recibir el buffer al recibir una tarea");}
 
 					void* stream = malloc(paquete->buffer->size);
 					stream = paquete->buffer->stream;
@@ -992,16 +992,19 @@ void serializarYMandarInicioTareaIO(int parametro, int tipoTarea, uint32_t tid )
 void serializarYMandarPedidoDeTarea(int socket, uint32_t pid, uint32_t tid){
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
-	buffer-> size = sizeof(uint32_t);
+	buffer-> size = sizeof(uint32_t) * 2;
 
 	void* stream = malloc(buffer->size);
 
 	int offset = 0;
 
-	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	log_info(loggerDiscordiador ,"DATOS TRIPU QUE PIDIO TAREA, PID: %d, TID: %d", pid, tid);
+
+	memcpy(stream + offset, &tid, sizeof(uint32_t));
 	offset += sizeof(uint32_t);
 	
 	memcpy(stream + offset, &pid, sizeof(uint32_t));
+	offset += sizeof(uint32_t);
 
 	buffer-> stream = stream;
 
