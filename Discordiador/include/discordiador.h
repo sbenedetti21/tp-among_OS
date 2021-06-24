@@ -7,7 +7,7 @@
 
 //flag para liberar puerto 
 
-int cicloCPU;
+uint32_t cicloCPU;
 int tiempoSabotaje;
 
 typedef struct tcb_discordiador{
@@ -50,7 +50,7 @@ t_list * listaTerminados;
 t_list * tareasDeIO;
 t_list * listaTCBsNuevos;
 t_list * listaBloqueadosEmergencia;
-
+t_list * listaBloqueadosSabotaje;
 
 
 uint32_t iniciarPCB(char*, int);
@@ -76,6 +76,7 @@ int cantidadDeSabotajes;
 void serializarYMandarPosicion(TCB_DISCORDIADOR *);
 void ponerATrabajar();
 void trasladarseA(uint32_t,uint32_t,TCB_DISCORDIADOR*);
+void trasladarseADuranteSabotaje(uint32_t,uint32_t,TCB_DISCORDIADOR*);
 void cambiarDeEstado(TCB_DISCORDIADOR *, char);
 void pasarTripulante(TCB_DISCORDIADOR *);
 void salirDeListaEstado(TCB_DISCORDIADOR *);
@@ -87,7 +88,7 @@ bool tripulanteConIDMasChico(TCB_DISCORDIADOR *, TCB_DISCORDIADOR*);
 TCB_DISCORDIADOR * crearTCB(char *); // chequear lo de la lista
 TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t, uint32_t);
 void mostrarLista(t_list *); 
-
+void ponerReadyNuevosTripulantes();
 char * leerTareas(char *);
 
 #endif
