@@ -24,11 +24,10 @@ void * memoriaPrincipal;
 int buscarEspacioNecesario(int, int);
 TCB * deserializar_TCB(void *);
 char * obtenerProximaTareaSegmentacion(uint32_t, uint32_t);
-uint32_t obtenerDireccionTripulante(uint32_t );
+uint32_t obtenerDireccionTripulante(uint32_t, uint32_t );
 uint32_t obtenerDireccionProximaTarea(uint32_t);
-char * obtenerProximaTarea(uint32_t);
+char * obtenerProximaTarea(uint32_t, uint32_t);
 
-sem_t mutexProximoPID; 
 
 // ----------------------------------------  PAGINAS
 
@@ -124,7 +123,7 @@ void servidorPrincipal();
 
 void atenderDiscordiador(int);
 void recibir_TCB(int);
-PCB * crearPCB();
+PCB * crearPCB(uint32_t);
 
 typedef struct {
 
@@ -136,7 +135,7 @@ typedef struct {
 } structConexion;
 
 void mandarPaqueteSerializado(t_buffer *, int, int);
-int proximoPID = 0; 
+
 
 //--------------- MAPA ---------------------
 void iniciarMapa();
