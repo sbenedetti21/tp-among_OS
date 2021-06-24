@@ -287,7 +287,7 @@ void consola(){
 				char ** vectorTarea;
 				char ** requerimientosTarea; //MALLOC ???
 
-				serializarYMandarPedidoDETarea(socket, tripulante->tid);
+				serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid );
 
 				t_paquete* paquete = malloc(sizeof(t_paquete));
 				paquete->buffer = malloc(sizeof(t_buffer));
@@ -444,7 +444,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 				char ** vectorTarea;
 				char ** requerimientosTarea; //MALLOC ???
 
-				serializarYMandarPedidoDETarea(socket, tripulante->pid, tripulante->tid);
+				serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid);
 
 				t_paquete* paquete = malloc(sizeof(t_paquete));
 				paquete->buffer = malloc(sizeof(t_buffer));

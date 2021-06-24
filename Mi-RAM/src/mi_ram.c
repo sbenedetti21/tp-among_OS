@@ -6,7 +6,7 @@ int main(int argc, char ** argv){
 
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
 	leerConfig();
-	sem_init(&mutexProximoPID, 0, 1);
+	
 
 	memoriaPrincipal = malloc(tamanioMemoria);
 	memset(memoriaPrincipal, 0, tamanioMemoria);
@@ -273,7 +273,7 @@ void atenderDiscordiador(int socketCliente){
 			
 
 			mem_hexdump(memoriaPrincipal, 300);
-		/*	uint32_t direccionTCB = obtenerDireccionTripulante(1); 
+			uint32_t direccionTCB = obtenerDireccionTripulante(1 , 0); 
 			uint32_t direccionTarea = obtenerDireccionProximaTarea(direccionTCB);
 			printf("La direccion de la tarea es %d \n", direccionTarea);
 			char * proximaTarea = obtenerProximaTareaSegmentacion(direccionTarea, direccionTCB); 
@@ -282,7 +282,7 @@ void atenderDiscordiador(int socketCliente){
 			printf("La proxima tarea es %s \n", proximaTarea);
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
 			proximaTarea = obtenerProximaTareaSegmentacion(direccionTarea, direccionTCB);
-			printf("La tarea es: %s \n", proximaTarea);  */
+			printf("La tarea es: %s \n", proximaTarea);  
 			}
 			
 
@@ -307,7 +307,7 @@ void atenderDiscordiador(int socketCliente){
 		stream += sizeof(uint32_t);
 		// en tid ya tenes el tid del tripulante que te lo pidio
 
-		uint32_t idPatota = 0; 
+		
 		memcpy(&idPatota, stream, sizeof(uint32_t));
 	
 	 
@@ -358,7 +358,7 @@ void atenderDiscordiador(int socketCliente){
 	case ACTUALIZAR_POS: ;
 
 
-	
+
 	break; 
 	
 	default:	
@@ -379,7 +379,7 @@ void atenderDiscordiador(int socketCliente){
 char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 	
 	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
-		uint32_t direccionTCB = obtenerDireccionTripulante(tid); 
+		uint32_t direccionTCB = obtenerDireccionTripulante(idPatota, tid); 
 		uint32_t direccionTarea = obtenerDireccionProximaTarea(direccionTCB);
 		return obtenerProximaTareaSegmentacion(direccionTarea,  direccionTCB);
 	
@@ -405,28 +405,15 @@ char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 }
 
 
-uint32_t obtenerDireccionTripulante(uint32_t tripulanteID){
+uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 
-	uint32_t patota; 
-	referenciaTripulante * refTripulante = malloc(sizeof(referenciaTripulante)); 
-
-	bool coincideID(referenciaTripulante * referencia){
-
-		return ((referencia-> tid) == tripulanteID);
-	}
-
-	refTripulante = list_find(tripulantesPatotas, coincideID); 
-	patota = refTripulante->pid;
 
 	bool coincidePID(referenciaTablaPatota * unaReferencia){
-		return (unaReferencia->pid == patota); 
+		return (unaReferencia->pid == idPatota); 
 	}
-
-	bool coincideTID (t_segmento * segmento){
-		return (segmento->tid == tripulanteID);
+	bool coincideTID(t_segmento * segmento){
+		return (segmento->tid == tripulanteID); 
 	}
-
-	
 	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
 	t_list * tablaPatota = referencia -> tablaPatota;  
 	t_segmento * segmentoTripulante = list_find(tablaPatota, coincideTID); 
