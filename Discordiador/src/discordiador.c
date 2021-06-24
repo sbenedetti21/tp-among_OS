@@ -671,7 +671,7 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 }
 
- 
+  
 void ponerATrabajar(){
 
 	pthread_t gestionarIO;
