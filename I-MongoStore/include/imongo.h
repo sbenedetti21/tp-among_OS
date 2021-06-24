@@ -56,9 +56,11 @@ char *mapBlocksCopia;
 size_t tamanioSuperBloqueBlocks;
 char *mapSuperBloque;
 int archivoSuperBloque;
+//char *ubicacionSuperBloque;
 
 //Superbloque
 t_bitarray *punteroBitmap;
+size_t tamanioBitMap;
 
 //-----------FUNCIONES-----------//
 //LEE CONFIG
@@ -117,6 +119,8 @@ bool consumirRecurso(char *, int , uint32_t);
 void descartarBasura(uint32_t);
 void tareaTripulante(char *, uint32_t);
 void movimientoTripulante(uint32_t);
+char *conseguirStringBlocks(int);
+void conseguirBitacora(uint32_t);
 
 //SABOTAJES
 void pruebaDeSabotaje();

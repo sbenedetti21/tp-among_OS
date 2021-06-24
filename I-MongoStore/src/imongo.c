@@ -24,7 +24,7 @@ int main(int argc, char ** argv){
 
 	//pruebaDeSabotaje();
 	//sabotajeSuperBloque();
-
+	conseguirBitacora(1);
 	//Inicio de servidor
 	pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
@@ -74,59 +74,62 @@ void mapearBlocks(){
 	free(ubicacionBlocks);
 }
 
-void crearSuperBloque(){
-	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
-	FILE * superBloque; 
-	superBloque = fopen(ubicacionSuperBloque,"w");
-	
-	fwrite(&tamanioDeBloque, sizeof(uint32_t), 1, superBloque);
-	fflush(superBloque);
-	
-	fwrite(&cantidadDeBloques, sizeof(uint32_t), 1, superBloque);
-	fflush(superBloque);
-
- 	crearBitMap();
-	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
-
+void crearSuperBloque(){	
+	char *ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+	FILE *superBloque = fopen(ubicacionSuperBloque, "w");
+	ftruncate(fileno(superBloque), tamanioSuperBloqueBlocks);
 	fclose(superBloque);
+	
+	mapearSuperBloque();
+
+	int marcador = 0;
+	memcpy(&(mapSuperBloque[marcador]),&tamanioDeBloque, sizeof(uint32_t));
+	marcador+=sizeof(uint32_t);
+	
+	memcpy(&(mapSuperBloque[marcador]), &cantidadDeBloques, sizeof(uint32_t));
+	marcador+=sizeof(uint32_t);
+	
+	size_t tamanioBitMap = cantidadDeBloques / 8;
+	crearBitMap();
+	memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
+
+	msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
 
 	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 }
 
 void leerSuperBloque(){
-	char *ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
-//superBocke	
-	FILE * superBloque; 
-	superBloque = fopen(ubicacionSuperBloque,"r");
+	int marcador = 0;
+	memcpy(&tamanioDeBloque, &(mapSuperBloque[marcador]), sizeof(uint32_t));
+	marcador+=sizeof(uint32_t);
 	
-	fread(&tamanioDeBloque, sizeof(uint32_t), 1, superBloque);
-	fflush(superBloque);
+	memcpy(&cantidadDeBloques, &(mapSuperBloque[marcador]), sizeof(uint32_t));
+	marcador+=sizeof(uint32_t);
 	
-	fread(&cantidadDeBloques, sizeof(uint32_t), 1, superBloque);
-	fflush(superBloque);
-//bitmap
 	crearBitMap();
- 	fread(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
-
-	fclose(superBloque);
-	free(ubicacionSuperBloque);
+	memcpy(punteroBitmap->bitarray, &(mapSuperBloque[marcador]), tamanioBitMap);
 
 	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 }
 
 void mapearSuperBloque(){
-	int tamanioBitMap = cantidadDeBloques / 8;
-	tamanioSuperBloqueBlocks = sizeof(uint32_t)*2 + tamanioBitMap;
-	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
-	archivoSuperBloque = open(ubicacionSuperBloque, O_RDWR , S_IRUSR | S_IWUSR);
+	char *ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
+
+	archivoSuperBloque = open(ubicacionSuperBloque, O_RDWR, S_IRUSR | S_IWUSR);
 	mapSuperBloque = mmap(NULL, tamanioSuperBloqueBlocks, PROT_READ | PROT_WRITE, MAP_SHARED, archivoSuperBloque,0);
+
 	free(ubicacionSuperBloque);
 }
+
 //---------------------------------------------------------------------------------------------------//
 //---------------------------------------- USO DEL FILESYSTEM ---------------------------------------//
 void crearFileSystem(){
 	mkdir(puntoDeMontaje,0777);
+
+	tamanioBitMap = cantidadDeBloques / 8;
+	tamanioSuperBloqueBlocks = sizeof(uint32_t)*2 + tamanioBitMap;
 	crearSuperBloque();
+
 	crearBlocks();
 	mkdir(string_from_format("%s/Files",puntoDeMontaje),0777);
 	mkdir(string_from_format("%s/Files/Bitacoras",puntoDeMontaje),0777);
@@ -134,6 +137,10 @@ void crearFileSystem(){
 
 void leerFileSystem(){
 //superBocke	
+	tamanioBitMap = cantidadDeBloques / 8;
+	tamanioSuperBloqueBlocks = sizeof(uint32_t)*2 + tamanioBitMap;
+
+	mapearSuperBloque();
 	leerSuperBloque();
 }
 
@@ -160,7 +167,6 @@ void inicializarFileSystem(int valorRespuesta){
 		break;
 	}
 
-	mapearSuperBloque();
 	mapearBlocks();
 }
 
@@ -205,9 +211,8 @@ void borrarFileSystem(const char *path){
 //----------------------------------------------------------------------------------------------------//
 //------------------------------------------ USO DEL BITMAP ------------------------------------------//
 void crearBitMap(){
-	size_t sizeBitMap = cantidadDeBloques / 8; 
-	char * bitMap = (char *) malloc(sizeBitMap);
-	punteroBitmap = bitarray_create(bitMap, sizeBitMap);
+	char * bitMap = (char *) malloc(tamanioBitMap);
+	punteroBitmap = bitarray_create(bitMap, tamanioBitMap);
 	
 	for(int i = 0; i<cantidadDeBloques; i++){
 		bitarray_clean_bit(punteroBitmap,i);
@@ -216,9 +221,11 @@ void crearBitMap(){
 
 void guardarBitMap(){
 	sem_wait(&semaforoBloques);
+
 	int marcador = sizeof(uint32_t) * 2;
 	memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, punteroBitmap->size);
 	msync(mapSuperBloque, tamanioBlocks, MS_SYNC);
+	
 	sem_post(&semaforoBloques);
 }
 
@@ -623,6 +630,54 @@ void movimientoTripulante(uint32_t idTripulante){
 	llenarBlocksBitcoras(string_from_format("Se mueve de X|Y a X’|Y’"),configBitacora);
 	config_destroy(configBitacora);
 }
+
+char *conseguirStringBlocks(int bloqueBuscado){
+	char *bloqueStringBuscado = malloc(tamanioDeBloque);
+	int marcador = bloqueBuscado * tamanioDeBloque;
+	memcpy(bloqueStringBuscado,&(mapBlocksCopia[marcador]), tamanioDeBloque);
+
+	return bloqueStringBuscado;
+}
+
+void conseguirBitacora(uint32_t idTripulante){
+	mandarMensajeEnLog(string_from_format("Consiguiendo bitacora del Tripulante %d",idTripulante));
+	char *ubicacionBitacoraID = string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,idTripulante);
+
+	t_config *configBitacora = config_create(ubicacionBitacoraID);
+	int sizeAcutal = config_get_int_value(configBitacora, "SIZE");
+
+	char *stringBitacora = malloc(sizeAcutal);
+	int marcador = 0;
+	char *listaBlocks = config_get_string_value(configBitacora,"BLOCKS");
+	
+	if(listaBlocks[1]!=']'){
+		int inicio = 1;
+		while(inicio<strlen(listaBlocks)){
+			int tamanio = 0;	
+			while(listaBlocks[inicio+tamanio]!=',' && listaBlocks[inicio+tamanio]!=']')
+				tamanio++;
+
+			char *proximoBlockString = string_substring(listaBlocks,inicio,tamanio);
+			int proximoBlock = atoi(proximoBlockString) - 1;
+
+			char *stringBuscado = conseguirStringBlocks(proximoBlock);
+
+			memcpy(&(stringBitacora[marcador]),stringBuscado, tamanioDeBloque);
+
+
+			marcador+=tamanioDeBloque;
+			inicio+=tamanio;
+			inicio++;
+
+			//free(proximoBlockString);
+			//free(stringBuscado);
+		}
+	}else{
+		mandarMensajeEnLog(string_from_format("No tiene informacion en la bitacora del Tripulante %d",idTripulante));
+	}
+	mandarMensajeEnLog(string_from_format("%s",stringBitacora));
+	free(ubicacionBitacoraID);
+}
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------------- SABOTAJES --------------------------------------------//
 void pruebaDeSabotaje(){
@@ -630,9 +685,13 @@ void pruebaDeSabotaje(){
 	generarRecurso("Basura",40,0);
 	generarRecurso("Comida",50,0);
 
-	bloqueLibreBitMap();
-	bloqueLibreBitMap();
+	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
+	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 
+	bitarray_set_bit(punteroBitmap,8);
+	bitarray_set_bit(punteroBitmap,9);
+	guardarBitMap();
+	
 	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
 	FILE * superBloque; 
 	superBloque = fopen(ubicacionSuperBloque,"r+");
