@@ -271,7 +271,7 @@ void atenderDiscordiador(int socketCliente){
 			list_add(tablaDeTablasSegmentos, referencia); 
 			sem_post(&mutexTablaDeTablas);
 			
-
+/*
 			mem_hexdump(memoriaPrincipal, 300);
 			uint32_t direccionTCB = obtenerDireccionTripulante(1 , 0); 
 			uint32_t direccionTarea = obtenerDireccionProximaTarea(direccionTCB);
@@ -282,7 +282,7 @@ void atenderDiscordiador(int socketCliente){
 			printf("La proxima tarea es %s \n", proximaTarea);
 			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
 			proximaTarea = obtenerProximaTareaSegmentacion(direccionTarea, direccionTCB);
-			printf("La tarea es: %s \n", proximaTarea);  
+			printf("La tarea es: %s \n", proximaTarea);   */
 			}
 			
 
