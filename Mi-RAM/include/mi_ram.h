@@ -15,7 +15,7 @@
 #define SIZEOF_TCB 21
 
 // --------------------------------------- MEMORIA GENERAL
-
+ 
 char * esquemaMemoria;
 char * algoritmoReemplazo;
 char * puertoMemoria;

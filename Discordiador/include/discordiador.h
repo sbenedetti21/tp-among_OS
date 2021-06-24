@@ -39,7 +39,7 @@ sem_t cambiarABloqueado;
 sem_t cambiarABloqueadosEmergencia;
 sem_t mutexPID; 
 
-
+ 
 
 t_log * loggerDiscordiador; 
 t_list * listaTripulantes;
