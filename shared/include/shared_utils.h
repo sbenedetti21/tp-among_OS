@@ -88,7 +88,9 @@ enum protocoloImongo{
 	NUEVA_POSICION,
 	INICIO_TAREA_NORMAL,
 	FINALIZO_TAREA_NORMAL,
-	INICIO_SABOTAJE
+	INICIO_SABOTAJE,
+	HACER_TAREA,
+	BITACORA
 };
 
 typedef struct {
@@ -104,6 +106,11 @@ typedef struct {
 	// lista TCBs ???
 } PCB_TAREAS_TCB_struct;
 
+
+typedef struct {
+	int tamanio;
+	char * aaa;
+} a;
 
 
 #endif

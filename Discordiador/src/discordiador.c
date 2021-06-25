@@ -192,6 +192,20 @@ void consola(){
 			gestionarTarea(tarea, 1);
 		}
 
+		if(strcmp(vectorInstruccion[0], "bitacora") == 0){
+
+			tarea_struct * tarea = malloc(sizeof(tarea_struct));
+			tarea->parametro = 5;
+			tarea->descripcionTarea = "GENERAR_OXIGENO";
+
+			gestionarTarea(tarea, 1);
+
+			sleep(5);
+
+			serializarYMandarPedidoDeBitacora(1);
+		}
+
+
 		if(strcmp(vectorInstruccion[0], "generarBasura") == 0){
 
 			tarea_struct * tarea = malloc(sizeof(tarea_struct));
@@ -1012,11 +1026,14 @@ void serializarYMandarInicioTareaIO(int parametro, int tipoTarea, uint32_t tid )
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = sizeof(int) + sizeof(uint32_t);
+	buffer-> size = 2 * sizeof(int) + sizeof(uint32_t);
 
 	void* stream = malloc(buffer->size);
 
 	int offset = 0;
+
+	memcpy(stream+offset, &tipoTarea, sizeof(int));
+	offset += sizeof(int);
 
 	memcpy(stream+offset, &(parametroS->parametro), sizeof(int));
 	offset += sizeof(int);
@@ -1026,7 +1043,7 @@ void serializarYMandarInicioTareaIO(int parametro, int tipoTarea, uint32_t tid )
 
 	buffer-> stream = stream;
 
-	mandarPaqueteSerializado(buffer, socket, tipoTarea);
+	mandarPaqueteSerializado(buffer, socket, HACER_TAREA);
 
 }
 
@@ -1137,6 +1154,51 @@ void serializarYMandarElegidoDelSabotaje(uint32_t tid){
 	mandarPaqueteSerializado(buffer, socket, INICIO_SABOTAJE);
 }
 
+void serializarYMandarPedidoDeBitacora(uint32_t tid){
+	int socket = conectarImongo();
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = sizeof(uint32_t);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, BITACORA);
+
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+	paquete->buffer = malloc(sizeof(t_buffer));
+
+	recv(socket, &(paquete->header) , sizeof(int), 0);
+
+	recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+
+	paquete->buffer->stream = malloc(paquete->buffer->size);
+
+	recv(socket,paquete->buffer->stream,paquete->buffer->size,0);
+
+	void * stream2 = paquete->buffer->stream;
+
+	int tamanioBitacora;
+	memcpy(&(tamanioBitacora), stream2, sizeof(int));
+	stream2 += sizeof(int);
+	
+	char* bitacora = malloc(tamanioBitacora ); // aca habia un + 2 adentro del malloc
+	memcpy(bitacora, stream2, tamanioBitacora);
+	stream2 += tamanioBitacora;
+
+	
+	log_info(loggerDiscordiador,"%d",tamanioBitacora);
+
+	log_info(loggerDiscordiador," Bitacora tripulante %d: \n %s",tid,bitacora);
+
+}
 //-----------------------------SABOTAJES---------------------------------------------------------------------------------------------------
 
 void atenderImongo(int socketCliente){

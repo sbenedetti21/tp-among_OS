@@ -90,5 +90,6 @@ TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t, uint32_t);
 void mostrarLista(t_list *); 
 void ponerReadyNuevosTripulantes();
 char * leerTareas(char *);
+void serializarYMandarPedidoDeBitacora(uint32_t);
 
 #endif

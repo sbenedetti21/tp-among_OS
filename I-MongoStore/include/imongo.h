@@ -120,7 +120,7 @@ void descartarBasura(uint32_t);
 void tareaTripulante(char *, uint32_t);
 void movimientoTripulante(uint32_t);
 char *conseguirStringBlocks(int);
-void conseguirBitacora(uint32_t);
+char * conseguirBitacora(uint32_t);
 
 //SABOTAJES
 void pruebaDeSabotaje();
@@ -137,6 +137,9 @@ void sincronizacionMapBlocks();
 
 //atender las peticiones del discordiador
 void servidorPrincipal();
+void deserealizarPosicion(t_paquete*);
 void atenderDiscordiador(int);
+uint32_t deserializarPedidoBitacora(t_paquete*);
+void serializarYMandarBitacora(char *, int);
 
 #endif

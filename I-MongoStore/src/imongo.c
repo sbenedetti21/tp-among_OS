@@ -639,7 +639,8 @@ char *conseguirStringBlocks(int bloqueBuscado){
 	return bloqueStringBuscado;
 }
 
-void conseguirBitacora(uint32_t idTripulante){
+char * conseguirBitacora(uint32_t idTripulante){
+
 	mandarMensajeEnLog(string_from_format("Consiguiendo bitacora del Tripulante %d",idTripulante));
 	char *ubicacionBitacoraID = string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,idTripulante);
 
@@ -649,7 +650,8 @@ void conseguirBitacora(uint32_t idTripulante){
 	char *stringBitacora = malloc(sizeAcutal);
 	int marcador = 0;
 	char *listaBlocks = config_get_string_value(configBitacora,"BLOCKS");
-	
+
+
 	if(listaBlocks[1]!=']'){
 		int inicio = 1;
 		while(inicio<strlen(listaBlocks)){
@@ -677,6 +679,9 @@ void conseguirBitacora(uint32_t idTripulante){
 	}
 	mandarMensajeEnLog(string_from_format("%s",stringBitacora));
 	free(ubicacionBitacoraID);
+
+
+	return stringBitacora;
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------------- SABOTAJES --------------------------------------------//
@@ -831,7 +836,6 @@ void servidorPrincipal() {
 }
 
 void deserealizarPosicion(t_paquete* paquete){
-	//id
 	uint32_t tid;
 	memcpy(&tid, paquete->buffer->stream, sizeof(uint32_t));
 	paquete->buffer->stream += sizeof(uint32_t);
@@ -854,22 +858,13 @@ void deserealizarPosicion(t_paquete* paquete){
 
 }
 
-void atenderDiscordiador(int socketCliente){
-	printf("Esperando mensaje del Discordiador\n");
-	t_paquete* paquete = malloc(sizeof(t_paquete));
-	paquete->buffer = malloc(sizeof(t_buffer));
+deserializarTarea(t_paquete * paquete){
+	t_parametro * parametroS = malloc(sizeof(int)); 
+	int tipoTarea;
 
-	t_parametro * parametroS = malloc(sizeof(int));  
+	memcpy(&tipoTarea, paquete->buffer->stream, sizeof(int));
+	paquete->buffer->stream += sizeof(int);
 
-	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
-
-	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
-
-	paquete->buffer->stream = malloc(paquete->buffer->size);
-
-	int PAQUETE_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size,0);
-
-//--poner en un switch
 	memcpy(&(parametroS->parametro), paquete->buffer->stream, sizeof(int));
 	paquete->buffer->stream += sizeof(int);
 
@@ -881,9 +876,8 @@ void atenderDiscordiador(int socketCliente){
 
 	log_info(loggerImongoStore,string_from_format("cantidad de Parametros %d",parametroS->parametro));
 	log_info(loggerImongoStore,string_from_format("Llego el tripulante %d",parametroS->tid));
-//--
 
-	switch (paquete->header)
+	switch (tipoTarea)
 	{
 	case GENERAR_OXIGENO:
 		generarRecurso("Oxigeno",parametroS->parametro,*tid);
@@ -903,13 +897,92 @@ void atenderDiscordiador(int socketCliente){
 	case DESCARTAR_BASURA:
 		descartarBasura(*tid);
 		break;
-	case NUEVA_POSICION:
-		break;
-
 	default:
 		tareaTripulante("",*tid);
 		break;
 	}
+} 
+
+uint32_t deserializarPedidoBitacora(t_paquete * paquete){
+	
+	uint32_t tid;
+	memcpy(&tid, paquete->buffer->stream, sizeof(uint32_t));
+
+	return tid;
+}
+
+
+
+void serializarYMandarBitacora(char * bitacora, int socket){
+
+	
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	int tamanioBitacora = strlen(bitacora) + 1;
+
+	buffer-> size = sizeof(int) + tamanioBitacora;
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &tamanioBitacora, sizeof(tamanioBitacora));
+	offset += sizeof(int);
+	
+	memcpy(stream+offset, bitacora, tamanioBitacora);
+	offset += tamanioBitacora;
+
+	buffer-> stream = stream;
+
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+	 paquete->buffer = malloc(sizeof(buffer->size));
+
+	paquete->header = 3;
+	paquete->buffer = buffer;
+
+	void* a_enviar = malloc(buffer->size + sizeof(int) + sizeof(uint32_t) ); 
+	int offset2 = 0;
+
+	memcpy(a_enviar + offset2, &(paquete->header), sizeof(int));
+	offset2 += sizeof(int);
+
+	memcpy(a_enviar + offset2, &(paquete->buffer->size), sizeof(uint32_t));
+	offset2 += sizeof(uint32_t);
+
+	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
+
+	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
+
+}
+
+void atenderDiscordiador(int socketCliente){
+	printf("Esperando mensaje del Discordiador\n");
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+	paquete->buffer = malloc(sizeof(t_buffer));
+
+	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
+
+	int tamanioPAQUETE_RECV = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+
+	paquete->buffer->stream = malloc(paquete->buffer->size);
+
+	int PAQUETE_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size,0);
+
+	switch (paquete->header)
+	{
+	case NUEVA_POSICION:
+
+		break;
+	case HACER_TAREA:
+		deserializarTarea(paquete);
+		break;
+	case BITACORA: ; 
+		uint32_t tid = deserializarPedidoBitacora(paquete);
+		char * bitacora = conseguirBitacora(tid);
+		serializarYMandarBitacora(bitacora, socketCliente);
+		break;
+	}
+
 	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	guardarBitMap();
