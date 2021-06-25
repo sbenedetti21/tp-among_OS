@@ -1182,7 +1182,7 @@ void serializarYMandarFinalizacionTarea(uint32_t tid, char * nombreTarea){
 
 	buffer-> stream = stream;
 
-	mandarPaqueteSerializado(buffer, socket, FINALIZO_TAREA_NORMAL);
+	mandarPaqueteSerializado(buffer, socket, FINALIZO_TAREA);
 }
 
 void serializarYMandarElegidoDelSabotaje(uint32_t tid){
