@@ -858,7 +858,7 @@ void deserealizarPosicion(t_paquete* paquete){
 
 }
 
-deserializarTarea(t_paquete * paquete){
+void deserializarTareaIO(t_paquete * paquete){
 	t_parametro * parametroS = malloc(sizeof(int)); 
 	int tipoTarea;
 
@@ -874,7 +874,7 @@ deserializarTarea(t_paquete * paquete){
 	uint32_t *tid = malloc(sizeof(uint32_t));
 	*tid = parametroS->tid;   // ID TRIPULANTE
 
-	log_info(loggerImongoStore,string_from_format("cantidad de Parametros %d",parametroS->parametro));
+	log_info(loggerImongoStore,string_from_format("Cantidad de Parametros %d",parametroS->parametro));
 	log_info(loggerImongoStore,string_from_format("Llego el tripulante %d",parametroS->tid));
 
 	switch (tipoTarea)
@@ -955,6 +955,80 @@ void serializarYMandarBitacora(char * bitacora, int socket){
 
 }
 
+void deserializarNuevaPosicion(t_paquete * paquete){
+		uint32_t posxN;
+		uint32_t posyN;
+		uint32_t posyV;
+		uint32_t posxV;
+		uint32_t tid;
+
+	memcpy(&(tid), paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
+	memcpy(&(posxV), paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
+	memcpy(&(posyV), paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
+	memcpy(&(posxN), paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
+	memcpy(&(posyN), paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
+	log_info(loggerImongoStore, "Tripulante %d estaba en %d|%d y ahora esta en %d|%d", tid, posxV, posyV, posxN, posyN);
+
+	// METER INFO EN LA BITACORA
+}
+
+void deserializarTerminoTarea(t_paquete * paquete){
+	uint32_t tid;
+	int tamanioNombreTarea;
+
+	memcpy(&(tid), paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
+	memcpy(&(tamanioNombreTarea), paquete->buffer->stream, sizeof(int));
+	paquete->buffer->stream += sizeof(int);
+
+	char * nombreTarea = malloc(tamanioNombreTarea);
+
+	memcpy(nombreTarea, paquete->buffer->stream, sizeof(tamanioNombreTarea));
+	paquete->buffer->stream += sizeof(tamanioNombreTarea);
+
+	printf("%s \n", nombreTarea);
+
+	log_info(loggerImongoStore,"Trip %d termino %s", tid , nombreTarea);
+
+	// METER INFO EN BITACORA Y LOGS, PARA TODO TIPO DE TAREA (NO SOLO PARA NORMALES)
+}
+
+void deserializarInicioTareaNormal(t_paquete * paquete){
+	uint32_t tid;
+	int tamanioNombreTarea;
+
+	memcpy(&(tid), paquete->buffer->stream, sizeof(uint32_t));
+	paquete->buffer->stream += sizeof(uint32_t);
+
+	memcpy(&(tamanioNombreTarea), paquete->buffer->stream, sizeof(int));
+	paquete->buffer->stream += sizeof(int);
+
+	printf("%d \n", tamanioNombreTarea);
+
+	char * nombreTarea = malloc(tamanioNombreTarea+2);
+
+	memcpy(nombreTarea, paquete->buffer->stream, sizeof(tamanioNombreTarea));
+	paquete->buffer->stream += sizeof(tamanioNombreTarea);
+
+	printf("%s \n", nombreTarea);
+
+	log_info(loggerImongoStore,"Trip %d arranco %s", tid , nombreTarea);
+
+	// METER INFO EN BITACORA Y LOGS
+
+}
+
 void atenderDiscordiador(int socketCliente){
 	printf("Esperando mensaje del Discordiador\n");
 	t_paquete* paquete = malloc(sizeof(t_paquete));
@@ -971,15 +1045,21 @@ void atenderDiscordiador(int socketCliente){
 	switch (paquete->header)
 	{
 	case NUEVA_POSICION:
-
+		deserializarNuevaPosicion(paquete);
 		break;
 	case HACER_TAREA:
-		deserializarTarea(paquete);
+		deserializarTareaIO(paquete);
 		break;
 	case BITACORA: ; 
 		uint32_t tid = deserializarPedidoBitacora(paquete);
 		char * bitacora = conseguirBitacora(tid);
 		serializarYMandarBitacora(bitacora, socketCliente);
+		break;
+	case INICIO_TAREA_NORMAL:
+		deserializarInicioTareaNormal(paquete);
+		break;
+	case FINALIZO_TAREA:
+		deserializarTerminoTarea(paquete);
 		break;
 	}
 

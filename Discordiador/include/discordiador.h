@@ -39,7 +39,6 @@ sem_t cambiarABloqueadosEmergencia;
 sem_t semaforoSabotaje;
 sem_t semaforoSabotajeBloqueados;
 
-
 t_log * loggerDiscordiador; 
 t_list * listaTripulantes;
 t_list * listaReady;

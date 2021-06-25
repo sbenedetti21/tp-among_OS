@@ -141,5 +141,9 @@ void deserealizarPosicion(t_paquete*);
 void atenderDiscordiador(int);
 uint32_t deserializarPedidoBitacora(t_paquete*);
 void serializarYMandarBitacora(char *, int);
+void deserializarNuevaPosicion(t_paquete*);
+void deserializarTareaIO(t_paquete*);
+void deserializarTerminoTarea(t_paquete *);
+void deserializarInicioTareaNormal(t_paquete *);
 
 #endif
