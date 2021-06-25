@@ -1005,10 +1005,8 @@ void deserializarTerminoTarea(t_paquete * paquete){
 
 	char * nombreTarea = malloc(tamanioNombreTarea);
 
-	memcpy(nombreTarea, paquete->buffer->stream, sizeof(tamanioNombreTarea));
+	memcpy(nombreTarea, paquete->buffer->stream, tamanioNombreTarea);
 	paquete->buffer->stream += sizeof(tamanioNombreTarea);
-
-	printf("%s \n", nombreTarea);
 
 	log_info(loggerImongoStore,"Trip %d termino %s", tid , nombreTarea);
 
@@ -1020,20 +1018,17 @@ void deserializarInicioTareaNormal(t_paquete * paquete){
 	uint32_t tid;
 	int tamanioNombreTarea;
 
-	memcpy(&(tid), paquete->buffer->stream, sizeof(uint32_t));
-	paquete->buffer->stream += sizeof(uint32_t);
+	void * stream = paquete->buffer->stream;
 
-	memcpy(&(tamanioNombreTarea), paquete->buffer->stream, sizeof(int));
-	paquete->buffer->stream += sizeof(int);
+	memcpy(&(tid), stream, sizeof(uint32_t));
+	stream += sizeof(uint32_t);
 
-	printf("%d \n", tamanioNombreTarea);
+	memcpy(&(tamanioNombreTarea), stream, sizeof(int));
+	stream += sizeof(int);
 
 	char * nombreTarea = malloc(tamanioNombreTarea+2);
 
-	memcpy(nombreTarea, paquete->buffer->stream, sizeof(tamanioNombreTarea));
-	paquete->buffer->stream += sizeof(tamanioNombreTarea);
-
-	printf("%s \n", nombreTarea);
+	memcpy(nombreTarea, stream, tamanioNombreTarea);
 
 	log_info(loggerImongoStore,"Trip %d arranco %s", tid , nombreTarea);
 

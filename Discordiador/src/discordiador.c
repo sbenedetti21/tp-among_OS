@@ -258,7 +258,6 @@ void consola(){
 		}
 
 		if(strcmp(vectorInstruccion[0], "cantar") == 0){
-
 			tarea_struct * tarea = malloc(sizeof(tarea_struct));
 			tarea->descripcionTarea = "cantar";
 
@@ -1151,7 +1150,6 @@ void serializarYMandarInicioTareaNormal(uint32_t tid, char * stringTareas){
 	offset += sizeof(int);
 
 	memcpy(stream+offset, stringTareas, tamanioTarea);
-	offset += tamanioTarea;
 
 	buffer-> stream = stream;
 
