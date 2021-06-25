@@ -117,8 +117,6 @@ void vaciarBlocksRecursos(char *, int);
 void generarRecurso(char *, int, uint32_t);
 bool consumirRecurso(char *, int , uint32_t);
 void descartarBasura(uint32_t);
-void tareaTripulante(char *, uint32_t);
-void movimientoTripulante(uint32_t);
 char *conseguirStringBlocks(int);
 char * conseguirBitacora(uint32_t);
 

@@ -99,17 +99,19 @@ void crearSuperBloque(){
 }
 
 void leerSuperBloque(){
+	
 	int marcador = 0;
 	memcpy(&tamanioDeBloque, &(mapSuperBloque[marcador]), sizeof(uint32_t));
 	marcador+=sizeof(uint32_t);
-	
+
+	    log_info(loggerImongoStore,"tamanio de Bloque %d",tamanioDeBloque);
+
 	memcpy(&cantidadDeBloques, &(mapSuperBloque[marcador]), sizeof(uint32_t));
 	marcador+=sizeof(uint32_t);
-	
+		log_info(loggerImongoStore,"cantidad de Bloque %d",cantidadDeBloques);
 	crearBitMap();
 	memcpy(punteroBitmap->bitarray, &(mapSuperBloque[marcador]), tamanioBitMap);
-
-	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
+		log_info(loggerImongoStore,"tamanio de Bitmap %d",tamanioBitMap);
 }
 
 void mapearSuperBloque(){
@@ -128,6 +130,7 @@ void crearFileSystem(){
 
 	tamanioBitMap = cantidadDeBloques / 8;
 	tamanioSuperBloqueBlocks = sizeof(uint32_t)*2 + tamanioBitMap;
+	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 	crearSuperBloque();
 
 	crearBlocks();
@@ -139,7 +142,7 @@ void leerFileSystem(){
 //superBocke	
 	tamanioBitMap = cantidadDeBloques / 8;
 	tamanioSuperBloqueBlocks = sizeof(uint32_t)*2 + tamanioBitMap;
-
+    tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 	mapearSuperBloque();
 	leerSuperBloque();
 }
@@ -211,12 +214,15 @@ void borrarFileSystem(const char *path){
 //----------------------------------------------------------------------------------------------------//
 //------------------------------------------ USO DEL BITMAP ------------------------------------------//
 void crearBitMap(){
+	log_info(loggerImongoStore,"tamanio de Bitmap %d",tamanioBitMap);
 	char * bitMap = (char *) malloc(tamanioBitMap);
 	punteroBitmap = bitarray_create(bitMap, tamanioBitMap);
 	
-	for(int i = 0; i<cantidadDeBloques; i++){
+
+	for(int i = 0; i<tamanioBitMap*8; i++){
 		bitarray_clean_bit(punteroBitmap,i);
 	}
+	log_info(loggerImongoStore,"sali de Bitmap %d",tamanioBitMap);
 }
 
 void guardarBitMap(){
@@ -558,7 +564,6 @@ void generarRecurso(char *recurso, int cantidadALlenar, uint32_t idTripulante){
 	sem_post(&semaforoArchivoRecurso);
 	
 	llenarBlocksRecursos(recurso, cantidadALlenar);
-	llenarBlocksBitcoras(string_from_format("Se finaliza la tarea Generar %s\n",recurso),idTripulante);
 
 	free(ubicacionArchivoRecurso);
 
@@ -583,9 +588,6 @@ bool consumirRecurso(char *recurso, int cantidadAConsumir, uint32_t idTripulante
 
 	vaciarBlocksRecursos(recurso, cantidadAConsumir);
 
-	char *terminaLaTarea = string_from_format("Se finaliza la tarea Consumir %s\n",recurso);
-	llenarBlocksBitcoras(terminaLaTarea,idTripulante);
-	free(terminaLaTarea);
 
 	free(ubicacionArchivoRecurso);
 
@@ -611,24 +613,10 @@ void descartarBasura(uint32_t idTripulante){
 		config_destroy(configRecurso);
 		remove(ubicacionArchivoBasura);
 
-		llenarBlocksBitcoras("Se finaliza la tarea Descartar Basura\n",idTripulante);
-
 		free(ubicacionArchivoBasura);
 
 		log_info(loggerImongoStore,"Se descarto la Basura");
 	}
-}
-
-void tareaTripulante(char *tarea, uint32_t idTripulante){	
-	llenarBlocksBitcoras(string_from_format("Comienza la ejecucion de la tarea %s\n",tarea),idTripulante);
-	
-	llenarBlocksBitcoras(string_from_format("Se finaliza la tarea %s\n",tarea),idTripulante);
-}
-
-void movimientoTripulante(uint32_t idTripulante){
-	t_config *configBitacora = crearArchivoBitacora(idTripulante);
-	llenarBlocksBitcoras(string_from_format("Se mueve de X|Y a X’|Y’"),configBitacora);
-	config_destroy(configBitacora);
 }
 
 char *conseguirStringBlocks(int bloqueBuscado){
@@ -685,111 +673,136 @@ char * conseguirBitacora(uint32_t idTripulante){
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------------- SABOTAJES --------------------------------------------//
+
 void pruebaDeSabotaje(){
-	generarRecurso("Oxigeno",30,0);
-	generarRecurso("Basura",40,0);
-	generarRecurso("Comida",50,0);
+    generarRecurso("Oxigeno",30,0);
+    generarRecurso("Basura",40,0);
+    generarRecurso("Comida",50,0);
 
-	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
-	msync(mapBlocks, tamanioBlocks, MS_SYNC);
+    memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
+    msync(mapBlocks, tamanioBlocks, MS_SYNC);
 
-	bitarray_set_bit(punteroBitmap,8);
-	bitarray_set_bit(punteroBitmap,9);
-	guardarBitMap();
-	
-	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
-	FILE * superBloque; 
-	superBloque = fopen(ubicacionSuperBloque,"r+");
-	fseek(superBloque, sizeof(uint32_t), SEEK_SET);
-	uint32_t prueba = cantidadDeBloques * 10;
-	fwrite(prueba,sizeof(uint32_t),1,superBloque);
-	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);
-	fclose(superBloque);
+    int marcador = sizeof(uint32_t);
+    int nuevaCantidadDeBloques = cantidadDeBloques * 10;
+
+    memcpy(&(mapSuperBloque[marcador]), &nuevaCantidadDeBloques, sizeof(uint32_t));
+    marcador+=sizeof(uint32_t);
+
+    crearBitMap();
+    memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
+
+    msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
 }
 
 bool verificarBlocksBitMap(char *ubicacionArchivo){
-	t_config *configGeneral;
-	configGeneral = config_create(ubicacionArchivo);
-	if(configGeneral!=NULL){
-		char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
-		int blockOcupado;
+	log_info(loggerImongoStore,"entre al verificar Blocsk Bitmap %s",ubicacionArchivo);
+    t_config *configGeneral;
+    configGeneral = config_create(ubicacionArchivo);
+    if(configGeneral!=NULL){
+        char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
+        int blockOcupado;
+		log_info(loggerImongoStore,"imprimolistaBlocks %s",listaBlocks);
 
-		if(listaBlocks[1]!=']'){ 
-			int inicio = 1;
-			int marcador = 1;
+        if(listaBlocks[1]!=']'){ 
+            int inicio = 1;
 
-			while(marcador<strlen(listaBlocks)){
+            while(inicio<strlen(listaBlocks)){
+                int tamanio = 1;
+                int marcador = tamanio + inicio;
 
-				while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']')
-					marcador++;
+                while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']'){
+                    tamanio++;
+                    marcador = tamanio + inicio;
+                }
 				
+				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
+				log_info(loggerImongoStore,"bloque ocupado  %s",blockOcupadoString);
+                blockOcupado = atoi(blockOcupadoString) - 1;
 				
-				blockOcupado = atoi(string_substring(listaBlocks,inicio,marcador+inicio)) - 1;
 
-				if(!bitarray_test_bit(punteroBitmap, blockOcupado)){
-					bitarray_set_bit(punteroBitmap, blockOcupado);
-				}
+                bitarray_set_bit(punteroBitmap, blockOcupado);
 
-				inicio = marcador+1;
-			}
-			
-		}
-		return true;
-	} else {
-		return false;
-	}
+                inicio = tamanio+2;
+            }
+            return true;
+        } else {
+            //No tiene bloques
+            return false;
+        }
+    } else {
+        //No existe el archivo
+        return false;
+    }
+    free(ubicacionArchivo);
+    config_destroy(configGeneral);
+	log_info(loggerImongoStore,"sali ");
 }
 
 void verificarBitacoraBitMap(){
-	int file_count = 0;
-	DIR * dirp;
-	struct dirent * entry;
-	dirp = opendir(string_from_format("%s/Files/Bitacoras/",puntoDeMontaje));
-	while ((entry = readdir(dirp)) != NULL) {
-    	if (entry->d_type == DT_REG) {
-        	file_count++;
-    	}
-	}
-	closedir(dirp);
+    int file_count = 0;
+    DIR * dirp;
+    struct dirent * entry;
+    dirp = opendir(string_from_format("%s/Files/Bitacoras/",puntoDeMontaje));
+    while ((entry = readdir(dirp)) != NULL) {
+        if (entry->d_type == DT_REG) {
+            file_count++;
+        }
+    }
+    closedir(dirp);
+	log_info(loggerImongoStore,"fileCOunt %d",file_count);
 
-
-	int i = 0;
-	while(file_count>0){
-		if(verificarBlocksBitMap(string_from_format("%s/Files/Tripulante%d",puntoDeMontaje,i)))
-			file_count--;
-		i++;
-	}
+    int i = 0;
+    while(file_count>0){
+        if(verificarBlocksBitMap(string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,i)))
+            file_count--;
+        i++;
+    }
+log_info(loggerImongoStore,"sali del wile");
 }
 
 void sabotajeSuperBloque(){
-	leerSuperBloque();
+    log_info(loggerImongoStore,"Comienza el proceso de verificacion despues del sabotaje en el SuperBloque");
 
-	FILE * archivoBlocks; 
-	archivoBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
-	struct stat buf;
-	fstat(archivoBlocks, &buf);
-	off_t size = buf.st_size;
-	int cantidadBloquesReal = size / tamanioDeBloque;
+//Verificar Cantidad de Bloques
+    char * archivoBlocks; 
+    archivoBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
+    struct stat buf;
+    stat(archivoBlocks, &buf);
+    off_t blockSize = buf.st_size;
+    cantidadDeBloques = blockSize / tamanioDeBloque;
 
-	char * ubicacionSuperBloque = string_from_format("%s/SuperBloque.ims",puntoDeMontaje);
-	FILE * superBloque; 
-	superBloque = fopen(ubicacionSuperBloque,"r+");
-	fseek(superBloque, sizeof(uint32_t), SEEK_SET);
-	fwrite(cantidadBloquesReal,sizeof(uint32_t),1,superBloque);
+	log_info(loggerImongoStore,"ZIZE De BLOQUES %d", blockSize);
+    int marcador = sizeof(uint32_t);
+    memcpy(&(mapSuperBloque[marcador]), &cantidadDeBloques, sizeof(uint32_t));
+	log_info(loggerImongoStore,"CANTIDA De BLOQUES %d",cantidadDeBloques);
 
-	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
-	verificarBlocksBitMap(ubicacionArchivoBasura);
+//Verificar BitMap
+    
+    crearBitMap();
+	log_info(loggerImongoStore,"entre a archivo basura %d",cantidadDeBloques);
+    char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
+    verificarBlocksBitMap(ubicacionArchivoBasura);
 
-	char *ubicacionArchivoComida = string_from_format("%s/Files/Comida.ims",puntoDeMontaje);
-	verificarBlocksBitMap(ubicacionArchivoComida);
+log_info(loggerImongoStore,"entre a archivo comida%d",cantidadDeBloques);
+    char *ubicacionArchivoComida = string_from_format("%s/Files/Comida.ims",puntoDeMontaje);
+    verificarBlocksBitMap(ubicacionArchivoComida);
 
-	char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
-	verificarBlocksBitMap(ubicacionArchivoOxigeno);
+log_info(loggerImongoStore,"entre a archivo oxigeno %d",cantidadDeBloques);
+    char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
+    verificarBlocksBitMap(ubicacionArchivoOxigeno);
 
-	verificarBitacoraBitMap();
+log_info(loggerImongoStore,"entre a archivo bitacora %d",cantidadDeBloques);
+    verificarBitacoraBitMap();
 
-	fwrite(punteroBitmap->bitarray,punteroBitmap->size,1,superBloque);	
-	fclose(superBloque);
+    marcador+=sizeof(uint32_t);
+
+	log_info(loggerImongoStore,"hago memcopy ");
+    memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
+	log_info(loggerImongoStore,"se copio el bitmap %d",tamanioBitMap);
+    msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
+
+//Termino
+    log_info(loggerImongoStore,"Termina el proceso de verificacion en el SuperBloque");
 }
 
 void sabotajeFile(){
@@ -897,9 +910,6 @@ void deserializarTareaIO(t_paquete * paquete){
 	case DESCARTAR_BASURA:
 		descartarBasura(*tid);
 		break;
-	default:
-		tareaTripulante("",*tid);
-		break;
 	}
 } 
 
@@ -980,6 +990,7 @@ void deserializarNuevaPosicion(t_paquete * paquete){
 	log_info(loggerImongoStore, "Tripulante %d estaba en %d|%d y ahora esta en %d|%d", tid, posxV, posyV, posxN, posyN);
 
 	// METER INFO EN LA BITACORA
+	//llenarBlocksBitcoras(string_from_format("Se mueve de %d|%d a %d|%d\n",posxV, posyV, posxN, posyN),tid);
 }
 
 void deserializarTerminoTarea(t_paquete * paquete){
@@ -1002,6 +1013,7 @@ void deserializarTerminoTarea(t_paquete * paquete){
 	log_info(loggerImongoStore,"Trip %d termino %s", tid , nombreTarea);
 
 	// METER INFO EN BITACORA Y LOGS, PARA TODO TIPO DE TAREA (NO SOLO PARA NORMALES)
+	//llenarBlocksBitcoras(string_from_format("Termina la ejecucion de la tarea %s\n",nombreTarea),tid);
 }
 
 void deserializarInicioTareaNormal(t_paquete * paquete){
@@ -1026,6 +1038,7 @@ void deserializarInicioTareaNormal(t_paquete * paquete){
 	log_info(loggerImongoStore,"Trip %d arranco %s", tid , nombreTarea);
 
 	// METER INFO EN BITACORA Y LOGS
+	//llenarBlocksBitcoras(string_from_format("Comienza la ejecucion de la tarea %s\n",nombreTarea),tid);
 
 }
 
@@ -1050,7 +1063,7 @@ void atenderDiscordiador(int socketCliente){
 	case HACER_TAREA:
 		deserializarTareaIO(paquete);
 		break;
-	case BITACORA: ; 
+	case BITACORA:  ;
 		uint32_t tid = deserializarPedidoBitacora(paquete);
 		char * bitacora = conseguirBitacora(tid);
 		serializarYMandarBitacora(bitacora, socketCliente);
