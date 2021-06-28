@@ -125,6 +125,11 @@ void pruebaDeSabotaje();
 bool verificarBlocksBitMap(char *);
 void verificarBitacoraBitMap();
 void sabotajeSuperBloque();
+int llenarBloqueConRecurso(char, int, int);
+void reemplazarConListBlocks(char *);
+void verificarBlockCount(char *);
+int verificarSize(int);
+void verificarEnFile(char *);
 void sabotajeFile();
 
 //MENSAJES DEL LOG
