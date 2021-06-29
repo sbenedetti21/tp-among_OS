@@ -11,6 +11,9 @@ int main(int argc, char ** argv){
 	memset(memoriaPrincipal, 0, tamanioMemoria);
 	iniciarMemoria();
 
+	signal(SIGUSR1, rutina);
+	signal(SIGUSR2, rutina);
+
 	pthread_t servidor;
 	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
 
@@ -381,6 +384,18 @@ void atenderDiscordiador(int socketCliente){
 
 
 }
+
+void rutina (int n) {
+	switch (n) {
+		case SIGUSR1:
+			printf("Aca va el dump de la memoria\n");
+		break;
+		case SIGUSR2:
+			printf("Compactando..???\n");
+		break;
+	}
+}
+
 
 char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 	

@@ -27,6 +27,7 @@ char * obtenerProximaTareaSegmentacion(uint32_t, uint32_t);
 uint32_t obtenerDireccionTripulante(uint32_t, uint32_t );
 uint32_t obtenerDireccionProximaTarea(uint32_t);
 char * obtenerProximaTarea(uint32_t, uint32_t);
+void rutina (int);
 
 
 // ----------------------------------------  PAGINAS
