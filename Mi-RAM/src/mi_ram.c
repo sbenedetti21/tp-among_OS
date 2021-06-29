@@ -40,6 +40,7 @@ void leerConfig(){
 	puertoMemoria = config_get_string_value(config, "PUERTO");
 	tamanioPagina = config_get_int_value(config, "TAMANIO_PAGINA");
 	path_SWAP = config_get_string_value(config, "PATH_SWAP");
+	tamanioSwap = config_get_int_value(config, "TAMANIO_SWAP");
 
 }
 
@@ -583,8 +584,19 @@ int buscarEspacioNecesario(int tamanioTareas, int cantidadTripulantes) {
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 		int cantidadMemoriaNecesaria = tamanioTareas + SIZEOF_TCB * cantidadTripulantes + SIZEOF_PCB;
 		int cantidadFramesDisponibles = framesDisponibles();
+		int cantidadFramesDisponiblesSwap = framesDisponiblesSwap();
+		int framesNecesarios = divisionRedondeadaParaArriba(cantidadMemoriaNecesaria, tamanioPagina);
 
-		if (divisionRedondeadaParaArriba(cantidadMemoriaNecesaria, tamanioPagina) < cantidadFramesDisponibles) {
+		if (framesNecesarios < cantidadFramesDisponibles) {
+			return 1;
+		}
+
+		if (!estaCreadoElSwap) {
+			crearSwap();
+			estaCreadoElSwap = true;
+		}
+
+		if (framesNecesarios < cantidadFramesDisponibles + cantidadFramesDisponiblesSwap){
 			return 1;
 		}
 		
@@ -817,6 +829,15 @@ void actualizarPunteroTarea(int direccionTripulante, t_tablaDePaginas * tablaDeP
 		}
 	}
 	pthread_mutex_unlock(&mutexMemoriaPrincipal);
+}
+
+void crearSwap() {
+	FILE * swapFD = fopen(path_SWAP, "rw+");
+	
+}
+
+int framesDisponiblesSwap() {
+
 }
 
 

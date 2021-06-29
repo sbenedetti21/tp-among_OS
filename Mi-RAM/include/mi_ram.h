@@ -33,6 +33,7 @@ void rutina (int);
 // ----------------------------------------  PAGINAS
 
 char * path_SWAP;
+int tamanioSwap;
 t_list * listaFrames;
 t_list * listaTablasDePaginas;
 int tamanioPagina, tamanioMemoria;
@@ -40,6 +41,7 @@ pthread_mutex_t mutexMemoriaPrincipal;
 pthread_mutex_t mutexListaTablas;
 pthread_mutex_t mutexListaFrames;
 pthread_mutex_t mutexTareas;
+bool estaCreadoElSwap = false;
 
 
 typedef struct {
@@ -71,6 +73,8 @@ uint32_t buscarFrame();
 void iniciarFrames();
 void llenarFramesConPatota(t_list *, void *, int , int , int , int , uint32_t);
 
+void crearSwap();
+int framesDisponiblesSwap();
 
 // ----------------------------------------  SEGMENTOS
 
