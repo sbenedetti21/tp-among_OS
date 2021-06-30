@@ -78,6 +78,8 @@ void llenarFramesConPatota(t_list *, void *, int , int , int , int , uint32_t);
 
 void crearSwap();
 int framesDisponiblesSwap();
+uint32_t desalojarFrameDeMemoria(uint32_t);
+
 
 // ----------------------------------------  SEGMENTOS
 

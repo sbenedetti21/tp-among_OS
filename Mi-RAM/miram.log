@@ -11626,3 +11626,147 @@ GRITAR_ESPARTAAAA;9;9;1|
 [INFO] 15:32:33:222 mi_ram.c/(6187:6187): el frame 29 esta ocupado: 0 
 [INFO] 15:32:33:222 mi_ram.c/(6187:6187): el frame 30 esta ocupado: 0 
 [INFO] 15:32:33:222 mi_ram.c/(6187:6187): el frame 31 esta ocupado: 0 
+[INFO] 15:00:24:863 mi_ram.c/(9126:9126): Iniciando Frames... 
+[INFO] 15:00:24:865 mi_ram.c/(9126:9126): -------------------------
+[INFO] 15:00:24:865 mi_ram.c/(9126:9126): Disponibilidad de frames: 
+[INFO] 15:00:24:865 mi_ram.c/(9126:9126): el frame 0 esta ocupado: 0 
+[INFO] 15:00:24:865 mi_ram.c/(9126:9126): el frame 1 esta ocupado: 0 
+[INFO] 15:01:11:014 mi_ram.c/(9126:9127): Conexión establecida con Discordiador
+[INFO] 15:01:11:014 mi_ram.c/(9126:9444): Recibi header: 0
+
+[INFO] 15:01:11:014 mi_ram.c/(9126:9444): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+CONSUMIR_OXIGENO 5;1;1;1
+GENERAR_BASURA 23;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 15:01:11:014 mi_ram.c/(9126:9444): cantidad tcbs recibidos: 5 
+
+[INFO] 15:03:27:400 mi_ram.c/(9918:9918): Iniciando Frames... 
+[INFO] 15:03:27:400 mi_ram.c/(9918:9918): -------------------------
+[INFO] 15:03:27:400 mi_ram.c/(9918:9918): Disponibilidad de frames: 
+[INFO] 15:03:27:400 mi_ram.c/(9918:9918): el frame 0 esta ocupado: 0 
+[INFO] 15:03:27:400 mi_ram.c/(9918:9918): el frame 1 esta ocupado: 0 
+[INFO] 15:03:35:475 mi_ram.c/(9918:9923): Conexión establecida con Discordiador
+[INFO] 15:03:35:478 mi_ram.c/(9918:9951): Recibi header: 0
+
+[INFO] 15:03:35:478 mi_ram.c/(9918:9951): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+CONSUMIR_OXIGENO 5;1;1;1
+GENERAR_BASURA 23;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 15:03:35:478 mi_ram.c/(9918:9951): cantidad tcbs recibidos: 5 
+
+[INFO] 15:06:01:917 mi_ram.c/(10454:10454): Iniciando Frames... 
+[INFO] 15:06:01:917 mi_ram.c/(10454:10454): -------------------------
+[INFO] 15:06:01:918 mi_ram.c/(10454:10454): Disponibilidad de frames: 
+[INFO] 15:06:01:918 mi_ram.c/(10454:10454): el frame 0 esta ocupado: 0 
+[INFO] 15:06:01:918 mi_ram.c/(10454:10454): el frame 1 esta ocupado: 0 
+[INFO] 15:06:08:897 mi_ram.c/(10454:10463): Conexión establecida con Discordiador
+[INFO] 15:06:08:900 mi_ram.c/(10454:10485): Recibi header: 0
+
+[INFO] 15:06:08:900 mi_ram.c/(10454:10485): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+CONSUMIR_OXIGENO 5;1;1;1
+GENERAR_BASURA 23;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 15:06:08:900 mi_ram.c/(10454:10485): cantidad tcbs recibidos: 5 
+
+[INFO] 15:06:08:910 mi_ram.c/(10454:10485): Iniciando Frames en SWAP... 
+[INFO] 15:06:08:910 mi_ram.c/(10454:10485): hay lugar disponible (1 -> si, -1 -> no): -1 
+
+[INFO] 15:06:08:910 mi_ram.c/(10454:10485): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 31 0a  |OXIGENO 3;1;2;1.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 31 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;1.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 35 3b 31 3b 31 3b 31  |_OXIGENO 5;1;1;1|
+0x00000050: 0a 47 45 4e 45 52 41 52  5f 42 41 53 55 52 41 20  |.GENERAR_BASURA |
+0x00000060: 32 33 3b 32 3b 33 3b 31  0a 47 45 4e 45 52 41 52  |23;2;3;1.GENERAR|
+0x00000070: 5f 43 4f 4d 49 44 41 20  37 3b 32 3b 33 3b 31 7c  |_COMIDA 7;2;3;1||
+0x00000080: 00 00 00 00 00 00 00 00  00 00 00 00 52 08 00 00  |............R...|
+0x00000090: 00 00 00 00 00 01 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000a0: 00 52 08 00 00 00 00 00  00 00 02 00 00 00 00 00  |.R..............|
+0x000000b0: 00 00 00 00 00 00 52 08  00 00 00 00 00 00 00 03  |......R.........|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 52 08 00 00 00  |...........R....|
+0x000000d0: 00 00 00 00 04 00 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000e0: 52 08 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |R...............|
+0x000000f0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 15:06:08:911 mi_ram.c/(10454:10485): Tamanio de las tareas: 120
+[INFO] 15:10:14:802 mi_ram.c/(10454:10463): Conexión establecida con Discordiador
+[INFO] 15:10:14:805 mi_ram.c/(10454:10463): Conexión establecida con Discordiador
+[INFO] 15:10:14:805 mi_ram.c/(10454:11267): Recibi header: 1
+
+[INFO] 15:10:14:805 mi_ram.c/(10454:11267): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 15:10:14:805 mi_ram.c/(10454:11267): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 15:14:29:085 mi_ram.c/(11965:11965): Iniciando Frames... 
+[INFO] 15:14:29:085 mi_ram.c/(11965:11965): -------------------------
+[INFO] 15:14:29:085 mi_ram.c/(11965:11965): Disponibilidad de frames: 
+[INFO] 15:14:29:085 mi_ram.c/(11965:11965): el frame 0 esta ocupado: 0 
+[INFO] 15:14:29:085 mi_ram.c/(11965:11965): el frame 1 esta ocupado: 0 
+[INFO] 15:14:35:053 mi_ram.c/(11965:11966): Conexión establecida con Discordiador
+[INFO] 15:14:35:054 mi_ram.c/(11965:11986): Recibi header: 0
+
+[INFO] 15:14:35:054 mi_ram.c/(11965:11986): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+CONSUMIR_OXIGENO 5;1;1;1
+GENERAR_BASURA 23;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 15:14:35:054 mi_ram.c/(11965:11986): cantidad tcbs recibidos: 5 
+
+[INFO] 15:14:35:060 mi_ram.c/(11965:11986): Iniciando Frames en SWAP... 
+[INFO] 15:14:35:060 mi_ram.c/(11965:11986): hay lugar disponible (1 -> si, -1 -> no): -1 
+
+[INFO] 15:14:35:060 mi_ram.c/(11965:11986): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 31 0a  |OXIGENO 3;1;2;1.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 31 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;1.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 35 3b 31 3b 31 3b 31  |_OXIGENO 5;1;1;1|
+0x00000050: 0a 47 45 4e 45 52 41 52  5f 42 41 53 55 52 41 20  |.GENERAR_BASURA |
+0x00000060: 32 33 3b 32 3b 33 3b 31  0a 47 45 4e 45 52 41 52  |23;2;3;1.GENERAR|
+0x00000070: 5f 43 4f 4d 49 44 41 20  37 3b 32 3b 33 3b 31 7c  |_COMIDA 7;2;3;1||
+0x00000080: 00 00 00 00 00 00 00 00  00 00 00 00 52 08 00 00  |............R...|
+0x00000090: 00 00 00 00 00 01 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000a0: 00 52 08 00 00 00 00 00  00 00 02 00 00 00 00 00  |.R..............|
+0x000000b0: 00 00 00 00 00 00 52 08  00 00 00 00 00 00 00 03  |......R.........|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 52 08 00 00 00  |...........R....|
+0x000000d0: 00 00 00 00 04 00 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000e0: 52 08 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |R...............|
+0x000000f0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 15:14:35:060 mi_ram.c/(11965:11986): Tamanio de las tareas: 120
+[INFO] 15:15:11:386 mi_ram.c/(12112:12112): Iniciando Frames... 
+[INFO] 15:15:11:386 mi_ram.c/(12112:12112): -------------------------
+[INFO] 15:15:11:386 mi_ram.c/(12112:12112): Disponibilidad de frames: 
+[INFO] 15:15:11:386 mi_ram.c/(12112:12112): el frame 0 esta ocupado: 0 
+[INFO] 15:15:11:386 mi_ram.c/(12112:12112): el frame 1 esta ocupado: 0 
+[INFO] 15:15:20:907 mi_ram.c/(12112:12113): Conexión establecida con Discordiador
+[INFO] 15:15:20:908 mi_ram.c/(12112:12141): Recibi header: 0
+
+[INFO] 15:15:20:908 mi_ram.c/(12112:12141): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+CONSUMIR_OXIGENO 5;1;1;1
+GENERAR_BASURA 23;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 15:15:20:908 mi_ram.c/(12112:12141): cantidad tcbs recibidos: 5 
+
+[INFO] 15:15:20:915 mi_ram.c/(12112:12141): Iniciando Frames en SWAP... 
+[INFO] 15:15:20:915 mi_ram.c/(12112:12141): hay lugar disponible (1 -> si, -1 -> no): -1 
+
+[INFO] 15:15:20:915 mi_ram.c/(12112:12141): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 31 0a  |OXIGENO 3;1;2;1.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 31 0a  43 4f 4e 53 55 4d 49 52  |4;2;3;1.CONSUMIR|
+0x00000040: 5f 4f 58 49 47 45 4e 4f  20 35 3b 31 3b 31 3b 31  |_OXIGENO 5;1;1;1|
+0x00000050: 0a 47 45 4e 45 52 41 52  5f 42 41 53 55 52 41 20  |.GENERAR_BASURA |
+0x00000060: 32 33 3b 32 3b 33 3b 31  0a 47 45 4e 45 52 41 52  |23;2;3;1.GENERAR|
+0x00000070: 5f 43 4f 4d 49 44 41 20  37 3b 32 3b 33 3b 31 7c  |_COMIDA 7;2;3;1||
+0x00000080: 00 00 00 00 00 00 00 00  00 00 00 00 52 08 00 00  |............R...|
+0x00000090: 00 00 00 00 00 01 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000a0: 00 52 08 00 00 00 00 00  00 00 02 00 00 00 00 00  |.R..............|
+0x000000b0: 00 00 00 00 00 00 52 08  00 00 00 00 00 00 00 03  |......R.........|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 52 08 00 00 00  |...........R....|
+0x000000d0: 00 00 00 00 04 00 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000e0: 52 08 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |R...............|
+0x000000f0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 15:15:20:915 mi_ram.c/(12112:12141): Tamanio de las tareas: 120

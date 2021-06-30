@@ -183,7 +183,7 @@ void atenderDiscordiador(int socketCliente){
 				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria, pid);
 
-				mem_hexdump(memoriaPrincipal, 2048);
+				mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
 				// void mostrarContenido(t_tripulanteConPID * tripulante) {
 				// 	mem_hexdump(tripulante, 12);
@@ -655,6 +655,8 @@ int framesDisponibles() {
 
 uint32_t buscarFrame() {
 
+	uint32_t direccionFrame = 0;
+
 	bool estaLibre(t_frame * frame) {
 		return frame->ocupado == 0;
 	}
@@ -861,7 +863,8 @@ void actualizarPunteroTarea(int direccionTripulante, t_tablaDePaginas * tablaDeP
 }
 
 void crearSwap() {
-	FILE * swapFD = fopen(path_SWAP, "rw+");
+	remove(path_SWAP);
+	FILE * swapFD = fopen(path_SWAP, "w+");
 	void * ceros = malloc(tamanioSwap);
 	memset(ceros, 0, tamanioSwap);
 	fwrite(ceros, tamanioSwap, 1, swapFD);
@@ -880,6 +883,8 @@ void crearSwap() {
 		pthread_mutex_unlock(&mutexListaFramesSwap);
 		cantidadFrames ++;
 	}
+
+	fclose(swapFD);
 
 	return;
 }
