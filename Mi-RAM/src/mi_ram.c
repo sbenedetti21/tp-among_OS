@@ -863,7 +863,7 @@ void actualizarPunteroTarea(int direccionTripulante, t_tablaDePaginas * tablaDeP
 }
 
 void crearSwap() {
-	remove(path_SWAP);
+	remove(path_SWAP); //esto deberia haverse cuadno termina el programa para que si cambia el path no quede un archivo ahi 
 	FILE * swapFD = fopen(path_SWAP, "w+");
 	void * ceros = malloc(tamanioSwap);
 	memset(ceros, 0, tamanioSwap);
