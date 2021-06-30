@@ -35,11 +35,13 @@ void rutina (int);
 char * path_SWAP;
 int tamanioSwap;
 t_list * listaFrames;
+t_list * listaFramesSwap;
 t_list * listaTablasDePaginas;
 int tamanioPagina, tamanioMemoria;
 pthread_mutex_t mutexMemoriaPrincipal;
 pthread_mutex_t mutexListaTablas;
 pthread_mutex_t mutexListaFrames;
+pthread_mutex_t mutexListaFramesSwap;
 pthread_mutex_t mutexTareas;
 bool estaCreadoElSwap = false;
 
@@ -55,6 +57,7 @@ typedef struct {
 	uint32_t pid;
 	// ultimaReferencia
 	// SecondChance
+	uint32_t estaEnMemoria;
 } t_pagina;
 
 typedef struct {

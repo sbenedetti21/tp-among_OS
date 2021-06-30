@@ -562,11 +562,13 @@ void iniciarMemoria() {
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 		listaFrames = list_create();
+		listaFramesSwap = list_create();
 		listaTablasDePaginas = list_create();
 		// listaTripulantes = list_create();
 		pthread_mutex_init(&mutexMemoriaPrincipal, NULL);
 		pthread_mutex_init(&mutexListaTablas, NULL);
 		pthread_mutex_init(&mutexListaFrames, NULL);
+		pthread_mutex_init(&mutexListaFramesSwap, NULL);
 		pthread_mutex_init(&mutexTareas, NULL);
 		iniciarFrames();	
 	}
@@ -653,28 +655,54 @@ int framesDisponibles() {
 
 uint32_t buscarFrame() {
 
-  bool estaLibre(t_frame * frame) {
-    return frame->ocupado == 0;
-  }
+	bool estaLibre(t_frame * frame) {
+		return frame->ocupado == 0;
+	}
 
-  t_frame * frameLibre = malloc(sizeof(t_frame));
+	t_frame * frameLibre = malloc(sizeof(t_frame));
 
-		pthread_mutex_lock(&mutexListaFrames);
-  frameLibre = list_find(listaFrames, estaLibre);
-		pthread_mutex_unlock(&mutexListaFrames);
-  uint32_t direccionFrame = frameLibre->inicio;
-  //free(frameLibre);
+	pthread_mutex_lock(&mutexListaFrames);
+	frameLibre = list_find(listaFrames, estaLibre);
+	pthread_mutex_unlock(&mutexListaFrames);
 
-  return direccionFrame;
+	if(frameLibre != NULL) {
+		uint32_t direccionFrame = frameLibre->inicio;
+	} else {
+		pthread_mutex_lock(&mutexListaFramesSwap);
+		frameLibre = list_find(listaFramesSwap, estaLibre);
+		pthread_mutex_unlock(&mutexListaFramesSwap);
+
+		uint32_t direccionFrame = desalojarFrameDeMemoria(frameLibre->inicio);
+	}
+
+	return direccionFrame;
 }
 
-// void agregarTripulante(uint32_t pid, uint32_t tamanioTareas, uint32_t tid) {
-// 	t_tripulanteConPID * tripu = malloc(sizeof(t_tripulanteConPID)); 
-// 	tripu->idPatota = pid;
-// 	tripu->longitudTareas = tamanioTareas;
-// 	tripu->idTripulante = tid;
-// 	list_add(listaTripulantes, tripu);
-// }
+uint32_t desalojarFrameDeMemoria(uint32_t inicioDeFrameEnSwap) {
+	int direccionFrameADesalojar = encontrarFrameADesalojar();
+
+	/*
+	
+	Copiar el contenido del frame que esta en memoria a uno auxiliar, copiar el contenido del swap a memoria
+	luego copiar el contenido del auxiliar al swap y actualizar valores en los structs
+	
+	 */
+}
+
+int encontrarFrameADesalojar() {
+	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
+
+	}
+	if (strcmp(algoritmoReemplazo, "CLOCK") == 0) {
+		/*
+		
+		Ir uno por uno en la lista de paginas mirando si ya se les dio una segunda oportunindad
+		si ya se les dio devolver el inicio, sino asignar segfunda oportunidad y seguir
+		
+		 */
+	}
+}
+
 
 void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas, int memoriaAGuardar, uint32_t pid) {
 
@@ -705,6 +733,7 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		pagina->numeroFrame = numeroDeFrame;
 		pagina->numeroPagina = (uint32_t) i;
 		pagina->pid = pid;
+		pagina->estaEnMemoria = 1;
 		list_add(listaDePaginas, pagina);
 		j = 0;
 	}
@@ -833,11 +862,38 @@ void actualizarPunteroTarea(int direccionTripulante, t_tablaDePaginas * tablaDeP
 
 void crearSwap() {
 	FILE * swapFD = fopen(path_SWAP, "rw+");
-	
+	void * ceros = malloc(tamanioSwap);
+	memset(ceros, 0, tamanioSwap);
+	fwrite(ceros, tamanioSwap, 1, swapFD);
+	int cantidadPaginasSwap = tamanioSwap/tamanioMemoria;
+
+	log_info(loggerMiram, "Iniciando Frames en SWAP... ");
+	int cantidadFrames = 0;
+
+	for(int desplazamiento = 0; desplazamiento< tamanioMemoria; desplazamiento += tamanioPagina){
+		t_frame * frame = malloc(sizeof(t_frame));
+		frame->inicio = desplazamiento;
+		frame->ocupado = 0;
+
+		pthread_mutex_lock(&mutexListaFramesSwap);
+		list_add(listaFramesSwap, frame);
+		pthread_mutex_unlock(&mutexListaFramesSwap);
+		cantidadFrames ++;
+	}
+
+	return;
 }
 
 int framesDisponiblesSwap() {
-
+	int libre = 0;
+	void estaLibre(t_frame * frame) {
+    	if (frame->ocupado == 0){ libre++; }
+  	}
+	
+	pthread_mutex_lock(&mutexListaFramesSwap);
+	list_iterate(listaFramesSwap, estaLibre);
+	pthread_mutex_unlock(&mutexListaFramesSwap);  
+	return libre;
 }
 
 
