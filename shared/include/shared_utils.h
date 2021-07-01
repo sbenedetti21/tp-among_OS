@@ -19,6 +19,7 @@
 #include <semaphore.h>
 #include <inttypes.h>
 
+
 int crear_conexion(char *, char*);
 
 int crear_conexionServer(char*);

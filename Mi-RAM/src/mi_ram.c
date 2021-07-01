@@ -1,29 +1,29 @@
 #include "mi_ram.h"
  //comentario prueba branch
-NIVEL* navePrincipal;
+
 
 int main(int argc, char ** argv){
-
+	navePrincipal = nivel_crear("Nave Principal");
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
 	leerConfig();
 
-	memoriaPrincipal = malloc(tamanioMemoria);
-	memset(memoriaPrincipal, 0, tamanioMemoria);
-	iniciarMemoria();
+	// memoriaPrincipal = malloc(tamanioMemoria);
+	// memset(memoriaPrincipal, 0, tamanioMemoria);
+	// iniciarMemoria();
 
-	pthread_t servidor;
-	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
+	// pthread_t servidor;
+	// pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
 
-	// nivel_gui_inicializar();
-	// NIVEL* navePrincipal = nivel_crear("Nave Principal");
-	// nivel_gui_dibujar(navePrincipal);
-	// //pthread_t mapa;
-	// //pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	// //pthread_join(mapa, NULL);
-	 
-	pthread_join(servidor, NULL);
+	pthread_t mapa;
+	pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	pthread_join(mapa, NULL);
+
+	nivel_destruir(navePrincipal);
+	nivel_gui_terminar();
+
+	//pthread_join(servidor, NULL);
 	
-	free(memoriaPrincipal);
+	//free(memoriaPrincipal);
 
 	return 0; 
 }
@@ -92,9 +92,6 @@ void atenderDiscordiador(int socketCliente){
 	{
 	case INICIAR_PATOTA: ; 
 		
-
-		
-
 		// Deserializamos tareas
 		int tamanioTareas;
 		memcpy(&tamanioTareas, stream, sizeof(int));
@@ -1080,29 +1077,53 @@ bool cabeTCB(t_segmento * segmento){
 // ------------------------------------------------------ MAPA ----------------------------------------------
 
 void iniciarMapa() {
-	
+	sem_init(&semaforoTerminarMapa,0,0);
 	nivel_gui_inicializar();
-	NIVEL* navePrincipal = nivel_crear("Nave Principal");
-	nivel_gui_dibujar(navePrincipal);
-
+	sem_wait(&semaforoTerminarMapa);
 }
 
-void agregarTripulanteAlMapa(TCB* tripulante) {
-	char id = '0';
-	id = '0' + tripulante->tid; //aca el tid es un uint 
-	printf("%c", id);
-	int posicionX = tripulante->posicionX;
-	int posicionY = tripulante->posicionY;
-	personaje_crear(navePrincipal, id, posicionX, posicionY);
+void agregarTripulanteAlMapa(TCB* tripulante) { 
+	char id = idMapa(tripulante->tid); //aca el tid es un uint  
+    personaje_crear(navePrincipal, id, tripulante->posicionX, tripulante->posicionY);
 	nivel_gui_dibujar(navePrincipal);
 }
 
-void moverTripulanteEnMapa(TCB * tripulante, int x, int y) {
-	char id = '0' + tripulante->tid;
+void moverTripulanteEnMapa(uint32_t tid, uint32_t x, uint32_t y){
+	char id = idMapa(tid);
 	item_mover(navePrincipal, id, x, y);
+	nivel_gui_dibujar(navePrincipal);
 }
 
-void expulsarTripulanteDelMapa(TCB* tripulante) {
-	char id = '0' + tripulante->tid;
+void expulsarTripulanteDelMapa(uint32_t tid) {
+	char id = idMapa(tid);
 	item_borrar(navePrincipal, id);
+	nivel_gui_dibujar(navePrincipal);
+}
+
+char idMapa(uint32_t tid){
+
+switch (tid)
+{
+case 0:
+	return '0';
+case 1:
+	return '1';
+case 2:
+	return '2';
+case 3:
+	return '3';
+case 4:
+	return '4';
+case 5:
+	return '5';
+case 6:
+	return '6';
+case 7:
+	return '7';
+case 8:
+	return '8';
+case 9:
+	return '9';
+}
+
 }

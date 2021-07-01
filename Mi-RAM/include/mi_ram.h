@@ -9,6 +9,15 @@
 #include <nivel-gui/nivel-gui.h>
 #include <nivel-gui/tad_nivel.h>
 #include "shared_utils.h"
+#include <curses.h>
+#define ASSERT_CREATE(nivel, id, err)                                                   \
+    if(err) {                                                                           \
+        nivel_destruir(nivel);                                                          \
+        nivel_gui_terminar();                                                           \
+        fprintf(stderr, "Error al crear '%c': %s\n", id, nivel_gui_string_error(err));  \
+        return EXIT_FAILURE;                                                            \
+    }
+
 
 #define BACKLOG 10 //TODO
 #define SIZEOF_PCB 8
@@ -138,9 +147,12 @@ void mandarPaqueteSerializado(t_buffer *, int, int);
 
 
 //--------------- MAPA ---------------------
+NIVEL* navePrincipal;
+sem_t semaforoTerminarMapa; 
 void iniciarMapa();
 void agregarTripulanteAlMapa(TCB*);
-void moverTripulanteEnMapa(TCB *, int , int );
-void expulsarTripulanteDelMapa(TCB*);
- 
+void moverTripulanteEnMapa(uint32_t, uint32_t , uint32_t );
+void expulsarTripulanteDelMapa(uint32_t);
+char idMapa(uint32_t);
+
 #endif
