@@ -7,12 +7,12 @@ int main(int argc, char ** argv){
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
 	leerConfig();
 
-	// memoriaPrincipal = malloc(tamanioMemoria);
-	// memset(memoriaPrincipal, 0, tamanioMemoria);
-	// iniciarMemoria();
+	memoriaPrincipal = malloc(tamanioMemoria);
+	memset(memoriaPrincipal, 0, tamanioMemoria);
+	iniciarMemoria();
 
-	// pthread_t servidor;
-	// pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
+	pthread_t servidor;
+	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
 
 	pthread_t mapa;
 	pthread_create(&mapa, NULL, iniciarMapa, NULL);
@@ -21,9 +21,9 @@ int main(int argc, char ** argv){
 	nivel_destruir(navePrincipal);
 	nivel_gui_terminar();
 
-	//pthread_join(servidor, NULL);
+	pthread_join(servidor, NULL);
 	
-	//free(memoriaPrincipal);
+	free(memoriaPrincipal);
 
 	return 0; 
 }
