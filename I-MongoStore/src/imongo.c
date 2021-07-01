@@ -24,7 +24,15 @@ int main(int argc, char ** argv){
 
 	//pruebaDeSabotaje();
 	//sabotajeSuperBloque();
-	//conseguirBitacora(1);
+/*
+	generarRecurso("Oxigeno",190,0);
+	generarRecurso("Comida",90,0);
+	generarRecurso("Basura",79,0);
+	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
+	msync(mapBlocks, tamanioBlocks, MS_SYNC);
+*/
+	sabotajeFile();
+
 	//Inicio de servidor
 	pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
@@ -99,19 +107,15 @@ void crearSuperBloque(){
 }
 
 void leerSuperBloque(){
-	
 	int marcador = 0;
 	memcpy(&tamanioDeBloque, &(mapSuperBloque[marcador]), sizeof(uint32_t));
 	marcador+=sizeof(uint32_t);
 
-	    log_info(loggerImongoStore,"tamanio de Bloque %d",tamanioDeBloque);
-
 	memcpy(&cantidadDeBloques, &(mapSuperBloque[marcador]), sizeof(uint32_t));
 	marcador+=sizeof(uint32_t);
-		log_info(loggerImongoStore,"cantidad de Bloque %d",cantidadDeBloques);
+	
 	crearBitMap();
 	memcpy(punteroBitmap->bitarray, &(mapSuperBloque[marcador]), tamanioBitMap);
-		log_info(loggerImongoStore,"tamanio de Bitmap %d",tamanioBitMap);
 }
 
 void mapearSuperBloque(){
@@ -214,15 +218,12 @@ void borrarFileSystem(const char *path){
 //----------------------------------------------------------------------------------------------------//
 //------------------------------------------ USO DEL BITMAP ------------------------------------------//
 void crearBitMap(){
-	log_info(loggerImongoStore,"tamanio de Bitmap %d",tamanioBitMap);
 	char * bitMap = (char *) malloc(tamanioBitMap);
 	punteroBitmap = bitarray_create(bitMap, tamanioBitMap);
-	
 
 	for(int i = 0; i<tamanioBitMap*8; i++){
 		bitarray_clean_bit(punteroBitmap,i);
 	}
-	log_info(loggerImongoStore,"sali de Bitmap %d",tamanioBitMap);
 }
 
 void guardarBitMap(){
@@ -695,13 +696,11 @@ void pruebaDeSabotaje(){
 }
 
 bool verificarBlocksBitMap(char *ubicacionArchivo){
-	log_info(loggerImongoStore,"entre al verificar Blocsk Bitmap %s",ubicacionArchivo);
     t_config *configGeneral;
     configGeneral = config_create(ubicacionArchivo);
     if(configGeneral!=NULL){
         char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
         int blockOcupado;
-		log_info(loggerImongoStore,"imprimolistaBlocks %s",listaBlocks);
 
         if(listaBlocks[1]!=']'){ 
             int inicio = 1;
@@ -709,20 +708,18 @@ bool verificarBlocksBitMap(char *ubicacionArchivo){
             while(inicio<strlen(listaBlocks)){
                 int tamanio = 1;
                 int marcador = tamanio + inicio;
-
+				
                 while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']'){
                     tamanio++;
                     marcador = tamanio + inicio;
                 }
 				
 				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
-				log_info(loggerImongoStore,"bloque ocupado  %s",blockOcupadoString);
                 blockOcupado = atoi(blockOcupadoString) - 1;
 				
-
                 bitarray_set_bit(punteroBitmap, blockOcupado);
 
-                inicio = tamanio+2;
+                inicio += tamanio+1;
             }
             return true;
         } else {
@@ -735,7 +732,6 @@ bool verificarBlocksBitMap(char *ubicacionArchivo){
     }
     free(ubicacionArchivo);
     config_destroy(configGeneral);
-	log_info(loggerImongoStore,"sali ");
 }
 
 void verificarBitacoraBitMap(){
@@ -749,7 +745,6 @@ void verificarBitacoraBitMap(){
         }
     }
     closedir(dirp);
-	log_info(loggerImongoStore,"fileCOunt %d",file_count);
 
     int i = 0;
     while(file_count>0){
@@ -757,12 +752,9 @@ void verificarBitacoraBitMap(){
             file_count--;
         i++;
     }
-log_info(loggerImongoStore,"sali del wile");
 }
 
 void sabotajeSuperBloque(){
-    log_info(loggerImongoStore,"Comienza el proceso de verificacion despues del sabotaje en el SuperBloque");
-
 //Verificar Cantidad de Bloques
     char * archivoBlocks; 
     archivoBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
@@ -771,42 +763,183 @@ void sabotajeSuperBloque(){
     off_t blockSize = buf.st_size;
     cantidadDeBloques = blockSize / tamanioDeBloque;
 
-	log_info(loggerImongoStore,"ZIZE De BLOQUES %d", blockSize);
     int marcador = sizeof(uint32_t);
     memcpy(&(mapSuperBloque[marcador]), &cantidadDeBloques, sizeof(uint32_t));
-	log_info(loggerImongoStore,"CANTIDA De BLOQUES %d",cantidadDeBloques);
 
 //Verificar BitMap
     
     crearBitMap();
-	log_info(loggerImongoStore,"entre a archivo basura %d",cantidadDeBloques);
     char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
     verificarBlocksBitMap(ubicacionArchivoBasura);
+	free(ubicacionArchivoBasura);
 
-log_info(loggerImongoStore,"entre a archivo comida%d",cantidadDeBloques);
     char *ubicacionArchivoComida = string_from_format("%s/Files/Comida.ims",puntoDeMontaje);
     verificarBlocksBitMap(ubicacionArchivoComida);
+	free(ubicacionArchivoComida);
 
-log_info(loggerImongoStore,"entre a archivo oxigeno %d",cantidadDeBloques);
     char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
     verificarBlocksBitMap(ubicacionArchivoOxigeno);
+	free(ubicacionArchivoOxigeno);
 
-log_info(loggerImongoStore,"entre a archivo bitacora %d",cantidadDeBloques);
     verificarBitacoraBitMap();
 
     marcador+=sizeof(uint32_t);
 
-	log_info(loggerImongoStore,"hago memcopy ");
     memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
-	log_info(loggerImongoStore,"se copio el bitmap %d",tamanioBitMap);
     msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
 
 //Termino
     log_info(loggerImongoStore,"Termina el proceso de verificacion en el SuperBloque");
 }
 
-void sabotajeFile(){
+int llenarBloqueConRecurso(char caracterLlenado, int bloqueALlenar, int sizeALlenar){
+	int cantFaltante = sizeALlenar;
+	int cantidadLibreBlock = tamanioDeBloque;
+	int marcador = bloqueALlenar * tamanioDeBloque;
 
+	char *caracteresVaciado = string_repeat('\0',tamanioDeBloque);
+	memcpy(&(mapBlocksCopia[marcador]), caracteresVaciado, tamanioDeBloque);
+
+	if(cantFaltante<=cantidadLibreBlock){
+		cantidadLibreBlock = cantFaltante;
+	}
+	char *caracteresLlenado = string_repeat(caracterLlenado,cantidadLibreBlock);
+	memcpy(&(mapBlocksCopia[marcador]), caracteresLlenado, cantidadLibreBlock);
+	
+	cantFaltante-=cantidadLibreBlock;
+
+	return cantFaltante;
+}
+
+void reemplazarConListBlocks(char *ubicacionRecurso){
+	t_config *configRecurso = config_create(ubicacionRecurso);	
+	if(configRecurso!=NULL){
+        char *listaBlocks = config_get_string_value(configRecurso, "BLOCKS");
+		char *caracterLlenado = config_get_string_value(configRecurso, "CARACTER_LLENADO");
+		int sizeALlenar = config_get_int_value(configRecurso, "SIZE");
+
+        if(listaBlocks[1]!=']'){ 
+            int inicio = 1;
+            while(inicio<strlen(listaBlocks)){
+                int tamanio = 1;
+                int marcador = tamanio + inicio;
+				
+                while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']'){
+                    tamanio++;
+                    marcador = tamanio + inicio;
+                }
+				
+				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
+                int blockOcupado = atoi(blockOcupadoString) - 1;
+
+				sizeALlenar = llenarBloqueConRecurso(caracterLlenado[0],blockOcupado,sizeALlenar);
+
+                inicio += tamanio+1;
+            }
+        }
+		config_destroy(configRecurso);
+    }
+}
+
+void verificarBlockCount(char *ubicacionRecurso){
+	t_config *configRecurso = config_create(ubicacionRecurso);
+	if(configRecurso!=NULL){
+        char *listaBlocks = config_get_string_value(configRecurso, "BLOCKS");
+        int blockCount = 0;
+
+        if(listaBlocks[1]!=']'){ 
+            int inicio = 1;
+
+            while(inicio<strlen(listaBlocks)){
+                int tamanio = 1;
+                int marcador = tamanio + inicio;
+				
+                while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']'){
+                    tamanio++;
+                    marcador = tamanio + inicio;
+                }
+				
+				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
+                int blockOcupado = atoi(blockOcupadoString) - 1;
+				blockCount++;
+
+                inicio += tamanio+1;
+            }
+        }
+
+		config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(blockCount));
+		config_save(configRecurso);
+		config_destroy(configRecurso);
+    }
+
+}
+
+int verificarSize(int bloqueAVerificar){
+	int sizeRecurso = 0;
+	int marcador = bloqueAVerificar * tamanioDeBloque;
+	int limite = marcador + tamanioDeBloque;
+	while(mapBlocksCopia[marcador]!='\0' && marcador<limite){
+		sizeRecurso++;
+		marcador++;
+	}
+	return sizeRecurso;
+}
+
+void verificarEnFile(char *ubicacionRecurso){
+	t_config *configRecurso = config_create(ubicacionRecurso);
+	if(configRecurso!=NULL){
+        char *listaBlocks = config_get_string_value(configRecurso, "BLOCKS");
+        int sizeReal = 0;
+
+        if(listaBlocks[1]!=']'){ 
+            int inicio = 1;
+            while(inicio<strlen(listaBlocks)){
+                int tamanio = 1;
+                int marcador = tamanio + inicio;
+				
+                while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']'){
+                    tamanio++;
+                    marcador = tamanio + inicio;
+                }
+				
+				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
+                int blockOcupado = atoi(blockOcupadoString) - 1;
+				sizeReal += verificarSize(blockOcupado);
+				
+                inicio += tamanio+1;
+            }
+        }
+		config_set_value(configRecurso,"SIZE",string_itoa(sizeReal));
+		config_save(configRecurso);
+		config_destroy(configRecurso);
+    }
+
+}
+
+void sabotajeFile(){
+    log_info(loggerImongoStore,"Comienza el proceso de verificacion en los Files");
+	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
+	verificarBlockCount(ubicacionArchivoBasura);
+	verificarEnFile(ubicacionArchivoBasura);
+	reemplazarConListBlocks(ubicacionArchivoBasura);
+	free(ubicacionArchivoBasura);
+
+    char *ubicacionArchivoComida = string_from_format("%s/Files/Comida.ims",puntoDeMontaje);
+	verificarBlockCount(ubicacionArchivoComida);
+	verificarEnFile(ubicacionArchivoComida);
+	reemplazarConListBlocks(ubicacionArchivoBasura);
+	free(ubicacionArchivoComida);
+
+    char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
+	verificarBlockCount(ubicacionArchivoOxigeno);
+	verificarEnFile(ubicacionArchivoOxigeno);
+	reemplazarConListBlocks(ubicacionArchivoBasura);
+	free(ubicacionArchivoOxigeno);
+
+    log_info(loggerImongoStore,"Termina el proceso de verificacion en los Files");
+
+	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
+	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 }
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------- MENSAJES DEL LOG ---------------------------------------//
@@ -847,7 +980,7 @@ void servidorPrincipal() {
 	close(socketCliente);
 	close(listeningSocket);   
 }
-
+//FUNCION REPETIDA
 void deserealizarPosicion(t_paquete* paquete){
 	uint32_t tid;
 	memcpy(&tid, paquete->buffer->stream, sizeof(uint32_t));
@@ -990,7 +1123,7 @@ void deserializarNuevaPosicion(t_paquete * paquete){
 	log_info(loggerImongoStore, "Tripulante %d estaba en %d|%d y ahora esta en %d|%d", tid, posxV, posyV, posxN, posyN);
 
 	// METER INFO EN LA BITACORA
-	//llenarBlocksBitcoras(string_from_format("Se mueve de %d|%d a %d|%d\n",posxV, posyV, posxN, posyN),tid);
+	llenarBlocksBitcoras(string_from_format("Se mueve de %d|%d a %d|%d\n",posxV, posyV, posxN, posyN),tid);
 }
 
 void deserializarTerminoTarea(t_paquete * paquete){
@@ -1011,7 +1144,7 @@ void deserializarTerminoTarea(t_paquete * paquete){
 	log_info(loggerImongoStore,"Trip %d termino %s", tid , nombreTarea);
 
 	// METER INFO EN BITACORA Y LOGS, PARA TODO TIPO DE TAREA (NO SOLO PARA NORMALES)
-	//llenarBlocksBitcoras(string_from_format("Termina la ejecucion de la tarea %s\n",nombreTarea),tid);
+	llenarBlocksBitcoras(string_from_format("Termina la ejecucion de la tarea %s\n",nombreTarea),tid);
 }
 
 void deserializarInicioTareaNormal(t_paquete * paquete){
@@ -1033,8 +1166,7 @@ void deserializarInicioTareaNormal(t_paquete * paquete){
 	log_info(loggerImongoStore,"Trip %d arranco %s", tid , nombreTarea);
 
 	// METER INFO EN BITACORA Y LOGS
-	//llenarBlocksBitcoras(string_from_format("Comienza la ejecucion de la tarea %s\n",nombreTarea),tid);
-
+	llenarBlocksBitcoras(string_from_format("Comienza la ejecucion de la tarea %s\n",nombreTarea),tid);
 }
 
 void deserializarTripulanteFSCK(t_paquete * paquete){
