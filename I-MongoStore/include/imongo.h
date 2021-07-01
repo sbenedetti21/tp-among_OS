@@ -143,5 +143,6 @@ void deserializarNuevaPosicion(t_paquete*);
 void deserializarTareaIO(t_paquete*);
 void deserializarTerminoTarea(t_paquete *);
 void deserializarInicioTareaNormal(t_paquete *);
+void deserializarTripulanteFSCK(t_paquete*);
 
 #endif

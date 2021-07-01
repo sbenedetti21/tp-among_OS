@@ -338,7 +338,7 @@ void consola(){
 		uint32_t posX = 10;
 		uint32_t posY = 4;
 
-		cambiarEstadosABloqueadosEmergencias();
+		cambiarEstadosABloqueados();
 
 		TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(posX, posY);
 
@@ -1199,7 +1199,7 @@ void serializarYMandarElegidoDelSabotaje(uint32_t tid){
 
 	buffer-> stream = stream;
 
-	mandarPaqueteSerializado(buffer, socket, INICIO_SABOTAJE);
+	mandarPaqueteSerializado(buffer, socket, INICIAR_FSCK);
 }
 
 void serializarYMandarPosicionBitacora(uint32_t tid, uint32_t posxV, uint32_t posyV, uint32_t posxN, uint32_t posyN){
@@ -1319,25 +1319,27 @@ void atenderImongo(int socketCliente){
 
 		memcpy(&posY, stream, tamanioTareas);
 
-		cambiarEstadosABloqueadosEmergencias();
+		cambiarEstadosABloqueados();
 
 		TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(posX, posY);
 
-		trasladarseA(posX, posY, tripulante);
+		uint32_t  posXTripulante = tripulante->posicionX; 
+		uint32_t  posyTripulante = tripulante->posicionY; 
 
-		sleep(tiempoSabotaje);
+		log_info(loggerDiscordiador, "Tripulante %d nos va a salvar del sabotaje en %d|%d !!", tripulante->tid, posX, posY);
+
+		cambiarDeEstado(tripulante,'S');
+
+		trasladarseADuranteSabotaje(posX, posY, tripulante);
 
 		serializarYMandarElegidoDelSabotaje(tripulante->tid);
 
-		list_add(listaBloqueadosEmergencia, tripulante);
-		
-		break;
-	
-	case SABOTAJE_TERMINADO:;
+		sleep(tiempoSabotaje);
 
-		// recv() señal de que termino fsck
+		log_info(loggerDiscordiador, "Tripulante %d nos ha salvado!!", tripulante->tid);
 
-		
+		trasladarseADuranteSabotaje(posXTripulante, posyTripulante, tripulante);
+
 		cantidadDeSabotajes--;
 		
 		if(cantidadDeSabotajes == 0){
@@ -1348,9 +1350,8 @@ void atenderImongo(int socketCliente){
 			sem_post(&semaforoSabotaje);
 		}
 
-		}
-	
-
+				}
+		
 		break;
 	}
 
@@ -1522,7 +1523,7 @@ void salirDeListaEstado(TCB_DISCORDIADOR * tripulante){
 
 }
 
-void cambiarEstadosABloqueadosEmergencias(){
+void cambiarEstadosABloqueados(){
 
 	t_list * listaTrabajando2 = list_duplicate(listaTrabajando);
 	list_sort(listaTrabajando2 , tripulanteConIDMasChico );

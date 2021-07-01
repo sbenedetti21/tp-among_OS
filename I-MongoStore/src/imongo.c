@@ -1037,6 +1037,13 @@ void deserializarInicioTareaNormal(t_paquete * paquete){
 
 }
 
+void deserializarTripulanteFSCK(t_paquete * paquete){
+	uint32_t tid;
+	memcpy(&tid, paquete->buffer->stream, sizeof(uint32_t));
+	// METER INFO EN BITACORA Y LOGS
+	//llenarBlocksBitcoras(string_from_format("Finalizo el sabotaje y salvo a todos en la nave\n"),tid);
+}
+
 void atenderDiscordiador(int socketCliente){
 	printf("Esperando mensaje del Discordiador\n");
 	t_paquete* paquete = malloc(sizeof(t_paquete));
@@ -1068,6 +1075,10 @@ void atenderDiscordiador(int socketCliente){
 		break;
 	case FINALIZO_TAREA:
 		deserializarTerminoTarea(paquete);
+		break;
+	case INICIAR_FSCK:
+		deserializarTripulanteFSCK(paquete);
+		//Iniciar FSCK	
 		break;
 	}
 

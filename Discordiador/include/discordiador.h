@@ -81,7 +81,7 @@ void pasarTripulante(TCB_DISCORDIADOR *);
 void salirDeListaEstado(TCB_DISCORDIADOR *);
 void subModuloTripulante(TCB_DISCORDIADOR *);
 void gestionadorIO();
-void cambiarEstadosABloqueadosEmergencias();
+void cambiarEstadosABloqueados();
 void volverAEstadosPostSabotaje();
 bool tripulanteConIDMasChico(TCB_DISCORDIADOR *, TCB_DISCORDIADOR*);
 TCB_DISCORDIADOR * crearTCB(char *); // chequear lo de la lista
