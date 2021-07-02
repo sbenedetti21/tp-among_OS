@@ -2,7 +2,7 @@
 #define DISCORDIADOR_H
 
 #include "shared_utils.h"
-
+#include <commons/memory.h>
 // /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
 
 //flag para liberar puerto 
@@ -38,6 +38,7 @@ sem_t cambiarAFinalizado;
 sem_t cambiarABloqueado;
 sem_t cambiarABloqueadosEmergencia;
 sem_t mutexPID; 
+
 
  
 

@@ -81,7 +81,10 @@ void atenderDiscordiador(int socketCliente){
 
 	BUFFER_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
 
-	if(! BUFFER_RECV){ log_error(loggerMiram,"No se pudo recibir el buffer");}
+	if(! BUFFER_RECV){ log_error(loggerMiram,"No se pudo recibir el buffer");} else {
+		log_info(loggerMiram, "Cantidad de bytes recibidos en el buffer: %d", BUFFER_RECV);
+	}
+	
 
 	void* stream = malloc(paquete->buffer->size);
 	stream = paquete->buffer->stream;
@@ -304,8 +307,8 @@ void atenderDiscordiador(int socketCliente){
 
 	//enviar proxima tarea (mensaje de miram)
 
-		void* stream = malloc(paquete->buffer->size);
-		stream = paquete->buffer->stream;
+		// void* stream = malloc(paquete->buffer->size);
+		// stream = paquete->buffer->stream;
 		uint32_t tid = 0; 
 		memcpy(&tid, stream, sizeof(uint32_t));
 		stream += sizeof(uint32_t);
@@ -365,20 +368,22 @@ void atenderDiscordiador(int socketCliente){
 
 	case ACTUALIZAR_POS: ;
 
+		log_info(loggerMiram, mem_hexstring(stream, sizeof(uint32_t) * 4));
+
 		uint32_t tripulanteid = 0, patotaid = 0, posx = 0, posy = 0;
 		int offset = 0;
-		memcpy(stream+offset, &tid , sizeof(uint32_t));
+		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
-		memcpy(stream+offset, &pid , sizeof(uint32_t));
+		memcpy(&patotaid, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
-		memcpy(stream+offset, &posx , sizeof(uint32_t));
+		memcpy(&posx, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
-		memcpy(stream+offset, &posy , sizeof(uint32_t));
+		memcpy(&posy, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
 
-		log_info(loggerMiram,"Tripulante %d se movio hacia %d|%d",tid,posx,posy);
+		log_info(loggerMiram,"Tripulante %d se movio hacia %d|%d",tripulanteid,posx,posy);
 
-		moverTripulanteEnMapa(tid,posx,posy);
+		moverTripulanteEnMapa(tripulanteid,posx,posy);
 
 		// ACTUALIZAR TRIPULANTE EN MEMORIA		
 
@@ -541,7 +546,7 @@ void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
 	memcpy(a_enviar + offset2, &(paquete->buffer->size), sizeof(uint32_t));
 	offset2 += sizeof(uint32_t);
 
-	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
+	memcpy(a_enviar + offset2, paquete->buffer-> stream, paquete->buffer->size);
 
 	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
 
@@ -865,7 +870,7 @@ uint32_t asignarMemoriaSegmentacionPCB(void * pcb , t_list * tablaSegmentos){
 		sem_wait(&mutexTablaGlobal);
 		list_add(tablaSegmentosGlobal, segmentoNuevo); 
 		sem_post(&mutexTablaGlobal);
-		printf("Direccion logica asignada %d \n", direccionLogica);  
+		printf("Direccion logica asignada %d \n", direccionLogica);   
 		return direccionLogica;
 }
 
@@ -1126,28 +1131,39 @@ void expulsarTripulanteDelMapa(uint32_t tid) {
 
 char idMapa(uint32_t tid){
 
-switch (tid)
-{
-case 0:
-	return '0';
-case 1:
-	return '1';
-case 2:
-	return '2';
-case 3:
-	return '3';
-case 4:
-	return '4';
-case 5:
-	return '5';
-case 6:
-	return '6';
-case 7:
-	return '7';
-case 8:
-	return '8';
-case 9:
-	return '9';
-}
+	char id = 0;
+
+	id = tid + 65;
+
+	if (id > 90) {
+		id += 6;
+	}
+	
+
+// switch (tid)
+// {
+// case 0:
+// 	return '0';
+// case 1:
+// 	return '1';
+// case 2:
+// 	return '2';
+// case 3:
+// 	return '3';
+// case 4:
+// 	return '4';
+// case 5:
+// 	return '5';
+// case 6:
+// 	return '6';
+// case 7:
+// 	return '7';
+// case 8:
+// 	return '8';
+// case 9:
+// 	return '9';
+// }
+
+	return id;
 
 }
