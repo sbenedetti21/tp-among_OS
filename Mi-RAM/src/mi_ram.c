@@ -105,7 +105,6 @@ void atenderDiscordiador(int socketCliente){
 		tamanioTareas++;
 
 		log_info(loggerMiram, "%s", tareas);
-		printf("%s \n", tareas); // tira un invalid read valgrind o unitialised values
 
 		//deserializar pid 
 		idPatota = 0; 
@@ -156,9 +155,16 @@ void atenderDiscordiador(int socketCliente){
 					// tripu->longitudTareas = tamanioTareas;
 					int tid = 0;
 					memcpy(&tid, stream, 4);
+					uint32_t x = 0;
+					uint32_t y = 0;
+				
+					memcpy(&x, stream + 4, 4);
+					memcpy(&y, stream + 8, 4);
+					agregarTripulanteAlMapa(tid,x,y);
 					// tripu->idTripulante = tid;
 					// list_add(listaTripulantes, tripu);
 					// agregarTripulante(pid, tamanioTareas, tid);
+
 
 					memcpy(streamPatota + offset, stream, (SIZEOF_TCB - 8));
 					stream += (SIZEOF_TCB - 8); offset += (SIZEOF_TCB - 8);
@@ -171,11 +177,11 @@ void atenderDiscordiador(int socketCliente){
 				};
 				log_info(loggerMiram, "streamPatota a ser alojado en memoria %s", mem_hexstring(streamPatota, memoriaNecesaria));
 
-				mem_hexdump(streamPatota, memoriaNecesaria);
+				//mem_hexdump(streamPatota, memoriaNecesaria);
 				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria, pid);
 
-				mem_hexdump(memoriaPrincipal, 2048);
+				//mem_hexdump(memoriaPrincipal, 2048);
 
 				// void mostrarContenido(t_tripulanteConPID * tripulante) {
 				// 	mem_hexdump(tripulante, 12);
@@ -359,7 +365,22 @@ void atenderDiscordiador(int socketCliente){
 
 	case ACTUALIZAR_POS: ;
 
+		uint32_t tripulanteid = 0, patotaid = 0, posx = 0, posy = 0;
+		int offset = 0;
+		memcpy(stream+offset, &tid , sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+		memcpy(stream+offset, &pid , sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+		memcpy(stream+offset, &posx , sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+		memcpy(stream+offset, &posy , sizeof(uint32_t));
+		offset += sizeof(uint32_t);
 
+		log_info(loggerMiram,"Tripulante %d se movio hacia %d|%d",tid,posx,posy);
+
+		moverTripulanteEnMapa(tid,posx,posy);
+
+		// ACTUALIZAR TRIPULANTE EN MEMORIA		
 
 	break; 
 	
@@ -651,7 +672,7 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 
 	for (i = 0; i < cantidadFrames; i++){ 
 		uint32_t direcProximoFrame = buscarFrame();
-		printf("direc prox frame a escribir %d \n", direcProximoFrame);
+		log_info(loggerMiram,"direc prox frame a escribir %d \n", direcProximoFrame);
 
 		pthread_mutex_lock(&mutexMemoriaPrincipal);
 		while ((i * tamanioPagina + j) < (memoriaAGuardar) && j < tamanioPagina){
@@ -1077,21 +1098,24 @@ bool cabeTCB(t_segmento * segmento){
 // ------------------------------------------------------ MAPA ----------------------------------------------
 
 void iniciarMapa() {
+	sem_init(&semaforoMoverTripulante,0,1);
 	sem_init(&semaforoTerminarMapa,0,0);
 	nivel_gui_inicializar();
 	sem_wait(&semaforoTerminarMapa);
 }
 
-void agregarTripulanteAlMapa(TCB* tripulante) { 
-	char id = idMapa(tripulante->tid); //aca el tid es un uint  
-    personaje_crear(navePrincipal, id, tripulante->posicionX, tripulante->posicionY);
+void agregarTripulanteAlMapa(uint32_t tid, uint32_t x, uint32_t y) { 
+	char id = idMapa(tid); //aca el tid es un uint  
+    personaje_crear(navePrincipal, id, x, y);
 	nivel_gui_dibujar(navePrincipal);
 }
 
 void moverTripulanteEnMapa(uint32_t tid, uint32_t x, uint32_t y){
 	char id = idMapa(tid);
+	sem_wait(&semaforoMoverTripulante);
 	item_mover(navePrincipal, id, x, y);
 	nivel_gui_dibujar(navePrincipal);
+	sem_post(&semaforoMoverTripulante);
 }
 
 void expulsarTripulanteDelMapa(uint32_t tid) {

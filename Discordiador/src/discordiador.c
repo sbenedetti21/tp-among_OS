@@ -571,7 +571,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 														}
 
 
-														// mandar posi a imongo y miram
+														serializarYMandarPosicion(tripulante);
+														
 													}
 
 													if(tripulante->posicionY != tarea->posicionY){
@@ -597,7 +598,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 															break; 
 														}
 
-														// TODO mandar posicion a mi ram e imongo
+														serializarYMandarPosicion(tripulante);
+													
 													}
 
 													if(tripulante->posicionY != tarea->posicionY){
@@ -790,7 +792,7 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 		}
 
 		sleep(cicloCPU);
-		// MANDAR POSICION A MI RAM e IMONGO
+		serializarYMandarPosicion(tripulante);
 	}
 	
 	while(posicionY != tripulante->posicionY)
@@ -802,7 +804,7 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 		}
 
 		sleep(cicloCPU);
-		// MANDAR POSICION A MI RAM e IMONGO
+		serializarYMandarPosicion(tripulante);
 	}
 	
 	log_info(loggerDiscordiador, "Tripulante %d ahora esta en %d|%d ",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
@@ -1013,15 +1015,20 @@ void serializarYMandarPedidoDeTarea(int socket, uint32_t pid, uint32_t tid){
 
 void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
 
-	int socketIMONGO = conectarImongo();
 	int socketMIRAM = conectarMiRAM();
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
-	buffer-> size = sizeof(uint32_t) * 2;
+	buffer-> size = sizeof(uint32_t) * 4;
 
 	void* stream = malloc(buffer->size);
 
 	int offset = 0;
+
+	memcpy(stream+offset, &(tripulante->tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->pid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
 
 	memcpy(stream+offset, &(tripulante->posicionX), sizeof(uint32_t));
 	offset += sizeof(uint32_t);
@@ -1031,8 +1038,7 @@ void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
 
 	buffer-> stream = stream;
 
-	mandarPaqueteSerializado(buffer, socketIMONGO, NUEVA_POSICION);
-	mandarPaqueteSerializado(buffer, socketMIRAM, PEDIR_TAREA);  // VER HEADER
+	mandarPaqueteSerializado(buffer, socketMIRAM, ACTUALIZAR_POS);  
 
 }
 
