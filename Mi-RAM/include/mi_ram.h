@@ -87,6 +87,7 @@ t_list * tablaDeTablasSegmentos;  // va a estar conformado por muchos struct de 
 sem_t mutexTablaGlobal;
 sem_t mutexTablaDeTablas; 
 sem_t mutexTripulantesPatotas; 
+sem_t mutexCompactacion; 
 t_list * tripulantesPatotas; 
 
 
@@ -123,6 +124,7 @@ bool cabePCB(t_segmento * );
 bool cabeTCB(t_segmento * );
 void imprimirSegmentosLibres();
 void actualizarProximaTarea(uint32_t, uint32_t);
+void compactarMemoria();
 
 
 // --------------------- Generales

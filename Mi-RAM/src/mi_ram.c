@@ -1,33 +1,6 @@
 #include "mi_ram.h"
  //un comentario 
 
-void compactarMemoria(){
-
-	list_sort(tablaSegmentosGlobal, seEncuentraPrimeroEnMemoria);
-	for(int i = 0; i < (list_size(tablaSegmentosGlobal)); i++){
-	   t_segmento * segmento = list_get(tablaSegmentosGlobal, i); 
-	   
-	   printf("Segmento ocupado que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
-	}
-
-	//para el primer segmento 
-	t_segmento * primerSegmentoOcupado = list_get(tablaSegmentosGlobal, 0); 
-	if(primerSegmentoOcupado->base != 0) {
-		memcpy(memoriaPrincipal, memoriaPrincipal + primerSegmentoOcupado->base, primerSegmentoOcupado->tamanio); 
-		primerSegmentoOcupado -> base = 0; 
-		list_replace(tablaSegmentosGlobal, 0, primerSegmentoOcupado);
-
-	}
-	for(int i = 0; i < (list_size(tablaSegmentosGlobal)-1); i++){
-		t_segmento * segmentoActual = list_get(tablaSegmentosGlobal, i); 
-		int finSegmento = segmentoActual->base + segmentoActual->tamanio;
-		t_segmento * proximoSegmento = list_get(tablaSegmentosGlobal, i + 1); 
-		memcpy(memoriaPrincipal + finSegmento, memoriaPrincipal + proximoSegmento->base, proximoSegmento->tamanio); 
-		proximoSegmento->base = finSegmento; 
-		list_replace(tablaSegmentosGlobal, i+1, proximoSegmento);
-		
-	}
-}
 int main(int argc, char ** argv){
 	navePrincipal = nivel_crear("Nave Principal");
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
@@ -59,8 +32,7 @@ int main(int argc, char ** argv){
 	char * stringPrueba = "PROBANDO EL LUGAR SOFI CAPA ";
 	asignarMemoriaSegmentacionTareas(stringPrueba, 28, unaTabla);
 
-	compactarMemoria();
-	mem_hexdump(memoriaPrincipal, 300);
+	
 
 	
 
@@ -184,9 +156,22 @@ void atenderDiscordiador(int socketCliente){
 		log_info(loggerMiram, "hay lugar disponible (1 -> si, -1 -> no): %d \n", hayLugar);
 
 		if(hayLugar == -1){
+
+			if(strcmp(esquemaMemoria, "SEGMENTACION") == 0){
 			printf("No hay lugar, voy a compactar pa ti \n "); 
+			sem_wait(&mutexCompactacion); 
 			compactarMemoria();
+			sem_post(&mutexCompactacion);
+
 			hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs);
+			if(hayLugar == -1){
+				log_info(loggerMiram, "Rechazo patota por falta de espacio en memoria");
+				printf("Definitivamente no hay lugar :( \n");
+			}
+			
+			}
+			
+			
 			
 		}
 		if(hayLugar == 1){
@@ -636,6 +621,7 @@ void iniciarMemoria() {
 		sem_init(&mutexTablaGlobal, 0, 1);
 		sem_init(&mutexTablaDeTablas, 0, 1);
 		sem_init(&mutexTripulantesPatotas, 0, 1);
+		sem_init(&mutexCompactacion, 0, 1);
 	}
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
@@ -1177,6 +1163,44 @@ bool cabeTCB(t_segmento * segmento){
 	}
 
 	else {return false; }
+}
+
+
+
+void compactarMemoria(){
+
+	list_sort(tablaSegmentosGlobal, seEncuentraPrimeroEnMemoria);
+	for(int i = 0; i < (list_size(tablaSegmentosGlobal)); i++){
+	   t_segmento * segmento = list_get(tablaSegmentosGlobal, i); 
+	   
+	   printf("Segmento ocupado que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
+	}
+
+	//para el primer segmento 
+	t_segmento * primerSegmentoOcupado = list_get(tablaSegmentosGlobal, 0); 
+	if(primerSegmentoOcupado->base != 0) {
+		memcpy(memoriaPrincipal, memoriaPrincipal + primerSegmentoOcupado->base, primerSegmentoOcupado->tamanio); 
+		primerSegmentoOcupado -> base = 0; 
+		list_replace(tablaSegmentosGlobal, 0, primerSegmentoOcupado);
+
+	}
+	for(int i = 0; i < (list_size(tablaSegmentosGlobal)-1); i++){
+		t_segmento * segmentoActual = list_get(tablaSegmentosGlobal, i); 
+		int finSegmento = segmentoActual->base + segmentoActual->tamanio;
+		t_segmento * proximoSegmento = list_get(tablaSegmentosGlobal, i + 1); 
+		memcpy(memoriaPrincipal + finSegmento, memoriaPrincipal + proximoSegmento->base, proximoSegmento->tamanio); 
+		proximoSegmento->base = finSegmento; 
+		list_replace(tablaSegmentosGlobal, i+1, proximoSegmento);
+		
+	}
+
+	t_list * segmentoLibre = obtenerSegmentosLibres(tablaSegmentosGlobal); 
+	t_segmento * espacioLibre = list_get(segmentoLibre, 0); 
+	memset(memoriaPrincipal + (espacioLibre->base), 0,espacioLibre->tamanio);
+
+
+
+
 }
 
 // ------------------------------------------------------ MAPA ----------------------------------------------
