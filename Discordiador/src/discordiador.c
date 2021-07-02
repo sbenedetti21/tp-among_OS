@@ -2,10 +2,10 @@
  
 // FACU: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 // FRAN: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
-// FRAN: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+// FRAN: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 
   
-int main(int argc, char ** argv){
+int main(int argc, char ** argv){  
 
 	loggerDiscordiador = log_create("discordiador.log", "discordiador.c", 0, LOG_LEVEL_INFO); 
 
@@ -1037,6 +1037,8 @@ void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
 	offset += sizeof(uint32_t);
 
 	buffer-> stream = stream;
+
+	log_info(loggerDiscordiador, mem_hexstring(stream, sizeof(uint32_t) * 4));
 
 	mandarPaqueteSerializado(buffer, socketMIRAM, ACTUALIZAR_POS);  
 

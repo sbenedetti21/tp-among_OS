@@ -1,265 +1,45 @@
-==12449== Memcheck, a memory error detector
-==12449== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==12449== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==12449== Command: ./mi_ram
-==12449== Parent PID: 7371
-==12449== 
---12449-- 
---12449-- Valgrind options:
---12449--    --log-file=valgrind
---12449--    -v
---12449-- Contents of /proc/version:
---12449--   Linux version 4.4.0-116-generic (buildd@lgw01-amd64-023) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.9) ) #140-Ubuntu SMP Mon Feb 12 21:22:43 UTC 2018
---12449-- 
---12449-- Arch and hwcaps: X86, LittleEndian, x86-mmxext-sse1-sse2-sse3-lzcnt
---12449-- Page sizes: currently 4096, max supported 4096
---12449-- Valgrind library directory: /usr/lib/valgrind
---12449-- Reading syms from /lib/i386-linux-gnu/ld-2.23.so
---12449--   Considering /lib/i386-linux-gnu/ld-2.23.so ..
---12449--   .. CRC mismatch (computed 596cb2b8 wanted 417b32cc)
---12449--   Considering /usr/lib/debug/lib/i386-linux-gnu/ld-2.23.so ..
---12449--   .. CRC is valid
---12449-- Reading syms from /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram
---12449-- Reading syms from /usr/lib/valgrind/memcheck-x86-linux
---12449--   Considering /usr/lib/valgrind/memcheck-x86-linux ..
---12449--   .. CRC mismatch (computed 6036da3f wanted 652e483f)
---12449--    object doesn't have a symbol table
---12449--    object doesn't have a dynamic symbol table
---12449-- Scheduler: using generic scheduler lock implementation.
---12449-- Reading suppressions file: /usr/lib/valgrind/default.supp
-==12449== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-12449-by-utnso-on-???
-==12449== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-12449-by-utnso-on-???
-==12449== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-12449-by-utnso-on-???
-==12449== 
-==12449== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==12449== don't want to do, unless you know exactly what you're doing,
-==12449== or are doing some strange experiment):
-==12449==   /usr/lib/valgrind/../../bin/vgdb --pid=12449 ...command...
-==12449== 
-==12449== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==12449==   /path/to/gdb ./mi_ram
-==12449== and then give GDB the following command
-==12449==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=12449
-==12449== --pid is optional if only one valgrind process is running
-==12449== 
---12449-- REDIR: 0x4018eb0 (ld-linux.so.2:strlen) redirected to 0x380490f2 (???)
---12449-- REDIR: 0x4018c70 (ld-linux.so.2:index) redirected to 0x380490cd (???)
---12449-- Reading syms from /usr/lib/valgrind/vgpreload_core-x86-linux.so
---12449--   Considering /usr/lib/valgrind/vgpreload_core-x86-linux.so ..
---12449--   .. CRC mismatch (computed 5b95c0c4 wanted 39e79efa)
---12449--    object doesn't have a symbol table
---12449-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so
---12449--   Considering /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so ..
---12449--   .. CRC mismatch (computed 4d5a1526 wanted 33571d5b)
---12449--    object doesn't have a symbol table
-==12449== WARNING: new redirection conflicts with existing -- ignoring it
---12449--     old: 0x04018eb0 (strlen              ) R-> (0000.0) 0x380490f2 ???
---12449--     new: 0x04018eb0 (strlen              ) R-> (2007.0) 0x0402f410 strlen
---12449-- Reading syms from /usr/lib/libcommons.so
---12449-- Reading syms from /lib/i386-linux-gnu/libpthread-2.23.so
---12449--   Considering /usr/lib/debug/.build-id/12/78da59ecc0791dce5c44d8b8756a0480be3a5b.debug ..
---12449--   .. build-id is valid
---12449-- Reading syms from /usr/lib/libnivel-gui.so
---12449-- Reading syms from /lib/i386-linux-gnu/libncurses.so.5.9
---12449--    object doesn't have a symbol table
---12449-- Reading syms from /lib/i386-linux-gnu/libc-2.23.so
---12449--   Considering /lib/i386-linux-gnu/libc-2.23.so ..
---12449--   .. CRC mismatch (computed af9c0474 wanted a5de3f2a)
---12449--   Considering /usr/lib/debug/lib/i386-linux-gnu/libc-2.23.so ..
---12449--   .. CRC is valid
---12449-- Reading syms from /lib/i386-linux-gnu/libdl-2.23.so
---12449--   Considering /lib/i386-linux-gnu/libdl-2.23.so ..
---12449--   .. CRC mismatch (computed a82b1ac7 wanted 804ba9a9)
---12449--   Considering /usr/lib/debug/lib/i386-linux-gnu/libdl-2.23.so ..
---12449--   .. CRC is valid
---12449-- Reading syms from /lib/i386-linux-gnu/libtinfo.so.5.9
---12449--    object doesn't have a symbol table
---12449-- REDIR: 0x411c4b0 (libc.so.6:strncasecmp) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
---12449-- REDIR: 0x4123140 (libc.so.6:memrchr) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
---12449-- REDIR: 0x4135b20 (libc.so.6:wcslen) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
---12449-- REDIR: 0x411b350 (libc.so.6:strstr) redirected to 0x4033700 (strstr)
---12449-- REDIR: 0x411a7e0 (libc.so.6:__GI_strrchr) redirected to 0x402ee00 (__GI_strrchr)
---12449-- REDIR: 0x4115f00 (libc.so.6:malloc) redirected to 0x402c110 (malloc)
---12449-- REDIR: 0x411a5c0 (libc.so.6:__GI_strlen) redirected to 0x402f390 (__GI_strlen)
---12449-- REDIR: 0x411c680 (libc.so.6:__GI_memcpy) redirected to 0x4030fb0 (__GI_memcpy)
---12449-- REDIR: 0x4116810 (libc.so.6:calloc) redirected to 0x402e010 (calloc)
---12449-- REDIR: 0x4119d20 (libc.so.6:__GI_strchr) redirected to 0x402ef30 (__GI_strchr)
---12449-- REDIR: 0x4116520 (libc.so.6:realloc) redirected to 0x402e250 (realloc)
---12449-- REDIR: 0x4116470 (libc.so.6:free) redirected to 0x402d2f0 (free)
---12449-- REDIR: 0x411a580 (libc.so.6:strlen) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
---12449-- REDIR: 0x4123440 (libc.so.6:__strlen_sse2_bsf) redirected to 0x402f370 (strlen)
---12449-- REDIR: 0x411a700 (libc.so.6:strncmp) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
---12449-- REDIR: 0x41da5c0 (libc.so.6:__strncmp_ssse3) redirected to 0x402fab0 (strncmp)
---12449-- REDIR: 0x4119ee0 (libc.so.6:strcmp) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
---12449-- REDIR: 0x41d9150 (libc.so.6:__strcmp_ssse3) redirected to 0x4030450 (strcmp)
---12449-- REDIR: 0x411bfc0 (libc.so.6:memset) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
---12449-- REDIR: 0x41ca4d0 (libc.so.6:__memset_sse2) redirected to 0x40327d0 (memset)
---12449-- REDIR: 0x411ba30 (libc.so.6:__GI_memchr) redirected to 0x40306d0 (__GI_memchr)
---12449-- REDIR: 0x411bc10 (libc.so.6:__GI_memcmp) redirected to 0x4031ef0 (__GI_memcmp)
---12449-- REDIR: 0x411e280 (libc.so.6:strchrnul) redirected to 0x40330b0 (strchrnul)
---12449-- REDIR: 0x411c0d0 (libc.so.6:__GI_mempcpy) redirected to 0x40332c0 (__GI_mempcpy)
---12449-- REDIR: 0x4119ae0 (libc.so.6:strcat) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
---12449-- REDIR: 0x412eb30 (libc.so.6:__strcat_ssse3) redirected to 0x402f030 (strcat)
---12449-- REDIR: 0x411c610 (libc.so.6:memcpy) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
---12449-- REDIR: 0x41ccb70 (libc.so.6:__memcpy_ssse3) redirected to 0x4030cc0 (memcpy)
---12449-- REDIR: 0x411e1b0 (libc.so.6:__GI___rawmemchr) redirected to 0x4033110 (__GI___rawmemchr)
-==12449== Thread 3:
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==12449==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
-==12449==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
-==12449==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
-==12449==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
-==12449==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
-==12449==    by 0x804954E: atenderDiscordiador (mi_ram.c:132)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==12449==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
-==12449==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
-==12449==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
-==12449==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
-==12449==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
-==12449==    by 0x804954E: atenderDiscordiador (mi_ram.c:132)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==12449==    by 0x40EE695: printf (printf.c:33)
-==12449==    by 0x8049561: atenderDiscordiador (mi_ram.c:133)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x4056242: list_add_element (in /usr/lib/libcommons.so)
-==12449==    by 0x4055092: list_add (in /usr/lib/libcommons.so)
-==12449==    by 0x804A3B7: asignarMemoriaSegmentacionTareas (mi_ram.c:580)
-==12449==    by 0x8049887: atenderDiscordiador (mi_ram.c:208)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x4056242: list_add_element (in /usr/lib/libcommons.so)
-==12449==    by 0x4055092: list_add (in /usr/lib/libcommons.so)
-==12449==    by 0x804A265: asignarMemoriaSegmentacionTCB (mi_ram.c:544)
-==12449==    by 0x80499C3: atenderDiscordiador (mi_ram.c:242)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==12449==    by 0x40EE695: printf (printf.c:33)
-==12449==    by 0x8049BC0: obtenerProximaTarea (mi_ram.c:344)
-==12449==    by 0x8049A48: atenderDiscordiador (mi_ram.c:256)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==12449==    by 0x40EE695: printf (printf.c:33)
-==12449==    by 0x8049BC0: obtenerProximaTarea (mi_ram.c:344)
-==12449==    by 0x8049A59: atenderDiscordiador (mi_ram.c:257)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== 
-==12449== Process terminating with default action of signal 2 (SIGINT)
-==12449==    at 0x40633FB: pthread_join (pthread_join.c:90)
-==12449==    by 0x804916E: main (mi_ram.c:49)
-==12449== 
-==12449== HEAP SUMMARY:
-==12449==     in use at exit: 4,796 bytes in 173 blocks
-==12449==   total heap usage: 337 allocs, 164 frees, 28,908 bytes allocated
-==12449== 
-==12449== Searching for pointers to 173 not-freed blocks
-==12449== Checked 16,856,564 bytes
-==12449== 
-==12449== LEAK SUMMARY:
-==12449==    definitely lost: 1,041 bytes in 91 blocks
-==12449==    indirectly lost: 776 bytes in 52 blocks
-==12449==      possibly lost: 272 bytes in 2 blocks
-==12449==    still reachable: 2,707 bytes in 28 blocks
-==12449==         suppressed: 0 bytes in 0 blocks
-==12449== Rerun with --leak-check=full to see details of leaked memory
-==12449== 
-==12449== Use --track-origins=yes to see where uninitialised values come from
-==12449== ERROR SUMMARY: 13 errors from 7 contexts (suppressed: 0 from 0)
-==12449== 
-==12449== 1 errors in context 1 of 7:
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==12449==    by 0x40EE695: printf (printf.c:33)
-==12449==    by 0x8049BC0: obtenerProximaTarea (mi_ram.c:344)
-==12449==    by 0x8049A59: atenderDiscordiador (mi_ram.c:257)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== 
-==12449== 1 errors in context 2 of 7:
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==12449==    by 0x40EE695: printf (printf.c:33)
-==12449==    by 0x8049BC0: obtenerProximaTarea (mi_ram.c:344)
-==12449==    by 0x8049A48: atenderDiscordiador (mi_ram.c:256)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== 
-==12449== 1 errors in context 3 of 7:
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x4056242: list_add_element (in /usr/lib/libcommons.so)
-==12449==    by 0x4055092: list_add (in /usr/lib/libcommons.so)
-==12449==    by 0x804A3B7: asignarMemoriaSegmentacionTareas (mi_ram.c:580)
-==12449==    by 0x8049887: atenderDiscordiador (mi_ram.c:208)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== 
-==12449== 1 errors in context 4 of 7:
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==12449==    by 0x40EE695: printf (printf.c:33)
-==12449==    by 0x8049561: atenderDiscordiador (mi_ram.c:133)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== 
-==12449== 3 errors in context 5 of 7:
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==12449==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
-==12449==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
-==12449==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
-==12449==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
-==12449==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
-==12449==    by 0x804954E: atenderDiscordiador (mi_ram.c:132)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== 
-==12449== 3 errors in context 6 of 7:
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==12449==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
-==12449==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
-==12449==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
-==12449==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
-==12449==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
-==12449==    by 0x804954E: atenderDiscordiador (mi_ram.c:132)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== 
-==12449== 3 errors in context 7 of 7:
-==12449== Conditional jump or move depends on uninitialised value(s)
-==12449==    at 0x4056242: list_add_element (in /usr/lib/libcommons.so)
-==12449==    by 0x4055092: list_add (in /usr/lib/libcommons.so)
-==12449==    by 0x804A265: asignarMemoriaSegmentacionTCB (mi_ram.c:544)
-==12449==    by 0x80499C3: atenderDiscordiador (mi_ram.c:242)
-==12449==    by 0x4062294: start_thread (pthread_create.c:333)
-==12449==    by 0x418C0AD: clone (clone.S:114)
-==12449== 
-==12449== ERROR SUMMARY: 13 errors from 7 contexts (suppressed: 0 from 0)
+==12715== Memcheck, a memory error detector
+==12715== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==12715== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==12715== Command: ./mi_ram
+==12715== Parent PID: 3864
+==12715== 
+==12715== Thread 4:
+==12715== Conditional jump or move depends on uninitialised value(s)
+==12715==    at 0x40E9383: vfprintf (vfprintf.c:1632)
+==12715==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
+==12715==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==12715==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==12715==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==12715==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==12715==    by 0x8049534: atenderDiscordiador (mi_ram.c:110)
+==12715==    by 0x4062294: start_thread (pthread_create.c:333)
+==12715==    by 0x418C0AD: clone (clone.S:114)
+==12715== 
+==12715== Conditional jump or move depends on uninitialised value(s)
+==12715==    at 0x40E9383: vfprintf (vfprintf.c:1632)
+==12715==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
+==12715==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==12715==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==12715==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==12715==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==12715==    by 0x8049534: atenderDiscordiador (mi_ram.c:110)
+==12715==    by 0x4062294: start_thread (pthread_create.c:333)
+==12715==    by 0x418C0AD: clone (clone.S:114)
+==12715== 
+==12715== 
+==12715== HEAP SUMMARY:
+==12715==     in use at exit: 40,722 bytes in 636 blocks
+==12715==   total heap usage: 7,779 allocs, 7,143 frees, 2,490,158 bytes allocated
+==12715== 
+==12715== LEAK SUMMARY:
+==12715==    definitely lost: 11,948 bytes in 85 blocks
+==12715==    indirectly lost: 1,891 bytes in 32 blocks
+==12715==      possibly lost: 1,088 bytes in 8 blocks
+==12715==    still reachable: 25,795 bytes in 511 blocks
+==12715==         suppressed: 0 bytes in 0 blocks
+==12715== Rerun with --leak-check=full to see details of leaked memory
+==12715== 
+==12715== For counts of detected and suppressed errors, rerun with: -v
+==12715== Use --track-origins=yes to see where uninitialised values come from
+==12715== ERROR SUMMARY: 12 errors from 2 contexts (suppressed: 0 from 0)
