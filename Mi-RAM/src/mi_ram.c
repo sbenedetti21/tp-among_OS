@@ -1,7 +1,33 @@
 #include "mi_ram.h"
  //un comentario 
 
+void compactarMemoria(){
 
+	list_sort(tablaSegmentosGlobal, seEncuentraPrimeroEnMemoria);
+	for(int i = 0; i < (list_size(tablaSegmentosGlobal)); i++){
+	   t_segmento * segmento = list_get(tablaSegmentosGlobal, i); 
+	   
+	   printf("Segmento ocupado que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
+	}
+
+	//para el primer segmento 
+	t_segmento * primerSegmentoOcupado = list_get(tablaSegmentosGlobal, 0); 
+	if(primerSegmentoOcupado->base != 0) {
+		memcpy(memoriaPrincipal, memoriaPrincipal + primerSegmentoOcupado->base, primerSegmentoOcupado->tamanio); 
+		primerSegmentoOcupado -> base = 0; 
+		list_replace(tablaSegmentosGlobal, 0, primerSegmentoOcupado);
+
+	}
+	for(int i = 0; i < (list_size(tablaSegmentosGlobal)-1); i++){
+		t_segmento * segmentoActual = list_get(tablaSegmentosGlobal, i); 
+		int finSegmento = segmentoActual->base + segmentoActual->tamanio;
+		t_segmento * proximoSegmento = list_get(tablaSegmentosGlobal, i + 1); 
+		memcpy(memoriaPrincipal + finSegmento, memoriaPrincipal + proximoSegmento->base, proximoSegmento->tamanio); 
+		proximoSegmento->base = finSegmento; 
+		list_replace(tablaSegmentosGlobal, i+1, proximoSegmento);
+		
+	}
+}
 int main(int argc, char ** argv){
 	navePrincipal = nivel_crear("Nave Principal");
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
@@ -32,6 +58,13 @@ int main(int argc, char ** argv){
 	
 	char * stringPrueba = "PROBANDO EL LUGAR SOFI CAPA ";
 	asignarMemoriaSegmentacionTareas(stringPrueba, 28, unaTabla);
+
+	compactarMemoria();
+	mem_hexdump(memoriaPrincipal, 300);
+
+	
+
+	
 	
 	pthread_t servidor;
 	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
@@ -152,6 +185,8 @@ void atenderDiscordiador(int socketCliente){
 
 		if(hayLugar == -1){
 			printf("No hay lugar, voy a compactar pa ti \n "); 
+			compactarMemoria();
+			hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs);
 			
 		}
 		if(hayLugar == 1){
@@ -312,6 +347,7 @@ void atenderDiscordiador(int socketCliente){
 			sem_post(&mutexTablaDeTablas);
 			mem_hexdump(memoriaPrincipal, 300);
 			imprimirSegmentosLibres(tablaSegmentosGlobal);
+			
 			
 /*
 			
