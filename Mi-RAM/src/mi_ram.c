@@ -330,7 +330,7 @@ void atenderDiscordiador(int socketCliente){
 			sem_wait(&mutexTablaDeTablas);
 			list_add(tablaDeTablasSegmentos, referencia); 
 			sem_post(&mutexTablaDeTablas);
-			mem_hexdump(memoriaPrincipal, 300);
+			mem_hexdump(memoriaPrincipal, 400);
 			imprimirSegmentosLibres(tablaSegmentosGlobal);
 			
 			
