@@ -11,16 +11,38 @@ int main(int argc, char ** argv){
 	memset(memoriaPrincipal, 0, tamanioMemoria);
 	iniciarMemoria();
 
+	//pruebas compactacion
+	t_list * unaTabla = list_create();
+	t_segmento * segmentoPrueba = malloc(sizeof(t_segmento));
+	segmentoPrueba->base = 35; 
+	segmentoPrueba ->tamanio = 10;
+	segmentoPrueba -> tid = -1;
+	list_add(tablaSegmentosGlobal, segmentoPrueba);
+	t_segmento * segmentoPrueba2 = malloc(sizeof(t_segmento));
+	segmentoPrueba2->base = 70; 
+	segmentoPrueba2 ->tamanio = 15;
+	segmentoPrueba2 -> tid = -1;
+	list_add(tablaSegmentosGlobal, segmentoPrueba2);
+
+	char * stringPrueba2 = "SCRIBIENDO";
+	memcpy(memoriaPrincipal + 35, stringPrueba2, 10);
+
+	char * stringPrueba3 = "12345678910111|";
+	memcpy(memoriaPrincipal + 70, stringPrueba3, 15);
+	
+	char * stringPrueba = "PROBANDO EL LUGAR SOFI CAPA ";
+	asignarMemoriaSegmentacionTareas(stringPrueba, 28, unaTabla);
+	
 	pthread_t servidor;
 	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
 
-	pthread_t mapa;
-	pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	pthread_join(mapa, NULL);
+	// pthread_t mapa;
+	// pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	// pthread_join(mapa, NULL);
 
-	nivel_destruir(navePrincipal);
-	nivel_gui_terminar();
-
+	// nivel_destruir(navePrincipal);
+	// nivel_gui_terminar();
+		
 	pthread_join(servidor, NULL);
 	
 	free(memoriaPrincipal);
@@ -106,6 +128,7 @@ void atenderDiscordiador(int socketCliente){
 		char pipe = '|';
 		memcpy(tareas + tamanioTareas, &pipe, 1);	
 		tamanioTareas++;
+		printf("tamanio tareas : %d \n", tamanioTareas);
 
 		log_info(loggerMiram, "%s", tareas);
 
@@ -127,7 +150,12 @@ void atenderDiscordiador(int socketCliente){
 
 		log_info(loggerMiram, "hay lugar disponible (1 -> si, -1 -> no): %d \n", hayLugar);
 
-		if(hayLugar){
+		if(hayLugar == -1){
+			printf("No hay lugar, voy a compactar pa ti \n "); 
+			
+		}
+		if(hayLugar == 1){
+			printf("Encontre lugar para tu patota \n");
 
 			if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
 				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs + 8;
@@ -272,7 +300,7 @@ void atenderDiscordiador(int socketCliente){
 					list_add(tripulantesPatotas, referenciaTripulante);
 					sem_post(&mutexTripulantesPatotas);
 
-					agregarTripulanteAlMapa(tripulanteID, posx, posy);
+					//agregarTripulanteAlMapa(tripulanteID, posx, posy);
 			
 				}
 
@@ -282,9 +310,11 @@ void atenderDiscordiador(int socketCliente){
 			sem_wait(&mutexTablaDeTablas);
 			list_add(tablaDeTablasSegmentos, referencia); 
 			sem_post(&mutexTablaDeTablas);
+			mem_hexdump(memoriaPrincipal, 300);
+			imprimirSegmentosLibres(tablaSegmentosGlobal);
 			
 /*
-			mem_hexdump(memoriaPrincipal, 300);
+			
 			uint32_t direccionTCB = obtenerDireccionTripulante(1 , 0); 
 			uint32_t direccionTarea = obtenerDireccionProximaTarea(direccionTCB);
 			printf("La direccion de la tarea es %d \n", direccionTarea);
@@ -349,6 +379,7 @@ void atenderDiscordiador(int socketCliente){
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 			free(buffer);
+			
 
 		}
 		else{	
@@ -374,21 +405,21 @@ void atenderDiscordiador(int socketCliente){
 	case ACTUALIZAR_POS: ;
 
 		log_info(loggerMiram, mem_hexstring(stream, sizeof(uint32_t) * 4));
+ 
+		// uint32_t tripulanteid = 0, patotaid = 0, posx = 0, posy = 0;
+		// int offset = 0;
+		// memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
+		// offset += sizeof(uint32_t);
+		// memcpy(&patotaid, stream+offset, sizeof(uint32_t));
+		// offset += sizeof(uint32_t);
+		// memcpy(&posx, stream+offset, sizeof(uint32_t));
+		// offset += sizeof(uint32_t);
+		// memcpy(&posy, stream+offset, sizeof(uint32_t));
+		// offset += sizeof(uint32_t);
 
-		uint32_t tripulanteid = 0, patotaid = 0, posx = 0, posy = 0;
-		int offset = 0;
-		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&patotaid, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&posx, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&posy, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
+		// log_info(loggerMiram,"Tripulante %d se movio hacia %d|%d",tripulanteid,posx,posy);
 
-		log_info(loggerMiram,"Tripulante %d se movio hacia %d|%d",tripulanteid,posx,posy);
-
-		moverTripulanteEnMapa(tripulanteid,posx,posy);
+		// moverTripulanteEnMapa(tripulanteid,posx,posy);
 
 		// ACTUALIZAR TRIPULANTE EN MEMORIA		
 
@@ -861,6 +892,7 @@ uint32_t asignarMemoriaSegmentacionPCB(void * pcb , t_list * tablaSegmentos){
 	//busco un lugar de memoria (segun algoritmo)
 		
 		int direccionLogica = encontrarLugarSegmentacion(SIZEOF_PCB); 
+		printf("DIreccion logica encontrada para el pcb : %d que ocupa %d \n", direccionLogica,SIZEOF_PCB);
 		//le asigno el lugar de memoria encontrado
 		memcpy(memoriaPrincipal + direccionLogica , pcb, SIZEOF_PCB); 
 		
@@ -883,6 +915,7 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 
 	uint32_t direccionLogica = encontrarLugarSegmentacion(tamanioTareas); 
 	memcpy(memoriaPrincipal + direccionLogica, tareas, tamanioTareas); 
+	printf("EL lugar asignado de memoria es %d \n", direccionLogica);
 
 	t_segmento * segmentoTareas = malloc(sizeof(t_segmento)); 
 	segmentoTareas -> tid = -1; 
@@ -967,6 +1000,8 @@ t_list *  obtenerSegmentosLibres(t_list * tablaSegmentos){
 		primerSegmentoLibre -> base = 0; 
 		primerSegmentoLibre -> tamanio = (primerSegmentoOCupado -> base)  - (primerSegmentoLibre -> base); 
 		list_add(segmentosLibres, primerSegmentoLibre); 
+	
+		
 	} 
 
 	while(i < (list_size(tablaSegmentos)-1)){
@@ -1005,10 +1040,13 @@ t_list *  obtenerSegmentosLibres(t_list * tablaSegmentos){
 
 void imprimirSegmentosLibres(){
 	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal);
+	int espacioLibre = 0; 
 	for(int i = 0; i < (list_size(segmentosLibres)); i++){
 	   t_segmento * segmento = list_get(segmentosLibres, i); 
-	   //printf("Segmento libre que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
+	   espacioLibre = espacioLibre + segmento->tamanio;
+	   printf("Segmento libre que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
 	}
+	printf("BYtes libres: %d \n", espacioLibre);
 
 }
 
