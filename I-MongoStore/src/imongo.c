@@ -18,7 +18,7 @@ int main(int argc, char ** argv){
 	//Inicializacion de los semaforos
 	sem_init(&semaforoBloques, 0,  1 ); 
 	sem_init(&semaforoArchivoRecurso, 0, 1);
-	sem_init(&semaforoOxigeno, 0, 1);
+	sem_init(&semaforoOxigeno, 0, 1); 
 	sem_init(&semaforoBasura, 0, 1);
 	sem_init(&semaforoComida, 0, 1);
 	

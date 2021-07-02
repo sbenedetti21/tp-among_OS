@@ -218,7 +218,7 @@ void atenderDiscordiador(int socketCliente){
 				
 				PCB * pcb = crearPCB(idPatota);
 				 
-				printf("ID DE LA PATOTA %d \n", pcb->pid);
+				//printf("ID DE LA PATOTA %d \n", pcb->pid);
 				uint32_t direccionTareas = asignarMemoriaSegmentacionTareas(tareas, tamanioTareas, tablaSegmentos); 
 				pcb ->tareas = direccionTareas; 
 
@@ -364,7 +364,7 @@ void atenderDiscordiador(int socketCliente){
 			free(buffer);
 		}
 
-		break;
+		break;  
 
 	case ACTUALIZAR_POS: ;
 
@@ -503,7 +503,7 @@ TCB * deserializar_TCB(void * stream){
 	//Deserializamos los campos que tenemos en el buffer
 	memcpy(&(tripulante->tid), stream, sizeof(uint32_t));
 	stream += sizeof(uint32_t);
-	printf("tripulante id deserializaicon %d\n", tripulante->tid);
+	//printf("tripulante id deserializaicon %d\n", tripulante->tid);
 
 // 	memcpy(&(tripulante->posicionX), stream, sizeof(uint32_t));
 // 	stream += sizeof(uint32_t);
@@ -870,7 +870,7 @@ uint32_t asignarMemoriaSegmentacionPCB(void * pcb , t_list * tablaSegmentos){
 		sem_wait(&mutexTablaGlobal);
 		list_add(tablaSegmentosGlobal, segmentoNuevo); 
 		sem_post(&mutexTablaGlobal);
-		printf("Direccion logica asignada %d \n", direccionLogica);   
+		//printf("Direccion logica asignada %d \n", direccionLogica);   
 		return direccionLogica;
 }
 
@@ -906,8 +906,8 @@ uint32_t firstFit(int tamanioContenido){
 		i++; 
 		segmentoLibre = list_get(segmentosLibres, i); 
 	}
-	printf("La base del primer segmento libre es : %d \n", (segmentoLibre -> base));
-	printf("El tamanio del primer segmento libre es %d \n", segmentoLibre->tamanio);
+	//printf("La base del primer segmento libre es : %d \n", (segmentoLibre -> base));
+	//printf("El tamanio del primer segmento libre es %d \n", segmentoLibre->tamanio);
 
 	
 	return (segmentoLibre -> base);
@@ -1002,7 +1002,7 @@ void imprimirSegmentosLibres(){
 	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal);
 	for(int i = 0; i < (list_size(segmentosLibres)); i++){
 	   t_segmento * segmento = list_get(segmentosLibres, i); 
-	   printf("Segmento libre que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
+	   //printf("Segmento libre que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
 	}
 
 }
