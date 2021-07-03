@@ -1,6 +1,5 @@
 #include "mi_ram.h"
- //comentario prueba branch
-
+ //un comentario 
 
 int main(int argc, char ** argv){
 	navePrincipal = nivel_crear("Nave Principal");
@@ -10,17 +9,17 @@ int main(int argc, char ** argv){
 	memoriaPrincipal = malloc(tamanioMemoria);
 	memset(memoriaPrincipal, 0, tamanioMemoria);
 	iniciarMemoria();
-
+	
 	pthread_t servidor;
 	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
 
-	pthread_t mapa;
-	pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	pthread_join(mapa, NULL);
+	// pthread_t mapa;
+	// pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	// pthread_join(mapa, NULL);
 
-	nivel_destruir(navePrincipal);
-	nivel_gui_terminar();
-
+	// nivel_destruir(navePrincipal);
+	// nivel_gui_terminar();
+		
 	pthread_join(servidor, NULL);
 	
 	free(memoriaPrincipal);
@@ -106,6 +105,7 @@ void atenderDiscordiador(int socketCliente){
 		char pipe = '|';
 		memcpy(tareas + tamanioTareas, &pipe, 1);	
 		tamanioTareas++;
+		
 
 		log_info(loggerMiram, "%s", tareas);
 
@@ -127,7 +127,27 @@ void atenderDiscordiador(int socketCliente){
 
 		log_info(loggerMiram, "hay lugar disponible (1 -> si, -1 -> no): %d \n", hayLugar);
 
-		if(hayLugar){
+		if(hayLugar == -1){
+
+			if(strcmp(esquemaMemoria, "SEGMENTACION") == 0){
+			log_info(loggerMiram, "No hay lugar para la patota, iniciando compactacion automatica"); 
+			sem_wait(&mutexCompactacion); 
+			compactarMemoria();
+			sem_post(&mutexCompactacion);
+
+			hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs);
+			if(hayLugar == -1){
+				log_info(loggerMiram, "Rechazo patota por falta de espacio en memoria");
+				
+			}
+			
+			}
+			
+			
+			
+		}
+		if(hayLugar == 1){
+			printf("Encontre lugar para tu patota \n");
 
 			if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
 				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs + 8;
@@ -218,7 +238,7 @@ void atenderDiscordiador(int socketCliente){
 				
 				PCB * pcb = crearPCB(idPatota);
 				 
-				//printf("ID DE LA PATOTA %d \n", pcb->pid);
+				
 				uint32_t direccionTareas = asignarMemoriaSegmentacionTareas(tareas, tamanioTareas, tablaSegmentos); 
 				pcb ->tareas = direccionTareas; 
 
@@ -271,7 +291,7 @@ void atenderDiscordiador(int socketCliente){
 					list_add(tripulantesPatotas, referenciaTripulante);
 					sem_post(&mutexTripulantesPatotas);
 
-					agregarTripulanteAlMapa(tripulanteID, posx, posy);
+				agregarTripulanteAlMapa(tripulanteID, posx, posy);
 			
 				}
 
@@ -282,18 +302,8 @@ void atenderDiscordiador(int socketCliente){
 			list_add(tablaDeTablasSegmentos, referencia); 
 			sem_post(&mutexTablaDeTablas);
 			
-/*
-			mem_hexdump(memoriaPrincipal, 300);
-			uint32_t direccionTCB = obtenerDireccionTripulante(1 , 0); 
-			uint32_t direccionTarea = obtenerDireccionProximaTarea(direccionTCB);
-			printf("La direccion de la tarea es %d \n", direccionTarea);
-			char * proximaTarea = obtenerProximaTareaSegmentacion(direccionTarea, direccionTCB); 
-			direccionTarea = obtenerDireccionProximaTarea(direccionTCB);
-			mem_hexdump(memoriaPrincipal, 300);
-			printf("La proxima tarea es %s \n", proximaTarea);
-			printf("La direccion de la proxima tarea es: %d \n", direccionTarea);
-			proximaTarea = obtenerProximaTareaSegmentacion(direccionTarea, direccionTCB);
-			printf("La tarea es: %s \n", proximaTarea);   */
+			
+			
 			}
 			
 
@@ -348,6 +358,7 @@ void atenderDiscordiador(int socketCliente){
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 			free(buffer);
+			
 
 		}
 		else{	
@@ -373,7 +384,7 @@ void atenderDiscordiador(int socketCliente){
 	case ACTUALIZAR_POS: ;
 
 		log_info(loggerMiram, mem_hexstring(stream, sizeof(uint32_t) * 4));
-
+ 
 		uint32_t tripulanteid = 0, patotaid = 0, posx = 0, posy = 0;
 		int offset = 0;
 		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
@@ -568,6 +579,7 @@ void iniciarMemoria() {
 		sem_init(&mutexTablaGlobal, 0, 1);
 		sem_init(&mutexTablaDeTablas, 0, 1);
 		sem_init(&mutexTripulantesPatotas, 0, 1);
+		sem_init(&mutexCompactacion, 0, 1);
 	}
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
@@ -860,6 +872,7 @@ uint32_t asignarMemoriaSegmentacionPCB(void * pcb , t_list * tablaSegmentos){
 	//busco un lugar de memoria (segun algoritmo)
 		
 		int direccionLogica = encontrarLugarSegmentacion(SIZEOF_PCB); 
+		
 		//le asigno el lugar de memoria encontrado
 		memcpy(memoriaPrincipal + direccionLogica , pcb, SIZEOF_PCB); 
 		
@@ -882,6 +895,7 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 
 	uint32_t direccionLogica = encontrarLugarSegmentacion(tamanioTareas); 
 	memcpy(memoriaPrincipal + direccionLogica, tareas, tamanioTareas); 
+	
 
 	t_segmento * segmentoTareas = malloc(sizeof(t_segmento)); 
 	segmentoTareas -> tid = -1; 
@@ -966,6 +980,8 @@ t_list *  obtenerSegmentosLibres(t_list * tablaSegmentos){
 		primerSegmentoLibre -> base = 0; 
 		primerSegmentoLibre -> tamanio = (primerSegmentoOCupado -> base)  - (primerSegmentoLibre -> base); 
 		list_add(segmentosLibres, primerSegmentoLibre); 
+	
+		
 	} 
 
 	while(i < (list_size(tablaSegmentos)-1)){
@@ -1004,10 +1020,13 @@ t_list *  obtenerSegmentosLibres(t_list * tablaSegmentos){
 
 void imprimirSegmentosLibres(){
 	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal);
+	int espacioLibre = 0; 
 	for(int i = 0; i < (list_size(segmentosLibres)); i++){
 	   t_segmento * segmento = list_get(segmentosLibres, i); 
-	   //printf("Segmento libre que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
+	   espacioLibre = espacioLibre + segmento->tamanio;
+	   printf("Segmento libre que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
 	}
+	printf("BYtes libres: %d \n", espacioLibre);
 
 }
 
@@ -1103,6 +1122,40 @@ bool cabeTCB(t_segmento * segmento){
 
 	else {return false; }
 }
+
+
+
+void compactarMemoria(){
+
+	list_sort(tablaSegmentosGlobal, seEncuentraPrimeroEnMemoria);
+
+	//para el primer segmento 
+	t_segmento * primerSegmentoOcupado = list_get(tablaSegmentosGlobal, 0); 
+	if(primerSegmentoOcupado->base != 0) {
+		memcpy(memoriaPrincipal, memoriaPrincipal + primerSegmentoOcupado->base, primerSegmentoOcupado->tamanio); 
+		primerSegmentoOcupado -> base = 0; 
+		list_replace(tablaSegmentosGlobal, 0, primerSegmentoOcupado);
+
+	}
+	for(int i = 0; i < (list_size(tablaSegmentosGlobal)-1); i++){
+		t_segmento * segmentoActual = list_get(tablaSegmentosGlobal, i); 
+		int finSegmento = segmentoActual->base + segmentoActual->tamanio;
+		t_segmento * proximoSegmento = list_get(tablaSegmentosGlobal, i + 1); 
+		memcpy(memoriaPrincipal + finSegmento, memoriaPrincipal + proximoSegmento->base, proximoSegmento->tamanio); 
+		proximoSegmento->base = finSegmento; 
+		list_replace(tablaSegmentosGlobal, i+1, proximoSegmento);
+		
+	}
+
+	t_list * segmentoLibre = obtenerSegmentosLibres(tablaSegmentosGlobal); 
+	t_segmento * espacioLibre = list_get(segmentoLibre, 0); 
+	memset(memoriaPrincipal + (espacioLibre->base), 0,espacioLibre->tamanio);
+
+}
+/* 
+void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevoPosy){
+
+}*/
 
 // ------------------------------------------------------ MAPA ----------------------------------------------
 
