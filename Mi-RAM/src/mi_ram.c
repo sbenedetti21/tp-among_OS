@@ -9,34 +9,6 @@ int main(int argc, char ** argv){
 	memoriaPrincipal = malloc(tamanioMemoria);
 	memset(memoriaPrincipal, 0, tamanioMemoria);
 	iniciarMemoria();
-
-	//pruebas compactacion
-	t_list * unaTabla = list_create();
-	t_segmento * segmentoPrueba = malloc(sizeof(t_segmento));
-	segmentoPrueba->base = 35; 
-	segmentoPrueba ->tamanio = 10;
-	segmentoPrueba -> tid = -1;
-	list_add(tablaSegmentosGlobal, segmentoPrueba);
-	t_segmento * segmentoPrueba2 = malloc(sizeof(t_segmento));
-	segmentoPrueba2->base = 70; 
-	segmentoPrueba2 ->tamanio = 15;
-	segmentoPrueba2 -> tid = -1;
-	list_add(tablaSegmentosGlobal, segmentoPrueba2);
-
-	char * stringPrueba2 = "SCRIBIENDO";
-	memcpy(memoriaPrincipal + 35, stringPrueba2, 10);
-
-	char * stringPrueba3 = "12345678910111|";
-	memcpy(memoriaPrincipal + 70, stringPrueba3, 15);
-	
-	char * stringPrueba = "PROBANDO EL LUGAR SOFI CAPA ";
-	asignarMemoriaSegmentacionTareas(stringPrueba, 28, unaTabla);
-
-	
-
-	
-
-	
 	
 	pthread_t servidor;
 	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
@@ -320,7 +292,7 @@ void atenderDiscordiador(int socketCliente){
 					list_add(tripulantesPatotas, referenciaTripulante);
 					sem_post(&mutexTripulantesPatotas);
 
-					//agregarTripulanteAlMapa(tripulanteID, posx, posy);
+				agregarTripulanteAlMapa(tripulanteID, posx, posy);
 			
 				}
 
@@ -427,20 +399,20 @@ void atenderDiscordiador(int socketCliente){
 
 		log_info(loggerMiram, mem_hexstring(stream, sizeof(uint32_t) * 4));
  
-		// uint32_t tripulanteid = 0, patotaid = 0, posx = 0, posy = 0;
-		// int offset = 0;
-		// memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
-		// offset += sizeof(uint32_t);
-		// memcpy(&patotaid, stream+offset, sizeof(uint32_t));
-		// offset += sizeof(uint32_t);
-		// memcpy(&posx, stream+offset, sizeof(uint32_t));
-		// offset += sizeof(uint32_t);
-		// memcpy(&posy, stream+offset, sizeof(uint32_t));
-		// offset += sizeof(uint32_t);
+		uint32_t tripulanteid = 0, patotaid = 0, posx = 0, posy = 0;
+		int offset = 0;
+		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+		memcpy(&patotaid, stream+offset, sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+		memcpy(&posx, stream+offset, sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+		memcpy(&posy, stream+offset, sizeof(uint32_t));
+		offset += sizeof(uint32_t);
 
-		// log_info(loggerMiram,"Tripulante %d se movio hacia %d|%d",tripulanteid,posx,posy);
+		log_info(loggerMiram,"Tripulante %d se movio hacia %d|%d",tripulanteid,posx,posy);
 
-		// moverTripulanteEnMapa(tripulanteid,posx,posy);
+		moverTripulanteEnMapa(tripulanteid,posx,posy);
 
 		// ACTUALIZAR TRIPULANTE EN MEMORIA		
 
