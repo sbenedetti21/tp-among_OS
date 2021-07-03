@@ -1968,3 +1968,298 @@
 [INFO] 19:30:36:891 discordiador.c/(14618:14663): Tripulante 5 cambio su estado a B
 [INFO] 19:30:36:891 discordiador.c/(14618:14671): Tripulante 1 cambio su estado a E
 [INFO] 19:30:36:891 discordiador.c/(14618:14646): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 09:41:14:402 discordiador.c/(3435:3435): ---------PROGRAMA INICIADO---------- 
+[INFO] 09:44:16:188 discordiador.c/(3435:3436): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 09:44:16:188 discordiador.c/(3435:3436): Discordiador conectado con Mi RAM
+[INFO] 09:44:16:189 discordiador.c/(3435:3436): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 09:44:16:189 discordiador.c/(3435:3436): Tripulante 0 cambio su estado a R
+[INFO] 09:44:16:189 discordiador.c/(3435:3436): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 09:44:16:189 discordiador.c/(3435:3436): Tripulante 1 cambio su estado a R
+[INFO] 09:44:16:189 discordiador.c/(3435:3436): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 09:44:20:802 discordiador.c/(3435:3436): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 09:44:20:818 discordiador.c/(3435:3524): Tripulante 0 cambio su estado a R
+[INFO] 09:44:20:819 discordiador.c/(3435:3524): Tripulante 1 cambio su estado a R
+[INFO] 09:44:20:819 discordiador.c/(3435:3524): Tripulante 0 cambio su estado a E
+[INFO] 09:44:20:819 discordiador.c/(3435:3512): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 09:44:20:820 discordiador.c/(3435:3524): Tripulante 1 cambio su estado a E
+[INFO] 09:44:20:820 discordiador.c/(3435:3513): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 09:44:20:823 discordiador.c/(3435:3513): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 09:44:20:825 discordiador.c/(3435:3512): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 09:44:21:824 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 09:44:21:826 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 09:44:22:827 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 09:44:22:827 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 09:44:23:828 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 09:44:23:828 discordiador.c/(3435:3512): Tripulante 0 ahora esta en 1|2 
+[INFO] 09:44:23:828 discordiador.c/(3435:3512): Tripulante 0 cambio su estado a B
+[INFO] 09:44:23:829 discordiador.c/(3435:3525): Tripulante 0 cambio su estado a R
+[INFO] 09:44:23:829 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 09:44:23:829 discordiador.c/(3435:3513): Tripulante 1 ahora esta en 1|2 
+[INFO] 09:44:23:829 discordiador.c/(3435:3513): Tripulante 1 cambio su estado a B
+[INFO] 09:44:23:830 discordiador.c/(3435:3525): Tripulante 1 cambio su estado a R
+[INFO] 09:44:25:829 discordiador.c/(3435:3512): Tripulante 0 terminó su tarea
+[INFO] 09:44:25:829 discordiador.c/(3435:3524): Tripulante 0 cambio su estado a E
+[INFO] 09:44:25:829 discordiador.c/(3435:3512): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 09:44:25:830 discordiador.c/(3435:3513): Tripulante 1 terminó su tarea
+[INFO] 09:44:25:830 discordiador.c/(3435:3524): Tripulante 1 cambio su estado a E
+[INFO] 09:44:25:831 discordiador.c/(3435:3513): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 09:44:25:831 discordiador.c/(3435:3512): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 09:44:25:832 discordiador.c/(3435:3513): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 09:44:26:832 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  02 00 00 00 02 00 00 00  |................|
+[INFO] 09:44:26:833 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  02 00 00 00 02 00 00 00  |................|
+[INFO] 09:44:27:833 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:27:833 discordiador.c/(3435:3512): Tripulante 0 ahora esta en 2|3 
+[INFO] 09:44:27:833 discordiador.c/(3435:3512): Tripulante 0 cambio su estado a B
+[INFO] 09:44:27:834 discordiador.c/(3435:3525): Tripulante 0 cambio su estado a R
+[INFO] 09:44:27:835 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:27:835 discordiador.c/(3435:3513): Tripulante 1 ahora esta en 2|3 
+[INFO] 09:44:27:835 discordiador.c/(3435:3513): Tripulante 1 cambio su estado a B
+[INFO] 09:44:27:836 discordiador.c/(3435:3525): Tripulante 1 cambio su estado a R
+[INFO] 09:44:29:834 discordiador.c/(3435:3512): Tripulante 0 terminó su tarea
+[INFO] 09:44:29:834 discordiador.c/(3435:3524): Tripulante 0 cambio su estado a E
+[INFO] 09:44:29:835 discordiador.c/(3435:3512): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 09:44:29:835 discordiador.c/(3435:3513): Tripulante 1 terminó su tarea
+[INFO] 09:44:29:835 discordiador.c/(3435:3524): Tripulante 1 cambio su estado a E
+[INFO] 09:44:29:836 discordiador.c/(3435:3513): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 09:44:29:836 discordiador.c/(3435:3512): Tarea pedida por tripulante 0: CONSUMIR_OXIGENO Posicion: 7|3 Duracion: 1 
+[INFO] 09:44:29:837 discordiador.c/(3435:3513): Tarea pedida por tripulante 1: CONSUMIR_OXIGENO Posicion: 7|3 Duracion: 1 
+[INFO] 09:44:30:838 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  03 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:30:842 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  03 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:31:839 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  04 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:31:843 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  04 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:32:840 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  05 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:32:844 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  05 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:33:842 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  06 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:33:846 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  06 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:34:843 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  07 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:34:844 discordiador.c/(3435:3512): Tripulante 0 ahora esta en 7|3 
+[INFO] 09:44:34:844 discordiador.c/(3435:3512): Tripulante 0 cambio su estado a B
+[INFO] 09:44:34:844 discordiador.c/(3435:3525): Tripulante 0 cambio su estado a R
+[INFO] 09:44:34:847 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  07 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:34:847 discordiador.c/(3435:3513): Tripulante 1 ahora esta en 7|3 
+[INFO] 09:44:34:847 discordiador.c/(3435:3513): Tripulante 1 cambio su estado a B
+[INFO] 09:44:34:848 discordiador.c/(3435:3525): Tripulante 1 cambio su estado a R
+[INFO] 09:44:36:844 discordiador.c/(3435:3512): Tripulante 0 terminó su tarea
+[INFO] 09:44:36:844 discordiador.c/(3435:3524): Tripulante 0 cambio su estado a E
+[INFO] 09:44:36:845 discordiador.c/(3435:3512): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 09:44:36:846 discordiador.c/(3435:3512): Tarea pedida por tripulante 0: GENERAR_BASURA Posicion: 2|3 Duracion: 1 
+[INFO] 09:44:36:848 discordiador.c/(3435:3513): Tripulante 1 terminó su tarea
+[INFO] 09:44:36:848 discordiador.c/(3435:3524): Tripulante 1 cambio su estado a E
+[INFO] 09:44:36:848 discordiador.c/(3435:3513): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 09:44:36:849 discordiador.c/(3435:3513): Tarea pedida por tripulante 1: GENERAR_BASURA Posicion: 2|3 Duracion: 1 
+[INFO] 09:44:37:849 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  06 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:37:850 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  06 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:38:850 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  05 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:38:853 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  05 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:39:851 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  04 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:39:855 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  04 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:40:857 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  03 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:40:857 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  03 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:41:859 discordiador.c/(3435:3513): 
+0x00000000: 01 00 00 00 00 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:41:859 discordiador.c/(3435:3513): Tripulante 1 ahora esta en 2|3 
+[INFO] 09:44:41:859 discordiador.c/(3435:3513): Tripulante 1 cambio su estado a B
+[INFO] 09:44:41:860 discordiador.c/(3435:3525): Tripulante 1 cambio su estado a R
+[INFO] 09:44:41:860 discordiador.c/(3435:3512): 
+0x00000000: 00 00 00 00 00 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:41:860 discordiador.c/(3435:3512): Tripulante 0 ahora esta en 2|3 
+[INFO] 09:44:41:860 discordiador.c/(3435:3512): Tripulante 0 cambio su estado a B
+[INFO] 09:44:41:862 discordiador.c/(3435:3525): Tripulante 0 cambio su estado a R
+[INFO] 09:44:43:323 discordiador.c/(3435:3436): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 09:44:43:324 discordiador.c/(3435:3436): Discordiador conectado con Mi RAM
+[INFO] 09:44:43:324 discordiador.c/(3435:3436): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 09:44:43:324 discordiador.c/(3435:3436): Tripulante 2 cambio su estado a R
+[INFO] 09:44:43:324 discordiador.c/(3435:3436): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 09:44:43:324 discordiador.c/(3435:3436): Tripulante 3 cambio su estado a R
+[INFO] 09:44:43:324 discordiador.c/(3435:3436): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 09:44:43:324 discordiador.c/(3435:3524): Tripulante 1 cambio su estado a E
+[INFO] 09:44:43:324 discordiador.c/(3435:3524): Tripulante 0 cambio su estado a E
+[INFO] 09:44:43:860 discordiador.c/(3435:3513): Tripulante 1 terminó su tarea
+[INFO] 09:44:43:861 discordiador.c/(3435:3512): Tripulante 0 terminó su tarea
+[INFO] 09:44:43:861 discordiador.c/(3435:3512): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 09:44:43:861 discordiador.c/(3435:3513): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 09:44:43:862 discordiador.c/(3435:3512): Tarea pedida por tripulante 0: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 09:44:43:862 discordiador.c/(3435:3512): Tripulante 0 ahora esta en 2|3 
+[INFO] 09:44:43:862 discordiador.c/(3435:3512): Tripulante 0 cambio su estado a B
+[INFO] 09:44:43:862 discordiador.c/(3435:3524): Tripulante 2 cambio su estado a E
+[INFO] 09:44:43:863 discordiador.c/(3435:3654): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 2
+[INFO] 09:44:43:863 discordiador.c/(3435:3525): Tripulante 0 cambio su estado a R
+[INFO] 09:44:43:863 discordiador.c/(3435:3513): Tarea pedida por tripulante 1: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 09:44:43:863 discordiador.c/(3435:3513): Tripulante 1 ahora esta en 2|3 
+[INFO] 09:44:43:863 discordiador.c/(3435:3513): Tripulante 1 cambio su estado a B
+[INFO] 09:44:43:863 discordiador.c/(3435:3524): Tripulante 3 cambio su estado a E
+[INFO] 09:44:43:864 discordiador.c/(3435:3655): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 3
+[INFO] 09:44:43:864 discordiador.c/(3435:3525): Tripulante 1 cambio su estado a R
+[INFO] 09:44:43:873 discordiador.c/(3435:3654): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 09:44:43:875 discordiador.c/(3435:3655): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 09:44:44:874 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 09:44:44:876 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 09:44:45:863 discordiador.c/(3435:3512): Tripulante 0 terminó su tarea
+[INFO] 09:44:45:864 discordiador.c/(3435:3513): Tripulante 1 terminó su tarea
+[INFO] 09:44:45:877 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 09:44:45:878 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 09:44:46:879 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 09:44:46:879 discordiador.c/(3435:3655): Tripulante 3 ahora esta en 1|2 
+[INFO] 09:44:46:879 discordiador.c/(3435:3655): Tripulante 3 cambio su estado a B
+[INFO] 09:44:46:879 discordiador.c/(3435:3524): Tripulante 0 cambio su estado a E
+[INFO] 09:44:46:880 discordiador.c/(3435:3512): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 09:44:46:880 discordiador.c/(3435:3525): Tripulante 3 cambio su estado a R
+[INFO] 09:44:46:880 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 09:44:46:880 discordiador.c/(3435:3654): Tripulante 2 ahora esta en 1|2 
+[INFO] 09:44:46:880 discordiador.c/(3435:3654): Tripulante 2 cambio su estado a B
+[INFO] 09:44:46:880 discordiador.c/(3435:3524): Tripulante 1 cambio su estado a E
+[INFO] 09:44:46:881 discordiador.c/(3435:3513): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 09:44:46:881 discordiador.c/(3435:3525): Tripulante 2 cambio su estado a R
+[INFO] 09:44:46:888 discordiador.c/(3435:3513): Tripulante 1 termino de trabajar 
+[INFO] 09:44:46:888 discordiador.c/(3435:3513): Tripulante 1 cambio su estado a F
+[INFO] 09:44:46:889 discordiador.c/(3435:3512): Tripulante 0 termino de trabajar 
+[INFO] 09:44:46:889 discordiador.c/(3435:3512): Tripulante 0 cambio su estado a F
+[INFO] 09:44:48:879 discordiador.c/(3435:3655): Tripulante 3 terminó su tarea
+[INFO] 09:44:48:879 discordiador.c/(3435:3524): Tripulante 3 cambio su estado a E
+[INFO] 09:44:48:880 discordiador.c/(3435:3655): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 3
+[INFO] 09:44:48:881 discordiador.c/(3435:3654): Tripulante 2 terminó su tarea
+[INFO] 09:44:48:881 discordiador.c/(3435:3524): Tripulante 2 cambio su estado a E
+[INFO] 09:44:48:881 discordiador.c/(3435:3654): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 2
+[INFO] 09:44:48:886 discordiador.c/(3435:3655): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 09:44:48:887 discordiador.c/(3435:3654): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 09:44:49:888 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  02 00 00 00 02 00 00 00  |................|
+[INFO] 09:44:49:889 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  02 00 00 00 02 00 00 00  |................|
+[INFO] 09:44:50:890 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:50:891 discordiador.c/(3435:3654): Tripulante 2 ahora esta en 2|3 
+[INFO] 09:44:50:891 discordiador.c/(3435:3654): Tripulante 2 cambio su estado a B
+[INFO] 09:44:50:894 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:50:894 discordiador.c/(3435:3655): Tripulante 3 ahora esta en 2|3 
+[INFO] 09:44:50:894 discordiador.c/(3435:3655): Tripulante 3 cambio su estado a B
+[INFO] 09:44:50:894 discordiador.c/(3435:3525): Tripulante 2 cambio su estado a R
+[INFO] 09:44:50:895 discordiador.c/(3435:3525): Tripulante 3 cambio su estado a R
+[INFO] 09:44:52:892 discordiador.c/(3435:3654): Tripulante 2 terminó su tarea
+[INFO] 09:44:52:892 discordiador.c/(3435:3524): Tripulante 2 cambio su estado a E
+[INFO] 09:44:52:893 discordiador.c/(3435:3654): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 2
+[INFO] 09:44:52:894 discordiador.c/(3435:3655): Tripulante 3 terminó su tarea
+[INFO] 09:44:52:894 discordiador.c/(3435:3524): Tripulante 3 cambio su estado a E
+[INFO] 09:44:52:895 discordiador.c/(3435:3655): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 3
+[INFO] 09:44:52:898 discordiador.c/(3435:3655): Tarea pedida por tripulante 3: CONSUMIR_OXIGENO Posicion: 7|3 Duracion: 1 
+[INFO] 09:44:52:899 discordiador.c/(3435:3654): Tarea pedida por tripulante 2: CONSUMIR_OXIGENO Posicion: 7|3 Duracion: 1 
+[INFO] 09:44:53:907 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  03 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:53:908 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  03 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:54:910 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  04 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:54:910 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  04 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:55:911 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  05 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:55:912 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  05 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:56:912 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  06 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:56:913 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  06 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:57:914 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  07 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:57:914 discordiador.c/(3435:3655): Tripulante 3 ahora esta en 7|3 
+[INFO] 09:44:57:914 discordiador.c/(3435:3655): Tripulante 3 cambio su estado a B
+[INFO] 09:44:57:915 discordiador.c/(3435:3525): Tripulante 3 cambio su estado a R
+[INFO] 09:44:57:914 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  07 00 00 00 03 00 00 00  |................|
+[INFO] 09:44:57:915 discordiador.c/(3435:3654): Tripulante 2 ahora esta en 7|3 
+[INFO] 09:44:57:915 discordiador.c/(3435:3654): Tripulante 2 cambio su estado a B
+[INFO] 09:44:57:916 discordiador.c/(3435:3525): Tripulante 2 cambio su estado a R
+[INFO] 09:44:59:915 discordiador.c/(3435:3655): Tripulante 3 terminó su tarea
+[INFO] 09:44:59:916 discordiador.c/(3435:3524): Tripulante 3 cambio su estado a E
+[INFO] 09:44:59:916 discordiador.c/(3435:3524): Tripulante 2 cambio su estado a E
+[INFO] 09:44:59:916 discordiador.c/(3435:3654): Tripulante 2 terminó su tarea
+[INFO] 09:44:59:917 discordiador.c/(3435:3654): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 2
+[INFO] 09:44:59:918 discordiador.c/(3435:3655): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 3
+[INFO] 09:44:59:918 discordiador.c/(3435:3654): Tarea pedida por tripulante 2: GENERAR_BASURA Posicion: 2|3 Duracion: 1 
+[INFO] 09:44:59:919 discordiador.c/(3435:3655): Tarea pedida por tripulante 3: GENERAR_BASURA Posicion: 2|3 Duracion: 1 
+[INFO] 09:45:00:919 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  06 00 00 00 03 00 00 00  |................|
+[INFO] 09:45:00:920 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  06 00 00 00 03 00 00 00  |................|
+[INFO] 09:45:01:921 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  05 00 00 00 03 00 00 00  |................|
+[INFO] 09:45:01:922 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  05 00 00 00 03 00 00 00  |................|
+[INFO] 09:45:02:924 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  04 00 00 00 03 00 00 00  |................|
+[INFO] 09:45:02:924 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  04 00 00 00 03 00 00 00  |................|
+[INFO] 09:45:03:926 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  03 00 00 00 03 00 00 00  |................|
+[INFO] 09:45:03:926 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  03 00 00 00 03 00 00 00  |................|
+[INFO] 09:45:04:927 discordiador.c/(3435:3655): 
+0x00000000: 03 00 00 00 01 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 09:45:04:928 discordiador.c/(3435:3655): Tripulante 3 ahora esta en 2|3 
+[INFO] 09:45:04:928 discordiador.c/(3435:3655): Tripulante 3 cambio su estado a B
+[INFO] 09:45:04:929 discordiador.c/(3435:3525): Tripulante 3 cambio su estado a R
+[INFO] 09:45:04:929 discordiador.c/(3435:3654): 
+0x00000000: 02 00 00 00 01 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 09:45:04:929 discordiador.c/(3435:3654): Tripulante 2 ahora esta en 2|3 
+[INFO] 09:45:04:929 discordiador.c/(3435:3654): Tripulante 2 cambio su estado a B
+[INFO] 09:45:04:930 discordiador.c/(3435:3525): Tripulante 2 cambio su estado a R
+[INFO] 09:45:06:928 discordiador.c/(3435:3655): Tripulante 3 terminó su tarea
+[INFO] 09:45:06:929 discordiador.c/(3435:3524): Tripulante 3 cambio su estado a E
+[INFO] 09:45:06:929 discordiador.c/(3435:3655): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 3
+[INFO] 09:45:06:930 discordiador.c/(3435:3654): Tripulante 2 terminó su tarea
+[INFO] 09:45:06:930 discordiador.c/(3435:3524): Tripulante 2 cambio su estado a E
+[INFO] 09:45:06:930 discordiador.c/(3435:3654): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 2
+[INFO] 09:45:06:931 discordiador.c/(3435:3655): Tarea pedida por tripulante 3: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 09:45:06:931 discordiador.c/(3435:3655): Tripulante 3 ahora esta en 2|3 
+[INFO] 09:45:06:931 discordiador.c/(3435:3655): Tripulante 3 cambio su estado a B
+[INFO] 09:45:06:931 discordiador.c/(3435:3525): Tripulante 3 cambio su estado a R
+[INFO] 09:45:06:938 discordiador.c/(3435:3654): Tarea pedida por tripulante 2: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 09:45:06:938 discordiador.c/(3435:3654): Tripulante 2 ahora esta en 2|3 
+[INFO] 09:45:06:938 discordiador.c/(3435:3654): Tripulante 2 cambio su estado a B
+[INFO] 09:45:06:939 discordiador.c/(3435:3525): Tripulante 2 cambio su estado a R
+[INFO] 09:45:08:932 discordiador.c/(3435:3655): Tripulante 3 terminó su tarea
+[INFO] 09:45:08:932 discordiador.c/(3435:3524): Tripulante 3 cambio su estado a E
+[INFO] 09:45:08:932 discordiador.c/(3435:3655): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 3
+[INFO] 09:45:08:933 discordiador.c/(3435:3655): Tripulante 3 termino de trabajar 
+[INFO] 09:45:08:933 discordiador.c/(3435:3655): Tripulante 3 cambio su estado a F
+[INFO] 09:45:08:939 discordiador.c/(3435:3654): Tripulante 2 terminó su tarea
+[INFO] 09:45:08:939 discordiador.c/(3435:3524): Tripulante 2 cambio su estado a E
+[INFO] 09:45:08:939 discordiador.c/(3435:3654): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 2
+[INFO] 09:45:08:940 discordiador.c/(3435:3654): Tripulante 2 termino de trabajar 
+[INFO] 09:45:08:940 discordiador.c/(3435:3654): Tripulante 2 cambio su estado a F
+[INFO] 09:45:22:593 discordiador.c/(3435:3436): INSTRUCCION LEIDA: LISTAR_TRIPULANTES

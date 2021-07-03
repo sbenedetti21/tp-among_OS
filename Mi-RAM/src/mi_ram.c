@@ -230,7 +230,7 @@ void atenderDiscordiador(int socketCliente){
 				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
 					void * tripulante = malloc(SIZEOF_TCB);
 					int offset = 0; 
-					int tripulanteID;
+					int tripulanteID = 0, posx = 0, posy = 0; 
 					//Deserializamos los campos que tenemos en el buffer
 					memcpy(tripulante + offset, stream, sizeof(uint32_t));
 					memcpy(&tripulanteID, stream, sizeof(uint32_t));
@@ -238,10 +238,12 @@ void atenderDiscordiador(int socketCliente){
 					offset = offset + sizeof(uint32_t);
 
 					memcpy(tripulante + offset, stream, sizeof(uint32_t));
+					memcpy(&posx, stream, sizeof(uint32_t));
 					stream += sizeof(uint32_t);
 					offset = offset + sizeof(uint32_t); 
 
 					memcpy(tripulante + offset, stream, sizeof(uint32_t));
+					memcpy(&posy, stream, sizeof(uint32_t));
 					stream += sizeof(uint32_t);
 					offset = offset + sizeof(uint32_t); 
 
@@ -268,6 +270,8 @@ void atenderDiscordiador(int socketCliente){
 					sem_wait(&mutexTripulantesPatotas);
 					list_add(tripulantesPatotas, referenciaTripulante);
 					sem_post(&mutexTripulantesPatotas);
+
+					agregarTripulanteAlMapa(tripulanteID, posx, posy);
 			
 				}
 
