@@ -122,9 +122,9 @@ char * conseguirBitacora(uint32_t);
 
 //SABOTAJES
 void pruebaDeSabotaje();
-bool verificarBlocksBitMap(char *);
-void verificarBitacoraBitMap();
-void sabotajeSuperBloque();
+int verificarBlocksBitMap(char *);
+int verificarBitacoraBitMap();
+bool sabotajeSuperBloque();
 int llenarBloqueConRecurso(char, int, int);
 void reemplazarConListBlocks(char *);
 void verificarBlockCount(char *);

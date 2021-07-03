@@ -22,8 +22,7 @@ int main(int argc, char ** argv){
 	sem_init(&semaforoBasura, 0, 1);
 	sem_init(&semaforoComida, 0, 1);
 
-	//pruebaDeSabotaje();
-	//sabotajeSuperBloque();
+	pruebaDeSabotaje();
 /*
 	generarRecurso("Oxigeno",190,0);
 	generarRecurso("Comida",90,0);
@@ -31,8 +30,8 @@ int main(int argc, char ** argv){
 	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 */
-	sabotajeFile();
-
+	sabotajeImongo();
+	
 	//Inicio de servidor
 	pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
@@ -114,7 +113,6 @@ void leerSuperBloque(){
 	memcpy(&cantidadDeBloques, &(mapSuperBloque[marcador]), sizeof(uint32_t));
 	marcador+=sizeof(uint32_t);
 	
-	crearBitMap();
 	memcpy(punteroBitmap->bitarray, &(mapSuperBloque[marcador]), tamanioBitMap);
 }
 
@@ -148,6 +146,8 @@ void leerFileSystem(){
 	tamanioSuperBloqueBlocks = sizeof(uint32_t)*2 + tamanioBitMap;
     tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 	mapearSuperBloque();
+
+	crearBitMap();
 	leerSuperBloque();
 }
 
@@ -686,18 +686,19 @@ void pruebaDeSabotaje(){
     int marcador = sizeof(uint32_t);
     int nuevaCantidadDeBloques = cantidadDeBloques * 10;
 
-    memcpy(&(mapSuperBloque[marcador]), &nuevaCantidadDeBloques, sizeof(uint32_t));
+   // memcpy(&(mapSuperBloque[marcador]), &nuevaCantidadDeBloques, sizeof(uint32_t));
     marcador+=sizeof(uint32_t);
 
-    crearBitMap();
-    memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
+     crearBitMap();
+     memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
 
     msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
 }
 
-bool verificarBlocksBitMap(char *ubicacionArchivo){
+int verificarBlocksBitMap(char *ubicacionArchivo){
     t_config *configGeneral;
     configGeneral = config_create(ubicacionArchivo);
+	int cumpleVerificacion = 0;
     if(configGeneral!=NULL){
         char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
         int blockOcupado;
@@ -716,25 +717,25 @@ bool verificarBlocksBitMap(char *ubicacionArchivo){
 				
 				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
                 blockOcupado = atoi(blockOcupadoString) - 1;
-				
+				if(!bitarray_test_bit(punteroBitmap, blockOcupado)){
                 bitarray_set_bit(punteroBitmap, blockOcupado);
+				cumpleVerificacion = 1;
+				}
 
                 inicio += tamanio+1;
             }
-            return true;
-        } else {
-            //No tiene bloques
-            return false;
-        }
+        } 
+
     } else {
         //No existe el archivo
-        return false;
+        return -1;
     }
     free(ubicacionArchivo);
     config_destroy(configGeneral);
+	return cumpleVerificacion;
 }
 
-void verificarBitacoraBitMap(){
+int verificarBitacoraBitMap(){
     int file_count = 0;
     DIR * dirp;
     struct dirent * entry;
@@ -747,47 +748,71 @@ void verificarBitacoraBitMap(){
     closedir(dirp);
 
     int i = 0;
+	int cumpleVerificacion = 0;
     while(file_count>0){
-        if(verificarBlocksBitMap(string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,i)))
+        cumpleVerificacion = verificarBlocksBitMap(string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,i));
+		if(cumpleVerificacion >=0)
             file_count--;
+
         i++;
-    }
+   }
+
+   return cumpleVerificacion;
 }
 
-void sabotajeSuperBloque(){
+bool sabotajeBitMap(){
+	int cumpleVerificacion = 0;
+
+	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
+    cumpleVerificacion +=  verificarBlocksBitMap(ubicacionArchivoBasura);
+	//free(ubicacionArchivoBasura);
+
+    char *ubicacionArchivoComida = string_from_format("%s/Files/Comida.ims",puntoDeMontaje);
+    cumpleVerificacion += verificarBlocksBitMap(ubicacionArchivoComida);
+	//free(ubicacionArchivoComida);
+
+    char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
+   	cumpleVerificacion += verificarBlocksBitMap(ubicacionArchivoOxigeno);
+	//free(ubicacionArchivoOxigeno);
+
+    cumpleVerificacion += verificarBitacoraBitMap();
+
+	if(cumpleVerificacion > 0 ){
+    int marcador = sizeof(uint32_t) * 2;
+
+    memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
+    msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
+	return true;
+	} else 
+	return false;
+}
+
+bool sabotajeSuperBloque(){
+	log_info(loggerImongoStore, "entre al sabotaje");
 //Verificar Cantidad de Bloques
     char * archivoBlocks; 
     archivoBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
     struct stat buf;
     stat(archivoBlocks, &buf);
     off_t blockSize = buf.st_size;
-    cantidadDeBloques = blockSize / tamanioDeBloque;
+    int cantidadDeBloquesAuxiliar = blockSize / tamanioDeBloque;
 
-    int marcador = sizeof(uint32_t);
-    memcpy(&(mapSuperBloque[marcador]), &cantidadDeBloques, sizeof(uint32_t));
+	leerSuperBloque();
 
-//Verificar BitMap
-    
-    crearBitMap();
-    char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
-    verificarBlocksBitMap(ubicacionArchivoBasura);
-	free(ubicacionArchivoBasura);
-
-    char *ubicacionArchivoComida = string_from_format("%s/Files/Comida.ims",puntoDeMontaje);
-    verificarBlocksBitMap(ubicacionArchivoComida);
-	free(ubicacionArchivoComida);
-
-    char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
-    verificarBlocksBitMap(ubicacionArchivoOxigeno);
-	free(ubicacionArchivoOxigeno);
-
-    verificarBitacoraBitMap();
-
-    marcador+=sizeof(uint32_t);
-
-    memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
-    msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
-
+	if(cantidadDeBloquesAuxiliar != cantidadDeBloques){ 
+	 log_info(loggerImongoStore, "cantidadDEBloquesAuxiliar %d, cantidadDeBloques %d",cantidadDeBloquesAuxiliar,cantidadDeBloques);
+   	 int marcador = sizeof(uint32_t);
+	 cantidadDeBloques = cantidadDeBloquesAuxiliar;
+	 memcpy(&(mapSuperBloque[marcador]), &cantidadDeBloques, sizeof(uint32_t));
+	 msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
+	 log_info(loggerImongoStore, "sabotaje en cantidad de Bloques ");
+	 return true;
+	}	else if(sabotajeBitMap()) { 
+		 log_info(loggerImongoStore, "SABOTAJE EN BITMAP");
+	//Verificar BitMap
+	return true;
+	} else 
+	return false;
 //Termino
     log_info(loggerImongoStore,"Termina el proceso de verificacion en el SuperBloque");
 }
@@ -941,6 +966,21 @@ void sabotajeFile(){
 	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 }
+
+
+void sabotajeImongo(){
+
+if(sabotajeSuperBloque()){
+ log_info(loggerImongoStore,"Termino el sabotaje de superbloque");
+}
+
+//hacer if 
+
+
+log_info(loggerImongoStore,"paso sabotaje");
+}
+
+
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------- MENSAJES DEL LOG ---------------------------------------//
 void mandarMensajeEnLog(char *mensaje){
