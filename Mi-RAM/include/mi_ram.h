@@ -43,7 +43,7 @@ char * obtenerProximaTarea(uint32_t, uint32_t);
 char * path_SWAP;
 t_list * listaFrames;
 t_list * listaTablasDePaginas;
-int tamanioPagina, tamanioMemoria;
+int tamanioPagina, tamanioMemoria, tamanioSwap;
 pthread_mutex_t mutexMemoriaPrincipal;
 pthread_mutex_t mutexListaTablas;
 pthread_mutex_t mutexListaFrames;
@@ -59,8 +59,10 @@ typedef struct {
 	uint32_t numeroPagina;
 	uint32_t numeroFrame;
 	uint32_t pid;
+	// bitDeValidez
 	// ultimaReferencia
-	// SecondChance
+	// bitDeUso
+	// bitModificada
 } t_pagina;
 
 typedef struct {

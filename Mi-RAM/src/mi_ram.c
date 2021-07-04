@@ -36,6 +36,7 @@ void leerConfig(){
 	puertoMemoria = config_get_string_value(config, "PUERTO");
 	tamanioPagina = config_get_int_value(config, "TAMANIO_PAGINA");
 	path_SWAP = config_get_string_value(config, "PATH_SWAP");
+	tamanioSwap = config_get_int_value(config, "TAMANIO_SWAP");
 
 }
 
