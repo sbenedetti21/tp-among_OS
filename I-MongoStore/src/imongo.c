@@ -22,16 +22,13 @@ int main(int argc, char ** argv){
 	sem_init(&semaforoBasura, 0, 1);
 	sem_init(&semaforoComida, 0, 1);
 
-	pruebaDeSabotaje();
-/*
-	generarRecurso("Oxigeno",190,0);
-	generarRecurso("Comida",90,0);
-	generarRecurso("Basura",79,0);
-	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
-	msync(mapBlocks, tamanioBlocks, MS_SYNC);
-*/
+//SABOTAJE
+	//pruebaDeSabotaje();
+
 	sabotajeImongo();
 	
+
+
 	//Inicio de servidor
 	pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
@@ -676,23 +673,26 @@ char * conseguirBitacora(uint32_t idTripulante){
 //-------------------------------------------- SABOTAJES --------------------------------------------//
 
 void pruebaDeSabotaje(){
-    generarRecurso("Oxigeno",30,0);
-    generarRecurso("Basura",40,0);
-    generarRecurso("Comida",50,0);
-
+    generarRecurso("Oxigeno",100,0);
+    generarRecurso("Basura",160,0);
+    generarRecurso("Comida",200,0);
+	
     memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
     msync(mapBlocks, tamanioBlocks, MS_SYNC);
-
+	/*
     int marcador = sizeof(uint32_t);
     int nuevaCantidadDeBloques = cantidadDeBloques * 10;
 
-   // memcpy(&(mapSuperBloque[marcador]), &nuevaCantidadDeBloques, sizeof(uint32_t));
+    memcpy(&(mapSuperBloque[marcador]), &nuevaCantidadDeBloques, sizeof(uint32_t));
     marcador+=sizeof(uint32_t);
 
      crearBitMap();
-     memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
-
+	 
+    memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
+	*/
+	guardarBitMap();
     msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
+	
 }
 
 int verificarBlocksBitMap(char *ubicacionArchivo){
@@ -765,17 +765,18 @@ bool sabotajeBitMap(){
 
 	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
     cumpleVerificacion +=  verificarBlocksBitMap(ubicacionArchivoBasura);
-	//free(ubicacionArchivoBasura);
+log_info(loggerImongoStore, "basura cumpleVerificacion %d",cumpleVerificacion);
 
     char *ubicacionArchivoComida = string_from_format("%s/Files/Comida.ims",puntoDeMontaje);
     cumpleVerificacion += verificarBlocksBitMap(ubicacionArchivoComida);
-	//free(ubicacionArchivoComida);
+log_info(loggerImongoStore, "comida cumpleVerificacion %d",cumpleVerificacion);
 
     char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
    	cumpleVerificacion += verificarBlocksBitMap(ubicacionArchivoOxigeno);
-	//free(ubicacionArchivoOxigeno);
+log_info(loggerImongoStore, "oxigeno cumpleVerificacion %d",cumpleVerificacion);
 
     cumpleVerificacion += verificarBitacoraBitMap();
+log_info(loggerImongoStore, "bitacora cumpleVerificacion %d",cumpleVerificacion);
 
 	if(cumpleVerificacion > 0 ){
     int marcador = sizeof(uint32_t) * 2;
@@ -808,7 +809,7 @@ bool sabotajeSuperBloque(){
 	 log_info(loggerImongoStore, "sabotaje en cantidad de Bloques ");
 	 return true;
 	}	else if(sabotajeBitMap()) { 
-		 log_info(loggerImongoStore, "SABOTAJE EN BITMAP");
+		 log_info(loggerImongoStore, "Sabotaje 	BitMap");
 	//Verificar BitMap
 	return true;
 	} else 
@@ -836,7 +837,7 @@ int llenarBloqueConRecurso(char caracterLlenado, int bloqueALlenar, int sizeALle
 	return cantFaltante;
 }
 
-void reemplazarConListBlocks(char *ubicacionRecurso){
+bool reemplazarConListBlocks(char *ubicacionRecurso){
 	t_config *configRecurso = config_create(ubicacionRecurso);	
 	if(configRecurso!=NULL){
         char *listaBlocks = config_get_string_value(configRecurso, "BLOCKS");
@@ -866,11 +867,12 @@ void reemplazarConListBlocks(char *ubicacionRecurso){
     }
 }
 
-void verificarBlockCount(char *ubicacionRecurso){
+bool verificarBlockCount(char *ubicacionRecurso){
 	t_config *configRecurso = config_create(ubicacionRecurso);
 	if(configRecurso!=NULL){
         char *listaBlocks = config_get_string_value(configRecurso, "BLOCKS");
-        int blockCount = 0;
+        int blockCountAuxiliar = config_get_int_value(configRecurso,"BLOCK_COUNT");
+		int blockCount = 0;
 
         if(listaBlocks[1]!=']'){ 
             int inicio = 1;
@@ -891,15 +893,20 @@ void verificarBlockCount(char *ubicacionRecurso){
                 inicio += tamanio+1;
             }
         }
-
+		if(blockCountAuxiliar != blockCount){
 		config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(blockCount));
 		config_save(configRecurso);
+		
+		log_info(loggerImongoStore,"se modifico el blockCount archivo de  %s",ubicacionRecurso);
+		return true;
+		
+		}
 		config_destroy(configRecurso);
     }
-
+	return false;
 }
 
-int verificarSize(int bloqueAVerificar){
+int reemplazarSizeBloque(int bloqueAVerificar){
 	int sizeRecurso = 0;
 	int marcador = bloqueAVerificar * tamanioDeBloque;
 	int limite = marcador + tamanioDeBloque;
@@ -910,11 +917,12 @@ int verificarSize(int bloqueAVerificar){
 	return sizeRecurso;
 }
 
-void verificarEnFile(char *ubicacionRecurso){
+bool verificarSize(char *ubicacionRecurso){
 	t_config *configRecurso = config_create(ubicacionRecurso);
 	if(configRecurso!=NULL){
         char *listaBlocks = config_get_string_value(configRecurso, "BLOCKS");
-        int sizeReal = 0;
+        int sizeAuxiliar = config_get_int_value(configRecurso, "SIZE");
+		int sizeReal = 0;
 
         if(listaBlocks[1]!=']'){ 
             int inicio = 1;
@@ -929,42 +937,62 @@ void verificarEnFile(char *ubicacionRecurso){
 				
 				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
                 int blockOcupado = atoi(blockOcupadoString) - 1;
-				sizeReal += verificarSize(blockOcupado);
+				sizeReal += reemplazarSizeBloque(blockOcupado);
 				
                 inicio += tamanio+1;
             }
         }
+		if(sizeAuxiliar != sizeReal){
 		config_set_value(configRecurso,"SIZE",string_itoa(sizeReal));
 		config_save(configRecurso);
+		log_info(loggerImongoStore,"se modifico el Size del archivo de  %s",ubicacionRecurso);
+		return true;
+		}
 		config_destroy(configRecurso);
     }
-
+return false;
 }
 
-void sabotajeFile(){
+bool sabotajeFile(){
     log_info(loggerImongoStore,"Comienza el proceso de verificacion en los Files");
+
 	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
-	verificarBlockCount(ubicacionArchivoBasura);
-	verificarEnFile(ubicacionArchivoBasura);
-	reemplazarConListBlocks(ubicacionArchivoBasura);
-	free(ubicacionArchivoBasura);
-
     char *ubicacionArchivoComida = string_from_format("%s/Files/Comida.ims",puntoDeMontaje);
-	verificarBlockCount(ubicacionArchivoComida);
-	verificarEnFile(ubicacionArchivoComida);
-	reemplazarConListBlocks(ubicacionArchivoBasura);
-	free(ubicacionArchivoComida);
+	char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
 
-    char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
-	verificarBlockCount(ubicacionArchivoOxigeno);
-	verificarEnFile(ubicacionArchivoOxigeno);
-	reemplazarConListBlocks(ubicacionArchivoBasura);
-	free(ubicacionArchivoOxigeno);
+	bool cumpleVerificacion = false;
 
+
+	if(!cumpleVerificacion){
+	cumpleVerificacion +=verificarBlockCount(ubicacionArchivoBasura);
+	cumpleVerificacion +=verificarBlockCount(ubicacionArchivoComida);
+	cumpleVerificacion +=verificarBlockCount(ubicacionArchivoOxigeno);
+	} 
+
+	if(!cumpleVerificacion){
+	cumpleVerificacion +=verificarSize(ubicacionArchivoBasura);
+	cumpleVerificacion +=verificarSize(ubicacionArchivoComida);
+	cumpleVerificacion +=verificarSize(ubicacionArchivoOxigeno);
+	}
+	
+/*
+	if(!cumpleVerificacion) {
+	cumpleVerificacion +=reemplazarConListBlocks(ubicacionArchivoBasura);
+	cumpleVerificacion +=reemplazarConListBlocks(ubicacionArchivoComida);
+	cumpleVerificacion +=reemplazarConListBlocks(ubicacionArchivoOxigeno);
+	}
+ */	
+	
     log_info(loggerImongoStore,"Termina el proceso de verificacion en los Files");
 
 	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
+
+	free(ubicacionArchivoBasura);
+	free(ubicacionArchivoComida);
+	free(ubicacionArchivoOxigeno);
+
+	return cumpleVerificacion;
 }
 
 
@@ -972,10 +1000,9 @@ void sabotajeImongo(){
 
 if(sabotajeSuperBloque()){
  log_info(loggerImongoStore,"Termino el sabotaje de superbloque");
+} else if (sabotajeFile()){
+ log_info(loggerImongoStore,"Termino el sabotaje de File");
 }
-
-//hacer if 
-
 
 log_info(loggerImongoStore,"paso sabotaje");
 }

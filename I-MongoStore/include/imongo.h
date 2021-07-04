@@ -126,11 +126,11 @@ int verificarBlocksBitMap(char *);
 int verificarBitacoraBitMap();
 bool sabotajeSuperBloque();
 int llenarBloqueConRecurso(char, int, int);
-void reemplazarConListBlocks(char *);
-void verificarBlockCount(char *);
-int verificarSize(int);
-void verificarEnFile(char *);
-void sabotajeFile();
+bool reemplazarConListBlocks(char *);
+bool verificarBlockCount(char *);
+int reemplazarSizeBloque(int);
+bool verificarSize(char *);
+bool sabotajeFile();
 
 //MENSAJES DEL LOG
 void mandarMensajeEnLog(char *);
