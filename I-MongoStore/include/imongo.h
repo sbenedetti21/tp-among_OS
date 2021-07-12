@@ -19,7 +19,10 @@
     #include <dirent.h>
     #include <unistd.h>
     #include <sys/types.h>
-    
+
+//signal 
+#include <signal.h>
+
 
 //Semaforo
 sem_t semaforoBloques;
@@ -109,6 +112,10 @@ int ultimoBloqueFile(char *);
 int conseguirSizeBlocks(char *);
 void borrarBloqueFile(char *, int);
 
+//CODIGO MD5
+char * obtenerMD5(char * );
+void modificarMD5(char * );
+
 //CODIGO DE LOS BLOCKS DE RECURSOS
 void llenarBlocksRecursos(char *, int);
 void vaciarBlocksRecursos(char *, int);
@@ -131,6 +138,7 @@ bool verificarBlockCount(char *);
 int reemplazarSizeBloque(int);
 bool verificarSize(char *);
 bool sabotajeFile();
+void llegoElSignal(int);
 
 //MENSAJES DEL LOG
 void mandarMensajeEnLog(char *);
@@ -149,5 +157,6 @@ void deserializarTareaIO(t_paquete*);
 void deserializarTerminoTarea(t_paquete *);
 void deserializarInicioTareaNormal(t_paquete *);
 void deserializarTripulanteFSCK(t_paquete*);
+
 
 #endif

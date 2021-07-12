@@ -24,10 +24,10 @@ int main(int argc, char ** argv){
 
 //SABOTAJE
 	//pruebaDeSabotaje();
-
-	sabotajeImongo();
+	//sabotajeImongo();
 	
-
+	signal(SIGUSR1, llegoElSignal);
+    //raise(SIGUSR1);
 
 	//Inicio de servidor
 	pthread_t servidor;
@@ -471,6 +471,61 @@ void borrarBloqueFile(char *recurso, int cantidadBorrar){
 	free(listaBlocks);
 	semaforoListoRecurso(recurso);
 }
+
+char * obtenerMD5(char * ubicacionArchivo){
+  	log_info(loggerImongoStore, "entre al OBTENERmd5");
+    char md5_sum[32];
+    FILE *p = popen(string_from_format("md5sum %s",ubicacionArchivo), "r");
+
+
+    if (p == NULL)
+        return 0;
+
+    int i;
+    for (i = 0; i < 32; i++) {
+        md5_sum[i] = fgetc(p);
+    }
+    pclose(p);
+	remove(ubicacionArchivo);
+    return md5_sum;
+}
+
+void modificarMD5(char * ubicacionArchivo){
+	log_info(loggerImongoStore, "entre alMODIFICARmd5");
+	t_config *  configRecurso = config_create(ubicacionArchivo);
+	
+	char ** listaBloques;
+	int sizeRecurso = config_get_int_value(configRecurso,"SIZE");
+	listaBloques= config_get_array_value(configRecurso,"BLOCKS");
+
+	char * bloquesConcatenados=malloc(tamanioDeBloque);
+	log_info(loggerImongoStore, "leo %s",listaBloques[0]);
+	log_info(loggerImongoStore, "por entrar al for %d",sizeRecurso);
+
+	for(int i = 0; listaBloques[i]!= NULL; i++){
+	int marcador = atoi(listaBloques[i]) * tamanioDeBloque;
+	int marcador2 = i * tamanioDeBloque;
+
+	memcpy( &(bloquesConcatenados[marcador2]), &(mapBlocksCopia[marcador]), tamanioDeBloque);
+	log_info(loggerImongoStore, "stringAuxiliar %s",bloquesConcatenados);
+
+	}
+
+	log_info(loggerImongoStore, "saliDElFor");
+	char * ubicacionArchivoMD5 = string_from_format("%s/archivoMD5.ims",puntoDeMontaje);
+	FILE * archivoMD5 = fopen( ubicacionArchivoMD5,"w");
+	log_info(loggerImongoStore, "cree el archivo");
+	fwrite(bloquesConcatenados,sizeRecurso,1,archivoMD5);
+	log_info(loggerImongoStore, "escrivi el archivo");
+	fclose(archivoMD5);
+
+	char * md5_sum = obtenerMD5("FileSystem/archivoMD5.ims");
+	log_info(loggerImongoStore, "md5 %s",md5_sum);
+	config_set_value(configRecurso,"MD5_ARCHIVO",md5_sum);
+
+}
+
+
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------- CODIGO DE LOS BLOCKS DE RECURSOS ---------------------------------//
 void llenarBlocksRecursos(char *recurso, int cantALlenar){
@@ -509,6 +564,13 @@ void llenarBlocksRecursos(char *recurso, int cantALlenar){
 			cantidadLibreBlock=tamanioDeBloque;
 		}
 	}
+	log_info(loggerImongoStore, "llenarRecurso");
+	char * ubicacionArchivo = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
+	log_info(loggerImongoStore, "llenarRecurso2");
+	modificarMD5(ubicacionArchivo);
+	log_info(loggerImongoStore, "llenarRecurso");
+	free(ubicacionArchivo);
+	log_info(loggerImongoStore, "sali del llenarRecurso");
 }
 
 void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
@@ -546,6 +608,11 @@ void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 		cantidadEliminar=0;
 		free(stringVacio);
 	}
+	log_info(loggerImongoStore, "vaciarRecurso");
+	char * ubicacionArchivo = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
+	modificarMD5(ubicacionArchivo);
+	free(ubicacionArchivo);
+
 }
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------- MENSAJES QUE RECIBE ---------------------------------------//
@@ -1008,6 +1075,12 @@ log_info(loggerImongoStore,"paso sabotaje");
 }
 
 
+//---------------------------------------------------------------------------------------//
+//--------------------------------------- SIGNAL ---------------------------------------//
+void llegoElSignal (int n) {
+	//mandar senial al diascordiador para recibir FSCK
+	printf("LLEGO SIGUSR1\n");
+}
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------- MENSAJES DEL LOG ---------------------------------------//
 void mandarMensajeEnLog(char *mensaje){
@@ -1025,6 +1098,7 @@ void sincronizacionMapBlocks(){
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------- ATENDER DISCORDIADOR ---------------------------------------//
+
 void servidorPrincipal() {
 	int listeningSocket = crear_conexionServer(puertoImongoStore);
 	int socketCliente;
