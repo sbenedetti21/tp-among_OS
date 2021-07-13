@@ -113,7 +113,7 @@ int conseguirSizeBlocks(char *);
 void borrarBloqueFile(char *, int);
 
 //CODIGO MD5
-char * obtenerMD5(char * );
+char *obtenerMD5(char *, t_config *);
 void modificarMD5(char * );
 
 //CODIGO DE LOS BLOCKS DE RECURSOS
@@ -139,9 +139,6 @@ int reemplazarSizeBloque(int);
 bool verificarSize(char *);
 bool sabotajeFile();
 void llegoElSignal(int);
-
-//MENSAJES DEL LOG
-void mandarMensajeEnLog(char *);
 
 //SINCRONIZACION BLOCKS
 void sincronizacionMapBlocks();

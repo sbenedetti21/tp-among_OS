@@ -472,57 +472,66 @@ void borrarBloqueFile(char *recurso, int cantidadBorrar){
 	semaforoListoRecurso(recurso);
 }
 
-char * obtenerMD5(char * ubicacionArchivo){
-  	log_info(loggerImongoStore, "entre al OBTENERmd5");
-    char md5_sum[32];
-    FILE *p = popen(string_from_format("md5sum %s",ubicacionArchivo), "r");
+char *obtenerMD5(char * ubicacionArchivo, t_config *configRecurso){
+    char *md5_sum = malloc(32);
+    FILE *p = popen("md5sum FileSystem/archivoMD5.ims", "r");
 
 
-    if (p == NULL)
+    if (p == NULL){
         return 0;
+	}
 
     int i;
     for (i = 0; i < 32; i++) {
         md5_sum[i] = fgetc(p);
     }
+	md5_sum[i] = '\0';
     pclose(p);
 	remove(ubicacionArchivo);
-    return md5_sum;
+
+	return md5_sum;
 }
 
 void modificarMD5(char * ubicacionArchivo){
-	log_info(loggerImongoStore, "entre alMODIFICARmd5");
 	t_config *  configRecurso = config_create(ubicacionArchivo);
 	
 	char ** listaBloques;
 	int sizeRecurso = config_get_int_value(configRecurso,"SIZE");
 	listaBloques= config_get_array_value(configRecurso,"BLOCKS");
 
-	char * bloquesConcatenados=malloc(tamanioDeBloque);
-	log_info(loggerImongoStore, "leo %s",listaBloques[0]);
-	log_info(loggerImongoStore, "por entrar al for %d",sizeRecurso);
-
-	for(int i = 0; listaBloques[i]!= NULL; i++){
-	int marcador = atoi(listaBloques[i]) * tamanioDeBloque;
-	int marcador2 = i * tamanioDeBloque;
-
-	memcpy( &(bloquesConcatenados[marcador2]), &(mapBlocksCopia[marcador]), tamanioDeBloque);
-	log_info(loggerImongoStore, "stringAuxiliar %s",bloquesConcatenados);
-
-	}
-
-	log_info(loggerImongoStore, "saliDElFor");
 	char * ubicacionArchivoMD5 = string_from_format("%s/archivoMD5.ims",puntoDeMontaje);
 	FILE * archivoMD5 = fopen( ubicacionArchivoMD5,"w");
-	log_info(loggerImongoStore, "cree el archivo");
-	fwrite(bloquesConcatenados,sizeRecurso,1,archivoMD5);
-	log_info(loggerImongoStore, "escrivi el archivo");
+	
+	for(int i = 0; sizeRecurso>0; i++){
+		int bloqueABuscar = atoi(listaBloques[i]) - 1;
+		int marcador =  bloqueABuscar * tamanioDeBloque;
+		int marcador2 = i * tamanioDeBloque;
+		
+		int cantidadACopiar;
+		if(sizeRecurso>tamanioDeBloque)
+			cantidadACopiar=tamanioDeBloque;
+		else
+			cantidadACopiar = sizeRecurso;
+		
+		char *bloqueACopiar = malloc(cantidadACopiar);
+		memcpy(bloqueACopiar, &(mapBlocksCopia[marcador]), cantidadACopiar);
+		fwrite(bloqueACopiar,1,cantidadACopiar,archivoMD5);
+
+		sizeRecurso-=cantidadACopiar;
+		free(listaBloques[i]);
+	}
+	
 	fclose(archivoMD5);
 
-	char * md5_sum = obtenerMD5("FileSystem/archivoMD5.ims");
-	log_info(loggerImongoStore, "md5 %s",md5_sum);
+	char *md5_sum = obtenerMD5(ubicacionArchivoMD5, configRecurso);
 	config_set_value(configRecurso,"MD5_ARCHIVO",md5_sum);
+	log_info(loggerImongoStore, "Se guardo el MD5 %s", md5_sum);
 
+	config_save(configRecurso);
+	config_destroy(configRecurso);
+	free(md5_sum);
+	free(ubicacionArchivoMD5);
+	free(listaBloques);
 }
 
 
@@ -617,7 +626,7 @@ void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------- MENSAJES QUE RECIBE ---------------------------------------//
 void generarRecurso(char *recurso, int cantidadALlenar, uint32_t idTripulante){
-	mandarMensajeEnLog(string_from_format("Tripulante %d genera %d de %s",idTripulante, cantidadALlenar, recurso));
+	log_info(loggerImongoStore,"Tripulante %d genera %d de %s",idTripulante, cantidadALlenar, recurso);
 	
 	llenarBlocksBitcoras(string_from_format("Comienza la ejecucion de la tarea Generar %s\n",recurso),idTripulante);
 
@@ -632,11 +641,11 @@ void generarRecurso(char *recurso, int cantidadALlenar, uint32_t idTripulante){
 
 	free(ubicacionArchivoRecurso);
 
-	mandarMensajeEnLog(string_from_format("Tripulante %d termino de generar %d de %s",idTripulante,cantidadALlenar, recurso));
+	log_info(loggerImongoStore,"Tripulante %d termino de generar %d de %s",idTripulante,cantidadALlenar, recurso);
 }
 
 bool consumirRecurso(char *recurso, int cantidadAConsumir, uint32_t idTripulante){
-	mandarMensajeEnLog(string_from_format("Tripulante %d consume %d de %s",idTripulante,cantidadAConsumir,recurso));
+	log_info(loggerImongoStore,"Tripulante %d consume %d de %s",idTripulante,cantidadAConsumir,recurso);
 
 
 	char *comienzaLaTarea = string_from_format("Comienza la ejecucion de la tarea Consumir %s\n",recurso);
@@ -656,12 +665,12 @@ bool consumirRecurso(char *recurso, int cantidadAConsumir, uint32_t idTripulante
 
 	free(ubicacionArchivoRecurso);
 
-	mandarMensajeEnLog(string_from_format("Se consumio %d de %s",cantidadAConsumir,recurso));
+	log_info(loggerImongoStore,"Se consumio %d de %s",cantidadAConsumir,recurso);
 	return true;
 }
 
 void descartarBasura(uint32_t idTripulante){
-	mandarMensajeEnLog(string_from_format("Tripulante %d descarta Basura",idTripulante));
+	log_info(loggerImongoStore,"Tripulante %d descarta Basura",idTripulante);
 	
 	llenarBlocksBitcoras("Comienza la ejecucion de la tarea Descartar Basura\n",idTripulante);
 	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
@@ -694,7 +703,7 @@ char *conseguirStringBlocks(int bloqueBuscado){
 
 char * conseguirBitacora(uint32_t idTripulante){
 
-	mandarMensajeEnLog(string_from_format("Consiguiendo bitacora del Tripulante %d",idTripulante));
+	log_info(loggerImongoStore,"Consiguiendo bitacora del Tripulante %d",idTripulante);
 	char *ubicacionBitacoraID = string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,idTripulante);
 
 	t_config *configBitacora = config_create(ubicacionBitacoraID);
@@ -728,9 +737,9 @@ char * conseguirBitacora(uint32_t idTripulante){
 			//free(stringBuscado);
 		}
 	}else{
-		mandarMensajeEnLog(string_from_format("No tiene informacion en la bitacora del Tripulante %d",idTripulante));
+		log_info(loggerImongoStore,"No tiene informacion en la bitacora del Tripulante %d",idTripulante);
 	}
-	mandarMensajeEnLog(string_from_format("%s",stringBitacora));
+	log_info(loggerImongoStore,"%s",stringBitacora);
 	free(ubicacionBitacoraID);
 
 
@@ -1080,12 +1089,6 @@ log_info(loggerImongoStore,"paso sabotaje");
 void llegoElSignal (int n) {
 	//mandar senial al diascordiador para recibir FSCK
 	printf("LLEGO SIGUSR1\n");
-}
-//---------------------------------------------------------------------------------------------------//
-//--------------------------------------- MENSAJES DEL LOG ---------------------------------------//
-void mandarMensajeEnLog(char *mensaje){
-	log_info(loggerImongoStore, mensaje);
-	free(mensaje);
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------- SINCRONIZACION BLOCKS --------------------------------------//
