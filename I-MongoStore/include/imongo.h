@@ -113,8 +113,8 @@ int conseguirSizeBlocks(char *);
 void borrarBloqueFile(char *, int);
 
 //CODIGO MD5
-char *obtenerMD5(char *, t_config *);
-void modificarMD5(char * );
+char *generarMD5(char *);
+void actualizarMD5(char * );
 
 //CODIGO DE LOS BLOCKS DE RECURSOS
 void llenarBlocksRecursos(char *, int);
@@ -133,7 +133,7 @@ int verificarBlocksBitMap(char *);
 int verificarBitacoraBitMap();
 bool sabotajeSuperBloque();
 int llenarBloqueConRecurso(char, int, int);
-bool reemplazarConListBlocks(char *);
+bool verificarListBlocks(char *);
 bool verificarBlockCount(char *);
 int reemplazarSizeBloque(int);
 bool verificarSize(char *);

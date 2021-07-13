@@ -24,7 +24,7 @@ int main(int argc, char ** argv){
 
 //SABOTAJE
 	//pruebaDeSabotaje();
-	//sabotajeImongo();
+	sabotajeImongo();
 	
 	signal(SIGUSR1, llegoElSignal);
     //raise(SIGUSR1);
@@ -472,19 +472,15 @@ void borrarBloqueFile(char *recurso, int cantidadBorrar){
 	semaforoListoRecurso(recurso);
 }
 
-char *obtenerMD5(char * ubicacionArchivo, t_config *configRecurso){
+char *generarMD5(char * ubicacionArchivo){
     char *md5_sum = malloc(32);
     FILE *p = popen("md5sum FileSystem/archivoMD5.ims", "r");
-
-
-    if (p == NULL){
-        return 0;
-	}
 
     int i;
     for (i = 0; i < 32; i++) {
         md5_sum[i] = fgetc(p);
-    }
+	}
+	
 	md5_sum[i] = '\0';
     pclose(p);
 	remove(ubicacionArchivo);
@@ -492,12 +488,9 @@ char *obtenerMD5(char * ubicacionArchivo, t_config *configRecurso){
 	return md5_sum;
 }
 
-void modificarMD5(char * ubicacionArchivo){
-	t_config *  configRecurso = config_create(ubicacionArchivo);
-	
-	char ** listaBloques;
+char *conseguirMD5(t_config *configRecurso){
 	int sizeRecurso = config_get_int_value(configRecurso,"SIZE");
-	listaBloques= config_get_array_value(configRecurso,"BLOCKS");
+	char ** listaBloques= config_get_array_value(configRecurso,"BLOCKS");
 
 	char * ubicacionArchivoMD5 = string_from_format("%s/archivoMD5.ims",puntoDeMontaje);
 	FILE * archivoMD5 = fopen( ubicacionArchivoMD5,"w");
@@ -522,19 +515,31 @@ void modificarMD5(char * ubicacionArchivo){
 	}
 	
 	fclose(archivoMD5);
+	
+	char *md5_sum = generarMD5(ubicacionArchivoMD5);
 
-	char *md5_sum = obtenerMD5(ubicacionArchivoMD5, configRecurso);
+	free(ubicacionArchivoMD5);
+	free(listaBloques);
+
+	return md5_sum;
+}
+
+void actualizarMD5(char *recurso){
+	semaforoEsperaRecurso(recurso);
+	char * ubicacionArchivo = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
+	t_config *  configRecurso = config_create(ubicacionArchivo);
+
+	char *md5_sum = conseguirMD5(configRecurso);
+
 	config_set_value(configRecurso,"MD5_ARCHIVO",md5_sum);
 	log_info(loggerImongoStore, "Se guardo el MD5 %s", md5_sum);
 
 	config_save(configRecurso);
 	config_destroy(configRecurso);
 	free(md5_sum);
-	free(ubicacionArchivoMD5);
-	free(listaBloques);
+	free(ubicacionArchivo);
+	semaforoListoRecurso(recurso);
 }
-
-
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------- CODIGO DE LOS BLOCKS DE RECURSOS ---------------------------------//
 void llenarBlocksRecursos(char *recurso, int cantALlenar){
@@ -573,13 +578,8 @@ void llenarBlocksRecursos(char *recurso, int cantALlenar){
 			cantidadLibreBlock=tamanioDeBloque;
 		}
 	}
-	log_info(loggerImongoStore, "llenarRecurso");
-	char * ubicacionArchivo = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
-	log_info(loggerImongoStore, "llenarRecurso2");
-	modificarMD5(ubicacionArchivo);
-	log_info(loggerImongoStore, "llenarRecurso");
-	free(ubicacionArchivo);
-	log_info(loggerImongoStore, "sali del llenarRecurso");
+
+	actualizarMD5(recurso);
 }
 
 void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
@@ -617,11 +617,8 @@ void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 		cantidadEliminar=0;
 		free(stringVacio);
 	}
-	log_info(loggerImongoStore, "vaciarRecurso");
-	char * ubicacionArchivo = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
-	modificarMD5(ubicacionArchivo);
-	free(ubicacionArchivo);
 
+	actualizarMD5(recurso);
 }
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------- MENSAJES QUE RECIBE ---------------------------------------//
@@ -794,8 +791,8 @@ int verificarBlocksBitMap(char *ubicacionArchivo){
 				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
                 blockOcupado = atoi(blockOcupadoString) - 1;
 				if(!bitarray_test_bit(punteroBitmap, blockOcupado)){
-                bitarray_set_bit(punteroBitmap, blockOcupado);
-				cumpleVerificacion = 1;
+                	bitarray_set_bit(punteroBitmap, blockOcupado);
+					cumpleVerificacion = 1;
 				}
 
                 inicio += tamanio+1;
@@ -913,71 +910,65 @@ int llenarBloqueConRecurso(char caracterLlenado, int bloqueALlenar, int sizeALle
 	return cantFaltante;
 }
 
-bool reemplazarConListBlocks(char *ubicacionRecurso){
+bool verificarListBlocks(char *ubicacionRecurso){
+	log_info(loggerImongoStore,"Verificando Lista de Bloques de %s",ubicacionRecurso);
 	t_config *configRecurso = config_create(ubicacionRecurso);	
+
+	char *archivoMD5 = config_get_string_value(configRecurso, "MD5_ARCHIVO");
+	char *recursoMD5Real = conseguirMD5(configRecurso);
+	log_info(loggerImongoStore,"MD5\n%s\n%s",archivoMD5,recursoMD5Real);
+	if(strcmp(archivoMD5,recursoMD5Real)==0){
+		//MD5 iguales
+		return false;
+	}
+
 	if(configRecurso!=NULL){
-        char *listaBlocks = config_get_string_value(configRecurso, "BLOCKS");
+        char **listaBlocks = config_get_array_value(configRecurso, "BLOCKS");
 		char *caracterLlenado = config_get_string_value(configRecurso, "CARACTER_LLENADO");
 		int sizeALlenar = config_get_int_value(configRecurso, "SIZE");
 
-        if(listaBlocks[1]!=']'){ 
-            int inicio = 1;
-            while(inicio<strlen(listaBlocks)){
-                int tamanio = 1;
-                int marcador = tamanio + inicio;
-				
-                while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']'){
-                    tamanio++;
-                    marcador = tamanio + inicio;
-                }
-				
-				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
-                int blockOcupado = atoi(blockOcupadoString) - 1;
+        for(int i = 0;listaBlocks[i]!=NULL; i++){
+            int blockOcupado = atoi(listaBlocks[i]) - 1;
 
-				sizeALlenar = llenarBloqueConRecurso(caracterLlenado[0],blockOcupado,sizeALlenar);
-
-                inicio += tamanio+1;
-            }
+			sizeALlenar = llenarBloqueConRecurso(caracterLlenado[0],blockOcupado,sizeALlenar);
+			
+			free(listaBlocks[i]);
         }
+        
 		config_destroy(configRecurso);
+		free(listaBlocks);
     }
+	return true;
 }
 
 bool verificarBlockCount(char *ubicacionRecurso){
+	log_info(loggerImongoStore,"Verificando BlockCount de %s",ubicacionRecurso);
 	t_config *configRecurso = config_create(ubicacionRecurso);
+	
 	if(configRecurso!=NULL){
-        char *listaBlocks = config_get_string_value(configRecurso, "BLOCKS");
+        char **listaBlocks = config_get_array_value(configRecurso, "BLOCKS");
         int blockCountAuxiliar = config_get_int_value(configRecurso,"BLOCK_COUNT");
 		int blockCount = 0;
 
-        if(listaBlocks[1]!=']'){ 
-            int inicio = 1;
+        for(int i = 0;listaBlocks[i]!=NULL; i++){
+            int blockOcupado = atoi(listaBlocks[i]) - 1;
 
-            while(inicio<strlen(listaBlocks)){
-                int tamanio = 1;
-                int marcador = tamanio + inicio;
-				
-                while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']'){
-                    tamanio++;
-                    marcador = tamanio + inicio;
-                }
-				
-				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
-                int blockOcupado = atoi(blockOcupadoString) - 1;
-				blockCount++;
-
-                inicio += tamanio+1;
-            }
+			blockCount++;
+			free(listaBlocks[i]);
         }
+		
 		if(blockCountAuxiliar != blockCount){
-		config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(blockCount));
-		config_save(configRecurso);
+			config_set_value(configRecurso,"BLOCK_COUNT",string_itoa(blockCount));
+			config_save(configRecurso);
 		
-		log_info(loggerImongoStore,"se modifico el blockCount archivo de  %s",ubicacionRecurso);
-		return true;
-		
+			log_info(loggerImongoStore,"se modifico el blockCount archivo de  %s",ubicacionRecurso);
+			config_destroy(configRecurso);
+			free(listaBlocks);
+			return true;
 		}
+
 		config_destroy(configRecurso);
+		free(listaBlocks);
     }
 	return false;
 }
@@ -994,39 +985,34 @@ int reemplazarSizeBloque(int bloqueAVerificar){
 }
 
 bool verificarSize(char *ubicacionRecurso){
+    log_info(loggerImongoStore,"Verificando Size de %s",ubicacionRecurso);
 	t_config *configRecurso = config_create(ubicacionRecurso);
+
 	if(configRecurso!=NULL){
-        char *listaBlocks = config_get_string_value(configRecurso, "BLOCKS");
-        int sizeAuxiliar = config_get_int_value(configRecurso, "SIZE");
+        char **listaBlocks = config_get_array_value(configRecurso, "BLOCKS");
+		int sizeAuxiliar = config_get_int_value(configRecurso, "SIZE");
 		int sizeReal = 0;
 
-        if(listaBlocks[1]!=']'){ 
-            int inicio = 1;
-            while(inicio<strlen(listaBlocks)){
-                int tamanio = 1;
-                int marcador = tamanio + inicio;
-				
-                while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']'){
-                    tamanio++;
-                    marcador = tamanio + inicio;
-                }
-				
-				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
-                int blockOcupado = atoi(blockOcupadoString) - 1;
-				sizeReal += reemplazarSizeBloque(blockOcupado);
-				
-                inicio += tamanio+1;
-            }
+        for(int i = 0;listaBlocks[i]!=NULL; i++){
+            int blockOcupado = atoi(listaBlocks[i]) - 1;
+
+			sizeReal += reemplazarSizeBloque(blockOcupado);
+			free(listaBlocks[i]);
         }
+        
 		if(sizeAuxiliar != sizeReal){
-		config_set_value(configRecurso,"SIZE",string_itoa(sizeReal));
-		config_save(configRecurso);
-		log_info(loggerImongoStore,"se modifico el Size del archivo de  %s",ubicacionRecurso);
-		return true;
+			config_set_value(configRecurso,"SIZE",string_itoa(sizeReal));
+			config_save(configRecurso);
+			log_info(loggerImongoStore,"se modifico el Size del archivo de  %s",ubicacionRecurso);
+			
+			return true;
 		}
+
 		config_destroy(configRecurso);
+		free(listaBlocks);
     }
-return false;
+	
+	return false;
 }
 
 bool sabotajeFile(){
@@ -1040,26 +1026,25 @@ bool sabotajeFile(){
 
 
 	if(!cumpleVerificacion){
-	cumpleVerificacion +=verificarBlockCount(ubicacionArchivoBasura);
-	cumpleVerificacion +=verificarBlockCount(ubicacionArchivoComida);
-	cumpleVerificacion +=verificarBlockCount(ubicacionArchivoOxigeno);
+		cumpleVerificacion +=verificarBlockCount(ubicacionArchivoBasura);
+		cumpleVerificacion +=verificarBlockCount(ubicacionArchivoComida);
+		cumpleVerificacion +=verificarBlockCount(ubicacionArchivoOxigeno);
 	} 
 
 	if(!cumpleVerificacion){
-	cumpleVerificacion +=verificarSize(ubicacionArchivoBasura);
-	cumpleVerificacion +=verificarSize(ubicacionArchivoComida);
-	cumpleVerificacion +=verificarSize(ubicacionArchivoOxigeno);
+		cumpleVerificacion +=verificarSize(ubicacionArchivoBasura);
+		cumpleVerificacion +=verificarSize(ubicacionArchivoComida);
+		cumpleVerificacion +=verificarSize(ubicacionArchivoOxigeno);
 	}
 	
-/*
+
 	if(!cumpleVerificacion) {
-	cumpleVerificacion +=reemplazarConListBlocks(ubicacionArchivoBasura);
-	cumpleVerificacion +=reemplazarConListBlocks(ubicacionArchivoComida);
-	cumpleVerificacion +=reemplazarConListBlocks(ubicacionArchivoOxigeno);
+		cumpleVerificacion +=verificarListBlocks(ubicacionArchivoBasura);
+		cumpleVerificacion +=verificarListBlocks(ubicacionArchivoComida);
+		cumpleVerificacion +=verificarListBlocks(ubicacionArchivoOxigeno);
 	}
- */	
 	
-    log_info(loggerImongoStore,"Termina el proceso de verificacion en los Files");
+    log_info(loggerImongoStore,"Termina el proceso de verificacion en los Files %d",cumpleVerificacion);
 
 	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 	msync(mapBlocks, tamanioBlocks, MS_SYNC);
@@ -1074,18 +1059,18 @@ bool sabotajeFile(){
 
 void sabotajeImongo(){
 
-if(sabotajeSuperBloque()){
- log_info(loggerImongoStore,"Termino el sabotaje de superbloque");
-} else if (sabotajeFile()){
- log_info(loggerImongoStore,"Termino el sabotaje de File");
+	if(sabotajeSuperBloque()){
+		log_info(loggerImongoStore,"Se arreglo el Sabotaje en el Superbloque");
+	} else if (sabotajeFile()){
+		log_info(loggerImongoStore,"Se arreglo el Sabotaje en File");
+	}
+
+	log_info(loggerImongoStore,"paso sabotaje");
 }
 
-log_info(loggerImongoStore,"paso sabotaje");
-}
 
-
-//---------------------------------------------------------------------------------------//
-//--------------------------------------- SIGNAL ---------------------------------------//
+//---------------------------------------------------------------------------------------------------//
+//--------------------------------------------- SIGNAL ----------------------------------------------//
 void llegoElSignal (int n) {
 	//mandar senial al diascordiador para recibir FSCK
 	printf("LLEGO SIGUSR1\n");
