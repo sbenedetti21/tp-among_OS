@@ -138,12 +138,14 @@ bool verificarBlockCount(char *);
 int reemplazarSizeBloque(int);
 bool verificarSize(char *);
 bool sabotajeFile();
-void llegoElSignal(int);
+void llegoElSignal();
 
 //SINCRONIZACION BLOCKS
 void sincronizacionMapBlocks();
 
 //atender las peticiones del discordiador
+void serializarYMandarPosicionSabotaje(uint32_t, uint32_t);
+int socketParaSabotajes;
 void servidorPrincipal();
 void deserealizarPosicion(t_paquete*);
 void atenderDiscordiador(int);

@@ -22,17 +22,21 @@ int main(int argc, char ** argv){
 	sem_init(&semaforoBasura, 0, 1);
 	sem_init(&semaforoComida, 0, 1);
 
-//SABOTAJE
+
+	//SABOTAJE
 	//pruebaDeSabotaje();
-	sabotajeImongo();
+	//sabotajeImongo();
 	
-	signal(SIGUSR1, llegoElSignal);
-    //raise(SIGUSR1);
+	// signal(SIGUSR1, llegoElSignal);
+	// sleep(20);
+	// printf("SIGUSR1");
+    // raise(SIGUSR1);
 
 	//Inicio de servidor
 	pthread_t servidor;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
     pthread_join(servidor, NULL);
+
 
 	//Necesario al finalizar
 	munmap(mapSuperBloque,tamanioBlocks);
@@ -1071,9 +1075,16 @@ void sabotajeImongo(){
 
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------------- SIGNAL ----------------------------------------------//
-void llegoElSignal (int n) {
-	//mandar senial al diascordiador para recibir FSCK
-	printf("LLEGO SIGUSR1\n");
+void llegoElSignal (){
+
+	uint32_t posx, posy;
+
+	posx = 1;
+	posy = 6;
+
+	// ASIGNARLES LA POSX Y LA POSY DEL ARCHIVO DE CONFIG
+
+	serializarYMandarPosicionSabotaje(posx, posy);
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------- SINCRONIZACION BLOCKS --------------------------------------//
@@ -1096,6 +1107,9 @@ void servidorPrincipal() {
 	struct sockaddr_in addr;
 	socklen_t addrlen = sizeof(addr);
 	pthread_t receptorDiscordiador;
+
+	// SE CONECTA POR PRIMERA VEZ PARA TENER LA CONEXION ESTABLECIDA. LA VA AUSAR PARA MANDAR FSCK
+	socketParaSabotajes = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
 
 	while(1){
 		socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
@@ -1183,7 +1197,44 @@ uint32_t deserializarPedidoBitacora(t_paquete * paquete){
 	return tid;
 }
 
+void serializarYMandarPosicionSabotaje(uint32_t posx, uint32_t posy){
 
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = 2 * sizeof(uint32_t);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &posx, sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+	
+	memcpy(stream+offset, &posy, sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	buffer-> stream = stream;
+
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+	 paquete->buffer = malloc(sizeof(buffer->size));
+
+	paquete->header = ALERTA_DE_SABOTAJE;
+	paquete->buffer = buffer;
+
+	void* a_enviar = malloc(buffer->size + sizeof(int) + sizeof(uint32_t) ); 
+	int offset2 = 0;
+
+	memcpy(a_enviar + offset2, &(paquete->header), sizeof(int));
+	offset2 += sizeof(int);
+
+	memcpy(a_enviar + offset2, &(paquete->buffer->size), sizeof(uint32_t));
+	offset2 += sizeof(uint32_t);
+
+	memcpy(a_enviar + offset2, paquete-> buffer-> stream, paquete->buffer->size);
+
+	send(socketParaSabotajes, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
+
+}
 
 void serializarYMandarBitacora(char * bitacora, int socket){
 
@@ -1302,7 +1353,7 @@ void deserializarTripulanteFSCK(t_paquete * paquete){
 	uint32_t tid;
 	memcpy(&tid, paquete->buffer->stream, sizeof(uint32_t));
 	// METER INFO EN BITACORA Y LOGS
-	//llenarBlocksBitcoras(string_from_format("Finalizo el sabotaje y salvo a todos en la nave\n"),tid);
+	llenarBlocksBitcoras(string_from_format("Finalizo el sabotaje y salvo a todos en la nave\n"),tid);
 }
 
 void atenderDiscordiador(int socketCliente){
@@ -1327,6 +1378,9 @@ void atenderDiscordiador(int socketCliente){
 		deserializarTareaIO(paquete);
 		break;
 	case BITACORA:  ;
+
+		llegoElSignal();
+
 		uint32_t tid = deserializarPedidoBitacora(paquete);
 		char * bitacora = conseguirBitacora(tid);
 		serializarYMandarBitacora(bitacora, socketCliente);
@@ -1338,8 +1392,8 @@ void atenderDiscordiador(int socketCliente){
 		deserializarTerminoTarea(paquete);
 		break;
 	case INICIAR_FSCK:
+		// PONER INCIAR FSCK
 		deserializarTripulanteFSCK(paquete);
-		//Iniciar FSCK	
 		break;
 	}
 

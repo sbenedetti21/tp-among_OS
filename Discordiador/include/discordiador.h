@@ -53,8 +53,8 @@ t_list * listaBloqueadosSabotaje;
 
 
 uint32_t iniciarPCB(char*, int);
-void servidorPrincipal(t_config *);
-void atenderImongo(int);
+void servidorPrincipal();
+void atenderImongo();
 int conectarImongo();
 int conectarMiRAM();
 void cambiarEstadoTripulantesA(char);
@@ -90,5 +90,7 @@ void mostrarLista(t_list *);
 void ponerReadyNuevosTripulantes();
 char * leerTareas(char *);
 void serializarYMandarPedidoDeBitacora(uint32_t);
+int socketParaSabotajes;
+
 
 #endif

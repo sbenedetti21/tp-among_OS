@@ -29,12 +29,19 @@ int main(int argc, char ** argv){
 	list_add(tareasDeIO,"GENERAR_BASURA");
 	list_add(tareasDeIO,"DESCARTAR_BASURA");
 
-	
 	t_config * config = config_create("./cfg/discordiador.config");
-	/* 
-	pthread_t servidor;
-	pthread_create(&servidor, NULL, servidorPrincipal, config);
-	*/
+
+	socketParaSabotajes = conectarImongo();
+
+	pthread_t hiloSabotajes;
+    pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
+
+
+	pthread_t hiloConsola;
+	pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
+	pthread_join(hiloConsola, NULL);
+
+ 
 
 	cicloCPU = config_get_int_value(config, "RETARDO_CICLO_CPU");
 	tiempoSabotaje = config_get_int_value(config, "DURACION_SABOTAJE");
@@ -55,12 +62,7 @@ int main(int argc, char ** argv){
 	sem_init(&semaforoSabotaje,0,0);
 
 
-
-
-	 pthread_t hiloConsola;
-	 pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
-	 pthread_join(hiloConsola, NULL);
- 
+	
 sem_destroy(&semaforoTripulantes);
 
 
@@ -71,29 +73,7 @@ return 0;
 
 //-----------------------------CONECTAR---------------------------------------------------------------------------------------
 
-void servidorPrincipal(t_config * config) {
-	char * puerto = config_get_string_value(config, "PUERTO");
-	int listeningSocket = crear_conexionServer(puerto);
 
-	int socketCliente;
-
-	struct sockaddr_in addr;
-	socklen_t addrlen = sizeof(addr);
-	pthread_t receptorDiscordiador;
-
-
-	while(1){
-		socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
-		if(socketCliente == -1){printf("Error en la conexión"); log_info(loggerDiscordiador, "error en la conexion con IMongoStore");}
-		else {
-			log_info(loggerDiscordiador, "Conexión establecida con Discordiador");
-			pthread_create(&receptorDiscordiador, NULL, atenderImongo, socketCliente);
-		}
-	}
-
-	close(socketCliente);
-	close(listeningSocket);
-}
 
 int conectarImongo(){
 	t_config * config = config_create("./cfg/discordiador.config");
@@ -212,13 +192,13 @@ void consola(){
 
 		if(strcmp(vectorInstruccion[0], "bitacora") == 0){
 
-			tarea_struct * tarea = malloc(sizeof(tarea_struct));
-			tarea->parametro = 5;
-			tarea->descripcionTarea = "GENERAR_OXIGENO";
+			// tarea_struct * tarea = malloc(sizeof(tarea_struct));
+			// tarea->parametro = 5;
+			// tarea->descripcionTarea = "GENERAR_OXIGENO";
 
-			gestionarTarea(tarea, 1);
+			// gestionarTarea(tarea, 1);
 
-			sleep(5);
+			//  sleep(5);
 
 			serializarYMandarPedidoDeBitacora(1);
 		}
@@ -1281,22 +1261,24 @@ void serializarYMandarPedidoDeBitacora(uint32_t tid){
 }
 //-----------------------------SABOTAJES---------------------------------------------------------------------------------------------------
 
-void atenderImongo(int socketCliente){
+void atenderImongo(){
+
+	while(1){
  
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->buffer = malloc(sizeof(t_buffer));
 
-	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
+	int headerRECV = recv(socketParaSabotajes, &(paquete->header) , sizeof(int), 0);
 	if(headerRECV) { log_info(loggerDiscordiador, "Recibi header: %d\n", paquete->header);} else{ log_error(loggerDiscordiador, "No se pudo recibir el header");}
 	
 	int BUFFER_RECV  = 0;
 	
-	int statusTamanioBuffer = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+	int statusTamanioBuffer = recv(socketParaSabotajes,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
 	if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer ");}
 
 	paquete->buffer->stream = malloc(paquete->buffer->size);
 
-	BUFFER_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+	BUFFER_RECV = recv(socketParaSabotajes,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
 
 	if(! BUFFER_RECV){ log_error(loggerDiscordiador,"No se pudo recibir el buffer");}
 
@@ -1312,6 +1294,7 @@ void atenderImongo(int socketCliente){
 
 		uint32_t posX;
 		uint32_t posY;
+ 
 
 		int tamanioTareas;
 		memcpy(&posX, stream, sizeof(uint32_t));
@@ -1350,9 +1333,11 @@ void atenderImongo(int socketCliente){
 			sem_post(&semaforoSabotaje);
 		}
 
-				}
-		
+				
+		}
 		break;
+	 }
+
 	}
 
 }
