@@ -26,7 +26,7 @@ int main(int argc, char ** argv){
 	//pruebaDeSabotaje();
 	//sabotajeImongo();
 	
-	signal(SIGUSR1, llegoElSignal);
+	// signal(SIGUSR1, llegoElSignal);
 	// sleep(20);
 	// printf("SIGUSR1");
     // raise(SIGUSR1);
@@ -1364,8 +1364,14 @@ void deserializarInicioTareaNormal(t_paquete * paquete){
 void deserializarTripulanteFSCK(t_paquete * paquete){
 	uint32_t tid;
 	memcpy(&tid, paquete->buffer->stream, sizeof(uint32_t));
+	
+	//FSCK
+	sabotajeImongo();
+	
 	// METER INFO EN BITACORA Y LOGS
-	llenarBlocksBitcoras(string_from_format("Finalizo el sabotaje y salvo a todos en la nave\n"),tid);
+	char *mensajeBitacora = string_from_format("Finalizo el sabotaje y salvo a todos en la nave\n");
+	llenarBlocksBitcoras(mensajeBitacora,tid);
+	free(mensajeBitacora);
 }
 
 void atenderDiscordiador(int socketCliente){
@@ -1401,7 +1407,6 @@ void atenderDiscordiador(int socketCliente){
 		deserializarTerminoTarea(paquete);
 		break;
 	case INICIAR_FSCK:
-		// PONER INCIAR FSCK
 		deserializarTripulanteFSCK(paquete);
 		break;
 	}
