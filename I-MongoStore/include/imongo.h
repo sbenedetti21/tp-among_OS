@@ -48,6 +48,7 @@ uint32_t tamanioDeBloque;
 uint32_t cantidadDeBloques;
 char * puntoDeMontaje;
 int tiempoDeSinc;
+char **posicionesSabotaje;
 
 //Variables de mapeo del Blocks
 size_t tamanioBlocks;
@@ -138,6 +139,8 @@ bool verificarBlockCount(char *);
 int reemplazarSizeBloque(int);
 bool verificarSize(char *);
 bool sabotajeFile();
+
+//SIGNAL
 void llegoElSignal();
 
 //SINCRONIZACION BLOCKS

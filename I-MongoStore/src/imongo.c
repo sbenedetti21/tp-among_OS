@@ -22,20 +22,22 @@ int main(int argc, char ** argv){
 	sem_init(&semaforoBasura, 0, 1);
 	sem_init(&semaforoComida, 0, 1);
 
-
 	//SABOTAJE
 	//pruebaDeSabotaje();
 	//sabotajeImongo();
 	
-	// signal(SIGUSR1, llegoElSignal);
+	signal(SIGUSR1, llegoElSignal);
 	// sleep(20);
 	// printf("SIGUSR1");
     // raise(SIGUSR1);
 
 	//Inicio de servidor
 	pthread_t servidor;
+	pthread_t sincronizador;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
+    pthread_create(&sincronizador, NULL, sincronizacionMapBlocks, NULL);
     pthread_join(servidor, NULL);
+	pthread_join(sincronizador, NULL);
 
 
 	//Necesario al finalizar
@@ -64,6 +66,7 @@ void leerConfig(){
 	tiempoDeSinc = config_get_int_value(config, "TIEMPO_SINCRONIZACION");
 	tamanioDeBloque = config_get_int_value(config, "BLOCK_SIZE");
     cantidadDeBloques = config_get_int_value(config, "CANTIDAD_BLOCKS");
+	posicionesSabotaje = config_get_array_value(config,"POSICIONES_SABOTAJE");
 }
 //----------------------------------------------------------------------------------------------------//
 //----------------------------------- ARCHIVO BLOCKS Y SUPERBLOQUE -----------------------------------//
@@ -886,11 +889,11 @@ bool sabotajeSuperBloque(){
 	 log_info(loggerImongoStore, "sabotaje en cantidad de Bloques ");
 	 return true;
 	}	else if(sabotajeBitMap()) { 
-		 log_info(loggerImongoStore, "Sabotaje 	BitMap");
-	//Verificar BitMap
-	return true;
+			log_info(loggerImongoStore, "Sabotaje 	BitMap");
+		//Verificar BitMap
+			return true;
 	} else 
-	return false;
+		return false;
 //Termino
     log_info(loggerImongoStore,"Termina el proceso de verificacion en el SuperBloque");
 }
@@ -1076,21 +1079,32 @@ void sabotajeImongo(){
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------------- SIGNAL ----------------------------------------------//
 void llegoElSignal (){
+	if(posicionesSabotaje[0]!=NULL){
+		char *posicion = posicionesSabotaje[0];
 
-	uint32_t posx, posy;
+		uint32_t posx, posy;
 
-	posx = 1;
-	posy = 6;
+		posx = posicion[0] - '0';
+		posy = posicion[2] - '0';
 
-	// ASIGNARLES LA POSX Y LA POSY DEL ARCHIVO DE CONFIG
+		posicionesSabotaje = &(posicionesSabotaje[1]);
+		free(posicion);
 
-	serializarYMandarPosicionSabotaje(posx, posy);
+		// ASIGNARLES LA POSX Y LA POSY DEL ARCHIVO DE CONFIG
+
+		log_info(loggerImongoStore,"Sabotaje en la posicion %d|%d",posx,posy);
+
+		serializarYMandarPosicionSabotaje(posx, posy);
+	} else {
+		log_info(loggerImongoStore,"No hay mas posiciones de sabotaje");
+	}
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------- SINCRONIZACION BLOCKS --------------------------------------//
 void sincronizacionMapBlocks(){
 	while(1){
 		sleep(tiempoDeSinc);
+		log_info(loggerImongoStore,"Sincronizando");
 		memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 		msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	}
@@ -1237,8 +1251,6 @@ void serializarYMandarPosicionSabotaje(uint32_t posx, uint32_t posy){
 }
 
 void serializarYMandarBitacora(char * bitacora, int socket){
-
-	
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
 	int tamanioBitacora = strlen(bitacora) + 1;
@@ -1378,9 +1390,6 @@ void atenderDiscordiador(int socketCliente){
 		deserializarTareaIO(paquete);
 		break;
 	case BITACORA:  ;
-
-		llegoElSignal();
-
 		uint32_t tid = deserializarPedidoBitacora(paquete);
 		char * bitacora = conseguirBitacora(tid);
 		serializarYMandarBitacora(bitacora, socketCliente);
@@ -1397,8 +1406,6 @@ void atenderDiscordiador(int socketCliente){
 		break;
 	}
 
-	memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
-	msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	guardarBitMap();
 }
 
