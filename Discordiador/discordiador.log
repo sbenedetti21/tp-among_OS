@@ -3497,3 +3497,216 @@
 [ERROR] 18:06:16:308 discordiador.c/(24856:24865): No se pudo recibir el header al recibir una tarea
 [INFO] 18:06:17:077 discordiador.c/(24856:24863): 
 0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 03 00 00 00  |................|
+[INFO] 18:35:21:661 discordiador.c/(18549:18549): ---------PROGRAMA INICIADO---------- 
+[INFO] 18:35:32:244 discordiador.c/(18549:18550): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 18:35:32:244 discordiador.c/(18549:18550): Discordiador conectado con Mi RAM
+[INFO] 18:35:32:245 discordiador.c/(18549:18550): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 18:35:32:245 discordiador.c/(18549:18550): Tripulante 0 cambio su estado a R
+[INFO] 18:35:32:245 discordiador.c/(18549:18550): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 18:35:32:245 discordiador.c/(18549:18550): Tripulante 1 cambio su estado a R
+[INFO] 18:35:32:245 discordiador.c/(18549:18550): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 18:35:32:245 discordiador.c/(18549:18550): Tripulante 2 cambio su estado a R
+[INFO] 18:35:32:245 discordiador.c/(18549:18550): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 18:35:36:248 discordiador.c/(18549:18550): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 18:35:36:250 discordiador.c/(18549:18560): Tripulante 0 cambio su estado a R
+[INFO] 18:35:36:250 discordiador.c/(18549:18560): Tripulante 1 cambio su estado a R
+[INFO] 18:35:36:250 discordiador.c/(18549:18560): Tripulante 2 cambio su estado a R
+[INFO] 18:35:36:250 discordiador.c/(18549:18560): Tripulante 0 cambio su estado a E
+[INFO] 18:35:36:251 discordiador.c/(18549:18557): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 18:35:36:251 discordiador.c/(18549:18560): Tripulante 1 cambio su estado a E
+[INFO] 18:35:36:251 discordiador.c/(18549:18558): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[ERROR] 18:35:36:710 discordiador.c/(18549:18557): No se pudo recibir el header al recibir una tarea
+[INFO] 18:35:36:711 discordiador.c/(18549:18557): Tripulante 0 ahora esta en 0|0 
+[INFO] 18:36:07:672 discordiador.c/(18578:18578): ---------PROGRAMA INICIADO---------- 
+[INFO] 18:36:11:446 discordiador.c/(18578:18579): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 18:36:11:447 discordiador.c/(18578:18579): Discordiador conectado con Mi RAM
+[INFO] 18:36:11:447 discordiador.c/(18578:18579): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 18:36:11:447 discordiador.c/(18578:18579): Tripulante 0 cambio su estado a R
+[INFO] 18:36:11:447 discordiador.c/(18578:18579): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 18:36:11:447 discordiador.c/(18578:18579): Tripulante 1 cambio su estado a R
+[INFO] 18:36:11:447 discordiador.c/(18578:18579): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 18:36:11:447 discordiador.c/(18578:18579): Tripulante 2 cambio su estado a R
+[INFO] 18:36:11:447 discordiador.c/(18578:18579): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 18:36:16:896 discordiador.c/(18578:18579): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 18:36:16:897 discordiador.c/(18578:18585): Tripulante 0 cambio su estado a R
+[INFO] 18:36:16:898 discordiador.c/(18578:18585): Tripulante 1 cambio su estado a R
+[INFO] 18:36:16:898 discordiador.c/(18578:18585): Tripulante 2 cambio su estado a R
+[INFO] 18:36:16:898 discordiador.c/(18578:18585): Tripulante 0 cambio su estado a E
+[INFO] 18:36:16:899 discordiador.c/(18578:18581): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 18:36:16:901 discordiador.c/(18578:18585): Tripulante 1 cambio su estado a E
+[INFO] 18:36:16:901 discordiador.c/(18578:18582): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 18:36:17:012 discordiador.c/(18578:18582): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 18:36:17:014 discordiador.c/(18578:18581): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 18:36:18:015 discordiador.c/(18578:18581): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 18:36:18:016 discordiador.c/(18578:18582): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 18:36:19:020 discordiador.c/(18578:18581): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 18:36:19:020 discordiador.c/(18578:18582): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 18:36:20:022 discordiador.c/(18578:18582): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 18:36:20:022 discordiador.c/(18578:18582): Tripulante 1 ahora esta en 1|2 
+[INFO] 18:36:20:022 discordiador.c/(18578:18582): Tripulante 1 cambio su estado a B
+[INFO] 18:36:20:022 discordiador.c/(18578:18585): Tripulante 2 cambio su estado a E
+[INFO] 18:36:20:023 discordiador.c/(18578:18583): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 18:36:20:023 discordiador.c/(18578:18586): Tripulante 1 cambio su estado a R
+[INFO] 18:36:20:023 discordiador.c/(18578:18581): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 18:36:20:023 discordiador.c/(18578:18581): Tripulante 0 ahora esta en 1|2 
+[INFO] 18:36:20:023 discordiador.c/(18578:18581): Tripulante 0 cambio su estado a B
+[INFO] 18:36:20:023 discordiador.c/(18578:18586): Tripulante 0 cambio su estado a R
+[ERROR] 18:36:21:632 discordiador.c/(18578:18583): No se pudo recibir el header al recibir una tarea
+[INFO] 18:36:21:632 discordiador.c/(18578:18583): Tripulante 2 ahora esta en 0|0 
+[INFO] 18:45:10:702 discordiador.c/(18725:18725): ---------PROGRAMA INICIADO---------- 
+[INFO] 18:45:16:119 discordiador.c/(18725:18726): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 18:45:16:120 discordiador.c/(18725:18726): Discordiador conectado con Mi RAM
+[INFO] 18:45:16:120 discordiador.c/(18725:18726): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 18:45:16:120 discordiador.c/(18725:18726): Tripulante 0 cambio su estado a R
+[INFO] 18:45:16:120 discordiador.c/(18725:18726): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 18:45:16:120 discordiador.c/(18725:18726): Tripulante 1 cambio su estado a R
+[INFO] 18:45:16:120 discordiador.c/(18725:18726): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 18:45:16:120 discordiador.c/(18725:18726): Tripulante 2 cambio su estado a R
+[INFO] 18:45:16:120 discordiador.c/(18725:18726): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 18:45:20:267 discordiador.c/(18725:18726): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 18:45:20:268 discordiador.c/(18725:18746): Tripulante 0 cambio su estado a R
+[INFO] 18:45:20:268 discordiador.c/(18725:18746): Tripulante 1 cambio su estado a R
+[INFO] 18:45:20:268 discordiador.c/(18725:18746): Tripulante 2 cambio su estado a R
+[INFO] 18:45:20:268 discordiador.c/(18725:18746): Tripulante 0 cambio su estado a E
+[INFO] 18:45:20:269 discordiador.c/(18725:18736): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 18:45:20:269 discordiador.c/(18725:18746): Tripulante 1 cambio su estado a E
+[INFO] 18:45:20:274 discordiador.c/(18725:18737): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[ERROR] 18:46:37:093 discordiador.c/(18725:18736): No se pudo recibir el header al recibir una tarea
+[INFO] 18:46:37:093 discordiador.c/(18725:18736): Tripulante 0 ahora esta en 0|0 
+[INFO] 18:51:43:718 discordiador.c/(18841:18841): ---------PROGRAMA INICIADO---------- 
+[INFO] 18:51:48:177 discordiador.c/(18841:18842): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 18:51:48:178 discordiador.c/(18841:18842): Discordiador conectado con Mi RAM
+[INFO] 18:51:48:178 discordiador.c/(18841:18842): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 18:51:48:178 discordiador.c/(18841:18842): Tripulante 0 cambio su estado a R
+[INFO] 18:51:48:178 discordiador.c/(18841:18842): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 18:51:48:178 discordiador.c/(18841:18842): Tripulante 1 cambio su estado a R
+[INFO] 18:51:48:178 discordiador.c/(18841:18842): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 18:51:48:178 discordiador.c/(18841:18842): Tripulante 2 cambio su estado a R
+[INFO] 18:51:48:178 discordiador.c/(18841:18842): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 18:51:52:874 discordiador.c/(18841:18842): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 18:51:52:876 discordiador.c/(18841:18847): Tripulante 0 cambio su estado a R
+[INFO] 18:51:52:876 discordiador.c/(18841:18847): Tripulante 1 cambio su estado a R
+[INFO] 18:51:52:876 discordiador.c/(18841:18847): Tripulante 2 cambio su estado a R
+[INFO] 18:51:52:876 discordiador.c/(18841:18847): Tripulante 0 cambio su estado a E
+[INFO] 18:51:52:877 discordiador.c/(18841:18843): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 18:51:52:877 discordiador.c/(18841:18847): Tripulante 1 cambio su estado a E
+[INFO] 18:51:52:878 discordiador.c/(18841:18844): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 18:51:52:957 discordiador.c/(18841:18844): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 18:51:52:959 discordiador.c/(18841:18843): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 18:51:53:959 discordiador.c/(18841:18844): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 18:51:53:960 discordiador.c/(18841:18843): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 18:51:54:961 discordiador.c/(18841:18844): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 18:51:54:962 discordiador.c/(18841:18843): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 18:51:55:963 discordiador.c/(18841:18843): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 18:51:55:963 discordiador.c/(18841:18843): Tripulante 0 ahora esta en 1|2 
+[INFO] 18:51:55:963 discordiador.c/(18841:18843): Tripulante 0 cambio su estado a B
+[INFO] 18:51:55:963 discordiador.c/(18841:18847): Tripulante 2 cambio su estado a E
+[INFO] 18:51:55:966 discordiador.c/(18841:18845): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 18:51:55:966 discordiador.c/(18841:18848): Tripulante 0 cambio su estado a R
+[INFO] 18:51:55:966 discordiador.c/(18841:18844): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 18:51:55:967 discordiador.c/(18841:18844): Tripulante 1 ahora esta en 1|2 
+[INFO] 18:51:55:967 discordiador.c/(18841:18844): Tripulante 1 cambio su estado a B
+[INFO] 18:51:55:969 discordiador.c/(18841:18848): Tripulante 1 cambio su estado a R
+[ERROR] 18:51:57:892 discordiador.c/(18841:18845): No se pudo recibir el header al recibir una tarea
+[INFO] 18:51:57:893 discordiador.c/(18841:18845): Tripulante 2 ahora esta en 0|0 
+[INFO] 18:59:37:684 discordiador.c/(18940:18940): ---------PROGRAMA INICIADO---------- 
+[INFO] 18:59:47:072 discordiador.c/(18940:18941): INSTRUCCION LEIDA: INICIAR_PATOTA 3 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 18:59:47:074 discordiador.c/(18940:18941): Discordiador conectado con Mi RAM
+[INFO] 18:59:47:074 discordiador.c/(18940:18941): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 18:59:47:074 discordiador.c/(18940:18941): Tripulante 0 cambio su estado a R
+[INFO] 18:59:47:074 discordiador.c/(18940:18941): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 18:59:47:074 discordiador.c/(18940:18941): Tripulante 1 cambio su estado a R
+[INFO] 18:59:47:074 discordiador.c/(18940:18941): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 18:59:47:074 discordiador.c/(18940:18941): Tripulante 2 cambio su estado a R
+[INFO] 18:59:47:074 discordiador.c/(18940:18941): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 18:59:52:848 discordiador.c/(18940:18941): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 18:59:52:865 discordiador.c/(18940:18949): Tripulante 0 cambio su estado a R
+[INFO] 18:59:52:865 discordiador.c/(18940:18949): Tripulante 1 cambio su estado a R
+[INFO] 18:59:52:865 discordiador.c/(18940:18949): Tripulante 2 cambio su estado a R
+[INFO] 18:59:52:865 discordiador.c/(18940:18949): Tripulante 0 cambio su estado a E
+[INFO] 18:59:52:866 discordiador.c/(18940:18944): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 18:59:52:866 discordiador.c/(18940:18949): Tripulante 1 cambio su estado a E
+[INFO] 18:59:52:866 discordiador.c/(18940:18945): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 18:59:52:945 discordiador.c/(18940:18944): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 18:59:52:945 discordiador.c/(18940:18945): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 1 
+[INFO] 18:59:53:948 discordiador.c/(18940:18945): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 18:59:53:948 discordiador.c/(18940:18944): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 18:59:54:950 discordiador.c/(18940:18944): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 18:59:54:951 discordiador.c/(18940:18945): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 18:59:55:954 discordiador.c/(18940:18945): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 18:59:55:954 discordiador.c/(18940:18945): Tripulante 1 ahora esta en 1|2 
+[INFO] 18:59:55:954 discordiador.c/(18940:18949): Tripulante 2 cambio su estado a E
+[INFO] 18:59:55:955 discordiador.c/(18940:18946): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 18:59:55:955 discordiador.c/(18940:18944): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 18:59:55:955 discordiador.c/(18940:18944): Tripulante 0 ahora esta en 1|2 
+[INFO] 18:59:55:955 discordiador.c/(18940:18944): Tripulante 0 cambio su estado a B
+[INFO] 18:59:55:957 discordiador.c/(18940:18950): Tripulante 1 cambio su estado a R
+[INFO] 18:59:55:954 discordiador.c/(18940:18945): Tripulante 1 cambio su estado a B
+[INFO] 18:59:55:958 discordiador.c/(18940:18950): Tripulante 0 cambio su estado a R
+[INFO] 18:59:56:151 discordiador.c/(18940:18946): Tripulante 2 termino de trabajar 
+[INFO] 18:59:56:151 discordiador.c/(18940:18946): Tripulante 2 cambio su estado a F
+[INFO] 18:59:57:956 discordiador.c/(18940:18944): Tripulante 0 terminó su tarea
+[INFO] 18:59:57:956 discordiador.c/(18940:18949): Tripulante 1 cambio su estado a E
+[INFO] 18:59:57:957 discordiador.c/(18940:18945): Tripulante 1 terminó su tarea
+[INFO] 18:59:57:958 discordiador.c/(18940:18949): Tripulante 0 cambio su estado a E
+[INFO] 18:59:57:959 discordiador.c/(18940:18945): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 18:59:57:959 discordiador.c/(18940:18944): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 18:59:58:037 discordiador.c/(18940:18945): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 18:59:58:047 discordiador.c/(18940:18944): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 2|3 Duracion: 1 
+[INFO] 18:59:59:039 discordiador.c/(18940:18945): 
+0x00000000: 01 00 00 00 00 00 00 00  02 00 00 00 02 00 00 00  |................|
+[INFO] 18:59:59:049 discordiador.c/(18940:18944): 
+0x00000000: 00 00 00 00 00 00 00 00  02 00 00 00 02 00 00 00  |................|
+[INFO] 19:00:00:043 discordiador.c/(18940:18945): 
+0x00000000: 01 00 00 00 00 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 19:00:00:043 discordiador.c/(18940:18945): Tripulante 1 ahora esta en 2|3 
+[INFO] 19:00:00:043 discordiador.c/(18940:18945): Tripulante 1 cambio su estado a B
+[INFO] 19:00:00:045 discordiador.c/(18940:18950): Tripulante 1 cambio su estado a R
+[INFO] 19:00:00:050 discordiador.c/(18940:18944): 
+0x00000000: 00 00 00 00 00 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 19:00:00:051 discordiador.c/(18940:18944): Tripulante 0 ahora esta en 2|3 
+[INFO] 19:00:00:051 discordiador.c/(18940:18944): Tripulante 0 cambio su estado a B
+[INFO] 19:00:00:053 discordiador.c/(18940:18950): Tripulante 0 cambio su estado a R
+[INFO] 19:00:02:044 discordiador.c/(18940:18945): Tripulante 1 terminó su tarea
+[INFO] 19:00:02:044 discordiador.c/(18940:18949): Tripulante 1 cambio su estado a E
+[INFO] 19:00:02:046 discordiador.c/(18940:18945): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 19:00:02:053 discordiador.c/(18940:18944): Tripulante 0 terminó su tarea
+[INFO] 19:00:02:054 discordiador.c/(18940:18949): Tripulante 0 cambio su estado a E
+[INFO] 19:00:02:054 discordiador.c/(18940:18944): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:00:02:112 discordiador.c/(18940:18945): Tarea pedida por tripulante 1: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 19:00:02:112 discordiador.c/(18940:18945): Tripulante 1 ahora esta en 2|3 
+[INFO] 19:00:02:112 discordiador.c/(18940:18945): Tripulante 1 cambio su estado a B
+[INFO] 19:00:02:113 discordiador.c/(18940:18950): Tripulante 1 cambio su estado a R
+[INFO] 19:00:02:167 discordiador.c/(18940:18944): Tarea pedida por tripulante 0: GENERAR_COMIDA Posicion: 2|3 Duracion: 1 
+[INFO] 19:00:02:167 discordiador.c/(18940:18944): Tripulante 0 ahora esta en 2|3 
+[INFO] 19:00:02:167 discordiador.c/(18940:18944): Tripulante 0 cambio su estado a B
+[INFO] 19:00:02:168 discordiador.c/(18940:18950): Tripulante 0 cambio su estado a R
+[INFO] 19:00:04:113 discordiador.c/(18940:18945): Tripulante 1 terminó su tarea
+[INFO] 19:00:04:113 discordiador.c/(18940:18949): Tripulante 1 cambio su estado a E
+[INFO] 19:00:04:116 discordiador.c/(18940:18945): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 19:00:04:136 discordiador.c/(18940:18945): Tripulante 1 termino de trabajar 
+[INFO] 19:00:04:136 discordiador.c/(18940:18945): Tripulante 1 cambio su estado a F
+[INFO] 19:00:04:168 discordiador.c/(18940:18944): Tripulante 0 terminó su tarea
+[INFO] 19:00:04:168 discordiador.c/(18940:18949): Tripulante 0 cambio su estado a E
+[INFO] 19:00:04:170 discordiador.c/(18940:18944): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:00:04:195 discordiador.c/(18940:18944): Tripulante 0 termino de trabajar 
+[INFO] 19:00:04:195 discordiador.c/(18940:18944): Tripulante 0 cambio su estado a F
+[INFO] 19:00:13:751 discordiador.c/(18940:18941): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
