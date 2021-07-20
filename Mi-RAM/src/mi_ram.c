@@ -27,34 +27,28 @@
 
 void imprimirSegmentos(){
 
-	 char * fecha = temporal_get_string_time("%d/%m/%y-%H:%M:%S"); 
+	 char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
 	 char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha);
 	printf("nombre archivo : %s \n", nombreArchivo);
-	//FILE* dump = fopen(nombreArchivo, "w+"); 
+	FILE* dump = fopen(nombreArchivo, "w+"); 
 	
-	//fwrite("HOLA ARCHIVO NUEVO", 20, 1, dump); 
-	//fclose(dump); 
-	/*for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
+	fwrite("DUMP DE MEMORIA \n", 17, 1, dump); 
+	
+	for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
 
 		referenciaTablaPatota * referencia = list_get(tablaDeTablasSegmentos, i); 
 		t_list * tabla = referencia->tablaPatota; 
 		int proceso = referencia->pid;
 		char pid = proceso + '0'; 
 		for(int x = 0; x < list_size(tabla); x++){
-			FILE * dump = fopen("dumpMemoria.dmp", "a+");
-			fwrite("\nProceso: ", 10, 1, dump); 
-			char seg = x + '0'; 
-			fwrite(seg, 2, 1, dump);
-			fclose(dump);
-/* 
-		strcat(leyenda, pid); 
-		strcat(leyenda, "   Segmento: "); 
-		strcat(leyenda, seg); 
-		t_segmento * segmento = list_get(tabla, x); 
-		printf("la leyenda es: %s \n", leyenda);
-		FILE * dump = fopen("dumpMemoria.dmp", "a+"); 
-		fwrite(leyenda, sizeof(leyenda), 1, dump); 
-		*/ 
+			t_segmento * unSegmento = list_get(tabla, x);
+			char * segmento = string_from_format("\n Proceso: %2d    Segmento: %2d Inicio: %3d Tamaño: %3d", proceso, x, unSegmento->base, unSegmento->tamanio); 
+			fwrite(segmento, strlen(segmento), 1, dump); 
+		}
+	}
+	fclose(dump);		
+			
+
 		
 	}
 	
@@ -115,13 +109,7 @@ int main(int argc, char ** argv){
 	pthread_create(&senial1, NULL, hiloSIGUSR1, NULL); 
 	pthread_create(&senial2, NULL, hiloSIGUSR2, NULL);
 
-	char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
-	 char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha);
-	printf("nombre archivo : %s \n", nombreArchivo);
-	FILE* dump = fopen(nombreArchivo, "w+"); 
-	char * hola = "HOLA";
-	fwrite(hola, 4, 1, dump);
-	fclose(dump); 
+	
 
 	//  pthread_t mapa;
 	//  pthread_create(&mapa, NULL, iniciarMapa, NULL);
@@ -1123,11 +1111,11 @@ void eliminarTripulanteSegmentacion(uint32_t pid, uint32_t tid){
 	list_remove_by_condition(tablaPatota, coincideTID); 
 	list_remove_by_condition(tablaSegmentosGlobal, coincideTID); 
 	
-	esElUltimoTripulante(tablaPatota); 
+	esElUltimoTripulante(tablaPatota, pid); 
 
 }
 
-void esElUltimoTripulante(t_list * tabla){
+void esElUltimoTripulante(t_list * tabla, uint32_t pid){
 
 
 	t_segmento * segmentoPID = list_get(tabla, 0);
@@ -1141,6 +1129,10 @@ void esElUltimoTripulante(t_list * tabla){
 		return (segmento->base == segmentoTareas->base); 
 	}
 
+	bool coincidePID(referenciaTablaPatota * referencia){
+		return (referencia->pid == pid); 
+	}
+
 	//significa que quedan los segmentos de tareas y del pcb 
 	if(list_size(tabla) == 2){
 
@@ -1149,7 +1141,10 @@ void esElUltimoTripulante(t_list * tabla){
 		list_remove_by_condition(tablaSegmentosGlobal, coincideBaseTareas); 
 		memset(memoriaPrincipal + (segmentoTareas->base), 0, tamanioTareas); 
 		
+		list_remove_by_condition(tablaDeTablasSegmentos, coincidePID); 
 		list_destroy(tabla);
+
+		
 
 	}
 
