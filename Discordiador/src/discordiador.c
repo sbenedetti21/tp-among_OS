@@ -11,8 +11,6 @@ int main(int argc, char ** argv){
 
 	log_info(loggerDiscordiador, "---------PROGRAMA INICIADO---------- ");
 
-	printf("Ingrese un comando o ingrese EXIT para salir del programa \n");
-
 	listaTripulantes = list_create();
 	listaReady = list_create();
 	listaBloqueados = list_create();
@@ -21,26 +19,35 @@ int main(int argc, char ** argv){
 	listaTerminados = list_create();
 	listaNuevos = list_create(); 
 	listaBloqueadosEmergencia = list_create();
-
+	listaBloqueadosSabotaje = list_create();
 
 	list_add(tareasDeIO,"GENERAR_OXIGENO");
 	list_add(tareasDeIO,"CONSUMIR_OXIGENO");
+	list_add(tareasDeIO,"GENERAR_OXIGENO");
 	list_add(tareasDeIO,"GENERAR_COMIDA");
 	list_add(tareasDeIO,"CONSUMIR_COMIDA");
 	list_add(tareasDeIO,"GENERAR_BASURA");
 	list_add(tareasDeIO,"DESCARTAR_BASURA");
 
-	
 	t_config * config = config_create("./cfg/discordiador.config");
-	/* 
-	pthread_t servidor;
-	pthread_create(&servidor, NULL, servidorPrincipal, config);
-	*/
+
+	socketParaSabotajes = conectarImongo();
+
+	pthread_t hiloSabotajes;
+    pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
+
+
+	pthread_t hiloConsola;
+	pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
+	pthread_join(hiloConsola, NULL);
+
+ 
 
 	cicloCPU = config_get_int_value(config, "RETARDO_CICLO_CPU");
 	tiempoSabotaje = config_get_int_value(config, "DURACION_SABOTAJE");
+	gradoMultitarea = config_get_int_value(config, "GRADO_MULTITAREA");
 
-	sem_init(&semaforoTripulantes, 0,  config_get_int_value(config, "GRADO_MULTITAREA"));
+	sem_init(&semaforoTripulantes, 0,  gradoMultitarea);
 	sem_init(&consultarSiHayVacios, 0,  1);
 	sem_init(&consultarSiHayVacios, 0,  2);
 	sem_init(&esperarAlgunTripulante, 0,  0);
@@ -52,14 +59,10 @@ int main(int argc, char ** argv){
 	sem_init(&cambiarATrabajando,0,1);
 	sem_init(&gestionarIO,0,0);
 	sem_init(&cambiarABloqueadosEmergencia,0,1);
+	sem_init(&semaforoSabotaje,0,0);
 
 
-
-
-	 pthread_t hiloConsola;
-	 pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
-	 pthread_join(hiloConsola, NULL);
- 
+	
 sem_destroy(&semaforoTripulantes);
 
 
@@ -70,29 +73,7 @@ return 0;
 
 //-----------------------------CONECTAR---------------------------------------------------------------------------------------
 
-void servidorPrincipal(t_config * config) {
-	char * puerto = config_get_string_value(config, "PUERTO");
-	int listeningSocket = crear_conexionServer(puerto);
 
-	int socketCliente;
-
-	struct sockaddr_in addr;
-	socklen_t addrlen = sizeof(addr);
-	pthread_t receptorDiscordiador;
-
-
-	while(1){
-		socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
-		if(socketCliente == -1){printf("Error en la conexión"); log_info(loggerDiscordiador, "error en la conexion con IMongoStore");}
-		else {
-			log_info(loggerDiscordiador, "Conexión establecida con Discordiador");
-			pthread_create(&receptorDiscordiador, NULL, atenderImongo, socketCliente);
-		}
-	}
-
-	close(socketCliente);
-	close(listeningSocket);
-}
 
 int conectarImongo(){
 	t_config * config = config_create("./cfg/discordiador.config");
@@ -140,9 +121,17 @@ void consola(){
 		}
 
 		if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0){
-												
+
+				if(planificacionPausada){
+				void ponerReadyNuevosTripulantes();
+				for(int r = 0 ; r < gradoMultitarea ; r ++){
+				sem_post(&semaforoSabotaje);
+				}
+				planificacionPausada = false;
+				} else {						
 				pthread_t  hiloTrabajadorFIFO; 
-				pthread_create(&hiloTrabajadorFIFO, NULL, ponerATrabajar, NULL );	
+				pthread_create(&hiloTrabajadorFIFO, NULL, ponerATrabajar, NULL );
+				}
 
 		}
 
@@ -174,22 +163,56 @@ void consola(){
 			return 0; 
 		}
 
-		if(strcmp(vectorInstruccion[0], "generarOxigeno") == 0){
+
+		
+		
+		if(strcmp(vectorInstruccion[0], "PAUSAR_PLANIFICACION") == 0) {
+
+			planificacionPausada = true;
+
+		}
+
+		if(strcmp(vectorInstruccion[0], "OBTENER_BITACORA") == 0) {
+
+			serializarYMandarPedidoDeBitacora(atoi(vectorInstruccion[1]));
+		
+		}
+
+				if(strcmp(vectorInstruccion[0], "generarOxigeno") == 0){
 
 			tarea_struct * tarea = malloc(sizeof(tarea_struct));
 			tarea->parametro = 5;
 			tarea->descripcionTarea = "GENERAR_OXIGENO";
 
 			gestionarTarea(tarea, 1);
+			sleep(3);
+			serializarYMandarFinalizacionTarea(1, tarea->descripcionTarea);
+
 		}
+
+		if(strcmp(vectorInstruccion[0], "bitacora") == 0){
+
+			// tarea_struct * tarea = malloc(sizeof(tarea_struct));
+			// tarea->parametro = 5;
+			// tarea->descripcionTarea = "GENERAR_OXIGENO";
+
+			// gestionarTarea(tarea, 1);
+
+			//  sleep(5);
+
+			serializarYMandarPedidoDeBitacora(1);
+		}
+
 
 		if(strcmp(vectorInstruccion[0], "generarBasura") == 0){
 
 			tarea_struct * tarea = malloc(sizeof(tarea_struct));
-			tarea->parametro = 5;
+			tarea->parametro = 30;
 			tarea->descripcionTarea = "GENERAR_BASURA";
 
 			gestionarTarea(tarea, 1);
+			sleep(3);
+			serializarYMandarFinalizacionTarea(1, tarea->descripcionTarea);
 		}
 
 		if(strcmp(vectorInstruccion[0], "consumirOxigeno") == 0){
@@ -199,20 +222,30 @@ void consola(){
 			tarea->descripcionTarea = "CONSUMIR_OXIGENO";
 
 			gestionarTarea(tarea, 1);
+			sleep(3);
+			serializarYMandarFinalizacionTarea(1, tarea->descripcionTarea);
+		}
+
+		if(strcmp(vectorInstruccion[0], "descartarBasura") == 0){
+
+			tarea_struct * tarea = malloc(sizeof(tarea_struct));
+			tarea->parametro = 5;
+			tarea->descripcionTarea = "DESCARTAR_BASURA";
+
+			gestionarTarea(tarea, 1);
+			sleep(3);
+			serializarYMandarFinalizacionTarea(1, tarea->descripcionTarea);
+		}
+
+		if(strcmp(vectorInstruccion[0], "cantar") == 0){
+			tarea_struct * tarea = malloc(sizeof(tarea_struct));
+			tarea->descripcionTarea = "cantar";
+
+			serializarYMandarInicioTareaNormal(1, tarea->descripcionTarea);
+			sleep(3);
+			serializarYMandarFinalizacionTarea(1, tarea->descripcionTarea);
 		}
 	
-		
-		
-		if(strcmp(vectorInstruccion[0], "PAUSAR_PLANIFICACION") == 0) {
-
-			planificacionPausada = true;
-
-			cambiarEstadoTripulantesA('B');
-
-		}
-
-		if(strcmp(vectorInstruccion[0], "OBTENER_BITACORA") == 0) {
-		}
 
 		if(strcmp(vectorInstruccion[0], "tripulanteMasCercano") == 0) {
 			TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(3,4);
@@ -236,40 +269,40 @@ void consola(){
 			}
 		}
 
-		if(strcmp(vectorInstruccion[0], "mostrarListas") == 0) {
+		if(strcmp(vectorInstruccion[0], "mostrarEstados") == 0) {
 			
 			printf("\n");
-			printf("Lista NEW: ");
+			printf("NEW: ");
 			for(int a = 0 ; a < list_size(listaNuevos) ; a++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
+			TCB_DISCORDIADOR * tripulante = list_get(listaNuevos,a);
 			printf("%d ", tripulante->tid);
 			}
 			printf("\n");
 
-			printf("Lista READY: ");
-			for(int a = 0 ; a < list_size(listaReady) ; a++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
+			printf("READY: ");
+			for(int e = 0 ; e < list_size(listaReady) ; e++){
+			TCB_DISCORDIADOR * tripulante = list_get(listaReady,e);
 			printf("%d ", tripulante->tid);
 			}
 			printf("\n");
 
-			printf("Lista BLOQUEADOS: ");
-			for(int a = 0 ; a < list_size(listaBloqueados) ; a++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
+			printf("BLOQUEADOS: ");
+			for(int n = 0 ; n < list_size(listaBloqueados) ; n++){
+			TCB_DISCORDIADOR * tripulante = list_get(listaBloqueados,n);
 			printf("%d ", tripulante->tid);
 			}
 			printf("\n");
 
-			printf("Lista TRABAJANDO: ");
-			for(int a = 0 ; a < list_size(listaTrabajando) ; a++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
+			printf("TRABAJANDO: ");
+			for(int u = 0 ; u < list_size(listaTrabajando) ; u++){
+			TCB_DISCORDIADOR * tripulante = list_get(listaTrabajando,u);
 			printf("%d ", tripulante->tid);
 			}
 			printf("\n");
 
-			printf("Lista TERMINADOS: ");
-			for(int a = 0 ; a < list_size(listaTerminados) ; a++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
+			printf("TERMINADOS: ");
+			for(int y = 0 ; y < list_size(listaTerminados) ; y++){
+			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,y);
 			printf("%d ", tripulante->tid);
 			}
 			printf("\n");
@@ -277,70 +310,51 @@ void consola(){
 
 		}
 
-		if(strcmp(vectorInstruccion[0], "pedirTarea") == 0) {
+		if(strcmp(vectorInstruccion[0], "sabotaje") == 0) {
 
-			tarea_struct * tarea = malloc(sizeof(tarea_struct));
-			TCB_DISCORDIADOR * tripulante = list_get(listaTripulantes,0);
+		cantidadDeSabotajes++;
+		haySabotaje = true;
+			
+		uint32_t posX = 10;
+		uint32_t posY = 4;
 
-			int socket = conectarMiRAM();
-				char ** vectorTarea;
-				char ** requerimientosTarea; //MALLOC ???
+		cambiarEstadosABloqueados();
 
-				serializarYMandarPedidoDETarea(socket, tripulante->tid);
+		TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(posX, posY);
 
-				t_paquete* paquete = malloc(sizeof(t_paquete));
-				paquete->buffer = malloc(sizeof(t_buffer));
+		uint32_t  posXTripulante = tripulante->posicionX; 
+		uint32_t  posyTripulante = tripulante->posicionY; 
 
-				int headerRECV = recv(socket, &(paquete->header) , sizeof(int), 0);
-	
-				int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+		log_info(loggerDiscordiador, "Tripulante %d nos va a salvar del sabotaje en %d|%d !!", tripulante->tid, posX, posY);
 
-				paquete->buffer->stream = malloc(paquete->buffer->size);
+		cambiarDeEstado(tripulante,'S');
 
-				int BUFFER_RECV = recv(socket,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+		trasladarseADuranteSabotaje(posX, posY, tripulante);
 
-				switch (paquete->header)
-				{
-				case HAY_TAREA:;
+		sleep(tiempoSabotaje);
 
-					void* stream = malloc(paquete->buffer->size);
-					stream = paquete->buffer->stream;
+		log_info(loggerDiscordiador, "Tripulante %d nos ha salvado!!", tripulante->tid);
 
-					int tamanioTareas;
-					memcpy(&tamanioTareas, stream, sizeof(int));
-					stream += sizeof(int);
-					char* stringTarea = malloc(tamanioTareas);
-					memcpy(stringTarea, stream, tamanioTareas);
-					stream += tamanioTareas;
+		trasladarseADuranteSabotaje(posXTripulante, posyTripulante, tripulante);
 
-					vectorTarea = string_split(stringTarea, ";");
-					requerimientosTarea = string_split(vectorTarea[0]," "); 
-
-					tarea->descripcionTarea = requerimientosTarea[0];
-
-					if(requerimientosTarea[1] != NULL){
-						tarea->parametro = atoi(requerimientosTarea[1]);	//Esto esta rari cuanto menos
-					}
-
-					tarea->posicionX = atoi(vectorTarea[1]);			//Llena el struct tarea 
-					tarea->posicionY = atoi(vectorTarea[2]);
-					tarea->tiempo = atoi(vectorTarea[3]);
-					tarea->tareaTerminada = false;
-
-					log_info(loggerDiscordiador,"Nombre tarea: %s \n Posicion: %d|%d \n Duracion: %d \n",tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
-					
-					break;
-				
-				case NO_HAY_TAREA:
-									printf("NO RECIBI TAREA");
-									break;
-				}
-
-		}
-
+		cantidadDeSabotajes--;
 		
+		if(cantidadDeSabotajes == 0){
+		volverAEstadosPostSabotaje();
+		haySabotaje = false;
 
-		//	mostrarLista(listaReady); 
+		for(int r = 0 ; r < gradoMultitarea ; r ++){
+			sem_post(&semaforoSabotaje);
+		}
+
+				}
+			
+		}
+
+		if(strcmp(vectorInstruccion[0], "movimiento") == 0) {
+			serializarYMandarPosicionBitacora(1,2,2,3,3);
+		}
+		
 
 	}
 
@@ -376,7 +390,7 @@ void iniciarPatota(char ** vectorInstruccion){
 
 					list_add(listaTCBsNuevos, tripulante);
 
-					pthread_create(&tripulantes[i], NULL, tripulanteVivo , tripulante);
+					pthread_create(&tripulantes[i], NULL, subModuloTripulante , tripulante);
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
 					
 					if(!planificacionPausada){
@@ -404,7 +418,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones){
 
 		sem_init(&tripulante->semaforoTrabajo, 0, 0); 
 		sem_init(&tripulante->termineIO,0,0);
-	
+	 
 		tripulante->estado = 'N';
 		tripulante->tid = proximoTID;
 		tripulante->posicionX = atoi(vectorPosiciones[0]);
@@ -423,17 +437,25 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones){
 	} 
 
 
-void tripulanteVivo(TCB_DISCORDIADOR * tripulante) { 
-
+void subModuloTripulante(TCB_DISCORDIADOR * tripulante) { 
+	uint32_t posxV;
+	uint32_t posyV;
 	bool tareaTerminada = true; 
 	bool noHayMasTareas = false;
 	tarea_struct * tarea = malloc(sizeof(tarea_struct));
+
+	t_config * config = config_create("./cfg/discordiador.config");
+	char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
 
 	while (1) 
 	{
 		sem_wait(&tripulante->semaforoTrabajo);		
 
 		if(tareaTerminada){
+
+				posxV = tripulante->posicionX;
+				posyV = tripulante->posicionY;
+
 				int socket = conectarMiRAM();
 				char ** vectorTarea;
 				char ** requerimientosTarea; //MALLOC ???
@@ -470,12 +492,22 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 					stream += tamanioTareas;
 
 					vectorTarea = string_split(stringTarea, ";");
-					requerimientosTarea = string_split(vectorTarea[0]," "); 
+					
 
 					tarea->descripcionTarea = requerimientosTarea[0];
 
-					if(requerimientosTarea[1] != NULL){
-						tarea->parametro = atoi(requerimientosTarea[1]);	//Esto esta rari cuanto menos
+					if(string_contains(vectorTarea[0]," ")){
+						requerimientosTarea = string_split(vectorTarea[0]," "); 
+
+						tarea->descripcionTarea = requerimientosTarea[0];
+						tarea->parametro = atoi(requerimientosTarea[1]);
+					} 
+					else{
+						tarea->descripcionTarea = requerimientosTarea[0];
+
+						if(strcmp(tipoAlgoritmo, "RR") == 0){
+							serializarYMandarInicioTareaNormal(tripulante->tid, tarea->descripcionTarea);
+						}
 					}
 
 					tarea->posicionX = atoi(vectorTarea[1]);			//Llena el struct tarea 
@@ -502,33 +534,43 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 		if(noHayMasTareas){ break;} //Si MIRAM avisa que no hay mas tareas termina el hilo
 
-		tareaTerminada = tarea->tareaTerminada;
-
-		t_config * config = config_create("./cfg/discordiador.config");
-		char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
-
-	
+		tareaTerminada = tarea->tareaTerminada;	
 
 		if(strcmp(tipoAlgoritmo, "FIFO") == 0){
 
-				trasladarseA(tarea->posicionX,tarea->posicionY, tripulante); 
+				trasladarseA(tarea->posicionX,tarea->posicionY, tripulante);
+				serializarYMandarPosicionBitacora(tripulante->tid, posxV, posyV, tripulante->posicionX, tripulante->posicionY);
 
 				if(esTareaDeIO(tarea->descripcionTarea)){
+					if(haySabotaje || planificacionPausada){ sem_wait(&semaforoSabotaje);}
 					sem_post(&semaforoTripulantes);
 					cambiarDeEstado(tripulante,'B');
 					sem_post(&gestionarIO);
-					sleep((tarea -> tiempo) * cicloCPU + cicloCPU);	
+					for(int e = 0; e < tarea->tiempo + 1; e++){
+
+						if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+
+						sleep(cicloCPU);	
+					}			
+					serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
 					sem_wait(&tripulante->termineIO);
 					sem_post(&esperarAlgunTripulante);
 				}
 
 				else{
-					sleep((tarea -> tiempo) * cicloCPU);	
+					serializarYMandarInicioTareaNormal(tripulante->tid, tarea->descripcionTarea);
+					for(int e = 0; e < tarea->tiempo; e++){
+
+						if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+
+						sleep(cicloCPU);	
+					}
+					serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
 					cambiarDeEstado(tripulante,'R');					 
 					sem_post(&semaforoTripulantes); 
 					sem_post(&esperarAlgunTripulante);
 				}
-
+				if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
 				
 				tareaTerminada = true; 
 				
@@ -550,6 +592,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 												if( tripulante->posicionX != tarea->posicionX){  // Aca se fija que no haya llegado a su posicion en x, si llego ni entra
 
 													for(contador; contador < quantum ;  contador ++){
+
+														if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
 
 														sleep(cicloCPU);
 														
@@ -578,6 +622,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 												if(tripulante->posicionY != tarea->posicionY && contador > 0 ){ // Igual que con x
 													
 													for(contador; contador < quantum ;  contador ++){
+														if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
+
 														sleep(cicloCPU);
 
 														if(tarea->posicionY < tripulante->posicionY){
@@ -590,6 +636,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 															contador++;
 															break; 
 														}
+
+													serializarYMandarPosicionBitacora(tripulante->tid, posxV, posyV, tripulante->posicionX, tripulante->posicionY);
 
 														// TODO mandar posicion a mi ram e imongo
 													}
@@ -610,30 +658,33 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 													
 
 													if(esTareaDeIO(tarea->descripcionTarea)){
+															if(haySabotaje || planificacionPausada ){ sem_wait(&semaforoSabotaje);} 
 															tareaTerminada = true;
 															tarea->tareaTerminada = true;
 															sem_post(&semaforoTripulantes); 
 															cambiarDeEstado(tripulante,'B');
 															sem_post(&gestionarIO);
-															sleep((tarea -> tiempo) * cicloCPU + cicloCPU);											
+															for(int e = 0; e < tarea->tiempo; e++){
+																if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+																sleep(cicloCPU);	
+															}						
+															serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
 															sem_wait(&tripulante->termineIO);
 															sem_post(&esperarAlgunTripulante);			
-															log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
 															contador++;
 															break;
 														}
 
 														else{
-
+															if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
 															sleep(cicloCPU);
 															tarea->tiempo --; // Cada tarea tiene un tiempo, cuando ese tiempo llegue a 0 va a gestionar la tarea en el if de abajo, si no llega a 0 va a seguir haciendo tiempo si su quantum lo permite
 															
 																
 																if(tarea->tiempo == 0){
+																	serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
 																	tareaTerminada = true;
-																	tarea->tareaTerminada = true; 
-
-																	sleep((tarea -> tiempo) * cicloCPU);	
+																	tarea->tareaTerminada = true; 								
 																	cambiarDeEstado(tripulante,'R');
 																	sem_post(&esperarAlgunTripulante);																			 
 																	sem_post(&semaforoTripulantes); 
@@ -652,7 +703,8 @@ void tripulanteVivo(TCB_DISCORDIADOR * tripulante) {
 
 
 												if(!tareaTerminada){
-												cambiarDeEstado(tripulante, 'R');
+												if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
+												cambiarDeEstado(tripulante,'R');
 												sem_post(&esperarAlgunTripulante);
 												sem_post(&semaforoTripulantes);} 
 		
@@ -679,11 +731,9 @@ void ponerATrabajar(){
 
 	cambiarEstadoTripulantesA('R'); //RARI
 	 
-	 planificacionPausada = false;
+	planificacionPausada = false;
 	
 	while(1){ 
-
-			if(planificacionPausada){ break; } // esta bien puesto??
 
 			sem_wait(&semaforoTripulantes);
 
@@ -703,13 +753,8 @@ void ponerATrabajar(){
 }
 
 void gestionadorIO(){
-
-	 
-	planificacionPausada = false;
 	
 	while(1){
-
-			if(planificacionPausada){ break; } 
 
 			sem_wait(&gestionarIO);
 
@@ -718,6 +763,10 @@ void gestionadorIO(){
 			sem_post(&cambiarABloqueado);
 
 			gestionarTarea(tripulantee->tareaActual,tripulantee->tid);	
+
+			if(haySabotaje){
+						sem_wait(&semaforoSabotaje);
+					}	
 
 			cambiarDeEstado(tripulantee,'R');
 
@@ -777,6 +826,8 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 
 	while(posicionX != tripulante->posicionX)
 	{
+		if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+
 		if(posicionX < tripulante->posicionX){
 			tripulante->posicionX--;
 		} else {
@@ -788,7 +839,43 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 	}
 	
 	while(posicionY != tripulante->posicionY)
+	{	
+		if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+
+
+		if(posicionY < tripulante->posicionY){
+			tripulante->posicionY--;
+		} else {
+			tripulante->posicionY++;
+		}
+
+		sleep(cicloCPU);
+		// MANDAR POSICION A MI RAM e IMONGO
+	}
+	
+	log_info(loggerDiscordiador, "Tripulante %d ahora esta en %d|%d ",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
+
+}
+
+void trasladarseADuranteSabotaje(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * tripulante){
+
+	while(posicionX != tripulante->posicionX)
 	{
+
+		if(posicionX < tripulante->posicionX){
+			tripulante->posicionX--;
+		} else {
+			tripulante->posicionX++;
+		}
+
+		sleep(cicloCPU);
+		// MANDAR POSICION A MI RAM e IMONGO
+	}
+	
+	while(posicionY != tripulante->posicionY)
+	{	
+
+
 		if(posicionY < tripulante->posicionY){
 			tripulante->posicionY--;
 		} else {
@@ -806,11 +893,13 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 	char * descripcionTarea = tarea->descripcionTarea;
 	int parametros = tarea->parametro;
+	log_info(loggerDiscordiador, "Llego %s", descripcionTarea);
 				if( strcmp(descripcionTarea,"GENERAR_OXIGENO") == 0 ){
 						serializarYMandarInicioTareaIO(parametros, GENERAR_OXIGENO,tid);
+						log_info(loggerDiscordiador, "GENERAR_OXIGENO %d", parametros);
 					} 
 
-					else if(strcmp(tarea->descripcionTarea,"CONSUMIR_OXIGENO") == 0){
+					else if(strcmp(descripcionTarea,"CONSUMIR_OXIGENO") == 0){
 						serializarYMandarInicioTareaIO(parametros, CONSUMIR_OXIGENO,tid);
 					}
 
@@ -824,6 +913,7 @@ void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 
 					else if(strcmp(descripcionTarea,"GENERAR_BASURA") == 0){
 						serializarYMandarInicioTareaIO(parametros, GENERAR_BASURA,tid);
+						log_info(loggerDiscordiador, "GENERAR_BASURA %d", parametros);
 					}
 
 					else if(strcmp(descripcionTarea,"DESCARTAR_BASURA") == 0){
@@ -851,7 +941,6 @@ char * leerTareas(char* pathTareas) {
 	
     fseek(archivo, 0, SEEK_END);
     int tamanioArchivo = ftell(archivo);
-	printf("cantidad de carac:%d \n", tamanioArchivo);
     fseek(archivo, 0, SEEK_SET);
 
     char* lineas = (char*) calloc(tamanioArchivo, sizeof(char)); //USANDO MALLOC ME TIRABA ERROR
@@ -860,8 +949,6 @@ char * leerTareas(char* pathTareas) {
     // acá tengo un string "lineas" con todas las lineas del archivo juntas, incluyendo los saltos de linea
 
 	fclose(archivo);
-
-	printf("%s \n", lineas);
 
 	return lineas;
 }
@@ -962,11 +1049,14 @@ void serializarYMandarInicioTareaIO(int parametro, int tipoTarea, uint32_t tid )
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = sizeof(int) + sizeof(uint32_t);
+	buffer-> size = 2 * sizeof(int) + sizeof(uint32_t);
 
 	void* stream = malloc(buffer->size);
 
 	int offset = 0;
+
+	memcpy(stream+offset, &tipoTarea, sizeof(int));
+	offset += sizeof(int);
 
 	memcpy(stream+offset, &(parametroS->parametro), sizeof(int));
 	offset += sizeof(int);
@@ -976,7 +1066,7 @@ void serializarYMandarInicioTareaIO(int parametro, int tipoTarea, uint32_t tid )
 
 	buffer-> stream = stream;
 
-	mandarPaqueteSerializado(buffer, socket, tipoTarea);
+	mandarPaqueteSerializado(buffer, socket, HACER_TAREA);
 
 }
 
@@ -999,7 +1089,6 @@ void serializarYMandarPedidoDETarea(int socket, uint32_t tid){
 
 void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
 
-	int socketIMONGO = conectarImongo();
 	int socketMIRAM = conectarMiRAM();
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
@@ -1017,7 +1106,6 @@ void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
 
 	buffer-> stream = stream;
 
-	mandarPaqueteSerializado(buffer, socketIMONGO, NUEVA_POSICION);
 	mandarPaqueteSerializado(buffer, socketMIRAM, PEDIR_TAREA);  // VER HEADER
 
 }
@@ -1042,19 +1130,20 @@ void serializarYMandarInicioTareaNormal(uint32_t tid, char * stringTareas){
 	offset += sizeof(int);
 
 	memcpy(stream+offset, stringTareas, tamanioTarea);
-	offset += tamanioTarea;
 
 	buffer-> stream = stream;
 
 	mandarPaqueteSerializado(buffer, socket, INICIO_TAREA_NORMAL);
 }
 
-void serializarYMandarFinalizacionTarea(uint32_t tid){
+void serializarYMandarFinalizacionTarea(uint32_t tid, char * nombreTarea){
 	int socket = conectarImongo();
+
+	int tamanioNombreTarea = strlen(nombreTarea) + 1;
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = sizeof(uint32_t);
+	buffer-> size = tamanioNombreTarea + sizeof(int) + sizeof(uint32_t);
 
 	void* stream = malloc(buffer->size);
 
@@ -1063,9 +1152,15 @@ void serializarYMandarFinalizacionTarea(uint32_t tid){
 	memcpy(stream+offset, &(tid), sizeof(uint32_t));
 	offset += sizeof(uint32_t);
 
+	memcpy(stream+offset, &tamanioNombreTarea, sizeof(tamanioNombreTarea));
+	offset += sizeof(int);
+
+	memcpy(stream+offset, nombreTarea, tamanioNombreTarea);
+	offset += tamanioNombreTarea;
+
 	buffer-> stream = stream;
 
-	mandarPaqueteSerializado(buffer, socket, FINALIZO_TAREA_NORMAL);
+	mandarPaqueteSerializado(buffer, socket, FINALIZO_TAREA);
 }
 
 void serializarYMandarElegidoDelSabotaje(uint32_t tid){
@@ -1084,27 +1179,106 @@ void serializarYMandarElegidoDelSabotaje(uint32_t tid){
 
 	buffer-> stream = stream;
 
-	mandarPaqueteSerializado(buffer, socket, INICIO_SABOTAJE);
+	mandarPaqueteSerializado(buffer, socket, INICIAR_FSCK);
 }
 
+void serializarYMandarPosicionBitacora(uint32_t tid, uint32_t posxV, uint32_t posyV, uint32_t posxN, uint32_t posyN){
+	
+	int socket = conectarImongo();
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = 5 * sizeof(uint32_t);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(posxV), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(posyV), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(posxN), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(posyN), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, NUEVA_POSICION);
+}
+
+void serializarYMandarPedidoDeBitacora(uint32_t tid){
+	int socket = conectarImongo();
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = sizeof(uint32_t);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, BITACORA);
+
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+	paquete->buffer = malloc(sizeof(t_buffer));
+
+	recv(socket, &(paquete->header) , sizeof(int), 0);
+
+	recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+
+	paquete->buffer->stream = malloc(paquete->buffer->size);
+
+	recv(socket,paquete->buffer->stream,paquete->buffer->size,0);
+
+	void * stream2 = paquete->buffer->stream;
+
+	int tamanioBitacora;
+	memcpy(&(tamanioBitacora), stream2, sizeof(int));
+	stream2 += sizeof(int);
+	
+	char* bitacora = malloc(tamanioBitacora ); // aca habia un + 2 adentro del malloc
+	memcpy(bitacora, stream2, tamanioBitacora);
+	stream2 += tamanioBitacora;
+
+	
+	log_info(loggerDiscordiador,"%d",tamanioBitacora);
+
+	log_info(loggerDiscordiador," Bitacora tripulante %d: \n %s",tid,bitacora);
+
+}
 //-----------------------------SABOTAJES---------------------------------------------------------------------------------------------------
 
-void atenderImongo(int socketCliente){
+void atenderImongo(){
+
+	while(1){
  
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->buffer = malloc(sizeof(t_buffer));
 
-	int headerRECV = recv(socketCliente, &(paquete->header) , sizeof(int), 0);
+	int headerRECV = recv(socketParaSabotajes, &(paquete->header) , sizeof(int), 0);
 	if(headerRECV) { log_info(loggerDiscordiador, "Recibi header: %d\n", paquete->header);} else{ log_error(loggerDiscordiador, "No se pudo recibir el header");}
 	
 	int BUFFER_RECV  = 0;
 	
-	int statusTamanioBuffer = recv(socketCliente,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
+	int statusTamanioBuffer = recv(socketParaSabotajes,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
 	if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer ");}
 
 	paquete->buffer->stream = malloc(paquete->buffer->size);
 
-	BUFFER_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+	BUFFER_RECV = recv(socketParaSabotajes,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
 
 	if(! BUFFER_RECV){ log_error(loggerDiscordiador,"No se pudo recibir el buffer");}
 
@@ -1112,11 +1286,15 @@ void atenderImongo(int socketCliente){
 	{
 	case ALERTA_DE_SABOTAJE: ;
 
+		cantidadDeSabotajes++;
+		haySabotaje = true;
+
 		void* stream = malloc(paquete->buffer->size);
 		stream = paquete->buffer->stream;
 
 		uint32_t posX;
 		uint32_t posY;
+ 
 
 		int tamanioTareas;
 		memcpy(&posX, stream, sizeof(uint32_t));
@@ -1124,27 +1302,42 @@ void atenderImongo(int socketCliente){
 
 		memcpy(&posY, stream, tamanioTareas);
 
+		cambiarEstadosABloqueados();
+
 		TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(posX, posY);
 
-		// PASAR A ESTADOS CORRESPONDIENTES
+		uint32_t  posXTripulante = tripulante->posicionX; 
+		uint32_t  posyTripulante = tripulante->posicionY; 
 
-		trasladarseA(posX, posY, tripulante);
+		log_info(loggerDiscordiador, "Tripulante %d nos va a salvar del sabotaje en %d|%d !!", tripulante->tid, posX, posY);
 
-		cambiarDeEstado(tripulante, 'S');
+		cambiarDeEstado(tripulante,'S');
+
+		trasladarseADuranteSabotaje(posX, posY, tripulante);
+
+		serializarYMandarElegidoDelSabotaje(tripulante->tid);
 
 		sleep(tiempoSabotaje);
 
-		serializarYMandarElegidoDelSabotaje(tripulante->tid);
+		log_info(loggerDiscordiador, "Tripulante %d nos ha salvado!!", tripulante->tid);
+
+		trasladarseADuranteSabotaje(posXTripulante, posyTripulante, tripulante);
+
+		cantidadDeSabotajes--;
 		
+		if(cantidadDeSabotajes == 0){
+		volverAEstadosPostSabotaje();
+		haySabotaje = false;
+
+		for(int r = 0 ; r < gradoMultitarea ; r ++){
+			sem_post(&semaforoSabotaje);
+		}
+
+				
+		}
 		break;
-	
-	case SABOTAJE_TERMINADO:;
+	 }
 
-		// recv() señal de que termino fsck
-
-		// PASAR A ESTADOS CORRESPONDIENTES
-
-		break;
 	}
 
 }
@@ -1153,15 +1346,16 @@ TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t posX, uint32_t posY){
 
 	uint32_t distanciaMenor;
 	uint32_t tidMasCercano;
-
-	for(int a = 0 ; a < list_size(listaTripulantes) ; a++){
-
-		TCB_DISCORDIADOR * tripulante = list_get(listaTripulantes,a); 
-
-		uint32_t * distanciaASabotaje = abs(posX - tripulante->posicionX) + abs(posY - tripulante->posicionY);
+	
+	for(int a = 0 ; a < list_size(listaBloqueadosSabotaje) ; a++){
+		
+		TCB_DISCORDIADOR * tripulante = list_get(listaBloqueadosSabotaje,a); 
+		uint32_t distanciaASabotaje = abs(posX - tripulante->posicionX) + abs(posY - tripulante->posicionY);
+		log_info(loggerDiscordiador,"Tripulante %d se encuentra en %d|%d", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
 
 		if(a == 0){
 			distanciaMenor = distanciaASabotaje; //Al primero lo asigna asi
+			tidMasCercano = tripulante->tid;
 		}
 
 		if(distanciaASabotaje < distanciaMenor){
@@ -1169,15 +1363,17 @@ TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t posX, uint32_t posY){
 			tidMasCercano = tripulante->tid;
 		}
 
-	
+
 	}
 
 	bool coincideID(TCB_DISCORDIADOR * tripulante){
-				return tripulante->tid ==  tidMasCercano;
+				return tripulante->tid == tidMasCercano;
 			}
+	
+	TCB_DISCORDIADOR * tripulante = list_find(listaBloqueadosSabotaje, coincideID);
+	list_remove_by_condition(listaBloqueadosSabotaje, coincideID); 
 
-	return list_find(listaTripulantes, coincideID); 
-
+	return tripulante;
 
 }
 
@@ -1185,7 +1381,9 @@ TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t posX, uint32_t posY){
 
 void cambiarDeEstado(TCB_DISCORDIADOR * tripulante, char estado){
 
+	if(! haySabotaje){
 	salirDeListaEstado(tripulante);
+	}
 
 	tripulante->estado = estado;
 
@@ -1306,6 +1504,63 @@ void salirDeListaEstado(TCB_DISCORDIADOR * tripulante){
 
 	default:
 		break; // Se puede sacar?????
+	}
+
+}
+
+void cambiarEstadosABloqueados(){
+
+	t_list * listaTrabajando2 = list_duplicate(listaTrabajando);
+	list_sort(listaTrabajando2 , tripulanteConIDMasChico );
+
+	t_list * listaReady2 = list_duplicate(listaReady);
+	list_sort(listaReady2 , tripulanteConIDMasChico );
+
+	for(int p = 0 ; p < list_size(listaTrabajando) ; p++){
+		TCB_DISCORDIADOR * tripulante = list_get(listaTrabajando2, p);
+		tripulante->estado = 'B';
+		list_add(listaBloqueadosSabotaje, tripulante);
+		log_info(loggerDiscordiador, "Tripulante %d cambio su estado a %c", tripulante->tid, tripulante->estado);
+
+	}
+
+	for(int j = 0 ; j < list_size(listaReady) ; j++){
+		TCB_DISCORDIADOR * tripulante = list_get(listaReady2, j);
+		tripulante->estado = 'B';
+		list_add(listaBloqueadosSabotaje, tripulante);
+		log_info(loggerDiscordiador, "Tripulante %d cambio su estado a %c", tripulante->tid, tripulante->estado);
+
+	}
+}
+
+bool tripulanteConIDMasChico(TCB_DISCORDIADOR* tripulante1, TCB_DISCORDIADOR* tripulante2){
+	if( tripulante1->tid < tripulante2->tid){
+		return true;
+	}
+	return false;
+}
+
+void volverAEstadosPostSabotaje(){
+
+	for(int p = 0 ; p < list_size(listaTrabajando) ; p++){
+		TCB_DISCORDIADOR * tripulante = list_get(listaTrabajando, p);
+		tripulante->estado = 'E';
+	}
+
+	for(int j = 0 ; j < list_size(listaReady) ; j++){
+		TCB_DISCORDIADOR * tripulante = list_get(listaReady, j);
+		tripulante->estado = 'R';
+	}
+
+}
+
+void ponerReadyNuevosTripulantes(){
+
+	for(int u = 0 ; u < list_size(listaNuevos); u++){
+
+		TCB_DISCORDIADOR * tripulante = list_get(listaNuevos, 0);
+		cambiarDeEstado(tripulante, 'R');
+
 	}
 
 }
