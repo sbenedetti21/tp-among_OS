@@ -5766,3 +5766,191 @@ GENERAR_COMIDA 7;2;3;1|
 
 [INFO] 17:59:42:498 mi_ram.c/(16780:16818): hay lugar disponible (1 -> si, -1 -> no): 1 
 
+[INFO] 19:01:39:276 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:39:424 mi_ram.c/(19053:19066): Recibi header: 0
+
+[INFO] 19:01:39:427 mi_ram.c/(19053:19066): Cantidad de bytes recibidos en el buffer: 154
+[INFO] 19:01:39:434 mi_ram.c/(19053:19066): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 19:01:39:434 mi_ram.c/(19053:19066): cantidad tcbs recibidos: 3 
+
+[INFO] 19:01:39:477 mi_ram.c/(19053:19066): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 19:01:42:959 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:42:960 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:42:962 mi_ram.c/(19053:19069): Recibi header: 1
+
+[INFO] 19:01:42:964 mi_ram.c/(19053:19069): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:42:965 mi_ram.c/(19053:19069): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:01:42:976 mi_ram.c/(19053:19069): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;1
+[INFO] 19:01:42:963 mi_ram.c/(19053:19070): Recibi header: 1
+
+[INFO] 19:01:42:977 mi_ram.c/(19053:19070): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:42:978 mi_ram.c/(19053:19070): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 19:01:42:979 mi_ram.c/(19053:19070): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;1
+[INFO] 19:01:43:987 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:43:988 mi_ram.c/(19053:19071): Recibi header: 4
+
+[INFO] 19:01:43:989 mi_ram.c/(19053:19071): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:44:001 mi_ram.c/(19053:19071): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 19:01:44:001 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:44:003 mi_ram.c/(19053:19071): Tripulante 0 se movio hacia 1|0
+[INFO] 19:01:44:007 mi_ram.c/(19053:19072): Recibi header: 4
+
+[INFO] 19:01:44:008 mi_ram.c/(19053:19072): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:44:009 mi_ram.c/(19053:19072): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 19:01:44:009 mi_ram.c/(19053:19072): Tripulante 1 se movio hacia 1|0
+[INFO] 19:01:44:989 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:44:990 mi_ram.c/(19053:19073): Recibi header: 4
+
+[INFO] 19:01:44:990 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:44:991 mi_ram.c/(19053:19073): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:44:992 mi_ram.c/(19053:19073): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 19:01:44:993 mi_ram.c/(19053:19073): Tripulante 0 se movio hacia 1|1
+[INFO] 19:01:44:993 mi_ram.c/(19053:19074): Recibi header: 4
+
+[INFO] 19:01:44:995 mi_ram.c/(19053:19074): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:44:996 mi_ram.c/(19053:19074): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 19:01:44:997 mi_ram.c/(19053:19074): Tripulante 1 se movio hacia 1|1
+[INFO] 19:01:45:990 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:45:992 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:45:993 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:45:997 mi_ram.c/(19053:19079): Recibi header: 4
+
+[INFO] 19:01:46:021 mi_ram.c/(19053:19079): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:46:026 mi_ram.c/(19053:19079): 
+0x00000000: 01 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 19:01:46:012 mi_ram.c/(19053:19078): Recibi header: 4
+
+[INFO] 19:01:46:032 mi_ram.c/(19053:19078): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:46:033 mi_ram.c/(19053:19078): 
+0x00000000: 00 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 19:01:46:023 mi_ram.c/(19053:19080): Recibi header: 1
+
+[INFO] 19:01:46:036 mi_ram.c/(19053:19080): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:46:036 mi_ram.c/(19053:19080): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 19:01:46:038 mi_ram.c/(19053:19080): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;1
+[INFO] 19:01:46:034 mi_ram.c/(19053:19079): Tripulante 1 se movio hacia 1|2
+[INFO] 19:01:46:038 mi_ram.c/(19053:19078): Tripulante 0 se movio hacia 1|2
+[INFO] 19:01:47:041 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:47:042 mi_ram.c/(19053:19082): Recibi header: 4
+
+[INFO] 19:01:47:043 mi_ram.c/(19053:19082): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:47:045 mi_ram.c/(19053:19082): 
+0x00000000: 02 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |................|
+[INFO] 19:01:47:045 mi_ram.c/(19053:19082): Tripulante 2 se movio hacia 1|0
+[INFO] 19:01:47:991 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:47:992 mi_ram.c/(19053:19083): Recibi header: 1
+
+[INFO] 19:01:47:993 mi_ram.c/(19053:19083): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:47:993 mi_ram.c/(19053:19083): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 19:01:47:995 mi_ram.c/(19053:19083): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;1
+[INFO] 19:01:48:043 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:48:045 mi_ram.c/(19053:19084): Recibi header: 4
+
+[INFO] 19:01:48:045 mi_ram.c/(19053:19084): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:48:046 mi_ram.c/(19053:19084): 
+0x00000000: 02 00 00 00 00 00 00 00  01 00 00 00 01 00 00 00  |................|
+[INFO] 19:01:48:048 mi_ram.c/(19053:19084): Tripulante 2 se movio hacia 1|1
+[INFO] 19:01:48:996 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:48:998 mi_ram.c/(19053:19085): Recibi header: 4
+
+[INFO] 19:01:48:998 mi_ram.c/(19053:19085): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:48:999 mi_ram.c/(19053:19085): 
+0x00000000: 01 00 00 00 00 00 00 00  02 00 00 00 02 00 00 00  |................|
+[INFO] 19:01:49:000 mi_ram.c/(19053:19085): Tripulante 1 se movio hacia 2|2
+[INFO] 19:01:49:044 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:49:068 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:49:073 mi_ram.c/(19053:19087): Recibi header: 4
+
+[INFO] 19:01:49:076 mi_ram.c/(19053:19087): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:49:090 mi_ram.c/(19053:19087): 
+0x00000000: 02 00 00 00 00 00 00 00  01 00 00 00 02 00 00 00  |................|
+[INFO] 19:01:49:075 mi_ram.c/(19053:19088): Recibi header: 1
+
+[INFO] 19:01:49:092 mi_ram.c/(19053:19088): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:49:093 mi_ram.c/(19053:19088): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:01:49:094 mi_ram.c/(19053:19088): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;1
+[INFO] 19:01:49:095 mi_ram.c/(19053:19087): Tripulante 2 se movio hacia 1|2
+[INFO] 19:01:49:998 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:50:000 mi_ram.c/(19053:19090): Recibi header: 4
+
+[INFO] 19:01:50:002 mi_ram.c/(19053:19090): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:50:003 mi_ram.c/(19053:19090): 
+0x00000000: 01 00 00 00 00 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 19:01:50:004 mi_ram.c/(19053:19090): Tripulante 1 se movio hacia 2|3
+[INFO] 19:01:50:095 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:50:097 mi_ram.c/(19053:19091): Recibi header: 4
+
+[INFO] 19:01:50:097 mi_ram.c/(19053:19091): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:50:098 mi_ram.c/(19053:19091): 
+0x00000000: 00 00 00 00 00 00 00 00  02 00 00 00 02 00 00 00  |................|
+[INFO] 19:01:50:099 mi_ram.c/(19053:19091): Tripulante 0 se movio hacia 2|2
+[INFO] 19:01:51:046 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:51:049 mi_ram.c/(19053:19093): Recibi header: 1
+
+[INFO] 19:01:51:049 mi_ram.c/(19053:19093): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:51:050 mi_ram.c/(19053:19093): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 19:01:51:051 mi_ram.c/(19053:19093): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;1
+[INFO] 19:01:51:097 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:51:099 mi_ram.c/(19053:19094): Recibi header: 4
+
+[INFO] 19:01:51:100 mi_ram.c/(19053:19094): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:51:102 mi_ram.c/(19053:19094): 
+0x00000000: 00 00 00 00 00 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 19:01:51:103 mi_ram.c/(19053:19094): Tripulante 0 se movio hacia 2|3
+[INFO] 19:01:52:000 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:52:001 mi_ram.c/(19053:19097): Recibi header: 1
+
+[INFO] 19:01:52:002 mi_ram.c/(19053:19097): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:52:002 mi_ram.c/(19053:19097): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 19:01:52:005 mi_ram.c/(19053:19097): La tarea a enviar es: GENERAR_COMIDA 7;2;3;1
+[INFO] 19:01:52:052 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:52:859 mi_ram.c/(19053:19099): Recibi header: 4
+
+[INFO] 19:01:52:860 mi_ram.c/(19053:19099): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:52:861 mi_ram.c/(19053:19099): 
+0x00000000: 02 00 00 00 00 00 00 00  02 00 00 00 02 00 00 00  |................|
+[INFO] 19:01:52:862 mi_ram.c/(19053:19099): Tripulante 2 se movio hacia 2|2
+[INFO] 19:01:53:099 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:53:100 mi_ram.c/(19053:19100): Recibi header: 1
+
+[INFO] 19:01:53:101 mi_ram.c/(19053:19100): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:53:101 mi_ram.c/(19053:19100): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:01:53:103 mi_ram.c/(19053:19100): La tarea a enviar es: GENERAR_COMIDA 7;2;3;1
+[INFO] 19:01:53:859 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:53:861 mi_ram.c/(19053:19102): Recibi header: 4
+
+[INFO] 19:01:53:867 mi_ram.c/(19053:19102): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:01:53:877 mi_ram.c/(19053:19102): 
+0x00000000: 02 00 00 00 00 00 00 00  02 00 00 00 03 00 00 00  |................|
+[INFO] 19:01:53:882 mi_ram.c/(19053:19102): Tripulante 2 se movio hacia 2|3
+[INFO] 19:01:54:007 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:54:008 mi_ram.c/(19053:19104): Recibi header: 1
+
+[INFO] 19:01:54:009 mi_ram.c/(19053:19104): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:54:009 mi_ram.c/(19053:19104): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 19:01:54:011 mi_ram.c/(19053:19104): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 19:01:55:105 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:55:106 mi_ram.c/(19053:19105): Recibi header: 1
+
+[INFO] 19:01:55:107 mi_ram.c/(19053:19105): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:55:107 mi_ram.c/(19053:19105): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:01:55:109 mi_ram.c/(19053:19105): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 19:01:55:860 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:55:862 mi_ram.c/(19053:19106): Recibi header: 1
+
+[INFO] 19:01:55:863 mi_ram.c/(19053:19106): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:55:863 mi_ram.c/(19053:19106): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 19:01:55:865 mi_ram.c/(19053:19106): La tarea a enviar es: GENERAR_COMIDA 7;2;3;1
+[INFO] 19:01:57:866 mi_ram.c/(19053:19054): Conexión establecida con Discordiador
+[INFO] 19:01:57:868 mi_ram.c/(19053:19108): Recibi header: 1
+
+[INFO] 19:01:57:868 mi_ram.c/(19053:19108): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:01:57:869 mi_ram.c/(19053:19108): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 19:01:57:870 mi_ram.c/(19053:19108): La tarea a enviar es: NO_HAY_TAREA
