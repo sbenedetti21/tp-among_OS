@@ -30,10 +30,10 @@ void imprimirSegmentos(){
 	 char * fecha = temporal_get_string_time("%d/%m/%y-%H:%M:%S"); 
 	 char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha);
 	printf("nombre archivo : %s \n", nombreArchivo);
-	FILE* dump = fopen(nombreArchivo, "w+"); 
+	//FILE* dump = fopen(nombreArchivo, "w+"); 
 	
-	fwrite("HOLA ARCHIVO NUEVO", 20, 1, dump); 
-	fclose(dump); 
+	//fwrite("HOLA ARCHIVO NUEVO", 20, 1, dump); 
+	//fclose(dump); 
 	/*for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
 
 		referenciaTablaPatota * referencia = list_get(tablaDeTablasSegmentos, i); 
@@ -115,12 +115,12 @@ int main(int argc, char ** argv){
 	pthread_create(&senial1, NULL, hiloSIGUSR1, NULL); 
 	pthread_create(&senial2, NULL, hiloSIGUSR2, NULL);
 
-	char * fecha = temporal_get_string_time("%d/%m/%y-%H:%M:%S"); 
+	char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
 	 char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha);
 	printf("nombre archivo : %s \n", nombreArchivo);
 	FILE* dump = fopen(nombreArchivo, "w+"); 
-	printf("puedo abrir el archivo");
-	fwrite("HOLA ARCHIVO NUEVO", 20, 1, dump); 
+	char * hola = "HOLA";
+	fwrite(hola, 4, 1, dump);
 	fclose(dump); 
 
 	//  pthread_t mapa;
