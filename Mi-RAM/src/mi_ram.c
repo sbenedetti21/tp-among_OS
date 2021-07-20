@@ -70,14 +70,30 @@ void sig_handler(uint32_t senial){
 	if(senial == SIGUSR1){
 		 imprimirSegmentos(); 
 	}
+	else{
+		if(senial == SIGUSR2){
+		compactarMemoria(); 
+		}
+		else{
+			log_error(loggerMemoria, "No se reconoce la señal enviada");
+		}
+	}
+	
+	
 }
 
 
 
-void * hiloSignal(){
+void * hiloSIGUSR1(){
 	signal(SIGUSR1, sig_handler); 
 
 	return NULL; 
+}
+
+void * hiloSIGUSR2(){
+	signal(SIGUSR2, sig_handler); 
+
+	return NULL ;
 }
 
 
@@ -92,9 +108,11 @@ int main(int argc, char ** argv){
 	iniciarMemoria();
 	
 	pthread_t servidor;
-	pthread_t seniales; 
+	pthread_t senial1; 
+	pthread_t senial2; 
 	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
-	pthread_create(&seniales, NULL, hiloSignal, NULL); 
+	pthread_create(&senial1, NULL, hiloSIGUSR1, NULL); 
+	pthread_create(&senial2, NULL, hiloSIGUSR2, NULL);
 
 	//  pthread_t mapa;
 	//  pthread_create(&mapa, NULL, iniciarMapa, NULL);
@@ -102,7 +120,6 @@ int main(int argc, char ** argv){
 
 	//  nivel_destruir(navePrincipal);
 	//  nivel_gui_terminar();
-	
 	
 		
 	pthread_join(servidor, NULL);
@@ -289,29 +306,7 @@ void atenderDiscordiador(int socketCliente){
 				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria, pid);
 
-				//mem_hexdump(memoriaPrincipal, 2048);
-
-				// void mostrarContenido(t_tripulanteConPID * tripulante) {
-				// 	mem_hexdump(tripulante, 12);
-				// }
-
-				// list_iterate(listaTripulantes, mostrarContenido);
-
-				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
-				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
-				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
-				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
-
-				// bool coincideID(t_tripulanteConPID * tripulante) {
-				// 	return tripulante->idTripulante == 7;
-				// }
-
-				// t_tripulanteConPID * tripuPrueba = list_find(listaTripulantes, coincideID);
-				// if (tripuPrueba == NULL) {
-
-				// } else {
-				// 	printf("Patota nro: %d", *((int*)tripuPrueba+1));
-				// }
+			
 				
 				
 			}
@@ -446,6 +441,9 @@ void atenderDiscordiador(int socketCliente){
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 			free(buffer);
+
+			eliminarTripulante(pid, tid); //hay que pasarle la patota y el tripulante
+
 			
 
 		}
@@ -491,6 +489,18 @@ void atenderDiscordiador(int socketCliente){
 		actualizarPosicionTripulante(patotaid, tripulanteid, posx, posy); 
 
 	break; 
+
+	case ACTUALIZAR_ESTADO: ;
+		
+		actualizarEstadoTripulante(); 
+
+	break; 
+
+	case EXPULSAR_TRIPULANTE: ;
+
+		//eliminarTripulante();
+	break ;
+
 	
 	default:	
 
@@ -504,6 +514,28 @@ void atenderDiscordiador(int socketCliente){
 	// free(paquete);
 	
 
+
+}
+
+void actualizarEstadoTripulante(uint32_t patotaID, uint32_t tripulanteID, char nuevoEstado)
+{
+	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0 ){
+		actualizarEstadoSegmentacion(patotaID, tripulanteID, nuevoEstado); 
+	}
+
+	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
+		//actualizarEstadoPaginacion(); 
+	}
+}
+
+void eliminarTripulante(uint32_t pid, uint32_t tid){
+	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0 ){
+		eliminarTripulanteSegmentacion(pid, tid);  
+	}
+
+	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
+		//eliminar tripulante paginacion
+		}
 
 }
 
@@ -557,7 +589,7 @@ uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 		return (segmento->tid == tripulanteID); 
 	}
 	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
-	t_list * tablaPatota = referencia -> tablaPatota;  
+	t_list * tablaPatota = referencia->tablaPatota;  
 	t_segmento * segmentoTripulante = list_find(tablaPatota, coincideTID); 
 
 	return (segmentoTripulante->base);
@@ -1009,8 +1041,8 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 }
 
 uint32_t encontrarLugarSegmentacion(int tamanioSegmento){
-	if(strcmp(algoritmoReemplazo, "FIRST_FIT") == 0){return firstFit(tamanioSegmento); }
-	if(strcmp(algoritmoReemplazo, "BEST_FIT") == 0){ return bestFit(tamanioSegmento);}
+	if(strcmp(criterioSeleccion, "FIRST_FIT") == 0){return firstFit(tamanioSegmento); }
+	if(strcmp(criterioSeleccion, "BEST_FIT") == 0){ return bestFit(tamanioSegmento);}
 	//es realmente un algoritmo de reemplazo para segmentacion¿? o algoritmo de busqueda de lugar 
 }
 
@@ -1054,6 +1086,63 @@ uint32_t bestFit(int tamanioContenido){
 
 	return (segmentoElegido -> base);  
 
+}
+
+void eliminarTripulanteSegmentacion(uint32_t pid, uint32_t tid){
+	uint32_t direccionTripulante = obtenerDireccionTripulante(pid, tid); 
+	memset(memoriaPrincipal + direccionTripulante, 0, SIZEOF_TCB); 
+	bool coincidePID(referenciaTablaPatota * unaReferencia){
+		return (unaReferencia->pid == pid); 
+	}
+
+	bool coincideTID(t_segmento * segmento){
+		return (segmento->tid == tid); 
+	}
+
+	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
+	t_list * tablaPatota = referencia->tablaPatota; 
+
+	list_remove_by_condition(tablaPatota, coincideTID); 
+	list_remove_by_condition(tablaSegmentosGlobal, coincideTID); 
+	
+	esElUltimoTripulante(tablaPatota); 
+
+}
+
+void esElUltimoTripulante(t_list * tabla){
+
+
+	t_segmento * segmentoPID = list_get(tabla, 0);
+	t_segmento * segmentoTareas = list_get(tabla,1); 
+	uint32_t tamanioTareas = segmentoTareas->tamanio; 
+
+	bool coincideBasePID(t_segmento * segmento){
+		return (segmento->base == segmentoPID->base); 
+	}
+	bool coincideBaseTareas(t_segmento * segmento){
+		return (segmento->base == segmentoTareas->base); 
+	}
+
+	//significa que quedan los segmentos de tareas y del pcb 
+	if(list_size(tabla) == 2){
+
+		list_remove_by_condition(tablaSegmentosGlobal, coincideBasePID);
+		memset(memoriaPrincipal + (segmentoPID ->base), 0, SIZEOF_PCB);  
+		list_remove_by_condition(tablaSegmentosGlobal, coincideBaseTareas); 
+		memset(memoriaPrincipal + (segmentoTareas->base), 0, tamanioTareas); 
+		
+		list_destroy(tabla);
+
+	}
+
+	else{
+		//nada
+	}
+}
+
+void actualizarEstadoSegmentacion(uint32_t pid, uint32_t tid, char estadoNuevo){
+	uint32_t direccionTripulante = obtenerDireccionTripulante(pid, tid); 
+	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t)*3, &estadoNuevo, sizeof(char)); 
 }
 
 t_list *  obtenerSegmentosLibres(t_list * tablaSegmentos){
@@ -1226,11 +1315,13 @@ bool cabeTCB(t_segmento * segmento){
 
 void compactarMemoria(){
 
+	log_info(loggerMiram, "Iniciando compactación de memoria"); 
+
 	list_sort(tablaSegmentosGlobal, seEncuentraPrimeroEnMemoria);
 	for(int i = 0; i < (list_size(tablaSegmentosGlobal)); i++){
 	   t_segmento * segmento = list_get(tablaSegmentosGlobal, i); 
 	   
-	   printf("Segmento ocupado que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
+	    
 	}
 
 	//para el primer segmento 
@@ -1304,29 +1395,7 @@ char idMapa(uint32_t tid){
 	}
 	
 
-// switch (tid)
-// {
-// case 0:
-// 	return '0';
-// case 1:
-// 	return '1';
-// case 2:
-// 	return '2';
-// case 3:
-// 	return '3';
-// case 4:
-// 	return '4';
-// case 5:
-// 	return '5';
-// case 6:
-// 	return '6';
-// case 7:
-// 	return '7';
-// case 8:
-// 	return '8';
-// case 9:
-// 	return '9';
-// }
+
 
 	return id;
 

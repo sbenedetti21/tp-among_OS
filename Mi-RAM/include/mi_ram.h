@@ -26,6 +26,7 @@
 // --------------------------------------- MEMORIA GENERAL
  
 char * esquemaMemoria;
+char * criterioSeleccion; 
 char * algoritmoReemplazo;
 char * puertoMemoria;
 void * memoriaPrincipal; 
@@ -130,6 +131,7 @@ void compactarMemoria();
 // --------------------- Generales
 
 t_log * loggerMiram; 
+t_log * loggerMemoria; 
 void servidorPrincipal();
 
 void atenderDiscordiador(int);
