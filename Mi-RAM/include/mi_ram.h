@@ -42,18 +42,15 @@ char * obtenerProximaTarea(uint32_t, uint32_t);
 
 char * path_SWAP;
 t_list * listaFrames;
+t_list * listaFramesSwap;
 t_list * listaTablasDePaginas;
 t_list * listaTripulantes;
 int tamanioPagina, tamanioMemoria, tamanioSwap;
 pthread_mutex_t mutexMemoriaPrincipal;
 pthread_mutex_t mutexListaTablas;
 pthread_mutex_t mutexListaFrames;
+pthread_mutex_t mutexListaFramesSwap;
 pthread_mutex_t mutexTareas;
-
-typedef struct {
-	uint32_t inicio;
-	uint32_t ocupado;
-}  t_frame;
 
 typedef struct {
 	uint32_t numeroPagina;
@@ -61,8 +58,15 @@ typedef struct {
 	uint32_t pid;
 	int bitDeValidez;
 	// ultimaReferencia
-	// bitDeUso
+	int bitDeUso;
 } t_pagina;
+
+typedef struct {
+	uint32_t inicio;
+	uint32_t ocupado;
+	t_pagina * pagina;
+}  t_frame;
+
 
 typedef struct {
 	int longitudTareas;
@@ -86,9 +90,11 @@ void actualizarPunteroTarea(t_tripulantePaginacion *, t_list*, int);
 
 int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
+int framesDisponiblesSwap();
 uint32_t buscarFrame();
 void iniciarFrames();
 void llenarFramesConPatota(t_list *, void *, int , int , int , int , uint32_t);
+void llevarPaginaASwap();
 
 
 // ----------------------------------------  SEGMENTOS

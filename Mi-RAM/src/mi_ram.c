@@ -131,20 +131,22 @@ void atenderDiscordiador(int socketCliente){
 		if(hayLugar == -1){
 
 			if(strcmp(esquemaMemoria, "SEGMENTACION") == 0){
-			log_info(loggerMiram, "No hay lugar para la patota, iniciando compactacion automatica"); 
-			sem_wait(&mutexCompactacion); 
-			compactarMemoria();
-			sem_post(&mutexCompactacion);
+				log_info(loggerMiram, "No hay lugar para la patota, iniciando compactacion automatica"); 
+				sem_wait(&mutexCompactacion); 
+				compactarMemoria();
+				sem_post(&mutexCompactacion);
 
-			hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs);
-			if(hayLugar == -1){
+				hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs);
+				if(hayLugar == -1){
+					log_info(loggerMiram, "Rechazo patota por falta de espacio en memoria");
+					
+				}
+			
+			}
+			
+			if(strcmp(esquemaMemoria, "PAGINACION") == 0){
 				log_info(loggerMiram, "Rechazo patota por falta de espacio en memoria");
-				
 			}
-			
-			}
-			
-			
 			
 		}
 		if(hayLugar == 1){
@@ -592,13 +594,16 @@ void iniciarMemoria() {
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 		listaFrames = list_create();
+		listaFramesSwap = list_create();
 		listaTablasDePaginas = list_create();
 		listaTripulantes = list_create();
 		pthread_mutex_init(&mutexMemoriaPrincipal, NULL);
 		pthread_mutex_init(&mutexListaTablas, NULL);
 		pthread_mutex_init(&mutexListaFrames, NULL);
+		pthread_mutex_init(&mutexListaFramesSwap, NULL);
 		pthread_mutex_init(&mutexTareas, NULL);
-		iniciarFrames();	
+		iniciarFrames();
+		iniciarSwap();	
 	}
 }
 
@@ -613,14 +618,23 @@ int buscarEspacioNecesario(int tamanioTareas, int cantidadTripulantes) {
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 		int cantidadMemoriaNecesaria = tamanioTareas + SIZEOF_TCB * cantidadTripulantes + SIZEOF_PCB;
-		int cantidadFramesDisponibles = framesDisponibles();
+		int cantidadFramesDisponiblesMemoria = framesDisponibles();
+		int cantidadFramesNecesarios = divisionRedondeadaParaArriba(cantidadMemoriaNecesaria, tamanioPagina);
 
-		if (divisionRedondeadaParaArriba(cantidadMemoriaNecesaria, tamanioPagina) < cantidadFramesDisponibles) {
-			return 1;
+		if (cantidadFramesNecesarios <= cantidadFramesDisponiblesMemoria) {
+			return 1; // si hay lugar en memoria para todo
 		}
 		
-		return -1;
+		int framesNecesariosEnSwap = cantidadFramesNecesarios - cantidadFramesDisponiblesMemoria;
 
+		if (framesDisponiblesSwap() > framesNecesariosEnSwap) {
+			for(int i = 0; i < framesNecesariosEnSwap; i++) {
+				llevarPaginaASwap();
+			}
+			return 1;
+		}
+
+		return -1;
 	}	
 
 } 
@@ -670,6 +684,18 @@ int framesDisponibles() {
 	return libre;
 }
 
+int framesDisponiblesSwap() {
+	int libre = 0;
+	void estaLibre(t_frame * frame) {
+    	if (frame->ocupado == 0){ libre++; }
+  	}
+	
+	pthread_mutex_lock(&mutexListaFramesSwap);
+	list_iterate(listaFramesSwap, estaLibre);
+	pthread_mutex_unlock(&mutexListaFramesSwap);  
+	return libre;
+}
+
 uint32_t buscarFrame() {
 
   bool estaLibre(t_frame * frame) {
@@ -687,13 +713,34 @@ uint32_t buscarFrame() {
   return direccionFrame;
 }
 
-// void agregarTripulante(uint32_t pid, uint32_t tamanioTareas, uint32_t tid) {
-// 	t_tripulanteConPID * tripu = malloc(sizeof(t_tripulanteConPID)); 
-// 	tripu->idPatota = pid;
-// 	tripu->longitudTareas = tamanioTareas;
-// 	tripu->idTripulante = tid;
-// 	list_add(listaTripulantes, tripu);
-// }
+void iniciarSwap() {
+	FILE * swap = fopen(path_SWAP, "w+");
+	log_info(loggerMiram, "Iniciando Frames Swap... ");
+	int cantidadFrames = 0;
+
+	for(int desplazamiento = 0; desplazamiento< tamanioMemoria; desplazamiento += tamanioPagina){
+		t_frame * frame = malloc(sizeof(t_frame));
+		frame->inicio = desplazamiento;
+		frame->ocupado = 0;
+
+		pthread_mutex_lock(&mutexListaFramesSwap);
+		list_add(listaFramesSwap, frame);
+		pthread_mutex_unlock(&mutexListaFramesSwap);
+		cantidadFrames ++;
+	}
+	fclose(swap);
+}
+
+void llevarPaginaASwap() {
+
+	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
+
+	}
+
+	if (strcmp(algoritmoReemplazo, "CLOCK") == 0) {
+		
+	}
+}
 
 void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas, int memoriaAGuardar, uint32_t pid) {
 
@@ -711,14 +758,6 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		pthread_mutex_unlock(&mutexMemoriaPrincipal);
 
 		uint32_t numeroDeFrame = direcProximoFrame / tamanioPagina;  // no hace falta redondear porque la division de int redondea pra abajo
-		t_frame * frameOcupado = malloc(sizeof(t_frame));
-		frameOcupado->inicio = direcProximoFrame;
-		frameOcupado->ocupado = 1;
-
-		pthread_mutex_lock(&mutexListaFrames);
-		t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
-		pthread_mutex_unlock(&mutexListaFrames);
-		//free(frameParaLiberar);
 
 		t_pagina * pagina = malloc(sizeof(t_pagina));
 		pagina->numeroFrame = numeroDeFrame;
@@ -726,7 +765,16 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		pagina->pid = pid;
 		pagina->bitDeValidez = 1;
 		list_add(listaDePaginas, pagina);
-		j = 0;
+		
+		t_frame * frameOcupado = malloc(sizeof(t_frame));
+		frameOcupado->inicio = direcProximoFrame;
+		frameOcupado->ocupado = 1;
+		frameOcupado->pagina = pagina; 
+
+		pthread_mutex_lock(&mutexListaFrames);
+		t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
+		pthread_mutex_unlock(&mutexListaFrames);
+		//free(frameParaLiberar);
 	}
 
 	referenciaTablaPaginas * tablaDePaginas = malloc(sizeof(referenciaTablaPaginas));
