@@ -27,28 +27,23 @@
 
 void imprimirSegmentos(){
 
-	//FILE * dump = fopen("dumpMemoria.dmp", "a+"); 
-	printf("HOLA");
-	char * fechaHora = temporal_get_string_time("%d/%m/%y %H:%M:%S"); 
-	char titulo[40] = "Dump: "; 
+	 char * fechaHora = temporal_get_string_time("%d/%m/%y %H:%M:%S"); 
+	char titulo[24] = "\n Dump: "; 
 	strcat(titulo, fechaHora); 
-	printf("ENtre al imprimir segmento");
 	FILE * dump = fopen("dumpMemoria.dmp", "a+"); 
 	fwrite(titulo, sizeof(titulo), 1, dump); 
-	fwrite("HOLA", 4,1, dump);
-	fclose(dump); 
-	printf("antes del primer for");
+	
 	for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
 
-		
 		referenciaTablaPatota * referencia = list_get(tablaDeTablasSegmentos, i); 
 		t_list * tabla = referencia->tablaPatota; 
 		int proceso = referencia->pid;
 		char pid = proceso + '0'; 
 		for(int x = 0; x < list_size(tabla); x++){
-		char leyenda[50] = "Proceso: "; 
+		fwrite("\nProceso: ", 10, 1, dump); 
 		char seg = x + '0'; 
-
+		fwrite(seg, 2, 1, dump);
+/* 
 		strcat(leyenda, pid); 
 		strcat(leyenda, "   Segmento: "); 
 		strcat(leyenda, seg); 
@@ -56,9 +51,10 @@ void imprimirSegmentos(){
 		printf("la leyenda es: %s \n", leyenda);
 		FILE * dump = fopen("dumpMemoria.dmp", "a+"); 
 		fwrite(leyenda, sizeof(leyenda), 1, dump); 
-		fclose(dump);
+		*/
 		}
 	}
+	fclose(dump);
 		
 	
 }
@@ -69,6 +65,8 @@ void sig_handler(uint32_t senial){
 
 	if(senial == SIGUSR1){
 		 imprimirSegmentos(); 
+		 log_info(loggerMiram, "crando log");
+		 printf("HOLA");
 	}
 	else{
 		if(senial == SIGUSR2){
@@ -491,14 +489,29 @@ void atenderDiscordiador(int socketCliente){
 	break; 
 
 	case ACTUALIZAR_ESTADO: ;
+		uint32_t tripulanteid = 0, patotaid = 0;
+		char estadoNuevo; 
+		int offset = 0;
+		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+		memcpy(&patotaid, stream+offset, sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+		memcpy(&estadoNuevo, stream+offset, sizeof(char));
 		
-		actualizarEstadoTripulante(); 
+		actualizarEstadoTripulante(patotaid, tripulanteid, estadoNuevo); 
 
 	break; 
 
 	case EXPULSAR_TRIPULANTE: ;
+		uint32_t tripulanteid = 0, patotaid = 0;
+		
+		int offset = 0;
+		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+		memcpy(&patotaid, stream+offset, sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+		eliminarTripulante(patotaid, tripulanteid);
 
-		//eliminarTripulante();
 	break ;
 
 	
@@ -508,12 +521,6 @@ void atenderDiscordiador(int socketCliente){
 
 		break;
 	}
-
-	// free(paquete->buffer->stream);
-	// free(paquete->buffer);
-	// free(paquete);
-	
-
 
 }
 
