@@ -30,9 +30,9 @@ void imprimirSegmentos(){
 	 char * fechaHora = temporal_get_string_time("%d/%m/%y %H:%M:%S"); 
 	char titulo[24] = "\n Dump: "; 
 	strcat(titulo, fechaHora); 
-	FILE * dump = fopen("dumpMemoria.dmp", "a+"); 
+	FILE * dump = fopen("dumpMemoria.dmp", "w+"); 
 	fwrite(titulo, sizeof(titulo), 1, dump); 
-	
+	fclose(dump); 
 	for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
 
 		referenciaTablaPatota * referencia = list_get(tablaDeTablasSegmentos, i); 
@@ -40,9 +40,11 @@ void imprimirSegmentos(){
 		int proceso = referencia->pid;
 		char pid = proceso + '0'; 
 		for(int x = 0; x < list_size(tabla); x++){
-		fwrite("\nProceso: ", 10, 1, dump); 
-		char seg = x + '0'; 
-		fwrite(seg, 2, 1, dump);
+			FILE * dump = fopen("dumpMemoria.dmp", "a+");
+			fwrite("\nProceso: ", 10, 1, dump); 
+			char seg = x + '0'; 
+			fwrite(seg, 2, 1, dump);
+			fclose(dump);
 /* 
 		strcat(leyenda, pid); 
 		strcat(leyenda, "   Segmento: "); 
@@ -54,7 +56,7 @@ void imprimirSegmentos(){
 		*/
 		}
 	}
-	fclose(dump);
+	
 		
 	
 }
@@ -489,9 +491,9 @@ void atenderDiscordiador(int socketCliente){
 	break; 
 
 	case ACTUALIZAR_ESTADO: ;
-		uint32_t tripulanteid = 0, patotaid = 0;
+		/* uint32_t tripulanteid = 0, patotaid = 0;
 		char estadoNuevo; 
-		int offset = 0;
+		
 		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
 		memcpy(&patotaid, stream+offset, sizeof(uint32_t));
@@ -499,11 +501,11 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&estadoNuevo, stream+offset, sizeof(char));
 		
 		actualizarEstadoTripulante(patotaid, tripulanteid, estadoNuevo); 
-
+*/
 	break; 
 
 	case EXPULSAR_TRIPULANTE: ;
-		uint32_t tripulanteid = 0, patotaid = 0;
+		/* uint32_t tripulanteid = 0, patotaid = 0;
 		
 		int offset = 0;
 		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
@@ -511,7 +513,7 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&patotaid, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
 		eliminarTripulante(patotaid, tripulanteid);
-
+*/
 	break ;
 
 	
