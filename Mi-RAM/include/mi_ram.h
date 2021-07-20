@@ -78,8 +78,10 @@ typedef struct {
 	int cantidadDePaginas;
 } t_tripulantePaginacion;
 
-char * obtenerProximaTareaPaginacion(t_tablaDePaginas* , int);
-char * encontrarTareasDeTripulanteEnStream(void *, t_tripulantePaginacion *, t_tablaDePaginas*);
+char * obtenerProximaTareaPaginacion(referenciaTablaPaginas* , uint32_t);
+uint32_t obtenerDireccionProximaTareaPaginacion(void *);
+uint32_t obtenerDireccionFrame(referenciaTablaPaginas *, uint32_t);
+char * encontrarTareasDeTripulanteEnStream(void *, t_tripulantePaginacion *, referenciaTablaPaginas*);
 void actualizarPunteroTarea(t_tripulantePaginacion *, t_list*, int);
 
 int divisionRedondeadaParaArriba(int , int );

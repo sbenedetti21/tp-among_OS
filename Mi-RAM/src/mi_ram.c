@@ -436,11 +436,11 @@ char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 
-		bool coincideIDPatota(t_tablaDePaginas * tablaPagina) {
+		bool coincideIDPatota(referenciaTablaPaginas * tablaPagina) {
 			return tablaPagina->pid == idPatota;
 		}
 		
-		t_tablaDePaginas * tablaDeLaPatota = list_find(listaTablasDePaginas, coincideIDPatota);
+		referenciaTablaPaginas * tablaDeLaPatota = list_find(listaTablasDePaginas, coincideIDPatota);
 
 		if (tablaDeLaPatota == NULL){
 			log_error(loggerMiram, "No se encontro la tabla de paginas de la patota %d", idPatota);
@@ -727,7 +727,7 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		j = 0;
 	}
 
-	t_tablaDePaginas * tablaDePaginas = malloc(sizeof(t_tablaDePaginas));
+	referenciaTablaPaginas * tablaDePaginas = malloc(sizeof(referenciaTablaPaginas));
 	tablaDePaginas->longitudTareas = longitudTareas;
 	tablaDePaginas->pid = pid;
 	tablaDePaginas->listaPaginas = listaDePaginas;
@@ -754,17 +754,18 @@ void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_
 	uint32_t cantPaginas = referenciaTripulante-> cantidadDePaginas; 
 	uint32_t pagina = referenciaTripulante ->nroPagina; 
 	void * streamTripulante = malloc(SIZEOF_TCB);
-	
+	int bytesCopiados = 0;
 	
 	for(int paginaUsada = 0 ; paginaUsada < cantPaginas; paginaUsada++){
 		uint32_t direccionFrame = obtenerDireccionFrame(referenciaTabla, pagina); 
 
-		for(int desplazamiento = 0; desplazamiento + offset <tamanioPagina; desplazamiento ++){
+		for(int desplazamiento = 0; desplazamiento + offset < tamanioPagina && bytesCopiados < SIZEOF_TCB; desplazamiento ++){
 			memcpy(streamTripulante + paginaUsada*tamanioPagina + desplazamiento, memoriaPrincipal + direccionFrame + desplazamiento + offset, 1); 
+			bytesCopiados++;
 		}
 
 		offset = 0; 
-		pagina ++; 
+		pagina++; 
 	}
 
 	return streamTripulante; 
@@ -788,81 +789,35 @@ uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, uint32_
 
 
 
-uint32_t obtenerDireccionProximaTarea(void * streamTripulante){
+uint32_t obtenerDireccionProximaTareaPaginacion(void * streamTripulante){
 	uint32_t direccion = 0; 
 	memcpy(&direccion, streamTripulante + sizeof(uint32_t)*3 + sizeof(char), sizeof(uint32_t)); 
 
-	return direccion; 
+	return direccion;
 }
 
-char * obtenerProximaTareaPaginacion(t_tablaDePaginas* tablaDePaginas, int tripuID) {
-
-	t_list * tablaPaginas = tablaDePaginas->listaPaginas;
-	int longitudTareas = tablaDePaginas->longitudTareas;
-
-	bool coincideID(t_tripulantePaginacion * unTripu) {
-		return unTripu->tid == tripuID;
-	}
-
-	t_tripulantePaginacion * tripu = malloc(sizeof(t_tripulantePaginacion));
-	tripu = list_find(listaTripulantes, coincideID);
-
-	int * frames = malloc(tripu->cantidadDePaginas * sizeof(int));
-	int i = 0, z = 0, nroPrimerPagina = 0;
-
-	void almacenarFrames(t_pagina * pagina) {   // ACA ESTA EL ERROR
-		if((tripu->nroPagina == pagina->numeroPagina)) {
-			if (!pagina->bitDeValidez) {
-				traerPaginaAMemoria(pagina);
-			}
-			frames[i] = pagina->numeroFrame;
-			i++;
-			nroPrimerPagina = pagina->numeroPagina;
-		}
-	}
-
-	list_iterate(tablaPaginas, almacenarFrames);
-
-	while (tripu->cantidadDePaginas - 1 - z) {
-		t_pagina * pag = malloc(sizeof(t_pagina));
-		pag = list_get(tablaPaginas, nroPrimerPagina + 1 + z);
-		frames[i] = pag->numeroFrame;
-		i++;
-		z++;
-	}
-	
-	void * streamPatota2 = malloc(tamanioPagina * tripu->cantidadDePaginas);
-
-	for(int j = 0; j < i; j++) {
-		memcpy(streamPatota2 + j * tamanioPagina, memoriaPrincipal + tamanioPagina * frames[j], tamanioPagina);
-	}
-	mem_hexdump(streamPatota2, tripu->cantidadDePaginas * tamanioPagina);
-
-	return encontrarTareasDeTripulanteEnStream(streamPatota2, tripu, tablaDePaginas);
-}
-
-char * encontrarTareasDeTripulanteEnStream(void * stream, t_tripulantePaginacion * unTripu, t_tablaDePaginas * tablaDePaginas ) {
-	int longitudTareas = tablaDePaginas->longitudTareas;
-	int patotaID = tablaDePaginas ->pid;
-	int tamanioPCByTareas = longitudTareas + SIZEOF_PCB;
-	int i = 0;
-
+char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, uint32_t tid) {
+	void * streamTripulante = obtenerStreamTripulante(referenciaTabla, tid);
 	int proximaTarea = 0;
-	memcpy(&proximaTarea, (char *)stream + unTripu->offset + 13, 4);
+	proximaTarea = obtenerDireccionProximaTareaPaginacion(streamTripulante);
 	if ((proximaTarea) == 0) {
 		return "NO_HAY_TAREA";
 	}
-	
-	char * tarea = malloc(40); //como se cuanto ocupan las tareas
-	char c = 'a';
-	int j = 0;
- 
-	////////// Conseguir los frames donde estan las tareas
-	bool coincideIDPatota(t_tablaDePaginas * tablaPagina) {
-		return tablaPagina->pid == unTripu->pid;
+
+	bool coincideID(t_tripulantePaginacion * unTripu) {
+		return unTripu->tid == tid;
+	}
+
+	t_tripulantePaginacion * referenciaTripu = list_find(listaTripulantes, coincideID);
+
+	/// Encontrar los frames de las tareas
+	int i = 0, j = 0;
+
+	bool coincideIDPatota(referenciaTablaPaginas * tablaPagina) {
+		return tablaPagina->pid == referenciaTripu->pid;
 	}
 		
-	t_tablaDePaginas * tablaDeLaPatota = list_find(listaTablasDePaginas, coincideIDPatota);
+	referenciaTablaPaginas * tablaDeLaPatota = list_find(listaTablasDePaginas, coincideIDPatota);
 	int cantidadDePaginas = divisionRedondeadaParaArriba((tablaDeLaPatota->longitudTareas + SIZEOF_PCB) , tamanioPagina);
 	int *frames = malloc(cantidadDePaginas * 4);
 
@@ -881,8 +836,9 @@ char * encontrarTareasDeTripulanteEnStream(void * stream, t_tripulantePaginacion
 		memcpy(streamTareas + j * tamanioPagina, memoriaPrincipal + tamanioPagina * frames[j], tamanioPagina);
 	}
 
-	/////////
-
+	///
+	char * tarea = malloc(40); //como se cuanto ocupan las tareas
+	char c = 'a';
 	j = 0;i = 0;
 
 	memcpy(&c, streamTareas + proximaTarea, 1);
@@ -905,8 +861,8 @@ char * encontrarTareasDeTripulanteEnStream(void * stream, t_tripulantePaginacion
 	//realloc(tarea, j + 1);
 	char barraCero = '\0';
 	memcpy(tarea + j, &barraCero, 1);
-	// Cambiar el puntero de las tareas
-	actualizarPunteroTarea(unTripu, tablaDeLaPatota->listaPaginas, proximaTarea);
+
+	actualizarPunteroTarea(referenciaTripu, referenciaTabla->listaPaginas, proximaTarea);
 
 	return tarea;
 }
