@@ -741,6 +741,60 @@ int divisionRedondeadaParaArriba(int x, int y) {
 	return (x -1)/y +1;
 }
 
+
+void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_t tid){
+	
+	bool coincideID(t_tripulantePaginacion * unTripu) {
+		return unTripu->tid == tid;
+	}
+
+	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	
+	uint32_t offset = referenciaTripulante->offset; 
+	uint32_t cantPaginas = referenciaTripulante-> cantidadDePaginas; 
+	uint32_t pagina = referenciaTripulante ->nroPagina; 
+	void * streamTripulante = malloc(SIZEOF_TCB);
+	
+	
+	for(int paginaUsada = 0 ; paginaUsada < cantPaginas; paginaUsada++){
+		uint32_t direccionFrame = obtenerDireccionFrame(referenciaTabla, pagina); 
+
+		for(int desplazamiento = 0; desplazamiento + offset <tamanioPagina; desplazamiento ++){
+			memcpy(streamTripulante + paginaUsada*tamanioPagina + desplazamiento, memoriaPrincipal + direccionFrame + desplazamiento + offset, 1); 
+		}
+
+		offset = 0; 
+		pagina ++; 
+	}
+
+	return streamTripulante; 
+}
+
+uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, uint32_t nroPagina){
+
+	uint32_t frame; 
+
+	bool coincideNro(t_pagina * pagina)
+	{
+		return (pagina->numeroPagina == nroPagina);
+	}
+
+	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
+	t_pagina * pagina = list_find(tablaPaginas, coincideNro); 
+	frame = pagina->numeroFrame * tamanioPagina; 
+
+	return frame; 
+}
+
+
+
+uint32_t obtenerDireccionProximaTarea(void * streamTripulante){
+	uint32_t direccion = 0; 
+	memcpy(&direccion, streamTripulante + sizeof(uint32_t)*3 + sizeof(char), sizeof(uint32_t)); 
+
+	return direccion; 
+}
+
 char * obtenerProximaTareaPaginacion(t_tablaDePaginas* tablaDePaginas, int tripuID) {
 
 	t_list * tablaPaginas = tablaDePaginas->listaPaginas;
