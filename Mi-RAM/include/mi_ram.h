@@ -26,7 +26,6 @@
 // --------------------------------------- MEMORIA GENERAL
  
 char * esquemaMemoria;
-char * criterioSeleccion; 
 char * algoritmoReemplazo;
 char * puertoMemoria;
 void * memoriaPrincipal; 
@@ -44,12 +43,12 @@ char * obtenerProximaTarea(uint32_t, uint32_t);
 char * path_SWAP;
 t_list * listaFrames;
 t_list * listaTablasDePaginas;
-int tamanioPagina, tamanioMemoria;
+t_list * listaTripulantes;
+int tamanioPagina, tamanioMemoria, tamanioSwap;
 pthread_mutex_t mutexMemoriaPrincipal;
 pthread_mutex_t mutexListaTablas;
 pthread_mutex_t mutexListaFrames;
 pthread_mutex_t mutexTareas;
-
 
 typedef struct {
 	uint32_t inicio;
@@ -60,8 +59,9 @@ typedef struct {
 	uint32_t numeroPagina;
 	uint32_t numeroFrame;
 	uint32_t pid;
+	int bitDeValidez;
 	// ultimaReferencia
-	// SecondChance
+	// bitDeUso
 } t_pagina;
 
 typedef struct {
@@ -70,9 +70,17 @@ typedef struct {
 	t_list * listaPaginas;
 } t_tablaDePaginas;
 
+typedef struct {
+	uint32_t tid;
+	uint32_t pid;
+	int nroPagina;
+	int offset;
+	int cantidadDePaginas;
+} t_tripulantePaginacion;
+
 char * obtenerProximaTareaPaginacion(t_tablaDePaginas* , int);
-char * encontrarTareasDeTripulanteEnStream(void *, int, t_tablaDePaginas*);
-void actualizarPunteroTarea(int, t_tablaDePaginas*, int);
+char * encontrarTareasDeTripulanteEnStream(void *, t_tripulantePaginacion *, t_tablaDePaginas*);
+void actualizarPunteroTarea(t_tripulantePaginacion *, t_list*, int);
 
 int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
@@ -131,7 +139,6 @@ void compactarMemoria();
 // --------------------- Generales
 
 t_log * loggerMiram; 
-t_log * loggerMemoria; 
 void servidorPrincipal();
 
 void atenderDiscordiador(int);
