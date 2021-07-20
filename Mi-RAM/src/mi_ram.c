@@ -802,7 +802,7 @@ char * encontrarTareasDeTripulanteEnStream(void * stream, t_tripulantePaginacion
 	char * tarea = malloc(40); //como se cuanto ocupan las tareas
 	char c = 'a';
 	int j = 0;
-
+ 
 	////////// Conseguir los frames donde estan las tareas
 	bool coincideIDPatota(t_tablaDePaginas * tablaPagina) {
 		return tablaPagina->pid == unTripu->pid;
