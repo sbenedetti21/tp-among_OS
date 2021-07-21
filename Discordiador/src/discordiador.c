@@ -377,15 +377,19 @@ void iniciarPatota(char ** vectorInstruccion){
 				int cantidadTripulantes = atoi(vectorInstruccion[1]);
 				pthread_t tripulantes[cantidadTripulantes];
 				listaTCBsNuevos = list_create();
-				sem_wait(&mutexPID); 
-				uint32_t idPatota = proximoPID; 
-				proximoPID ++; 
-				sem_post(&mutexPID);
- 
 
+				log_info(loggerDiscordiador, "antes del wait");
+				//sem_wait(&mutexPID); 
+				uint32_t idPatota = proximoPID; 
+				log_info(loggerDiscordiador, " entre wait y post");
+				proximoPID ++; 
+				//sem_post(&mutexPID);
+				log_info(loggerDiscordiador, "afuera del wait");
+ 
+log_info(loggerDiscordiador, "EStoy antes del for");
 				for(i = 0; i < cantidadTripulantes; i++ ) {  
 					pthread_t hilo;
-
+log_info(loggerDiscordiador, "entre al for");
 					TCB_DISCORDIADOR* tripulante = malloc(sizeof(TCB_DISCORDIADOR));
 					if (vectorInstruccion[indice_posiciones] != NULL) {
 						tripulante = crearTCB(vectorInstruccion[3 + i], idPatota);
@@ -432,9 +436,9 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 		tripulante->pid = pid;
 		
 
-		sem_wait(&cambiarANuevo);	
+		//sem_wait(&cambiarANuevo);	
 		list_add(listaNuevos, tripulante);
-		sem_post(&cambiarANuevo);
+		//sem_post(&cambiarANuevo);
 
 		list_add(listaTripulantes, tripulante);
 

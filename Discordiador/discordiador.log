@@ -24,3 +24,129 @@
 [INFO] 10:24:29:948 discordiador.c/(5505:5505): ---------PROGRAMA INICIADO---------- 
 [INFO] 10:24:34:679 discordiador.c/(5505:5507): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
 [INFO] 10:24:34:681 discordiador.c/(5505:5507): Discordiador conectado con Mi RAM
+[INFO] 10:30:40:260 discordiador.c/(5862:5862): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:30:47:770 discordiador.c/(5862:5864): INSTRUCCION LEIDA: void iniciarPatota(char ** vectorInstruccion){
+[INFO] 10:30:47:771 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:776 discordiador.c/(5862:5864): INSTRUCCION LEIDA: int socket = conectarMiRAM();
+[INFO] 10:30:47:778 discordiador.c/(5862:5864): INSTRUCCION LEIDA: log_info(loggerDiscordiador, "Discordiador conectado con Mi RAM");
+[INFO] 10:30:47:778 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:779 discordiador.c/(5862:5864): INSTRUCCION LEIDA: char * posicionBase = "0|0";
+[INFO] 10:30:47:780 discordiador.c/(5862:5864): INSTRUCCION LEIDA: int i;
+[INFO] 10:30:47:782 discordiador.c/(5862:5864): INSTRUCCION LEIDA: int indice_posiciones = 3;
+[INFO] 10:30:47:787 discordiador.c/(5862:5864): INSTRUCCION LEIDA: int cantidadTripulantes = atoi(vectorInstruccion[1]);
+[INFO] 10:30:47:789 discordiador.c/(5862:5864): INSTRUCCION LEIDA: pthread_t tripulantes[cantidadTripulantes];
+[INFO] 10:30:47:790 discordiador.c/(5862:5864): INSTRUCCION LEIDA: listaTCBsNuevos = list_create();
+[INFO] 10:30:47:794 discordiador.c/(5862:5864): INSTRUCCION LEIDA: sem_wait(&mutexPID); 
+[INFO] 10:30:47:797 discordiador.c/(5862:5864): INSTRUCCION LEIDA: uint32_t idPatota = proximoPID; 
+[INFO] 10:30:47:800 discordiador.c/(5862:5864): INSTRUCCION LEIDA: proximoPID ++; 
+[INFO] 10:30:47:800 discordiador.c/(5862:5864): INSTRUCCION LEIDA: sem_post(&mutexPID);
+[INFO] 10:30:47:800 discordiador.c/(5862:5864): INSTRUCCION LEIDA:  
+[INFO] 10:30:47:801 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:805 discordiador.c/(5862:5864): INSTRUCCION LEIDA: for(i = 0; i < cantidadTripulantes; i++ ) {  
+[INFO] 10:30:47:806 discordiador.c/(5862:5864): INSTRUCCION LEIDA: pthread_t hilo;
+[INFO] 10:30:47:806 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:809 discordiador.c/(5862:5864): INSTRUCCION LEIDA: TCB_DISCORDIADOR* tripulante = malloc(sizeof(TCB_DISCORDIADOR));
+[INFO] 10:30:47:817 discordiador.c/(5862:5864): INSTRUCCION LEIDA: if (vectorInstruccion[indice_posiciones] != NULL) {
+[INFO] 10:30:47:820 discordiador.c/(5862:5864): INSTRUCCION LEIDA: tripulante = crearTCB(vectorInstruccion[3 + i], idPatota);
+[INFO] 10:30:47:820 discordiador.c/(5862:5864): INSTRUCCION LEIDA: indice_posiciones++;
+[INFO] 10:30:47:826 discordiador.c/(5862:5864): INSTRUCCION LEIDA: } else {
+[INFO] 10:30:47:830 discordiador.c/(5862:5864): INSTRUCCION LEIDA: tripulante = crearTCB(posicionBase,idPatota);
+[INFO] 10:30:47:832 discordiador.c/(5862:5864): INSTRUCCION LEIDA: }
+[INFO] 10:30:47:832 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:835 discordiador.c/(5862:5864): INSTRUCCION LEIDA: list_add(listaTCBsNuevos, tripulante);
+[INFO] 10:30:47:835 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:838 discordiador.c/(5862:5864): INSTRUCCION LEIDA: pthread_create(&tripulantes[i], NULL, subModuloTripulante , tripulante);
+[INFO] 10:30:47:847 discordiador.c/(5862:5864): INSTRUCCION LEIDA: log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
+[INFO] 10:30:47:848 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:850 discordiador.c/(5862:5864): INSTRUCCION LEIDA: if(!planificacionPausada){
+[INFO] 10:30:47:852 discordiador.c/(5862:5864): INSTRUCCION LEIDA: cambiarDeEstado(tripulante,'R');
+[INFO] 10:30:47:852 discordiador.c/(5862:5864): INSTRUCCION LEIDA: }
+[INFO] 10:30:47:853 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:854 discordiador.c/(5862:5864): INSTRUCCION LEIDA: sem_post(&esperarAlgunTripulante); 
+[INFO] 10:30:47:855 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:856 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:861 discordiador.c/(5862:5864): INSTRUCCION LEIDA: }
+[INFO] 10:30:47:861 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:861 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:867 discordiador.c/(5862:5864): INSTRUCCION LEIDA: serializarYMandarPCB(vectorInstruccion[2],socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
+[INFO] 10:30:47:867 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:867 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:47:868 discordiador.c/(5862:5864): INSTRUCCION LEIDA: close(socket);
+[INFO] 10:30:47:868 discordiador.c/(5862:5864): INSTRUCCION LEIDA: 
+[INFO] 10:30:51:546 discordiador.c/(5874:5874): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:31:11:794 discordiador.c/(5874:5877): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:31:11:795 discordiador.c/(5874:5877): Discordiador conectado con Mi RAM
+[INFO] 10:32:45:608 discordiador.c/(6037:6037): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:32:51:230 discordiador.c/(6037:6040): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:32:51:231 discordiador.c/(6037:6040): Discordiador conectado con Mi RAM
+[INFO] 10:33:41:080 discordiador.c/(6135:6135): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:33:50:152 discordiador.c/(6146:6146): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:34:10:156 discordiador.c/(6146:6150): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:34:10:157 discordiador.c/(6146:6150): Discordiador conectado con Mi RAM
+[INFO] 10:34:10:157 discordiador.c/(6146:6150): antes del wait
+[INFO] 10:35:01:736 discordiador.c/(6250:6250): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:35:06:158 discordiador.c/(6250:6253): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:35:06:159 discordiador.c/(6250:6253): Discordiador conectado con Mi RAM
+[INFO] 10:35:06:159 discordiador.c/(6250:6253): antes del wait
+[INFO] 10:35:06:159 discordiador.c/(6250:6253):  entre wait y post
+[INFO] 10:35:06:159 discordiador.c/(6250:6253): afuera del wait
+[INFO] 10:35:06:159 discordiador.c/(6250:6253): EStoy antes del for
+[INFO] 10:35:06:159 discordiador.c/(6250:6253): entre al for
+[INFO] 10:38:18:399 discordiador.c/(6443:6443): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:38:45:497 discordiador.c/(6443:6452): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:38:45:497 discordiador.c/(6443:6452): Discordiador conectado con Mi RAM
+[INFO] 10:38:45:497 discordiador.c/(6443:6452): antes del wait
+[INFO] 10:38:45:497 discordiador.c/(6443:6452):  entre wait y post
+[INFO] 10:38:45:497 discordiador.c/(6443:6452): afuera del wait
+[INFO] 10:38:45:497 discordiador.c/(6443:6452): EStoy antes del for
+[INFO] 10:38:45:497 discordiador.c/(6443:6452): entre al for
+[INFO] 10:39:05:500 discordiador.c/(6593:6593): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:39:09:168 discordiador.c/(6593:6600): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:39:09:169 discordiador.c/(6593:6600): Discordiador conectado con Mi RAM
+[INFO] 10:39:39:201 discordiador.c/(6593:6600): antes del wait
+[INFO] 10:39:44:334 discordiador.c/(6593:6600):  entre wait y post
+[INFO] 10:39:51:194 discordiador.c/(6593:6600): afuera del wait
+[INFO] 10:39:57:339 discordiador.c/(6593:6600): EStoy antes del for
+[INFO] 10:40:06:581 discordiador.c/(6593:6600): entre al for
+[INFO] 10:41:02:409 discordiador.c/(6820:6820): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:41:06:538 discordiador.c/(6820:6826): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:41:06:539 discordiador.c/(6820:6826): Discordiador conectado con Mi RAM
+[INFO] 10:41:12:974 discordiador.c/(6820:6826): antes del wait
+[INFO] 10:41:14:617 discordiador.c/(6820:6826):  entre wait y post
+[INFO] 10:41:15:834 discordiador.c/(6820:6826): afuera del wait
+[INFO] 10:41:16:935 discordiador.c/(6820:6826): EStoy antes del for
+[INFO] 10:41:18:593 discordiador.c/(6820:6826): entre al for
+[INFO] 10:42:48:803 discordiador.c/(7021:7021): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:42:54:240 discordiador.c/(7021:7029): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:42:54:241 discordiador.c/(7021:7029): Discordiador conectado con Mi RAM
+[INFO] 10:43:01:663 discordiador.c/(7021:7029): antes del wait
+[INFO] 10:43:03:199 discordiador.c/(7021:7029):  entre wait y post
+[INFO] 10:43:04:556 discordiador.c/(7021:7029): afuera del wait
+[INFO] 10:43:05:207 discordiador.c/(7021:7029): EStoy antes del for
+[INFO] 10:43:05:918 discordiador.c/(7021:7029): entre al for
+[INFO] 10:44:02:121 discordiador.c/(7151:7151): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:44:07:543 discordiador.c/(7151:7154): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:44:07:544 discordiador.c/(7151:7154): Discordiador conectado con Mi RAM
+[INFO] 10:44:07:544 discordiador.c/(7151:7154): antes del wait
+[INFO] 10:44:07:544 discordiador.c/(7151:7154):  entre wait y post
+[INFO] 10:44:07:544 discordiador.c/(7151:7154): afuera del wait
+[INFO] 10:44:07:544 discordiador.c/(7151:7154): EStoy antes del for
+[INFO] 10:44:07:544 discordiador.c/(7151:7154): entre al for
+[INFO] 10:44:32:952 discordiador.c/(7218:7218): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:44:36:384 discordiador.c/(7218:7221): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:44:36:386 discordiador.c/(7218:7221): Discordiador conectado con Mi RAM
+[INFO] 10:44:36:386 discordiador.c/(7218:7221): antes del wait
+[INFO] 10:44:36:386 discordiador.c/(7218:7221):  entre wait y post
+[INFO] 10:44:36:386 discordiador.c/(7218:7221): afuera del wait
+[INFO] 10:44:36:386 discordiador.c/(7218:7221): EStoy antes del for
+[INFO] 10:44:36:386 discordiador.c/(7218:7221): entre al for
+[INFO] 10:44:36:430 discordiador.c/(7218:7221): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 10:45:16:590 discordiador.c/(7305:7305): ---------PROGRAMA INICIADO---------- 
+[INFO] 10:45:21:937 discordiador.c/(7305:7313): INSTRUCCION LEIDA: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 10:45:21:938 discordiador.c/(7305:7313): Discordiador conectado con Mi RAM
+[INFO] 10:45:30:078 discordiador.c/(7305:7313): antes del wait
+[INFO] 10:45:31:198 discordiador.c/(7305:7313):  entre wait y post
+[INFO] 10:45:32:988 discordiador.c/(7305:7313): afuera del wait
+[INFO] 10:45:33:707 discordiador.c/(7305:7313): EStoy antes del for
+[INFO] 10:45:34:844 discordiador.c/(7305:7313): entre al for
+[INFO] 10:46:14:417 discordiador.c/(7305:7313): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
