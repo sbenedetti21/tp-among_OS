@@ -1,6 +1,6 @@
 #include "discordiador.h"
  
-// FACU: INICIAR_PATOTA 2 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+// FACU: INICIAR_PATOTA 5 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 // FRAN: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 // FRAN: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 
@@ -150,19 +150,16 @@ void consola(){
 		
 		if(strcmp(vectorInstruccion[0], "EXPULSAR_TRIPULANTE") == 0) {
 				
-			bool coincideID(TCB_DISCORDIADOR * tripulante){
-				return tripulante->tid ==  atoi(vectorInstruccion[1]);
+			bool coincideID(TCB_DISCORDIADOR * tripulantee){
+				return tripulantee->tid ==  atoi(vectorInstruccion[1]);
 			}
 
 			TCB_DISCORDIADOR * tripulante = malloc(sizeof(TCB_DISCORDIADOR));
+
 			tripulante = list_find(listaTripulantes,coincideID);
 
-			serializaYMandarExpulsado(tripulante->tid, tripulante->pid);
-
-			list_remove_by_condition(listaTripulantes, coincideID); 
+			tripulante->fueExpulsado = true;
 			
-			//LE FALTAN COSAS VER EL IF CUANDO ESTA EJECUTANDO
-
 		}
 		
 
@@ -376,7 +373,7 @@ void consola(){
 void iniciarPatota(char ** vectorInstruccion){
 
 	int socket = conectarMiRAM();
-	log_info(loggerDiscordiador, "Discordiador conectado con Mi RAM");
+
 
 				char * posicionBase = "0|0";
 				int i;
@@ -385,18 +382,15 @@ void iniciarPatota(char ** vectorInstruccion){
 				pthread_t tripulantes[cantidadTripulantes];
 				listaTCBsNuevos = list_create();
 
-				log_info(loggerDiscordiador, "antes del wait");
 				sem_wait(&mutexPID); 
 				uint32_t idPatota = proximoPID; 
-				log_info(loggerDiscordiador, " entre wait y post");
 				proximoPID ++; 
 				sem_post(&mutexPID);
-				log_info(loggerDiscordiador, "afuera del wait");
  
-log_info(loggerDiscordiador, "EStoy antes del for");
+
 				for(i = 0; i < cantidadTripulantes; i++ ) {  
 					pthread_t hilo;
-log_info(loggerDiscordiador, "entre al for");
+
 					TCB_DISCORDIADOR* tripulante = malloc(sizeof(TCB_DISCORDIADOR));
 					if (vectorInstruccion[indice_posiciones] != NULL) {
 						tripulante = crearTCB(vectorInstruccion[3 + i], idPatota);
@@ -411,7 +405,14 @@ log_info(loggerDiscordiador, "entre al for");
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
 					
 					if(!planificacionPausada){
-					cambiarDeEstado(tripulante,'R');	
+
+						salirDeListaEstado(tripulante);
+
+						tripulante->estado = 'R';
+
+						sem_wait(&cambiarAReady);
+						list_add(listaReady, tripulante);
+						sem_post(&cambiarAReady);					
 					}
 
 					sem_post(&esperarAlgunTripulante); 
@@ -443,9 +444,9 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 		tripulante->pid = pid;
 		
 
-		//sem_wait(&cambiarANuevo);	
+		sem_wait(&cambiarANuevo);	
 		list_add(listaNuevos, tripulante);
-		//sem_post(&cambiarANuevo);
+		sem_post(&cambiarANuevo);
 
 		list_add(listaTripulantes, tripulante);
 
@@ -456,6 +457,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 
 
 void subModuloTripulante(TCB_DISCORDIADOR * tripulante) { 
+
 	uint32_t posxV;
 	uint32_t posyV;
 	bool tareaTerminada = true; 
@@ -465,9 +467,19 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 	t_config * config = config_create("./cfg/discordiador.config");
 	char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
 
-	while (1) 
-	{
-		sem_wait(&tripulante->semaforoTrabajo);		
+	while (1) {
+
+		if(! tripulante->fueExpulsado){
+			expulsarTripulate(tripulante);
+			 break; 
+			 }
+
+		sem_wait(&tripulante->semaforoTrabajo);	
+
+		if(! tripulante->fueExpulsado){
+			expulsarTripulate(tripulante);
+			 break; 
+			 }	
 
 		if(tareaTerminada){
 
@@ -476,7 +488,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 				int socket = conectarMiRAM();
 				char ** vectorTarea = malloc(50);     
-				char ** requerimientosTarea = malloc(50); //MALLOC ???
+				char ** requerimientosTarea = malloc(50); // VER COMO HACER PARA DARLE EL MALLOC NECESARIO ((AL DE ARRIBA TAMBIEN))
 
 				serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid);
 
@@ -836,7 +848,21 @@ void cambiarEstadoTripulantesA(char estado){
 			}
 }
 
+//-----------------------------EXPULAR_TRIPULANTE---------------------------------------------------------------------------------------------------
 
+void expulsarTripulate(TCB_DISCORDIADOR * tripulante){
+
+			 uint32_t tid = tripulante->tid;
+
+			bool coincideID(TCB_DISCORDIADOR * tripulante){
+				return tripulante->tid == tid;
+			}
+
+
+			serializaYMandarExpulsado(tripulante->tid, tripulante->pid);
+
+			list_remove_by_condition(listaTripulantes, coincideID); 
+}
 
 //-----------------------------TAREAS---------------------------------------------------------------------------------------------------
 

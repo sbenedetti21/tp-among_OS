@@ -20,6 +20,7 @@ typedef struct tcb_discordiador{
 	sem_t termineIO;
 	uint32_t pid;
 	tarea_struct * tareaActual; 
+	bool fueExpulsado;
 } TCB_DISCORDIADOR;
 
 bool planificacionPausada;
@@ -99,6 +100,7 @@ void ponerReadyNuevosTripulantes();
 char * leerTareas(char *);
 void serializarYMandarPedidoDeBitacora(uint32_t);
 int socketParaSabotajes;
+void expulsarTripulate(TCB_DISCORDIADOR *);
 
 
 #endif
