@@ -33,11 +33,11 @@ int main(int argc, char ** argv){
 
 	//Inicio de servidor
 	pthread_t servidor;
-	pthread_t sincronizador;
+	//pthread_t sincronizador;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
-    pthread_create(&sincronizador, NULL, sincronizacionMapBlocks, NULL);
+    // pthread_create(&sincronizador, NULL, sincronizacionMapBlocks, NULL);
     pthread_join(servidor, NULL);
-	pthread_join(sincronizador, NULL);
+	// 	pthread_join(sincronizador, NULL);
 
 
 	//Necesario al finalizar
@@ -1108,6 +1108,7 @@ void sincronizacionMapBlocks(){
 		memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 		msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	}
+	
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------- ATENDER DISCORDIADOR ---------------------------------------//
@@ -1412,6 +1413,8 @@ void atenderDiscordiador(int socketCliente){
 	}
 
 	guardarBitMap();
+		memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
+		msync(mapBlocks, tamanioBlocks, MS_SYNC);
 }
 
  

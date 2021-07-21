@@ -21,14 +21,14 @@ int main(int argc, char ** argv){
 	pthread_create(&senial2, NULL, hiloSIGUSR2, NULL);
 
 	
-
+/*
 	pthread_t mapa;
 	pthread_create(&mapa, NULL, iniciarMapa, NULL);
 	pthread_join(mapa, NULL);
 
 	nivel_destruir(navePrincipal);
 	nivel_gui_terminar();
-	
+	*/
 		
 	pthread_join(servidor, NULL);
 	
@@ -399,18 +399,18 @@ void atenderDiscordiador(int socketCliente){
 	break; 
 
 	case ACTUALIZAR_ESTADO: ;
-		 uint32_t tripulanteid = 0, patotaid = 0;
+	/*	 uint32_t trip = 0, pat = 0;
 		char estadoNuevo; 
 		
-		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
+		memcpy(&trip, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
-		memcpy(&patotaid, stream+offset, sizeof(uint32_t));
+		memcpy(&pat, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
 		memcpy(&estadoNuevo, stream+offset, sizeof(char));
 		
-		actualizarEstadoTripulante(patotaid, tripulanteid, estadoNuevo); 
+		actualizarEstadoTripulante(pat, trip, estadoNuevo); 
 		mem_hexdump(memoriaPrincipal,200);
-
+	*/
 	break; 
 
 	case EXPULSAR_TRIPULANTE: ;
