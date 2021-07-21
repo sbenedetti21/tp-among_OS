@@ -324,7 +324,7 @@ void atenderDiscordiador(int socketCliente){
 		stream += sizeof(uint32_t);
 
 		log_info(loggerMiram, "DATOS TRIPU QUE PIDIO TAREA, PID: %d, TID: %d", pid, tid);
-	
+	  
 	 
 		char * stringTarea = malloc(40); //este es el string de tareas que despues tenes que cambiar por el que uses
 		stringTarea = obtenerProximaTarea(pid, tid);
