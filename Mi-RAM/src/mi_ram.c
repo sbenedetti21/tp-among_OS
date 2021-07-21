@@ -218,7 +218,7 @@ void atenderDiscordiador(int socketCliente){
 
 				mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
-				dumpDeMemoriaPaginacion();
+				//dumpDeMemoriaPaginacion();
 				
 			}
 
@@ -679,7 +679,7 @@ int framesDisponiblesSwap() {
 	return libre;
 }
 
-int buscarFrame() {
+t_frame * buscarFrame() {
 
 	bool estaLibre(t_frame * frame) {
 		return frame->ocupado == 0;
@@ -690,10 +690,9 @@ int buscarFrame() {
 	pthread_mutex_lock(&mutexListaFrames);
     frameLibre = list_find(listaFrames, estaLibre);
 	pthread_mutex_unlock(&mutexListaFrames);
-	int direccionFrame = frameLibre->inicio;
 	//free(frameLibre);
 
-	return direccionFrame;
+	return frameLibre;
 }
 
 t_frame * buscarFrameSwap() {
@@ -740,6 +739,32 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	// leer del archivo de SWAP desde el nroFrame * tamPagina
 	// buscar frame libre y asignarle esta pagina nueva
 	// copiar a memoria el contenido leido en la direccion del frame
+	void * memAux = malloc(tamanioPagina);
+
+	FILE * swap = fopen(path_SWAP, "aw+");
+	fseek(swap, nroFrameSwap*tamanioPagina, SEEK_SET);
+	fread(memAux, tamanioPagina, 1, swap);
+
+	// buscar el frame en la lista de frames swapp y poner que esta libre  --> TODO
+
+	t_frame * frameLibre = buscarFrame();
+
+	pthread_mutex_lock(&mutexMemoriaPrincipal);
+	memcpy(memoriaPrincipal + frameLibre->inicio, memAux, tamanioPagina);
+	pthread_mutex_unlock(&mutexMemoriaPrincipal);
+	frameLibre->ocupado = 1;
+	frameLibre->pagina = pagina;
+	frameLibre->pagina->bitDeValidez = 1;
+	frameLibre->pagina->numeroFrame = frameLibre->inicio / tamanioPagina;
+	frameLibre->pagina->bitDeUso = 1;
+	pthread_mutex_lock(&mutexContadorLRU);
+	frameLibre->pagina->ultimaReferencia = contadorLRU;
+	contadorLRU++;
+	pthread_mutex_unlock(&mutexContadorLRU); 
+	int index = frameLibre->inicio / tamanioPagina;
+	pthread_mutex_lock(&listaFrames);
+	list_replace(listaFrames, index, frameLibre);
+	pthread_mutex_unlock(&listaFrames);
 }
 
 void llevarPaginaASwap() {
@@ -755,7 +780,9 @@ void llevarPaginaASwap() {
 
 	frameVictima->ocupado = 0;
 	int index = frameVictima->inicio / tamanioPagina;
+	pthread_mutex_lock(&listaFrames);
 	list_replace(listaFrames, index, frameVictima);
+	pthread_mutex_unlock(&listaFrames);
 	t_frame * frameSwap = buscarFrameSwap();
 	frameSwap->ocupado = 1;
 	frameSwap->pagina = frameVictima->pagina;
@@ -768,6 +795,7 @@ void llevarPaginaASwap() {
 	fseek(swap, frameSwap->inicio, SEEK_SET);
 	fwrite(memAux, tamanioPagina, 1, swap);
 	fclose(swap);
+	free(memAux);
 }
 
 t_frame * seleccionarVictima() {
@@ -775,7 +803,9 @@ t_frame * seleccionarVictima() {
 	t_frame * victima = malloc(sizeof(t_frame));
 
 	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
+		pthread_mutex_lock(&listaFrames);
 		t_list * listaAux = list_duplicate(listaFrames);
+		pthread_mutex_unlock(&listaFrames);
 
 		bool ultReferencia(t_frame * unFrame, t_frame * otroFrame) {
 			return unFrame->pagina->ultimaReferencia < otroFrame->pagina->ultimaReferencia;
@@ -843,7 +873,8 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 	int i = 0, j = 0;
 
 	for (i = 0; i < cantidadFrames; i++){ 
-		uint32_t direcProximoFrame = buscarFrame();
+		t_frame * frameLibre = buscarFrame();
+		uint32_t direcProximoFrame = frameLibre->inicio;
 		log_info(loggerMiram,"direc prox frame a escribir %d \n", direcProximoFrame);
 
 		pthread_mutex_lock(&mutexMemoriaPrincipal);

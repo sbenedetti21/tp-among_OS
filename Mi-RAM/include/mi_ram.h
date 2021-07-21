@@ -95,10 +95,10 @@ void actualizarPunteroTarea(t_tripulantePaginacion *, t_list*, int);
 int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
 int framesDisponiblesSwap();
-int buscarFrame();
 void iniciarFrames();
 void llenarFramesConPatota(t_list *, void *, int , int , int , int , uint32_t);
 void llevarPaginaASwap();
+t_frame * buscarFrame();
 t_frame * seleccionarVictima();
 t_frame * buscarFrameSwap();
 
