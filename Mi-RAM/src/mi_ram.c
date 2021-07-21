@@ -441,7 +441,9 @@ char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 			return tablaPagina->pid == idPatota;
 		}
 		
+		pthread_mutex_lock(&mutexListaTablas);
 		referenciaTablaPaginas * tablaDeLaPatota = list_find(listaTablasDePaginas, coincideIDPatota);
+		pthread_mutex_unlock(&mutexListaTablas);
 
 		if (tablaDeLaPatota == NULL){
 			log_error(loggerMiram, "No se encontro la tabla de paginas de la patota %d", idPatota);
@@ -822,7 +824,7 @@ void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_
 	void * streamTripulante = malloc(SIZEOF_TCB);
 	int bytesCopiados = 0;
 	
-	pthread_mutex_lock(mutexMemoriaPrincipal);
+	pthread_mutex_lock(&mutexMemoriaPrincipal);
 	for(int paginaUsada = 0 ; paginaUsada < cantPaginas; paginaUsada++){
 		uint32_t direccionFrame = obtenerDireccionFrame(referenciaTabla, pagina); 
 
@@ -834,7 +836,7 @@ void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_
 		offset = 0; 
 		pagina++; 
 	}
-	pthread_mutex_unlock(mutexMemoriaPrincipal);
+	pthread_mutex_unlock(&mutexMemoriaPrincipal);
 	mem_hexdump(streamTripulante, SIZEOF_TCB);
 	return streamTripulante; 
 }
@@ -902,10 +904,11 @@ char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, u
 
 	void * streamTareas = malloc(cantidadDePaginas * tamanioPagina);
 
+	pthread_mutex_lock(&mutexMemoriaPrincipal);	
 	for(j = 0; j < i; j++) {
 		memcpy(streamTareas + j * tamanioPagina, memoriaPrincipal + tamanioPagina * frames[j], tamanioPagina);
 	}
-
+	pthread_mutex_unlock(&mutexMemoriaPrincipal);
 	///
 	char * tarea = malloc(40); //como se cuanto ocupan las tareas
 	char c = 'a';
@@ -942,7 +945,7 @@ void actualizarPunteroTarea(t_tripulantePaginacion * unTripu, t_list * tablaDePa
 	int * frames = malloc(unTripu->cantidadDePaginas * sizeof(*frames)); 
 	int i = 0, z = 0, nroPrimerPagina = 0, j = 0;
 
-	void almacenarFrames(t_pagina * pagina) {   // ACA HAY OTYRO ERROR
+	void almacenarFrames(t_pagina * pagina) { 
 		if((unTripu->nroPagina == pagina->numeroPagina)) {
 			if (!pagina->bitDeValidez) {
 				traerPaginaAMemoria(pagina);
