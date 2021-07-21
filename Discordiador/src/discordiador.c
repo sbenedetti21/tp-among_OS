@@ -1606,6 +1606,7 @@ void cambiarEstadosABloqueados(){
 	for(int p = 0 ; p < list_size(listaTrabajando) ; p++){
 		TCB_DISCORDIADOR * tripulante = list_get(listaTrabajando2, p);
 		tripulante->estado = 'B';
+		serializarYMandarNuevoEstado(tripulante);
 		list_add(listaBloqueadosSabotaje, tripulante);
 		log_info(loggerDiscordiador, "Tripulante %d cambio su estado a %c", tripulante->tid, tripulante->estado);
 
@@ -1614,6 +1615,7 @@ void cambiarEstadosABloqueados(){
 	for(int j = 0 ; j < list_size(listaReady) ; j++){
 		TCB_DISCORDIADOR * tripulante = list_get(listaReady2, j);
 		tripulante->estado = 'B';
+		serializarYMandarNuevoEstado(tripulante);
 		list_add(listaBloqueadosSabotaje, tripulante);
 		log_info(loggerDiscordiador, "Tripulante %d cambio su estado a %c", tripulante->tid, tripulante->estado);
 
@@ -1632,11 +1634,13 @@ void volverAEstadosPostSabotaje(){
 	for(int p = 0 ; p < list_size(listaTrabajando) ; p++){
 		TCB_DISCORDIADOR * tripulante = list_get(listaTrabajando, p);
 		tripulante->estado = 'E';
+		serializarYMandarNuevoEstado(tripulante);
 	}
 
 	for(int j = 0 ; j < list_size(listaReady) ; j++){
 		TCB_DISCORDIADOR * tripulante = list_get(listaReady, j);
 		tripulante->estado = 'R';
+		serializarYMandarNuevoEstado(tripulante);
 	}
 
 }
