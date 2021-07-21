@@ -56,7 +56,7 @@ typedef struct {
 	uint32_t numeroPagina;
 	uint32_t numeroFrame;
 	uint32_t pid;
-	int bitDeValidez;
+	int bitDeValidez; // si esta en 0, esta en swap
 	// ultimaReferencia
 	int bitDeUso;
 } t_pagina;

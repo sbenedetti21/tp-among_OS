@@ -212,7 +212,7 @@ void atenderDiscordiador(int socketCliente){
 				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria, pid);
 
-				//mem_hexdump(memoriaPrincipal, 2048);
+				mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
 				// void mostrarContenido(t_tripulanteConPID * tripulante) {
 				// 	mem_hexdump(tripulante, 12);
@@ -386,7 +386,7 @@ void atenderDiscordiador(int socketCliente){
 			buffer-> stream = streamEnvio;
 
 			mandarPaqueteSerializado(buffer, socketCliente, HAY_TAREA);
-			free(buffer);
+			
 		}
 
 		break;  
@@ -420,11 +420,6 @@ void atenderDiscordiador(int socketCliente){
 
 		break;
 	}
-
-	// free(paquete->buffer->stream);
-	// free(paquete->buffer);
-	// free(paquete);
-	
 
 
 }
@@ -715,6 +710,8 @@ uint32_t buscarFrame() {
 
 void iniciarSwap() {
 	FILE * swap = fopen(path_SWAP, "w+");
+	char cero = '0';
+	fwrite(&cero, 1, tamanioSwap, swap);
 	log_info(loggerMiram, "Iniciando Frames Swap... ");
 	int cantidadFrames = 0;
 
@@ -729,6 +726,12 @@ void iniciarSwap() {
 		cantidadFrames ++;
 	}
 	fclose(swap);
+}
+
+void traerPaginaAMemoria(t_pagina* pagina) {
+	llevarPaginaASwap();
+
+	uint32_t nroFrameSwap = pagina->numeroFrame;
 }
 
 void llevarPaginaASwap() {
@@ -764,13 +767,14 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		pagina->numeroPagina = (uint32_t) i;
 		pagina->pid = pid;
 		pagina->bitDeValidez = 1;
+		pagina->bitDeUso = 1;
 		list_add(listaDePaginas, pagina);
 		
 		t_frame * frameOcupado = malloc(sizeof(t_frame));
 		frameOcupado->inicio = direcProximoFrame;
 		frameOcupado->ocupado = 1;
 		frameOcupado->pagina = pagina; 
-
+		j=0; // NO BOIRRAR
 		pthread_mutex_lock(&mutexListaFrames);
 		t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
 		pthread_mutex_unlock(&mutexListaFrames);
@@ -817,24 +821,26 @@ void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_
 		offset = 0; 
 		pagina++; 
 	}
-
+	mem_hexdump(streamTripulante, SIZEOF_TCB);
 	return streamTripulante; 
 }
 
 uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, uint32_t nroPagina){
 
-	uint32_t frame; 
+	uint32_t direcFrame = 0; 
 
-	bool coincideNro(t_pagina * pagina)
-	{
+	bool coincideNro(t_pagina * pagina){
 		return (pagina->numeroPagina == nroPagina);
 	}
 
 	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
 	t_pagina * pagina = list_find(tablaPaginas, coincideNro); 
-	frame = pagina->numeroFrame * tamanioPagina; 
+	if (!pagina->bitDeValidez) {
+		traerPaginaAMemoria(pagina);
+	}
+	direcFrame = pagina->numeroFrame * tamanioPagina; 
 
-	return frame; 
+	return direcFrame; 
 }
 
 
@@ -842,12 +848,12 @@ uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, uint32_
 uint32_t obtenerDireccionProximaTareaPaginacion(void * streamTripulante){
 	uint32_t direccion = 0; 
 	memcpy(&direccion, streamTripulante + sizeof(uint32_t)*3 + sizeof(char), sizeof(uint32_t)); 
-
 	return direccion;
 }
 
 char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, uint32_t tid) {
-	void * streamTripulante = obtenerStreamTripulante(referenciaTabla, tid);
+	void * streamTripulante = malloc(SIZEOF_TCB);
+	streamTripulante = obtenerStreamTripulante(referenciaTabla, tid);
 	int proximaTarea = 0;
 	proximaTarea = obtenerDireccionProximaTareaPaginacion(streamTripulante);
 	if ((proximaTarea) == 0) {
@@ -880,7 +886,7 @@ char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, u
 		i++;
 	}
 
-	void * streamTareas = malloc(tablaDeLaPatota->longitudTareas + SIZEOF_PCB);
+	void * streamTareas = malloc(cantidadDePaginas * tamanioPagina);
 
 	for(j = 0; j < i; j++) {
 		memcpy(streamTareas + j * tamanioPagina, memoriaPrincipal + tamanioPagina * frames[j], tamanioPagina);
@@ -960,10 +966,6 @@ void actualizarPunteroTarea(t_tripulantePaginacion * unTripu, t_list * tablaDePa
 		}
 	}
 	pthread_mutex_unlock(&mutexMemoriaPrincipal);
-}
-
-void traerPaginaAMemoria(t_pagina * pagina) {
-
 }
 
 //----------------SEGMENTACION
