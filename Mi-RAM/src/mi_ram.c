@@ -1,5 +1,6 @@
 #include "mi_ram.h"
- //un comentario 
+ //un comentario//comentario swap 
+  
 
 int main(int argc, char ** argv){
 	navePrincipal = nivel_crear("Nave Principal");
