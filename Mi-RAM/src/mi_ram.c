@@ -732,6 +732,10 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	llevarPaginaASwap();
 
 	uint32_t nroFrameSwap = pagina->numeroFrame;
+
+	// leer del archivo de SWAP desde el nroFrame * tamPagina
+	// buscar frame libre y asignarle esta pagina nueva
+	// copiar a memoria el contenido leido en la direccion del frame
 }
 
 void llevarPaginaASwap() {
@@ -743,6 +747,12 @@ void llevarPaginaASwap() {
 	if (strcmp(algoritmoReemplazo, "CLOCK") == 0) {
 		
 	}
+}
+
+void dumpDeMemoriaPaginacion() {
+	// en la lista de frames estan las paginas, 
+	// habría que recorrerlo e ir guardando en un char *
+	// para luego escribirlo en un archivo dump<timeStamp>
 }
 
 void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas, int memoriaAGuardar, uint32_t pid) {

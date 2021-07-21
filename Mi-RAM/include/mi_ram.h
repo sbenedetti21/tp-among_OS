@@ -96,6 +96,8 @@ void iniciarFrames();
 void llenarFramesConPatota(t_list *, void *, int , int , int , int , uint32_t);
 void llevarPaginaASwap();
 
+void dumpDeMemoriaPaginacion();
+
 
 // ----------------------------------------  SEGMENTOS
 
