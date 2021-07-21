@@ -19,6 +19,7 @@
 #include <semaphore.h>
 #include <inttypes.h>
 
+
 int crear_conexion(char *, char*);
 
 int crear_conexionServer(char*);
@@ -46,7 +47,7 @@ typedef struct pcb{
 } PCB;
 
 enum protocoloMIRAM{
-	INICIAR_PATOTA, PEDIR_TAREA, HAY_TAREA, NO_HAY_TAREA
+	INICIAR_PATOTA, PEDIR_TAREA, HAY_TAREA, NO_HAY_TAREA, ACTUALIZAR_POS, ACTUALIZAR_ESTADO, EXPULSAR_TRIPULANTE
 };
 
 enum protocoloDiscordiador{

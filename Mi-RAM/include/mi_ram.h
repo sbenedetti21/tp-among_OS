@@ -9,14 +9,24 @@
 #include <nivel-gui/nivel-gui.h>
 #include <nivel-gui/tad_nivel.h>
 #include "shared_utils.h"
+#include <curses.h>
+#define ASSERT_CREATE(nivel, id, err)                                                   \
+    if(err) {                                                                           \
+        nivel_destruir(nivel);                                                          \
+        nivel_gui_terminar();                                                           \
+        fprintf(stderr, "Error al crear '%c': %s\n", id, nivel_gui_string_error(err));  \
+        return EXIT_FAILURE;                                                            \
+    }
+
 
 #define BACKLOG 10 //TODO
 #define SIZEOF_PCB 8
 #define SIZEOF_TCB 21
 
 // --------------------------------------- MEMORIA GENERAL
-
+ 
 char * esquemaMemoria;
+char * criterioSeleccion; 
 char * algoritmoReemplazo;
 char * puertoMemoria;
 void * memoriaPrincipal; 
@@ -24,11 +34,15 @@ void * memoriaPrincipal;
 int buscarEspacioNecesario(int, int);
 TCB * deserializar_TCB(void *);
 char * obtenerProximaTareaSegmentacion(uint32_t, uint32_t);
-uint32_t obtenerDireccionTripulante(uint32_t );
+uint32_t obtenerDireccionTripulante(uint32_t, uint32_t );
 uint32_t obtenerDireccionProximaTarea(uint32_t);
-char * obtenerProximaTarea(uint32_t);
+char * obtenerProximaTarea(uint32_t, uint32_t);
+void imprimirSegmentos();
+void sig_handler(uint32_t senial);
+void * hiloSIGUSR1();
+void * hiloSIGUSR2();
 
-sem_t mutexProximoPID; 
+
 
 // ----------------------------------------  PAGINAS
 
@@ -50,26 +64,26 @@ typedef struct {
 typedef struct {
 	uint32_t numeroPagina;
 	uint32_t numeroFrame;
+	uint32_t pid;
 	// ultimaReferencia
 	// SecondChance
 } t_pagina;
 
 typedef struct {
-	uint32_t idTripulante;
-	uint32_t idPatota;
-	uint32_t longitudTareas;
-} t_tripulanteConPID;
-t_list * listaTripulantes;
+	int longitudTareas;
+	uint32_t pid;
+	t_list * listaPaginas;
+} t_tablaDePaginas;
 
-char * obtenerProximaTareaPaginacion(int, int, int);
-char * encontrarTareasDeTripulanteEnStream(void *, int, int, int);
-void actualizarPunteroTarea(int, int, int);
+char * obtenerProximaTareaPaginacion(t_tablaDePaginas* , int);
+char * encontrarTareasDeTripulanteEnStream(void *, int, t_tablaDePaginas*);
+void actualizarPunteroTarea(int, t_tablaDePaginas*, int);
 
 int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
 uint32_t buscarFrame();
 void iniciarFrames();
-void llenarFramesConPatota(t_list *, void *, int , int , int , int );
+void llenarFramesConPatota(t_list *, void *, int , int , int , int , uint32_t);
 
 
 // ----------------------------------------  SEGMENTOS
@@ -79,6 +93,7 @@ t_list * tablaDeTablasSegmentos;  // va a estar conformado por muchos struct de 
 sem_t mutexTablaGlobal;
 sem_t mutexTablaDeTablas; 
 sem_t mutexTripulantesPatotas; 
+sem_t mutexCompactacion; 
 t_list * tripulantesPatotas; 
 
 
@@ -115,16 +130,18 @@ bool cabePCB(t_segmento * );
 bool cabeTCB(t_segmento * );
 void imprimirSegmentosLibres();
 void actualizarProximaTarea(uint32_t, uint32_t);
+void compactarMemoria();
 
 
 // --------------------- Generales
 
 t_log * loggerMiram; 
+t_log * loggerMemoria; 
 void servidorPrincipal();
 
 void atenderDiscordiador(int);
 void recibir_TCB(int);
-PCB * crearPCB();
+PCB * crearPCB(uint32_t);
 
 typedef struct {
 
@@ -136,12 +153,16 @@ typedef struct {
 } structConexion;
 
 void mandarPaqueteSerializado(t_buffer *, int, int);
-int proximoPID = 0; 
+
 
 //--------------- MAPA ---------------------
+NIVEL* navePrincipal;
+sem_t semaforoTerminarMapa; 
+sem_t semaforoMoverTripulante;
 void iniciarMapa();
-void agregarTripulanteAlMapa(TCB*);
-void moverTripulanteEnMapa(TCB *, int , int );
-void expulsarTripulanteDelMapa(TCB*);
- 
+void agregarTripulanteAlMapa(uint32_t, uint32_t ,uint32_t);
+void moverTripulanteEnMapa(uint32_t, uint32_t , uint32_t );
+void expulsarTripulanteDelMapa(uint32_t);
+char idMapa(uint32_t);
+
 #endif

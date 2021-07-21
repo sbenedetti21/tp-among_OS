@@ -2,13 +2,14 @@
 #define DISCORDIADOR_H
 
 #include "shared_utils.h"
-
+#include <commons/memory.h>
 // /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
 
 //flag para liberar puerto 
 
 uint32_t cicloCPU;
 int tiempoSabotaje;
+uint32_t proximoPID = 0; 
 
 typedef struct tcb_discordiador{
 	uint32_t tid;
@@ -38,6 +39,10 @@ sem_t cambiarABloqueado;
 sem_t cambiarABloqueadosEmergencia;
 sem_t semaforoSabotaje;
 sem_t semaforoSabotajeBloqueados;
+sem_t mutexPID; 
+
+
+ 
 
 t_log * loggerDiscordiador; 
 t_list * listaTripulantes;
@@ -62,9 +67,10 @@ void iniciarPatota(char **);
 void listarTripulantes();
 void consola();
 void mandarPaqueteSerializado(t_buffer*,int, int);
-void serializarYMandarPCB(char*,int,int, t_list *);
+void serializarYMandarPCB(char*,int,uint32_t, int, t_list *);
 void serializarYMandarInicioTareaIO(int, int, uint32_t);
 void serializarYMandarInicioTareaNormal(uint32_t, char*);
+void serializarYMandarPedidoDeTarea(int, uint32_t, uint32_t);
 void gestionarTarea(tarea_struct * , uint32_t);
 void serializarYMandarElegidoDelSabotaje(uint32_t);
 int gradoMultitarea;
@@ -84,7 +90,9 @@ void gestionadorIO();
 void cambiarEstadosABloqueados();
 void volverAEstadosPostSabotaje();
 bool tripulanteConIDMasChico(TCB_DISCORDIADOR *, TCB_DISCORDIADOR*);
-TCB_DISCORDIADOR * crearTCB(char *); // chequear lo de la lista
+
+
+TCB_DISCORDIADOR * crearTCB(char *, uint32_t); // chequear lo de la lista
 TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t, uint32_t);
 void mostrarLista(t_list *); 
 void ponerReadyNuevosTripulantes();

@@ -2,10 +2,10 @@
  
 // FACU: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 // FRAN: INICIAR_PATOTA 2 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|0
-// FRAN: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+// FRAN: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 
   
-int main(int argc, char ** argv){
+int main(int argc, char ** argv){  
 
 	loggerDiscordiador = log_create("discordiador.log", "discordiador.c", 0, LOG_LEVEL_INFO); 
 
@@ -13,11 +13,11 @@ int main(int argc, char ** argv){
 
 	listaTripulantes = list_create();
 	listaReady = list_create();
-	listaBloqueados = list_create();
+	listaBloqueados = list_create(); 
 	listaTrabajando = list_create();
 	tareasDeIO = list_create();
 	listaTerminados = list_create();
-	listaNuevos = list_create(); 
+	listaNuevos = list_create();  
 	listaBloqueadosEmergencia = list_create();
 	listaBloqueadosSabotaje = list_create();
 
@@ -60,6 +60,7 @@ int main(int argc, char ** argv){
 	sem_init(&gestionarIO,0,0);
 	sem_init(&cambiarABloqueadosEmergencia,0,1);
 	sem_init(&semaforoSabotaje,0,0);
+	sem_init(&mutexPID, 0, 1); 
 
 
 	
@@ -319,6 +320,7 @@ void consola(){
 		uint32_t posY = 4;
 
 		cambiarEstadosABloqueados();
+				serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid);
 
 		TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(posX, posY);
 
@@ -375,6 +377,10 @@ void iniciarPatota(char ** vectorInstruccion){
 				int cantidadTripulantes = atoi(vectorInstruccion[1]);
 				pthread_t tripulantes[cantidadTripulantes];
 				listaTCBsNuevos = list_create();
+				sem_wait(&mutexPID); 
+				uint32_t idPatota = proximoPID; 
+				proximoPID ++; 
+				sem_post(&mutexPID);
 
 
 				for(i = 0; i < cantidadTripulantes; i++ ) {  
@@ -382,10 +388,10 @@ void iniciarPatota(char ** vectorInstruccion){
 
 					TCB_DISCORDIADOR* tripulante = malloc(sizeof(TCB_DISCORDIADOR));
 					if (vectorInstruccion[indice_posiciones] != NULL) {
-						tripulante = crearTCB(vectorInstruccion[3 + i]);
+						tripulante = crearTCB(vectorInstruccion[3 + i], idPatota);
 						indice_posiciones++;
 					} else {
-						tripulante = crearTCB(posicionBase);
+						tripulante = crearTCB(posicionBase,idPatota);
 					}
 
 					list_add(listaTCBsNuevos, tripulante);
@@ -403,7 +409,7 @@ void iniciarPatota(char ** vectorInstruccion){
 				}
 
 
-				serializarYMandarPCB(vectorInstruccion[2],socket, cantidadTripulantes, listaTCBsNuevos);
+				serializarYMandarPCB(vectorInstruccion[2],socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
 				
 
 	close(socket);
@@ -411,7 +417,7 @@ void iniciarPatota(char ** vectorInstruccion){
 }
 
 
-TCB_DISCORDIADOR * crearTCB(char * posiciones){
+TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 
 		char ** vectorPosiciones = string_split(posiciones,"|" );
 		TCB_DISCORDIADOR * tripulante = malloc(sizeof(TCB_DISCORDIADOR));
@@ -423,6 +429,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones){
 		tripulante->tid = proximoTID;
 		tripulante->posicionX = atoi(vectorPosiciones[0]);
 		tripulante->posicionY = atoi(vectorPosiciones[1]);
+		tripulante->pid = pid;
 		
 
 		sem_wait(&cambiarANuevo);	
@@ -460,7 +467,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 				char ** vectorTarea;
 				char ** requerimientosTarea; //MALLOC ???
 
-				serializarYMandarPedidoDETarea(socket, tripulante->tid);
+				serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid);
 
 				t_paquete* paquete = malloc(sizeof(t_paquete));
 				paquete->buffer = malloc(sizeof(t_buffer));
@@ -468,18 +475,18 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 				int headerRECV = recv(socket, &(paquete->header) , sizeof(int), MSG_WAITALL);
 				if(!headerRECV) { log_error(loggerDiscordiador, "No se pudo recibir el header al recibir una tarea");}
 
-				int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), 0);
-				if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer al recibir una tarea");}
-
-				paquete->buffer->stream = malloc(paquete->buffer->size);
-
-				int BUFFER_RECV = recv(socket,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
-				if(! BUFFER_RECV){ log_error(loggerDiscordiador,"No se pudo recibir el buffer al recibir una tarea");}
-
-
+				
 				switch (paquete->header)
 				{
 				case HAY_TAREA:;
+
+					int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), MSG_WAITALL);
+					if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer al recibir una tarea");}
+
+					paquete->buffer->stream = malloc(paquete->buffer->size);
+
+					int BUFFER_RECV = recv(socket,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+					if(! BUFFER_RECV){ log_error(loggerDiscordiador,"No se pudo recibir el buffer al recibir una tarea");}
 
 					void* stream = malloc(paquete->buffer->size);
 					stream = paquete->buffer->stream;
@@ -609,7 +616,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 														}
 
 
-														// mandar posi a imongo y miram
+														serializarYMandarPosicion(tripulante);
+														
 													}
 
 													if(tripulante->posicionY != tarea->posicionY){
@@ -723,7 +731,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 }
 
- 
+  
 void ponerATrabajar(){
 
 	pthread_t gestionarIO;
@@ -835,7 +843,7 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 		}
 
 		sleep(cicloCPU);
-		// MANDAR POSICION A MI RAM e IMONGO
+		serializarYMandarPosicion(tripulante);
 	}
 	
 	while(posicionY != tripulante->posicionY)
@@ -883,7 +891,7 @@ void trasladarseADuranteSabotaje(uint32_t posicionX,uint32_t posicionY, TCB_DISC
 		}
 
 		sleep(cicloCPU);
-		// MANDAR POSICION A MI RAM e IMONGO
+		serializarYMandarPosicion(tripulante);
 	}
 	
 	log_info(loggerDiscordiador, "Tripulante %d ahora esta en %d|%d ",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
@@ -992,7 +1000,7 @@ void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
 }
 
 
-void serializarYMandarPCB(char * pathTareas, int socket, int cantidadTCB, t_list * listaTCBS){
+void serializarYMandarPCB(char * pathTareas, int socket, uint32_t pid, int cantidadTCB, t_list * listaTCBS){
 
 	int  offset = 0;
 	
@@ -1001,7 +1009,7 @@ void serializarYMandarPCB(char * pathTareas, int socket, int cantidadTCB, t_list
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer-> size = sizeof(tamanioTareas) + tamanioTareas + sizeof(cantidadTCB) + sizeof(TCB) * cantidadTCB;
+	buffer-> size = sizeof(tamanioTareas) + tamanioTareas + sizeof(cantidadTCB) + sizeof(TCB) * cantidadTCB + sizeof(uint32_t);
 
 	void* stream = malloc(buffer->size);
 
@@ -1010,6 +1018,9 @@ void serializarYMandarPCB(char * pathTareas, int socket, int cantidadTCB, t_list
 
 	memcpy(stream+offset, tareas, tamanioTareas);
 	offset += tamanioTareas;
+
+	memcpy(stream + offset, &pid, sizeof(uint32_t)); 
+	offset += sizeof(uint32_t); 
 	
 	memcpy(stream+offset, & cantidadTCB, sizeof(cantidadTCB));
 	offset += sizeof(cantidadTCB);
@@ -1070,16 +1081,21 @@ void serializarYMandarInicioTareaIO(int parametro, int tipoTarea, uint32_t tid )
 
 }
 
-void serializarYMandarPedidoDETarea(int socket, uint32_t tid){
+void serializarYMandarPedidoDeTarea(int socket, uint32_t pid, uint32_t tid){
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
-	buffer-> size = sizeof(uint32_t);
+	buffer-> size = sizeof(uint32_t) * 2;
 
 	void* stream = malloc(buffer->size);
 
 	int offset = 0;
 
-	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	log_info(loggerDiscordiador ,"DATOS TRIPU QUE PIDIO TAREA, PID: %d, TID: %d", pid, tid);
+
+	memcpy(stream + offset, &tid, sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+	
+	memcpy(stream + offset, &pid, sizeof(uint32_t));
 	offset += sizeof(uint32_t);
 
 	buffer-> stream = stream;
@@ -1092,11 +1108,17 @@ void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
 	int socketMIRAM = conectarMiRAM();
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
-	buffer-> size = sizeof(uint32_t) * 2;
+	buffer-> size = sizeof(uint32_t) * 4;
 
 	void* stream = malloc(buffer->size);
 
 	int offset = 0;
+
+	memcpy(stream+offset, &(tripulante->tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->pid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
 
 	memcpy(stream+offset, &(tripulante->posicionX), sizeof(uint32_t));
 	offset += sizeof(uint32_t);
@@ -1106,7 +1128,9 @@ void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
 
 	buffer-> stream = stream;
 
-	mandarPaqueteSerializado(buffer, socketMIRAM, PEDIR_TAREA);  // VER HEADER
+	log_info(loggerDiscordiador, mem_hexstring(stream, sizeof(uint32_t) * 4));
+
+	mandarPaqueteSerializado(buffer, socketMIRAM, ACTUALIZAR_POS);  
 
 }
 
