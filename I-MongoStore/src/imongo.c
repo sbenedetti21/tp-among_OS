@@ -21,6 +21,7 @@ int main(int argc, char ** argv){
 	sem_init(&semaforoOxigeno, 0, 1); 
 	sem_init(&semaforoBasura, 0, 1);
 	sem_init(&semaforoComida, 0, 1);
+	sem_init(&semaforoPruebaBitacora,0,1);
 
 	//SABOTAJE
 	//pruebaDeSabotaje();
@@ -33,11 +34,11 @@ int main(int argc, char ** argv){
 
 	//Inicio de servidor
 	pthread_t servidor;
-	//pthread_t sincronizador;
+	pthread_t sincronizador;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
-    // pthread_create(&sincronizador, NULL, sincronizacionMapBlocks, NULL);
+     pthread_create(&sincronizador, NULL, sincronizacionMapBlocks, NULL);
     pthread_join(servidor, NULL);
-	// 	pthread_join(sincronizador, NULL);
+	 	pthread_join(sincronizador, NULL);
 
 
 	//Necesario al finalizar
@@ -325,6 +326,7 @@ t_config *crearArchivoBitacora(int idTripulante){
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------- CODIGO DE LOS BLOCKS DE BITACORAS --------------------------------//
 void llenarBlocksBitcoras(char *informacionDeLenado, uint32_t idTripulante){
+	sem_wait(&semaforoPruebaBitacora);
 	t_config *configBitacora = crearArchivoBitacora(idTripulante);
 	int cantLlenado = 0;
 	int cantFaltante = strlen(informacionDeLenado);
@@ -364,6 +366,7 @@ void llenarBlocksBitcoras(char *informacionDeLenado, uint32_t idTripulante){
 	agregarSizeArchivo(configBitacora, sizeBitacora);
 	config_save(configBitacora);
 	config_destroy(configBitacora);
+sem_post(&semaforoPruebaBitacora);
 }
 //--------------------------------------------------------------------------------------------------//
 //------------------------------ SEMAFOROS PARA LOS FILES DE RECURSOS ------------------------------//
@@ -1413,8 +1416,7 @@ void atenderDiscordiador(int socketCliente){
 	}
 
 	guardarBitMap();
-		memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
-		msync(mapBlocks, tamanioBlocks, MS_SYNC);
+
 }
 
  

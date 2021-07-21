@@ -28,7 +28,7 @@
 sem_t semaforoBloques;
 sem_t semaforoArchivoRecurso;
 sem_t semaforoOxigeno, semaforoBasura, semaforoComida;
-
+sem_t semaforoPruebaBitacora;
 //Log
 t_log *loggerImongoStore;
 
