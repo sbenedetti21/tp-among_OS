@@ -714,8 +714,8 @@ t_frame * buscarFrameSwap() {
 
 void iniciarSwap() {
 	FILE * swap = fopen(path_SWAP, "w");
-	char cero = '0';
-	fwrite(&cero, 1, tamanioSwap, swap);
+	// char cero = '0';
+	// fwrite(&cero, 1, tamanioSwap, swap);
 	log_info(loggerMiram, "Iniciando Frames Swap... ");
 	int cantidadFrames = 0;
 
@@ -754,9 +754,15 @@ void llevarPaginaASwap() {
 	pthread_mutex_unlock(&mutexMemoriaPrincipal);
 
 	frameVictima->ocupado = 0;
+	int index = frameVictima->inicio / tamanioPagina;
+	list_replace(listaFrames, index, frameVictima);
 	t_frame * frameSwap = buscarFrameSwap();
 	frameSwap->ocupado = 1;
 	frameSwap->pagina = frameVictima->pagina;
+	pthread_mutex_lock(&mutexContadorLRU);
+	frameSwap->pagina->ultimaReferencia = contadorLRU;
+	contadorLRU++;
+	pthread_mutex_unlock(&mutexContadorLRU);
 
 	FILE * swap = fopen(path_SWAP, "a+");
 	fseek(swap, frameSwap->inicio, SEEK_SET);
@@ -777,7 +783,6 @@ t_frame * seleccionarVictima() {
 
 		list_sort(listaAux, ultReferencia);
 		victima = list_get(listaAux, 0);
-		list_clean_and_destroy_elements(listaAux, free);
 	}
 
 	if (strcmp(algoritmoReemplazo, "CLOCK") == 0) {
