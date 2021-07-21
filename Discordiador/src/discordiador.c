@@ -154,9 +154,14 @@ void consola(){
 				return tripulante->tid ==  atoi(vectorInstruccion[1]);
 			}
 
+			TCB_DISCORDIADOR * tripulante = malloc(sizeof(TCB_DISCORDIADOR));
+			tripulante = list_find(listaTripulantes,coincideID);
+
+			serializaYMandarExpulsado(tripulante->tid, tripulante->pid);
+
 			list_remove_by_condition(listaTripulantes, coincideID); 
 			
-			//LE FALTAN COSAS 
+			//LE FALTAN COSAS VER EL IF CUANDO ESTA EJECUTANDO
 
 		}
 		
@@ -381,11 +386,11 @@ void iniciarPatota(char ** vectorInstruccion){
 				listaTCBsNuevos = list_create();
 
 				log_info(loggerDiscordiador, "antes del wait");
-				//sem_wait(&mutexPID); 
+				sem_wait(&mutexPID); 
 				uint32_t idPatota = proximoPID; 
 				log_info(loggerDiscordiador, " entre wait y post");
 				proximoPID ++; 
-				//sem_post(&mutexPID);
+				sem_post(&mutexPID);
 				log_info(loggerDiscordiador, "afuera del wait");
  
 log_info(loggerDiscordiador, "EStoy antes del for");
@@ -1289,6 +1294,32 @@ void serializarYMandarPedidoDeBitacora(uint32_t tid){
 	log_info(loggerDiscordiador," Bitacora tripulante %d: \n %s",tid,bitacora);
 
 }
+
+void serializarYMandarNuevoEstado(TCB_DISCORDIADOR * tripulante){
+	int socket = conectarMiRAM();
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = 2 * sizeof(uint32_t) + sizeof(char);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tripulante->tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(tripulante->pid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &( tripulante->estado ), sizeof(char));
+	offset += sizeof(char);
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, ACTUALIZAR_ESTADO);
+}
+
 //-----------------------------SABOTAJES---------------------------------------------------------------------------------------------------
 
 void atenderImongo(){
@@ -1471,6 +1502,7 @@ void cambiarDeEstado(TCB_DISCORDIADOR * tripulante, char estado){
 		break;
 	}
 
+		serializarYMandarNuevoEstado(tripulante);
 		log_info(loggerDiscordiador, "Tripulante %d cambio su estado a %c", tripulante->tid, tripulante->estado);
 
 

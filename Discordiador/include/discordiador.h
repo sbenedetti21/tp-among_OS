@@ -90,7 +90,7 @@ void gestionadorIO();
 void cambiarEstadosABloqueados();
 void volverAEstadosPostSabotaje();
 bool tripulanteConIDMasChico(TCB_DISCORDIADOR *, TCB_DISCORDIADOR*);
- 
+void serializarYMandarNuevoEstado(TCB_DISCORDIADOR*);
 
 TCB_DISCORDIADOR * crearTCB(char *, uint32_t); // chequear lo de la lista
 TCB_DISCORDIADOR * tripulanteMasCercano(uint32_t, uint32_t);

@@ -399,7 +399,7 @@ void atenderDiscordiador(int socketCliente){
 	break; 
 
 	case ACTUALIZAR_ESTADO: ;
-		/* uint32_t tripulanteid = 0, patotaid = 0;
+		 uint32_t tripulanteid = 0, patotaid = 0;
 		char estadoNuevo; 
 		
 		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
@@ -409,7 +409,8 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&estadoNuevo, stream+offset, sizeof(char));
 		
 		actualizarEstadoTripulante(patotaid, tripulanteid, estadoNuevo); 
-*/
+		mem_hexdump(memoriaPrincipal,200);
+
 	break; 
 
 	case EXPULSAR_TRIPULANTE: ;
