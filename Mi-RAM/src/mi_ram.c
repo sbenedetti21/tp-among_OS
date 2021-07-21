@@ -1310,7 +1310,7 @@ void imprimirSegmentos(){
 	
 
 
-
+ 
 
 void sig_handler(uint32_t senial){
 

@@ -1414,3 +1414,4 @@ void atenderDiscordiador(int socketCliente){
 	guardarBitMap();
 }
 
+ 

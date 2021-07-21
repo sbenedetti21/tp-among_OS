@@ -33,8 +33,8 @@ int main(int argc, char ** argv){
 
 	socketParaSabotajes = conectarImongo();
 
-	pthread_t hiloSabotajes;
-    pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
+	//pthread_t hiloSabotajes;
+    //pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
 
 
 	pthread_t hiloConsola;
@@ -320,7 +320,7 @@ void consola(){
 		uint32_t posY = 4;
 
 		cambiarEstadosABloqueados();
-				serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid);
+				
 
 		TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(posX, posY);
 
@@ -381,7 +381,7 @@ void iniciarPatota(char ** vectorInstruccion){
 				uint32_t idPatota = proximoPID; 
 				proximoPID ++; 
 				sem_post(&mutexPID);
-
+ 
 
 				for(i = 0; i < cantidadTripulantes; i++ ) {  
 					pthread_t hilo;
