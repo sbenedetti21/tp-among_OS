@@ -355,7 +355,7 @@ void atenderDiscordiador(int socketCliente){
 			nivel_gui_dibujar(navePrincipal);
 			
 
-		}
+		} 
 		else{	
 			t_buffer* buffer = malloc(sizeof(t_buffer));
 			buffer-> size = sizeof(int) + tamanioTarea;
@@ -756,7 +756,7 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		t_frame * frameOcupado = malloc(sizeof(t_frame));
 		frameOcupado->inicio = direcProximoFrame;
 		frameOcupado->ocupado = 1;
-
+     
 		pthread_mutex_lock(&mutexListaFrames);
 		t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
 		pthread_mutex_unlock(&mutexListaFrames);
