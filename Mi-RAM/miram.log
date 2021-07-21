@@ -17608,3 +17608,247 @@ GENERAR_COMIDA 7;2;3;1|
 [INFO] 18:32:11:005 mi_ram.c/(10704:10769): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 1
 [ERROR] 18:32:11:005 mi_ram.c/(10704:10769): No se encontro la tabla de paginas de la patota 1
 [INFO] 18:32:11:005 mi_ram.c/(10704:10769): La tarea a enviar es: NO_ENCONTRE_TABLA
+[INFO] 19:21:33:114 mi_ram.c/(4159:4159): Iniciando Frames... 
+[INFO] 19:21:33:115 mi_ram.c/(4159:4159): -------------------------
+[INFO] 19:21:33:115 mi_ram.c/(4159:4159): Disponibilidad de frames: 
+[INFO] 19:21:33:115 mi_ram.c/(4159:4159): el frame 0 esta ocupado: 0 
+[INFO] 19:21:33:115 mi_ram.c/(4159:4159): el frame 1 esta ocupado: 0 
+[INFO] 19:21:33:115 mi_ram.c/(4159:4159): el frame 2 esta ocupado: 0 
+[INFO] 19:21:33:115 mi_ram.c/(4159:4159): el frame 3 esta ocupado: 0 
+[INFO] 19:21:33:115 mi_ram.c/(4159:4159): Iniciando Frames Swap... 
+[INFO] 19:22:28:442 mi_ram.c/(4159:4160): Conexión establecida con Discordiador
+[INFO] 19:22:28:444 mi_ram.c/(4159:4380): Recibi header: 0
+
+[INFO] 19:22:28:444 mi_ram.c/(4159:4380): Cantidad de bytes recibidos en el buffer: 106
+[INFO] 19:22:28:444 mi_ram.c/(4159:4380): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 19:22:28:444 mi_ram.c/(4159:4380): cantidad tcbs recibidos: 1 
+
+[INFO] 19:22:28:444 mi_ram.c/(4159:4380): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 19:22:28:444 mi_ram.c/(4159:4380): Tripulante 0, Patota 0, pag 2, offset 15, cantidadPaginas 2
+[INFO] 19:22:28:444 mi_ram.c/(4159:4380): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 31 0a  |OXIGENO 3;1;2;1.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 31 0a  47 45 4e 45 52 41 52 5f  |4;2;3;1.GENERAR_|
+0x00000040: 43 4f 4d 49 44 41 20 37  3b 32 3b 33 3b 31 7c 00  |COMIDA 7;2;3;1|.|
+0x00000050: 00 00 00 01 00 00 00 01  00 00 00 52 08 00 00 00  |...........R....|
+0x00000060: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 19:22:28:444 mi_ram.c/(4159:4380): direc prox frame a escribir 0 
+
+[INFO] 19:22:28:445 mi_ram.c/(4159:4380): direc prox frame a escribir 32 
+
+[INFO] 19:22:28:445 mi_ram.c/(4159:4380): direc prox frame a escribir 64 
+
+[INFO] 19:22:28:445 mi_ram.c/(4159:4380): direc prox frame a escribir 96 
+
+[INFO] 19:22:30:077 mi_ram.c/(4159:4160): Conexión establecida con Discordiador
+[INFO] 19:22:30:077 mi_ram.c/(4159:4390): Recibi header: 0
+
+[INFO] 19:22:30:077 mi_ram.c/(4159:4390): Cantidad de bytes recibidos en el buffer: 106
+[INFO] 19:22:30:078 mi_ram.c/(4159:4390): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 19:22:30:078 mi_ram.c/(4159:4390): cantidad tcbs recibidos: 1 
+
+[INFO] 19:22:35:795 mi_ram.c/(4159:4160): Conexión establecida con Discordiador
+[INFO] 19:22:35:795 mi_ram.c/(4159:4405): Recibi header: 1
+
+[INFO] 19:22:35:795 mi_ram.c/(4159:4405): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:22:35:796 mi_ram.c/(4159:4405): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:22:35:796 mi_ram.c/(4159:4405): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;1
+[INFO] 19:22:35:796 mi_ram.c/(4159:4160): Conexión establecida con Discordiador
+[INFO] 19:22:35:796 mi_ram.c/(4159:4406): Recibi header: 1
+
+[INFO] 19:22:35:796 mi_ram.c/(4159:4406): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:22:35:796 mi_ram.c/(4159:4406): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 1
+[ERROR] 19:22:35:796 mi_ram.c/(4159:4406): No se encontro la tabla de paginas de la patota 1
+[INFO] 19:22:35:796 mi_ram.c/(4159:4406): La tarea a enviar es: NO_ENCONTRE_TABLA
+[INFO] 19:25:41:670 mi_ram.c/(4872:4872): Iniciando Frames... 
+[INFO] 19:25:41:671 mi_ram.c/(4872:4872): -------------------------
+[INFO] 19:25:41:671 mi_ram.c/(4872:4872): Disponibilidad de frames: 
+[INFO] 19:25:41:671 mi_ram.c/(4872:4872): el frame 0 esta ocupado: 0 
+[INFO] 19:25:41:671 mi_ram.c/(4872:4872): el frame 1 esta ocupado: 0 
+[INFO] 19:25:41:671 mi_ram.c/(4872:4872): el frame 2 esta ocupado: 0 
+[INFO] 19:25:41:671 mi_ram.c/(4872:4872): el frame 3 esta ocupado: 0 
+[INFO] 19:25:41:671 mi_ram.c/(4872:4872): Iniciando Frames Swap... 
+[INFO] 19:25:45:656 mi_ram.c/(4872:4873): Conexión establecida con Discordiador
+[INFO] 19:25:45:656 mi_ram.c/(4872:4884): Recibi header: 0
+
+[INFO] 19:25:45:656 mi_ram.c/(4872:4884): Cantidad de bytes recibidos en el buffer: 106
+[INFO] 19:25:45:656 mi_ram.c/(4872:4884): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 19:25:45:656 mi_ram.c/(4872:4884): cantidad tcbs recibidos: 1 
+
+[INFO] 19:25:45:657 mi_ram.c/(4872:4884): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 19:25:45:657 mi_ram.c/(4872:4884): Tripulante 0, Patota 0, pag 2, offset 15, cantidadPaginas 2
+[INFO] 19:25:45:657 mi_ram.c/(4872:4884): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 31 0a  |OXIGENO 3;1;2;1.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 31 0a  47 45 4e 45 52 41 52 5f  |4;2;3;1.GENERAR_|
+0x00000040: 43 4f 4d 49 44 41 20 37  3b 32 3b 33 3b 31 7c 00  |COMIDA 7;2;3;1|.|
+0x00000050: 00 00 00 01 00 00 00 01  00 00 00 52 08 00 00 00  |...........R....|
+0x00000060: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 19:25:45:657 mi_ram.c/(4872:4884): direc prox frame a escribir 0 
+
+[INFO] 19:25:45:657 mi_ram.c/(4872:4884): direc prox frame a escribir 32 
+
+[INFO] 19:25:45:657 mi_ram.c/(4872:4884): direc prox frame a escribir 64 
+
+[INFO] 19:25:45:657 mi_ram.c/(4872:4884): direc prox frame a escribir 96 
+
+[INFO] 19:25:54:226 mi_ram.c/(4872:4873): Conexión establecida con Discordiador
+[INFO] 19:25:54:226 mi_ram.c/(4872:4908): Recibi header: 1
+
+[INFO] 19:25:54:227 mi_ram.c/(4872:4908): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:25:54:227 mi_ram.c/(4872:4908): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:25:54:227 mi_ram.c/(4872:4908): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;1
+[INFO] 19:25:56:228 mi_ram.c/(4872:4873): Conexión establecida con Discordiador
+[INFO] 19:25:56:228 mi_ram.c/(4872:4913): Recibi header: 1
+
+[INFO] 19:25:56:228 mi_ram.c/(4872:4913): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:25:56:228 mi_ram.c/(4872:4913): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:25:56:228 mi_ram.c/(4872:4913): La tarea a enviar es: GENERAR_OXIGENO 4;2;3;1
+[INFO] 19:25:58:229 mi_ram.c/(4872:4873): Conexión establecida con Discordiador
+[INFO] 19:25:58:229 mi_ram.c/(4872:4920): Recibi header: 4
+
+[INFO] 19:25:58:229 mi_ram.c/(4872:4920): Cantidad de bytes recibidos en el buffer: 16
+[INFO] 19:25:58:229 mi_ram.c/(4872:4920): 
+0x00000000: 00 00 00 00 00 00 00 00  02 00 00 00 02 00 00 00  |................|
+[INFO] 19:25:58:229 mi_ram.c/(4872:4920): Tripulante 0 se movio hacia 2|2
+[INFO] 19:26:01:231 mi_ram.c/(4872:4873): Conexión establecida con Discordiador
+[INFO] 19:26:01:231 mi_ram.c/(4872:4932): Recibi header: 1
+
+[INFO] 19:26:01:231 mi_ram.c/(4872:4932): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:26:01:231 mi_ram.c/(4872:4932): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:26:01:231 mi_ram.c/(4872:4932): La tarea a enviar es: GENERAR_COMIDA 7;2;3;1
+[INFO] 19:26:03:232 mi_ram.c/(4872:4873): Conexión establecida con Discordiador
+[INFO] 19:26:03:233 mi_ram.c/(4872:4941): Recibi header: 1
+
+[INFO] 19:26:03:233 mi_ram.c/(4872:4941): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:26:03:233 mi_ram.c/(4872:4941): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:26:03:234 mi_ram.c/(4872:4941): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 19:26:10:541 mi_ram.c/(4872:4873): Conexión establecida con Discordiador
+[INFO] 19:26:10:541 mi_ram.c/(4872:4959): Recibi header: 0
+
+[INFO] 19:26:10:541 mi_ram.c/(4872:4959): Cantidad de bytes recibidos en el buffer: 106
+[INFO] 19:26:10:541 mi_ram.c/(4872:4959): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 19:26:10:541 mi_ram.c/(4872:4959): cantidad tcbs recibidos: 1 
+
+[INFO] 19:26:10:541 mi_ram.c/(4872:4873): Conexión establecida con Discordiador
+[INFO] 19:26:10:542 mi_ram.c/(4872:4961): Recibi header: 1
+
+[INFO] 19:26:10:542 mi_ram.c/(4872:4961): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:26:10:542 mi_ram.c/(4872:4961): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 1
+[ERROR] 19:26:10:542 mi_ram.c/(4872:4961): No se encontro la tabla de paginas de la patota 1
+[INFO] 19:26:10:542 mi_ram.c/(4872:4961): La tarea a enviar es: NO_ENCONTRE_TABLA
+[INFO] 19:27:33:046 mi_ram.c/(5131:5131): Iniciando Frames... 
+[INFO] 19:27:33:048 mi_ram.c/(5131:5131): -------------------------
+[INFO] 19:27:33:048 mi_ram.c/(5131:5131): Disponibilidad de frames: 
+[INFO] 19:27:33:048 mi_ram.c/(5131:5131): el frame 0 esta ocupado: 0 
+[INFO] 19:27:33:048 mi_ram.c/(5131:5131): el frame 1 esta ocupado: 0 
+[INFO] 19:27:33:048 mi_ram.c/(5131:5131): el frame 2 esta ocupado: 0 
+[INFO] 19:27:33:048 mi_ram.c/(5131:5131): el frame 3 esta ocupado: 0 
+[INFO] 19:27:33:048 mi_ram.c/(5131:5131): Iniciando Frames Swap... 
+[INFO] 19:27:36:582 mi_ram.c/(5131:5132): Conexión establecida con Discordiador
+[INFO] 19:27:36:582 mi_ram.c/(5131:5146): Recibi header: 0
+
+[INFO] 19:27:36:582 mi_ram.c/(5131:5146): Cantidad de bytes recibidos en el buffer: 106
+[INFO] 19:27:36:582 mi_ram.c/(5131:5146): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 19:27:36:582 mi_ram.c/(5131:5146): cantidad tcbs recibidos: 1 
+
+[INFO] 19:27:36:582 mi_ram.c/(5131:5146): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 19:27:36:582 mi_ram.c/(5131:5146): Tripulante 0, Patota 0, pag 2, offset 15, cantidadPaginas 2
+[INFO] 19:27:36:583 mi_ram.c/(5131:5146): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 31 0a  |OXIGENO 3;1;2;1.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 31 0a  47 45 4e 45 52 41 52 5f  |4;2;3;1.GENERAR_|
+0x00000040: 43 4f 4d 49 44 41 20 37  3b 32 3b 33 3b 31 7c 00  |COMIDA 7;2;3;1|.|
+0x00000050: 00 00 00 01 00 00 00 01  00 00 00 52 08 00 00 00  |...........R....|
+0x00000060: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 19:27:36:583 mi_ram.c/(5131:5146): direc prox frame a escribir 0 
+
+[INFO] 19:27:36:583 mi_ram.c/(5131:5146): direc prox frame a escribir 32 
+
+[INFO] 19:27:36:583 mi_ram.c/(5131:5146): direc prox frame a escribir 64 
+
+[INFO] 19:27:36:583 mi_ram.c/(5131:5146): direc prox frame a escribir 96 
+
+[INFO] 19:27:37:534 mi_ram.c/(5131:5132): Conexión establecida con Discordiador
+[INFO] 19:27:37:540 mi_ram.c/(5131:5151): Recibi header: 0
+
+[INFO] 19:27:37:540 mi_ram.c/(5131:5151): Cantidad de bytes recibidos en el buffer: 106
+[INFO] 19:27:37:540 mi_ram.c/(5131:5151): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 19:27:37:540 mi_ram.c/(5131:5151): cantidad tcbs recibidos: 1 
+
+[INFO] 19:27:46:096 mi_ram.c/(5131:5132): Conexión establecida con Discordiador
+[INFO] 19:27:46:096 mi_ram.c/(5131:5172): Recibi header: 1
+
+[INFO] 19:27:46:096 mi_ram.c/(5131:5172): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:27:46:096 mi_ram.c/(5131:5172): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 19:27:46:097 mi_ram.c/(5131:5172): La tarea a enviar es: GENERAR_OXIGENO 3;1;2;1
+[INFO] 19:27:46:097 mi_ram.c/(5131:5132): Conexión establecida con Discordiador
+[INFO] 19:27:46:097 mi_ram.c/(5131:5173): Recibi header: 1
+
+[INFO] 19:27:46:097 mi_ram.c/(5131:5173): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 19:27:46:097 mi_ram.c/(5131:5173): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 1
+[ERROR] 19:27:46:097 mi_ram.c/(5131:5173): No se encontro la tabla de paginas de la patota 1
+[INFO] 19:27:46:097 mi_ram.c/(5131:5173): La tarea a enviar es: NO_ENCONTRE_TABLA
+[INFO] 19:35:04:011 mi_ram.c/(6136:6136): Iniciando Frames... 
+[INFO] 19:35:04:011 mi_ram.c/(6136:6136): -------------------------
+[INFO] 19:35:04:011 mi_ram.c/(6136:6136): Disponibilidad de frames: 
+[INFO] 19:35:04:011 mi_ram.c/(6136:6136): el frame 0 esta ocupado: 0 
+[INFO] 19:35:04:011 mi_ram.c/(6136:6136): el frame 1 esta ocupado: 0 
+[INFO] 19:35:04:011 mi_ram.c/(6136:6136): el frame 2 esta ocupado: 0 
+[INFO] 19:35:04:011 mi_ram.c/(6136:6136): el frame 3 esta ocupado: 0 
+[INFO] 19:35:04:011 mi_ram.c/(6136:6136): Iniciando Frames Swap... 
+[INFO] 19:35:13:552 mi_ram.c/(6136:6142): Conexión establecida con Discordiador
+[INFO] 19:35:13:554 mi_ram.c/(6136:6172): Recibi header: 0
+
+[INFO] 19:35:13:554 mi_ram.c/(6136:6172): Cantidad de bytes recibidos en el buffer: 106
+[INFO] 19:35:13:554 mi_ram.c/(6136:6172): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 19:35:13:555 mi_ram.c/(6136:6172): cantidad tcbs recibidos: 1 
+
+[INFO] 19:35:28:755 mi_ram.c/(6136:6172): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 19:35:28:755 mi_ram.c/(6136:6172): Tripulante 0, Patota 0, pag 2, offset 15, cantidadPaginas 2
+[INFO] 19:35:28:755 mi_ram.c/(6136:6172): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  47 45 4e 45 52 41 52 5f  |........GENERAR_|
+0x00000010: 4f 58 49 47 45 4e 4f 20  33 3b 31 3b 32 3b 31 0a  |OXIGENO 3;1;2;1.|
+0x00000020: 47 45 4e 45 52 41 52 5f  4f 58 49 47 45 4e 4f 20  |GENERAR_OXIGENO |
+0x00000030: 34 3b 32 3b 33 3b 31 0a  47 45 4e 45 52 41 52 5f  |4;2;3;1.GENERAR_|
+0x00000040: 43 4f 4d 49 44 41 20 37  3b 32 3b 33 3b 31 7c 00  |COMIDA 7;2;3;1|.|
+0x00000050: 00 00 00 01 00 00 00 01  00 00 00 52 08 00 00 00  |...........R....|
+0x00000060: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 19:35:28:755 mi_ram.c/(6136:6172): direc prox frame a escribir 0 
+
+[INFO] 19:35:38:656 mi_ram.c/(6136:6172): direc prox frame a escribir 32 
+
+[INFO] 19:35:43:085 mi_ram.c/(6136:6172): direc prox frame a escribir 64 
+
+[INFO] 19:35:50:433 mi_ram.c/(6136:6172): direc prox frame a escribir 96 
+
+[INFO] 19:36:31:680 mi_ram.c/(6136:6142): Conexión establecida con Discordiador
+[INFO] 19:36:31:684 mi_ram.c/(6136:6388): Recibi header: 0
+
+[INFO] 19:36:31:684 mi_ram.c/(6136:6388): Cantidad de bytes recibidos en el buffer: 106
+[INFO] 19:36:31:684 mi_ram.c/(6136:6388): GENERAR_OXIGENO 3;1;2;1
+GENERAR_OXIGENO 4;2;3;1
+GENERAR_COMIDA 7;2;3;1|
+[INFO] 19:36:31:684 mi_ram.c/(6136:6388): cantidad tcbs recibidos: 1 
+
