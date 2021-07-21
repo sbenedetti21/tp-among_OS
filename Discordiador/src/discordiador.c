@@ -1320,6 +1320,31 @@ void serializarYMandarNuevoEstado(TCB_DISCORDIADOR * tripulante){
 	mandarPaqueteSerializado(buffer, socket, ACTUALIZAR_ESTADO);
 }
 
+void serializaYMandarExpulsado(uint32_t tid, uint32_t pid ){
+	
+	int socket = conectarMiRAM();
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer-> size = 2 * sizeof(uint32_t);
+
+	void* stream = malloc(buffer->size);
+
+	int offset = 0;
+
+	memcpy(stream+offset, &(tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	memcpy(stream+offset, &(pid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+
+
+	buffer-> stream = stream;
+
+	mandarPaqueteSerializado(buffer, socket, EXPULSAR_TRIPULANTE);
+}
+
 //-----------------------------SABOTAJES---------------------------------------------------------------------------------------------------
 
 void atenderImongo(){
