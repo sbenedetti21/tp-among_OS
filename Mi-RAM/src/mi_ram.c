@@ -196,6 +196,8 @@ void atenderDiscordiador(int socketCliente){
 					tripu->offset = (SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * i) % tamanioPagina;
 					tripu->cantidadDePaginas = ((tripu->offset + SIZEOF_TCB) / tamanioPagina) + 1;
 
+					log_info(loggerMiram, "Tripulante %d, Patota %d, pag %d, offset %d, cantidadPaginas %d", tripu->tid, tripu->pid, tripu->nroPagina, tripu->offset, tripu->cantidadDePaginas);
+
 					list_add(listaTripulantes, tripu);
 				//
 
@@ -820,17 +822,19 @@ void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_
 	void * streamTripulante = malloc(SIZEOF_TCB);
 	int bytesCopiados = 0;
 	
+	pthread_mutex_lock(mutexMemoriaPrincipal);
 	for(int paginaUsada = 0 ; paginaUsada < cantPaginas; paginaUsada++){
 		uint32_t direccionFrame = obtenerDireccionFrame(referenciaTabla, pagina); 
 
 		for(int desplazamiento = 0; desplazamiento + offset < tamanioPagina && bytesCopiados < SIZEOF_TCB; desplazamiento ++){
-			memcpy(streamTripulante + paginaUsada*tamanioPagina + desplazamiento, memoriaPrincipal + direccionFrame + desplazamiento + offset, 1); 
+			memcpy(streamTripulante + bytesCopiados, memoriaPrincipal + direccionFrame + desplazamiento + offset, 1); 
 			bytesCopiados++;
 		}
 
 		offset = 0; 
 		pagina++; 
 	}
+	pthread_mutex_unlock(mutexMemoriaPrincipal);
 	mem_hexdump(streamTripulante, SIZEOF_TCB);
 	return streamTripulante; 
 }
