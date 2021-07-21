@@ -408,7 +408,14 @@ void iniciarPatota(char ** vectorInstruccion){
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
 					
 					if(!planificacionPausada){
-					tripulante->estado = 'R';	
+
+						salirDeListaEstado(tripulante);
+
+						tripulante->estado = 'R';
+
+						sem_wait(&cambiarAReady);
+						list_add(listaReady, tripulante);
+						sem_post(&cambiarAReady);					
 					}
 
 					sem_post(&esperarAlgunTripulante); 
