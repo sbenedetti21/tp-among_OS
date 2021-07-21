@@ -1,5 +1,6 @@
 #include "mi_ram.h"
- //un comentario 
+ //un comentario//comentario swap 
+  
 
 int main(int argc, char ** argv){
 	navePrincipal = nivel_crear("Nave Principal");
@@ -757,6 +758,37 @@ void dumpDeMemoriaPaginacion() {
 	// en la lista de frames estan las paginas, 
 	// habría que recorrerlo e ir guardando en un char *
 	// para luego escribirlo en un archivo dump<timeStamp>
+
+	char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
+	char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha); 
+
+	FILE * dump = fopen(nombreArchivo, "w+"); 
+	
+	for(int i = 0; i < list_size(listaFrames); i++){
+
+		t_frame * frameActual = list_get(listaFrames, i); 
+		char * estado = malloc(10); 
+		char * pagina; 
+		char * proceso; 
+		if(frameActual->ocupado){
+			estado = "Ocupado\0"; 
+			pagina = frameActual->pagina + '0'; 
+			proceso = frameActual->proceso + '0'; 
+			
+			
+		}
+		else{
+			estado = "Libre\0"; 
+			pagina = "-\0"; 
+			proceso = "-\0"; 
+		}
+		
+		char * frame = string_from_format("Marco: %d   Estado: %s Proceso: %s Pagina: %s \n", i, estado, proceso, pagina); 
+		fwrite(frame, strlen(frame), 1, dump); 
+
+	}
+
+	fclose(dump);
 }
 
 void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas, int memoriaAGuardar, uint32_t pid) {
