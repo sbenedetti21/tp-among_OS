@@ -377,7 +377,7 @@ void atenderDiscordiador(int socketCliente){
 
 	case ACTUALIZAR_POS: ;
 
-		log_info(loggerMiram, mem_hexstring(stream, sizeof(uint32_t) * 4));
+		//log_info(loggerMiram, mem_hexstring(stream, sizeof(uint32_t) * 4));
  
 		uint32_t tripulanteid = 0, patotaid = 0, posx = 0, posy = 0;
 		int offset = 0;
@@ -392,7 +392,7 @@ void atenderDiscordiador(int socketCliente){
 
 		log_info(loggerMiram,"Tripulante %d se movio hacia %d|%d",tripulanteid,posx,posy);
 
-		//moverTripulanteEnMapa(tripulanteid,posx,posy);
+		moverTripulanteEnMapa(tripulanteid,posx,posy);
 
 		actualizarPosicionTripulante(patotaid, tripulanteid, posx, posy); 
 
@@ -1279,11 +1279,13 @@ void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTrip
 	
 }
 
+
+//DUMP DE MEMORIA
 void imprimirSegmentos(){
 
 	 char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
 	 char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha);
-	printf("nombre archivo : %s \n", nombreArchivo);
+	
 	FILE* dump = fopen(nombreArchivo, "w+"); 
 	
 	fwrite("DUMP DE MEMORIA \n", 17, 1, dump); 
@@ -1310,7 +1312,7 @@ void imprimirSegmentos(){
 	
 
 
- 
+  
 
 void sig_handler(uint32_t senial){
 

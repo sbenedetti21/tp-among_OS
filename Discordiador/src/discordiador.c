@@ -37,11 +37,7 @@ int main(int argc, char ** argv){
     //pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
 
 
-	pthread_t hiloConsola;
-	pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
-	pthread_join(hiloConsola, NULL);
-
- 
+	
 
 	cicloCPU = config_get_int_value(config, "RETARDO_CICLO_CPU");
 	tiempoSabotaje = config_get_int_value(config, "DURACION_SABOTAJE");
@@ -61,6 +57,12 @@ int main(int argc, char ** argv){
 	sem_init(&cambiarABloqueadosEmergencia,0,1);
 	sem_init(&semaforoSabotaje,0,0);
 	sem_init(&mutexPID, 0, 1); 
+
+	pthread_t hiloConsola;
+	pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
+	pthread_join(hiloConsola, NULL);
+
+ 
 
 
 	
@@ -468,8 +470,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 				posyV = tripulante->posicionY;
 
 				int socket = conectarMiRAM();
-				char ** vectorTarea;
-				char ** requerimientosTarea; //MALLOC ???
+				char ** vectorTarea = malloc(50);     
+				char ** requerimientosTarea = malloc(50); //MALLOC ???
 
 				serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid);
 
@@ -1132,7 +1134,7 @@ void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
 
 	buffer-> stream = stream;
 
-	log_info(loggerDiscordiador, mem_hexstring(stream, sizeof(uint32_t) * 4));
+	//log_info(loggerDiscordiador, mem_hexstring(stream, sizeof(uint32_t) * 4));
 
 	mandarPaqueteSerializado(buffer, socketMIRAM, ACTUALIZAR_POS);  
 
