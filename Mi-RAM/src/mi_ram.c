@@ -25,7 +25,6 @@ int main(int argc, char ** argv){
 	pthread_t mapa;
 	pthread_create(&mapa, NULL, iniciarMapa, NULL);
 	pthread_join(mapa, NULL);
-
 	nivel_destruir(navePrincipal);
 	nivel_gui_terminar();
 	
@@ -351,11 +350,10 @@ void atenderDiscordiador(int socketCliente){
 			free(buffer);
 
 			eliminarTripulante(pid, tid); //hay que pasarle la patota y el tripulante
-			expulsarTripulanteDelMapa(tid);
-			nivel_gui_dibujar(navePrincipal);
+
 			
 
-		} 
+		}
 		else{	
 			t_buffer* buffer = malloc(sizeof(t_buffer));
 			buffer-> size = sizeof(int) + tamanioTarea;
@@ -400,7 +398,7 @@ void atenderDiscordiador(int socketCliente){
 	break; 
 
 	case ACTUALIZAR_ESTADO: ;
-		 uint32_t trip = 0, pat = 0;
+	/*	 uint32_t trip = 0, pat = 0;
 		char estadoNuevo; 
 		
 		memcpy(&trip, stream+offset, sizeof(uint32_t));
@@ -410,19 +408,20 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&estadoNuevo, stream+offset, sizeof(char));
 		
 		actualizarEstadoTripulante(pat, trip, estadoNuevo); 
-	
+		mem_hexdump(memoriaPrincipal,200);
+	*/
 	break; 
 
 	case EXPULSAR_TRIPULANTE: ;
-		 uint32_t tripid = 0, patid = 0;
+		/* uint32_t tripulanteid = 0, patotaid = 0;
 		
-		
-		memcpy(&tripid, stream+offset, sizeof(uint32_t));
+		int offset = 0;
+		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
-		memcpy(&patid, stream+offset, sizeof(uint32_t));
+		memcpy(&patotaid, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
-		eliminarTripulante(patid, tripid);
-
+		eliminarTripulante(patotaid, tripulanteid);
+*/
 	break ;
 
 	
@@ -755,7 +754,7 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		t_frame * frameOcupado = malloc(sizeof(t_frame));
 		frameOcupado->inicio = direcProximoFrame;
 		frameOcupado->ocupado = 1;
-     
+
 		pthread_mutex_lock(&mutexListaFrames);
 		t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
 		pthread_mutex_unlock(&mutexListaFrames);
@@ -1142,7 +1141,22 @@ void imprimirSegmentosLibres(){
 	//printf("BYtes libres: %d \n", espacioLibre);
 
 }
+/*
+int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
+	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal); 
+	uint32_t bytesLibres = 0; 
+	uint32_t espacioNecesario = tamanioTareas + cantidadTripulantes * SIZEOF_TCB + SIZEOF_PCB; 
 
+	for(int i = 0 ; i< list_size(segmentosLibres); i++){
+		t_segmento * segmentoLibre = list_get(segmentosLibres, i); 
+		bytesLibres = bytesLibres + (segmentoLibre->tamanio); 
+	}
+
+	return (espacioNecesario <= bytesLibres); 
+
+	
+}
+ */
 int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
 		t_list * copiaSegmentosOcupados = list_duplicate(tablaSegmentosGlobal); 
 		t_list * copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados);

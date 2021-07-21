@@ -351,3 +351,167 @@
 [INFO] 16:51:45:050 discordiador.c/(5902:5931): Tripulante 1 cambio su estado a F
 [INFO] 16:51:45:051 discordiador.c/(5902:5930): Tripulante 0 termino de trabajar 
 [INFO] 16:51:45:051 discordiador.c/(5902:5930): Tripulante 0 cambio su estado a F
+[INFO] 17:24:58:739 discordiador.c/(23515:23515): ---------PROGRAMA INICIADO---------- 
+[INFO] 17:25:11:085 discordiador.c/(23515:23516): INSTRUCCION LEIDA: INICIAR_PATOTA 5 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 17:25:11:086 discordiador.c/(23515:23516): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 17:25:11:086 discordiador.c/(23515:23516): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 17:25:11:086 discordiador.c/(23515:23516): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 17:25:11:086 discordiador.c/(23515:23516): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 17:25:11:086 discordiador.c/(23515:23516): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 17:25:11:086 discordiador.c/(23515:23516): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 17:25:16:414 discordiador.c/(23515:23516): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 17:25:16:414 discordiador.c/(23515:23526): Tripulante 0 cambio su estado a R
+[INFO] 17:25:16:414 discordiador.c/(23515:23526): Tripulante 1 cambio su estado a R
+[INFO] 17:25:16:414 discordiador.c/(23515:23526): Tripulante 2 cambio su estado a R
+[INFO] 17:25:16:414 discordiador.c/(23515:23526): Tripulante 3 cambio su estado a R
+[INFO] 17:25:16:414 discordiador.c/(23515:23526): Tripulante 4 cambio su estado a R
+[INFO] 17:25:16:415 discordiador.c/(23515:23526): Tripulante 0 cambio su estado a E
+[INFO] 17:25:16:415 discordiador.c/(23515:23526): Tripulante 1 cambio su estado a E
+[INFO] 17:25:16:415 discordiador.c/(23515:23521): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:25:16:415 discordiador.c/(23515:23520): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 17:25:16:420 discordiador.c/(23515:23520): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 17:25:16:420 discordiador.c/(23515:23521): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 17:25:18:420 discordiador.c/(23515:23521): Tripulante 1 ahora esta en 1|2 
+[INFO] 17:25:18:420 discordiador.c/(23515:23526): Tripulante 2 cambio su estado a E
+[INFO] 17:25:18:420 discordiador.c/(23515:23521): Tripulante 1 cambio su estado a B
+[INFO] 17:25:18:421 discordiador.c/(23515:23527): Llego GENERAR_OXIGENO
+[INFO] 17:25:18:421 discordiador.c/(23515:23527): GENERAR_OXIGENO 3
+[INFO] 17:25:18:421 discordiador.c/(23515:23522): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 17:25:18:421 discordiador.c/(23515:23527): Tripulante 1 cambio su estado a R
+[INFO] 17:25:18:421 discordiador.c/(23515:23522): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 17:25:20:420 discordiador.c/(23515:23520): Tripulante 0 ahora esta en 1|2 
+[INFO] 17:25:20:421 discordiador.c/(23515:23526): Tripulante 3 cambio su estado a E
+[INFO] 17:25:20:421 discordiador.c/(23515:23520): Tripulante 0 cambio su estado a B
+[INFO] 17:25:20:421 discordiador.c/(23515:23523): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:25:20:421 discordiador.c/(23515:23527): Llego GENERAR_OXIGENO
+[INFO] 17:25:20:421 discordiador.c/(23515:23523): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 17:25:20:421 discordiador.c/(23515:23527): GENERAR_OXIGENO 3
+[INFO] 17:25:20:421 discordiador.c/(23515:23527): Tripulante 0 cambio su estado a R
+[INFO] 17:25:25:421 discordiador.c/(23515:23521): Tripulante 1 terminó su tarea
+[INFO] 17:25:26:423 discordiador.c/(23515:23522): Tripulante 2 ahora esta en 1|2 
+[INFO] 17:25:26:423 discordiador.c/(23515:23522): Tripulante 2 cambio su estado a B
+[INFO] 17:25:26:424 discordiador.c/(23515:23526): Tripulante 4 cambio su estado a E
+[INFO] 17:25:26:424 discordiador.c/(23515:23527): Llego GENERAR_OXIGENO
+[INFO] 17:25:26:424 discordiador.c/(23515:23524): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 4
+[INFO] 17:25:26:424 discordiador.c/(23515:23527): GENERAR_OXIGENO 3
+[INFO] 17:25:26:424 discordiador.c/(23515:23527): Tripulante 2 cambio su estado a R
+[INFO] 17:25:26:424 discordiador.c/(23515:23524): Tarea pedida por tripulante 4: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 17:25:27:422 discordiador.c/(23515:23520): Tripulante 0 terminó su tarea
+[INFO] 17:25:27:422 discordiador.c/(23515:23523): Tripulante 3 ahora esta en 1|2 
+[INFO] 17:25:27:423 discordiador.c/(23515:23523): Tripulante 3 cambio su estado a B
+[INFO] 17:25:27:423 discordiador.c/(23515:23527): Llego GENERAR_OXIGENO
+[INFO] 17:25:27:423 discordiador.c/(23515:23526): Tripulante 1 cambio su estado a E
+[INFO] 17:25:27:423 discordiador.c/(23515:23527): GENERAR_OXIGENO 3
+[INFO] 17:25:27:423 discordiador.c/(23515:23527): Tripulante 3 cambio su estado a R
+[INFO] 17:25:27:423 discordiador.c/(23515:23521): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:25:27:423 discordiador.c/(23515:23521): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 17:25:29:424 discordiador.c/(23515:23521): Tripulante 1 ahora esta en 2|3 
+[INFO] 17:25:29:425 discordiador.c/(23515:23526): Tripulante 0 cambio su estado a E
+[INFO] 17:25:29:425 discordiador.c/(23515:23524): Tripulante 4 ahora esta en 1|2 
+[INFO] 17:25:29:425 discordiador.c/(23515:23521): Tripulante 1 cambio su estado a B
+[INFO] 17:25:29:425 discordiador.c/(23515:23520): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 17:25:29:425 discordiador.c/(23515:23527): Llego GENERAR_OXIGENO
+[INFO] 17:25:29:425 discordiador.c/(23515:23524): Tripulante 4 cambio su estado a B
+[INFO] 17:25:29:425 discordiador.c/(23515:23520): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 17:25:29:425 discordiador.c/(23515:23527): GENERAR_OXIGENO 4
+[INFO] 17:25:29:425 discordiador.c/(23515:23527): Tripulante 1 cambio su estado a R
+[INFO] 17:25:29:425 discordiador.c/(23515:23527): Llego GENERAR_OXIGENO
+[INFO] 17:25:29:426 discordiador.c/(23515:23527): GENERAR_OXIGENO 3
+[INFO] 17:25:29:426 discordiador.c/(23515:23527): Tripulante 4 cambio su estado a R
+[INFO] 17:25:31:426 discordiador.c/(23515:23520): Tripulante 0 ahora esta en 2|3 
+[INFO] 17:25:31:426 discordiador.c/(23515:23520): Tripulante 0 cambio su estado a B
+[INFO] 17:25:31:426 discordiador.c/(23515:23527): Llego GENERAR_OXIGENO
+[INFO] 17:25:31:426 discordiador.c/(23515:23527): GENERAR_OXIGENO 4
+[INFO] 17:25:31:427 discordiador.c/(23515:23527): Tripulante 0 cambio su estado a R
+[INFO] 17:25:33:424 discordiador.c/(23515:23522): Tripulante 2 terminó su tarea
+[INFO] 17:25:33:425 discordiador.c/(23515:23526): Tripulante 2 cambio su estado a E
+[INFO] 17:25:33:425 discordiador.c/(23515:23522): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 17:25:33:425 discordiador.c/(23515:23522): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 17:25:34:423 discordiador.c/(23515:23523): Tripulante 3 terminó su tarea
+[INFO] 17:25:34:424 discordiador.c/(23515:23526): Tripulante 3 cambio su estado a E
+[INFO] 17:25:34:424 discordiador.c/(23515:23523): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:25:34:425 discordiador.c/(23515:23523): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 17:25:35:425 discordiador.c/(23515:23522): Tripulante 2 ahora esta en 2|3 
+[INFO] 17:25:35:426 discordiador.c/(23515:23522): Tripulante 2 cambio su estado a B
+[INFO] 17:25:35:426 discordiador.c/(23515:23527): Llego GENERAR_OXIGENO
+[INFO] 17:25:35:426 discordiador.c/(23515:23527): GENERAR_OXIGENO 4
+[INFO] 17:25:35:426 discordiador.c/(23515:23527): Tripulante 2 cambio su estado a R
+[INFO] 17:25:36:425 discordiador.c/(23515:23523): Tripulante 3 ahora esta en 2|3 
+[INFO] 17:25:36:425 discordiador.c/(23515:23523): Tripulante 3 cambio su estado a B
+[INFO] 17:25:36:426 discordiador.c/(23515:23527): Llego GENERAR_OXIGENO
+[INFO] 17:25:36:426 discordiador.c/(23515:23524): Tripulante 4 terminó su tarea
+[INFO] 17:25:36:426 discordiador.c/(23515:23526): Tripulante 1 cambio su estado a E
+[INFO] 17:25:36:426 discordiador.c/(23515:23527): GENERAR_OXIGENO 4
+[INFO] 17:25:36:426 discordiador.c/(23515:23527): Tripulante 3 cambio su estado a R
+[INFO] 17:25:38:426 discordiador.c/(23515:23521): Tripulante 1 terminó su tarea
+[INFO] 17:25:38:426 discordiador.c/(23515:23526): Tripulante 4 cambio su estado a E
+[INFO] 17:25:38:426 discordiador.c/(23515:23524): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 4
+[INFO] 17:25:38:426 discordiador.c/(23515:23521): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:25:38:426 discordiador.c/(23515:23524): Tarea pedida por tripulante 4: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 17:25:38:426 discordiador.c/(23515:23521): Tarea pedida por tripulante 1: CONSUMIR_OXIGENO Posicion: 1|3 Duracion: 4 
+[INFO] 17:25:39:427 discordiador.c/(23515:23521): Tripulante 1 ahora esta en 1|3 
+[INFO] 17:25:39:427 discordiador.c/(23515:23521): Tripulante 1 cambio su estado a B
+[INFO] 17:25:39:427 discordiador.c/(23515:23527): Llego CONSUMIR_OXIGENO
+[INFO] 17:25:39:427 discordiador.c/(23515:23527): Tripulante 1 cambio su estado a R
+[INFO] 17:25:40:427 discordiador.c/(23515:23524): Tripulante 4 ahora esta en 2|3 
+[INFO] 17:25:40:427 discordiador.c/(23515:23520): Tripulante 0 terminó su tarea
+[INFO] 17:25:40:428 discordiador.c/(23515:23526): Tripulante 0 cambio su estado a E
+[INFO] 17:25:40:428 discordiador.c/(23515:23520): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 17:25:40:428 discordiador.c/(23515:23520): Tarea pedida por tripulante 0: CONSUMIR_OXIGENO Posicion: 1|3 Duracion: 4 
+[INFO] 17:25:40:428 discordiador.c/(23515:23524): Tripulante 4 cambio su estado a B
+[INFO] 17:25:40:428 discordiador.c/(23515:23527): Llego GENERAR_OXIGENO
+[INFO] 17:25:40:428 discordiador.c/(23515:23527): GENERAR_OXIGENO 4
+[INFO] 17:25:40:428 discordiador.c/(23515:23527): Tripulante 4 cambio su estado a R
+[INFO] 17:25:41:428 discordiador.c/(23515:23520): Tripulante 0 ahora esta en 1|3 
+[INFO] 17:25:41:429 discordiador.c/(23515:23520): Tripulante 0 cambio su estado a B
+[INFO] 17:25:41:429 discordiador.c/(23515:23527): Llego CONSUMIR_OXIGENO
+[INFO] 17:25:41:430 discordiador.c/(23515:23527): Tripulante 0 cambio su estado a R
+[INFO] 17:25:44:427 discordiador.c/(23515:23522): Tripulante 2 terminó su tarea
+[INFO] 17:25:44:427 discordiador.c/(23515:23526): Tripulante 2 cambio su estado a E
+[INFO] 17:25:44:427 discordiador.c/(23515:23522): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 17:25:44:427 discordiador.c/(23515:23522): Tarea pedida por tripulante 2: CONSUMIR_OXIGENO Posicion: 1|3 Duracion: 4 
+[INFO] 17:25:44:427 discordiador.c/(23515:23521): Tripulante 1 terminó su tarea
+[INFO] 17:25:44:428 discordiador.c/(23515:23526): Tripulante 3 cambio su estado a E
+[INFO] 17:25:45:427 discordiador.c/(23515:23523): Tripulante 3 terminó su tarea
+[INFO] 17:25:45:428 discordiador.c/(23515:23522): Tripulante 2 ahora esta en 1|3 
+[INFO] 17:25:45:428 discordiador.c/(23515:23523): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:25:45:428 discordiador.c/(23515:23522): Tripulante 2 cambio su estado a B
+[INFO] 17:25:45:428 discordiador.c/(23515:23527): Llego CONSUMIR_OXIGENO
+[INFO] 17:25:45:428 discordiador.c/(23515:23526): Tripulante 1 cambio su estado a E
+[INFO] 17:25:45:428 discordiador.c/(23515:23523): Tarea pedida por tripulante 3: CONSUMIR_OXIGENO Posicion: 1|3 Duracion: 4 
+[INFO] 17:25:45:428 discordiador.c/(23515:23527): Tripulante 2 cambio su estado a R
+[INFO] 17:25:45:428 discordiador.c/(23515:23521): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:25:45:428 discordiador.c/(23515:23521): Tripulante 1 termino de trabajar 
+[INFO] 17:25:45:428 discordiador.c/(23515:23521): Tripulante 1 cambio su estado a F
+[INFO] 17:25:46:428 discordiador.c/(23515:23523): Tripulante 3 ahora esta en 1|3 
+[INFO] 17:25:46:428 discordiador.c/(23515:23523): Tripulante 3 cambio su estado a B
+[INFO] 17:25:46:428 discordiador.c/(23515:23527): Llego CONSUMIR_OXIGENO
+[INFO] 17:25:46:429 discordiador.c/(23515:23527): Tripulante 3 cambio su estado a R
+[INFO] 17:25:46:429 discordiador.c/(23515:23520): Tripulante 0 terminó su tarea
+[INFO] 17:25:46:430 discordiador.c/(23515:23526): Tripulante 4 cambio su estado a E
+[INFO] 17:25:49:429 discordiador.c/(23515:23524): Tripulante 4 terminó su tarea
+[INFO] 17:25:49:429 discordiador.c/(23515:23524): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 4
+[INFO] 17:25:49:429 discordiador.c/(23515:23526): Tripulante 0 cambio su estado a E
+[INFO] 17:25:49:429 discordiador.c/(23515:23520): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 17:25:49:430 discordiador.c/(23515:23524): Tarea pedida por tripulante 4: CONSUMIR_OXIGENO Posicion: 1|3 Duracion: 4 
+[INFO] 17:25:49:430 discordiador.c/(23515:23520): Tripulante 0 termino de trabajar 
+[INFO] 17:25:49:430 discordiador.c/(23515:23520): Tripulante 0 cambio su estado a F
+[INFO] 17:25:50:428 discordiador.c/(23515:23522): Tripulante 2 terminó su tarea
+[INFO] 17:25:50:429 discordiador.c/(23515:23526): Tripulante 2 cambio su estado a E
+[INFO] 17:25:50:429 discordiador.c/(23515:23522): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 17:25:50:429 discordiador.c/(23515:23522): Tripulante 2 termino de trabajar 
+[INFO] 17:25:50:429 discordiador.c/(23515:23522): Tripulante 2 cambio su estado a F
+[INFO] 17:25:50:430 discordiador.c/(23515:23524): Tripulante 4 ahora esta en 1|3 
+[INFO] 17:25:50:430 discordiador.c/(23515:23524): Tripulante 4 cambio su estado a B
+[INFO] 17:25:50:430 discordiador.c/(23515:23527): Llego CONSUMIR_OXIGENO
+[INFO] 17:25:50:430 discordiador.c/(23515:23527): Tripulante 4 cambio su estado a R
+[INFO] 17:25:51:429 discordiador.c/(23515:23523): Tripulante 3 terminó su tarea
+[INFO] 17:25:51:429 discordiador.c/(23515:23526): Tripulante 3 cambio su estado a E
+[INFO] 17:25:51:429 discordiador.c/(23515:23523): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:25:51:429 discordiador.c/(23515:23523): Tripulante 3 termino de trabajar 
+[INFO] 17:25:51:430 discordiador.c/(23515:23523): Tripulante 3 cambio su estado a F
+[INFO] 17:25:55:431 discordiador.c/(23515:23524): Tripulante 4 terminó su tarea
+[INFO] 17:25:55:431 discordiador.c/(23515:23526): Tripulante 4 cambio su estado a E
+[INFO] 17:25:55:431 discordiador.c/(23515:23524): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 4
+[INFO] 17:25:55:431 discordiador.c/(23515:23524): Tripulante 4 termino de trabajar 
+[INFO] 17:25:55:431 discordiador.c/(23515:23524): Tripulante 4 cambio su estado a F
