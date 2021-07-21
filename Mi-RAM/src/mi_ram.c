@@ -1,95 +1,6 @@
 #include "mi_ram.h"
- //un comentario 
-
-/*void imprimirSegmentos(){
-	 
-	 log_info(loggerMemoria, "------------------------------------------------------");
-	 char * fechaHora = temporal_get_string_time("%d/%m/%y %H:%M:%S"); 
-	 log_info(loggerMemoria, "Dump: %s", fechaHora); 
-
-	for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
-
-		referenciaTablaPatota * referencia = list_get(tablaDeTablasSegmentos, i); 
-		t_list * tabla = referencia->tablaPatota; 
-		int proceso = referencia->pid;
-
-		for(int x = 0; x < list_size(tabla); x++){
-		t_segmento * segmento = list_get(tabla, x); 
 
 
-		log_info(loggerMemoria, "Proceso: %d   Segmento: %d  Inicio: %x  Tamanio: %db", proceso, x,  segmento->base, segmento ->tamanio); 
-		
-	}
-
-	}
-	
-} */
-
-void imprimirSegmentos(){
-
-	 char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
-	 char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha);
-	printf("nombre archivo : %s \n", nombreArchivo);
-	FILE* dump = fopen(nombreArchivo, "w+"); 
-	
-	fwrite("DUMP DE MEMORIA \n", 17, 1, dump); 
-	
-	for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
-
-		referenciaTablaPatota * referencia = list_get(tablaDeTablasSegmentos, i); 
-		t_list * tabla = referencia->tablaPatota; 
-		int proceso = referencia->pid;
-		char pid = proceso + '0'; 
-		for(int x = 0; x < list_size(tabla); x++){
-			t_segmento * unSegmento = list_get(tabla, x);
-			char * segmento = string_from_format("\n Proceso: %2d    Segmento: %2d Inicio: %3d Tamaño: %3d", proceso, x, unSegmento->base, unSegmento->tamanio); 
-			fwrite(segmento, strlen(segmento), 1, dump); 
-		}
-	}
-	fclose(dump);		
-			
-
-		
-	}
-	
-		
-	
-
-
-
-
-void sig_handler(uint32_t senial){
-
-	if(senial == SIGUSR1){
-		 imprimirSegmentos(); 
-		 log_info(loggerMiram, "crando log");
-		 printf("HOLA");
-	}
-	else{
-		if(senial == SIGUSR2){
-		compactarMemoria(); 
-		}
-		else{
-			log_error(loggerMemoria, "No se reconoce la señal enviada");
-		}
-	}
-	
-	
-}
-
-
-
-void * hiloSIGUSR1(){
-	signal(SIGUSR1, sig_handler); 
-
-	return NULL; 
-}
-
-void * hiloSIGUSR2(){
-	signal(SIGUSR2, sig_handler); 
-
-	return NULL ;
-}
 
 
 int main(int argc, char ** argv){
@@ -111,12 +22,12 @@ int main(int argc, char ** argv){
 
 	
 
-	//  pthread_t mapa;
-	//  pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	//  pthread_join(mapa, NULL);
+	pthread_t mapa;
+	pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	pthread_join(mapa, NULL);
 
-	//  nivel_destruir(navePrincipal);
-	//  nivel_gui_terminar();
+	nivel_destruir(navePrincipal);
+	nivel_gui_terminar();
 	
 		
 	pthread_join(servidor, NULL);
@@ -1366,6 +1277,72 @@ void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTrip
 	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t), &nuevaPosx, sizeof(uint32_t)); 
 	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t)*2, &nuevaPosy, sizeof(uint32_t));
 	
+}
+
+void imprimirSegmentos(){
+
+	 char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
+	 char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha);
+	printf("nombre archivo : %s \n", nombreArchivo);
+	FILE* dump = fopen(nombreArchivo, "w+"); 
+	
+	fwrite("DUMP DE MEMORIA \n", 17, 1, dump); 
+	
+	for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
+
+		referenciaTablaPatota * referencia = list_get(tablaDeTablasSegmentos, i); 
+		t_list * tabla = referencia->tablaPatota; 
+		int proceso = referencia->pid;
+		char pid = proceso + '0'; 
+		for(int x = 0; x < list_size(tabla); x++){
+			t_segmento * unSegmento = list_get(tabla, x);
+			char * segmento = string_from_format("Proceso: %2d    Segmento: %2d Inicio: %3d Tamaño: %3d \n", proceso, x, unSegmento->base, unSegmento->tamanio); 
+			fwrite(segmento, strlen(segmento), 1, dump); 
+		}
+	}
+	fclose(dump);		
+			
+
+		
+	}
+	
+		
+	
+
+
+
+
+void sig_handler(uint32_t senial){
+
+	if(senial == SIGUSR1){
+		imprimirSegmentos(); 
+		 
+		 
+	}
+	else{
+		if(senial == SIGUSR2){
+		compactarMemoria(); 
+		}
+		else{
+			log_error(loggerMemoria, "No se reconoce la señal enviada");
+		}
+	}
+	
+	
+}
+
+
+
+void * hiloSIGUSR1(){
+	signal(SIGUSR1, sig_handler); 
+
+	return NULL; 
+}
+
+void * hiloSIGUSR2(){
+	signal(SIGUSR2, sig_handler); 
+
+	return NULL ;
 }
 
 // ------------------------------------------------------ MAPA ----------------------------------------------

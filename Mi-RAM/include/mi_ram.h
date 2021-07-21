@@ -37,6 +37,11 @@ char * obtenerProximaTareaSegmentacion(uint32_t, uint32_t);
 uint32_t obtenerDireccionTripulante(uint32_t, uint32_t );
 uint32_t obtenerDireccionProximaTarea(uint32_t);
 char * obtenerProximaTarea(uint32_t, uint32_t);
+void imprimirSegmentos();
+void sig_handler(uint32_t senial);
+void * hiloSIGUSR1();
+void * hiloSIGUSR2();
+
 
 
 // ----------------------------------------  PAGINAS
