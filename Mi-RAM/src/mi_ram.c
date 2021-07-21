@@ -14,6 +14,7 @@ int main(int argc, char ** argv){
 	pthread_t servidor;
 	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
 
+	
 	//pthread_t mapa;
 	//pthread_create(&mapa, NULL, iniciarMapa, NULL);
 	//pthread_join(mapa, NULL);
@@ -217,28 +218,7 @@ void atenderDiscordiador(int socketCliente){
 
 				mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
-				// void mostrarContenido(t_tripulanteConPID * tripulante) {
-				// 	mem_hexdump(tripulante, 12);
-				// }
-
-				// list_iterate(listaTripulantes, mostrarContenido);
-
-				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
-				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
-				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
-				// printf("la proxima tarea es: %s\n", obtenerProximaTarea(1));
-
-				// bool coincideID(t_tripulanteConPID * tripulante) {
-				// 	return tripulante->idTripulante == 7;
-				// }
-
-				// t_tripulanteConPID * tripuPrueba = list_find(listaTripulantes, coincideID);
-				// if (tripuPrueba == NULL) {
-
-				// } else {
-				// 	printf("Patota nro: %d", *((int*)tripuPrueba+1));
-				// }
-				
+				dumpDeMemoriaPaginacion();
 				
 			}
 
@@ -755,10 +735,7 @@ void llevarPaginaASwap() {
 }
 
 void dumpDeMemoriaPaginacion() {
-	// en la lista de frames estan las paginas, 
-	// habría que recorrerlo e ir guardando en un char *
-	// para luego escribirlo en un archivo dump<timeStamp>
-
+	
 	char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
 	char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha); 
 
@@ -768,23 +745,33 @@ void dumpDeMemoriaPaginacion() {
 
 		t_frame * frameActual = list_get(listaFrames, i); 
 		char * estado = malloc(10); 
-		char * pagina; 
-		char * proceso; 
+		char * pagina;
+		char * proceso;
 		if(frameActual->ocupado){
+
 			estado = "Ocupado\0"; 
-			pagina = frameActual->pagina + '0'; 
-			proceso = frameActual->proceso + '0'; 
 			
+			pagina = string_from_format("%2d\0", frameActual->pagina->numeroPagina);
+
+			proceso = string_from_format("%2d\0", frameActual->pagina->pid); 
+			char * frame = string_from_format("Marco: %2d   Estado: %s Proceso: %s Pagina: %s \n", i, estado, proceso, pagina); 
+			
+			fwrite(frame, strlen(frame), 1, dump);	
+
 			
 		}
 		else{
 			estado = "Libre\0"; 
-			pagina = "-\0"; 
-			proceso = "-\0"; 
+
+			pagina = "-\0";
+			proceso = "-\0";
+			char * frame = string_from_format("Marco: %2d   Estado: %s Proceso: %s Pagina: %s \n", i, estado, proceso, pagina); 
+			fwrite(frame, strlen(frame), 1, dump);	
+			
 		}
 		
-		char * frame = string_from_format("Marco: %d   Estado: %s Proceso: %s Pagina: %s \n", i, estado, proceso, pagina); 
-		fwrite(frame, strlen(frame), 1, dump); 
+		
+		 
 
 	}
 

@@ -65,6 +65,7 @@ typedef struct {
 	uint32_t inicio;
 	uint32_t ocupado;
 	t_pagina * pagina;
+	
 }  t_frame;
 
 
