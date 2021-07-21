@@ -582,6 +582,8 @@ void iniciarMemoria() {
 		pthread_mutex_init(&mutexListaFrames, NULL);
 		pthread_mutex_init(&mutexListaFramesSwap, NULL);
 		pthread_mutex_init(&mutexTareas, NULL);
+		pthread_mutex_init(&mutexContadorLRU, NULL);
+		contadorLRU = 0;
 		iniciarFrames();
 		iniciarSwap();	
 	}
@@ -693,6 +695,22 @@ uint32_t buscarFrame() {
   return direccionFrame;
 }
 
+t_frame * buscarFrameSwap() {
+
+  bool estaLibre(t_frame * frame) {
+    return frame->ocupado == 0;
+  }
+
+  t_frame * frameLibre = malloc(sizeof(t_frame));
+
+		pthread_mutex_lock(&mutexListaFramesSwap);
+  frameLibre = list_find(listaFramesSwap, estaLibre);
+		pthread_mutex_unlock(&mutexListaFramesSwap);
+  //free(frameLibre);
+
+  return frameLibre;
+}
+
 void iniciarSwap() {
 	FILE * swap = fopen(path_SWAP, "w+");
 	char cero = '0';
@@ -725,8 +743,28 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 
 void llevarPaginaASwap() {
 
-	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
+	t_frame * frameVictima = seleccionarVictima();
+	frameVictima->pagina->bitDeValidez = 0;  // Cambia el valor de la pagina real???
+	
+	void * memAux = malloc(tamanioPagina);
 
+	memcpy(memAux, memoriaPrincipal + frameVictima->inicio, tamanioPagina);
+
+	frameVictima->ocupado = 0;
+	t_frame * frameSwap = buscarFrameSwap();
+	frameSwap->ocupado = 1;
+	frameSwap->pagina = frameVictima->pagina;
+
+	FILE * swap = fopen(path_SWAP, "wr");
+	fseek(swap, frameSwap->inicio, SEEK_SET);
+	fwrite(memAux, tamanioPagina, 1, swap);
+	fclose(swap);
+}
+
+t_frame * seleccionarVictima() {
+
+	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
+		
 	}
 
 	if (strcmp(algoritmoReemplazo, "CLOCK") == 0) {
@@ -741,6 +779,7 @@ void dumpDeMemoriaPaginacion() {
 
 	FILE * dump = fopen(nombreArchivo, "w+"); 
 	
+	pthread_mutex_lock(&mutexListaFrames);
 	for(int i = 0; i < list_size(listaFrames); i++){
 
 		t_frame * frameActual = list_get(listaFrames, i); 
@@ -774,6 +813,7 @@ void dumpDeMemoriaPaginacion() {
 		 
 
 	}
+	pthread_mutex_unlock(&mutexListaFrames);
 
 	fclose(dump);
 }
@@ -801,6 +841,10 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		pagina->pid = pid;
 		pagina->bitDeValidez = 1;
 		pagina->bitDeUso = 1;
+		pthread_mutex_lock(&mutexContadorLRU);
+		pagina->ultimaReferencia = contadorLRU;
+		contadorLRU ++;
+		pthread_mutex_unlock(&mutexContadorLRU);
 		list_add(listaDePaginas, pagina);
 		
 		t_frame * frameOcupado = malloc(sizeof(t_frame));

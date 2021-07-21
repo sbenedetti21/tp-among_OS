@@ -40,6 +40,8 @@ char * obtenerProximaTarea(uint32_t, uint32_t);
 
 // ----------------------------------------  PAGINAS
 
+int contadorLRU;
+
 char * path_SWAP;
 t_list * listaFrames;
 t_list * listaFramesSwap;
@@ -51,13 +53,14 @@ pthread_mutex_t mutexListaTablas;
 pthread_mutex_t mutexListaFrames;
 pthread_mutex_t mutexListaFramesSwap;
 pthread_mutex_t mutexTareas;
+pthread_mutex_t mutexContadorLRU;
 
 typedef struct {
 	uint32_t numeroPagina;
 	uint32_t numeroFrame;
 	uint32_t pid;
 	int bitDeValidez; // si esta en 0, esta en swap
-	// ultimaReferencia
+	int ultimaReferencia;
 	int bitDeUso;
 } t_pagina;
 
@@ -96,6 +99,8 @@ uint32_t buscarFrame();
 void iniciarFrames();
 void llenarFramesConPatota(t_list *, void *, int , int , int , int , uint32_t);
 void llevarPaginaASwap();
+t_frame * seleccionarVictima();
+t_frame * buscarFrameSwap();
 
 void dumpDeMemoriaPaginacion();
 
