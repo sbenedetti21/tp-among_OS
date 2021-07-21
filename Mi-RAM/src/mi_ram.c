@@ -410,7 +410,6 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&estadoNuevo, stream+offset, sizeof(char));
 		
 		actualizarEstadoTripulante(pat, trip, estadoNuevo); 
-		mem_hexdump(memoriaPrincipal,200);
 	
 	break; 
 
