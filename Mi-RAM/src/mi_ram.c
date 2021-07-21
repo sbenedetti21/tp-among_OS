@@ -880,6 +880,7 @@ uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, uint32_
 
 //faltaria considerar lo del swap 
 void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
+
 	bool coincideID(t_tripulantePaginacion * unTripu) {
 		return unTripu->tid == tid;
 	}
@@ -897,17 +898,20 @@ void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
 	uint32_t cantidadPaginas = referenciaTripulante->cantidadDePaginas; 
 
 	if((tamanioPagina - offset) > (bytesPrevios + 1)){
+
+
 		uint32_t frame = obtenerDireccionFrame(referenciaTabla, primeraPagina); 
 		//habria que hacer el memcopy en direccion frame + offset + bytesPrevios 
 		memcpy(memoriaPrincipal + frame + offset + bytesPrevios, &estadoNuevo, sizeof(char)); 
 	}
+
 	else{
 
 		for(int nroPagina = 0; nroPagina < cantidadPaginas; nroPagina ++){
 		//bytes que necesitaria recorrer para llegar al estado, es decir los que necesitaria que entren en la pagina para llegar
 		uint32_t bytesProximaPagina = SIZEOF_TCB -(tamanioPagina - offset)- 2*sizeof(uint32_t)- nroPagina * tamanioPagina; 
 		if(bytesProximaPagina < tamanioPagina){
-			uint32_t pagina = nroPagina + primeraPagina; 
+			uint32_t pagina = nroPagina + primeraPagina + 1; 
 			uint32_t frame = obtenerDireccionFrame(referenciaTabla, pagina); 
 			uint32_t desplazamiento = bytesProximaPagina - 1; 
 			memcpy(memoriaPrincipal + frame + desplazamiento, &estadoNuevo, sizeof(char));  
