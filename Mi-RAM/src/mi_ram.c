@@ -878,6 +878,80 @@ uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, uint32_
 	return direcFrame; 
 }
 
+//faltaria considerar lo del swap 
+void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
+	bool coincideID(t_tripulantePaginacion * unTripu) {
+		return unTripu->tid == tid;
+	}
+
+	bool coincidePID(referenciaTablaPaginas * referenciaTabla){
+		return (referenciaTabla->pid == pid); 
+	}
+
+	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
+	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
+	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
+	uint32_t offset = referenciaTripulante->offset; 
+	uint32_t bytesPrevios = sizeof(uint32_t)*3; 
+	uint32_t cantidadPaginas = referenciaTripulante->cantidadDePaginas; 
+
+	if((tamanioPagina - offset) > (bytesPrevios + 1)){
+		uint32_t frame = obtenerDireccionFrame(referenciaTabla, primeraPagina); 
+		//habria que hacer el memcopy en direccion frame + offset + bytesPrevios 
+		memcpy(memoriaPrincipal + frame + offset + bytesPrevios, &estadoNuevo, sizeof(char)); 
+	}
+	else{
+
+		for(int nroPagina = 0; nroPagina < cantidadPaginas; nroPagina ++){
+		//bytes que necesitaria recorrer para llegar al estado, es decir los que necesitaria que entren en la pagina para llegar
+		uint32_t bytesProximaPagina = SIZEOF_TCB -(tamanioPagina - offset)- 2*sizeof(uint32_t)- nroPagina * tamanioPagina; 
+		if(bytesProximaPagina < tamanioPagina){
+			uint32_t pagina = nroPagina + primeraPagina; 
+			uint32_t frame = obtenerDireccionFrame(referenciaTabla, pagina); 
+			uint32_t desplazamiento = bytesProximaPagina - 1; 
+			memcpy(memoriaPrincipal + frame + desplazamiento, &estadoNuevo, sizeof(char));  
+		}
+		}
+	}
+	
+}
+
+void eliminarTripulantePaginacion(uint32_t tid, uint32_t pid){
+
+	bool coincideID(t_tripulantePaginacion * unTripu) {
+		return unTripu->tid == tid;
+	}
+		bool coincidePID(referenciaTablaPaginas * referenciaTabla){
+		return (referenciaTabla->pid == pid); 
+	}
+	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
+	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
+	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
+	uint32_t offset = referenciaTripulante->offset; 
+	uint32_t cantidadPaginas = referenciaTripulante->cantidadDePaginas; 
+	
+	uint32_t paginasLlenas = cantidadPaginas - 2;
+
+	//para la primera pagina que ocupa 
+	
+
+	for(int i = 0; i < paginasLlenas; i ++){
+
+		bool coincideNro(t_pagina * pagina){
+			return (pagina->numeroPagina == (primeraPagina + i + 1)); 
+		}
+
+		t_pagina * paginaActual = list_find(tablaPaginas, coincideNro); 
+		paginaActual->bitDeValidez = 0; 
+		uint32_t frame = paginaActual->numeroFrame;
+		t_frame * unFrame =  list_get(listaFrames, frame); 
+		unFrame->ocupado = 0; 
+		
+	}
+
+}
 
 
 uint32_t obtenerDireccionProximaTareaPaginacion(void * streamTripulante){
