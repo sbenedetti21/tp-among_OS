@@ -608,8 +608,9 @@ int buscarEspacioNecesario(int tamanioTareas, int cantidadTripulantes) {
 		}
 		
 		int framesNecesariosEnSwap = cantidadFramesNecesarios - cantidadFramesDisponiblesMemoria;
+		int framesDisponiblesEnSwap = framesDisponiblesSwap();
 
-		if (framesDisponiblesSwap() > framesNecesariosEnSwap) {
+		if (framesDisponiblesEnSwap >= framesNecesariosEnSwap) {
 			for(int i = 0; i < framesNecesariosEnSwap; i++) {
 				llevarPaginaASwap();
 			}
@@ -678,21 +679,21 @@ int framesDisponiblesSwap() {
 	return libre;
 }
 
-uint32_t buscarFrame() {
+int buscarFrame() {
 
-  bool estaLibre(t_frame * frame) {
-    return frame->ocupado == 0;
-  }
+	bool estaLibre(t_frame * frame) {
+		return frame->ocupado == 0;
+	}
 
-  t_frame * frameLibre = malloc(sizeof(t_frame));
+	t_frame * frameLibre = malloc(sizeof(t_frame));
 
-		pthread_mutex_lock(&mutexListaFrames);
-  frameLibre = list_find(listaFrames, estaLibre);
-		pthread_mutex_unlock(&mutexListaFrames);
-  uint32_t direccionFrame = frameLibre->inicio;
-  //free(frameLibre);
+	pthread_mutex_lock(&mutexListaFrames);
+    frameLibre = list_find(listaFrames, estaLibre);
+	pthread_mutex_unlock(&mutexListaFrames);
+	int direccionFrame = frameLibre->inicio;
+	//free(frameLibre);
 
-  return direccionFrame;
+	return direccionFrame;
 }
 
 t_frame * buscarFrameSwap() {
@@ -712,13 +713,13 @@ t_frame * buscarFrameSwap() {
 }
 
 void iniciarSwap() {
-	FILE * swap = fopen(path_SWAP, "w+");
+	FILE * swap = fopen(path_SWAP, "w");
 	char cero = '0';
 	fwrite(&cero, 1, tamanioSwap, swap);
 	log_info(loggerMiram, "Iniciando Frames Swap... ");
 	int cantidadFrames = 0;
 
-	for(int desplazamiento = 0; desplazamiento< tamanioMemoria; desplazamiento += tamanioPagina){
+	for(int desplazamiento = 0; desplazamiento< tamanioSwap; desplazamiento += tamanioPagina){
 		t_frame * frame = malloc(sizeof(t_frame));
 		frame->inicio = desplazamiento;
 		frame->ocupado = 0;
@@ -748,14 +749,16 @@ void llevarPaginaASwap() {
 	
 	void * memAux = malloc(tamanioPagina);
 
+	pthread_mutex_lock(&mutexMemoriaPrincipal);
 	memcpy(memAux, memoriaPrincipal + frameVictima->inicio, tamanioPagina);
+	pthread_mutex_unlock(&mutexMemoriaPrincipal);
 
 	frameVictima->ocupado = 0;
 	t_frame * frameSwap = buscarFrameSwap();
 	frameSwap->ocupado = 1;
 	frameSwap->pagina = frameVictima->pagina;
 
-	FILE * swap = fopen(path_SWAP, "wr");
+	FILE * swap = fopen(path_SWAP, "a+");
 	fseek(swap, frameSwap->inicio, SEEK_SET);
 	fwrite(memAux, tamanioPagina, 1, swap);
 	fclose(swap);
@@ -763,13 +766,25 @@ void llevarPaginaASwap() {
 
 t_frame * seleccionarVictima() {
 
+	t_frame * victima = malloc(sizeof(t_frame));
+
 	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
-		
+		t_list * listaAux = list_duplicate(listaFrames);
+
+		bool ultReferencia(t_frame * unFrame, t_frame * otroFrame) {
+			return unFrame->pagina->ultimaReferencia < otroFrame->pagina->ultimaReferencia;
+		}
+
+		list_sort(listaAux, ultReferencia);
+		victima = list_get(listaAux, 0);
+		list_clean_and_destroy_elements(listaAux, free);
 	}
 
 	if (strcmp(algoritmoReemplazo, "CLOCK") == 0) {
 		
 	}
+
+	return victima;
 }
 
 void dumpDeMemoriaPaginacion() {
