@@ -376,7 +376,7 @@ void consola(){
 void iniciarPatota(char ** vectorInstruccion){
 
 	int socket = conectarMiRAM();
-	log_info(loggerDiscordiador, "Discordiador conectado con Mi RAM");
+
 
 				char * posicionBase = "0|0";
 				int i;
@@ -385,18 +385,15 @@ void iniciarPatota(char ** vectorInstruccion){
 				pthread_t tripulantes[cantidadTripulantes];
 				listaTCBsNuevos = list_create();
 
-				log_info(loggerDiscordiador, "antes del wait");
 				sem_wait(&mutexPID); 
 				uint32_t idPatota = proximoPID; 
-				log_info(loggerDiscordiador, " entre wait y post");
 				proximoPID ++; 
 				sem_post(&mutexPID);
-				log_info(loggerDiscordiador, "afuera del wait");
  
-log_info(loggerDiscordiador, "EStoy antes del for");
+
 				for(i = 0; i < cantidadTripulantes; i++ ) {  
 					pthread_t hilo;
-log_info(loggerDiscordiador, "entre al for");
+
 					TCB_DISCORDIADOR* tripulante = malloc(sizeof(TCB_DISCORDIADOR));
 					if (vectorInstruccion[indice_posiciones] != NULL) {
 						tripulante = crearTCB(vectorInstruccion[3 + i], idPatota);
@@ -411,7 +408,7 @@ log_info(loggerDiscordiador, "entre al for");
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
 					
 					if(!planificacionPausada){
-					cambiarDeEstado(tripulante,'R');	
+					tripulante->estado = 'R';	
 					}
 
 					sem_post(&esperarAlgunTripulante); 
@@ -443,9 +440,9 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 		tripulante->pid = pid;
 		
 
-		//sem_wait(&cambiarANuevo);	
+		sem_wait(&cambiarANuevo);	
 		list_add(listaNuevos, tripulante);
-		//sem_post(&cambiarANuevo);
+		sem_post(&cambiarANuevo);
 
 		list_add(listaTripulantes, tripulante);
 
