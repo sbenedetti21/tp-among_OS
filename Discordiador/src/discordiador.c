@@ -634,7 +634,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 
 }
-
+  
   
 void ponerATrabajar(){
 

@@ -353,7 +353,7 @@ void atenderDiscordiador(int socketCliente){
 
 			eliminarTripulante(pid, tid);
 			
-			
+			  
 
 		}
 		else{	
@@ -487,6 +487,7 @@ uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
 	sem_post(&mutexTablaDeTablas);
 	 if(referencia == NULL){
+		 log_info(loggerMiram, "Me pideiron una patota queno se creo todavia. wait 3");
 		sleep(3); 
 		sem_wait(&mutexTablaDeTablas); 
 		referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
@@ -494,12 +495,12 @@ uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 	}
 	t_list * tablaPatota = referencia -> tablaPatota;  
 	
-	log_info(loggerMiram, "despues de la referencia");
+	
 	t_segmento * segmentoTripulante = list_find(tablaPatota, coincideTID); 
 
 	if(segmentoTripulante == NULL){
 		
-		log_info(loggerMiram,"Tripulante %d eliminado", tripulanteID);
+		log_info(loggerMiram,"Me pidieron un tripulante eliminado. Tripulante %d eliminado", tripulanteID);
 		return tamanioMemoria + 1;
 	}
 
@@ -1379,7 +1380,9 @@ uint32_t encontrarLugarSegmentacion(int tamanioSegmento){
 
 uint32_t firstFit(int tamanioContenido){
 	int i = 0; 
+	sem_wait(&mutexTablaGlobal);
 	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal); 
+	sem_post(&mutexTablaGlobal);
 	t_segmento * segmentoLibre = list_get(segmentosLibres, i); 
 	
 	bool cabeElContenido(t_segmento * segmento){
@@ -1415,7 +1418,9 @@ uint32_t firstFit(int tamanioContenido){
 uint32_t bestFit(int tamanioContenido){
 
 	int i = 0;  
+	sem_wait(&mutexTablaGlobal);
 	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal); 
+	sem_post(&mutexTablaGlobal);
 	t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
 	t_list * lugaresPosibles = list_create(); 
 
@@ -1486,9 +1491,9 @@ void eliminarTripulanteSegmentacion(uint32_t pid, uint32_t tid){
 	sem_post(&mutexTablaDeTablas);
 
 	list_remove_by_condition(tablaPatota, coincideTID);
-	sem_wait(&mutexTablaDeTablas);  
+	sem_wait(&mutexTablaGlobal);  
 	list_remove_by_condition(tablaSegmentosGlobal, coincideTID); 
-	sem_post(&mutexTablaDeTablas);
+	sem_post(&mutexTablaGlobal);
 	
 	esElUltimoTripulante(tablaPatota, pid); 
 
@@ -1518,8 +1523,10 @@ void esElUltimoTripulante(t_list * tabla, uint32_t pid){
 		sem_wait(&mutexTablaGlobal); 
 		list_remove_by_condition(tablaSegmentosGlobal, coincideBasePID);
 		sem_post(&mutexTablaGlobal); 
-		memset(memoriaPrincipal + (segmentoPID ->base), 0, SIZEOF_PCB);  
+		memset(memoriaPrincipal + (segmentoPID ->base), 0, SIZEOF_PCB); 
+		sem_wait(&mutexTablaGlobal); 
 		list_remove_by_condition(tablaSegmentosGlobal, coincideBaseTareas); 
+		sem_post(&mutexTablaGlobal);
 		memset(memoriaPrincipal + (segmentoTareas->base), 0, tamanioTareas); 
 		
 		sem_wait(&mutexTablaDeTablas); 
@@ -1624,7 +1631,9 @@ void imprimirSegmentosLibres(){
 }
 
 int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
+	sem_wait(&mutexTablaGlobal);
 	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal); 
+	sem_post(&mutexTablaGlobal);
 	uint32_t bytesLibres = 0; 
 	uint32_t espacioNecesario = tamanioTareas + cantidadTripulantes * SIZEOF_TCB + SIZEOF_PCB; 
 
@@ -1744,6 +1753,7 @@ void compactarMemoria(){
 	list_sort(tablaSegmentosGlobal, seEncuentraPrimeroEnMemoria);
 
 	//para el primer segmento 
+	sem_wait(&mutexTablaGlobal);
 	t_segmento * primerSegmentoOcupado = list_get(tablaSegmentosGlobal, 0); 
 	if(primerSegmentoOcupado->base != 0) {
 		memcpy(memoriaPrincipal, memoriaPrincipal + primerSegmentoOcupado->base, primerSegmentoOcupado->tamanio); 
@@ -1764,7 +1774,7 @@ void compactarMemoria(){
 	t_list * segmentoLibre = obtenerSegmentosLibres(tablaSegmentosGlobal); 
 	t_segmento * espacioLibre = list_get(segmentoLibre, 0); 
 	memset(memoriaPrincipal + (espacioLibre->base), 0,espacioLibre->tamanio);
-
+sem_post(&mutexTablaGlobal);
 }
 /* 
 void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevoPosy){
