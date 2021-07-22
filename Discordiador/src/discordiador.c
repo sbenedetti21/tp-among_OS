@@ -626,7 +626,12 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 		//sem_post(&esperarAlgunTripulante);
 		sem_post(&semaforoTripulantes); 					
-		cambiarDeEstado(tripulante,'F');				
+		salirDeListaEstado(tripulante); 
+		sem_wait(&cambiarAFinalizado); 
+		tripulante->estado = 'F';
+		list_add(listaTerminados, tripulante); 
+		sem_post(&cambiarAFinalizado); 
+
 
 }
 

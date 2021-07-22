@@ -1,7 +1,7 @@
 #include "mi_ram.h"
 
 
-//comentario prueba
+
 
 int main(int argc, char ** argv){
 	navePrincipal = nivel_crear("Nave Principal");
@@ -350,7 +350,9 @@ void atenderDiscordiador(int socketCliente){
 			
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
-			eliminarTripulante(pid, tid); 
+
+			eliminarTripulante(pid, tid);
+			
 			
 
 		}
@@ -1483,8 +1485,10 @@ void eliminarTripulanteSegmentacion(uint32_t pid, uint32_t tid){
 	t_list * tablaPatota = referencia->tablaPatota; 
 	sem_post(&mutexTablaDeTablas);
 
-	list_remove_by_condition(tablaPatota, coincideTID); 
+	list_remove_by_condition(tablaPatota, coincideTID);
+	sem_wait(&mutexTablaDeTablas);  
 	list_remove_by_condition(tablaSegmentosGlobal, coincideTID); 
+	sem_post(&mutexTablaDeTablas);
 	
 	esElUltimoTripulante(tablaPatota, pid); 
 
@@ -1511,7 +1515,9 @@ void esElUltimoTripulante(t_list * tabla, uint32_t pid){
 	//significa que quedan los segmentos de tareas y del pcb 
 	if(list_size(tabla) == 2){
 
+		sem_wait(&mutexTablaGlobal); 
 		list_remove_by_condition(tablaSegmentosGlobal, coincideBasePID);
+		sem_post(&mutexTablaGlobal); 
 		memset(memoriaPrincipal + (segmentoPID ->base), 0, SIZEOF_PCB);  
 		list_remove_by_condition(tablaSegmentosGlobal, coincideBaseTareas); 
 		memset(memoriaPrincipal + (segmentoTareas->base), 0, tamanioTareas); 
