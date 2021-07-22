@@ -13,6 +13,8 @@ int main(int argc, char ** argv){
 	iniciarMemoria();
 	
 	pthread_t servidor;
+	pthread_t senial1;
+	pthread_t senial2;
 	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
 	pthread_create(&senial1, NULL, hiloSIGUSR1, NULL); 
 	pthread_create(&senial2, NULL, hiloSIGUSR2, NULL);
@@ -1437,6 +1439,15 @@ uint32_t bestFit(int tamanioContenido){
 
 }
 
+void eliminarTripulante(uint32_t patid, uint32_t tripid) {
+	if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
+		eliminarTripulanteSegmentacion(patid, tripid);
+	}	
+	if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
+		eliminarTripulantePaginacion(patid, tripid);
+	}
+}
+
 void eliminarTripulanteSegmentacion(uint32_t pid, uint32_t tid){
 	uint32_t direccionTripulante = obtenerDireccionTripulante(pid, tid); 
 	memset(memoriaPrincipal + direccionTripulante, 0, SIZEOF_TCB); 
@@ -1493,6 +1504,15 @@ void esElUltimoTripulante(t_list * tabla, uint32_t pid){
 
 	else{
 		//nada
+	}
+}
+
+void actualizarEstadoTripulante(uint32_t pid, uint32_t tid, char estadoNuevo) {
+	if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
+		actualizarEstadoSegmentacion(pid, tid, estadoNuevo);
+	}	
+	if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
+		actualizarEstadoPaginacion(pid, tid, estadoNuevo);
 	}
 }
 
@@ -1771,7 +1791,7 @@ void sig_handler(uint32_t senial){
 		sem_post(&mutexCompactacion);
 		}
 		else{
-			log_error(loggerMemoria, "No se reconoce la señal enviada");
+			log_error(loggerMiram, "No se reconoce la señal enviada");
 		}
 	}
 	

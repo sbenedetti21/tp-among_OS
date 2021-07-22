@@ -1705,4 +1705,4 @@ void ponerReadyNuevosTripulantes(){
 
 	}
 
-}
+} 
