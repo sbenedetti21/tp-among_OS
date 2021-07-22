@@ -118,24 +118,21 @@ void consola(){
 
 		if(strcmp(vectorInstruccion[0], "INICIAR_PATOTA") == 0) {
 
-
 			iniciarPatota(vectorInstruccion);
 			
-			
-
-			
 		}
-
 		
 
 		if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0){
 
 				if(planificacionPausada){
-				void ponerReadyNuevosTripulantes();
+
+				ponerReadyNuevosTripulantes();
 				for(int r = 0 ; r < gradoMultitarea ; r ++){
 				sem_post(&semaforoSabotaje);
 				}
 				planificacionPausada = false;
+
 				} else {						
 				pthread_t  hiloTrabajadorFIFO; 
 				pthread_create(&hiloTrabajadorFIFO, NULL, ponerATrabajar, NULL );
@@ -163,7 +160,7 @@ void consola(){
 
 			tripulante = list_find(listaTripulantes,coincideID);
 
-			tripulante->fueExpulsado = true;				
+			tripulante->fueExpulsado = true;
 			
 		}
 		
@@ -172,9 +169,6 @@ void consola(){
 			log_info(loggerDiscordiador, "-------------PROGRAMA TERMINADO-------------"); 
 			return 0; 
 		}
-
-
-		
 		
 		if(strcmp(vectorInstruccion[0], "PAUSAR_PLANIFICACION") == 0) {
 
@@ -187,185 +181,6 @@ void consola(){
 			serializarYMandarPedidoDeBitacora(atoi(vectorInstruccion[1]));
 		
 		}
-
-				if(strcmp(vectorInstruccion[0], "generarOxigeno") == 0){
-
-			tarea_struct * tarea = malloc(sizeof(tarea_struct));
-			tarea->parametro = 5;
-			tarea->descripcionTarea = "GENERAR_OXIGENO";
-
-			gestionarTarea(tarea, 1);
-			sleep(3);
-			serializarYMandarFinalizacionTarea(1, tarea->descripcionTarea);
-
-		}
-
-		if(strcmp(vectorInstruccion[0], "bitacora") == 0){
-
-			// tarea_struct * tarea = malloc(sizeof(tarea_struct));
-			// tarea->parametro = 5;
-			// tarea->descripcionTarea = "GENERAR_OXIGENO";
-
-			// gestionarTarea(tarea, 1);
-
-			//  sleep(5);
-
-			serializarYMandarPedidoDeBitacora(1);
-		}
-
-
-		if(strcmp(vectorInstruccion[0], "generarBasura") == 0){
-
-			tarea_struct * tarea = malloc(sizeof(tarea_struct));
-			tarea->parametro = 30;
-			tarea->descripcionTarea = "GENERAR_BASURA";
-
-			gestionarTarea(tarea, 1);
-			sleep(3);
-			serializarYMandarFinalizacionTarea(1, tarea->descripcionTarea);
-		}
-
-		if(strcmp(vectorInstruccion[0], "consumirOxigeno") == 0){
-
-			tarea_struct * tarea = malloc(sizeof(tarea_struct));
-			tarea->parametro = 5;
-			tarea->descripcionTarea = "CONSUMIR_OXIGENO";
-
-			gestionarTarea(tarea, 1);
-			sleep(3);
-			serializarYMandarFinalizacionTarea(1, tarea->descripcionTarea);
-		}
-
-		if(strcmp(vectorInstruccion[0], "descartarBasura") == 0){
-
-			tarea_struct * tarea = malloc(sizeof(tarea_struct));
-			tarea->parametro = 5;
-			tarea->descripcionTarea = "DESCARTAR_BASURA";
-
-			gestionarTarea(tarea, 1);
-			sleep(3);
-			serializarYMandarFinalizacionTarea(1, tarea->descripcionTarea);
-		}
-
-		if(strcmp(vectorInstruccion[0], "cantar") == 0){
-			tarea_struct * tarea = malloc(sizeof(tarea_struct));
-			tarea->descripcionTarea = "cantar";
-
-			serializarYMandarInicioTareaNormal(1, tarea->descripcionTarea);
-			sleep(3);
-			serializarYMandarFinalizacionTarea(1, tarea->descripcionTarea);
-		}
-	
-
-		if(strcmp(vectorInstruccion[0], "tripulanteMasCercano") == 0) {
-			TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(3,4);
-			printf("El tripulante mas cercano esta en: %d|%d \n", tripulante->posicionX, tripulante->posicionY);
-		}
-
-		if(strcmp(vectorInstruccion[0], "a") == 0) {
-			TCB_DISCORDIADOR * tripulante = list_get(listaTripulantes,0);
-
-			cambiarDeEstado(tripulante, 'B');
-
-			TCB_DISCORDIADOR * tripulante2 = list_get(listaBloqueados,0);
-
-			printf("El tripulante esta en: %c \n", tripulante2->estado);
-		}
-
-		if(strcmp(vectorInstruccion[0], "b") == 0) {
-			for(int a = 0 ; a < list_size(listaTerminados) ; a++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,a);
-			printf("El tripulante termino: %d \n", tripulante->tid);
-			}
-		}
-
-		if(strcmp(vectorInstruccion[0], "mostrarEstados") == 0) {
-			
-			printf("\n");
-			printf("NEW: ");
-			for(int a = 0 ; a < list_size(listaNuevos) ; a++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaNuevos,a);
-			printf("%d ", tripulante->tid);
-			}
-			printf("\n");
-
-			printf("READY: ");
-			for(int e = 0 ; e < list_size(listaReady) ; e++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaReady,e);
-			printf("%d ", tripulante->tid);
-			}
-			printf("\n");
-
-			printf("BLOQUEADOS: ");
-			for(int n = 0 ; n < list_size(listaBloqueados) ; n++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaBloqueados,n);
-			printf("%d ", tripulante->tid);
-			}
-			printf("\n");
-
-			printf("TRABAJANDO: ");
-			for(int u = 0 ; u < list_size(listaTrabajando) ; u++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaTrabajando,u);
-			printf("%d ", tripulante->tid);
-			}
-			printf("\n");
-
-			printf("TERMINADOS: ");
-			for(int y = 0 ; y < list_size(listaTerminados) ; y++){
-			TCB_DISCORDIADOR * tripulante = list_get(listaTerminados,y);
-			printf("%d ", tripulante->tid);
-			}
-			printf("\n");
-			printf("\n");
-
-		}
-
-		if(strcmp(vectorInstruccion[0], "sabotaje") == 0) {
-
-		cantidadDeSabotajes++;
-		haySabotaje = true;
-			
-		uint32_t posX = 10;
-		uint32_t posY = 4;
-
-		cambiarEstadosABloqueados();
-				
-
-		TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(posX, posY);
-
-		uint32_t  posXTripulante = tripulante->posicionX; 
-		uint32_t  posyTripulante = tripulante->posicionY; 
-
-		log_info(loggerDiscordiador, "Tripulante %d nos va a salvar del sabotaje en %d|%d !!", tripulante->tid, posX, posY);
-
-		cambiarDeEstado(tripulante,'S');
-
-		trasladarseADuranteSabotaje(posX, posY, tripulante);
-
-		sleep(tiempoSabotaje);
-
-		log_info(loggerDiscordiador, "Tripulante %d nos ha salvado!!", tripulante->tid);
-
-		trasladarseADuranteSabotaje(posXTripulante, posyTripulante, tripulante);
-
-		cantidadDeSabotajes--;
-		
-		if(cantidadDeSabotajes == 0){
-		volverAEstadosPostSabotaje();
-		haySabotaje = false;
-
-		for(int r = 0 ; r < gradoMultitarea ; r ++){
-			sem_post(&semaforoSabotaje);
-		}
-
-				}
-			
-		}
-
-		if(strcmp(vectorInstruccion[0], "movimiento") == 0) {
-			serializarYMandarPosicionBitacora(1,2,2,3,3);
-		}
-		
 
 	}
 
@@ -435,7 +250,7 @@ void iniciarPatota(char ** vectorInstruccion){
 
 				serializarYMandarPCB(vectorInstruccion[2],socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
 				
-	printf("%d \n", list_size(listaReady));
+	
 	close(socket);
 	
 }
@@ -589,6 +404,11 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					cambiarDeEstado(tripulante,'B');
 					sem_post(&gestionarIO);
 					for(int e = 0; e < tarea->tiempo + 1; e++){
+						
+						if( tripulante->fueExpulsado){
+							expulsarTripulate(tripulante);
+							 break; 
+							 }
 
 						if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
 
@@ -603,10 +423,21 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					serializarYMandarInicioTareaNormal(tripulante->tid, tarea->descripcionTarea);
 					for(int e = 0; e < tarea->tiempo; e++){
 
+						if( tripulante->fueExpulsado){
+							expulsarTripulate(tripulante);
+							 break; 
+						}
+
 						if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
 
 						sleep(cicloCPU);	
 					}
+
+					if( tripulante->fueExpulsado){
+						expulsarTripulate(tripulante);
+						 break; 
+					 }
+
 					serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
 					cambiarDeEstado(tripulante,'R');					 
 					sem_post(&semaforoTripulantes); 
@@ -634,6 +465,11 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 												if( tripulante->posicionX != tarea->posicionX){  // Aca se fija que no haya llegado a su posicion en x, si llego ni entra
 
 													for(contador; contador < quantum ;  contador ++){
+
+														if( tripulante->fueExpulsado){
+															expulsarTripulate(tripulante);
+															 break; 
+														 }
 
 														if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
 
@@ -665,6 +501,12 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 												if(tripulante->posicionY != tarea->posicionY && contador > 0 ){ // Igual que con x
 													
 													for(contador; contador < quantum ;  contador ++){
+														
+														if( tripulante->fueExpulsado){
+															expulsarTripulate(tripulante);
+															 break; 
+														 }
+
 														if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
 
 														sleep(cicloCPU);
@@ -708,6 +550,10 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															cambiarDeEstado(tripulante,'B');
 															sem_post(&gestionarIO);
 															for(int e = 0; e < tarea->tiempo; e++){
+																if( tripulante->fueExpulsado){
+																	expulsarTripulate(tripulante);
+																	 break; 
+																 }
 																if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
 																sleep(cicloCPU);	
 															}						
@@ -720,6 +566,10 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 														else{
 															if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
+															if( tripulante->fueExpulsado){
+																expulsarTripulate(tripulante);
+																	 break; 
+			 													}
 															sleep(cicloCPU);
 															tarea->tiempo --; // Cada tarea tiene un tiempo, cuando ese tiempo llegue a 0 va a gestionar la tarea en el if de abajo, si no llega a 0 va a seguir haciendo tiempo si su quantum lo permite
 															
@@ -746,6 +596,10 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 
 												if(!tareaTerminada){
+												if( tripulante->fueExpulsado){
+												expulsarTripulate(tripulante);
+												 break; 
+												 }
 												if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
 												cambiarDeEstado(tripulante,'R');
 												sem_post(&esperarAlgunTripulante);
@@ -771,8 +625,6 @@ void ponerATrabajar(){
 
 	pthread_t gestionarIO;
 	pthread_create(&gestionarIO, NULL, (void*) gestionadorIO, NULL);
-
-	cambiarEstadoTripulantesA('R'); //RARI
 	 
 	planificacionPausada = false;
 	

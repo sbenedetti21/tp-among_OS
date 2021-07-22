@@ -21,18 +21,12 @@ int main(int argc, char ** argv){
 
 	
 
-	// pthread_t mapa;
-	// pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	// pthread_join(mapa, NULL);
-	// nivel_destruir(navePrincipal); 
-	// nivel_gui_terminar();
-	
-	//pthread_t mapa;
-	//pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	//pthread_join(mapa, NULL);
+	 pthread_t mapa;
+	 pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	 pthread_join(mapa, NULL);
+	 nivel_destruir(navePrincipal); 
+	 nivel_gui_terminar();
 
-	// nivel_destruir(navePrincipal);
-	// nivel_gui_terminar();
 		
 	pthread_join(servidor, NULL);
 	
@@ -215,7 +209,7 @@ void atenderDiscordiador(int socketCliente){
 				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria, pid);
 
-				mem_hexdump(memoriaPrincipal, tamanioMemoria);
+				//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
 				//dumpDeMemoriaPaginacion();
 				
@@ -294,7 +288,7 @@ void atenderDiscordiador(int socketCliente){
 			list_add(tablaDeTablasSegmentos, referencia); 
 			sem_post(&mutexTablaDeTablas);
 			
-			mem_hexdump(memoriaPrincipal, tamanioMemoria);
+			//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 			
 			}
 			
@@ -412,7 +406,7 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&estadoNuevo, stream+offset, sizeof(char));
 		
 		actualizarEstadoTripulante(pat, trip, estadoNuevo); 
-		mem_hexdump(memoriaPrincipal, tamanioMemoria);
+		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 	
 	break; 
 
@@ -424,8 +418,9 @@ void atenderDiscordiador(int socketCliente){
 		offset += sizeof(uint32_t);
 		memcpy(&patid, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
+		expulsarTripulanteDelMapa(tripid);
 		eliminarTripulante(patid, tripid);
-		mem_hexdump(memoriaPrincipal, tamanioMemoria);
+		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
 	break ;
 
@@ -1007,7 +1002,7 @@ void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_
 		pagina++; 
 	}
 	pthread_mutex_unlock(&mutexMemoriaPrincipal);
-	mem_hexdump(streamTripulante, SIZEOF_TCB);
+	//mem_hexdump(streamTripulante, SIZEOF_TCB);
 	return streamTripulante; 
 }
 
