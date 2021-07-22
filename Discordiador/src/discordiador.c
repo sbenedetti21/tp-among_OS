@@ -396,6 +396,10 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 		if(strcmp(tipoAlgoritmo, "FIFO") == 0){
 
 				trasladarseA(tarea->posicionX,tarea->posicionY, tripulante);
+				if( tripulante->fueExpulsado){
+							expulsarTripulate(tripulante);
+							 break; 
+				}
 				serializarYMandarPosicionBitacora(tripulante->tid, posxV, posyV, tripulante->posicionX, tripulante->posicionY);
 
 				if(esTareaDeIO(tarea->descripcionTarea)){
@@ -413,7 +417,11 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 						if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
 
 						sleep(cicloCPU);	
-					}			
+					}
+					if( tripulante->fueExpulsado){
+							expulsarTripulate(tripulante);
+							 break; 
+							 }		
 					serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
 					sem_wait(&tripulante->termineIO);
 					sem_post(&esperarAlgunTripulante);
@@ -614,6 +622,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 		}
 
+
 		//sem_post(&esperarAlgunTripulante);
 		sem_post(&semaforoTripulantes); 					
 		cambiarDeEstado(tripulante,'F');				
@@ -736,6 +745,7 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 
 	while(posicionX != tripulante->posicionX)
 	{
+		if( tripulante->fueExpulsado){ return 0;}		
 		if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
 
 		if(posicionX < tripulante->posicionX){
@@ -751,7 +761,7 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 	while(posicionY != tripulante->posicionY)
 	{	
 		if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
-
+		if( tripulante->fueExpulsado){ return 0;}
 
 		if(posicionY < tripulante->posicionY){
 			tripulante->posicionY--;
@@ -760,7 +770,7 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 		}
 
 		sleep(cicloCPU);
-		// MANDAR POSICION A MI RAM e IMONGO
+		serializarYMandarPosicion(tripulante);
 	}
 	
 	log_info(loggerDiscordiador, "Tripulante %d ahora esta en %d|%d ",tripulante->tid,tripulante->posicionX,tripulante->posicionY);
