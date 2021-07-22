@@ -154,7 +154,7 @@ void consola(){
 		
 		if(strcmp(vectorInstruccion[0], "EXPULSAR_TRIPULANTE") == 0) {
 				
-			/*bool coincideID(TCB_DISCORDIADOR * tripulantee){
+			bool coincideID(TCB_DISCORDIADOR * tripulantee){
 				return tripulantee->tid ==  atoi(vectorInstruccion[1]);
 			}
 
@@ -162,19 +162,7 @@ void consola(){
 
 			tripulante = list_find(listaTripulantes,coincideID);
 
-			tripulante->fueExpulsado = true;
-			
-*/
-			bool coincideID(TCB_DISCORDIADOR * tripulante){
-				return tripulante->tid ==  atoi(vectorInstruccion[1]);
-			}
-
-			TCB_DISCORDIADOR * tripulante = malloc(sizeof(TCB_DISCORDIADOR));
-			tripulante = list_find(listaTripulantes,coincideID);
-
-			serializaYMandarExpulsado(tripulante->tid, tripulante->pid);
-
-			list_remove_by_condition(listaTripulantes, coincideID); 
+			tripulante->fueExpulsado = true;				
 			
 		}
 		
@@ -884,6 +872,7 @@ void expulsarTripulate(TCB_DISCORDIADOR * tripulante){
 
 			serializaYMandarExpulsado(tripulante->tid, tripulante->pid);
 
+			salirDeListaEstado(tripulante);
 			list_remove_by_condition(listaTripulantes, coincideID); 
 }
 

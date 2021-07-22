@@ -25,7 +25,7 @@ int main(int argc, char ** argv){
 	// pthread_t mapa;
 	// pthread_create(&mapa, NULL, iniciarMapa, NULL);
 	// pthread_join(mapa, NULL);
-	// nivel_destruir(navePrincipal);
+	// nivel_destruir(navePrincipal); 
 	// nivel_gui_terminar();
 	
 		
@@ -324,6 +324,9 @@ void atenderDiscordiador(int socketCliente){
 
 		log_info(loggerMiram, "La tarea a enviar es: %s", stringTarea);
 
+		if(strcmp(stringTarea, "TRIPULANTE_ELIMINADO") == 0){ break;}
+	
+
 		if(strcmp(stringTarea, "NO_HAY_TAREA") == 0){ //Esto cambialo cuando sepas si hay tarea o no
 
 			t_buffer* buffer = malloc(sizeof(t_buffer)); // se puede mandar un buffer vacio????????????
@@ -464,7 +467,10 @@ void actualizarPosicionTripulante(uint32_t pid, uint32_t tid, uint32_t posx, uin
 char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 	
 	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
-		uint32_t direccionTCB = obtenerDireccionTripulante(idPatota, tid); 
+		uint32_t direccionTCB = obtenerDireccionTripulante(idPatota, tid);
+		if(direccionTCB == tamanioMemoria + 1){
+			return  "TRIPULANTE_ELIMINADO";
+		} 
 		uint32_t direccionTarea = obtenerDireccionProximaTarea(direccionTCB);
 		return obtenerProximaTareaSegmentacion(direccionTarea,  direccionTCB);
 	
@@ -502,6 +508,11 @@ uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
 	t_list * tablaPatota = referencia->tablaPatota;  
 	t_segmento * segmentoTripulante = list_find(tablaPatota, coincideTID); 
+
+	if(segmentoTripulante == NULL){
+		log_info(loggerMiram,"Tripulante %d eliminado", tripulanteID);
+		return tamanioMemoria + 1;
+	}
 
 	return (segmentoTripulante->base);
 
