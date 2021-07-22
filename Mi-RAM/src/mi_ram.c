@@ -1,7 +1,7 @@
 #include "mi_ram.h"
 
 
-
+//comentario prueba
 
 int main(int argc, char ** argv){
 	navePrincipal = nivel_crear("Nave Principal");
