@@ -471,18 +471,30 @@ char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 
 uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 
-
+	
 	bool coincidePID(referenciaTablaPatota * unaReferencia){
 		return (unaReferencia->pid == idPatota); 
 	}
 	bool coincideTID(t_segmento * segmento){
 		return (segmento->tid == tripulanteID); 
 	}
+	
+	sem_wait(&mutexTablaDeTablas); 
 	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
+	sem_post(&mutexTablaDeTablas);
+	 if(referencia == NULL){
+		sleep(3); 
+		sem_wait(&mutexTablaDeTablas); 
+		referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
+		sem_post(&mutexTablaDeTablas);
+	}
 	t_list * tablaPatota = referencia -> tablaPatota;  
+	
+	log_info(loggerMiram, "despues de la referencia");
 	t_segmento * segmentoTripulante = list_find(tablaPatota, coincideTID); 
 
 	if(segmentoTripulante == NULL){
+		
 		log_info(loggerMiram,"Tripulante %d eliminado", tripulanteID);
 		return tamanioMemoria + 1;
 	}
@@ -602,6 +614,7 @@ void iniciarMemoria() {
 		tablaSegmentosGlobal = list_create(); 
 		tablaDeTablasSegmentos = list_create();
 		tripulantesPatotas = list_create();
+		
 		sem_init(&mutexTablaGlobal, 0, 1);
 		sem_init(&mutexTablaDeTablas, 0, 1);
 		sem_init(&mutexTripulantesPatotas, 0, 1);
@@ -1463,8 +1476,10 @@ void eliminarTripulanteSegmentacion(uint32_t pid, uint32_t tid){
 		return (segmento->tid == tid); 
 	}
 
+	sem_wait(&mutexTablaDeTablas);
 	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
 	t_list * tablaPatota = referencia->tablaPatota; 
+	sem_post(&mutexTablaDeTablas);
 
 	list_remove_by_condition(tablaPatota, coincideTID); 
 	list_remove_by_condition(tablaSegmentosGlobal, coincideTID); 
@@ -1499,7 +1514,9 @@ void esElUltimoTripulante(t_list * tabla, uint32_t pid){
 		list_remove_by_condition(tablaSegmentosGlobal, coincideBaseTareas); 
 		memset(memoriaPrincipal + (segmentoTareas->base), 0, tamanioTareas); 
 		
+		sem_wait(&mutexTablaDeTablas); 
 		list_remove_by_condition(tablaDeTablasSegmentos, coincidePID); 
+		sem_post(&mutexTablaDeTablas);
 		list_destroy(tabla);
 
 		
