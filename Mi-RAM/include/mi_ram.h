@@ -121,6 +121,7 @@ sem_t mutexTablaGlobal;
 sem_t mutexTablaDeTablas; 
 sem_t mutexTripulantesPatotas; 
 sem_t mutexCompactacion; 
+
 t_list * tripulantesPatotas; 
 
 
