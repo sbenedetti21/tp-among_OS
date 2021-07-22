@@ -1405,7 +1405,7 @@ uint32_t firstFit(int tamanioContenido){
 
 	while((segmentoLibre -> tamanio) < tamanioContenido){
 		i++; 
-		segmentoLibre = list_get(segmentosLibres, i); 
+		segmentoLibre = list_get(segmentosLibres, i);  
 	}
 	//printf("La base del primer segmento libre es : %d \n", (segmentoLibre -> base));
 	//printf("El tamanio del primer segmento libre es %d \n", segmentoLibre->tamanio);
@@ -1441,6 +1441,7 @@ uint32_t bestFit(int tamanioContenido){
 		sem_post(&mutexCompactacion);
 	}
 
+	log_info(loggerMiram, "cantidad segmentos libres: %d", list_size(segmentosLibres));
 	while(i < (list_size(segmentosLibres))){
 		segmentoLibre = list_get(segmentosLibres, i); 
 		if((segmentoLibre ->tamanio) > tamanioContenido){
@@ -1448,6 +1449,7 @@ uint32_t bestFit(int tamanioContenido){
 		}
 
 		i++;
+		log_info(loggerMiram, "segmento libre de tamanio: %d", segmentoLibre->tamanio);
 
 	}
 
@@ -1750,6 +1752,8 @@ bool cabeTCB(t_segmento * segmento){
 
 void compactarMemoria(){
 
+
+	log_info(loggerMiram, "compactando memoria...");
 	list_sort(tablaSegmentosGlobal, seEncuentraPrimeroEnMemoria);
 
 	//para el primer segmento 
@@ -1774,7 +1778,7 @@ void compactarMemoria(){
 	t_list * segmentoLibre = obtenerSegmentosLibres(tablaSegmentosGlobal); 
 	t_segmento * espacioLibre = list_get(segmentoLibre, 0); 
 	memset(memoriaPrincipal + (espacioLibre->base), 0,espacioLibre->tamanio);
-sem_post(&mutexTablaGlobal);
+	sem_post(&mutexTablaGlobal);
 }
 /* 
 void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevoPosy){

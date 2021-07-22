@@ -5,7 +5,7 @@
 // FRAN: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 // BENE: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/PAG_PatotaA.txt 1|1
 
-  
+   
 int main(int argc, char ** argv){  
 
 	loggerDiscordiador = log_create("discordiador.log", "discordiador.c", 0, LOG_LEVEL_INFO); 
@@ -598,6 +598,10 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															
 																
 																if(tarea->tiempo == 0){
+																	if( tripulante->fueExpulsado){
+																		expulsarTripulate(tripulante);
+																	 	break; 
+			 														}
 																	serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
 																	tareaTerminada = true;
 																	tarea->tareaTerminada = true; 								
@@ -611,7 +615,10 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 															
 														}
-
+																if( tripulante->fueExpulsado){
+																expulsarTripulate(tripulante);
+																	 break; 
+			 													}
 																log_info(loggerDiscordiador, "Tripulante  %d le faltan %ds para terminar la tarea y le queda %d quantum restante", tripulante->tid, tarea->tiempo, quantum-contador);
 
 													
