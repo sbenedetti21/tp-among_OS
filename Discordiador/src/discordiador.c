@@ -450,7 +450,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 		sem_init(&tripulante->termineIO,0,0);
 	 
 		tripulante->estado = 'N';
-		tripulante->tid = proximoTID;
+		tripulante->tid = proximoTID;  
 		tripulante->posicionX = atoi(vectorPosiciones[0]);
 		tripulante->posicionY = atoi(vectorPosiciones[1]);
 		tripulante->pid = pid;

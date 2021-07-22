@@ -144,31 +144,14 @@ void atenderDiscordiador(int socketCliente){
 		log_info(loggerMiram, "hay lugar disponible (1 -> si, -1 -> no): %d \n", hayLugar);
 
 		if(hayLugar == -1){
-
-			if(strcmp(esquemaMemoria, "SEGMENTACION") == 0){
-				log_info(loggerMiram, "No hay lugar para la patota, iniciando compactacion automatica"); 
-				sem_wait(&mutexCompactacion); 
-				compactarMemoria();
-				sem_post(&mutexCompactacion);
-
-				hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs);
-				if(hayLugar == -1){
-					log_info(loggerMiram, "Rechazo patota por falta de espacio en memoria");
+			log_info(loggerMiram, "Rechazo patota por falta de espacio en memoria");
 					
-				}
-			
-				}
-				if(hayLugar == 1){
-					log_info(loggerMiram, "agrego patota");
-				}
-			
-			if(strcmp(esquemaMemoria, "PAGINACION") == 0){
-				log_info(loggerMiram, "Rechazo patota por falta de espacio en memoria");
-			}
-			
 		}
+			
+				
 		if(hayLugar == 1){
-			printf("Encontre lugar para tu patota \n");
+			log_info(loggerMiram, "agrego patota");
+				
 
 			if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
 				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs; // +8
@@ -244,7 +227,7 @@ void atenderDiscordiador(int socketCliente){
 				referenciaTablaPatota * referencia = malloc(sizeof(referenciaTablaPatota)); 
 				
 				PCB * pcb = crearPCB(idPatota);
-					void * streamPCB = malloc(SIZEOF_PCB);
+				void * streamPCB = malloc(SIZEOF_PCB);
 				memcpy(streamPCB, &(pcb->pid), sizeof(uint32_t)); 
 				memset(streamPCB + sizeof(uint32_t), 0, sizeof(uint32_t)); 
 				 
@@ -254,8 +237,6 @@ void atenderDiscordiador(int socketCliente){
 				uint32_t direccionTareas = asignarMemoriaSegmentacionTareas(tareas, tamanioTareas, tablaSegmentos); 
 				pcb ->tareas = direccionTareas; 
 				memcpy(memoriaPrincipal + direccionPCB + sizeof(uint32_t), &direccionTareas, 4); 
-
-			
 				
 
 				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
@@ -313,7 +294,7 @@ void atenderDiscordiador(int socketCliente){
 			list_add(tablaDeTablasSegmentos, referencia); 
 			sem_post(&mutexTablaDeTablas);
 			
-			mem_hexdump(memoriaPrincipal, 200);
+			mem_hexdump(memoriaPrincipal, tamanioMemoria);
 			
 			}
 			
@@ -1328,7 +1309,7 @@ uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, int tripulanteID, t_li
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
 		segmentoNuevo ->tid = tripulanteID;
 		segmentoNuevo -> tamanio = SIZEOF_TCB; 
-		segmentoNuevo -> base = direccionLogica; 
+		segmentoNuevo -> base = direccionLogica;  
 
 		//agrego el segmento a la tabla de segmentos 
 		list_add(tablaSegmentos, segmentoNuevo);
@@ -1380,10 +1361,9 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 }
 
 uint32_t encontrarLugarSegmentacion(int tamanioSegmento){
-	if(strcmp(algoritmoReemplazo, "FIRST_FIT") == 0){return firstFit(tamanioSegmento); }
-	if(strcmp(algoritmoReemplazo, "BEST_FIT") == 0){ return bestFit(tamanioSegmento);}
-	//es realmente un algoritmo de reemplazo para segmentacion¿? o algoritmo de busqueda de lugar 
-}
+	if(strcmp(criterioSeleccion, "FIRST_FIT") == 0){return firstFit(tamanioSegmento); }
+	if(strcmp(criterioSeleccion, "BEST_FIT") == 0){ return bestFit(tamanioSegmento);}
+	}
 
 uint32_t firstFit(int tamanioContenido){
 	int i = 0; 
