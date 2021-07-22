@@ -154,9 +154,9 @@ void consola(){
 		}
 
 		if(strcmp(vectorInstruccion[0], "sabo") == 0) {
-			
+		log_info(loggerDiscordiador, "ENTRE A SABO"); 
 		int socket = conectarImongo();
-
+		log_info(loggerDiscordiador, "1"); 
 		t_buffer* buffer = malloc(sizeof(t_buffer));
 
 		buffer-> size =  sizeof(uint32_t) ;
@@ -173,7 +173,7 @@ void consola(){
 		buffer-> stream = stream;
 
 		mandarPaqueteSerializado(buffer, socket, SENIAL);
-
+		log_info(loggerDiscordiador, "MANDE PAQUETE"); 
 		}
 
 
@@ -835,7 +835,7 @@ void trasladarseADuranteSabotaje(uint32_t posicionX,uint32_t posicionY, TCB_DISC
 		}
 
 		sleep(cicloCPU);
-		// MANDAR POSICION A MI RAM e IMONGO
+		serializarYMandarPosicion(tripulante); 
 	}
 	
 	while(posicionY != tripulante->posicionY)
@@ -1325,16 +1325,17 @@ void atenderImongo(){
 		void* stream = malloc(paquete->buffer->size);
 		stream = paquete->buffer->stream;
 
-		uint32_t posX;
-		uint32_t posY;
+		uint32_t posX =0;
+		uint32_t posY=0;
  
 
-		int tamanioTareas;
-		memcpy(&posX, stream, sizeof(uint32_t));
+		memcpy(&(posX), stream, sizeof(uint32_t));
 		stream += sizeof(uint32_t);
+        log_info(loggerDiscordiador, "la posicion en x %d", posX);
 
-		memcpy(&posY, stream, tamanioTareas);
-
+		memcpy(&(posY), stream, sizeof(uint32_t) );
+		stream += sizeof(uint32_t);
+		log_info(loggerDiscordiador, "la posicion en y %d", posY);
 		cambiarEstadosABloqueados();
 
 		TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(posX, posY);

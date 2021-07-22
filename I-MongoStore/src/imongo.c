@@ -1082,6 +1082,7 @@ void sabotajeImongo(){
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------------- SIGNAL ----------------------------------------------//
 void llegoElSignal (){
+	log_info(loggerImongoStore,"llego la signal");
 	if(posicionesSabotaje[0]!=NULL){
 		char *posicion = posicionesSabotaje[0];
 
