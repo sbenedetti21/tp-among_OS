@@ -203,7 +203,7 @@ void iniciarPatota(char ** vectorInstruccion){
 				pthread_t tripulantes[cantidadTripulantes];
 				listaTCBsNuevos = list_create();
 				
-				sem_wait(&mutexPID); 
+				sem_wait(&mutexPID);  
 				uint32_t idPatota = proximoPID; 
 				proximoPID ++; 
 				sem_post(&mutexPID);

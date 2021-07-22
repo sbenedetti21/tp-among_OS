@@ -332,6 +332,8 @@ void atenderDiscordiador(int socketCliente){
 
 		if(strcmp(stringTarea, "NO_HAY_TAREA") == 0){ //Esto cambialo cuando sepas si hay tarea o no
 
+			
+			expulsarTripulanteDelMapa(tid);
 			t_buffer* buffer = malloc(sizeof(t_buffer)); // se puede mandar un buffer vacio????????????
 			buffer-> size = sizeof(int);
 			void * streamEnvio = malloc(buffer->size);
@@ -348,7 +350,7 @@ void atenderDiscordiador(int socketCliente){
 			
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
-			
+			eliminarTripulante(pid, tid); 
 			
 
 		}
@@ -478,7 +480,7 @@ uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 	bool coincideTID(t_segmento * segmento){
 		return (segmento->tid == tripulanteID); 
 	}
-	
+	 
 	sem_wait(&mutexTablaDeTablas); 
 	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
 	sem_post(&mutexTablaDeTablas);

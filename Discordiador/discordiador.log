@@ -15730,3 +15730,1502 @@
 [INFO] 13:19:24:652 discordiador.c/(20591:20592): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 4
 [INFO] 13:19:24:727 discordiador.c/(20591:20765): Tripulante 4 cambio su estado a F
 [INFO] 13:19:32:748 discordiador.c/(20591:20592): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:24:01:665 discordiador.c/(13977:13977): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:24:47:926 discordiador.c/(13977:13978): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segA.txt
+[INFO] 13:24:47:927 discordiador.c/(13977:13978): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 13:24:47:927 discordiador.c/(13977:13978): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 13:24:47:927 discordiador.c/(13977:13978): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 13:24:47:927 discordiador.c/(13977:13978): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 13:24:47:927 discordiador.c/(13977:13978): path de tareas recibido: /home/utnso/segA.txt
+[INFO] 13:24:57:830 discordiador.c/(13977:13978): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 13:24:57:830 discordiador.c/(13977:13978): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 13:24:57:830 discordiador.c/(13977:13978): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 13:25:38:663 discordiador.c/(13977:13978): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 13:25:38:664 discordiador.c/(13977:14012): Tripulante 0 cambio su estado a E
+[INFO] 13:25:38:664 discordiador.c/(13977:13993): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:25:38:664 discordiador.c/(13977:14012): Tripulante 1 cambio su estado a E
+[INFO] 13:25:38:664 discordiador.c/(13977:13994): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:25:38:664 discordiador.c/(13977:13994): Tarea pedida por tripulante 1:  `¥ÿ`¥ÿ`¥ÿ`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:25:38:664 discordiador.c/(13977:13993): Tarea pedida por tripulante 0: X@±∂p-±∂p-±∂p-±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:25:40:666 discordiador.c/(13977:13993): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:25:40:666 discordiador.c/(13977:13994): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:25:40:831 discordiador.c/(13977:13978): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:25:45:668 discordiador.c/(13977:13994): Tripulante 1 cambio su estado a R
+[INFO] 13:25:45:668 discordiador.c/(13977:13994): Tripulante 1 termin√≥ su tarea
+[INFO] 13:25:45:669 discordiador.c/(13977:14012): Tripulante 2 cambio su estado a E
+[INFO] 13:25:45:669 discordiador.c/(13977:13995): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:25:45:669 discordiador.c/(13977:13993): Tripulante 0 cambio su estado a R
+[INFO] 13:25:45:669 discordiador.c/(13977:13993): Tripulante 0 termin√≥ su tarea
+[INFO] 13:25:45:669 discordiador.c/(13977:14012): Tripulante 3 cambio su estado a E
+[INFO] 13:25:45:669 discordiador.c/(13977:13996): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:25:45:669 discordiador.c/(13977:13996): Tarea pedida por tripulante 3: (=`¥–,`¥–,`¥–,`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:25:45:669 discordiador.c/(13977:13995): Tarea pedida por tripulante 2: 0»l∑0»l∑8»l∑8»l∑@»l∑@»l∑H»l∑H»l∑P»l∑P»l∑X»l∑X»l∑`»l∑`»l∑h»l∑h»l∑p»l∑p»l∑x»l∑x»l∑Ä»l∑Ä»l∑à»l∑à»l∑ê»l∑ê»l∑ò»l∑ò»l∑†»l∑†»l∑®»l∑®»l∑∞»l∑∞»l∑∏»l∑∏»l∑¿»l∑¿»l∑»»l∑»»l∑–»l∑–»l∑ÿ»l∑ÿ»l∑‡»l∑‡»l∑Ë»l∑Ë»l∑»l∑»l∑¯»l∑¯»l∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:25:47:670 discordiador.c/(13977:13996): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:25:47:670 discordiador.c/(13977:13995): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:25:52:671 discordiador.c/(13977:13996): Tripulante 3 cambio su estado a R
+[INFO] 13:25:52:671 discordiador.c/(13977:13996): Tripulante 3 termin√≥ su tarea
+[INFO] 13:25:52:671 discordiador.c/(13977:14012): Tripulante 4 cambio su estado a E
+[INFO] 13:25:52:671 discordiador.c/(13977:14002): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:25:52:671 discordiador.c/(13977:14002): Tarea pedida por tripulante 4: ¿Î)	àÂ)	àÂ)	àÂ)	∏«l∑∏«l∑¿«l∑¿«l∑»«l∑»«l∑pÁ)	pÁ)	ÿ«l∑ÿ«l∑‡«l∑‡«l∑Ë«l∑Ë«l∑«l∑«l∑¯«l∑¯«l∑ Posicion: 1|1 Duracion: 1 
+[INFO] 13:25:52:672 discordiador.c/(13977:13995): Tripulante 2 cambio su estado a R
+[INFO] 13:25:52:672 discordiador.c/(13977:13995): Tripulante 2 termin√≥ su tarea
+[INFO] 13:25:52:672 discordiador.c/(13977:14012): Tripulante 1 cambio su estado a E
+[INFO] 13:25:52:672 discordiador.c/(13977:13994): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:25:52:673 discordiador.c/(13977:13994): Tarea pedida por tripulante 1: @_`¥ËN`¥ËN`¥ËN`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:25:52:673 discordiador.c/(13977:13994): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:25:54:435 discordiador.c/(13977:13978): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 0
+[INFO] 13:25:54:673 discordiador.c/(13977:14002): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:25:55:673 discordiador.c/(13977:14002): Tripulante 4 cambio su estado a R
+[INFO] 13:25:55:673 discordiador.c/(13977:14002): Tripulante 4 termin√≥ su tarea
+[INFO] 13:25:55:673 discordiador.c/(13977:14012): Tripulante 0 cambio su estado a E
+[INFO] 13:25:55:674 discordiador.c/(13977:14012): Tripulante 3 cambio su estado a E
+[INFO] 13:25:55:674 discordiador.c/(13977:13996): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:25:55:674 discordiador.c/(13977:13993): Tripulante 0 cambio su estado a F
+[INFO] 13:25:55:674 discordiador.c/(13977:13996): Tarea pedida por tripulante 3:  Posicion: 1|1 Duracion: 5 
+[INFO] 13:25:55:674 discordiador.c/(13977:13996): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:25:57:674 discordiador.c/(13977:13994): Tripulante 1 cambio su estado a R
+[INFO] 13:25:57:674 discordiador.c/(13977:13994): Tripulante 1 termin√≥ su tarea
+[INFO] 13:25:57:675 discordiador.c/(13977:14012): Tripulante 2 cambio su estado a E
+[INFO] 13:25:57:675 discordiador.c/(13977:13995): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:25:57:675 discordiador.c/(13977:13995): Tarea pedida por tripulante 2: –»l∑–»l∑ÿ»l∑ÿ»l∑‡»l∑‡»l∑Ë»l∑Ë»l∑»l∑»l∑¯»l∑¯»l∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:25:57:675 discordiador.c/(13977:13995): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:26:00:675 discordiador.c/(13977:13996): Tripulante 3 cambio su estado a R
+[INFO] 13:26:00:675 discordiador.c/(13977:13996): Tripulante 3 termin√≥ su tarea
+[INFO] 13:26:00:676 discordiador.c/(13977:14012): Tripulante 4 cambio su estado a E
+[INFO] 13:26:00:676 discordiador.c/(13977:14002): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[ERROR] 13:26:00:972 discordiador.c/(13977:14002): No se pudo recibir el header al recibir una tarea
+[INFO] 13:26:00:972 discordiador.c/(13977:14002): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:26:26:710 discordiador.c/(14132:14132): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:26:57:937 discordiador.c/(14161:14161): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:27:00:151 discordiador.c/(14161:14162): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segA.txt
+[INFO] 13:27:00:153 discordiador.c/(14161:14162): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 13:27:00:153 discordiador.c/(14161:14162): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 13:27:00:153 discordiador.c/(14161:14162): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 13:27:00:153 discordiador.c/(14161:14162): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 13:27:00:153 discordiador.c/(14161:14162): path de tareas recibido: /home/utnso/segA.txt
+[INFO] 13:27:11:330 discordiador.c/(14161:14162): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 13:27:11:331 discordiador.c/(14161:14162): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 13:27:11:331 discordiador.c/(14161:14162): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 13:27:18:201 discordiador.c/(14161:14162): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 13:27:18:202 discordiador.c/(14161:14177): Tripulante 0 cambio su estado a E
+[INFO] 13:27:18:202 discordiador.c/(14161:14164): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:27:18:204 discordiador.c/(14161:14177): Tripulante 1 cambio su estado a E
+[INFO] 13:27:18:204 discordiador.c/(14161:14165): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:27:18:225 discordiador.c/(14161:14165): Tarea pedida por tripulante 1:  p¥ÿp¥ÿp¥ÿp¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:27:18:225 discordiador.c/(14161:14164): Tarea pedida por tripulante 0: à@¡∂p-¡∂p-¡∂p-¡∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:27:20:229 discordiador.c/(14161:14165): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:27:20:229 discordiador.c/(14161:14164): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:27:23:910 discordiador.c/(14161:14162): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:27:25:233 discordiador.c/(14161:14165): Tripulante 1 cambio su estado a R
+[INFO] 13:27:25:233 discordiador.c/(14161:14165): Tripulante 1 termin√≥ su tarea
+[INFO] 13:27:25:233 discordiador.c/(14161:14177): Tripulante 2 cambio su estado a E
+[INFO] 13:27:25:233 discordiador.c/(14161:14166): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:27:25:233 discordiador.c/(14161:14164): Tripulante 0 cambio su estado a R
+[INFO] 13:27:25:233 discordiador.c/(14161:14164): Tripulante 0 termin√≥ su tarea
+[INFO] 13:27:25:233 discordiador.c/(14161:14177): Tripulante 3 cambio su estado a E
+[INFO] 13:27:25:233 discordiador.c/(14161:14167): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:27:25:247 discordiador.c/(14161:14166): Tarea pedida por tripulante 2: 0ÿr∑0ÿr∑8ÿr∑8ÿr∑@ÿr∑@ÿr∑Hÿr∑Hÿr∑Pÿr∑Pÿr∑Xÿr∑Xÿr∑`ÿr∑`ÿr∑hÿr∑hÿr∑pÿr∑pÿr∑xÿr∑xÿr∑Äÿr∑Äÿr∑àÿr∑àÿr∑êÿr∑êÿr∑òÿr∑òÿr∑†ÿr∑†ÿr∑®ÿr∑®ÿr∑∞ÿr∑∞ÿr∑∏ÿr∑∏ÿr∑¿ÿr∑¿ÿr∑»ÿr∑»ÿr∑–ÿr∑–ÿr∑ÿÿr∑ÿÿr∑‡ÿr∑‡ÿr∑Ëÿr∑Ëÿr∑ÿr∑ÿr∑¯ÿr∑¯ÿr∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:27:25:248 discordiador.c/(14161:14167): Tarea pedida por tripulante 3: (=p¥–,p¥–,p¥–,p¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:27:27:249 discordiador.c/(14161:14167): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:27:27:250 discordiador.c/(14161:14166): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:27:32:253 discordiador.c/(14161:14166): Tripulante 2 cambio su estado a R
+[INFO] 13:27:32:253 discordiador.c/(14161:14166): Tripulante 2 termin√≥ su tarea
+[INFO] 13:27:32:253 discordiador.c/(14161:14177): Tripulante 4 cambio su estado a E
+[INFO] 13:27:32:253 discordiador.c/(14161:14167): Tripulante 3 cambio su estado a R
+[INFO] 13:27:32:253 discordiador.c/(14161:14167): Tripulante 3 termin√≥ su tarea
+[INFO] 13:27:32:253 discordiador.c/(14161:14177): Tripulante 1 cambio su estado a E
+[INFO] 13:27:32:254 discordiador.c/(14161:14165): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:27:32:254 discordiador.c/(14161:14173): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:27:32:276 discordiador.c/(14161:14165): Tarea pedida por tripulante 1: H_p¥hOp¥hOp¥hOp¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:27:32:276 discordiador.c/(14161:14165): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:27:32:277 discordiador.c/(14161:14173): Tarea pedida por tripulante 4: `ÿr∑`ÿr∑hÿr∑hÿr∑pÿr∑pÿr∑xÿr∑xÿr∑Äÿr∑Äÿr∑àÿr∑àÿr∑êÿr∑êÿr∑òÿr∑òÿr∑†ÿr∑†ÿr∑®ÿr∑®ÿr∑∞ÿr∑∞ÿr∑∏ÿr∑∏ÿr∑¿ÿr∑¿ÿr∑»ÿr∑»ÿr∑–ÿr∑–ÿr∑ÿÿr∑ÿÿr∑‡ÿr∑‡ÿr∑Ëÿr∑Ëÿr∑ÿr∑ÿr∑¯ÿr∑¯ÿr∑ Posicion: 1|1 Duracion: 1 
+[INFO] 13:27:34:279 discordiador.c/(14161:14173): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:27:35:280 discordiador.c/(14161:14173): Tripulante 4 cambio su estado a R
+[INFO] 13:27:35:280 discordiador.c/(14161:14173): Tripulante 4 termin√≥ su tarea
+[INFO] 13:27:35:280 discordiador.c/(14161:14177): Tripulante 0 cambio su estado a E
+[INFO] 13:27:35:280 discordiador.c/(14161:14164): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:27:35:287 discordiador.c/(14161:14164): Tarea pedida por tripulante 0: (null) Posicion: 1|1 Duracion: 5 
+[INFO] 13:27:35:287 discordiador.c/(14161:14164): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:28:10:980 discordiador.c/(14303:14303): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:28:15:343 discordiador.c/(14303:14304): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segA.txt
+[INFO] 13:28:15:345 discordiador.c/(14303:14304): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 13:28:15:345 discordiador.c/(14303:14304): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 13:28:15:346 discordiador.c/(14303:14304): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 13:28:15:346 discordiador.c/(14303:14304): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 13:28:15:346 discordiador.c/(14303:14304): path de tareas recibido: /home/utnso/segA.txt
+[INFO] 13:28:15:833 discordiador.c/(14303:14304): INSTRUCCION LEIDA: 
+[INFO] 13:28:26:418 discordiador.c/(14303:14304): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 13:28:26:419 discordiador.c/(14303:14304): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 13:28:26:419 discordiador.c/(14303:14304): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 13:28:32:163 discordiador.c/(14303:14304): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 13:28:32:165 discordiador.c/(14303:14323): Tripulante 0 cambio su estado a E
+[INFO] 13:28:32:165 discordiador.c/(14303:14306): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:28:32:166 discordiador.c/(14303:14323): Tripulante 1 cambio su estado a E
+[INFO] 13:28:32:167 discordiador.c/(14303:14307): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:28:32:190 discordiador.c/(14303:14306): Tarea pedida por tripulante 0: †@¡∂p-¡∂p-¡∂p-¡∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:28:32:190 discordiador.c/(14303:14307): Tarea pedida por tripulante 1:  p¥ÿp¥ÿp¥ÿp¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:28:34:193 discordiador.c/(14303:14306): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:28:34:193 discordiador.c/(14303:14307): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:28:39:200 discordiador.c/(14303:14306): Tripulante 0 cambio su estado a R
+[INFO] 13:28:39:200 discordiador.c/(14303:14306): Tripulante 0 termin√≥ su tarea
+[INFO] 13:28:39:200 discordiador.c/(14303:14323): Tripulante 2 cambio su estado a E
+[INFO] 13:28:39:201 discordiador.c/(14303:14308): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:28:39:200 discordiador.c/(14303:14307): Tripulante 1 cambio su estado a R
+[INFO] 13:28:39:202 discordiador.c/(14303:14323): Tripulante 3 cambio su estado a E
+[INFO] 13:28:39:202 discordiador.c/(14303:14309): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:28:39:201 discordiador.c/(14303:14307): Tripulante 1 termin√≥ su tarea
+[INFO] 13:28:39:232 discordiador.c/(14303:14309): Tarea pedida por tripulante 3: (=p¥xp¥xp¥xp¥H Posicion: 1|1 Dura
+[INFO] 13:28:39:232 discordiador.c/(14303:14308): Tarea pedida por tripulante 2: 0Hr∑0Hr∑8Hr∑8Hr∑@Hr∑@Hr∑HHr∑HHr∑PHr∑PHr∑XHr∑XHr∑`Hr∑`Hr∑hHr∑hHr∑pHr∑pHr∑xHr∑xHr∑ÄHr∑ÄHr∑àHr∑àHr∑êHr∑êHr∑òHr∑òHr∑†Hr∑†Hr∑®Hr∑®Hr∑∞Hr∑∞Hr∑∏Hr∑∏Hr∑¿Hr∑¿Hr∑»Hr∑»Hr∑–Hr∑–Hr∑ÿHr∑ÿHr∑‡Hr∑‡Hr∑ËHr∑ËHr∑Hr∑Hr∑¯Hr∑¯Hr∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:28:41:236 discordiador.c/(14303:14308): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:28:41:237 discordiador.c/(14303:14309): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:28:46:241 discordiador.c/(14303:14308): Tripulante 2 cambio su estado a R
+[INFO] 13:28:46:241 discordiador.c/(14303:14308): Tripulante 2 termin√≥ su tarea
+[INFO] 13:28:46:241 discordiador.c/(14303:14323): Tripulante 4 cambio su estado a E
+[INFO] 13:28:46:241 discordiador.c/(14303:14319): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:28:46:241 discordiador.c/(14303:14309): Tripulante 3 cambio su estado a R
+[INFO] 13:28:46:241 discordiador.c/(14303:14309): Tripulante 3 termin√≥ su tarea
+[INFO] 13:28:46:241 discordiador.c/(14303:14323): Tripulante 1 cambio su estado a E
+[INFO] 13:28:46:241 discordiador.c/(14303:14307): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:28:46:251 discordiador.c/(14303:14319): Tarea pedida por tripulante 4: `Hr∑`Hr∑hHr∑hHr∑pHr∑pHr∑xHr∑xHr∑ÄHr∑ÄHr∑àHr∑àHr∑êHr∑êHr∑òHr∑òHr∑†Hr∑†Hr∑®Hr∑®Hr∑∞Hr∑∞Hr∑∏Hr∑∏Hr∑¿Hr∑¿Hr∑»Hr∑»Hr∑–Hr∑–Hr∑ÿHr∑ÿHr∑‡Hr∑‡Hr∑ËHr∑ËHr∑Hr∑Hr∑¯Hr∑¯Hr∑ Posicion: 1|1 Duracion: 1 
+[INFO] 13:28:46:257 discordiador.c/(14303:14307): Tarea pedida por tripulante 1: 0_p¥Np¥Np¥Np¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:28:46:257 discordiador.c/(14303:14307): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:28:48:253 discordiador.c/(14303:14319): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:28:49:255 discordiador.c/(14303:14319): Tripulante 4 cambio su estado a R
+[INFO] 13:28:49:255 discordiador.c/(14303:14319): Tripulante 4 termin√≥ su tarea
+[INFO] 13:28:49:255 discordiador.c/(14303:14323): Tripulante 0 cambio su estado a E
+[INFO] 13:28:49:255 discordiador.c/(14303:14306): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:28:49:264 discordiador.c/(14303:14306): Tarea pedida por tripulante 0: R¡∂∞D¡∂∞D¡∂∞D¡∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:28:49:264 discordiador.c/(14303:14306): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:28:51:261 discordiador.c/(14303:14307): Tripulante 1 cambio su estado a R
+[INFO] 13:28:51:261 discordiador.c/(14303:14307): Tripulante 1 termin√≥ su tarea
+[INFO] 13:28:51:262 discordiador.c/(14303:14323): Tripulante 2 cambio su estado a E
+[INFO] 13:28:51:262 discordiador.c/(14303:14308): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:28:51:269 discordiador.c/(14303:14308): Tarea pedida por tripulante 2: ±	¿§	¿§	¿§	∏Gr∑∏Gr∑¿Gr∑¿Gr∑»Gr∑»Gr∑¯®	¯®	ÿGr∑ÿGr∑‡Gr∑‡Gr∑ËGr∑ËGr∑Gr∑Gr∑¯Gr∑¯Gr∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:28:51:269 discordiador.c/(14303:14308): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:28:54:266 discordiador.c/(14303:14306): Tripulante 0 cambio su estado a R
+[INFO] 13:28:54:266 discordiador.c/(14303:14306): Tripulante 0 termin√≥ su tarea
+[INFO] 13:28:54:266 discordiador.c/(14303:14323): Tripulante 3 cambio su estado a E
+[INFO] 13:28:54:267 discordiador.c/(14303:14309): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:28:54:274 discordiador.c/(14303:14309): Tarea pedida por tripulante 3: ∏Åp¥ `p¥ `p¥ `p¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:28:54:274 discordiador.c/(14303:14309): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:28:56:272 discordiador.c/(14303:14308): Tripulante 2 cambio su estado a R
+[INFO] 13:28:56:272 discordiador.c/(14303:14308): Tripulante 2 termin√≥ su tarea
+[INFO] 13:28:56:273 discordiador.c/(14303:14323): Tripulante 4 cambio su estado a E
+[INFO] 13:28:56:273 discordiador.c/(14303:14319): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[ERROR] 13:28:56:290 discordiador.c/(14303:14319): No se pudo recibir el header al recibir una tarea
+[INFO] 13:28:56:290 discordiador.c/(14303:14319): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:29:53:005 discordiador.c/(14459:14459): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:29:59:667 discordiador.c/(14459:14460): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segA.txt
+[INFO] 13:29:59:669 discordiador.c/(14459:14460): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 13:29:59:669 discordiador.c/(14459:14460): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 13:29:59:669 discordiador.c/(14459:14460): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 13:29:59:669 discordiador.c/(14459:14460): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 13:29:59:669 discordiador.c/(14459:14460): path de tareas recibido: /home/utnso/segA.txt
+[INFO] 13:30:12:243 discordiador.c/(14459:14460): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 13:30:12:244 discordiador.c/(14459:14460): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 13:30:12:244 discordiador.c/(14459:14460): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 13:30:15:441 discordiador.c/(14459:14460): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 13:30:15:443 discordiador.c/(14459:14481): Tripulante 0 cambio su estado a E
+[INFO] 13:30:15:443 discordiador.c/(14459:14468): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:30:15:444 discordiador.c/(14459:14481): Tripulante 1 cambio su estado a E
+[INFO] 13:30:15:444 discordiador.c/(14459:14469): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:30:15:477 discordiador.c/(14459:14468): Tarea pedida por tripulante 0: X@±∂p-±∂p-±∂p-±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:30:15:478 discordiador.c/(14459:14469): Tarea pedida por tripulante 1:  `¥ÿ`¥ÿ`¥ÿ`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:30:17:480 discordiador.c/(14459:14469): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:30:17:480 discordiador.c/(14459:14468): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:30:22:484 discordiador.c/(14459:14469): Tripulante 1 cambio su estado a R
+[INFO] 13:30:22:484 discordiador.c/(14459:14469): Tripulante 1 termin√≥ su tarea
+[INFO] 13:30:22:484 discordiador.c/(14459:14481): Tripulante 2 cambio su estado a E
+[INFO] 13:30:22:484 discordiador.c/(14459:14470): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:30:22:484 discordiador.c/(14459:14468): Tripulante 0 cambio su estado a R
+[INFO] 13:30:22:484 discordiador.c/(14459:14468): Tripulante 0 termin√≥ su tarea
+[INFO] 13:30:22:484 discordiador.c/(14459:14481): Tripulante 3 cambio su estado a E
+[INFO] 13:30:22:484 discordiador.c/(14459:14471): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:30:22:500 discordiador.c/(14459:14470): Tarea pedida por tripulante 2: 0òe∑0òe∑8òe∑8òe∑@òe∑@òe∑Hòe∑Hòe∑Pòe∑Pòe∑Xòe∑Xòe∑`òe∑`òe∑hòe∑hòe∑pòe∑pòe∑xòe∑xòe∑Äòe∑Äòe∑àòe∑àòe∑êòe∑êòe∑òòe∑òòe∑†òe∑†òe∑®òe∑®òe∑∞òe∑∞òe∑∏òe∑∏òe∑¿òe∑¿òe∑»òe∑»òe∑–òe∑–òe∑ÿòe∑ÿòe∑‡òe∑‡òe∑Ëòe∑Ëòe∑òe∑òe∑¯òe∑¯òe∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:30:22:504 discordiador.c/(14459:14471): Tarea pedida por tripulante 3: (=`¥–,`¥–,`¥–,`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:30:24:503 discordiador.c/(14459:14470): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:30:24:506 discordiador.c/(14459:14471): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:30:29:507 discordiador.c/(14459:14470): Tripulante 2 cambio su estado a R
+[INFO] 13:30:29:507 discordiador.c/(14459:14470): Tripulante 2 termin√≥ su tarea
+[INFO] 13:30:29:507 discordiador.c/(14459:14481): Tripulante 4 cambio su estado a E
+[INFO] 13:30:29:507 discordiador.c/(14459:14478): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:30:29:508 discordiador.c/(14459:14471): Tripulante 3 cambio su estado a R
+[INFO] 13:30:29:508 discordiador.c/(14459:14471): Tripulante 3 termin√≥ su tarea
+[INFO] 13:30:29:508 discordiador.c/(14459:14481): Tripulante 1 cambio su estado a E
+[INFO] 13:30:29:508 discordiador.c/(14459:14469): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:30:29:529 discordiador.c/(14459:14478): Tarea pedida por tripulante 4: `òe∑`òe∑hòe∑hòe∑pòe∑pòe∑xòe∑xòe∑Äòe∑Äòe∑àòe∑àòe∑êòe∑êòe∑òòe∑òòe∑†òe∑†òe∑®òe∑®òe∑∞òe∑∞òe∑∏òe∑∏òe∑¿òe∑¿òe∑»òe∑»òe∑–òe∑–òe∑ÿòe∑ÿòe∑‡òe∑‡òe∑Ëòe∑Ëòe∑òe∑òe∑¯òe∑¯òe∑ Posicion: 1|1 Duracion: 1 
+[INFO] 13:30:29:542 discordiador.c/(14459:14469): Tarea pedida por tripulante 1: ®_`¥hO`¥hO`¥hO`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:30:29:542 discordiador.c/(14459:14469): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:30:31:532 discordiador.c/(14459:14478): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:30:32:533 discordiador.c/(14459:14478): Tripulante 4 cambio su estado a R
+[INFO] 13:30:32:533 discordiador.c/(14459:14478): Tripulante 4 termin√≥ su tarea
+[INFO] 13:30:32:533 discordiador.c/(14459:14481): Tripulante 0 cambio su estado a E
+[INFO] 13:30:32:533 discordiador.c/(14459:14468): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:30:32:539 discordiador.c/(14459:14468): Tarea pedida por tripulante 0: ∏Q±∂ÄD±∂ÄD±∂ÄD±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:30:32:539 discordiador.c/(14459:14468): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:30:34:543 discordiador.c/(14459:14469): Tripulante 1 cambio su estado a R
+[INFO] 13:30:34:543 discordiador.c/(14459:14469): Tripulante 1 termin√≥ su tarea
+[INFO] 13:30:34:543 discordiador.c/(14459:14481): Tripulante 2 cambio su estado a E
+[INFO] 13:30:34:543 discordiador.c/(14459:14470): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:30:34:550 discordiador.c/(14459:14470): Tarea pedida por tripulante 2: Q
+¿D
+¿D
+¿D
+∏óe∑∏óe∑¿óe∑¿óe∑»óe∑»óe∑¯H
+¯H
+ÿóe∑ÿóe∑‡óe∑‡óe∑Ëóe∑Ëóe∑óe∑óe∑¯óe∑¯óe∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:30:34:551 discordiador.c/(14459:14470): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:30:37:542 discordiador.c/(14459:14468): Tripulante 0 cambio su estado a R
+[INFO] 13:30:37:543 discordiador.c/(14459:14468): Tripulante 0 termin√≥ su tarea
+[INFO] 13:30:37:543 discordiador.c/(14459:14481): Tripulante 3 cambio su estado a E
+[INFO] 13:30:37:543 discordiador.c/(14459:14471): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:30:37:549 discordiador.c/(14459:14471): Tarea pedida por tripulante 3: ®Å`¥ò``¥ò``¥ò``¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:30:37:549 discordiador.c/(14459:14471): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:30:39:555 discordiador.c/(14459:14470): Tripulante 2 cambio su estado a R
+[INFO] 13:30:39:555 discordiador.c/(14459:14470): Tripulante 2 termin√≥ su tarea
+[INFO] 13:30:39:555 discordiador.c/(14459:14481): Tripulante 4 cambio su estado a E
+[INFO] 13:30:39:555 discordiador.c/(14459:14478): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[ERROR] 13:30:39:578 discordiador.c/(14459:14478): No se pudo recibir el header al recibir una tarea
+[INFO] 13:30:39:578 discordiador.c/(14459:14478): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:31:55:471 discordiador.c/(14723:14723): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:31:59:068 discordiador.c/(14723:14724): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segA.txt
+[INFO] 13:31:59:068 discordiador.c/(14723:14724): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 13:31:59:068 discordiador.c/(14723:14724): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 13:31:59:068 discordiador.c/(14723:14724): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 13:31:59:068 discordiador.c/(14723:14724): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 13:31:59:068 discordiador.c/(14723:14724): path de tareas recibido: /home/utnso/segA.txt
+[INFO] 13:32:11:107 discordiador.c/(14723:14724): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 13:32:11:109 discordiador.c/(14723:14724): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 13:32:11:109 discordiador.c/(14723:14724): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 13:32:14:216 discordiador.c/(14723:14724): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 13:32:14:217 discordiador.c/(14723:14761): Tripulante 0 cambio su estado a E
+[INFO] 13:32:14:217 discordiador.c/(14723:14735): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:32:14:217 discordiador.c/(14723:14761): Tripulante 1 cambio su estado a E
+[INFO] 13:32:14:217 discordiador.c/(14723:14736): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:32:14:228 discordiador.c/(14723:14735): Tarea pedida por tripulante 0: êE¡∂‡1¡∂‡1¡∂‡1¡∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:32:14:245 discordiador.c/(14723:14736): Tarea pedida por tripulante 1:  Ä¥ÿÄ¥ÿÄ¥ÿÄ¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:32:16:229 discordiador.c/(14723:14735): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:32:16:247 discordiador.c/(14723:14736): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:32:21:233 discordiador.c/(14723:14735): Tripulante 0 cambio su estado a R
+[INFO] 13:32:21:233 discordiador.c/(14723:14735): Tripulante 0 termin√≥ su tarea
+[INFO] 13:32:21:233 discordiador.c/(14723:14761): Tripulante 2 cambio su estado a E
+[INFO] 13:32:21:233 discordiador.c/(14723:14737): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:32:21:243 discordiador.c/(14723:14737): Tarea pedida por tripulante 2: 0¯s∑0¯s∑8¯s∑8¯s∑@¯s∑@¯s∑H¯s∑H¯s∑P¯s∑P¯s∑X¯s∑X¯s∑`¯s∑`¯s∑h¯s∑h¯s∑p¯s∑p¯s∑x¯s∑x¯s∑Ä¯s∑Ä¯s∑à¯s∑à¯s∑ê¯s∑ê¯s∑ò¯s∑ò¯s∑†¯s∑†¯s∑®¯s∑®¯s∑∞¯s∑∞¯s∑∏¯s∑∏¯s∑¿¯s∑¿¯s∑»¯s∑»¯s∑–¯s∑–¯s∑ÿ¯s∑ÿ¯s∑‡¯s∑‡¯s∑Ë¯s∑Ë¯s∑¯s∑¯s∑¯¯s∑¯¯s∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:32:21:248 discordiador.c/(14723:14736): Tripulante 1 cambio su estado a R
+[INFO] 13:32:21:248 discordiador.c/(14723:14736): Tripulante 1 termin√≥ su tarea
+[INFO] 13:32:21:248 discordiador.c/(14723:14761): Tripulante 3 cambio su estado a E
+[INFO] 13:32:21:248 discordiador.c/(14723:14738): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:32:21:256 discordiador.c/(14723:14738): Tarea pedida por tripulante 3: –<Ä¥h3Ä¥h3Ä¥h3Ä¥Ë-Ä¥Ë-Ä¥P Posicion: 
+[INFO] 13:32:23:245 discordiador.c/(14723:14737): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:32:23:259 discordiador.c/(14723:14738): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:32:28:249 discordiador.c/(14723:14737): Tripulante 2 cambio su estado a R
+[INFO] 13:32:28:249 discordiador.c/(14723:14737): Tripulante 2 termin√≥ su tarea
+[INFO] 13:32:28:249 discordiador.c/(14723:14761): Tripulante 4 cambio su estado a E
+[INFO] 13:32:28:249 discordiador.c/(14723:14757): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:32:28:256 discordiador.c/(14723:14757): Tarea pedida por tripulante 4: `¯s∑`¯s∑h¯s∑h¯s∑p¯s∑p¯s∑x¯s∑x¯s∑Ä¯s∑Ä¯s∑à¯s∑à¯s∑ê¯s∑ê¯s∑ò¯s∑ò¯s∑†¯s∑†¯s∑®¯s∑®¯s∑∞¯s∑∞¯s∑∏¯s∑∏¯s∑¿¯s∑¿¯s∑»¯s∑»¯s∑–¯s∑–¯s∑ÿ¯s∑ÿ¯s∑‡¯s∑‡¯s∑Ë¯s∑Ë¯s∑¯s∑¯s∑¯¯s∑¯¯s∑ Posicion: 1|1 Duracion: 1 
+[INFO] 13:32:28:263 discordiador.c/(14723:14738): Tripulante 3 cambio su estado a R
+[INFO] 13:32:28:263 discordiador.c/(14723:14738): Tripulante 3 termin√≥ su tarea
+[INFO] 13:32:28:263 discordiador.c/(14723:14761): Tripulante 0 cambio su estado a E
+[INFO] 13:32:28:263 discordiador.c/(14723:14735): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:32:28:271 discordiador.c/(14723:14735): Tarea pedida por tripulante 0: (W¡∂àI¡∂àI¡∂àI¡∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:32:28:271 discordiador.c/(14723:14735): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:32:30:256 discordiador.c/(14723:14757): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:32:31:257 discordiador.c/(14723:14757): Tripulante 4 cambio su estado a R
+[INFO] 13:32:31:258 discordiador.c/(14723:14757): Tripulante 4 termin√≥ su tarea
+[INFO] 13:32:31:258 discordiador.c/(14723:14761): Tripulante 1 cambio su estado a E
+[INFO] 13:32:31:258 discordiador.c/(14723:14736): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:32:31:272 discordiador.c/(14723:14736): Tarea pedida por tripulante 1: Ë^Ä¥–NÄ¥–NÄ¥–NÄ¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:32:31:272 discordiador.c/(14723:14736): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:32:33:273 discordiador.c/(14723:14735): Tripulante 0 cambio su estado a R
+[INFO] 13:32:33:273 discordiador.c/(14723:14735): Tripulante 0 termin√≥ su tarea
+[INFO] 13:32:33:273 discordiador.c/(14723:14761): Tripulante 2 cambio su estado a E
+[INFO] 13:32:33:273 discordiador.c/(14723:14737): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:32:33:280 discordiador.c/(14723:14737): Tarea pedida por tripulante 2: AU	¿4U	¿4U	¿4U	∏˜s∑∏˜s∑¿˜s∑¿˜s∑»˜s∑»˜s∑¯8U	¯8U	ÿ˜s∑ÿ˜s∑‡˜s∑‡˜s∑Ë˜s∑Ë˜s∑˜s∑˜s∑¯˜s∑¯˜s∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:32:33:280 discordiador.c/(14723:14737): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:32:36:274 discordiador.c/(14723:14736): Tripulante 1 cambio su estado a R
+[INFO] 13:32:36:274 discordiador.c/(14723:14736): Tripulante 1 termin√≥ su tarea
+[INFO] 13:32:36:274 discordiador.c/(14723:14761): Tripulante 3 cambio su estado a E
+[INFO] 13:32:36:274 discordiador.c/(14723:14738): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:32:36:281 discordiador.c/(14723:14738): Tarea pedida por tripulante 3: 0ÅÄ¥8YÄ¥8YÄ¥8YÄ¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:32:36:281 discordiador.c/(14723:14738): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:32:38:282 discordiador.c/(14723:14737): Tripulante 2 cambio su estado a R
+[INFO] 13:32:38:282 discordiador.c/(14723:14737): Tripulante 2 termin√≥ su tarea
+[INFO] 13:32:38:282 discordiador.c/(14723:14761): Tripulante 4 cambio su estado a E
+[INFO] 13:32:38:282 discordiador.c/(14723:14757): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:32:41:282 discordiador.c/(14723:14738): Tripulante 3 cambio su estado a R
+[INFO] 13:32:41:282 discordiador.c/(14723:14738): Tripulante 3 termin√≥ su tarea
+[INFO] 13:32:41:282 discordiador.c/(14723:14761): Tripulante 0 cambio su estado a E
+[INFO] 13:32:41:282 discordiador.c/(14723:14735): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[ERROR] 13:35:30:934 discordiador.c/(14723:14757): No se pudo recibir el header al recibir una tarea
+[INFO] 13:35:30:934 discordiador.c/(14723:14757): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:35:30:934 discordiador.c/(14723:14735): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:35:54:714 discordiador.c/(15132:15132): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:36:07:503 discordiador.c/(15132:15133): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segA.txt
+[INFO] 13:36:07:505 discordiador.c/(15132:15133): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 13:36:07:506 discordiador.c/(15132:15133): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 13:36:07:506 discordiador.c/(15132:15133): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 13:36:07:506 discordiador.c/(15132:15133): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 13:36:07:506 discordiador.c/(15132:15133): path de tareas recibido: /home/utnso/segA.txt
+[INFO] 13:36:33:245 discordiador.c/(15132:15133): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 13:36:33:247 discordiador.c/(15132:15133): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 13:36:33:247 discordiador.c/(15132:15133): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 13:36:43:826 discordiador.c/(15132:15133): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 13:36:43:828 discordiador.c/(15132:15200): Tripulante 0 cambio su estado a E
+[INFO] 13:36:43:831 discordiador.c/(15132:15148): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:36:43:838 discordiador.c/(15132:15200): Tripulante 1 cambio su estado a E
+[INFO] 13:36:43:838 discordiador.c/(15132:15149): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:36:43:880 discordiador.c/(15132:15148): Tarea pedida por tripulante 0: òE¡∂Ä2¡∂Ä2¡∂Ä2¡∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:36:43:883 discordiador.c/(15132:15149): Tarea pedida por tripulante 1:  Ä¥ÿÄ¥ÿÄ¥ÿÄ¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:36:45:883 discordiador.c/(15132:15148): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:36:45:885 discordiador.c/(15132:15149): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:36:50:886 discordiador.c/(15132:15148): Tripulante 0 cambio su estado a R
+[INFO] 13:36:50:889 discordiador.c/(15132:15148): Tripulante 0 termin√≥ su tarea
+[INFO] 13:36:50:889 discordiador.c/(15132:15200): Tripulante 2 cambio su estado a E
+[INFO] 13:36:50:889 discordiador.c/(15132:15150): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:36:50:889 discordiador.c/(15132:15149): Tripulante 1 cambio su estado a R
+[INFO] 13:36:50:889 discordiador.c/(15132:15149): Tripulante 1 termin√≥ su tarea
+[INFO] 13:36:50:889 discordiador.c/(15132:15200): Tripulante 3 cambio su estado a E
+[INFO] 13:36:50:889 discordiador.c/(15132:15151): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:36:50:899 discordiador.c/(15132:15150): Tarea pedida por tripulante 2: 0¯p∑0¯p∑8¯p∑8¯p∑@¯p∑@¯p∑H¯p∑H¯p∑P¯p∑P¯p∑X¯p∑X¯p∑`¯p∑`¯p∑h¯p∑h¯p∑p¯p∑p¯p∑x¯p∑x¯p∑Ä¯p∑Ä¯p∑à¯p∑à¯p∑ê¯p∑ê¯p∑ò¯p∑ò¯p∑†¯p∑†¯p∑®¯p∑®¯p∑∞¯p∑∞¯p∑∏¯p∑∏¯p∑¿¯p∑¿¯p∑»¯p∑»¯p∑–¯p∑–¯p∑ÿ¯p∑ÿ¯p∑‡¯p∑‡¯p∑Ë¯p∑Ë¯p∑¯p∑¯p∑¯¯p∑¯¯p∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:36:50:905 discordiador.c/(15132:15151): Tarea pedida por tripulante 3: ‡<Ä¥–,Ä¥–,Ä¥–,Ä¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:36:52:902 discordiador.c/(15132:15150): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:36:52:906 discordiador.c/(15132:15151): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:36:57:905 discordiador.c/(15132:15150): Tripulante 2 cambio su estado a R
+[INFO] 13:36:57:905 discordiador.c/(15132:15150): Tripulante 2 termin√≥ su tarea
+[INFO] 13:36:57:905 discordiador.c/(15132:15200): Tripulante 4 cambio su estado a E
+[INFO] 13:36:57:905 discordiador.c/(15132:15185): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:36:57:908 discordiador.c/(15132:15151): Tripulante 3 cambio su estado a R
+[INFO] 13:36:57:908 discordiador.c/(15132:15151): Tripulante 3 termin√≥ su tarea
+[INFO] 13:36:57:908 discordiador.c/(15132:15200): Tripulante 0 cambio su estado a E
+[INFO] 13:36:57:908 discordiador.c/(15132:15148): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:36:57:919 discordiador.c/(15132:15185): Tarea pedida por tripulante 4: `¯p∑`¯p∑h¯p∑h¯p∑p¯p∑p¯p∑x¯p∑x¯p∑Ä¯p∑Ä¯p∑à¯p∑à¯p∑ê¯p∑ê¯p∑ò¯p∑ò¯p∑†¯p∑†¯p∑®¯p∑®¯p∑∞¯p∑∞¯p∑∏¯p∑∏¯p∑¿¯p∑¿¯p∑»¯p∑»¯p∑–¯p∑–¯p∑ÿ¯p∑ÿ¯p∑‡¯p∑‡¯p∑Ë¯p∑Ë¯p∑¯p∑¯p∑¯¯p∑¯¯p∑ Posicion: 1|1 Duracion: 1 
+[INFO] 13:36:57:927 discordiador.c/(15132:15148): Tarea pedida por tripulante 0: –V¡∂»I¡∂»I¡∂»I¡∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:36:57:927 discordiador.c/(15132:15148): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:36:59:922 discordiador.c/(15132:15185): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:37:00:925 discordiador.c/(15132:15185): Tripulante 4 cambio su estado a R
+[INFO] 13:37:00:925 discordiador.c/(15132:15185): Tripulante 4 termin√≥ su tarea
+[INFO] 13:37:00:926 discordiador.c/(15132:15200): Tripulante 1 cambio su estado a E
+[INFO] 13:37:00:926 discordiador.c/(15132:15149): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:37:00:944 discordiador.c/(15132:15149): Tarea pedida por tripulante 1: †_Ä¥‡NÄ¥‡NÄ¥‡NÄ¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:37:00:944 discordiador.c/(15132:15149): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:37:02:929 discordiador.c/(15132:15148): Tripulante 0 cambio su estado a R
+[INFO] 13:37:02:929 discordiador.c/(15132:15148): Tripulante 0 termin√≥ su tarea
+[INFO] 13:37:02:930 discordiador.c/(15132:15200): Tripulante 2 cambio su estado a E
+[INFO] 13:37:02:930 discordiador.c/(15132:15150): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:37:02:949 discordiador.c/(15132:15150): Tarea pedida por tripulante 2: ¡é	¿¥é	¿¥é	¿¥é	∏˜p∑∏˜p∑¿˜p∑¿˜p∑»˜p∑»˜p∑¯∏é	¯∏é	ÿ˜p∑ÿ˜p∑‡˜p∑‡˜p∑Ë˜p∑Ë˜p∑˜p∑˜p∑¯˜p∑¯˜p∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:37:02:949 discordiador.c/(15132:15150): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:37:05:948 discordiador.c/(15132:15149): Tripulante 1 cambio su estado a R
+[INFO] 13:37:05:948 discordiador.c/(15132:15149): Tripulante 1 termin√≥ su tarea
+[INFO] 13:37:05:948 discordiador.c/(15132:15200): Tripulante 3 cambio su estado a E
+[INFO] 13:37:05:949 discordiador.c/(15132:15151): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:37:05:956 discordiador.c/(15132:15151): Tarea pedida por tripulante 3: ®ÅÄ¥8YÄ¥8YÄ¥8YÄ¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:37:05:957 discordiador.c/(15132:15151): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:37:07:952 discordiador.c/(15132:15150): Tripulante 2 cambio su estado a R
+[INFO] 13:37:07:953 discordiador.c/(15132:15150): Tripulante 2 termin√≥ su tarea
+[INFO] 13:37:07:953 discordiador.c/(15132:15200): Tripulante 4 cambio su estado a E
+[INFO] 13:37:07:953 discordiador.c/(15132:15185): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[ERROR] 13:37:07:985 discordiador.c/(15132:15185): No se pudo recibir el header al recibir una tarea
+[INFO] 13:37:07:985 discordiador.c/(15132:15185): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:44:57:767 discordiador.c/(15602:15602): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:45:19:589 discordiador.c/(15602:15603): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segA.txt
+[INFO] 13:45:19:589 discordiador.c/(15602:15603): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 13:45:19:589 discordiador.c/(15602:15603): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 13:45:19:589 discordiador.c/(15602:15603): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 13:45:19:589 discordiador.c/(15602:15603): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 13:45:19:590 discordiador.c/(15602:15603): path de tareas recibido: /home/utnso/segA.txt
+[INFO] 13:45:31:022 discordiador.c/(15602:15603): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 13:45:31:022 discordiador.c/(15602:15603): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 13:45:31:022 discordiador.c/(15602:15603): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 13:45:35:856 discordiador.c/(15602:15603): INSTRUCCION LEIDA: INICIAR_PLANFICACION
+[INFO] 13:45:46:306 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:45:53:334 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:46:02:985 discordiador.c/(15602:15603): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 13:46:02:986 discordiador.c/(15602:15698): Tripulante 0 cambio su estado a E
+[INFO] 13:46:02:986 discordiador.c/(15602:15631): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:46:02:987 discordiador.c/(15602:15698): Tripulante 1 cambio su estado a E
+[INFO] 13:46:02:987 discordiador.c/(15602:15632): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:46:02:990 discordiador.c/(15602:15631): Tarea pedida por tripulante 0: ê∞∂ê∞∂ò∞∂ò∞∂†∞∂†∞∂®∞∂®∞∂∞∞∂∞∞∂∏∞∂∏∞∂¿∞∂¿∞∂»∞∂»∞∂–∞∂–∞∂ÿ∞∂ÿ∞∂‡∞∂‡∞∂Ë∞∂Ë∞∂∞∂∞∂¯∞∂¯∞∂ Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:02:991 discordiador.c/(15602:15632): Tarea pedida por tripulante 1:  p¥ÿp¥ÿp¥ÿp¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:04:991 discordiador.c/(15602:15631): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:46:04:992 discordiador.c/(15602:15632): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:46:08:201 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:46:09:994 discordiador.c/(15602:15631): Tripulante 0 cambio su estado a R
+[INFO] 13:46:09:994 discordiador.c/(15602:15631): Tripulante 0 termin√≥ su tarea
+[INFO] 13:46:09:994 discordiador.c/(15602:15698): Tripulante 2 cambio su estado a E
+[INFO] 13:46:09:994 discordiador.c/(15602:15633): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:46:09:995 discordiador.c/(15602:15632): Tripulante 1 cambio su estado a R
+[INFO] 13:46:09:995 discordiador.c/(15602:15632): Tripulante 1 termin√≥ su tarea
+[INFO] 13:46:09:995 discordiador.c/(15602:15698): Tripulante 3 cambio su estado a E
+[INFO] 13:46:09:995 discordiador.c/(15602:15634): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:46:09:995 discordiador.c/(15602:15633): Tarea pedida por tripulante 2: 08i∑08i∑88i∑88i∑@8i∑@8i∑H8i∑H8i∑P8i∑P8i∑X8i∑X8i∑`8i∑`8i∑h8i∑h8i∑p8i∑p8i∑x8i∑x8i∑Ä8i∑Ä8i∑à8i∑à8i∑ê8i∑ê8i∑ò8i∑ò8i∑†8i∑†8i∑®8i∑®8i∑∞8i∑∞8i∑∏8i∑∏8i∑¿8i∑¿8i∑»8i∑»8i∑–8i∑–8i∑ÿ8i∑ÿ8i∑‡8i∑‡8i∑Ë8i∑Ë8i∑8i∑8i∑¯8i∑¯8i∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:09:995 discordiador.c/(15602:15634): Tarea pedida por tripulante 3: ‡ Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:11:997 discordiador.c/(15602:15633): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:46:11:997 discordiador.c/(15602:15634): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:46:14:608 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:46:17:001 discordiador.c/(15602:15634): Tripulante 3 cambio su estado a R
+[INFO] 13:46:17:001 discordiador.c/(15602:15634): Tripulante 3 termin√≥ su tarea
+[INFO] 13:46:17:001 discordiador.c/(15602:15698): Tripulante 4 cambio su estado a E
+[INFO] 13:46:17:002 discordiador.c/(15602:15653): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:46:17:002 discordiador.c/(15602:15633): Tripulante 2 cambio su estado a R
+[INFO] 13:46:17:002 discordiador.c/(15602:15633): Tripulante 2 termin√≥ su tarea
+[INFO] 13:46:17:002 discordiador.c/(15602:15698): Tripulante 0 cambio su estado a E
+[INFO] 13:46:17:002 discordiador.c/(15602:15631): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:46:17:004 discordiador.c/(15602:15631): Tarea pedida por tripulante 0: Y±∂¯K±∂¯K±∂¯K±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:17:004 discordiador.c/(15602:15631): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:46:17:005 discordiador.c/(15602:15653): Tarea pedida por tripulante 4: `8i∑`8i∑h8i∑h8i∑p8i∑p8i∑x8i∑x8i∑Ä8i∑Ä8i∑à8i∑à8i∑ê8i∑ê8i∑ò8i∑ò8i∑†8i∑†8i∑®8i∑®8i∑∞8i∑∞8i∑∏8i∑∏8i∑¿8i∑¿8i∑»8i∑»8i∑–8i∑–8i∑ÿ8i∑ÿ8i∑‡8i∑‡8i∑Ë8i∑Ë8i∑8i∑8i∑¯8i∑¯8i∑ Posicion: 1|1 Duracion: 1 
+[INFO] 13:46:19:006 discordiador.c/(15602:15653): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:46:20:006 discordiador.c/(15602:15653): Tripulante 4 cambio su estado a R
+[INFO] 13:46:20:007 discordiador.c/(15602:15653): Tripulante 4 termin√≥ su tarea
+[INFO] 13:46:20:007 discordiador.c/(15602:15698): Tripulante 1 cambio su estado a E
+[INFO] 13:46:20:007 discordiador.c/(15602:15632): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:46:20:007 discordiador.c/(15602:15632): Tarea pedida por tripulante 1: »^p¥¯Np¥¯Np¥¯Np¥Qp¥Qp¥P Posicion: 1|1 Dura
+[INFO] 13:46:20:007 discordiador.c/(15602:15632): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:46:20:797 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:46:22:007 discordiador.c/(15602:15631): Tripulante 0 cambio su estado a R
+[INFO] 13:46:22:007 discordiador.c/(15602:15631): Tripulante 0 termin√≥ su tarea
+[INFO] 13:46:22:008 discordiador.c/(15602:15698): Tripulante 3 cambio su estado a E
+[INFO] 13:46:22:008 discordiador.c/(15602:15634): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:46:22:009 discordiador.c/(15602:15634): Tarea pedida por tripulante 3: hpp¥»Xp¥»Xp¥»Xp¥xUp¥xUp¥P Posicion: 1|1 Dura
+[INFO] 13:46:22:009 discordiador.c/(15602:15634): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:46:25:009 discordiador.c/(15602:15632): Tripulante 1 cambio su estado a R
+[INFO] 13:46:25:009 discordiador.c/(15602:15632): Tripulante 1 termin√≥ su tarea
+[INFO] 13:46:25:010 discordiador.c/(15602:15698): Tripulante 2 cambio su estado a E
+[INFO] 13:46:25:010 discordiador.c/(15602:15633): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:46:25:018 discordiador.c/(15602:15633): Tarea pedida por tripulante 2: `8i∑`8i∑h8i∑h8i∑p8i∑p8i∑x8i∑x8i∑Ä8i∑Ä8i∑à8i∑à8i∑ê8i∑ê8i∑ò8i∑ò8i∑†8i∑†8i∑®8i∑®8i∑∞8i∑∞8i∑∏8i∑∏8i∑¿8i∑¿8i∑»8i∑»8i∑–8i∑–8i∑ÿ8i∑ÿ8i∑‡8i∑‡8i∑Ë8i∑Ë8i∑8i∑8i∑¯8i∑¯8i∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:25:018 discordiador.c/(15602:15633): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:46:26:736 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:46:27:012 discordiador.c/(15602:15634): Tripulante 3 cambio su estado a R
+[INFO] 13:46:27:012 discordiador.c/(15602:15634): Tripulante 3 termin√≥ su tarea
+[INFO] 13:46:27:012 discordiador.c/(15602:15698): Tripulante 4 cambio su estado a E
+[INFO] 13:46:27:012 discordiador.c/(15602:15653): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:46:27:013 discordiador.c/(15602:15653): Tripulante 4 termino de trabajar 
+[INFO] 13:46:27:014 discordiador.c/(15602:15653): Tripulante 4 cambio su estado a F
+[INFO] 13:46:27:014 discordiador.c/(15602:15698): Tripulante 0 cambio su estado a E
+[INFO] 13:46:27:014 discordiador.c/(15602:15631): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:46:27:016 discordiador.c/(15602:15631): Tarea pedida por tripulante 0: †k±∂@^±∂@^±∂@^±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:27:016 discordiador.c/(15602:15631): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:46:30:020 discordiador.c/(15602:15633): Tripulante 2 cambio su estado a R
+[INFO] 13:46:30:020 discordiador.c/(15602:15633): Tripulante 2 termin√≥ su tarea
+[INFO] 13:46:30:020 discordiador.c/(15602:15698): Tripulante 1 cambio su estado a E
+[INFO] 13:46:30:020 discordiador.c/(15602:15632): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:46:30:020 discordiador.c/(15602:15632): Tarea pedida por tripulante 1: híp¥(Çp¥(Çp¥(Çp¥pfp¥pfp¥P Posicion: 1|1 Dura
+[INFO] 13:46:30:020 discordiador.c/(15602:15632): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:46:31:774 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:46:32:018 discordiador.c/(15602:15631): Tripulante 0 cambio su estado a R
+[INFO] 13:46:32:018 discordiador.c/(15602:15631): Tripulante 0 termin√≥ su tarea
+[INFO] 13:46:32:018 discordiador.c/(15602:15698): Tripulante 3 cambio su estado a E
+[INFO] 13:46:32:018 discordiador.c/(15602:15634): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:46:32:020 discordiador.c/(15602:15634): Tarea pedida por tripulante 3:  Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:32:020 discordiador.c/(15602:15634): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:46:35:023 discordiador.c/(15602:15632): Tripulante 1 cambio su estado a R
+[INFO] 13:46:35:023 discordiador.c/(15602:15632): Tripulante 1 termin√≥ su tarea
+[INFO] 13:46:35:023 discordiador.c/(15602:15698): Tripulante 2 cambio su estado a E
+[INFO] 13:46:35:023 discordiador.c/(15602:15633): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:46:35:024 discordiador.c/(15602:15633): Tarea pedida por tripulante 2: ÿÙ¯(‚¯(‚¯(‚¯∏7i∑∏7i∑¿7i∑¿7i∑»7i∑»7i∑–7i∑–7i∑ÿ7i∑ÿ7i∑‡7i∑‡7i∑Ë7i∑Ë7i∑¿„¯¿„¯¯7i∑¯7i∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:35:024 discordiador.c/(15602:15633): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:46:37:022 discordiador.c/(15602:15634): Tripulante 3 cambio su estado a R
+[INFO] 13:46:37:022 discordiador.c/(15602:15634): Tripulante 3 termin√≥ su tarea
+[INFO] 13:46:37:023 discordiador.c/(15602:15698): Tripulante 0 cambio su estado a E
+[INFO] 13:46:37:023 discordiador.c/(15602:15631): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:46:37:024 discordiador.c/(15602:15631): Tarea pedida por tripulante 0: –}±∂ p±∂ p±∂ p±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:37:024 discordiador.c/(15602:15631): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:46:37:745 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:46:40:028 discordiador.c/(15602:15633): Tripulante 2 cambio su estado a R
+[INFO] 13:46:40:028 discordiador.c/(15602:15633): Tripulante 2 termin√≥ su tarea
+[INFO] 13:46:40:028 discordiador.c/(15602:15698): Tripulante 1 cambio su estado a E
+[INFO] 13:46:40:028 discordiador.c/(15602:15632): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:46:40:029 discordiador.c/(15602:15632): Tarea pedida por tripulante 1: ®≈p¥∞µp¥∞µp¥∞µp¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:40:029 discordiador.c/(15602:15632): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:46:42:026 discordiador.c/(15602:15631): Tripulante 0 cambio su estado a R
+[INFO] 13:46:42:026 discordiador.c/(15602:15631): Tripulante 0 termin√≥ su tarea
+[INFO] 13:46:42:026 discordiador.c/(15602:15698): Tripulante 3 cambio su estado a E
+[INFO] 13:46:42:026 discordiador.c/(15602:15634): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:46:42:026 discordiador.c/(15602:15634): Tarea pedida por tripulante 3: ¿ Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:42:026 discordiador.c/(15602:15634): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:46:42:787 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:46:45:033 discordiador.c/(15602:15632): Tripulante 1 cambio su estado a R
+[INFO] 13:46:45:033 discordiador.c/(15602:15632): Tripulante 1 termin√≥ su tarea
+[INFO] 13:46:45:033 discordiador.c/(15602:15698): Tripulante 2 cambio su estado a E
+[INFO] 13:46:45:034 discordiador.c/(15602:15633): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:46:45:035 discordiador.c/(15602:15633): Tarea pedida por tripulante 2: `8i∑`8i∑h8i∑h8i∑p8i∑p8i∑x8i∑x8i∑Ä8i∑Ä8i∑à8i∑à8i∑ê8i∑ê8i∑ò8i∑ò8i∑†8i∑†8i∑®8i∑®8i∑∞8i∑∞8i∑∏8i∑∏8i∑¿8i∑¿8i∑»8i∑»8i∑–8i∑–8i∑ÿ8i∑ÿ8i∑‡8i∑‡8i∑Ë8i∑Ë8i∑8i∑8i∑¯8i∑¯8i∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:45:035 discordiador.c/(15602:15633): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:46:47:028 discordiador.c/(15602:15634): Tripulante 3 cambio su estado a R
+[INFO] 13:46:47:028 discordiador.c/(15602:15634): Tripulante 3 termin√≥ su tarea
+[INFO] 13:46:47:028 discordiador.c/(15602:15698): Tripulante 0 cambio su estado a E
+[INFO] 13:46:47:028 discordiador.c/(15602:15631): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:46:47:028 discordiador.c/(15602:15631): Tarea pedida por tripulante 0:  Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:47:028 discordiador.c/(15602:15631): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:46:47:249 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:46:50:038 discordiador.c/(15602:15633): Tripulante 2 cambio su estado a R
+[INFO] 13:46:50:038 discordiador.c/(15602:15633): Tripulante 2 termin√≥ su tarea
+[INFO] 13:46:50:038 discordiador.c/(15602:15698): Tripulante 1 cambio su estado a E
+[INFO] 13:46:50:038 discordiador.c/(15602:15632): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:46:50:038 discordiador.c/(15602:15632): Tarea pedida por tripulante 1:  Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:50:038 discordiador.c/(15602:15632): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:46:52:031 discordiador.c/(15602:15631): Tripulante 0 cambio su estado a R
+[INFO] 13:46:52:031 discordiador.c/(15602:15631): Tripulante 0 termin√≥ su tarea
+[INFO] 13:46:52:031 discordiador.c/(15602:15698): Tripulante 3 cambio su estado a E
+[INFO] 13:46:52:031 discordiador.c/(15602:15634): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:46:52:032 discordiador.c/(15602:15634): Tarea pedida por tripulante 3: P
+q¥»Ïp¥»Ïp¥»Ïp¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:52:032 discordiador.c/(15602:15634): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:46:52:968 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:46:55:040 discordiador.c/(15602:15632): Tripulante 1 cambio su estado a R
+[INFO] 13:46:55:040 discordiador.c/(15602:15632): Tripulante 1 termin√≥ su tarea
+[INFO] 13:46:55:040 discordiador.c/(15602:15698): Tripulante 2 cambio su estado a E
+[INFO] 13:46:55:040 discordiador.c/(15602:15633): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:46:55:040 discordiador.c/(15602:15633): Tarea pedida por tripulante 2: à˘ÿ˘ÿ˘ÿ˘∏7i∑∏7i∑¿7i∑¿7i∑»7i∑»7i∑–7i∑–7i∑ÿ7i∑ÿ7i∑†
+˘†
+˘Ë7i∑Ë7i∑7i∑7i∑¯7i∑¯7i∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:55:040 discordiador.c/(15602:15633): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:46:57:034 discordiador.c/(15602:15634): Tripulante 3 cambio su estado a R
+[INFO] 13:46:57:034 discordiador.c/(15602:15634): Tripulante 3 termin√≥ su tarea
+[INFO] 13:46:57:034 discordiador.c/(15602:15698): Tripulante 0 cambio su estado a E
+[INFO] 13:46:57:034 discordiador.c/(15602:15631): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:46:57:034 discordiador.c/(15602:15631): Tarea pedida por tripulante 0:  ¢±∂ÿî±∂ÿî±∂ÿî±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:46:57:034 discordiador.c/(15602:15631): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:46:58:823 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:47:00:042 discordiador.c/(15602:15633): Tripulante 2 cambio su estado a R
+[INFO] 13:47:00:042 discordiador.c/(15602:15633): Tripulante 2 termin√≥ su tarea
+[INFO] 13:47:00:042 discordiador.c/(15602:15698): Tripulante 1 cambio su estado a E
+[INFO] 13:47:00:043 discordiador.c/(15602:15632): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:47:00:043 discordiador.c/(15602:15632): Tarea pedida por tripulante 1: ¿+q¥ q¥ q¥ q¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:00:043 discordiador.c/(15602:15632): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:47:02:037 discordiador.c/(15602:15631): Tripulante 0 cambio su estado a R
+[INFO] 13:47:02:037 discordiador.c/(15602:15631): Tripulante 0 termin√≥ su tarea
+[INFO] 13:47:02:037 discordiador.c/(15602:15698): Tripulante 3 cambio su estado a E
+[INFO] 13:47:02:038 discordiador.c/(15602:15634): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:47:02:039 discordiador.c/(15602:15634): Tarea pedida por tripulante 3: ¿+q¥X'q¥X'q¥X'q¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:02:039 discordiador.c/(15602:15634): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:47:05:045 discordiador.c/(15602:15632): Tripulante 1 cambio su estado a R
+[INFO] 13:47:05:045 discordiador.c/(15602:15632): Tripulante 1 termin√≥ su tarea
+[INFO] 13:47:05:045 discordiador.c/(15602:15698): Tripulante 2 cambio su estado a E
+[INFO] 13:47:05:045 discordiador.c/(15602:15633): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:47:05:048 discordiador.c/(15602:15633): Tarea pedida por tripulante 2: 08i∑08i∑88i∑88i∑@8i∑@8i∑H8i∑H8i∑P8i∑P8i∑X8i∑X8i∑`8i∑`8i∑h8i∑h8i∑p8i∑p8i∑x8i∑x8i∑Ä8i∑Ä8i∑à8i∑à8i∑ê8i∑ê8i∑ò8i∑ò8i∑†8i∑†8i∑®8i∑®8i∑∞8i∑∞8i∑∏8i∑∏8i∑¿8i∑¿8i∑»8i∑»8i∑–8i∑–8i∑ÿ8i∑ÿ8i∑‡8i∑‡8i∑Ë8i∑Ë8i∑8i∑8i∑¯8i∑¯8i∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:05:048 discordiador.c/(15602:15633): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:47:07:042 discordiador.c/(15602:15634): Tripulante 3 cambio su estado a R
+[INFO] 13:47:07:042 discordiador.c/(15602:15634): Tripulante 3 termin√≥ su tarea
+[INFO] 13:47:07:042 discordiador.c/(15602:15698): Tripulante 0 cambio su estado a E
+[INFO] 13:47:07:042 discordiador.c/(15602:15631): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:47:07:043 discordiador.c/(15602:15631): Tarea pedida por tripulante 0: †≥±∂ê¶±∂ê¶±∂ê¶±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:07:043 discordiador.c/(15602:15631): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:47:10:050 discordiador.c/(15602:15633): Tripulante 2 cambio su estado a R
+[INFO] 13:47:10:050 discordiador.c/(15602:15633): Tripulante 2 termin√≥ su tarea
+[INFO] 13:47:10:050 discordiador.c/(15602:15698): Tripulante 1 cambio su estado a E
+[INFO] 13:47:10:050 discordiador.c/(15602:15632): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:47:10:051 discordiador.c/(15602:15632): Tarea pedida por tripulante 1: òNq¥»Hq¥»Hq¥»Hq¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:10:051 discordiador.c/(15602:15632): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:47:12:046 discordiador.c/(15602:15631): Tripulante 0 cambio su estado a R
+[INFO] 13:47:12:047 discordiador.c/(15602:15631): Tripulante 0 termin√≥ su tarea
+[INFO] 13:47:12:047 discordiador.c/(15602:15698): Tripulante 3 cambio su estado a E
+[INFO] 13:47:12:047 discordiador.c/(15602:15634): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:47:12:048 discordiador.c/(15602:15634): Tarea pedida por tripulante 3: ÿ_q¥Vq¥Vq¥Vq¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:12:048 discordiador.c/(15602:15634): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:47:15:054 discordiador.c/(15602:15632): Tripulante 1 cambio su estado a R
+[INFO] 13:47:15:054 discordiador.c/(15602:15632): Tripulante 1 termin√≥ su tarea
+[INFO] 13:47:15:054 discordiador.c/(15602:15698): Tripulante 2 cambio su estado a E
+[INFO] 13:47:15:054 discordiador.c/(15602:15633): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:47:15:054 discordiador.c/(15602:15633): Tarea pedida por tripulante 2:  1˘ 1˘¯7i∑¯7i∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:15:054 discordiador.c/(15602:15633): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:47:15:942 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:47:17:050 discordiador.c/(15602:15634): Tripulante 3 cambio su estado a R
+[INFO] 13:47:17:051 discordiador.c/(15602:15634): Tripulante 3 termin√≥ su tarea
+[INFO] 13:47:17:051 discordiador.c/(15602:15698): Tripulante 0 cambio su estado a E
+[INFO] 13:47:17:051 discordiador.c/(15602:15631): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:47:17:052 discordiador.c/(15602:15631): Tarea pedida por tripulante 0:  Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:17:052 discordiador.c/(15602:15631): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:47:20:057 discordiador.c/(15602:15633): Tripulante 2 cambio su estado a R
+[INFO] 13:47:20:057 discordiador.c/(15602:15633): Tripulante 2 termin√≥ su tarea
+[INFO] 13:47:20:057 discordiador.c/(15602:15698): Tripulante 1 cambio su estado a E
+[INFO] 13:47:20:057 discordiador.c/(15602:15632): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:47:20:057 discordiador.c/(15602:15632): Tarea pedida por tripulante 1: ®Åq¥Ëxq¥Ëxq¥Ëxq¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:20:058 discordiador.c/(15602:15632): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:47:22:054 discordiador.c/(15602:15631): Tripulante 0 cambio su estado a R
+[INFO] 13:47:22:054 discordiador.c/(15602:15631): Tripulante 0 termin√≥ su tarea
+[INFO] 13:47:22:055 discordiador.c/(15602:15698): Tripulante 3 cambio su estado a E
+[INFO] 13:47:22:055 discordiador.c/(15602:15634): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:47:22:055 discordiador.c/(15602:15634): Tarea pedida por tripulante 3: @ìq¥êÖq¥êÖq¥êÖq¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:22:055 discordiador.c/(15602:15634): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:47:22:093 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:47:25:060 discordiador.c/(15602:15632): Tripulante 1 cambio su estado a R
+[INFO] 13:47:25:060 discordiador.c/(15602:15632): Tripulante 1 termin√≥ su tarea
+[INFO] 13:47:25:060 discordiador.c/(15602:15698): Tripulante 2 cambio su estado a E
+[INFO] 13:47:25:061 discordiador.c/(15602:15633): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:47:25:062 discordiador.c/(15602:15633): Tarea pedida por tripulante 2: òT˘ÄC˘ÄC˘ÄC˘ÿ<˘ÿ<˘¿7i∑¿7i∑»7i∑»7i∑?˘?˘X4˘X4˘‡7i∑‡7i∑Ë7i∑Ë7i∑7i∑7i∑¯7i∑¯7i∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:25:062 discordiador.c/(15602:15633): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:47:27:056 discordiador.c/(15602:15634): Tripulante 3 cambio su estado a R
+[INFO] 13:47:27:056 discordiador.c/(15602:15634): Tripulante 3 termin√≥ su tarea
+[INFO] 13:47:27:056 discordiador.c/(15602:15698): Tripulante 0 cambio su estado a E
+[INFO] 13:47:27:057 discordiador.c/(15602:15631): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:47:27:057 discordiador.c/(15602:15631): Tarea pedida por tripulante 0: ÿ◊±∂p…±∂p…±∂p…±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:27:057 discordiador.c/(15602:15631): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:47:27:584 discordiador.c/(15602:15603): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:47:30:064 discordiador.c/(15602:15633): Tripulante 2 cambio su estado a R
+[INFO] 13:47:30:064 discordiador.c/(15602:15633): Tripulante 2 termin√≥ su tarea
+[INFO] 13:47:30:065 discordiador.c/(15602:15698): Tripulante 1 cambio su estado a E
+[INFO] 13:47:30:065 discordiador.c/(15602:15632): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:47:30:066 discordiador.c/(15602:15632): Tarea pedida por tripulante 1: ¥q¥@®q¥@®q¥@®q¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:30:066 discordiador.c/(15602:15632): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:47:32:059 discordiador.c/(15602:15631): Tripulante 0 cambio su estado a R
+[INFO] 13:47:32:059 discordiador.c/(15602:15631): Tripulante 0 termin√≥ su tarea
+[INFO] 13:47:32:059 discordiador.c/(15602:15698): Tripulante 3 cambio su estado a E
+[INFO] 13:47:32:059 discordiador.c/(15602:15634): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:47:32:060 discordiador.c/(15602:15634): Tarea pedida por tripulante 3: h∆q¥–µq¥–µq¥–µq¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:47:32:060 discordiador.c/(15602:15634): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:48:44:058 discordiador.c/(16114:16114): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:49:16:190 discordiador.c/(16114:16115): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segA.txt
+[INFO] 13:49:16:191 discordiador.c/(16114:16115): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 13:49:16:191 discordiador.c/(16114:16115): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 13:49:16:191 discordiador.c/(16114:16115): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 13:49:16:191 discordiador.c/(16114:16115): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 13:49:16:191 discordiador.c/(16114:16115): path de tareas recibido: /home/utnso/segA.txt
+[INFO] 13:49:26:102 discordiador.c/(16114:16115): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 13:49:26:102 discordiador.c/(16114:16115): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 13:49:26:102 discordiador.c/(16114:16115): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 13:49:32:480 discordiador.c/(16114:16115): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 13:49:32:481 discordiador.c/(16114:16149): Tripulante 0 cambio su estado a E
+[INFO] 13:49:32:482 discordiador.c/(16114:16136): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:49:32:482 discordiador.c/(16114:16149): Tripulante 1 cambio su estado a E
+[INFO] 13:49:32:482 discordiador.c/(16114:16137): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:49:32:483 discordiador.c/(16114:16136): Tarea pedida por tripulante 0: h@±∂ò-±∂ò-±∂ò-±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:49:32:483 discordiador.c/(16114:16137): Tarea pedida por tripulante 1:  `¥ÿ`¥ÿ`¥ÿ`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:49:34:483 discordiador.c/(16114:16136): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:49:34:485 discordiador.c/(16114:16137): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:49:39:486 discordiador.c/(16114:16137): Tripulante 1 cambio su estado a R
+[INFO] 13:49:39:486 discordiador.c/(16114:16137): Tripulante 1 termin√≥ su tarea
+[INFO] 13:49:39:486 discordiador.c/(16114:16149): Tripulante 2 cambio su estado a E
+[INFO] 13:49:39:486 discordiador.c/(16114:16138): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:49:39:487 discordiador.c/(16114:16136): Tripulante 0 cambio su estado a R
+[INFO] 13:49:39:487 discordiador.c/(16114:16136): Tripulante 0 termin√≥ su tarea
+[INFO] 13:49:39:487 discordiador.c/(16114:16149): Tripulante 3 cambio su estado a E
+[INFO] 13:49:39:487 discordiador.c/(16114:16139): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:49:39:487 discordiador.c/(16114:16138): Tarea pedida por tripulante 2: 0àj∑0àj∑8àj∑8àj∑@àj∑@àj∑Hàj∑Hàj∑Pàj∑Pàj∑Xàj∑Xàj∑`àj∑`àj∑hàj∑hàj∑pàj∑pàj∑xàj∑xàj∑Äàj∑Äàj∑ààj∑ààj∑êàj∑êàj∑òàj∑òàj∑†àj∑†àj∑®àj∑®àj∑∞àj∑∞àj∑∏àj∑∏àj∑¿àj∑¿àj∑»àj∑»àj∑–àj∑–àj∑ÿàj∑ÿàj∑‡àj∑‡àj∑Ëàj∑Ëàj∑àj∑àj∑¯àj∑¯àj∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:49:39:487 discordiador.c/(16114:16139): Tarea pedida por tripulante 3: (=`¥–,`¥–,`¥–,`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:49:41:488 discordiador.c/(16114:16138): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:49:41:488 discordiador.c/(16114:16139): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:49:46:491 discordiador.c/(16114:16139): Tripulante 3 cambio su estado a R
+[INFO] 13:49:46:491 discordiador.c/(16114:16139): Tripulante 3 termin√≥ su tarea
+[INFO] 13:49:46:491 discordiador.c/(16114:16149): Tripulante 4 cambio su estado a E
+[INFO] 13:49:46:491 discordiador.c/(16114:16148): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:49:46:491 discordiador.c/(16114:16138): Tripulante 2 cambio su estado a R
+[INFO] 13:49:46:491 discordiador.c/(16114:16138): Tripulante 2 termin√≥ su tarea
+[INFO] 13:49:46:491 discordiador.c/(16114:16149): Tripulante 1 cambio su estado a E
+[INFO] 13:49:46:492 discordiador.c/(16114:16137): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:49:46:493 discordiador.c/(16114:16148): Tarea pedida por tripulante 4: `àj∑`àj∑hàj∑hàj∑pàj∑pàj∑xàj∑xàj∑Äàj∑Äàj∑ààj∑ààj∑êàj∑êàj∑òàj∑òàj∑†àj∑†àj∑®àj∑®àj∑∞àj∑∞àj∑∏àj∑∏àj∑¿àj∑¿àj∑»àj∑»àj∑–àj∑–àj∑ÿàj∑ÿàj∑‡àj∑‡àj∑Ëàj∑Ëàj∑àj∑àj∑¯àj∑¯àj∑ Posicion: 1|1 Duracion: 1 
+[INFO] 13:49:46:493 discordiador.c/(16114:16137): Tarea pedida por tripulante 1: `_`¥ËN`¥ËN`¥ËN`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:49:46:494 discordiador.c/(16114:16137): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:49:48:495 discordiador.c/(16114:16148): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:49:49:496 discordiador.c/(16114:16148): Tripulante 4 cambio su estado a R
+[INFO] 13:49:49:496 discordiador.c/(16114:16148): Tripulante 4 termin√≥ su tarea
+[INFO] 13:49:49:496 discordiador.c/(16114:16149): Tripulante 0 cambio su estado a E
+[INFO] 13:49:49:497 discordiador.c/(16114:16136): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:49:49:497 discordiador.c/(16114:16136): Tarea pedida por tripulante 0: R±∂`D±∂`D±∂`D±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:49:49:497 discordiador.c/(16114:16136): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:49:51:497 discordiador.c/(16114:16137): Tripulante 1 cambio su estado a R
+[INFO] 13:49:51:498 discordiador.c/(16114:16137): Tripulante 1 termin√≥ su tarea
+[INFO] 13:49:51:498 discordiador.c/(16114:16149): Tripulante 3 cambio su estado a E
+[INFO] 13:49:51:498 discordiador.c/(16114:16139): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:49:51:498 discordiador.c/(16114:16139): Tarea pedida por tripulante 3: Pq`¥∞_`¥∞_`¥∞_`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:49:51:498 discordiador.c/(16114:16139): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:49:54:500 discordiador.c/(16114:16136): Tripulante 0 cambio su estado a R
+[INFO] 13:49:54:500 discordiador.c/(16114:16136): Tripulante 0 termin√≥ su tarea
+[INFO] 13:49:54:500 discordiador.c/(16114:16149): Tripulante 2 cambio su estado a E
+[INFO] 13:49:54:500 discordiador.c/(16114:16138): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:49:54:500 discordiador.c/(16114:16138): Tarea pedida por tripulante 2: `àj∑`àj∑hàj∑hàj∑pàj∑pàj∑xàj∑xàj∑Äàj∑Äàj∑ààj∑ààj∑êàj∑êàj∑òàj∑òàj∑†àj∑†àj∑®àj∑®àj∑∞àj∑∞àj∑∏àj∑∏àj∑¿àj∑¿àj∑»àj∑»àj∑–àj∑–àj∑ÿàj∑ÿàj∑‡àj∑‡àj∑Ëàj∑Ëàj∑àj∑àj∑¯àj∑¯àj∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:49:54:500 discordiador.c/(16114:16138): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:49:56:501 discordiador.c/(16114:16139): Tripulante 3 cambio su estado a R
+[INFO] 13:49:56:501 discordiador.c/(16114:16139): Tripulante 3 termin√≥ su tarea
+[INFO] 13:49:56:501 discordiador.c/(16114:16149): Tripulante 4 cambio su estado a E
+[INFO] 13:49:56:501 discordiador.c/(16114:16148): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:49:56:502 discordiador.c/(16114:16148): Tripulante 4 termino de trabajar 
+[INFO] 13:49:56:502 discordiador.c/(16114:16149): Tripulante 1 cambio su estado a E
+[INFO] 13:49:56:502 discordiador.c/(16114:16137): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:49:56:502 discordiador.c/(16114:16148): Tripulante 4 cambio su estado a F
+[INFO] 13:49:56:502 discordiador.c/(16114:16137): Tarea pedida por tripulante 1: òì`¥Ç`¥Ç`¥Ç`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:49:56:502 discordiador.c/(16114:16137): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:49:59:502 discordiador.c/(16114:16138): Tripulante 2 cambio su estado a R
+[INFO] 13:49:59:502 discordiador.c/(16114:16138): Tripulante 2 termin√≥ su tarea
+[INFO] 13:49:59:502 discordiador.c/(16114:16149): Tripulante 0 cambio su estado a E
+[INFO] 13:49:59:502 discordiador.c/(16114:16136): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:49:59:502 discordiador.c/(16114:16136): Tarea pedida por tripulante 0: (c±∂hV±∂hV±∂hV±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:49:59:502 discordiador.c/(16114:16136): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:50:01:504 discordiador.c/(16114:16137): Tripulante 1 cambio su estado a R
+[INFO] 13:50:01:504 discordiador.c/(16114:16137): Tripulante 1 termin√≥ su tarea
+[INFO] 13:50:01:504 discordiador.c/(16114:16149): Tripulante 3 cambio su estado a E
+[INFO] 13:50:01:504 discordiador.c/(16114:16139): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:50:01:505 discordiador.c/(16114:16139): Tarea pedida por tripulante 3: ÿ§`¥Ëì`¥Ëì`¥Ëì`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:01:505 discordiador.c/(16114:16139): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:50:04:511 discordiador.c/(16114:16136): Tripulante 0 cambio su estado a R
+[INFO] 13:50:04:511 discordiador.c/(16114:16136): Tripulante 0 termin√≥ su tarea
+[INFO] 13:50:04:511 discordiador.c/(16114:16149): Tripulante 2 cambio su estado a E
+[INFO] 13:50:04:511 discordiador.c/(16114:16138): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:50:04:512 discordiador.c/(16114:16138): Tarea pedida por tripulante 2: ÿÑ	(r	(r	(r	∏áj∑∏áj∑¿áj∑¿áj∑»áj∑»áj∑–áj∑–áj∑ÿáj∑ÿáj∑‡áj∑‡áj∑Ëáj∑Ëáj∑¿s	¿s	¯áj∑¯áj∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:04:512 discordiador.c/(16114:16138): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:50:06:511 discordiador.c/(16114:16139): Tripulante 3 cambio su estado a R
+[INFO] 13:50:06:511 discordiador.c/(16114:16139): Tripulante 3 termin√≥ su tarea
+[INFO] 13:50:06:512 discordiador.c/(16114:16149): Tripulante 1 cambio su estado a E
+[INFO] 13:50:06:512 discordiador.c/(16114:16137): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:50:06:512 discordiador.c/(16114:16137): Tarea pedida por tripulante 1: 8«`¥∑`¥∑`¥∑`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:06:512 discordiador.c/(16114:16137): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:50:09:513 discordiador.c/(16114:16138): Tripulante 2 cambio su estado a R
+[INFO] 13:50:09:513 discordiador.c/(16114:16138): Tripulante 2 termin√≥ su tarea
+[INFO] 13:50:09:513 discordiador.c/(16114:16149): Tripulante 0 cambio su estado a E
+[INFO] 13:50:09:514 discordiador.c/(16114:16136): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:50:09:514 discordiador.c/(16114:16136): Tarea pedida por tripulante 0: ®t±∂êg±∂êg±∂êg±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:09:514 discordiador.c/(16114:16136): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:50:11:515 discordiador.c/(16114:16137): Tripulante 1 cambio su estado a R
+[INFO] 13:50:11:515 discordiador.c/(16114:16137): Tripulante 1 termin√≥ su tarea
+[INFO] 13:50:11:515 discordiador.c/(16114:16149): Tripulante 3 cambio su estado a E
+[INFO] 13:50:11:515 discordiador.c/(16114:16139): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:50:11:516 discordiador.c/(16114:16139): Tarea pedida por tripulante 3: ¿ÿ`¥0∫`¥0∫`¥0∫`¥– `¥– `¥P Posicion: 1|1 Dura
+[INFO] 13:50:11:516 discordiador.c/(16114:16139): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:50:14:516 discordiador.c/(16114:16136): Tripulante 0 cambio su estado a R
+[INFO] 13:50:14:516 discordiador.c/(16114:16136): Tripulante 0 termin√≥ su tarea
+[INFO] 13:50:14:516 discordiador.c/(16114:16149): Tripulante 2 cambio su estado a E
+[INFO] 13:50:14:516 discordiador.c/(16114:16138): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:50:14:517 discordiador.c/(16114:16138): Tarea pedida por tripulante 2: `àj∑`àj∑hàj∑hàj∑pàj∑pàj∑xàj∑xàj∑Äàj∑Äàj∑ààj∑ààj∑êàj∑êàj∑òàj∑òàj∑†àj∑†àj∑®àj∑®àj∑∞àj∑∞àj∑∏àj∑∏àj∑¿àj∑¿àj∑»àj∑»àj∑–àj∑–àj∑ÿàj∑ÿàj∑‡àj∑‡àj∑Ëàj∑Ëàj∑àj∑àj∑¯àj∑¯àj∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:14:517 discordiador.c/(16114:16138): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:50:16:517 discordiador.c/(16114:16139): Tripulante 3 cambio su estado a R
+[INFO] 13:50:16:518 discordiador.c/(16114:16139): Tripulante 3 termin√≥ su tarea
+[INFO] 13:50:16:518 discordiador.c/(16114:16149): Tripulante 1 cambio su estado a E
+[INFO] 13:50:16:518 discordiador.c/(16114:16137): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:50:16:518 discordiador.c/(16114:16137): Tarea pedida por tripulante 1: ¿˙`¥‡—`¥‡—`¥‡—`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:16:518 discordiador.c/(16114:16137): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:50:19:518 discordiador.c/(16114:16138): Tripulante 2 cambio su estado a R
+[INFO] 13:50:19:518 discordiador.c/(16114:16138): Tripulante 2 termin√≥ su tarea
+[INFO] 13:50:19:518 discordiador.c/(16114:16149): Tripulante 0 cambio su estado a E
+[INFO] 13:50:19:519 discordiador.c/(16114:16136): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:50:19:519 discordiador.c/(16114:16136): Tarea pedida por tripulante 0: (Ü±∂y±∂y±∂y±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:19:519 discordiador.c/(16114:16136): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:50:21:520 discordiador.c/(16114:16137): Tripulante 1 cambio su estado a R
+[INFO] 13:50:21:520 discordiador.c/(16114:16137): Tripulante 1 termin√≥ su tarea
+[INFO] 13:50:21:520 discordiador.c/(16114:16149): Tripulante 3 cambio su estado a E
+[INFO] 13:50:21:520 discordiador.c/(16114:16139): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:50:21:520 discordiador.c/(16114:16139): Tarea pedida por tripulante 3: 8a¥˚`¥˚`¥˚`¥H Posicion: 1|1 
+[INFO] 13:50:21:520 discordiador.c/(16114:16139): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:50:24:521 discordiador.c/(16114:16136): Tripulante 0 cambio su estado a R
+[INFO] 13:50:24:521 discordiador.c/(16114:16136): Tripulante 0 termin√≥ su tarea
+[INFO] 13:50:24:521 discordiador.c/(16114:16149): Tripulante 2 cambio su estado a E
+[INFO] 13:50:24:521 discordiador.c/(16114:16138): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:50:24:522 discordiador.c/(16114:16138): Tarea pedida por tripulante 2: à´	ÿò	ÿò	ÿò	∏áj∑∏áj∑¿áj∑¿áj∑»áj∑»áj∑–áj∑–áj∑ÿáj∑ÿáj∑†ö	†ö	Ëáj∑Ëáj∑áj∑áj∑¯áj∑¯áj∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:24:522 discordiador.c/(16114:16138): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:50:26:523 discordiador.c/(16114:16139): Tripulante 3 cambio su estado a R
+[INFO] 13:50:26:524 discordiador.c/(16114:16139): Tripulante 3 termin√≥ su tarea
+[INFO] 13:50:26:524 discordiador.c/(16114:16149): Tripulante 1 cambio su estado a E
+[INFO] 13:50:26:524 discordiador.c/(16114:16137): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:50:26:525 discordiador.c/(16114:16137): Tarea pedida por tripulante 1: –a¥¿a¥¿a¥¿a¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:26:525 discordiador.c/(16114:16137): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:50:29:524 discordiador.c/(16114:16138): Tripulante 2 cambio su estado a R
+[INFO] 13:50:29:524 discordiador.c/(16114:16138): Tripulante 2 termin√≥ su tarea
+[INFO] 13:50:29:524 discordiador.c/(16114:16149): Tripulante 0 cambio su estado a E
+[INFO] 13:50:29:524 discordiador.c/(16114:16136): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:50:29:525 discordiador.c/(16114:16136): Tarea pedida por tripulante 0: Ëó±∂Hä±∂Hä±∂Hä±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:29:525 discordiador.c/(16114:16136): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:50:31:527 discordiador.c/(16114:16137): Tripulante 1 cambio su estado a R
+[INFO] 13:50:31:528 discordiador.c/(16114:16137): Tripulante 1 termin√≥ su tarea
+[INFO] 13:50:31:528 discordiador.c/(16114:16149): Tripulante 3 cambio su estado a E
+[INFO] 13:50:31:528 discordiador.c/(16114:16139): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:50:31:529 discordiador.c/(16114:16139): Tarea pedida por tripulante 3: `?a¥/a¥/a¥/a¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:31:529 discordiador.c/(16114:16139): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:50:32:871 discordiador.c/(16114:16115): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:50:34:527 discordiador.c/(16114:16136): Tripulante 0 cambio su estado a R
+[INFO] 13:50:34:527 discordiador.c/(16114:16136): Tripulante 0 termin√≥ su tarea
+[INFO] 13:50:34:527 discordiador.c/(16114:16149): Tripulante 2 cambio su estado a E
+[INFO] 13:50:34:527 discordiador.c/(16114:16138): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:50:34:528 discordiador.c/(16114:16138): Tarea pedida por tripulante 2: 0àj∑0àj∑8àj∑8àj∑@àj∑@àj∑Hàj∑Hàj∑Pàj∑Pàj∑Xàj∑Xàj∑`àj∑`àj∑hàj∑hàj∑pàj∑pàj∑xàj∑xàj∑Äàj∑Äàj∑ààj∑ààj∑êàj∑êàj∑òàj∑òàj∑†àj∑†àj∑®àj∑®àj∑∞àj∑∞àj∑∏àj∑∏àj∑¿àj∑¿àj∑»àj∑»àj∑–àj∑–àj∑ÿàj∑ÿàj∑‡àj∑‡àj∑Ëàj∑Ëàj∑àj∑àj∑¯àj∑¯àj∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:34:528 discordiador.c/(16114:16138): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:50:36:532 discordiador.c/(16114:16139): Tripulante 3 cambio su estado a R
+[INFO] 13:50:36:532 discordiador.c/(16114:16139): Tripulante 3 termin√≥ su tarea
+[INFO] 13:50:36:532 discordiador.c/(16114:16149): Tripulante 1 cambio su estado a E
+[INFO] 13:50:36:533 discordiador.c/(16114:16137): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:50:36:534 discordiador.c/(16114:16137): Tarea pedida por tripulante 1: –Pa¥‡Fa¥‡Fa¥‡Fa¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:36:534 discordiador.c/(16114:16137): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:50:39:530 discordiador.c/(16114:16138): Tripulante 2 cambio su estado a R
+[INFO] 13:50:39:530 discordiador.c/(16114:16138): Tripulante 2 termin√≥ su tarea
+[INFO] 13:50:39:530 discordiador.c/(16114:16149): Tripulante 0 cambio su estado a E
+[INFO] 13:50:39:530 discordiador.c/(16114:16136): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:50:39:530 discordiador.c/(16114:16136): Tarea pedida por tripulante 0: ò©±∂0ú±∂0ú±∂0ú±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:39:530 discordiador.c/(16114:16136): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:50:39:893 discordiador.c/(16114:16115): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:50:41:535 discordiador.c/(16114:16137): Tripulante 1 cambio su estado a R
+[INFO] 13:50:41:535 discordiador.c/(16114:16137): Tripulante 1 termin√≥ su tarea
+[INFO] 13:50:41:536 discordiador.c/(16114:16149): Tripulante 3 cambio su estado a E
+[INFO] 13:50:41:536 discordiador.c/(16114:16139): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:50:41:536 discordiador.c/(16114:16139): Tarea pedida por tripulante 3: àra¥H^a¥H^a¥H^a¥H Posicion: 1|1
+[INFO] 13:50:41:536 discordiador.c/(16114:16139): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:50:44:532 discordiador.c/(16114:16136): Tripulante 0 cambio su estado a R
+[INFO] 13:50:44:532 discordiador.c/(16114:16136): Tripulante 0 termin√≥ su tarea
+[INFO] 13:50:44:532 discordiador.c/(16114:16149): Tripulante 2 cambio su estado a E
+[INFO] 13:50:44:533 discordiador.c/(16114:16138): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:50:44:533 discordiador.c/(16114:16138): Tarea pedida por tripulante 2:  ¡	 ¡	¯áj∑¯áj∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:44:533 discordiador.c/(16114:16138): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:50:46:537 discordiador.c/(16114:16139): Tripulante 3 cambio su estado a R
+[INFO] 13:50:46:537 discordiador.c/(16114:16139): Tripulante 3 termin√≥ su tarea
+[INFO] 13:50:46:538 discordiador.c/(16114:16149): Tripulante 1 cambio su estado a E
+[INFO] 13:50:46:538 discordiador.c/(16114:16137): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:50:46:538 discordiador.c/(16114:16137): Tarea pedida por tripulante 1: ÿÉa¥¿va¥¿va¥¿va¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:46:538 discordiador.c/(16114:16137): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:50:49:534 discordiador.c/(16114:16138): Tripulante 2 cambio su estado a R
+[INFO] 13:50:49:534 discordiador.c/(16114:16138): Tripulante 2 termin√≥ su tarea
+[INFO] 13:50:49:534 discordiador.c/(16114:16149): Tripulante 0 cambio su estado a E
+[INFO] 13:50:49:534 discordiador.c/(16114:16136): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:50:49:534 discordiador.c/(16114:16136): Tarea pedida por tripulante 0: Hª±∂Ë≠±∂Ë≠±∂Ë≠±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:49:534 discordiador.c/(16114:16136): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:50:51:540 discordiador.c/(16114:16137): Tripulante 1 cambio su estado a R
+[INFO] 13:50:51:541 discordiador.c/(16114:16137): Tripulante 1 termin√≥ su tarea
+[INFO] 13:50:51:541 discordiador.c/(16114:16149): Tripulante 3 cambio su estado a E
+[INFO] 13:50:51:541 discordiador.c/(16114:16139): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:50:51:542 discordiador.c/(16114:16139): Tarea pedida por tripulante 3: xïa¥Xéa¥Xéa¥Xéa¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:51:542 discordiador.c/(16114:16139): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:50:54:539 discordiador.c/(16114:16136): Tripulante 0 cambio su estado a R
+[INFO] 13:50:54:539 discordiador.c/(16114:16136): Tripulante 0 termin√≥ su tarea
+[INFO] 13:50:54:539 discordiador.c/(16114:16149): Tripulante 2 cambio su estado a E
+[INFO] 13:50:54:539 discordiador.c/(16114:16138): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:50:54:540 discordiador.c/(16114:16138): Tarea pedida por tripulante 2: ò‰	Ä”	Ä”	Ä”	ÿÃ	ÿÃ	¿áj∑¿áj∑»áj∑»áj∑œ	œ	Xƒ	Xƒ	‡áj∑‡áj∑Ëáj∑Ëáj∑áj∑áj∑¯áj∑¯áj∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:54:540 discordiador.c/(16114:16138): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:50:56:544 discordiador.c/(16114:16139): Tripulante 3 cambio su estado a R
+[INFO] 13:50:56:544 discordiador.c/(16114:16139): Tripulante 3 termin√≥ su tarea
+[INFO] 13:50:56:544 discordiador.c/(16114:16149): Tripulante 1 cambio su estado a E
+[INFO] 13:50:56:544 discordiador.c/(16114:16137): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:50:56:545 discordiador.c/(16114:16137): Tarea pedida por tripulante 1: ∑a¥∏ßa¥∏ßa¥∏ßa¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:56:545 discordiador.c/(16114:16137): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:50:59:542 discordiador.c/(16114:16138): Tripulante 2 cambio su estado a R
+[INFO] 13:50:59:542 discordiador.c/(16114:16138): Tripulante 2 termin√≥ su tarea
+[INFO] 13:50:59:542 discordiador.c/(16114:16149): Tripulante 0 cambio su estado a E
+[INFO] 13:50:59:542 discordiador.c/(16114:16136): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:50:59:543 discordiador.c/(16114:16136): Tarea pedida por tripulante 0: »Ã±∂∞ø±∂∞ø±∂∞ø±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:50:59:543 discordiador.c/(16114:16136): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:51:55:035 discordiador.c/(16405:16405): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:52:06:153 discordiador.c/(16405:16406): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segA.txt
+[INFO] 13:52:06:153 discordiador.c/(16405:16406): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 13:52:06:153 discordiador.c/(16405:16406): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 13:52:06:153 discordiador.c/(16405:16406): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 13:52:06:154 discordiador.c/(16405:16406): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 13:52:06:154 discordiador.c/(16405:16406): path de tareas recibido: /home/utnso/segA.txt
+[INFO] 13:52:23:857 discordiador.c/(16405:16406): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 13:52:23:857 discordiador.c/(16405:16406): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 13:52:23:857 discordiador.c/(16405:16406): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 13:52:29:294 discordiador.c/(16405:16406): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 13:52:29:295 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:52:29:296 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:52:29:296 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:52:29:296 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:52:29:296 discordiador.c/(16405:16410): Tarea pedida por tripulante 1:  `¥ÿ`¥ÿ`¥ÿ`¥H Posicion: 3|1 Duracion: 5 
+[INFO] 13:52:29:296 discordiador.c/(16405:16409): Tarea pedida por tripulante 0: X@±∂p-±∂p-±∂p-±∂H Posicion: 3|1 Duracion: 5 
+[INFO] 13:52:33:298 discordiador.c/(16405:16409): Tripulante 0 ahora esta en 3|1 
+[INFO] 13:52:33:299 discordiador.c/(16405:16410): Tripulante 1 ahora esta en 3|1 
+[INFO] 13:52:38:301 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a R
+[INFO] 13:52:38:301 discordiador.c/(16405:16409): Tripulante 0 termin√≥ su tarea
+[INFO] 13:52:38:301 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:52:38:301 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:52:38:302 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a R
+[INFO] 13:52:38:302 discordiador.c/(16405:16410): Tripulante 1 termin√≥ su tarea
+[INFO] 13:52:38:302 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:52:38:302 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:52:38:302 discordiador.c/(16405:16411): Tarea pedida por tripulante 2: 0¯f∑0¯f∑8¯f∑8¯f∑@¯f∑@¯f∑H¯f∑H¯f∑P¯f∑P¯f∑X¯f∑X¯f∑`¯f∑`¯f∑h¯f∑h¯f∑p¯f∑p¯f∑x¯f∑x¯f∑Ä¯f∑Ä¯f∑à¯f∑à¯f∑ê¯f∑ê¯f∑ò¯f∑ò¯f∑†¯f∑†¯f∑®¯f∑®¯f∑∞¯f∑∞¯f∑∏¯f∑∏¯f∑¿¯f∑¿¯f∑»¯f∑»¯f∑–¯f∑–¯f∑ÿ¯f∑ÿ¯f∑‡¯f∑‡¯f∑Ë¯f∑Ë¯f∑¯f∑¯f∑¯¯f∑¯¯f∑ Posicion: 3|1 Duracion: 5 
+[INFO] 13:52:38:302 discordiador.c/(16405:16412): Tarea pedida por tripulante 3: XM`¥ `¥ `¥ `¥H Posicion: 3|1 Duracion: 5 
+[INFO] 13:52:42:304 discordiador.c/(16405:16412): Tripulante 3 ahora esta en 3|1 
+[INFO] 13:52:42:304 discordiador.c/(16405:16411): Tripulante 2 ahora esta en 3|1 
+[INFO] 13:52:47:309 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a R
+[INFO] 13:52:47:309 discordiador.c/(16405:16411): Tripulante 2 termin√≥ su tarea
+[INFO] 13:52:47:310 discordiador.c/(16405:16417): Tripulante 4 cambio su estado a E
+[INFO] 13:52:47:310 discordiador.c/(16405:16414): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:52:47:311 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a R
+[INFO] 13:52:47:311 discordiador.c/(16405:16412): Tripulante 3 termin√≥ su tarea
+[INFO] 13:52:47:312 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:52:47:312 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:52:47:313 discordiador.c/(16405:16414): Tarea pedida por tripulante 4: åØ	PÇØ	PÇØ	PÇØ	∏˜f∑∏˜f∑¿˜f∑¿˜f∑»˜f∑»˜f∑–áØ	–áØ	ÿ˜f∑ÿ˜f∑‡˜f∑‡˜f∑Ë˜f∑Ë˜f∑˜f∑˜f∑¯˜f∑¯˜f∑ Posicion: 1|1 Duracion: 1 
+[INFO] 13:52:47:313 discordiador.c/(16405:16409): Tarea pedida por tripulante 0: xQ±∂HK±∂HK±∂HK±∂H Posicion: 2|1 Duracion: 5 
+[INFO] 13:52:48:314 discordiador.c/(16405:16409): Tripulante 0 ahora esta en 2|1 
+[INFO] 13:52:49:313 discordiador.c/(16405:16414): Tripulante 4 ahora esta en 1|1 
+[INFO] 13:52:50:314 discordiador.c/(16405:16414): Tripulante 4 cambio su estado a R
+[INFO] 13:52:50:314 discordiador.c/(16405:16414): Tripulante 4 termin√≥ su tarea
+[INFO] 13:52:50:314 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:52:50:314 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:52:50:315 discordiador.c/(16405:16410): Tarea pedida por tripulante 1:  Posicion: 2|1 Duracion: 5 
+[INFO] 13:52:51:315 discordiador.c/(16405:16410): Tripulante 1 ahora esta en 2|1 
+[INFO] 13:52:53:317 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a R
+[INFO] 13:52:53:317 discordiador.c/(16405:16409): Tripulante 0 termin√≥ su tarea
+[INFO] 13:52:53:317 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:52:53:317 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:52:53:317 discordiador.c/(16405:16411): Tarea pedida por tripulante 2: @¯f∑@¯f∑H¯f∑H¯f∑P¯f∑P¯f∑X¯f∑X¯f∑`¯f∑`¯f∑h¯f∑h¯f∑p¯f∑p¯f∑x¯f∑x¯f∑Ä¯f∑Ä¯f∑à¯f∑à¯f∑ê¯f∑ê¯f∑ò¯f∑ò¯f∑†¯f∑†¯f∑®¯f∑®¯f∑∞¯f∑∞¯f∑∏¯f∑∏¯f∑¿¯f∑¿¯f∑»¯f∑»¯f∑–¯f∑–¯f∑ÿ¯f∑ÿ¯f∑‡¯f∑‡¯f∑Ë¯f∑Ë¯f∑¯f∑¯f∑¯¯f∑¯¯f∑ Posicion: 2|1 Duracion: 5 
+[INFO] 13:52:54:318 discordiador.c/(16405:16411): Tripulante 2 ahora esta en 2|1 
+[INFO] 13:52:56:318 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a R
+[INFO] 13:52:56:318 discordiador.c/(16405:16410): Tripulante 1 termin√≥ su tarea
+[INFO] 13:52:56:318 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:52:56:318 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:52:56:318 discordiador.c/(16405:16412): Tarea pedida por tripulante 3:  ë`¥òe`¥òe`¥òe`¥H Posicion: 2|1 Duracion: 5 
+[INFO] 13:52:57:319 discordiador.c/(16405:16412): Tripulante 3 ahora esta en 2|1 
+[INFO] 13:52:59:320 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a R
+[INFO] 13:52:59:320 discordiador.c/(16405:16411): Tripulante 2 termin√≥ su tarea
+[INFO] 13:52:59:320 discordiador.c/(16405:16417): Tripulante 4 cambio su estado a E
+[INFO] 13:52:59:320 discordiador.c/(16405:16414): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:52:59:321 discordiador.c/(16405:16414): Tripulante 4 termino de trabajar 
+[INFO] 13:52:59:321 discordiador.c/(16405:16414): Tripulante 4 cambio su estado a F
+[INFO] 13:52:59:322 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:52:59:322 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:52:59:322 discordiador.c/(16405:16409): Tarea pedida por tripulante 0: 0s±∂ê_±∂ê_±∂ê_±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:53:00:322 discordiador.c/(16405:16409): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:53:02:321 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a R
+[INFO] 13:53:02:321 discordiador.c/(16405:16412): Tripulante 3 termin√≥ su tarea
+[INFO] 13:53:02:321 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:53:02:321 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:53:02:321 discordiador.c/(16405:16410): Tarea pedida por tripulante 1: x Posicion: 1|1 Duracion: 5 
+[INFO] 13:53:03:322 discordiador.c/(16405:16410): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:53:05:325 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a R
+[INFO] 13:53:05:325 discordiador.c/(16405:16409): Tripulante 0 termin√≥ su tarea
+[INFO] 13:53:05:325 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:53:05:325 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:53:05:326 discordiador.c/(16405:16411): Tarea pedida por tripulante 2: P¬Ø	¿øØ	¿øØ	¿øØ	∏˜f∑∏˜f∑¿˜f∑¿˜f∑»˜f∑»˜f∑ æØ	 æØ	ÿ˜f∑ÿ˜f∑‡˜f∑‡˜f∑Ë˜f∑Ë˜f∑˜f∑˜f∑¯˜f∑¯˜f∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:53:06:327 discordiador.c/(16405:16411): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:53:08:323 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a R
+[INFO] 13:53:08:323 discordiador.c/(16405:16410): Tripulante 1 termin√≥ su tarea
+[INFO] 13:53:08:324 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:53:08:324 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:53:08:324 discordiador.c/(16405:16412): Tarea pedida por tripulante 3: (»`¥–¥`¥–¥`¥–¥`¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:53:09:324 discordiador.c/(16405:16412): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:53:11:329 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a R
+[INFO] 13:53:11:330 discordiador.c/(16405:16411): Tripulante 2 termin√≥ su tarea
+[INFO] 13:53:11:330 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:53:11:330 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:53:11:331 discordiador.c/(16405:16409): Tarea pedida por tripulante 0: »Ñ±∂ t±∂ t±∂ t±∂H Posicion: 1|3 Duracion: 5 
+[INFO] 13:53:13:331 discordiador.c/(16405:16409): Tripulante 0 ahora esta en 1|3 
+[INFO] 13:53:14:326 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a R
+[INFO] 13:53:14:326 discordiador.c/(16405:16412): Tripulante 3 termin√≥ su tarea
+[INFO] 13:53:14:326 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:53:14:326 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:53:14:327 discordiador.c/(16405:16410): Tarea pedida por tripulante 1: xŸ`¥®∏`¥®∏`¥®∏`¥H Posicion: 1|3 Duracion: 5 
+[INFO] 13:53:16:329 discordiador.c/(16405:16410): Tripulante 1 ahora esta en 1|3 
+[INFO] 13:53:17:286 discordiador.c/(16405:16406): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:53:18:333 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a R
+[INFO] 13:53:18:333 discordiador.c/(16405:16409): Tripulante 0 termin√≥ su tarea
+[INFO] 13:53:18:333 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:53:18:333 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:53:18:333 discordiador.c/(16405:16411): Tarea pedida por tripulante 2: `¯f∑`¯f∑h¯f∑h¯f∑p¯f∑p¯f∑ê∏Ø	ê∏Ø	Ä¯f∑Ä¯f∑à¯f∑à¯f∑ê¯f∑ê¯f∑ò¯f∑ò¯f∑†¯f∑†¯f∑®¯f∑®¯f∑∞¯f∑∞¯f∑∏¯f∑∏¯f∑¿¯f∑¿¯f∑»¯f∑»¯f∑–¯f∑–¯f∑ÿ¯f∑ÿ¯f∑‡¯f∑‡¯f∑Ë¯f∑Ë¯f∑¯f∑¯f∑¯¯f∑¯¯f∑ Posicion: 1|3 Duracion: 5 
+[INFO] 13:53:20:334 discordiador.c/(16405:16411): Tripulante 2 ahora esta en 1|3 
+[INFO] 13:53:21:330 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a R
+[INFO] 13:53:21:331 discordiador.c/(16405:16410): Tripulante 1 termin√≥ su tarea
+[INFO] 13:53:21:331 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:53:21:331 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:53:21:332 discordiador.c/(16405:16412): Tarea pedida por tripulante 3: ÿ˚`¥®∏`¥®∏`¥®∏`¥H Posicion: 1|3 Duracion: 5 
+[INFO] 13:53:23:333 discordiador.c/(16405:16412): Tripulante 3 ahora esta en 1|3 
+[INFO] 13:53:25:335 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a R
+[INFO] 13:53:25:335 discordiador.c/(16405:16411): Tripulante 2 termin√≥ su tarea
+[INFO] 13:53:25:336 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:53:25:336 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:53:25:336 discordiador.c/(16405:16409): Tarea pedida por tripulante 0: `ñ±∂àå±∂àå±∂àå±∂H Posicion: 1|2 Duracion: 5 
+[INFO] 13:53:26:337 discordiador.c/(16405:16409): Tripulante 0 ahora esta en 1|2 
+[INFO] 13:53:28:334 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a R
+[INFO] 13:53:28:334 discordiador.c/(16405:16412): Tripulante 3 termin√≥ su tarea
+[INFO] 13:53:28:334 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:53:28:334 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:53:28:334 discordiador.c/(16405:16410): Tarea pedida por tripulante 1: ¿a¥pa¥pa¥pa¥H Posicion: 1|2 Duracion: 5 
+[INFO] 13:53:29:335 discordiador.c/(16405:16410): Tripulante 1 ahora esta en 1|2 
+[INFO] 13:53:31:338 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a R
+[INFO] 13:53:31:338 discordiador.c/(16405:16409): Tripulante 0 termin√≥ su tarea
+[INFO] 13:53:31:338 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:53:31:339 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:53:31:339 discordiador.c/(16405:16411): Tarea pedida por tripulante 2: Ë˜f∑Ë˜f∑˜f∑˜f∑¯˜f∑¯˜f∑ Posicion: 1|2 Duracion: 5 
+[INFO] 13:53:32:340 discordiador.c/(16405:16411): Tripulante 2 ahora esta en 1|2 
+[INFO] 13:53:34:336 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a R
+[INFO] 13:53:34:336 discordiador.c/(16405:16410): Tripulante 1 termin√≥ su tarea
+[INFO] 13:53:34:336 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:53:34:336 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:53:34:336 discordiador.c/(16405:16412): Tarea pedida por tripulante 3: X?a¥∞+a¥∞+a¥∞+a¥H Posicion: 1|2 Duracion: 5 
+[INFO] 13:53:35:337 discordiador.c/(16405:16412): Tripulante 3 ahora esta en 1|2 
+[INFO] 13:53:37:341 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a R
+[INFO] 13:53:37:341 discordiador.c/(16405:16411): Tripulante 2 termin√≥ su tarea
+[INFO] 13:53:37:341 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:53:37:341 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:53:37:342 discordiador.c/(16405:16409): Tarea pedida por tripulante 0: ¯ß±∂@°±∂@°±∂@°±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:53:38:342 discordiador.c/(16405:16409): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:53:40:338 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a R
+[INFO] 13:53:40:338 discordiador.c/(16405:16412): Tripulante 3 termin√≥ su tarea
+[INFO] 13:53:40:338 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:53:40:339 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:53:40:339 discordiador.c/(16405:16410): Tarea pedida por tripulante 1: ‡Pa¥òFa¥òFa¥òFa¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:53:41:339 discordiador.c/(16405:16410): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:53:43:345 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a R
+[INFO] 13:53:43:345 discordiador.c/(16405:16409): Tripulante 0 termin√≥ su tarea
+[INFO] 13:53:43:345 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:53:43:345 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:53:43:346 discordiador.c/(16405:16411): Tarea pedida por tripulante 2:  ∞	êËØ	êËØ	êËØ	∏˜f∑∏˜f∑ÿ∞	ÿ∞	»˜f∑»˜f∑–˜f∑–˜f∑ÿ˜f∑ÿ˜f∑‡˜f∑‡˜f∑Ë˜f∑Ë˜f∑˜f∑˜f∑¯˜f∑¯˜f∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:53:44:346 discordiador.c/(16405:16411): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:53:46:342 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a R
+[INFO] 13:53:46:342 discordiador.c/(16405:16410): Tripulante 1 termin√≥ su tarea
+[INFO] 13:53:46:342 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:53:46:342 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:53:46:342 discordiador.c/(16405:16412): Tarea pedida por tripulante 3: xra¥ ca¥ ca¥ ca¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:53:47:343 discordiador.c/(16405:16412): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:53:49:347 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a R
+[INFO] 13:53:49:347 discordiador.c/(16405:16411): Tripulante 2 termin√≥ su tarea
+[INFO] 13:53:49:348 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:53:49:348 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:53:49:348 discordiador.c/(16405:16409): Tarea pedida por tripulante 0: ¯…±∂@∂±∂@∂±∂@∂±∂H Posicion: 1|4 Duracion: 5 
+[INFO] 13:53:52:344 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a R
+[INFO] 13:53:52:344 discordiador.c/(16405:16412): Tripulante 3 termin√≥ su tarea
+[INFO] 13:53:52:345 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:53:52:345 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:53:52:345 discordiador.c/(16405:16410): Tarea pedida por tripulante 1: ËÉa¥X}a¥X}a¥X}a¥H Posicion: 1|4 Duracion: 5 
+[INFO] 13:53:52:350 discordiador.c/(16405:16409): Tripulante 0 ahora esta en 1|4 
+[INFO] 13:53:55:346 discordiador.c/(16405:16410): Tripulante 1 ahora esta en 1|4 
+[INFO] 13:53:57:352 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a R
+[INFO] 13:53:57:352 discordiador.c/(16405:16409): Tripulante 0 termin√≥ su tarea
+[INFO] 13:53:57:352 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:53:57:352 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:53:57:352 discordiador.c/(16405:16411): Tarea pedida por tripulante 2: ∞	»∞	»∞	»∞	∏˜f∑∏˜f∑¿˜f∑¿˜f∑»˜f∑»˜f∑∞	∞	ÿ˜f∑ÿ˜f∑‡˜f∑‡˜f∑Ë˜f∑Ë˜f∑˜f∑˜f∑¯˜f∑¯˜f∑ Posicion: 1|4 Duracion: 5 
+[INFO] 13:54:00:350 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a R
+[INFO] 13:54:00:350 discordiador.c/(16405:16410): Tripulante 1 termin√≥ su tarea
+[INFO] 13:54:00:351 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:54:00:351 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:54:00:351 discordiador.c/(16405:16412): Tarea pedida por tripulante 3: Ë•a¥ÿüa¥ÿüa¥ÿüa¥H Posicion: 1|4 Duracion: 5 
+[INFO] 13:54:00:353 discordiador.c/(16405:16411): Tripulante 2 ahora esta en 1|4 
+[INFO] 13:54:03:044 discordiador.c/(16405:16406): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:54:03:353 discordiador.c/(16405:16412): Tripulante 3 ahora esta en 1|4 
+[INFO] 13:54:05:354 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a R
+[INFO] 13:54:05:354 discordiador.c/(16405:16411): Tripulante 2 termin√≥ su tarea
+[INFO] 13:54:05:355 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:54:05:355 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:54:05:355 discordiador.c/(16405:16409): Tarea pedida por tripulante 0: H€±∂¿—±∂¿—±∂¿—±∂H Posicion: 1|2 Duracion: 5 
+[INFO] 13:54:07:356 discordiador.c/(16405:16409): Tripulante 0 ahora esta en 1|2 
+[INFO] 13:54:08:355 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a R
+[INFO] 13:54:08:355 discordiador.c/(16405:16412): Tripulante 3 termin√≥ su tarea
+[INFO] 13:54:08:355 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:54:08:355 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:54:08:355 discordiador.c/(16405:16410): Tarea pedida por tripulante 1: à«a¥¬a¥¬a¥¬a¥H Posicion: 1|2 Duracion: 5 
+[INFO] 13:54:10:357 discordiador.c/(16405:16410): Tripulante 1 ahora esta en 1|2 
+[INFO] 13:54:12:357 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a R
+[INFO] 13:54:12:357 discordiador.c/(16405:16409): Tripulante 0 termin√≥ su tarea
+[INFO] 13:54:12:357 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:54:12:357 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:54:12:358 discordiador.c/(16405:16411): Tarea pedida por tripulante 2: HA∞	ò1∞	ò1∞	ò1∞	∏˜f∑∏˜f∑P7∞	P7∞	»˜f∑»˜f∑–˜f∑–˜f∑ÿ˜f∑ÿ˜f∑‡˜f∑‡˜f∑Ë˜f∑Ë˜f∑˜f∑˜f∑¯˜f∑¯˜f∑ Posicion: 1|2 Duracion: 5 
+[INFO] 13:54:14:358 discordiador.c/(16405:16411): Tripulante 2 ahora esta en 1|2 
+[INFO] 13:54:15:360 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a R
+[INFO] 13:54:15:360 discordiador.c/(16405:16410): Tripulante 1 termin√≥ su tarea
+[INFO] 13:54:15:361 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:54:15:361 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:54:15:362 discordiador.c/(16405:16412): Tarea pedida por tripulante 3: ËÈa¥ Posicion: 1|2 Duracion: 5 
+[INFO] 13:54:17:364 discordiador.c/(16405:16412): Tripulante 3 ahora esta en 1|2 
+[INFO] 13:54:19:362 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a R
+[INFO] 13:54:19:362 discordiador.c/(16405:16411): Tripulante 2 termin√≥ su tarea
+[INFO] 13:54:19:362 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:54:19:363 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:54:19:363 discordiador.c/(16405:16409): Tarea pedida por tripulante 0: à˝±∂xÈ±∂xÈ±∂xÈ±∂H Posicion: 1|1 Duracion: 5 
+[INFO] 13:54:20:363 discordiador.c/(16405:16409): Tripulante 0 ahora esta en 1|1 
+[INFO] 13:54:22:366 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a R
+[INFO] 13:54:22:366 discordiador.c/(16405:16412): Tripulante 3 termin√≥ su tarea
+[INFO] 13:54:22:366 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:54:22:366 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:54:22:366 discordiador.c/(16405:16410): Tarea pedida por tripulante 1: Pb¥»˛a¥»˛a¥»˛a¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:54:23:366 discordiador.c/(16405:16410): Tripulante 1 ahora esta en 1|1 
+[INFO] 13:54:25:365 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a R
+[INFO] 13:54:25:365 discordiador.c/(16405:16409): Tripulante 0 termin√≥ su tarea
+[INFO] 13:54:25:366 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:54:25:366 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:54:25:367 discordiador.c/(16405:16411): Tarea pedida por tripulante 2: ÄS∞	àM∞	àM∞	àM∞	∏˜f∑∏˜f∑¿˜f∑¿˜f∑»˜f∑»˜f∑–˜f∑–˜f∑ÿ˜f∑ÿ˜f∑‡˜f∑‡˜f∑Ë˜f∑Ë˜f∑˜f∑˜f∑¯˜f∑¯˜f∑ Posicion: 1|1 Duracion: 5 
+[INFO] 13:54:26:367 discordiador.c/(16405:16411): Tripulante 2 ahora esta en 1|1 
+[INFO] 13:54:28:369 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a R
+[INFO] 13:54:28:369 discordiador.c/(16405:16410): Tripulante 1 termin√≥ su tarea
+[INFO] 13:54:28:369 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:54:28:369 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:54:28:369 discordiador.c/(16405:16412): Tarea pedida por tripulante 3: ,b¥@b¥@b¥@b¥H Posicion: 1|1 Duracion: 5 
+[INFO] 13:54:29:369 discordiador.c/(16405:16412): Tripulante 3 ahora esta en 1|1 
+[INFO] 13:54:31:369 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a R
+[INFO] 13:54:31:369 discordiador.c/(16405:16411): Tripulante 2 termin√≥ su tarea
+[INFO] 13:54:31:369 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:54:31:369 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:54:31:369 discordiador.c/(16405:16409): Tarea pedida por tripulante 0: 8≤∂x˛±∂x˛±∂x˛±∂H Posicion: 1|3 Duracion: 5 
+[INFO] 13:54:33:370 discordiador.c/(16405:16409): Tripulante 0 ahora esta en 1|3 
+[INFO] 13:54:34:371 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a R
+[INFO] 13:54:34:371 discordiador.c/(16405:16412): Tripulante 3 termin√≥ su tarea
+[INFO] 13:54:34:371 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:54:34:371 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:54:34:371 discordiador.c/(16405:16410): Tarea pedida por tripulante 1: `>b¥x4b¥x4b¥x4b¥H Posicion: 1|3 Duracion: 5 
+[INFO] 13:54:36:372 discordiador.c/(16405:16410): Tripulante 1 ahora esta en 1|3 
+[INFO] 13:54:38:372 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a R
+[INFO] 13:54:38:372 discordiador.c/(16405:16409): Tripulante 0 termin√≥ su tarea
+[INFO] 13:54:38:372 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:54:38:372 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:54:38:372 discordiador.c/(16405:16411): Tarea pedida por tripulante 2: `¯f∑`¯f∑h¯f∑h¯f∑p¯f∑p¯f∑c∞	c∞	Ä¯f∑Ä¯f∑à¯f∑à¯f∑ê¯f∑ê¯f∑ò¯f∑ò¯f∑†¯f∑†¯f∑®¯f∑®¯f∑∞¯f∑∞¯f∑∏¯f∑∏¯f∑¿¯f∑¿¯f∑»¯f∑»¯f∑–¯f∑–¯f∑ÿ¯f∑ÿ¯f∑‡¯f∑‡¯f∑Ë¯f∑Ë¯f∑¯f∑¯f∑¯¯f∑¯¯f∑ Posicion: 1|3 Duracion: 5 
+[INFO] 13:54:40:372 discordiador.c/(16405:16411): Tripulante 2 ahora esta en 1|3 
+[INFO] 13:54:41:374 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a R
+[INFO] 13:54:41:374 discordiador.c/(16405:16410): Tripulante 1 termin√≥ su tarea
+[INFO] 13:54:41:374 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:54:41:374 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:54:41:374 discordiador.c/(16405:16412): Tarea pedida por tripulante 3: `b¥HTb¥HTb¥HTb¥H Posicion: 1|3
+[INFO] 13:54:43:375 discordiador.c/(16405:16412): Tripulante 3 ahora esta en 1|3 
+[INFO] 13:54:45:374 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a R
+[INFO] 13:54:45:374 discordiador.c/(16405:16411): Tripulante 2 termin√≥ su tarea
+[INFO] 13:54:45:374 discordiador.c/(16405:16417): Tripulante 0 cambio su estado a E
+[INFO] 13:54:45:374 discordiador.c/(16405:16409): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:54:45:375 discordiador.c/(16405:16409): Tripulante 0 termino de trabajar 
+[INFO] 13:54:45:375 discordiador.c/(16405:16417): Tripulante 1 cambio su estado a E
+[INFO] 13:54:45:375 discordiador.c/(16405:16410): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:54:45:375 discordiador.c/(16405:16409): Tripulante 0 cambio su estado a F
+[INFO] 13:54:45:376 discordiador.c/(16405:16410): Tripulante 1 termino de trabajar 
+[INFO] 13:54:45:377 discordiador.c/(16405:16417): Tripulante 2 cambio su estado a E
+[INFO] 13:54:45:377 discordiador.c/(16405:16411): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:54:45:377 discordiador.c/(16405:16410): Tripulante 1 cambio su estado a F
+[INFO] 13:54:45:379 discordiador.c/(16405:16411): Tripulante 2 termino de trabajar 
+[INFO] 13:54:45:379 discordiador.c/(16405:16411): Tripulante 2 cambio su estado a F
+[INFO] 13:54:48:378 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a R
+[INFO] 13:54:48:378 discordiador.c/(16405:16412): Tripulante 3 termin√≥ su tarea
+[INFO] 13:54:48:378 discordiador.c/(16405:16417): Tripulante 3 cambio su estado a E
+[INFO] 13:54:48:378 discordiador.c/(16405:16412): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:54:48:378 discordiador.c/(16405:16412): Tripulante 3 termino de trabajar 
+[INFO] 13:54:48:379 discordiador.c/(16405:16412): Tripulante 3 cambio su estado a F
+[INFO] 13:55:02:199 discordiador.c/(16405:16406): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:55:27:030 discordiador.c/(16405:16406): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 4
+[INFO] 13:55:41:241 discordiador.c/(16405:16406): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 3
+[INFO] 13:55:47:343 discordiador.c/(16405:16406): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 5
+[INFO] 13:59:02:075 discordiador.c/(16927:16927): ---------PROGRAMA INICIADO---------- 
+[INFO] 13:59:19:711 discordiador.c/(16927:16928): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segB.txt
+[INFO] 13:59:19:711 discordiador.c/(16927:16928): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 13:59:19:711 discordiador.c/(16927:16928): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 13:59:19:711 discordiador.c/(16927:16928): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 13:59:19:711 discordiador.c/(16927:16928): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 13:59:19:711 discordiador.c/(16927:16928): path de tareas recibido: /home/utnso/segB.txt
+[INFO] 13:59:32:473 discordiador.c/(16927:16928): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 13:59:32:473 discordiador.c/(16927:16928): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 13:59:32:473 discordiador.c/(16927:16928): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 13:59:36:318 discordiador.c/(16927:16928): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 13:59:36:319 discordiador.c/(16927:16944): Tripulante 0 cambio su estado a E
+[INFO] 13:59:36:319 discordiador.c/(16927:16936): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:59:36:319 discordiador.c/(16927:16944): Tripulante 1 cambio su estado a E
+[INFO] 13:59:36:319 discordiador.c/(16927:16937): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 13:59:36:319 discordiador.c/(16927:16936): Tarea pedida por tripulante 0: ê?±∂@,±∂@,±∂@,±∂H Posicion: 3|3 Duracion: 5 
+[INFO] 13:59:36:320 discordiador.c/(16927:16937): Tarea pedida por tripulante 1:  `¥ÿ`¥ÿ`¥ÿ`¥H Posicion: 3|3 Duracion: 5 
+[INFO] 13:59:42:321 discordiador.c/(16927:16937): Tripulante 1 ahora esta en 3|3 
+[INFO] 13:59:42:322 discordiador.c/(16927:16936): Tripulante 0 ahora esta en 3|3 
+[INFO] 13:59:45:219 discordiador.c/(16927:16928): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 13:59:47:324 discordiador.c/(16927:16936): Tripulante 0 cambio su estado a R
+[INFO] 13:59:47:324 discordiador.c/(16927:16936): Tripulante 0 termin√≥ su tarea
+[INFO] 13:59:47:324 discordiador.c/(16927:16944): Tripulante 2 cambio su estado a E
+[INFO] 13:59:47:324 discordiador.c/(16927:16938): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 13:59:47:325 discordiador.c/(16927:16937): Tripulante 1 cambio su estado a R
+[INFO] 13:59:47:325 discordiador.c/(16927:16937): Tripulante 1 termin√≥ su tarea
+[INFO] 13:59:47:325 discordiador.c/(16927:16944): Tripulante 3 cambio su estado a E
+[INFO] 13:59:47:325 discordiador.c/(16927:16939): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 13:59:47:325 discordiador.c/(16927:16938): Tarea pedida por tripulante 2: 0»f∑0»f∑8»f∑8»f∑@»f∑@»f∑H»f∑H»f∑P»f∑P»f∑X»f∑X»f∑`»f∑`»f∑h»f∑h»f∑p»f∑p»f∑x»f∑x»f∑Ä»f∑Ä»f∑à»f∑à»f∑ê»f∑ê»f∑ò»f∑ò»f∑†»f∑†»f∑®»f∑®»f∑∞»f∑∞»f∑∏»f∑∏»f∑¿»f∑¿»f∑»»f∑»»f∑–»f∑–»f∑ÿ»f∑ÿ»f∑‡»f∑‡»f∑Ë»f∑Ë»f∑»f∑»f∑¯»f∑¯»f∑ Posicion: 3|3 Duracion: 5 
+[INFO] 13:59:47:325 discordiador.c/(16927:16939): Tarea pedida por tripulante 3: @M`¥0=`¥0=`¥0=`¥†(`¥†(`¥P Posicion: 3|3 Dura
+[INFO] 13:59:53:331 discordiador.c/(16927:16938): Tripulante 2 ahora esta en 3|3 
+[INFO] 13:59:53:332 discordiador.c/(16927:16939): Tripulante 3 ahora esta en 3|3 
+[INFO] 13:59:58:334 discordiador.c/(16927:16939): Tripulante 3 cambio su estado a R
+[INFO] 13:59:58:334 discordiador.c/(16927:16939): Tripulante 3 termin√≥ su tarea
+[INFO] 13:59:58:334 discordiador.c/(16927:16944): Tripulante 4 cambio su estado a E
+[INFO] 13:59:58:334 discordiador.c/(16927:16943): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 13:59:58:334 discordiador.c/(16927:16938): Tripulante 2 cambio su estado a R
+[INFO] 13:59:58:334 discordiador.c/(16927:16938): Tripulante 2 termin√≥ su tarea
+[INFO] 13:59:58:334 discordiador.c/(16927:16944): Tripulante 0 cambio su estado a E
+[INFO] 13:59:58:335 discordiador.c/(16927:16936): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 13:59:58:335 discordiador.c/(16927:16936): Tarea pedida por tripulante 0: ∏a±∂ Posicion: 3|3 Duracion: 5 
+[INFO] 13:59:58:335 discordiador.c/(16927:16936): Tripulante 0 ahora esta en 3|3 
+[INFO] 13:59:58:336 discordiador.c/(16927:16943): Tarea pedida por tripulante 4: @¸	Ì	Ì	Ì	∏«f∑∏«f∑¿«f∑¿«f∑»«f∑»«f∑–«f∑–«f∑ÿ«f∑ÿ«f∑‡«f∑‡«f∑Ë«f∑Ë«f∑«f∑«f∑¯«f∑¯«f∑ Posicion: 1|1 Duracion: 1 
+[INFO] 14:00:00:336 discordiador.c/(16927:16943): Tripulante 4 ahora esta en 1|1 
+[INFO] 14:00:01:337 discordiador.c/(16927:16943): Tripulante 4 cambio su estado a R
+[INFO] 14:00:01:337 discordiador.c/(16927:16943): Tripulante 4 termin√≥ su tarea
+[INFO] 14:00:01:337 discordiador.c/(16927:16944): Tripulante 1 cambio su estado a E
+[INFO] 14:00:01:337 discordiador.c/(16927:16937): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:00:01:337 discordiador.c/(16927:16937): Tarea pedida por tripulante 1: ∞ Posicion: 3|3 Duracion: 5 
+[INFO] 14:00:01:337 discordiador.c/(16927:16937): Tripulante 1 ahora esta en 3|3 
+[INFO] 14:00:03:338 discordiador.c/(16927:16936): Tripulante 0 cambio su estado a R
+[INFO] 14:00:03:338 discordiador.c/(16927:16936): Tripulante 0 termin√≥ su tarea
+[INFO] 14:00:03:338 discordiador.c/(16927:16944): Tripulante 3 cambio su estado a E
+[INFO] 14:00:03:338 discordiador.c/(16927:16939): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 14:00:03:339 discordiador.c/(16927:16939): Tarea pedida por tripulante 3:  Posicion: 3|3 Duracion: 5 
+[INFO] 14:00:03:339 discordiador.c/(16927:16939): Tripulante 3 ahora esta en 3|3 
+[INFO] 14:00:06:340 discordiador.c/(16927:16937): Tripulante 1 cambio su estado a R
+[INFO] 14:00:06:340 discordiador.c/(16927:16937): Tripulante 1 termin√≥ su tarea
+[INFO] 14:00:06:340 discordiador.c/(16927:16944): Tripulante 2 cambio su estado a E
+[INFO] 14:00:06:341 discordiador.c/(16927:16938): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 14:00:06:345 discordiador.c/(16927:16938): Tarea pedida por tripulante 2: `»f∑`»f∑h»f∑h»f∑p»f∑p»f∑x»f∑x»f∑Ä»f∑Ä»f∑à»f∑à»f∑ê»f∑ê»f∑ò»f∑ò»f∑†»f∑†»f∑®»f∑®»f∑∞»f∑∞»f∑∏»f∑∏»f∑¿»f∑¿»f∑»»f∑»»f∑–»f∑–»f∑ÿ»f∑ÿ»f∑‡»f∑‡»f∑Ë»f∑Ë»f∑»f∑»f∑¯»f∑¯»f∑ Posicion: 3|3 Duracion: 5 
+[INFO] 14:00:06:346 discordiador.c/(16927:16938): Tripulante 2 ahora esta en 3|3 
+[INFO] 14:00:08:340 discordiador.c/(16927:16939): Tripulante 3 cambio su estado a R
+[INFO] 14:00:08:341 discordiador.c/(16927:16939): Tripulante 3 termin√≥ su tarea
+[INFO] 14:00:08:341 discordiador.c/(16927:16944): Tripulante 4 cambio su estado a E
+[INFO] 14:00:08:341 discordiador.c/(16927:16943): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 14:00:08:342 discordiador.c/(16927:16943): Tripulante 4 termino de trabajar 
+[INFO] 14:00:08:342 discordiador.c/(16927:16944): Tripulante 0 cambio su estado a E
+[INFO] 14:00:08:342 discordiador.c/(16927:16936): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:00:08:342 discordiador.c/(16927:16943): Tripulante 4 cambio su estado a F
+[INFO] 14:00:08:343 discordiador.c/(16927:16936): Tarea pedida por tripulante 0: Xs±∂®b±∂®b±∂®b±∂H Posicion: 3|3 Duracion: 5 
+[INFO] 14:00:08:343 discordiador.c/(16927:16936): Tripulante 0 ahora esta en 3|3 
+[INFO] 14:00:11:349 discordiador.c/(16927:16938): Tripulante 2 cambio su estado a R
+[INFO] 14:00:11:349 discordiador.c/(16927:16938): Tripulante 2 termin√≥ su tarea
+[INFO] 14:00:11:349 discordiador.c/(16927:16944): Tripulante 1 cambio su estado a E
+[INFO] 14:00:11:349 discordiador.c/(16927:16937): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:00:11:568 discordiador.c/(16927:16937): Tripulante 1 ahora esta en 3|3 
+[INFO] 14:02:09:141 discordiador.c/(17127:17127): ---------PROGRAMA INICIADO---------- 
+[INFO] 14:03:25:114 discordiador.c/(17127:17129): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segB.txt
+[INFO] 14:03:25:115 discordiador.c/(17127:17129): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 14:03:25:115 discordiador.c/(17127:17129): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 14:03:25:115 discordiador.c/(17127:17129): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 14:03:25:115 discordiador.c/(17127:17129): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 14:03:25:115 discordiador.c/(17127:17129): path de tareas recibido: /home/utnso/segB.txt
+[INFO] 14:03:36:391 discordiador.c/(17127:17129): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 14:03:36:393 discordiador.c/(17127:17129): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 14:03:36:393 discordiador.c/(17127:17129): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 14:03:39:902 discordiador.c/(17127:17129): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 14:03:39:903 discordiador.c/(17127:17211): Tripulante 0 cambio su estado a E
+[INFO] 14:03:39:903 discordiador.c/(17127:17200): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:03:39:903 discordiador.c/(17127:17211): Tripulante 1 cambio su estado a E
+[INFO] 14:03:39:903 discordiador.c/(17127:17201): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:03:39:903 discordiador.c/(17127:17200): Tarea pedida por tripulante 0: Ä?±∂@,±∂@,±∂@,±∂H Posicion: 3|3 Duracion: 5 
+[INFO] 14:03:39:904 discordiador.c/(17127:17201): Tarea pedida por tripulante 1:  `¥ÿ`¥ÿ`¥ÿ`¥H Posicion: 3|3 Duracion: 5 
+[INFO] 14:03:45:907 discordiador.c/(17127:17200): Tripulante 0 ahora esta en 3|3 
+[INFO] 14:03:45:907 discordiador.c/(17127:17201): Tripulante 1 ahora esta en 3|3 
+[INFO] 14:03:50:917 discordiador.c/(17127:17200): Tripulante 0 cambio su estado a R
+[INFO] 14:03:50:917 discordiador.c/(17127:17200): Tripulante 0 termin√≥ su tarea
+[INFO] 14:03:50:917 discordiador.c/(17127:17211): Tripulante 2 cambio su estado a E
+[INFO] 14:03:50:917 discordiador.c/(17127:17202): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 14:03:50:917 discordiador.c/(17127:17201): Tripulante 1 cambio su estado a R
+[INFO] 14:03:50:917 discordiador.c/(17127:17201): Tripulante 1 termin√≥ su tarea
+[INFO] 14:03:50:918 discordiador.c/(17127:17211): Tripulante 3 cambio su estado a E
+[INFO] 14:03:50:918 discordiador.c/(17127:17203): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 14:03:50:926 discordiador.c/(17127:17202): Tarea pedida por tripulante 2: àM`¥0=`¥0=`¥0=`¥H Posicion: 3|3 Duracion: 5 
+[INFO] 14:03:50:931 discordiador.c/(17127:17203): Tarea pedida por tripulante 3: 0xe∑0xe∑8xe∑8xe∑@xe∑@xe∑Hxe∑Hxe∑Pxe∑Pxe∑Xxe∑Xxe∑`xe∑`xe∑hxe∑hxe∑pxe∑pxe∑xxe∑xxe∑Äxe∑Äxe∑àxe∑àxe∑êxe∑êxe∑òxe∑òxe∑†xe∑†xe∑®xe∑®xe∑∞xe∑∞xe∑∏xe∑∏xe∑¿xe∑¿xe∑»xe∑»xe∑–xe∑–xe∑ÿxe∑ÿxe∑‡xe∑‡xe∑Ëxe∑Ëxe∑xe∑xe∑¯xe∑¯xe∑ Posicion: 3|3 Duracion: 5 
+[INFO] 14:03:56:932 discordiador.c/(17127:17202): Tripulante 2 ahora esta en 3|3 
+[INFO] 14:03:56:933 discordiador.c/(17127:17203): Tripulante 3 ahora esta en 3|3 
+[INFO] 14:04:01:934 discordiador.c/(17127:17202): Tripulante 2 cambio su estado a R
+[INFO] 14:04:01:934 discordiador.c/(17127:17202): Tripulante 2 termin√≥ su tarea
+[INFO] 14:04:01:934 discordiador.c/(17127:17211): Tripulante 4 cambio su estado a E
+[INFO] 14:04:01:934 discordiador.c/(17127:17210): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 14:04:01:935 discordiador.c/(17127:17210): Tarea pedida por tripulante 4: ¯k…	¯b…	¯b…	¯b…	∏we∑∏we∑¿we∑¿we∑»we∑»we∑–we∑–we∑¿e…	¿e…	‡we∑‡we∑Ëwe∑Ëwe∑we∑we∑¯we∑¯we∑ Posicion: 1|1 Duracion: 1 
+[INFO] 14:04:01:937 discordiador.c/(17127:17203): Tripulante 3 cambio su estado a R
+[INFO] 14:04:01:937 discordiador.c/(17127:17203): Tripulante 3 termin√≥ su tarea
+[INFO] 14:04:01:937 discordiador.c/(17127:17211): Tripulante 1 cambio su estado a E
+[INFO] 14:04:01:938 discordiador.c/(17127:17201): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:04:01:938 discordiador.c/(17127:17201): Tarea pedida por tripulante 1:  Ä`¥–=`¥–=`¥–=`¥H Posicion: 3|3 Duracion: 5 
+[INFO] 14:04:01:938 discordiador.c/(17127:17201): Tripulante 1 ahora esta en 3|3 
+[INFO] 14:04:03:936 discordiador.c/(17127:17210): Tripulante 4 ahora esta en 1|1 
+[INFO] 14:04:04:937 discordiador.c/(17127:17210): Tripulante 4 cambio su estado a R
+[INFO] 14:04:04:937 discordiador.c/(17127:17210): Tripulante 4 termin√≥ su tarea
+[INFO] 14:04:04:937 discordiador.c/(17127:17211): Tripulante 0 cambio su estado a E
+[INFO] 14:04:04:937 discordiador.c/(17127:17200): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:04:04:938 discordiador.c/(17127:17200): Tarea pedida por tripulante 0: Pa±∂R±∂R±∂R±∂H Posicion: 3|3 Duracion: 5 
+[INFO] 14:04:04:938 discordiador.c/(17127:17200): Tripulante 0 ahora esta en 3|3 
+[INFO] 14:04:06:940 discordiador.c/(17127:17201): Tripulante 1 cambio su estado a R
+[INFO] 14:04:06:941 discordiador.c/(17127:17201): Tripulante 1 termin√≥ su tarea
+[INFO] 14:04:06:941 discordiador.c/(17127:17211): Tripulante 2 cambio su estado a E
+[INFO] 14:04:06:941 discordiador.c/(17127:17202): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 14:04:06:942 discordiador.c/(17127:17202): Tarea pedida por tripulante 2: x Posicion: 3|3 Duracion: 5 
+[INFO] 14:04:06:942 discordiador.c/(17127:17202): Tripulante 2 ahora esta en 3|3 
+[INFO] 14:04:09:941 discordiador.c/(17127:17200): Tripulante 0 cambio su estado a R
+[INFO] 14:04:09:941 discordiador.c/(17127:17200): Tripulante 0 termin√≥ su tarea
+[INFO] 14:04:09:941 discordiador.c/(17127:17211): Tripulante 3 cambio su estado a E
+[INFO] 14:04:09:941 discordiador.c/(17127:17203): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 14:04:09:942 discordiador.c/(17127:17203): Tarea pedida por tripulante 3: –ë…	†Å…	†Å…	†Å…	∏we∑∏we∑¿we∑¿we∑»we∑»we∑–we∑–we∑ÿwe∑ÿwe∑xá…	xá…	Ëwe∑Ëwe∑we∑we∑¯we∑¯we∑ Posicion: 3|3 Duracion: 5 
+[INFO] 14:04:09:942 discordiador.c/(17127:17203): Tripulante 3 ahora esta en 3|3 
+[INFO] 14:04:11:945 discordiador.c/(17127:17202): Tripulante 2 cambio su estado a R
+[INFO] 14:04:11:945 discordiador.c/(17127:17202): Tripulante 2 termin√≥ su tarea
+[INFO] 14:04:11:945 discordiador.c/(17127:17211): Tripulante 4 cambio su estado a E
+[INFO] 14:04:11:945 discordiador.c/(17127:17210): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 14:04:11:946 discordiador.c/(17127:17210): Tripulante 4 termino de trabajar 
+[INFO] 14:04:11:946 discordiador.c/(17127:17211): Tripulante 1 cambio su estado a E
+[INFO] 14:04:11:947 discordiador.c/(17127:17201): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:04:11:947 discordiador.c/(17127:17210): Tripulante 4 cambio su estado a F
+[INFO] 14:04:11:947 discordiador.c/(17127:17201): Tarea pedida por tripulante 1: Ä≥`¥Ëí`¥Ëí`¥Ëí`¥H Posicion: 3|3 Duracion: 5 
+[INFO] 14:04:11:947 discordiador.c/(17127:17201): Tripulante 1 ahora esta en 3|3 
+[INFO] 14:04:14:946 discordiador.c/(17127:17203): Tripulante 3 cambio su estado a R
+[INFO] 14:04:14:946 discordiador.c/(17127:17203): Tripulante 3 termin√≥ su tarea
+[INFO] 14:04:14:946 discordiador.c/(17127:17211): Tripulante 0 cambio su estado a E
+[INFO] 14:04:14:946 discordiador.c/(17127:17200): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:04:14:947 discordiador.c/(17127:17200): Tarea pedida por tripulante 0: Ër±∂@b±∂@b±∂@b±∂H Posicion: 3|3 Duracion: 5 
+[INFO] 14:04:14:947 discordiador.c/(17127:17200): Tripulante 0 ahora esta en 3|3 
+[INFO] 14:04:16:949 discordiador.c/(17127:17201): Tripulante 1 cambio su estado a R
+[INFO] 14:04:16:949 discordiador.c/(17127:17201): Tripulante 1 termin√≥ su tarea
+[INFO] 14:04:16:949 discordiador.c/(17127:17211): Tripulante 2 cambio su estado a E
+[INFO] 14:04:16:949 discordiador.c/(17127:17202): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 14:04:16:950 discordiador.c/(17127:17202): Tarea pedida por tripulante 2: x Posicion: 3|3 Duracion: 5 
+[INFO] 14:04:16:950 discordiador.c/(17127:17202): Tripulante 2 ahora esta en 3|3 
+[INFO] 14:04:19:950 discordiador.c/(17127:17200): Tripulante 0 cambio su estado a R
+[INFO] 14:04:19:950 discordiador.c/(17127:17200): Tripulante 0 termin√≥ su tarea
+[INFO] 14:04:19:950 discordiador.c/(17127:17211): Tripulante 3 cambio su estado a E
+[INFO] 14:04:19:950 discordiador.c/(17127:17203): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 14:04:19:950 discordiador.c/(17127:17203): Tarea pedida por tripulante 3: £…	hí…	hí…	hí…	∏we∑∏we∑0ü…	0ü…	»we∑»we∑–we∑–we∑ÿwe∑ÿwe∑‡we∑‡we∑Ëwe∑Ëwe∑we∑we∑¯we∑¯we∑ Posicion: 3|3 Duracion: 5 
+[INFO] 14:04:19:950 discordiador.c/(17127:17203): Tripulante 3 ahora esta en 3|3 
+[INFO] 14:04:20:507 discordiador.c/(17127:17129): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 14:04:21:952 discordiador.c/(17127:17202): Tripulante 2 cambio su estado a R
+[INFO] 14:04:21:952 discordiador.c/(17127:17202): Tripulante 2 termin√≥ su tarea
+[INFO] 14:04:21:952 discordiador.c/(17127:17211): Tripulante 1 cambio su estado a E
+[INFO] 14:04:21:952 discordiador.c/(17127:17201): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:04:21:953 discordiador.c/(17127:17201): Tripulante 1 termino de trabajar 
+[INFO] 14:04:21:954 discordiador.c/(17127:17211): Tripulante 0 cambio su estado a E
+[INFO] 14:04:21:954 discordiador.c/(17127:17200): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:04:21:954 discordiador.c/(17127:17201): Tripulante 1 cambio su estado a F
+[INFO] 14:04:21:955 discordiador.c/(17127:17200): Tripulante 0 termino de trabajar 
+[INFO] 14:04:21:955 discordiador.c/(17127:17211): Tripulante 2 cambio su estado a E
+[INFO] 14:04:21:955 discordiador.c/(17127:17202): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 14:04:21:955 discordiador.c/(17127:17200): Tripulante 0 cambio su estado a F
+[INFO] 14:04:21:956 discordiador.c/(17127:17202): Tripulante 2 termino de trabajar 
+[INFO] 14:04:21:957 discordiador.c/(17127:17202): Tripulante 2 cambio su estado a F
+[INFO] 14:04:24:952 discordiador.c/(17127:17203): Tripulante 3 cambio su estado a R
+[INFO] 14:04:24:952 discordiador.c/(17127:17203): Tripulante 3 termin√≥ su tarea
+[INFO] 14:04:24:952 discordiador.c/(17127:17211): Tripulante 3 cambio su estado a E
+[INFO] 14:04:24:953 discordiador.c/(17127:17203): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 14:04:24:954 discordiador.c/(17127:17203): Tripulante 3 termino de trabajar 
+[INFO] 14:04:24:954 discordiador.c/(17127:17203): Tripulante 3 cambio su estado a F
+[INFO] 14:04:28:830 discordiador.c/(17127:17129): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 14:05:43:508 discordiador.c/(17516:17516): ---------PROGRAMA INICIADO---------- 
+[INFO] 14:05:54:665 discordiador.c/(17516:17517): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segB.txt
+[INFO] 14:05:54:666 discordiador.c/(17516:17517): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 14:05:54:666 discordiador.c/(17516:17517): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 14:05:54:666 discordiador.c/(17516:17517): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 14:05:54:666 discordiador.c/(17516:17517): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 14:05:54:666 discordiador.c/(17516:17517): path de tareas recibido: /home/utnso/segB.txt
+[INFO] 14:06:05:715 discordiador.c/(17516:17517): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 14:06:05:717 discordiador.c/(17516:17517): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 14:06:05:717 discordiador.c/(17516:17517): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 14:06:11:890 discordiador.c/(17516:17517): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 14:06:11:891 discordiador.c/(17516:17533): Tripulante 0 cambio su estado a E
+[INFO] 14:06:11:891 discordiador.c/(17516:17522): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:06:11:891 discordiador.c/(17516:17533): Tripulante 1 cambio su estado a E
+[INFO] 14:06:11:891 discordiador.c/(17516:17523): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:06:11:892 discordiador.c/(17516:17522): Tarea pedida por tripulante 0: ê?¡∂@,¡∂@,¡∂@,¡∂H Posicion: 3|4 Duracion: 5 
+[INFO] 14:06:11:892 discordiador.c/(17516:17523): Tarea pedida por tripulante 1:  p¥ÿp¥ÿp¥ÿp¥H Posicion: 3|4 Duracion: 5 
+[INFO] 14:06:18:899 discordiador.c/(17516:17523): Tripulante 1 ahora esta en 3|4 
+[INFO] 14:06:18:899 discordiador.c/(17516:17522): Tripulante 0 ahora esta en 3|4 
+[INFO] 14:06:23:903 discordiador.c/(17516:17522): Tripulante 0 cambio su estado a R
+[INFO] 14:06:23:904 discordiador.c/(17516:17522): Tripulante 0 termin√≥ su tarea
+[INFO] 14:06:23:904 discordiador.c/(17516:17533): Tripulante 2 cambio su estado a E
+[INFO] 14:06:23:904 discordiador.c/(17516:17524): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 14:06:23:904 discordiador.c/(17516:17523): Tripulante 1 cambio su estado a R
+[INFO] 14:06:23:904 discordiador.c/(17516:17523): Tripulante 1 termin√≥ su tarea
+[INFO] 14:06:23:904 discordiador.c/(17516:17533): Tripulante 3 cambio su estado a E
+[INFO] 14:06:23:904 discordiador.c/(17516:17525): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 14:06:23:910 discordiador.c/(17516:17524): Tarea pedida por tripulante 2: † Posicion: 3|4 Duracion: 5 
+[INFO] 14:06:23:911 discordiador.c/(17516:17525): Tarea pedida por tripulante 3: 0∏o∑0∏o∑8∏o∑8∏o∑@∏o∑@∏o∑H∏o∑H∏o∑P∏o∑P∏o∑X∏o∑X∏o∑`∏o∑`∏o∑h∏o∑h∏o∑p∏o∑p∏o∑x∏o∑x∏o∑Ä∏o∑Ä∏o∑à∏o∑à∏o∑ê∏o∑ê∏o∑ò∏o∑ò∏o∑†∏o∑†∏o∑®∏o∑®∏o∑∞∏o∑∞∏o∑∏∏o∑∏∏o∑¿∏o∑¿∏o∑»∏o∑»∏o∑–∏o∑–∏o∑ÿ∏o∑ÿ∏o∑‡∏o∑‡∏o∑Ë∏o∑Ë∏o∑∏o∑∏o∑¯∏o∑¯∏o∑ Posicion: 3|4 Duracion: 5 
+[INFO] 14:06:30:918 discordiador.c/(17516:17524): Tripulante 2 ahora esta en 3|4 
+[INFO] 14:06:30:918 discordiador.c/(17516:17525): Tripulante 3 ahora esta en 3|4 
+[INFO] 14:06:35:923 discordiador.c/(17516:17525): Tripulante 3 cambio su estado a R
+[INFO] 14:06:35:923 discordiador.c/(17516:17525): Tripulante 3 termin√≥ su tarea
+[INFO] 14:06:35:923 discordiador.c/(17516:17533): Tripulante 4 cambio su estado a E
+[INFO] 14:06:35:923 discordiador.c/(17516:17531): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 14:06:35:924 discordiador.c/(17516:17524): Tripulante 2 cambio su estado a R
+[INFO] 14:06:35:924 discordiador.c/(17516:17524): Tripulante 2 termin√≥ su tarea
+[INFO] 14:06:35:924 discordiador.c/(17516:17533): Tripulante 0 cambio su estado a E
+[INFO] 14:06:35:924 discordiador.c/(17516:17522): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:06:35:930 discordiador.c/(17516:17531): Tarea pedida por tripulante 4: ∏èA	†|A	†|A	†|A	∏∑o∑∏∑o∑à~A	à~A	»∑o∑»∑o∑–∑o∑–∑o∑ÿ∑o∑ÿ∑o∑‡∑o∑‡∑o∑Ë∑o∑Ë∑o∑∑o∑∑o∑¯∑o∑¯∑o∑ Posicion: 1|1 Duracion: 1 
+[INFO] 14:06:35:930 discordiador.c/(17516:17522): Tarea pedida por tripulante 0: 0a¡∂XU¡∂XU¡∂XU¡∂H Posicion: 2|3 Duracion: 5 
+[INFO] 14:06:37:931 discordiador.c/(17516:17531): Tripulante 4 ahora esta en 1|1 
+[INFO] 14:06:37:932 discordiador.c/(17516:17522): Tripulante 0 ahora esta en 2|3 
+[INFO] 14:06:38:932 discordiador.c/(17516:17531): Tripulante 4 cambio su estado a R
+[INFO] 14:06:38:932 discordiador.c/(17516:17531): Tripulante 4 termin√≥ su tarea
+[INFO] 14:06:38:932 discordiador.c/(17516:17533): Tripulante 1 cambio su estado a E
+[INFO] 14:06:38:932 discordiador.c/(17516:17523): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:06:38:933 discordiador.c/(17516:17523): Tarea pedida por tripulante 1: xp¥òop¥òop¥òop¥∞qp¥∞qp¥P Posicion: 2|3 Dura
+[INFO] 14:06:40:935 discordiador.c/(17516:17523): Tripulante 1 ahora esta en 2|3 
+[INFO] 14:06:42:934 discordiador.c/(17516:17522): Tripulante 0 cambio su estado a R
+[INFO] 14:06:42:934 discordiador.c/(17516:17522): Tripulante 0 termin√≥ su tarea
+[INFO] 14:06:42:934 discordiador.c/(17516:17533): Tripulante 3 cambio su estado a E
+[INFO] 14:06:42:934 discordiador.c/(17516:17525): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 14:06:42:935 discordiador.c/(17516:17525): Tarea pedida por tripulante 3: »òA	»òA	¯∑o∑¯∑o∑ Posicion: 2|3 Duracion: 5 
+[INFO] 14:06:44:936 discordiador.c/(17516:17525): Tripulante 3 ahora esta en 2|3 
+[INFO] 14:06:45:937 discordiador.c/(17516:17523): Tripulante 1 cambio su estado a R
+[INFO] 14:06:45:937 discordiador.c/(17516:17523): Tripulante 1 termin√≥ su tarea
+[INFO] 14:06:45:938 discordiador.c/(17516:17533): Tripulante 2 cambio su estado a E
+[INFO] 14:06:45:938 discordiador.c/(17516:17524): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 14:06:45:940 discordiador.c/(17516:17524): Tarea pedida por tripulante 2:  Posicion: 2|3 Duracion: 5 
+[INFO] 14:06:47:941 discordiador.c/(17516:17524): Tripulante 2 ahora esta en 2|3 
+[INFO] 14:06:49:938 discordiador.c/(17516:17525): Tripulante 3 cambio su estado a R
+[INFO] 14:06:49:938 discordiador.c/(17516:17525): Tripulante 3 termin√≥ su tarea
+[INFO] 14:06:49:938 discordiador.c/(17516:17533): Tripulante 4 cambio su estado a E
+[INFO] 14:06:49:938 discordiador.c/(17516:17531): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 14:06:49:939 discordiador.c/(17516:17531): Tripulante 4 termino de trabajar 
+[INFO] 14:06:49:939 discordiador.c/(17516:17533): Tripulante 0 cambio su estado a E
+[INFO] 14:06:49:939 discordiador.c/(17516:17522): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:06:49:939 discordiador.c/(17516:17531): Tripulante 4 cambio su estado a F
+[INFO] 14:06:49:940 discordiador.c/(17516:17522): Tarea pedida por tripulante 0: hr¡∂0l¡∂0l¡∂0l¡∂H Posicion: 1|3 Duracion: 5 
+[INFO] 14:06:50:940 discordiador.c/(17516:17522): Tripulante 0 ahora esta en 1|3 
+[INFO] 14:06:52:943 discordiador.c/(17516:17524): Tripulante 2 cambio su estado a R
+[INFO] 14:06:52:943 discordiador.c/(17516:17524): Tripulante 2 termin√≥ su tarea
+[INFO] 14:06:52:943 discordiador.c/(17516:17533): Tripulante 1 cambio su estado a E
+[INFO] 14:06:52:943 discordiador.c/(17516:17523): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:06:53:135 discordiador.c/(17516:17523): Tripulante 1 ahora esta en 2|3 
+[INFO] 14:06:53:232 discordiador.c/(17516:17517): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 14:08:50:680 discordiador.c/(17755:17755): ---------PROGRAMA INICIADO---------- 
+[INFO] 14:09:07:112 discordiador.c/(17755:17757): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/segB.txt
+[INFO] 14:09:07:112 discordiador.c/(17755:17757): Tripulante creado: ID: 0, Posicion 0|0, Estado: N 
+[INFO] 14:09:07:113 discordiador.c/(17755:17757): Tripulante creado: ID: 1, Posicion 0|0, Estado: N 
+[INFO] 14:09:07:113 discordiador.c/(17755:17757): Tripulante creado: ID: 2, Posicion 0|0, Estado: N 
+[INFO] 14:09:07:113 discordiador.c/(17755:17757): Tripulante creado: ID: 3, Posicion 0|0, Estado: N 
+[INFO] 14:09:07:113 discordiador.c/(17755:17757): path de tareas recibido: /home/utnso/segB.txt
+[INFO] 14:09:26:856 discordiador.c/(17755:17757): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/segC.txt
+[INFO] 14:09:26:856 discordiador.c/(17755:17757): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 14:09:26:856 discordiador.c/(17755:17757): path de tareas recibido: /home/utnso/segC.txt
+[INFO] 14:09:31:675 discordiador.c/(17755:17757): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 14:09:31:676 discordiador.c/(17755:17823): Tripulante 0 cambio su estado a E
+[INFO] 14:09:31:676 discordiador.c/(17755:17776): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:09:31:676 discordiador.c/(17755:17823): Tripulante 1 cambio su estado a E
+[INFO] 14:09:31:676 discordiador.c/(17755:17777): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:09:31:689 discordiador.c/(17755:17776): Tarea pedida por tripulante 0: ¿D±∂®1±∂®1±∂®1±∂H Posicion: 3|4 Duracion: 5 
+[INFO] 14:09:31:699 discordiador.c/(17755:17777): Tarea pedida por tripulante 1:  p¥ÿp¥ÿp¥ÿp¥H Posicion: 3|4 Duracion: 5 
+[INFO] 14:09:38:695 discordiador.c/(17755:17776): Tripulante 0 ahora esta en 3|4 
+[INFO] 14:09:38:718 discordiador.c/(17755:17777): Tripulante 1 ahora esta en 3|4 
+[INFO] 14:09:43:701 discordiador.c/(17755:17776): Tripulante 0 cambio su estado a R
+[INFO] 14:09:43:701 discordiador.c/(17755:17776): Tripulante 0 termin√≥ su tarea
+[INFO] 14:09:43:701 discordiador.c/(17755:17823): Tripulante 2 cambio su estado a E
+[INFO] 14:09:43:702 discordiador.c/(17755:17778): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 14:09:43:719 discordiador.c/(17755:17778): Tarea pedida por tripulante 2: 0Xk∑0Xk∑8Xk∑8Xk∑@Xk∑@Xk∑HXk∑HXk∑PXk∑PXk∑XXk∑XXk∑`Xk∑`Xk∑hXk∑hXk∑pXk∑pXk∑xXk∑xXk∑ÄXk∑ÄXk∑àXk∑àXk∑êXk∑êXk∑òXk∑òXk∑†Xk∑†Xk∑®Xk∑®Xk∑∞Xk∑∞Xk∑∏Xk∑∏Xk∑¿Xk∑¿Xk∑»Xk∑»Xk∑–Xk∑–Xk∑ÿXk∑ÿXk∑‡Xk∑‡Xk∑ËXk∑ËXk∑Xk∑Xk∑¯Xk∑¯Xk∑ Posicion: 3|4 Duracion: 5 
+[INFO] 14:09:43:720 discordiador.c/(17755:17777): Tripulante 1 cambio su estado a R
+[INFO] 14:09:43:720 discordiador.c/(17755:17777): Tripulante 1 termin√≥ su tarea
+[INFO] 14:09:43:720 discordiador.c/(17755:17823): Tripulante 3 cambio su estado a E
+[INFO] 14:09:43:720 discordiador.c/(17755:17779): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 14:09:43:735 discordiador.c/(17755:17779): Tarea pedida por tripulante 3: (Mp¥Äp¥Äp¥Äp¥H Posicion: 3|4 Duracion: 5 
+[INFO] 14:09:50:723 discordiador.c/(17755:17778): Tripulante 2 ahora esta en 3|4 
+[INFO] 14:09:50:741 discordiador.c/(17755:17779): Tripulante 3 ahora esta en 3|4 
+[INFO] 14:09:55:730 discordiador.c/(17755:17778): Tripulante 2 cambio su estado a R
+[INFO] 14:09:55:730 discordiador.c/(17755:17778): Tripulante 2 termin√≥ su tarea
+[INFO] 14:09:55:730 discordiador.c/(17755:17823): Tripulante 4 cambio su estado a E
+[INFO] 14:09:55:730 discordiador.c/(17755:17813): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 14:09:55:742 discordiador.c/(17755:17779): Tripulante 3 cambio su estado a R
+[INFO] 14:09:55:742 discordiador.c/(17755:17779): Tripulante 3 termin√≥ su tarea
+[INFO] 14:09:55:742 discordiador.c/(17755:17823): Tripulante 0 cambio su estado a E
+[INFO] 14:09:55:743 discordiador.c/(17755:17776): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:09:55:752 discordiador.c/(17755:17813): Tarea pedida por tripulante 4: ∏èk†|k†|k†|k∏Wk∑∏Wk∑à~kà~k»Wk∑»Wk∑–Wk∑–Wk∑ÿWk∑ÿWk∑‡Wk∑‡Wk∑ËWk∑ËWk∑Wk∑Wk∑¯Wk∑¯Wk∑ Posicion: 1|1 Duracion: 1 
+[INFO] 14:09:55:764 discordiador.c/(17755:17776): Tarea pedida por tripulante 0: †f±∂∞Z±∂∞Z±∂∞Z±∂H Posicion: 2|3 Duracion: 5 
+[INFO] 14:09:57:753 discordiador.c/(17755:17813): Tripulante 4 ahora esta en 1|1 
+[INFO] 14:09:57:767 discordiador.c/(17755:17776): Tripulante 0 ahora esta en 2|3 
+[INFO] 14:09:58:754 discordiador.c/(17755:17813): Tripulante 4 cambio su estado a R
+[INFO] 14:09:58:754 discordiador.c/(17755:17813): Tripulante 4 termin√≥ su tarea
+[INFO] 14:09:58:754 discordiador.c/(17755:17823): Tripulante 1 cambio su estado a E
+[INFO] 14:09:58:754 discordiador.c/(17755:17777): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:09:58:768 discordiador.c/(17755:17777): Tarea pedida por tripulante 1: PÉp¥8sp¥8sp¥8sp¥H Posicion: 2|3 Duracion: 5 
+[INFO] 14:10:00:769 discordiador.c/(17755:17777): Tripulante 1 ahora esta en 2|3 
+[INFO] 14:10:02:770 discordiador.c/(17755:17776): Tripulante 0 cambio su estado a R
+[INFO] 14:10:02:770 discordiador.c/(17755:17776): Tripulante 0 termin√≥ su tarea
+[INFO] 14:10:02:770 discordiador.c/(17755:17823): Tripulante 2 cambio su estado a E
+[INFO] 14:10:02:770 discordiador.c/(17755:17778): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 14:10:02:784 discordiador.c/(17755:17778): Tarea pedida por tripulante 2: »òk»òk¯Wk∑¯Wk∑ Posicion: 2|3 Duracion: 5 
+[INFO] 14:10:04:785 discordiador.c/(17755:17778): Tripulante 2 ahora esta en 2|3 
+[INFO] 14:10:05:773 discordiador.c/(17755:17777): Tripulante 1 cambio su estado a R
+[INFO] 14:10:05:773 discordiador.c/(17755:17777): Tripulante 1 termin√≥ su tarea
+[INFO] 14:10:05:773 discordiador.c/(17755:17823): Tripulante 3 cambio su estado a E
+[INFO] 14:10:05:773 discordiador.c/(17755:17779): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 14:10:05:786 discordiador.c/(17755:17779): Tarea pedida por tripulante 3: ¿ Posicion: 2|3 Duracion: 5 
+[INFO] 14:10:07:787 discordiador.c/(17755:17779): Tripulante 3 ahora esta en 2|3 
+[INFO] 14:10:09:788 discordiador.c/(17755:17778): Tripulante 2 cambio su estado a R
+[INFO] 14:10:09:788 discordiador.c/(17755:17778): Tripulante 2 termin√≥ su tarea
+[INFO] 14:10:09:788 discordiador.c/(17755:17823): Tripulante 4 cambio su estado a E
+[INFO] 14:10:09:788 discordiador.c/(17755:17813): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 14:10:09:796 discordiador.c/(17755:17813): Tripulante 4 termino de trabajar 
+[INFO] 14:10:09:797 discordiador.c/(17755:17823): Tripulante 0 cambio su estado a E
+[INFO] 14:10:09:797 discordiador.c/(17755:17776): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 14:10:09:797 discordiador.c/(17755:17813): Tripulante 4 cambio su estado a F
+[INFO] 14:10:09:817 discordiador.c/(17755:17776): Tarea pedida por tripulante 0:  x±∂¯p±∂¯p±∂¯p±∂H Posicion: 1|3 Duracion: 5 
+[INFO] 14:10:10:818 discordiador.c/(17755:17776): Tripulante 0 ahora esta en 1|3 
+[INFO] 14:10:12:790 discordiador.c/(17755:17779): Tripulante 3 cambio su estado a R
+[INFO] 14:10:12:790 discordiador.c/(17755:17779): Tripulante 3 termin√≥ su tarea
+[INFO] 14:10:12:790 discordiador.c/(17755:17823): Tripulante 1 cambio su estado a E
+[INFO] 14:10:12:791 discordiador.c/(17755:17777): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 14:10:12:800 discordiador.c/(17755:17777): Tarea pedida por tripulante 1: – Posicion: 1|3 Duracion: 5 
+[INFO] 14:10:13:801 discordiador.c/(17755:17777): Tripulante 1 ahora esta en 1|3 
+[INFO] 14:10:15:821 discordiador.c/(17755:17776): Tripulante 0 cambio su estado a R
+[INFO] 14:10:15:821 discordiador.c/(17755:17776): Tripulante 0 termin√≥ su tarea
+[INFO] 14:10:15:821 discordiador.c/(17755:17823): Tripulante 2 cambio su estado a E
+[INFO] 14:10:15:821 discordiador.c/(17755:17778): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 14:10:18:803 discordiador.c/(17755:17777): Tripulante 1 cambio su estado a R
+[INFO] 14:10:18:803 discordiador.c/(17755:17777): Tripulante 1 termin√≥ su tarea
+[INFO] 14:10:18:804 discordiador.c/(17755:17823): Tripulante 3 cambio su estado a E
+[INFO] 14:10:18:804 discordiador.c/(17755:17779): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 14:10:50:867 discordiador.c/(17755:17778): Tripulante 2 ahora esta en 2|3 
