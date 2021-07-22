@@ -25491,3 +25491,344 @@ C08;5;5;5| 0
 [INFO] 20:53:05:668 mi_ram.c/(15826:15934): Se lleva la pagina 0, del proceso 1 a SWAP
 [INFO] 20:53:05:668 mi_ram.c/(15826:15934): Se trae la pagina 2, del proceso 2 a MEMORIA
 >>>>>>> Swap
+[INFO] 23:18:30:264 mi_ram.c/(28579:28579): Iniciando Frames... 
+[INFO] 23:18:30:264 mi_ram.c/(28579:28579): -------------------------
+[INFO] 23:18:30:264 mi_ram.c/(28579:28579): Disponibilidad de frames: 
+[INFO] 23:18:30:264 mi_ram.c/(28579:28579): el frame 0 esta ocupado: 0 
+[INFO] 23:18:30:264 mi_ram.c/(28579:28579): el frame 1 esta ocupado: 0 
+[INFO] 23:18:30:264 mi_ram.c/(28579:28579): el frame 2 esta ocupado: 0 
+[INFO] 23:18:30:264 mi_ram.c/(28579:28579): el frame 3 esta ocupado: 0 
+[INFO] 23:18:30:264 mi_ram.c/(28579:28579): Iniciando Frames Swap... 
+[INFO] 23:18:51:236 mi_ram.c/(28579:28581): Conexión establecida con Discordiador
+[INFO] 23:18:51:237 mi_ram.c/(28579:28635): Recibi header: 0
+
+[INFO] 23:18:51:237 mi_ram.c/(28579:28635): Cantidad de bytes recibidos en el buffer: 65
+[INFO] 23:18:51:237 mi_ram.c/(28579:28635): A00;1;1;5
+A01;1;1;5
+A02;1;1;5| el bu
+[INFO] 23:18:51:237 mi_ram.c/(28579:28635): cantidad tcbs recibidos: 1 
+
+[INFO] 23:18:51:237 mi_ram.c/(28579:28635): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:18:51:237 mi_ram.c/(28579:28635): Tripulante 0, Patota 0, pag 1, offset 6, cantidadPaginas 1
+[INFO] 23:18:51:237 mi_ram.c/(28579:28635): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  41 30 30 3b 31 3b 31 3b  |........A00;1;1;|
+0x00000010: 35 0a 41 30 31 3b 31 3b  31 3b 35 0a 41 30 32 3b  |5.A01;1;1;5.A02;|
+0x00000020: 31 3b 31 3b 35 7c 00 00  00 00 01 00 00 00 01 00  |1;1;5|..........|
+0x00000030: 00 00 52 08 00 00 00 00  00 00 00 00 00 00 00 00  |..R.............|
+[INFO] 23:18:51:237 mi_ram.c/(28579:28635): direc prox frame a escribir 0 
+
+[INFO] 23:18:51:237 mi_ram.c/(28579:28635): direc prox frame a escribir 32 
+
+[INFO] 23:19:37:335 mi_ram.c/(28725:28725): Iniciando Frames... 
+[INFO] 23:19:37:339 mi_ram.c/(28725:28725): -------------------------
+[INFO] 23:19:37:339 mi_ram.c/(28725:28725): Disponibilidad de frames: 
+[INFO] 23:19:37:339 mi_ram.c/(28725:28725): el frame 0 esta ocupado: 0 
+[INFO] 23:19:37:339 mi_ram.c/(28725:28725): el frame 1 esta ocupado: 0 
+[INFO] 23:19:37:339 mi_ram.c/(28725:28725): el frame 2 esta ocupado: 0 
+[INFO] 23:19:37:339 mi_ram.c/(28725:28725): el frame 3 esta ocupado: 0 
+[INFO] 23:19:37:339 mi_ram.c/(28725:28725): Iniciando Frames Swap... 
+[INFO] 23:19:41:148 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:19:41:149 mi_ram.c/(28725:28739): Recibi header: 0
+
+[INFO] 23:19:41:149 mi_ram.c/(28725:28739): Cantidad de bytes recibidos en el buffer: 65
+[INFO] 23:19:41:149 mi_ram.c/(28725:28739): A00;1;1;5
+A01;1;1;5
+A02;1;1;5| el bu
+[INFO] 23:19:41:149 mi_ram.c/(28725:28739): cantidad tcbs recibidos: 1 
+
+[INFO] 23:19:41:149 mi_ram.c/(28725:28739): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:19:41:149 mi_ram.c/(28725:28739): Tripulante 0, Patota 0, pag 1, offset 6, cantidadPaginas 1
+[INFO] 23:19:41:149 mi_ram.c/(28725:28739): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  41 30 30 3b 31 3b 31 3b  |........A00;1;1;|
+0x00000010: 35 0a 41 30 31 3b 31 3b  31 3b 35 0a 41 30 32 3b  |5.A01;1;1;5.A02;|
+0x00000020: 31 3b 31 3b 35 7c 00 00  00 00 01 00 00 00 01 00  |1;1;5|..........|
+0x00000030: 00 00 52 08 00 00 00 00  00 00 00 00 00 00 00 00  |..R.............|
+[INFO] 23:19:41:149 mi_ram.c/(28725:28739): direc prox frame a escribir 0 
+
+[INFO] 23:19:41:149 mi_ram.c/(28725:28739): direc prox frame a escribir 32 
+
+[INFO] 23:19:48:811 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:19:48:818 mi_ram.c/(28725:28753): Recibi header: 0
+
+[INFO] 23:19:48:818 mi_ram.c/(28725:28753): Cantidad de bytes recibidos en el buffer: 65
+[INFO] 23:19:48:818 mi_ram.c/(28725:28753): B00;3;3;5
+B01;3;3;5
+B02;3;3;5| el bu
+[INFO] 23:19:48:818 mi_ram.c/(28725:28753): cantidad tcbs recibidos: 1 
+
+[INFO] 23:19:48:818 mi_ram.c/(28725:28753): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:19:48:818 mi_ram.c/(28725:28753): Tripulante 1, Patota 1, pag 1, offset 6, cantidadPaginas 1
+[INFO] 23:19:48:818 mi_ram.c/(28725:28753): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  42 30 30 3b 33 3b 33 3b  |........B00;3;3;|
+0x00000010: 35 0a 42 30 31 3b 33 3b  33 3b 35 0a 42 30 32 3b  |5.B01;3;3;5.B02;|
+0x00000020: 33 3b 33 3b 35 7c 01 00  00 00 03 00 00 00 03 00  |3;3;5|..........|
+0x00000030: 00 00 52 08 00 00 00 00  00 00 00 00 00 00 00 00  |..R.............|
+[INFO] 23:19:48:818 mi_ram.c/(28725:28753): direc prox frame a escribir 64 
+
+[INFO] 23:19:48:818 mi_ram.c/(28725:28753): direc prox frame a escribir 96 
+
+[INFO] 23:19:56:301 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): Recibi header: 0
+
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): Cantidad de bytes recibidos en el buffer: 125
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): C00;5;5;5
+C01;5;5;5
+C02;5;5;5
+C03;5;5;5
+C04;5;5;5
+C05;5;5;5
+C06;5;5;5
+C07;5;5;5
+C08;5;5;5| 0
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): cantidad tcbs recibidos: 1 
+
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): Se lleva la pagina 0, del proceso 0 a SWAP
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): Se lleva la pagina 1, del proceso 0 a SWAP
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): Se lleva la pagina 0, del proceso 1 a SWAP
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): Se lleva la pagina 1, del proceso 1 a SWAP
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): Tripulante 2, Patota 2, pag 3, offset 2, cantidadPaginas 1
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  43 30 30 3b 35 3b 35 3b  |........C00;5;5;|
+0x00000010: 35 0a 43 30 31 3b 35 3b  35 3b 35 0a 43 30 32 3b  |5.C01;5;5;5.C02;|
+0x00000020: 35 3b 35 3b 35 0a 43 30  33 3b 35 3b 35 3b 35 0a  |5;5;5.C03;5;5;5.|
+0x00000030: 43 30 34 3b 35 3b 35 3b  35 0a 43 30 35 3b 35 3b  |C04;5;5;5.C05;5;|
+0x00000040: 35 3b 35 0a 43 30 36 3b  35 3b 35 3b 35 0a 43 30  |5;5.C06;5;5;5.C0|
+0x00000050: 37 3b 35 3b 35 3b 35 0a  43 30 38 3b 35 3b 35 3b  |7;5;5;5.C08;5;5;|
+0x00000060: 35 7c 02 00 00 00 05 00  00 00 05 00 00 00 52 08  |5|............R.|
+0x00000070: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): direc prox frame a escribir 0 
+
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): direc prox frame a escribir 32 
+
+[INFO] 23:19:56:308 mi_ram.c/(28725:28768): direc prox frame a escribir 64 
+
+[INFO] 23:19:56:309 mi_ram.c/(28725:28768): direc prox frame a escribir 96 
+
+[INFO] 23:20:02:668 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:02:669 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:02:669 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:02:669 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:02:669 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:02:669 mi_ram.c/(28725:28783): Recibi header: 5
+
+[INFO] 23:20:02:669 mi_ram.c/(28725:28783): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:20:02:669 mi_ram.c/(28725:28783): Se lleva la pagina 0, del proceso 2 a SWAP
+[INFO] 23:20:02:669 mi_ram.c/(28725:28783): Se trae la pagina 1, del proceso 1 a MEMORIA
+[INFO] 23:20:02:669 mi_ram.c/(28725:28782): Recibi header: 5
+
+[INFO] 23:20:02:669 mi_ram.c/(28725:28782): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:20:02:669 mi_ram.c/(28725:28782): Se lleva la pagina 1, del proceso 2 a SWAP
+[INFO] 23:20:02:669 mi_ram.c/(28725:28782): Se trae la pagina 1, del proceso 0 a MEMORIA
+[INFO] 23:20:02:669 mi_ram.c/(28725:28784): Recibi header: 5
+
+[INFO] 23:20:02:670 mi_ram.c/(28725:28784): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:20:02:669 mi_ram.c/(28725:28785): Recibi header: 5
+
+[INFO] 23:20:02:670 mi_ram.c/(28725:28785): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:20:02:670 mi_ram.c/(28725:28786): Recibi header: 1
+
+[INFO] 23:20:02:670 mi_ram.c/(28725:28786): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 23:20:02:670 mi_ram.c/(28725:28786): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 23:20:02:672 mi_ram.c/(28725:28786): Se lleva la pagina 2, del proceso 2 a SWAP
+[INFO] 23:20:02:672 mi_ram.c/(28725:28786): Se trae la pagina 0, del proceso 0 a MEMORIA
+[INFO] 23:20:02:672 mi_ram.c/(28725:28786): La tarea a enviar es: A00;1;1;5
+[INFO] 23:20:07:673 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:07:673 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:07:673 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:07:673 mi_ram.c/(28725:28804): Recibi header: 5
+
+[INFO] 23:20:07:673 mi_ram.c/(28725:28804): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:20:07:673 mi_ram.c/(28725:28805): Recibi header: 1
+
+[INFO] 23:20:07:674 mi_ram.c/(28725:28805): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 23:20:07:674 mi_ram.c/(28725:28805): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 1
+[INFO] 23:20:07:674 mi_ram.c/(28725:28803): Recibi header: 5
+
+[INFO] 23:20:07:674 mi_ram.c/(28725:28803): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:20:07:674 mi_ram.c/(28725:28805): Se lleva la pagina 3, del proceso 2 a SWAP
+[INFO] 23:20:07:674 mi_ram.c/(28725:28805): Se trae la pagina 0, del proceso 1 a MEMORIA
+[INFO] 23:20:07:675 mi_ram.c/(28725:28805): La tarea a enviar es: B00;3;3;5
+[INFO] 23:20:12:678 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:12:678 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:12:678 mi_ram.c/(28725:28727): Conexión establecida con Discordiador
+[INFO] 23:20:12:678 mi_ram.c/(28725:28823): Recibi header: 5
+
+[INFO] 23:20:12:679 mi_ram.c/(28725:28823): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:20:12:679 mi_ram.c/(28725:28823): Se lleva la pagina 1, del proceso 1 a SWAP
+[INFO] 23:20:12:679 mi_ram.c/(28725:28823): Se trae la pagina 3, del proceso 2 a MEMORIA
+[INFO] 23:20:12:678 mi_ram.c/(28725:28824): Recibi header: 1
+
+[INFO] 23:20:12:679 mi_ram.c/(28725:28824): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 23:20:12:679 mi_ram.c/(28725:28824): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 2
+[INFO] 23:20:12:679 mi_ram.c/(28725:28822): Recibi header: 5
+
+[INFO] 23:20:12:679 mi_ram.c/(28725:28822): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:20:12:679 mi_ram.c/(28725:28822): Se lleva la pagina 1, del proceso 0 a SWAP
+[INFO] 23:20:12:679 mi_ram.c/(28725:28822): Se trae la pagina 1, del proceso 1 a MEMORIA
+[INFO] 23:20:12:680 mi_ram.c/(28725:28824): Se lleva la pagina 0, del proceso 0 a SWAP
+[INFO] 23:20:12:680 mi_ram.c/(28725:28824): Se trae la pagina 0, del proceso 2 a MEMORIA
+[INFO] 23:20:12:680 mi_ram.c/(28725:28824): Se lleva la pagina 0, del proceso 1 a SWAP
+[INFO] 23:20:12:680 mi_ram.c/(28725:28824): Se trae la pagina 1, del proceso 2 a MEMORIA
+[INFO] 23:20:12:680 mi_ram.c/(28725:28824): Se lleva la pagina 3, del proceso 2 a SWAP
+[INFO] 23:20:12:680 mi_ram.c/(28725:28824): Se trae la pagina 2, del proceso 2 a MEMORIA
+[INFO] 23:20:12:680 mi_ram.c/(28725:28824): Se lleva la pagina 1, del proceso 1 a SWAP
+[INFO] 23:20:12:680 mi_ram.c/(28725:28824): Se trae la pagina 3, del proceso 2 a MEMORIA
+[INFO] 23:21:11:359 mi_ram.c/(28937:28937): Iniciando Frames... 
+[INFO] 23:21:11:363 mi_ram.c/(28937:28937): -------------------------
+[INFO] 23:21:11:363 mi_ram.c/(28937:28937): Disponibilidad de frames: 
+[INFO] 23:21:11:363 mi_ram.c/(28937:28937): el frame 0 esta ocupado: 0 
+[INFO] 23:21:11:363 mi_ram.c/(28937:28937): el frame 1 esta ocupado: 0 
+[INFO] 23:21:11:363 mi_ram.c/(28937:28937): el frame 2 esta ocupado: 0 
+[INFO] 23:21:11:363 mi_ram.c/(28937:28937): el frame 3 esta ocupado: 0 
+[INFO] 23:21:11:363 mi_ram.c/(28937:28937): Iniciando Frames Swap... 
+[INFO] 23:21:25:637 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:21:25:644 mi_ram.c/(28937:28965): Recibi header: 0
+
+[INFO] 23:21:25:644 mi_ram.c/(28937:28965): Cantidad de bytes recibidos en el buffer: 65
+[INFO] 23:21:25:644 mi_ram.c/(28937:28965): A00;1;1;5
+A01;1;1;5
+A02;1;1;5| el bu
+[INFO] 23:21:25:644 mi_ram.c/(28937:28965): cantidad tcbs recibidos: 1 
+
+[INFO] 23:21:25:644 mi_ram.c/(28937:28965): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:21:25:644 mi_ram.c/(28937:28965): Tripulante 0, Patota 0, pag 1, offset 6, cantidadPaginas 1
+[INFO] 23:21:25:644 mi_ram.c/(28937:28965): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  41 30 30 3b 31 3b 31 3b  |........A00;1;1;|
+0x00000010: 35 0a 41 30 31 3b 31 3b  31 3b 35 0a 41 30 32 3b  |5.A01;1;1;5.A02;|
+0x00000020: 31 3b 31 3b 35 7c 00 00  00 00 01 00 00 00 01 00  |1;1;5|..........|
+0x00000030: 00 00 52 08 00 00 00 00  00 00 00 00 00 00 00 00  |..R.............|
+[INFO] 23:21:25:644 mi_ram.c/(28937:28965): direc prox frame a escribir 0 
+
+[INFO] 23:21:25:644 mi_ram.c/(28937:28965): direc prox frame a escribir 32 
+
+[INFO] 23:21:38:159 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:21:38:166 mi_ram.c/(28937:28990): Recibi header: 0
+
+[INFO] 23:21:38:166 mi_ram.c/(28937:28990): Cantidad de bytes recibidos en el buffer: 65
+[INFO] 23:21:38:166 mi_ram.c/(28937:28990): B00;3;3;5
+B01;3;3;5
+B02;3;3;5| el bu
+[INFO] 23:21:38:166 mi_ram.c/(28937:28990): cantidad tcbs recibidos: 1 
+
+[INFO] 23:21:38:166 mi_ram.c/(28937:28990): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:21:38:166 mi_ram.c/(28937:28990): Tripulante 1, Patota 1, pag 1, offset 6, cantidadPaginas 1
+[INFO] 23:21:38:166 mi_ram.c/(28937:28990): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  42 30 30 3b 33 3b 33 3b  |........B00;3;3;|
+0x00000010: 35 0a 42 30 31 3b 33 3b  33 3b 35 0a 42 30 32 3b  |5.B01;3;3;5.B02;|
+0x00000020: 33 3b 33 3b 35 7c 01 00  00 00 03 00 00 00 03 00  |3;3;5|..........|
+0x00000030: 00 00 52 08 00 00 00 00  00 00 00 00 00 00 00 00  |..R.............|
+[INFO] 23:21:38:166 mi_ram.c/(28937:28990): direc prox frame a escribir 64 
+
+[INFO] 23:21:38:166 mi_ram.c/(28937:28990): direc prox frame a escribir 96 
+
+[INFO] 23:21:45:910 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): Recibi header: 0
+
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): Cantidad de bytes recibidos en el buffer: 125
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): C00;5;5;5
+C01;5;5;5
+C02;5;5;5
+C03;5;5;5
+C04;5;5;5
+C05;5;5;5
+C06;5;5;5
+C07;5;5;5
+C08;5;5;5| 0
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): cantidad tcbs recibidos: 1 
+
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): Se lleva la pagina 0, del proceso 0 a SWAP
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): Se lleva la pagina 1, del proceso 0 a SWAP
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): Se lleva la pagina 0, del proceso 1 a SWAP
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): Se lleva la pagina 1, del proceso 1 a SWAP
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): hay lugar disponible (1 -> si, -1 -> no): 1 
+
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): Tripulante 2, Patota 2, pag 3, offset 2, cantidadPaginas 1
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  43 30 30 3b 35 3b 35 3b  |........C00;5;5;|
+0x00000010: 35 0a 43 30 31 3b 35 3b  35 3b 35 0a 43 30 32 3b  |5.C01;5;5;5.C02;|
+0x00000020: 35 3b 35 3b 35 0a 43 30  33 3b 35 3b 35 3b 35 0a  |5;5;5.C03;5;5;5.|
+0x00000030: 43 30 34 3b 35 3b 35 3b  35 0a 43 30 35 3b 35 3b  |C04;5;5;5.C05;5;|
+0x00000040: 35 3b 35 0a 43 30 36 3b  35 3b 35 3b 35 0a 43 30  |5;5.C06;5;5;5.C0|
+0x00000050: 37 3b 35 3b 35 3b 35 0a  43 30 38 3b 35 3b 35 3b  |7;5;5;5.C08;5;5;|
+0x00000060: 35 7c 02 00 00 00 05 00  00 00 05 00 00 00 52 08  |5|............R.|
+0x00000070: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): direc prox frame a escribir 0 
+
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): direc prox frame a escribir 32 
+
+[INFO] 23:21:45:917 mi_ram.c/(28937:29004): direc prox frame a escribir 64 
+
+[INFO] 23:21:45:918 mi_ram.c/(28937:29004): direc prox frame a escribir 96 
+
+[INFO] 23:21:56:159 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:21:56:163 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:21:56:163 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:21:56:163 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:21:56:163 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:21:56:164 mi_ram.c/(28937:29029): Recibi header: 5
+
+[INFO] 23:21:56:164 mi_ram.c/(28937:29029): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:21:56:164 mi_ram.c/(28937:29029): Se lleva la pagina 0, del proceso 2 a SWAP
+[INFO] 23:21:56:164 mi_ram.c/(28937:29029): Se trae la pagina 1, del proceso 1 a MEMORIA
+[INFO] 23:21:56:165 mi_ram.c/(28937:29027): Recibi header: 5
+
+[INFO] 23:21:56:165 mi_ram.c/(28937:29027): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:21:56:165 mi_ram.c/(28937:29027): Se lleva la pagina 1, del proceso 2 a SWAP
+[INFO] 23:21:56:165 mi_ram.c/(28937:29027): Se trae la pagina 1, del proceso 0 a MEMORIA
+[INFO] 23:21:56:165 mi_ram.c/(28937:29030): Recibi header: 5
+
+[INFO] 23:21:56:165 mi_ram.c/(28937:29030): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:21:56:165 mi_ram.c/(28937:29031): Recibi header: 5
+
+[INFO] 23:21:56:167 mi_ram.c/(28937:29031): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:21:56:165 mi_ram.c/(28937:29032): Recibi header: 1
+
+[INFO] 23:21:56:167 mi_ram.c/(28937:29032): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 23:21:56:167 mi_ram.c/(28937:29032): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 23:21:56:169 mi_ram.c/(28937:29032): Se lleva la pagina 2, del proceso 2 a SWAP
+[INFO] 23:21:56:169 mi_ram.c/(28937:29032): Se trae la pagina 0, del proceso 0 a MEMORIA
+[INFO] 23:21:56:169 mi_ram.c/(28937:29032): La tarea a enviar es: A00;1;1;5
+[INFO] 23:22:01:171 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:22:01:171 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:22:01:171 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:22:01:172 mi_ram.c/(28937:29047): Recibi header: 5
+
+[INFO] 23:22:01:172 mi_ram.c/(28937:29047): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:22:01:172 mi_ram.c/(28937:29049): Recibi header: 1
+
+[INFO] 23:22:01:172 mi_ram.c/(28937:29049): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 23:22:01:172 mi_ram.c/(28937:29049): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 1
+[INFO] 23:22:01:172 mi_ram.c/(28937:29048): Recibi header: 5
+
+[INFO] 23:22:01:172 mi_ram.c/(28937:29048): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:22:01:173 mi_ram.c/(28937:29049): Se lleva la pagina 3, del proceso 2 a SWAP
+[INFO] 23:22:01:173 mi_ram.c/(28937:29049): Se trae la pagina 0, del proceso 1 a MEMORIA
+[INFO] 23:22:01:174 mi_ram.c/(28937:29049): La tarea a enviar es: B00;3;3;5
+[INFO] 23:22:06:176 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:22:06:176 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:22:06:176 mi_ram.c/(28937:28938): Conexión establecida con Discordiador
+[INFO] 23:22:06:176 mi_ram.c/(28937:29071): Recibi header: 5
+
+[INFO] 23:22:06:176 mi_ram.c/(28937:29071): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:22:06:176 mi_ram.c/(28937:29073): Recibi header: 1
+
+[INFO] 23:22:06:177 mi_ram.c/(28937:29073): Cantidad de bytes recibidos en el buffer: 8
+[INFO] 23:22:06:177 mi_ram.c/(28937:29073): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 2
+[INFO] 23:22:06:177 mi_ram.c/(28937:29073): Se lleva la pagina 1, del proceso 1 a SWAP
+[INFO] 23:22:06:177 mi_ram.c/(28937:29073): Se trae la pagina 3, del proceso 2 a MEMORIA
+[INFO] 23:22:06:176 mi_ram.c/(28937:29072): Recibi header: 5
+
+[INFO] 23:22:06:177 mi_ram.c/(28937:29072): Cantidad de bytes recibidos en el buffer: 9
+[INFO] 23:22:06:177 mi_ram.c/(28937:29073): Se lleva la pagina 1, del proceso 0 a SWAP
+[INFO] 23:22:06:178 mi_ram.c/(28937:29073): Se trae la pagina 0, del proceso 2 a MEMORIA
+[INFO] 23:22:06:178 mi_ram.c/(28937:29073): Se lleva la pagina 0, del proceso 0 a SWAP
+[INFO] 23:22:06:178 mi_ram.c/(28937:29073): Se trae la pagina 1, del proceso 2 a MEMORIA
+[INFO] 23:22:06:178 mi_ram.c/(28937:29073): Se lleva la pagina 0, del proceso 1 a SWAP
+[INFO] 23:22:06:178 mi_ram.c/(28937:29073): Se trae la pagina 2, del proceso 2 a MEMORIA

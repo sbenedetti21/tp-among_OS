@@ -46,6 +46,7 @@ void leerConfig(){
 	t_config * config = config_create("./cfg/miram.config");
 	esquemaMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA"); 
 	algoritmoReemplazo = config_get_string_value(config, "ALGORITMO_REEMPLAZO");
+	criterioSeleccion = config_get_string_value(config, "CRITERIO_SELECCION");
 	tamanioMemoria = config_get_int_value(config, "TAMANIO_MEMORIA");
 	puertoMemoria = config_get_string_value(config, "PUERTO");
 	tamanioPagina = config_get_int_value(config, "TAMANIO_PAGINA");
@@ -312,13 +313,13 @@ void atenderDiscordiador(int socketCliente){
 			list_add(tablaDeTablasSegmentos, referencia); 
 			sem_post(&mutexTablaDeTablas);
 			
-			
+			mem_hexdump(memoriaPrincipal, 200);
 			
 			}
 			
 
 			
-		mem_hexdump(memoriaPrincipal, 200);
+		
 			
 
 
@@ -412,7 +413,7 @@ void atenderDiscordiador(int socketCliente){
 
 		moverTripulanteEnMapa(tripulanteid,posx,posy);
 
-		// ACTUALIZAR TRIPULANTE EN MEMORIA		
+		actualizarPosicionTripulante(patotaid, tripulanteid, posx, posy);
 
 	break; 
 
@@ -427,7 +428,7 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&estadoNuevo, stream+offset, sizeof(char));
 		
 		actualizarEstadoTripulante(pat, trip, estadoNuevo); 
-		mem_hexdump(memoriaPrincipal,200);
+		mem_hexdump(memoriaPrincipal, tamanioMemoria);
 	
 	break; 
 
@@ -440,7 +441,7 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&patid, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
 		eliminarTripulante(patid, tripid);
-		mem_hexdump(memoriaPrincipal, 200);
+		mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
 	break ;
 
@@ -1084,7 +1085,18 @@ void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
 	
 }
 
-void actualizarPosicionPaginacion(uint32_t tid, uint32_t pid, uint32_t posx, uint32_t posy) {
+void actualizarPosicionTripulante(uint32_t pid, uint32_t tid, uint32_t posx, uint32_t posy){
+
+	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0 ){
+		actualizarPosicionTripulanteSegmentacion(pid, tid, posx, posy); 
+	}
+
+	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
+		actualizarPosicionPaginacion(pid,  tid, posx, posy);
+	}
+}
+
+void actualizarPosicionPaginacion(uint32_t pid, uint32_t tid, uint32_t posx, uint32_t posy) {
 
 	bool coincideID(t_tripulantePaginacion * unTripu) {
 		return unTripu->tid == tid;
@@ -1437,6 +1449,12 @@ uint32_t bestFit(int tamanioContenido){
 
 	return (segmentoElegido -> base);  
 
+}
+
+void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevaPosy){
+	uint32_t direccionTripulante = obtenerDireccionTripulante(idPatota, idTripulante); 
+	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t), &nuevaPosx, sizeof(uint32_t)); 
+	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t)*2, &nuevaPosy, sizeof(uint32_t));
 }
 
 void eliminarTripulante(uint32_t patid, uint32_t tripid) {

@@ -29,6 +29,7 @@ char * esquemaMemoria;
 char * algoritmoReemplazo;
 char * puertoMemoria;
 void * memoriaPrincipal; 
+char * criterioSeleccion; 
 
 int buscarEspacioNecesario(int, int);
 TCB * deserializar_TCB(void *);
