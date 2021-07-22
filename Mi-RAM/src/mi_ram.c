@@ -155,7 +155,7 @@ void atenderDiscordiador(int socketCliente){
 			printf("Encontre lugar para tu patota \n");
 
 			if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
-				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs + 8;
+				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs; // +8
 				int framesNecesarios = divisionRedondeadaParaArriba(memoriaNecesaria, tamanioPagina);
 				void * streamPatota = malloc(memoriaNecesaria);
 				memset(streamPatota, 0, memoriaNecesaria);
@@ -697,18 +697,18 @@ t_frame * buscarFrame() {
 
 t_frame * buscarFrameSwap() {
 
-  bool estaLibre(t_frame * frame) {
-    return frame->ocupado == 0;
-  }
+	bool estaLibre(t_frame * frame) {
+		return frame->ocupado == 0;
+	}
 
-  t_frame * frameLibre = malloc(sizeof(t_frame));
+	t_frame * frameLibre = malloc(sizeof(t_frame));
 
-		pthread_mutex_lock(&mutexListaFramesSwap);
-  frameLibre = list_find(listaFramesSwap, estaLibre);
-		pthread_mutex_unlock(&mutexListaFramesSwap);
-  //free(frameLibre);
+			pthread_mutex_lock(&mutexListaFramesSwap);
+	frameLibre = list_find(listaFramesSwap, estaLibre);
+			pthread_mutex_unlock(&mutexListaFramesSwap);
+	//free(frameLibre);
 
-  return frameLibre;
+	return frameLibre;
 }
 
 void iniciarSwap() {
@@ -746,12 +746,17 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	fread(memAux, tamanioPagina, 1, swap);
 
 	// buscar el frame en la lista de frames swapp y poner que esta libre  --> TODO
+	pthread_mutex_lock(&mutexListaFramesSwap);
+	t_frame * frameSwap = list_get(listaFramesSwap, nroFrameSwap);
+	frameSwap->ocupado = 0;
+	pthread_mutex_unlock(&mutexListaFramesSwap);
+	//
 
 	t_frame * frameLibre = buscarFrame();
 
-	pthread_mutex_lock(&mutexMemoriaPrincipal);
+	//pthread_mutex_lock(&mutexMemoriaPrincipal);
 	memcpy(memoriaPrincipal + frameLibre->inicio, memAux, tamanioPagina);
-	pthread_mutex_unlock(&mutexMemoriaPrincipal);
+	//pthread_mutex_unlock(&mutexMemoriaPrincipal);
 	frameLibre->ocupado = 1;
 	frameLibre->pagina = pagina;
 	frameLibre->pagina->bitDeValidez = 1;
@@ -762,9 +767,11 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	contadorLRU++;
 	pthread_mutex_unlock(&mutexContadorLRU); 
 	int index = frameLibre->inicio / tamanioPagina;
-	pthread_mutex_lock(&listaFrames);
+	pthread_mutex_lock(&mutexListaFrames);
 	list_replace(listaFrames, index, frameLibre);
-	pthread_mutex_unlock(&listaFrames);
+	pthread_mutex_unlock(&mutexListaFrames);
+
+	log_info(loggerMiram, "Se trae la pagina %d, del proceso %d a MEMORIA", frameLibre->pagina->numeroPagina, frameLibre->pagina->pid);
 }
 
 void llevarPaginaASwap() {
@@ -774,15 +781,15 @@ void llevarPaginaASwap() {
 	
 	void * memAux = malloc(tamanioPagina);
 
-	pthread_mutex_lock(&mutexMemoriaPrincipal);
+	//pthread_mutex_lock(&mutexMemoriaPrincipal);
 	memcpy(memAux, memoriaPrincipal + frameVictima->inicio, tamanioPagina);
-	pthread_mutex_unlock(&mutexMemoriaPrincipal);
+	//pthread_mutex_unlock(&mutexMemoriaPrincipal);
 
 	frameVictima->ocupado = 0;
 	int index = frameVictima->inicio / tamanioPagina;
-	pthread_mutex_lock(&listaFrames);
+	pthread_mutex_lock(&mutexListaFrames);
 	list_replace(listaFrames, index, frameVictima);
-	pthread_mutex_unlock(&listaFrames);
+	pthread_mutex_unlock(&mutexListaFrames);
 	t_frame * frameSwap = buscarFrameSwap();
 	frameSwap->ocupado = 1;
 	frameSwap->pagina = frameVictima->pagina;
@@ -790,6 +797,8 @@ void llevarPaginaASwap() {
 	frameSwap->pagina->ultimaReferencia = contadorLRU;
 	contadorLRU++;
 	pthread_mutex_unlock(&mutexContadorLRU);
+
+	log_info(loggerMiram, "Se lleva la pagina %d, del proceso %d a SWAP", frameVictima->pagina->numeroPagina, frameVictima->pagina->pid);
 
 	FILE * swap = fopen(path_SWAP, "a+");
 	fseek(swap, frameSwap->inicio, SEEK_SET);
@@ -803,12 +812,18 @@ t_frame * seleccionarVictima() {
 	t_frame * victima = malloc(sizeof(t_frame));
 
 	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
-		pthread_mutex_lock(&listaFrames);
+		pthread_mutex_lock(&mutexListaFrames);
 		t_list * listaAux = list_duplicate(listaFrames);
-		pthread_mutex_unlock(&listaFrames);
+		pthread_mutex_unlock(&mutexListaFrames);
 
 		bool ultReferencia(t_frame * unFrame, t_frame * otroFrame) {
-			return unFrame->pagina->ultimaReferencia < otroFrame->pagina->ultimaReferencia;
+			if (!otroFrame->ocupado) {
+				return true;
+			}
+			if (!unFrame->ocupado) {
+				return false;
+			}
+			return unFrame->pagina->ultimaReferencia <= otroFrame->pagina->ultimaReferencia;
 		}
 
 		list_sort(listaAux, ultReferencia);
@@ -973,7 +988,6 @@ uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, uint32_
 	return direcFrame; 
 }
 
-//faltaria considerar lo del swap 
 void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
 
 	bool coincideID(t_tripulantePaginacion * unTripu) {
@@ -985,7 +999,9 @@ void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
 	}
 
 	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	pthread_mutex_lock(&mutexListaTablas);
 	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
+	pthread_mutex_unlock(&mutexListaTablas);
 	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
 	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
 	uint32_t offset = referenciaTripulante->offset; 
@@ -997,7 +1013,9 @@ void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
 
 		uint32_t frame = obtenerDireccionFrame(referenciaTabla, primeraPagina); 
 		//habria que hacer el memcopy en direccion frame + offset + bytesPrevios 
-		memcpy(memoriaPrincipal + frame + offset + bytesPrevios, &estadoNuevo, sizeof(char)); 
+		pthread_mutex_lock(&mutexMemoriaPrincipal);
+		memcpy(memoriaPrincipal + frame + offset + bytesPrevios, &estadoNuevo, sizeof(char));
+		pthread_mutex_unlock(&mutexMemoriaPrincipal);
 	}
 
 	else{
@@ -1008,12 +1026,59 @@ void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
 		if(bytesProximaPagina < tamanioPagina){
 			uint32_t pagina = nroPagina + primeraPagina + 1; 
 			uint32_t frame = obtenerDireccionFrame(referenciaTabla, pagina); 
-			uint32_t desplazamiento = bytesProximaPagina - 1; 
-			memcpy(memoriaPrincipal + frame + desplazamiento, &estadoNuevo, sizeof(char));  
+			uint32_t desplazamiento = bytesProximaPagina - 1;
+			pthread_mutex_lock(&mutexMemoriaPrincipal);
+			memcpy(memoriaPrincipal + frame + desplazamiento, &estadoNuevo, sizeof(char));
+			pthread_mutex_unlock(&mutexMemoriaPrincipal);
 		}
 		}
 	}
 	
+}
+
+void actualizarPosicionPaginacion(uint32_t tid, uint32_t pid, uint32_t posx, uint32_t posy) {
+
+	bool coincideID(t_tripulantePaginacion * unTripu) {
+		return unTripu->tid == tid;
+	}
+
+	bool coincidePID(referenciaTablaPaginas * referenciaTabla){
+		return (referenciaTabla->pid == pid); 
+	}
+
+	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	pthread_mutex_lock(&mutexListaTablas);
+	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
+	pthread_mutex_unlock(&mutexListaTablas);
+	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
+	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
+	uint32_t offset = referenciaTripulante->offset; 
+	uint32_t bytesPrevios = sizeof(uint32_t);
+	uint32_t cantidadPaginas = referenciaTripulante->cantidadDePaginas;
+
+	if((tamanioPagina - offset) > (bytesPrevios + sizeof(uint32_t)*2)){
+		uint32_t frame = obtenerDireccionFrame(referenciaTabla, primeraPagina); 
+		//habria que hacer el memcopy en direccion frame + offset + bytesPrevios 
+		pthread_mutex_lock(&mutexMemoriaPrincipal);
+		memcpy(memoriaPrincipal + frame + offset + bytesPrevios, &posx, sizeof(uint32_t));
+		memcpy(memoriaPrincipal + frame + offset + bytesPrevios + 4, &posy, sizeof(uint32_t));
+		pthread_mutex_unlock(&mutexMemoriaPrincipal);
+	} else {
+		int i = 0,j = 0;
+		void * memAux = malloc(8);
+		memcpy(memAux, &posx, 4);
+		memcpy(memAux + 4, &posy, 4);
+		while (j < 8) {
+			uint32_t frame = obtenerDireccionFrame(referenciaTabla, primeraPagina);
+			while (offset + 4 + j < tamanioPagina && j < 8){
+				memcpy(memoriaPrincipal + frame + offset + 4 + j, memAux + j, 1);
+				j++;
+			}
+			offset = 0;
+			i++;
+		}
+	}
+
 }
 
 void eliminarTripulantePaginacion(uint32_t tid, uint32_t pid){
@@ -1529,32 +1594,6 @@ char idMapa(uint32_t tid){
 	if (id > 90) {
 		id += 6;
 	}
-	
-
-// switch (tid)
-// {
-// case 0:
-// 	return '0';
-// case 1:
-// 	return '1';
-// case 2:
-// 	return '2';
-// case 3:
-// 	return '3';
-// case 4:
-// 	return '4';
-// case 5:
-// 	return '5';
-// case 6:
-// 	return '6';
-// case 7:
-// 	return '7';
-// case 8:
-// 	return '8';
-// case 9:
-// 	return '9';
-// }
-
 	return id;
 
 }
