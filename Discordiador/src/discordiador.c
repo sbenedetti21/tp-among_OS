@@ -125,14 +125,7 @@ void consola(){
 			
 		}
 
-		if(strcmp(vectorInstruccion[0], "ready") == 0) {
-
-
-			printf("TAmanio lista ready: %d \n", list_size(listaReady));
-			printf("Tamanio lista tripulantes: %d\n", list_size(listaTripulantes));
-
-			
-		}
+		
 
 		if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0){
 
@@ -1181,7 +1174,7 @@ void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
 	memcpy(stream+offset, &(tripulante->posicionY), sizeof(uint32_t));
 	offset += sizeof(uint32_t);
 
-	buffer-> stream = stream;
+	buffer-> stream = stream; 
 
 	//log_info(loggerDiscordiador, mem_hexstring(stream, sizeof(uint32_t) * 4));
 

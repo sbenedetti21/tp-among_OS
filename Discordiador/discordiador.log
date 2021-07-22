@@ -1019,3 +1019,521 @@
 [INFO] 22:07:46:019 discordiador.c/(1647:1649): Tripulante creado: ID: 7, Posicion 6|4, Estado: N 
 [INFO] 22:07:46:019 discordiador.c/(1647:1649): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
 [INFO] 22:07:47:507 discordiador.c/(1647:1649): INSTRUCCION LEIDA: ready
+[INFO] 22:09:17:264 discordiador.c/(1823:1823): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:10:04:770 discordiador.c/(1823:1824): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:10:04:770 discordiador.c/(1823:1824): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:10:04:770 discordiador.c/(1823:1824): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:10:04:770 discordiador.c/(1823:1824): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:10:04:770 discordiador.c/(1823:1824): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:10:04:770 discordiador.c/(1823:1824): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:10:24:331 discordiador.c/(1823:1824): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5
+[INFO] 22:10:24:332 discordiador.c/(1823:1824): Tripulante creado: ID: 4, Posicion 0|5, Estado: N 
+[INFO] 22:10:24:332 discordiador.c/(1823:1824): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:10:42:750 discordiador.c/(1823:1824): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 22:10:42:751 discordiador.c/(1823:1848): Tripulante 0 cambio su estado a R
+[INFO] 22:10:42:751 discordiador.c/(1823:1848): Tripulante 1 cambio su estado a R
+[INFO] 22:10:42:751 discordiador.c/(1823:1848): Tripulante 2 cambio su estado a R
+[INFO] 22:10:42:751 discordiador.c/(1823:1848): Tripulante 3 cambio su estado a R
+[INFO] 22:10:42:752 discordiador.c/(1823:1848): Tripulante 4 cambio su estado a R
+[INFO] 22:10:42:752 discordiador.c/(1823:1848): Tripulante 0 cambio su estado a E
+[INFO] 22:10:42:752 discordiador.c/(1823:1831): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 22:10:42:752 discordiador.c/(1823:1848): Tripulante 1 cambio su estado a E
+[INFO] 22:10:42:752 discordiador.c/(1823:1832): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 22:10:42:763 discordiador.c/(1823:1831): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:10:42:764 discordiador.c/(1823:1832): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:10:44:764 discordiador.c/(1823:1832): Tripulante 1 ahora esta en 1|2 
+[INFO] 22:10:44:764 discordiador.c/(1823:1848): Tripulante 2 cambio su estado a E
+[INFO] 22:10:44:765 discordiador.c/(1823:1833): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 22:10:44:765 discordiador.c/(1823:1832): Tripulante 1 cambio su estado a B
+[INFO] 22:10:44:765 discordiador.c/(1823:1849): Llego GENERAR_OXIGENO
+[INFO] 22:10:44:765 discordiador.c/(1823:1849): GENERAR_OXIGENO 3
+[INFO] 22:10:44:765 discordiador.c/(1823:1849): Tripulante 1 cambio su estado a R
+[INFO] 22:10:44:765 discordiador.c/(1823:1833): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:10:46:490 discordiador.c/(1823:1824): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 22:10:46:764 discordiador.c/(1823:1831): Tripulante 0 ahora esta en 1|2 
+[INFO] 22:10:46:765 discordiador.c/(1823:1848): Tripulante 3 cambio su estado a E
+[INFO] 22:10:46:765 discordiador.c/(1823:1834): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 22:10:46:766 discordiador.c/(1823:1831): Tripulante 0 cambio su estado a B
+[INFO] 22:10:46:766 discordiador.c/(1823:1849): Llego GENERAR_OXIGENO
+[INFO] 22:10:46:766 discordiador.c/(1823:1849): GENERAR_OXIGENO 3
+[INFO] 22:10:46:766 discordiador.c/(1823:1849): Tripulante 0 cambio su estado a R
+[INFO] 22:10:46:767 discordiador.c/(1823:1834): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:10:51:766 discordiador.c/(1823:1832): Tripulante 1 terminó su tarea
+[INFO] 22:10:52:769 discordiador.c/(1823:1833): Tripulante 2 ahora esta en 1|2 
+[INFO] 22:10:52:769 discordiador.c/(1823:1848): Tripulante 4 cambio su estado a E
+[INFO] 22:10:52:769 discordiador.c/(1823:1845): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 22:10:52:769 discordiador.c/(1823:1833): Tripulante 2 cambio su estado a B
+[INFO] 22:10:52:769 discordiador.c/(1823:1849): Llego GENERAR_OXIGENO
+[INFO] 22:10:52:770 discordiador.c/(1823:1849): GENERAR_OXIGENO 3
+[INFO] 22:10:52:770 discordiador.c/(1823:1849): Tripulante 2 cambio su estado a R
+[ERROR] 22:10:52:954 discordiador.c/(1823:1845): No se pudo recibir el header al recibir una tarea
+[INFO] 22:10:53:767 discordiador.c/(1823:1831): Tripulante 0 terminó su tarea
+[INFO] 22:10:53:769 discordiador.c/(1823:1834): Tripulante 3 ahora esta en 1|2 
+[INFO] 22:11:58:349 discordiador.c/(1959:1959): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:12:09:719 discordiador.c/(1969:1969): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:12:15:712 discordiador.c/(1969:1970): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:12:15:712 discordiador.c/(1969:1970): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:12:15:712 discordiador.c/(1969:1970): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:12:15:712 discordiador.c/(1969:1970): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:12:15:712 discordiador.c/(1969:1970): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:12:15:712 discordiador.c/(1969:1970): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:12:33:377 discordiador.c/(1969:1970): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5
+[INFO] 22:12:33:378 discordiador.c/(1969:1970): Tripulante creado: ID: 4, Posicion 0|5, Estado: N 
+[INFO] 22:12:33:378 discordiador.c/(1969:1970): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:12:38:635 discordiador.c/(1969:1970): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 22:12:38:636 discordiador.c/(1969:1986): Tripulante 0 cambio su estado a R
+[INFO] 22:12:38:636 discordiador.c/(1969:1986): Tripulante 1 cambio su estado a R
+[INFO] 22:12:38:636 discordiador.c/(1969:1986): Tripulante 2 cambio su estado a R
+[INFO] 22:12:38:636 discordiador.c/(1969:1986): Tripulante 3 cambio su estado a R
+[INFO] 22:12:38:636 discordiador.c/(1969:1986): Tripulante 4 cambio su estado a R
+[INFO] 22:12:38:636 discordiador.c/(1969:1986): Tripulante 0 cambio su estado a E
+[INFO] 22:12:38:636 discordiador.c/(1969:1974): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 22:12:38:636 discordiador.c/(1969:1986): Tripulante 1 cambio su estado a E
+[INFO] 22:12:38:636 discordiador.c/(1969:1975): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 22:12:38:637 discordiador.c/(1969:1974): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:12:38:637 discordiador.c/(1969:1975): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:12:40:638 discordiador.c/(1969:1975): Tripulante 1 ahora esta en 1|2 
+[INFO] 22:12:40:638 discordiador.c/(1969:1986): Tripulante 2 cambio su estado a E
+[INFO] 22:12:40:638 discordiador.c/(1969:1976): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 22:12:40:638 discordiador.c/(1969:1975): Tripulante 1 cambio su estado a B
+[INFO] 22:12:40:638 discordiador.c/(1969:1989): Llego GENERAR_OXIGENO
+[INFO] 22:12:40:639 discordiador.c/(1969:1989): GENERAR_OXIGENO 3
+[INFO] 22:12:40:639 discordiador.c/(1969:1989): Tripulante 1 cambio su estado a R
+[INFO] 22:12:40:639 discordiador.c/(1969:1976): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:12:42:638 discordiador.c/(1969:1974): Tripulante 0 ahora esta en 1|2 
+[INFO] 22:12:42:639 discordiador.c/(1969:1986): Tripulante 3 cambio su estado a E
+[INFO] 22:12:42:639 discordiador.c/(1969:1977): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 22:12:42:639 discordiador.c/(1969:1974): Tripulante 0 cambio su estado a B
+[INFO] 22:12:42:639 discordiador.c/(1969:1989): Llego GENERAR_OXIGENO
+[INFO] 22:12:42:639 discordiador.c/(1969:1989): GENERAR_OXIGENO 3
+[INFO] 22:12:42:639 discordiador.c/(1969:1989): Tripulante 0 cambio su estado a R
+[INFO] 22:12:42:640 discordiador.c/(1969:1977): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:12:42:805 discordiador.c/(1969:1970): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 22:12:47:640 discordiador.c/(1969:1975): Tripulante 1 terminó su tarea
+[INFO] 22:12:48:644 discordiador.c/(1969:1976): Tripulante 2 ahora esta en 1|2 
+[INFO] 22:12:48:644 discordiador.c/(1969:1986): Tripulante 4 cambio su estado a E
+[INFO] 22:12:48:644 discordiador.c/(1969:1982): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 22:12:48:644 discordiador.c/(1969:1976): Tripulante 2 cambio su estado a B
+[INFO] 22:12:48:644 discordiador.c/(1969:1989): Llego GENERAR_OXIGENO
+[INFO] 22:12:48:645 discordiador.c/(1969:1989): GENERAR_OXIGENO 3
+[INFO] 22:12:48:645 discordiador.c/(1969:1989): Tripulante 2 cambio su estado a R
+[ERROR] 22:12:48:838 discordiador.c/(1969:1982): No se pudo recibir el header al recibir una tarea
+[INFO] 22:12:49:640 discordiador.c/(1969:1974): Tripulante 0 terminó su tarea
+[INFO] 22:12:49:643 discordiador.c/(1969:1977): Tripulante 3 ahora esta en 1|2 
+[INFO] 22:13:15:865 discordiador.c/(2095:2095): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:13:41:805 discordiador.c/(2100:2100): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:13:50:954 discordiador.c/(2105:2105): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:14:20:602 discordiador.c/(2105:2106): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:14:20:603 discordiador.c/(2105:2106): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:14:20:603 discordiador.c/(2105:2106): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:14:20:603 discordiador.c/(2105:2106): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:14:20:603 discordiador.c/(2105:2106): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:14:20:603 discordiador.c/(2105:2106): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:14:35:165 discordiador.c/(2105:2106): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5
+[INFO] 22:14:35:166 discordiador.c/(2105:2106): Tripulante creado: ID: 4, Posicion 0|5, Estado: N 
+[INFO] 22:14:35:166 discordiador.c/(2105:2106): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:14:39:532 discordiador.c/(2105:2106): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 22:14:39:533 discordiador.c/(2105:2260): Tripulante 0 cambio su estado a R
+[INFO] 22:14:39:533 discordiador.c/(2105:2260): Tripulante 1 cambio su estado a R
+[INFO] 22:14:39:533 discordiador.c/(2105:2260): Tripulante 2 cambio su estado a R
+[INFO] 22:14:39:533 discordiador.c/(2105:2260): Tripulante 3 cambio su estado a R
+[INFO] 22:14:39:533 discordiador.c/(2105:2260): Tripulante 4 cambio su estado a R
+[INFO] 22:14:39:533 discordiador.c/(2105:2260): Tripulante 0 cambio su estado a E
+[INFO] 22:14:39:533 discordiador.c/(2105:2242): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 22:14:39:533 discordiador.c/(2105:2260): Tripulante 1 cambio su estado a E
+[INFO] 22:14:39:533 discordiador.c/(2105:2243): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 22:14:39:550 discordiador.c/(2105:2242): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:14:39:738 discordiador.c/(2105:2243): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:14:41:738 discordiador.c/(2105:2243): Tripulante 1 ahora esta en 1|2 
+[INFO] 22:14:41:740 discordiador.c/(2105:2260): Tripulante 2 cambio su estado a E
+[INFO] 22:14:41:740 discordiador.c/(2105:2244): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 22:14:41:740 discordiador.c/(2105:2243): Tripulante 1 cambio su estado a B
+[INFO] 22:14:41:740 discordiador.c/(2105:2261): Llego GENERAR_OXIGENO
+[INFO] 22:14:41:740 discordiador.c/(2105:2261): GENERAR_OXIGENO 3
+[INFO] 22:14:41:740 discordiador.c/(2105:2261): Tripulante 1 cambio su estado a R
+[INFO] 22:14:41:756 discordiador.c/(2105:2244): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:14:43:552 discordiador.c/(2105:2242): Tripulante 0 ahora esta en 1|2 
+[INFO] 22:14:43:552 discordiador.c/(2105:2260): Tripulante 3 cambio su estado a E
+[INFO] 22:14:43:552 discordiador.c/(2105:2245): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 22:14:43:552 discordiador.c/(2105:2242): Tripulante 0 cambio su estado a B
+[INFO] 22:14:43:552 discordiador.c/(2105:2261): Llego GENERAR_OXIGENO
+[INFO] 22:14:43:553 discordiador.c/(2105:2261): GENERAR_OXIGENO 3
+[INFO] 22:14:43:553 discordiador.c/(2105:2261): Tripulante 0 cambio su estado a R
+[INFO] 22:14:43:564 discordiador.c/(2105:2245): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:14:48:743 discordiador.c/(2105:2243): Tripulante 1 terminó su tarea
+[INFO] 22:14:49:761 discordiador.c/(2105:2244): Tripulante 2 ahora esta en 1|2 
+[INFO] 22:14:49:761 discordiador.c/(2105:2260): Tripulante 4 cambio su estado a E
+[INFO] 22:14:49:761 discordiador.c/(2105:2255): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 22:14:49:761 discordiador.c/(2105:2244): Tripulante 2 cambio su estado a B
+[INFO] 22:14:49:761 discordiador.c/(2105:2261): Llego GENERAR_OXIGENO
+[INFO] 22:14:49:761 discordiador.c/(2105:2261): GENERAR_OXIGENO 3
+[INFO] 22:14:49:761 discordiador.c/(2105:2261): Tripulante 2 cambio su estado a R
+[INFO] 22:14:50:556 discordiador.c/(2105:2242): Tripulante 0 terminó su tarea
+[INFO] 22:14:50:574 discordiador.c/(2105:2245): Tripulante 3 ahora esta en 1|2 
+[INFO] 22:14:50:574 discordiador.c/(2105:2260): Tripulante 1 cambio su estado a E
+[INFO] 22:14:50:574 discordiador.c/(2105:2243): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 22:14:50:574 discordiador.c/(2105:2245): Tripulante 3 cambio su estado a B
+[INFO] 22:14:50:574 discordiador.c/(2105:2261): Llego GENERAR_OXIGENO
+[INFO] 22:14:50:575 discordiador.c/(2105:2261): GENERAR_OXIGENO 3
+[INFO] 22:14:50:575 discordiador.c/(2105:2261): Tripulante 3 cambio su estado a R
+[INFO] 22:14:56:763 discordiador.c/(2105:2244): Tripulante 2 terminó su tarea
+[INFO] 22:14:57:577 discordiador.c/(2105:2245): Tripulante 3 terminó su tarea
+[ERROR] 22:15:25:880 discordiador.c/(2105:2255): No se pudo recibir el header al recibir una tarea
+[INFO] 22:15:25:880 discordiador.c/(2105:2243): Tripulante 1 ahora esta en 1|2 
+[INFO] 22:16:36:735 discordiador.c/(2486:2486): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:16:40:263 discordiador.c/(2486:2487): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:16:40:264 discordiador.c/(2486:2487): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:16:40:264 discordiador.c/(2486:2487): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:16:40:264 discordiador.c/(2486:2487): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:16:40:264 discordiador.c/(2486:2487): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:16:40:264 discordiador.c/(2486:2487): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:16:44:383 discordiador.c/(2486:2487): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 22:16:44:384 discordiador.c/(2486:2495): Tripulante 0 cambio su estado a R
+[INFO] 22:16:44:385 discordiador.c/(2486:2495): Tripulante 1 cambio su estado a R
+[INFO] 22:16:44:386 discordiador.c/(2486:2495): Tripulante 2 cambio su estado a R
+[INFO] 22:16:44:386 discordiador.c/(2486:2495): Tripulante 3 cambio su estado a R
+[INFO] 22:16:44:386 discordiador.c/(2486:2495): Tripulante 0 cambio su estado a E
+[INFO] 22:16:44:386 discordiador.c/(2486:2488): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 22:16:44:386 discordiador.c/(2486:2495): Tripulante 1 cambio su estado a E
+[INFO] 22:16:44:387 discordiador.c/(2486:2489): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 22:16:44:404 discordiador.c/(2486:2488): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:16:44:404 discordiador.c/(2486:2489): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:16:46:406 discordiador.c/(2486:2489): Tripulante 1 ahora esta en 1|2 
+[INFO] 22:16:46:407 discordiador.c/(2486:2495): Tripulante 2 cambio su estado a E
+[INFO] 22:16:46:407 discordiador.c/(2486:2490): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 22:16:46:408 discordiador.c/(2486:2489): Tripulante 1 cambio su estado a B
+[INFO] 22:16:46:408 discordiador.c/(2486:2496): Llego GENERAR_OXIGENO
+[INFO] 22:16:46:408 discordiador.c/(2486:2496): GENERAR_OXIGENO 3
+[INFO] 22:16:46:408 discordiador.c/(2486:2496): Tripulante 1 cambio su estado a R
+[INFO] 22:16:46:423 discordiador.c/(2486:2490): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:16:48:407 discordiador.c/(2486:2488): Tripulante 0 ahora esta en 1|2 
+[INFO] 22:16:48:407 discordiador.c/(2486:2495): Tripulante 3 cambio su estado a E
+[INFO] 22:16:48:408 discordiador.c/(2486:2491): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 22:16:48:408 discordiador.c/(2486:2488): Tripulante 0 cambio su estado a B
+[INFO] 22:16:48:408 discordiador.c/(2486:2496): Llego GENERAR_OXIGENO
+[INFO] 22:16:48:408 discordiador.c/(2486:2496): GENERAR_OXIGENO 3
+[INFO] 22:16:48:408 discordiador.c/(2486:2496): Tripulante 0 cambio su estado a R
+[INFO] 22:16:48:417 discordiador.c/(2486:2491): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:16:53:412 discordiador.c/(2486:2489): Tripulante 1 terminó su tarea
+[INFO] 22:16:54:433 discordiador.c/(2486:2490): Tripulante 2 ahora esta en 1|2 
+[INFO] 22:16:54:433 discordiador.c/(2486:2495): Tripulante 1 cambio su estado a E
+[INFO] 22:16:54:433 discordiador.c/(2486:2489): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 22:16:54:434 discordiador.c/(2486:2490): Tripulante 2 cambio su estado a B
+[INFO] 22:16:54:434 discordiador.c/(2486:2496): Llego GENERAR_OXIGENO
+[INFO] 22:16:54:434 discordiador.c/(2486:2496): GENERAR_OXIGENO 3
+[INFO] 22:16:54:434 discordiador.c/(2486:2496): Tripulante 2 cambio su estado a R
+[INFO] 22:16:54:444 discordiador.c/(2486:2489): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 22:16:55:411 discordiador.c/(2486:2488): Tripulante 0 terminó su tarea
+[INFO] 22:16:55:426 discordiador.c/(2486:2491): Tripulante 3 ahora esta en 1|2 
+[INFO] 22:16:55:427 discordiador.c/(2486:2495): Tripulante 0 cambio su estado a E
+[INFO] 22:16:55:427 discordiador.c/(2486:2488): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 22:16:55:427 discordiador.c/(2486:2491): Tripulante 3 cambio su estado a B
+[INFO] 22:16:55:427 discordiador.c/(2486:2496): Llego GENERAR_OXIGENO
+[INFO] 22:16:55:427 discordiador.c/(2486:2496): GENERAR_OXIGENO 3
+[INFO] 22:16:55:427 discordiador.c/(2486:2496): Tripulante 3 cambio su estado a R
+[INFO] 22:16:55:434 discordiador.c/(2486:2488): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 22:16:55:652 discordiador.c/(2486:2487): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 22:16:56:445 discordiador.c/(2486:2489): Tripulante 1 ahora esta en 2|3 
+[INFO] 22:16:56:447 discordiador.c/(2486:2489): Tripulante 1 cambio su estado a B
+[INFO] 22:16:56:447 discordiador.c/(2486:2496): Llego GENERAR_OXIGENO
+[INFO] 22:16:56:447 discordiador.c/(2486:2496): GENERAR_OXIGENO 4
+[INFO] 22:16:56:447 discordiador.c/(2486:2496): Tripulante 1 cambio su estado a R
+[INFO] 22:16:57:435 discordiador.c/(2486:2488): Tripulante 0 ahora esta en 2|3 
+[INFO] 22:16:57:437 discordiador.c/(2486:2488): Tripulante 0 cambio su estado a B
+[INFO] 22:16:57:437 discordiador.c/(2486:2496): Llego GENERAR_OXIGENO
+[INFO] 22:16:57:437 discordiador.c/(2486:2496): GENERAR_OXIGENO 4
+[INFO] 22:16:57:437 discordiador.c/(2486:2496): Tripulante 0 cambio su estado a R
+[INFO] 22:17:01:436 discordiador.c/(2486:2490): Tripulante 2 terminó su tarea
+[INFO] 22:17:01:438 discordiador.c/(2486:2495): Tripulante 2 cambio su estado a E
+[INFO] 22:17:01:438 discordiador.c/(2486:2490): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 22:17:01:445 discordiador.c/(2486:2490): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 22:17:02:430 discordiador.c/(2486:2491): Tripulante 3 terminó su tarea
+[INFO] 22:17:02:431 discordiador.c/(2486:2495): Tripulante 3 cambio su estado a E
+[INFO] 22:17:02:431 discordiador.c/(2486:2491): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 22:17:02:436 discordiador.c/(2486:2491): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 22:17:03:447 discordiador.c/(2486:2490): Tripulante 2 ahora esta en 2|3 
+[INFO] 22:17:03:448 discordiador.c/(2486:2490): Tripulante 2 cambio su estado a B
+[INFO] 22:17:03:448 discordiador.c/(2486:2496): Llego GENERAR_OXIGENO
+[INFO] 22:17:03:453 discordiador.c/(2486:2496): GENERAR_OXIGENO 4
+[INFO] 22:17:03:453 discordiador.c/(2486:2496): Tripulante 2 cambio su estado a R
+[INFO] 22:17:04:437 discordiador.c/(2486:2491): Tripulante 3 ahora esta en 2|3 
+[INFO] 22:17:04:438 discordiador.c/(2486:2491): Tripulante 3 cambio su estado a B
+[INFO] 22:17:04:438 discordiador.c/(2486:2496): Llego GENERAR_OXIGENO
+[INFO] 22:17:04:438 discordiador.c/(2486:2496): GENERAR_OXIGENO 4
+[INFO] 22:17:04:438 discordiador.c/(2486:2496): Tripulante 3 cambio su estado a R
+[INFO] 22:17:05:452 discordiador.c/(2486:2489): Tripulante 1 terminó su tarea
+[INFO] 22:17:05:453 discordiador.c/(2486:2495): Tripulante 1 cambio su estado a E
+[INFO] 22:17:05:453 discordiador.c/(2486:2489): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 22:17:05:457 discordiador.c/(2486:2489): Tarea pedida por tripulante 1: CONSUMIR_OXIGENO Posicion: 1|3 Duracion: 4 
+[INFO] 22:17:05:718 discordiador.c/(2486:2487): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 22:17:06:439 discordiador.c/(2486:2488): Tripulante 0 terminó su tarea
+[INFO] 22:17:06:440 discordiador.c/(2486:2495): Tripulante 0 cambio su estado a E
+[INFO] 22:17:06:440 discordiador.c/(2486:2488): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 22:17:06:445 discordiador.c/(2486:2488): Tarea pedida por tripulante 0: CONSUMIR_OXIGENO Posicion: 1|3 Duracion: 4 
+[INFO] 22:17:06:458 discordiador.c/(2486:2489): Tripulante 1 ahora esta en 1|3 
+[INFO] 22:17:06:458 discordiador.c/(2486:2489): Tripulante 1 cambio su estado a B
+[INFO] 22:17:06:458 discordiador.c/(2486:2496): Llego CONSUMIR_OXIGENO
+[INFO] 22:17:06:458 discordiador.c/(2486:2496): Tripulante 1 cambio su estado a R
+[INFO] 22:17:07:446 discordiador.c/(2486:2488): Tripulante 0 ahora esta en 1|3 
+[INFO] 22:17:07:446 discordiador.c/(2486:2488): Tripulante 0 cambio su estado a B
+[INFO] 22:17:07:446 discordiador.c/(2486:2496): Llego CONSUMIR_OXIGENO
+[INFO] 22:17:07:446 discordiador.c/(2486:2496): Tripulante 0 cambio su estado a R
+[INFO] 22:17:11:461 discordiador.c/(2486:2489): Tripulante 1 terminó su tarea
+[INFO] 22:17:11:461 discordiador.c/(2486:2495): Tripulante 2 cambio su estado a E
+[INFO] 22:17:12:448 discordiador.c/(2486:2488): Tripulante 0 terminó su tarea
+[INFO] 22:17:12:450 discordiador.c/(2486:2495): Tripulante 3 cambio su estado a E
+[INFO] 22:17:12:451 discordiador.c/(2486:2490): Tripulante 2 terminó su tarea
+[INFO] 22:17:12:451 discordiador.c/(2486:2490): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 22:17:12:457 discordiador.c/(2486:2490): Tarea pedida por tripulante 2: CONSUMIR_OXIGENO Posicion: 1|3 Duracion: 4 
+[INFO] 22:17:13:440 discordiador.c/(2486:2491): Tripulante 3 terminó su tarea
+[INFO] 22:17:13:442 discordiador.c/(2486:2491): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 22:17:13:447 discordiador.c/(2486:2491): Tarea pedida por tripulante 3: CONSUMIR_OXIGENO Posicion: 1|3 Duracion: 4 
+[INFO] 22:17:13:459 discordiador.c/(2486:2490): Tripulante 2 ahora esta en 1|3 
+[INFO] 22:17:13:459 discordiador.c/(2486:2495): Tripulante 1 cambio su estado a E
+[INFO] 22:17:13:459 discordiador.c/(2486:2489): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 22:17:13:459 discordiador.c/(2486:2490): Tripulante 2 cambio su estado a B
+[INFO] 22:17:13:459 discordiador.c/(2486:2496): Llego CONSUMIR_OXIGENO
+[INFO] 22:17:13:460 discordiador.c/(2486:2496): Tripulante 2 cambio su estado a R
+[INFO] 22:17:13:482 discordiador.c/(2486:2489): Tripulante 1 termino de trabajar 
+[INFO] 22:17:13:482 discordiador.c/(2486:2495): Tripulante 0 cambio su estado a E
+[INFO] 22:17:13:482 discordiador.c/(2486:2488): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 22:17:13:482 discordiador.c/(2486:2489): Tripulante 1 cambio su estado a F
+[INFO] 22:17:13:495 discordiador.c/(2486:2488): Tripulante 0 termino de trabajar 
+[INFO] 22:17:13:495 discordiador.c/(2486:2488): Tripulante 0 cambio su estado a F
+[INFO] 22:17:14:449 discordiador.c/(2486:2491): Tripulante 3 ahora esta en 1|3 
+[INFO] 22:17:14:450 discordiador.c/(2486:2491): Tripulante 3 cambio su estado a B
+[INFO] 22:17:14:450 discordiador.c/(2486:2496): Llego CONSUMIR_OXIGENO
+[INFO] 22:17:14:450 discordiador.c/(2486:2496): Tripulante 3 cambio su estado a R
+[INFO] 22:17:14:779 discordiador.c/(2486:2487): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 22:17:18:460 discordiador.c/(2486:2490): Tripulante 2 terminó su tarea
+[INFO] 22:17:18:462 discordiador.c/(2486:2495): Tripulante 2 cambio su estado a E
+[INFO] 22:17:18:463 discordiador.c/(2486:2490): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 22:17:18:473 discordiador.c/(2486:2490): Tripulante 2 termino de trabajar 
+[INFO] 22:17:18:474 discordiador.c/(2486:2490): Tripulante 2 cambio su estado a F
+[INFO] 22:17:19:451 discordiador.c/(2486:2491): Tripulante 3 terminó su tarea
+[INFO] 22:17:19:452 discordiador.c/(2486:2495): Tripulante 3 cambio su estado a E
+[INFO] 22:17:19:452 discordiador.c/(2486:2491): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 22:17:19:456 discordiador.c/(2486:2491): Tripulante 3 termino de trabajar 
+[INFO] 22:17:19:456 discordiador.c/(2486:2491): Tripulante 3 cambio su estado a F
+[INFO] 22:17:19:729 discordiador.c/(2486:2487): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 22:17:32:473 discordiador.c/(2486:2487): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5
+[INFO] 22:17:32:474 discordiador.c/(2486:2487): Tripulante creado: ID: 4, Posicion 0|5, Estado: N 
+[INFO] 22:17:32:474 discordiador.c/(2486:2487): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:17:32:475 discordiador.c/(2486:2495): Tripulante 4 cambio su estado a E
+[INFO] 22:17:32:483 discordiador.c/(2486:2661): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 22:17:32:498 discordiador.c/(2486:2661): Tarea pedida por tripulante 4: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:17:36:500 discordiador.c/(2486:2661): Tripulante 4 ahora esta en 1|2 
+[INFO] 22:17:36:501 discordiador.c/(2486:2661): Tripulante 4 cambio su estado a B
+[INFO] 22:17:36:501 discordiador.c/(2486:2496): Llego GENERAR_OXIGENO
+[INFO] 22:17:36:501 discordiador.c/(2486:2496): GENERAR_OXIGENO 3
+[INFO] 22:17:36:501 discordiador.c/(2486:2496): Tripulante 4 cambio su estado a R
+[INFO] 22:17:43:503 discordiador.c/(2486:2661): Tripulante 4 terminó su tarea
+[INFO] 22:17:43:504 discordiador.c/(2486:2495): Tripulante 4 cambio su estado a E
+[INFO] 22:17:43:505 discordiador.c/(2486:2661): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 22:17:43:515 discordiador.c/(2486:2661): Tarea pedida por tripulante 4: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 22:17:45:516 discordiador.c/(2486:2661): Tripulante 4 ahora esta en 2|3 
+[INFO] 22:17:45:517 discordiador.c/(2486:2661): Tripulante 4 cambio su estado a B
+[INFO] 22:17:45:517 discordiador.c/(2486:2496): Llego GENERAR_OXIGENO
+[INFO] 22:17:45:517 discordiador.c/(2486:2496): GENERAR_OXIGENO 4
+[INFO] 22:17:45:517 discordiador.c/(2486:2496): Tripulante 4 cambio su estado a R
+[INFO] 22:17:46:825 discordiador.c/(2486:2487): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 22:17:52:050 discordiador.c/(2486:2487): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 22:17:54:521 discordiador.c/(2486:2661): Tripulante 4 terminó su tarea
+[INFO] 22:17:54:522 discordiador.c/(2486:2495): Tripulante 4 cambio su estado a E
+[INFO] 22:17:54:523 discordiador.c/(2486:2661): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 22:17:54:535 discordiador.c/(2486:2661): Tarea pedida por tripulante 4: CONSUMIR_OXIGENO Posicion: 1|3 Duracion: 4 
+[INFO] 22:17:55:537 discordiador.c/(2486:2661): Tripulante 4 ahora esta en 1|3 
+[INFO] 22:17:55:537 discordiador.c/(2486:2661): Tripulante 4 cambio su estado a B
+[INFO] 22:17:55:538 discordiador.c/(2486:2496): Llego CONSUMIR_OXIGENO
+[INFO] 22:17:55:538 discordiador.c/(2486:2496): Tripulante 4 cambio su estado a R
+[INFO] 22:17:58:238 discordiador.c/(2486:2487): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 22:18:00:538 discordiador.c/(2486:2661): Tripulante 4 terminó su tarea
+[INFO] 22:18:00:539 discordiador.c/(2486:2495): Tripulante 4 cambio su estado a E
+[INFO] 22:18:00:540 discordiador.c/(2486:2661): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 22:18:00:546 discordiador.c/(2486:2661): Tripulante 4 termino de trabajar 
+[INFO] 22:18:00:547 discordiador.c/(2486:2661): Tripulante 4 cambio su estado a F
+[INFO] 22:18:28:393 discordiador.c/(2486:2487): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 22:18:41:167 discordiador.c/(2486:2487): INSTRUCCION LEIDA: LISTAR_TRIPULANTES
+[INFO] 22:19:17:121 discordiador.c/(2730:2730): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:19:24:929 discordiador.c/(2734:2734): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:19:30:712 discordiador.c/(2734:2735): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:19:30:715 discordiador.c/(2734:2735): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:19:30:715 discordiador.c/(2734:2735): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:19:30:715 discordiador.c/(2734:2735): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:19:30:715 discordiador.c/(2734:2735): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:19:30:715 discordiador.c/(2734:2735): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:19:40:577 discordiador.c/(2734:2735): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 22:19:40:589 discordiador.c/(2734:2744): Tripulante 0 cambio su estado a R
+[INFO] 22:19:40:593 discordiador.c/(2734:2744): Tripulante 1 cambio su estado a R
+[INFO] 22:19:40:597 discordiador.c/(2734:2744): Tripulante 2 cambio su estado a R
+[INFO] 22:19:40:597 discordiador.c/(2734:2744): Tripulante 3 cambio su estado a R
+[INFO] 22:19:40:597 discordiador.c/(2734:2744): Tripulante 0 cambio su estado a E
+[INFO] 22:19:40:597 discordiador.c/(2734:2736): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 22:19:40:597 discordiador.c/(2734:2744): Tripulante 1 cambio su estado a E
+[INFO] 22:19:40:597 discordiador.c/(2734:2737): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 22:19:40:629 discordiador.c/(2734:2736): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:19:40:630 discordiador.c/(2734:2737): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:19:42:631 discordiador.c/(2734:2737): Tripulante 1 ahora esta en 1|2 
+[INFO] 22:19:42:632 discordiador.c/(2734:2744): Tripulante 2 cambio su estado a E
+[INFO] 22:19:42:632 discordiador.c/(2734:2738): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 22:19:42:632 discordiador.c/(2734:2737): Tripulante 1 cambio su estado a B
+[INFO] 22:19:42:632 discordiador.c/(2734:2745): Llego GENERAR_OXIGENO
+[INFO] 22:19:42:632 discordiador.c/(2734:2745): GENERAR_OXIGENO 3
+[INFO] 22:19:42:632 discordiador.c/(2734:2745): Tripulante 1 cambio su estado a R
+[INFO] 22:19:42:641 discordiador.c/(2734:2738): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:19:44:631 discordiador.c/(2734:2736): Tripulante 0 ahora esta en 1|2 
+[INFO] 22:19:44:633 discordiador.c/(2734:2744): Tripulante 3 cambio su estado a E
+[INFO] 22:19:44:633 discordiador.c/(2734:2739): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 22:19:44:633 discordiador.c/(2734:2736): Tripulante 0 cambio su estado a B
+[INFO] 22:19:44:633 discordiador.c/(2734:2745): Llego GENERAR_OXIGENO
+[INFO] 22:19:44:634 discordiador.c/(2734:2745): GENERAR_OXIGENO 3
+[INFO] 22:19:44:634 discordiador.c/(2734:2745): Tripulante 0 cambio su estado a R
+[INFO] 22:19:44:649 discordiador.c/(2734:2739): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 1|2 Duracion: 6 
+[INFO] 22:19:49:636 discordiador.c/(2734:2737): Tripulante 1 terminó su tarea
+[INFO] 22:19:50:654 discordiador.c/(2734:2738): Tripulante 2 ahora esta en 1|2 
+[INFO] 22:19:50:655 discordiador.c/(2734:2744): Tripulante 1 cambio su estado a E
+[INFO] 22:19:50:655 discordiador.c/(2734:2737): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 22:19:50:655 discordiador.c/(2734:2738): Tripulante 2 cambio su estado a B
+[INFO] 22:19:50:655 discordiador.c/(2734:2745): Llego GENERAR_OXIGENO
+[INFO] 22:19:50:656 discordiador.c/(2734:2745): GENERAR_OXIGENO 3
+[INFO] 22:19:50:656 discordiador.c/(2734:2745): Tripulante 2 cambio su estado a R
+[INFO] 22:19:50:669 discordiador.c/(2734:2737): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 22:19:50:897 discordiador.c/(2734:2735): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5
+[INFO] 22:19:50:898 discordiador.c/(2734:2735): Tripulante creado: ID: 4, Posicion 0|5, Estado: N 
+[INFO] 22:19:50:898 discordiador.c/(2734:2735): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:19:51:636 discordiador.c/(2734:2736): Tripulante 0 terminó su tarea
+[INFO] 22:19:51:655 discordiador.c/(2734:2739): Tripulante 3 ahora esta en 1|2 
+[INFO] 22:19:51:656 discordiador.c/(2734:2744): Tripulante 0 cambio su estado a E
+[INFO] 22:19:51:656 discordiador.c/(2734:2736): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 22:19:51:656 discordiador.c/(2734:2739): Tripulante 3 cambio su estado a B
+[INFO] 22:19:51:656 discordiador.c/(2734:2745): Llego GENERAR_OXIGENO
+[INFO] 22:19:51:656 discordiador.c/(2734:2745): GENERAR_OXIGENO 3
+[INFO] 22:19:51:656 discordiador.c/(2734:2745): Tripulante 3 cambio su estado a R
+[INFO] 22:19:51:671 discordiador.c/(2734:2736): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 22:19:52:670 discordiador.c/(2734:2737): Tripulante 1 ahora esta en 2|3 
+[INFO] 22:19:52:671 discordiador.c/(2734:2744): Tripulante 2 cambio su estado a E
+[INFO] 22:19:52:672 discordiador.c/(2734:2737): Tripulante 1 cambio su estado a B
+[INFO] 22:19:52:672 discordiador.c/(2734:2745): Llego GENERAR_OXIGENO
+[INFO] 22:19:52:672 discordiador.c/(2734:2745): GENERAR_OXIGENO 4
+[INFO] 22:19:52:672 discordiador.c/(2734:2745): Tripulante 1 cambio su estado a R
+[INFO] 22:19:53:672 discordiador.c/(2734:2736): Tripulante 0 ahora esta en 2|3 
+[INFO] 22:19:53:674 discordiador.c/(2734:2736): Tripulante 0 cambio su estado a B
+[INFO] 22:19:53:674 discordiador.c/(2734:2745): Llego GENERAR_OXIGENO
+[INFO] 22:19:53:674 discordiador.c/(2734:2745): GENERAR_OXIGENO 4
+[INFO] 22:19:53:674 discordiador.c/(2734:2745): Tripulante 0 cambio su estado a R
+[INFO] 22:19:57:657 discordiador.c/(2734:2738): Tripulante 2 terminó su tarea
+[INFO] 22:19:57:658 discordiador.c/(2734:2744): Tripulante 4 cambio su estado a E
+[INFO] 22:19:57:658 discordiador.c/(2734:2799): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 22:19:57:659 discordiador.c/(2734:2738): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 22:19:58:657 discordiador.c/(2734:2739): Tripulante 3 terminó su tarea
+[ERROR] 22:20:00:570 discordiador.c/(2734:2799): No se pudo recibir el header al recibir una tarea
+[ERROR] 22:20:00:570 discordiador.c/(2734:2738): No se pudo recibir el header al recibir una tarea
+[INFO] 22:20:00:570 discordiador.c/(2734:2738): Tripulante 2 ahora esta en 1|2 
+[INFO] 22:20:00:570 discordiador.c/(2734:2744): Tripulante 3 cambio su estado a E
+[INFO] 22:20:00:571 discordiador.c/(2734:2739): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 22:20:00:571 discordiador.c/(2734:2738): Tripulante 2 cambio su estado a B
+[INFO] 22:20:00:571 discordiador.c/(2734:2745): Llego GENERAR_OXIGENO
+[INFO] 22:20:00:571 discordiador.c/(2734:2745): GENERAR_OXIGENO 3
+[INFO] 22:20:00:571 discordiador.c/(2734:2745): Tripulante 2 cambio su estado a R
+[INFO] 22:20:00:571 discordiador.c/(2734:2739): Tripulante 3 ahora esta en 1|2 
+[INFO] 22:22:47:275 discordiador.c/(2972:2972): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:22:51:138 discordiador.c/(2972:2973): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:22:51:139 discordiador.c/(2972:2973): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:22:51:139 discordiador.c/(2972:2973): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:22:51:139 discordiador.c/(2972:2973): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:22:51:139 discordiador.c/(2972:2973): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:22:51:139 discordiador.c/(2972:2973): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:22:54:615 discordiador.c/(2972:2973): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:22:54:616 discordiador.c/(2972:2973): Tripulante creado: ID: 4, Posicion 0|5, Estado: N 
+[INFO] 22:22:54:616 discordiador.c/(2972:2973): Tripulante creado: ID: 5, Posicion 2|1, Estado: N 
+[INFO] 22:22:54:616 discordiador.c/(2972:2973): Tripulante creado: ID: 6, Posicion 9|2, Estado: N 
+[INFO] 22:22:54:616 discordiador.c/(2972:2973): Tripulante creado: ID: 7, Posicion 6|4, Estado: N 
+[INFO] 22:22:54:616 discordiador.c/(2972:2973): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:23:16:661 discordiador.c/(2972:2973): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:23:16:661 discordiador.c/(2972:2973): Tripulante creado: ID: 8, Posicion 0|5, Estado: N 
+[INFO] 22:23:16:661 discordiador.c/(2972:2973): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:23:41:196 discordiador.c/(2972:2973): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 2
+[INFO] 22:23:52:010 discordiador.c/(2972:2973): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:23:52:011 discordiador.c/(2972:2973): Tripulante creado: ID: 9, Posicion 0|5, Estado: N 
+[INFO] 22:23:52:011 discordiador.c/(2972:2973): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:24:12:195 discordiador.c/(2972:2973): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 3
+[INFO] 22:24:18:775 discordiador.c/(2972:2973): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 0
+[INFO] 22:24:29:538 discordiador.c/(2972:2973): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:24:29:538 discordiador.c/(2972:2973): Tripulante creado: ID: 10, Posicion 0|5, Estado: N 
+[INFO] 22:24:29:538 discordiador.c/(2972:2973): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:24:46:217 discordiador.c/(2972:2973): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 1
+[INFO] 22:24:52:892 discordiador.c/(2972:2973): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:24:52:892 discordiador.c/(2972:2973): Tripulante creado: ID: 11, Posicion 0|5, Estado: N 
+[INFO] 22:24:52:892 discordiador.c/(2972:2973): Tripulante creado: ID: 12, Posicion 2|1, Estado: N 
+[INFO] 22:24:52:892 discordiador.c/(2972:2973): Tripulante creado: ID: 13, Posicion 9|2, Estado: N 
+[INFO] 22:24:52:892 discordiador.c/(2972:2973): Tripulante creado: ID: 14, Posicion 6|4, Estado: N 
+[INFO] 22:24:52:892 discordiador.c/(2972:2973): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:26:15:259 discordiador.c/(3114:3114): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:26:21:213 discordiador.c/(3114:3116): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:26:21:215 discordiador.c/(3114:3116): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:26:21:215 discordiador.c/(3114:3116): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:26:21:215 discordiador.c/(3114:3116): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:26:21:215 discordiador.c/(3114:3116): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:26:21:215 discordiador.c/(3114:3116): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:27:18:588 discordiador.c/(3185:3185): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:27:22:770 discordiador.c/(3185:3187): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:27:22:771 discordiador.c/(3185:3187): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:27:22:771 discordiador.c/(3185:3187): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:27:22:771 discordiador.c/(3185:3187): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:27:22:771 discordiador.c/(3185:3187): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:27:22:771 discordiador.c/(3185:3187): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:27:31:742 discordiador.c/(3185:3187): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 1
+[INFO] 22:27:35:970 discordiador.c/(3185:3187): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 2
+[INFO] 22:27:43:059 discordiador.c/(3185:3187): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 3
+[INFO] 22:27:54:226 discordiador.c/(3185:3187): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:27:54:227 discordiador.c/(3185:3187): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 22:27:54:227 discordiador.c/(3185:3187): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:28:07:502 discordiador.c/(3185:3187): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 0
+[INFO] 22:28:21:825 discordiador.c/(3185:3187): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:28:21:826 discordiador.c/(3185:3187): Tripulante creado: ID: 5, Posicion 0|0, Estado: N 
+[INFO] 22:28:21:826 discordiador.c/(3185:3187): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:31:46:817 discordiador.c/(3387:3387): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:31:51:973 discordiador.c/(3387:3388): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:31:51:973 discordiador.c/(3387:3388): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:31:51:973 discordiador.c/(3387:3388): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:31:51:973 discordiador.c/(3387:3388): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:31:51:973 discordiador.c/(3387:3388): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:31:51:974 discordiador.c/(3387:3388): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:31:57:408 discordiador.c/(3387:3388): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 1
+[INFO] 22:32:03:147 discordiador.c/(3387:3388): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 2
+[INFO] 22:32:13:444 discordiador.c/(3387:3388): INSTRUCCION LEIDA: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:32:13:445 discordiador.c/(3387:3388): Tripulante creado: ID: 4, Posicion 0|0, Estado: N 
+[INFO] 22:32:13:445 discordiador.c/(3387:3388): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:32:20:287 discordiador.c/(3387:3388): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 0
+[INFO] 22:32:25:435 discordiador.c/(3387:3388): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 3
+[INFO] 22:32:30:084 discordiador.c/(3387:3388): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:32:30:085 discordiador.c/(3387:3388): Tripulante creado: ID: 5, Posicion 0|5, Estado: N 
+[INFO] 22:32:30:085 discordiador.c/(3387:3388): Tripulante creado: ID: 6, Posicion 2|1, Estado: N 
+[INFO] 22:32:30:085 discordiador.c/(3387:3388): Tripulante creado: ID: 7, Posicion 9|2, Estado: N 
+[INFO] 22:32:30:085 discordiador.c/(3387:3388): Tripulante creado: ID: 8, Posicion 6|4, Estado: N 
+[INFO] 22:32:30:085 discordiador.c/(3387:3388): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:33:12:825 discordiador.c/(3463:3463): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:33:16:555 discordiador.c/(3463:3465): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:33:16:557 discordiador.c/(3463:3465): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:33:16:557 discordiador.c/(3463:3465): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:33:16:557 discordiador.c/(3463:3465): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:33:16:557 discordiador.c/(3463:3465): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:33:16:557 discordiador.c/(3463:3465): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:33:21:168 discordiador.c/(3463:3465): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 
+[INFO] 22:33:25:590 discordiador.c/(3463:3465): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 1
+[INFO] 22:33:34:169 discordiador.c/(3463:3465): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 2
+[INFO] 22:34:26:450 discordiador.c/(3530:3530): ---------PROGRAMA INICIADO---------- 
+[INFO] 22:34:32:492 discordiador.c/(3530:3532): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:34:32:493 discordiador.c/(3530:3532): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 22:34:32:493 discordiador.c/(3530:3532): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 22:34:32:493 discordiador.c/(3530:3532): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 22:34:32:493 discordiador.c/(3530:3532): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 22:34:32:493 discordiador.c/(3530:3532): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:34:37:091 discordiador.c/(3530:3532): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 1
+[INFO] 22:36:05:792 discordiador.c/(3530:3532): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 22:36:05:794 discordiador.c/(3530:3532): Tripulante creado: ID: 4, Posicion 0|5, Estado: N 
+[INFO] 22:36:05:794 discordiador.c/(3530:3532): Tripulante creado: ID: 5, Posicion 2|1, Estado: N 
+[INFO] 22:36:05:794 discordiador.c/(3530:3532): Tripulante creado: ID: 6, Posicion 9|2, Estado: N 
+[INFO] 22:36:05:794 discordiador.c/(3530:3532): Tripulante creado: ID: 7, Posicion 6|4, Estado: N 
+[INFO] 22:36:05:794 discordiador.c/(3530:3532): path de tareas recibido: /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 22:36:14:186 discordiador.c/(3530:3532): INSTRUCCION LEIDA: EXPULSAR_TRIPULANTE 4
