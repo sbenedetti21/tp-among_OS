@@ -351,7 +351,8 @@ void atenderDiscordiador(int socketCliente){
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 
-			eliminarTripulante(pid, tid);
+			
+			//eliminarTripulante(pid, tid);
 			
 			
 
@@ -410,6 +411,7 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&estadoNuevo, stream+offset, sizeof(char));
 		
 		actualizarEstadoTripulante(pat, trip, estadoNuevo); 
+		log_info(loggerMiram, "estado a cambiar %s", mem_hexstring(stream, 9));
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 	
 	break; 
@@ -423,7 +425,7 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&patid, stream+offset, sizeof(uint32_t));
 		offset += sizeof(uint32_t);
 		expulsarTripulanteDelMapa(tripid);
-		eliminarTripulante(patid, tripid);
+		//eliminarTripulante(patid, tripid);
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
 	break ;
