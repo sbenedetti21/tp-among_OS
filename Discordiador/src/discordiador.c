@@ -34,8 +34,8 @@ int main(int argc, char ** argv){
 
 	socketParaSabotajes = conectarImongo();
 
-	//pthread_t hiloSabotajes;
-    //pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
+	pthread_t hiloSabotajes;
+    pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
 
 
 	
@@ -151,6 +151,29 @@ void consola(){
 			
 			listarTripulantes();
 
+		}
+
+		if(strcmp(vectorInstruccion[0], "sabo") == 0) {
+		log_info(loggerDiscordiador, "ENTRE A SABO"); 
+		int socket = conectarImongo();
+		log_info(loggerDiscordiador, "1"); 
+		t_buffer* buffer = malloc(sizeof(t_buffer));
+
+		buffer-> size =  sizeof(uint32_t) ;
+
+		void* stream = malloc(buffer->size);
+
+		int offset = 0;
+
+		uint32_t i = 6;
+
+		memcpy(stream+offset, &(i), sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+
+		buffer-> stream = stream;
+
+		mandarPaqueteSerializado(buffer, socket, SENIAL);
+		log_info(loggerDiscordiador, "MANDE PAQUETE"); 
 		}
 
 
@@ -819,7 +842,7 @@ void trasladarseADuranteSabotaje(uint32_t posicionX,uint32_t posicionY, TCB_DISC
 		}
 
 		sleep(cicloCPU);
-		// MANDAR POSICION A MI RAM e IMONGO
+		serializarYMandarPosicion(tripulante); 
 	}
 	
 	while(posicionY != tripulante->posicionY)
@@ -1040,7 +1063,7 @@ void serializarYMandarPedidoDeTarea(int socket, uint32_t pid, uint32_t tid){
 	memcpy(stream + offset, &pid, sizeof(uint32_t));
 	offset += sizeof(uint32_t);
 
-	buffer-> stream = stream;
+	buffer-> stream = stream; 
 
 	mandarPaqueteSerializado(buffer, socket, PEDIR_TAREA);
 }
@@ -1309,16 +1332,17 @@ void atenderImongo(){
 		void* stream = malloc(paquete->buffer->size);
 		stream = paquete->buffer->stream;
 
-		uint32_t posX;
-		uint32_t posY;
+		uint32_t posX =0;
+		uint32_t posY=0;
  
 
-		int tamanioTareas;
-		memcpy(&posX, stream, sizeof(uint32_t));
+		memcpy(&(posX), stream, sizeof(uint32_t));
 		stream += sizeof(uint32_t);
+        log_info(loggerDiscordiador, "la posicion en x %d", posX);
 
-		memcpy(&posY, stream, tamanioTareas);
-
+		memcpy(&(posY), stream, sizeof(uint32_t) );
+		stream += sizeof(uint32_t);
+		log_info(loggerDiscordiador, "la posicion en y %d", posY);
 		cambiarEstadosABloqueados();
 
 		TCB_DISCORDIADOR * tripulante = tripulanteMasCercano(posX, posY);

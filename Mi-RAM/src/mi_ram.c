@@ -27,7 +27,7 @@ int main(int argc, char ** argv){
 	 nivel_destruir(navePrincipal); 
 	 nivel_gui_terminar();
 
-		
+	 	
 	pthread_join(servidor, NULL);
 	
 		(memoriaPrincipal);

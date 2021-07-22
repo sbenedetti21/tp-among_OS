@@ -91,7 +91,8 @@ enum protocoloImongo{
 	INICIAR_FSCK,
 	HACER_TAREA,
 	FINALIZO_TAREA,
-	BITACORA
+	BITACORA,
+	SENIAL // BORRAR
 };
 
 typedef struct {

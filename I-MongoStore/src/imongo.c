@@ -27,7 +27,7 @@ int main(int argc, char ** argv){
 	//pruebaDeSabotaje();
 	//sabotajeImongo();
 	
-	// signal(SIGUSR1, llegoElSignal);
+	signal(SIGUSR1, llegoElSignal);
 	// sleep(20);
 	// printf("SIGUSR1");
     // raise(SIGUSR1);
@@ -40,7 +40,7 @@ int main(int argc, char ** argv){
     pthread_join(servidor, NULL);
 	 	pthread_join(sincronizador, NULL);
 
-
+  
 	//Necesario al finalizar
 	munmap(mapSuperBloque,tamanioBlocks);
 	close(archivoSuperBloque);
@@ -1082,6 +1082,7 @@ void sabotajeImongo(){
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------------- SIGNAL ----------------------------------------------//
 void llegoElSignal (){
+	log_info(loggerImongoStore,"llego la signal");
 	if(posicionesSabotaje[0]!=NULL){
 		char *posicion = posicionesSabotaje[0];
 
@@ -1412,6 +1413,9 @@ void atenderDiscordiador(int socketCliente){
 		break;
 	case INICIAR_FSCK:
 		deserializarTripulanteFSCK(paquete);
+		break;
+	case SENIAL:
+		raise(SIGUSR1);
 		break;
 	}
 
