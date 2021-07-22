@@ -2,7 +2,7 @@ PROCESS_NAME=mi_ram
 IDIR =./include
 SHARED_IDIR = ../shared/include
 CC=gcc
-CFLAGS=-I$(IDIR) -I$(SHARED_IDIR) -g -Wall
+CFLAGS=-I$(IDIR) -I$(SHARED_IDIR)
 
 ODIR=./obj
 SRCDIR =./src

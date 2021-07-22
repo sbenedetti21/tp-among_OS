@@ -26,10 +26,10 @@
 // --------------------------------------- MEMORIA GENERAL
  
 char * esquemaMemoria;
-char * criterioSeleccion; 
 char * algoritmoReemplazo;
 char * puertoMemoria;
 void * memoriaPrincipal; 
+char * criterioSeleccion; 
 
 int buscarEspacioNecesario(int, int);
 TCB * deserializar_TCB(void *);
@@ -41,49 +41,76 @@ void imprimirSegmentos();
 void sig_handler(uint32_t senial);
 void * hiloSIGUSR1();
 void * hiloSIGUSR2();
+void actualizarEstadoTripulante(uint32_t , uint32_t , char );
+void eliminarTripulante(uint32_t, uint32_t);
 
 
 
 // ----------------------------------------  PAGINAS
 
+int contadorLRU;
+
 char * path_SWAP;
 t_list * listaFrames;
+t_list * listaFramesSwap;
 t_list * listaTablasDePaginas;
-int tamanioPagina, tamanioMemoria;
+t_list * listaTripulantes;
+int tamanioPagina, tamanioMemoria, tamanioSwap;
 pthread_mutex_t mutexMemoriaPrincipal;
 pthread_mutex_t mutexListaTablas;
 pthread_mutex_t mutexListaFrames;
+pthread_mutex_t mutexListaFramesSwap;
 pthread_mutex_t mutexTareas;
-
-
-typedef struct {
-	uint32_t inicio;
-	uint32_t ocupado;
-}  t_frame;
+pthread_mutex_t mutexContadorLRU;
 
 typedef struct {
 	uint32_t numeroPagina;
 	uint32_t numeroFrame;
 	uint32_t pid;
-	// ultimaReferencia
-	// SecondChance
+	int bitDeValidez; // si esta en 0, esta en swap
+	int ultimaReferencia;
+	int bitDeUso;
 } t_pagina;
+
+typedef struct {
+	uint32_t inicio;
+	uint32_t ocupado;
+	t_pagina * pagina;
+	
+}  t_frame;
+
 
 typedef struct {
 	int longitudTareas;
 	uint32_t pid;
 	t_list * listaPaginas;
-} t_tablaDePaginas;
+} referenciaTablaPaginas;
 
-char * obtenerProximaTareaPaginacion(t_tablaDePaginas* , int);
-char * encontrarTareasDeTripulanteEnStream(void *, int, t_tablaDePaginas*);
-void actualizarPunteroTarea(int, t_tablaDePaginas*, int);
+typedef struct {
+	uint32_t tid;
+	uint32_t pid;
+	int nroPagina;
+	int offset;
+	int cantidadDePaginas;
+} t_tripulantePaginacion;
+
+char * obtenerProximaTareaPaginacion(referenciaTablaPaginas* , uint32_t);
+uint32_t obtenerDireccionProximaTareaPaginacion(void *);
+uint32_t obtenerDireccionFrame(referenciaTablaPaginas *, uint32_t);
+char * encontrarTareasDeTripulanteEnStream(void *, t_tripulantePaginacion *, referenciaTablaPaginas*);
+void actualizarPunteroTarea(t_tripulantePaginacion *, t_list*, int);
 
 int divisionRedondeadaParaArriba(int , int );
 int framesDisponibles();
-uint32_t buscarFrame();
+int framesDisponiblesSwap();
 void iniciarFrames();
 void llenarFramesConPatota(t_list *, void *, int , int , int , int , uint32_t);
+void llevarPaginaASwap();
+t_frame * buscarFrame();
+t_frame * seleccionarVictima();
+t_frame * buscarFrameSwap();
+
+void dumpDeMemoriaPaginacion();
 
 
 // ----------------------------------------  SEGMENTOS
@@ -136,7 +163,6 @@ void compactarMemoria();
 // --------------------- Generales
 
 t_log * loggerMiram; 
-t_log * loggerMemoria; 
 void servidorPrincipal();
 
 void atenderDiscordiador(int);
