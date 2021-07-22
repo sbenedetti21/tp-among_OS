@@ -41,8 +41,7 @@ sem_t cambiarABloqueadosEmergencia;
 sem_t semaforoSabotaje;
 sem_t semaforoSabotajeBloqueados;
 sem_t mutexPID; 
-
-
+sem_t semaforoPlanificacionPausada;
  
 
 t_log * loggerDiscordiador; 

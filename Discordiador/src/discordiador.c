@@ -58,6 +58,7 @@ int main(int argc, char ** argv){
 	sem_init(&cambiarABloqueadosEmergencia,0,1);
 	sem_init(&semaforoSabotaje,0,0);
 	sem_init(&mutexPID, 0, 1); 
+	
 
 	pthread_t hiloConsola;
 	pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
