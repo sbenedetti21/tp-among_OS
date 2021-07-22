@@ -1765,9 +1765,17 @@ void compactarMemoria(){
 		t_segmento * segmentoActual = list_get(tablaSegmentosGlobal, i); 
 		int finSegmento = segmentoActual->base + segmentoActual->tamanio;
 		t_segmento * proximoSegmento = list_get(tablaSegmentosGlobal, i + 1); 
+		
+		if(proximoSegmento->tipoSegmento == 1){
+			actualizarTCBs(proximoSegmento); 
+		}
+		if(proximoSegmento->tipoSegmento == 2){
+			
+		}
 		memcpy(memoriaPrincipal + finSegmento, memoriaPrincipal + proximoSegmento->base, proximoSegmento->tamanio); 
 		proximoSegmento->base = finSegmento; 
 		list_replace(tablaSegmentosGlobal, i+1, proximoSegmento);
+		
 		
 	}
 

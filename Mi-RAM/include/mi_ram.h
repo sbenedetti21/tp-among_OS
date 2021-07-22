@@ -137,6 +137,7 @@ typedef struct {
 
 typedef struct{
 	
+	int tipoSegmento; 
 	int tid; 
 	uint32_t base; 
 	uint32_t tamanio; 
