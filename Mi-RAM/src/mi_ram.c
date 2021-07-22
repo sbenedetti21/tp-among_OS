@@ -342,7 +342,7 @@ void atenderDiscordiador(int socketCliente){
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 			free(buffer);
 
-			eliminarTripulante(pid, tid); //hay que pasarle la patota y el tripulante
+			//eliminarTripulante(pid, tid); //hay que pasarle la patota y el tripulante
 
 			
 
