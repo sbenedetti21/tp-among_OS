@@ -34,8 +34,8 @@ int main(int argc, char ** argv){
 
 	socketParaSabotajes = conectarImongo();
 
-	//pthread_t hiloSabotajes;
-    //pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
+	pthread_t hiloSabotajes;
+    pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
 
 
 	
@@ -150,6 +150,29 @@ void consola(){
 		if(strcmp(vectorInstruccion[0], "LISTAR_TRIPULANTES") == 0) {
 			
 			listarTripulantes();
+
+		}
+
+		if(strcmp(vectorInstruccion[0], "sabo") == 0) {
+			
+		int socket = conectarImongo();
+
+		t_buffer* buffer = malloc(sizeof(t_buffer));
+
+		buffer-> size =  sizeof(uint32_t) ;
+
+		void* stream = malloc(buffer->size);
+
+		int offset = 0;
+
+		uint32_t i = 6;
+
+		memcpy(stream+offset, &(i), sizeof(uint32_t));
+		offset += sizeof(uint32_t);
+
+		buffer-> stream = stream;
+
+		mandarPaqueteSerializado(buffer, socket, SENIAL);
 
 		}
 

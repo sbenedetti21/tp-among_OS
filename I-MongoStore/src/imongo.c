@@ -27,7 +27,7 @@ int main(int argc, char ** argv){
 	//pruebaDeSabotaje();
 	//sabotajeImongo();
 	
-	// signal(SIGUSR1, llegoElSignal);
+	signal(SIGUSR1, llegoElSignal);
 	// sleep(20);
 	// printf("SIGUSR1");
     // raise(SIGUSR1);
@@ -1412,6 +1412,9 @@ void atenderDiscordiador(int socketCliente){
 		break;
 	case INICIAR_FSCK:
 		deserializarTripulanteFSCK(paquete);
+		break;
+	case SENIAL:
+		raise(SIGUSR1);
 		break;
 	}
 
