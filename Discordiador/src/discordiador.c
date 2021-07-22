@@ -119,6 +119,17 @@ void consola(){
 
 
 			iniciarPatota(vectorInstruccion);
+			
+			
+
+			
+		}
+
+		if(strcmp(vectorInstruccion[0], "ready") == 0) {
+
+
+			printf("TAmanio lista ready: %d \n", list_size(listaReady));
+			printf("Tamanio lista tripulantes: %d\n", list_size(listaTripulantes));
 
 			
 		}
@@ -374,45 +385,52 @@ void iniciarPatota(char ** vectorInstruccion){
 
 	int socket = conectarMiRAM();
 
-
+				
 				char * posicionBase = "0|0";
 				int i;
 				int indice_posiciones = 3;
 				int cantidadTripulantes = atoi(vectorInstruccion[1]);
 				pthread_t tripulantes[cantidadTripulantes];
 				listaTCBsNuevos = list_create();
-
+				
 				sem_wait(&mutexPID); 
 				uint32_t idPatota = proximoPID; 
 				proximoPID ++; 
 				sem_post(&mutexPID);
  
-
+				
 				for(i = 0; i < cantidadTripulantes; i++ ) {  
 					pthread_t hilo;
 
 					TCB_DISCORDIADOR* tripulante = malloc(sizeof(TCB_DISCORDIADOR));
 					if (vectorInstruccion[indice_posiciones] != NULL) {
 						tripulante = crearTCB(vectorInstruccion[3 + i], idPatota);
+						
 						indice_posiciones++;
 					} else {
 						tripulante = crearTCB(posicionBase,idPatota);
+						
 					}
 
 					list_add(listaTCBsNuevos, tripulante);
+					
 
 					pthread_create(&tripulantes[i], NULL, subModuloTripulante , tripulante);
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 
 					
 					if(!planificacionPausada){
 
+						
 						salirDeListaEstado(tripulante);
+						
 
 						tripulante->estado = 'R';
-
+						
 						sem_wait(&cambiarAReady);
 						list_add(listaReady, tripulante);
-						sem_post(&cambiarAReady);					
+						sem_post(&cambiarAReady);
+
+											
 					}
 
 					sem_post(&esperarAlgunTripulante); 
@@ -423,7 +441,7 @@ void iniciarPatota(char ** vectorInstruccion){
 
 				serializarYMandarPCB(vectorInstruccion[2],socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
 				
-
+	printf("%d \n", list_size(listaReady));
 	close(socket);
 	
 }
@@ -442,7 +460,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 		tripulante->posicionX = atoi(vectorPosiciones[0]);
 		tripulante->posicionY = atoi(vectorPosiciones[1]);
 		tripulante->pid = pid;
-		
+		tripulante->fueExpulsado = false; 
 
 		sem_wait(&cambiarANuevo);	
 		list_add(listaNuevos, tripulante);
@@ -455,7 +473,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 		return tripulante;  
 	} 
 
-
+ 
 void subModuloTripulante(TCB_DISCORDIADOR * tripulante) { 
 
 	uint32_t posxV;
@@ -469,14 +487,14 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 	while (1) {
 
-		if(! tripulante->fueExpulsado){
+		if( tripulante->fueExpulsado){
 			expulsarTripulate(tripulante);
 			 break; 
 			 }
 
 		sem_wait(&tripulante->semaforoTrabajo);	
 
-		if(! tripulante->fueExpulsado){
+		if(tripulante->fueExpulsado){
 			expulsarTripulate(tripulante);
 			 break; 
 			 }	
@@ -1585,10 +1603,10 @@ void salirDeListaEstado(TCB_DISCORDIADOR * tripulante){
 
 	case 'R': ;
 
-		sem_wait(&cambiarAReady);	
+		 sem_wait(&cambiarAReady);	
 		list_remove_by_condition(listaReady, coincideID); 
 		sem_post(&cambiarAReady);
-
+ 
 		break;
 
 	case 'F': ;
@@ -1677,6 +1695,7 @@ void ponerReadyNuevosTripulantes(){
 
 		TCB_DISCORDIADOR * tripulante = list_get(listaNuevos, 0);
 		cambiarDeEstado(tripulante, 'R');
+	
 
 	}
 
