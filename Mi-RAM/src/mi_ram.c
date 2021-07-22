@@ -487,8 +487,8 @@ uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 	sem_wait(&mutexTablaDeTablas); 
 	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
 	sem_post(&mutexTablaDeTablas);
-	if(referencia == NULL){
-		sleep(10); 
+	 if(referencia == NULL){
+		sleep(3); 
 		sem_wait(&mutexTablaDeTablas); 
 		referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
 		sem_post(&mutexTablaDeTablas);
