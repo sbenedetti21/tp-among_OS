@@ -622,7 +622,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 
 		}
-
+ 
 
 		//sem_post(&esperarAlgunTripulante);
 		sem_post(&semaforoTripulantes); 					

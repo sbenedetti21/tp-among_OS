@@ -347,7 +347,7 @@ void atenderDiscordiador(int socketCliente){
 
 			 buffer-> stream = streamEnvio; 
 
-			
+			 
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 
