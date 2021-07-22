@@ -57,6 +57,7 @@ int main(int argc, char ** argv){
 	sem_init(&gestionarIO,0,0);
 	sem_init(&cambiarABloqueadosEmergencia,0,1);
 	sem_init(&semaforoSabotaje,0,0);
+	sem_init(&semaforoPlanificacionPausada,0,0);
 	sem_init(&mutexPID, 0, 1); 
 	
 
@@ -129,10 +130,13 @@ void consola(){
 				if(planificacionPausada){
 
 				ponerReadyNuevosTripulantes();
-				for(int r = 0 ; r < gradoMultitarea ; r ++){
-				sem_post(&semaforoSabotaje);
-				}
+
 				planificacionPausada = false;
+
+				for(int r = 0 ; r < gradoMultitarea ; r ++){
+				sem_post(&semaforoPlanificacionPausada);
+				}
+				
 
 				} else {						
 				pthread_t  hiloTrabajadorFIFO; 
@@ -404,7 +408,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 				serializarYMandarPosicionBitacora(tripulante->tid, posxV, posyV, tripulante->posicionX, tripulante->posicionY);
 
 				if(esTareaDeIO(tarea->descripcionTarea)){
-					if(haySabotaje || planificacionPausada){ sem_wait(&semaforoSabotaje);}
+					if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 					sem_post(&semaforoTripulantes);
 					cambiarDeEstado(tripulante,'B');
 					sem_post(&gestionarIO);
@@ -415,7 +420,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 							 break; 
 							 }
 
-						if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+						if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 
 						sleep(cicloCPU);	
 					}
@@ -437,7 +443,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 							 break; 
 						}
 
-						if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+						if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+						if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 
 						sleep(cicloCPU);	
 					}
@@ -452,7 +459,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					sem_post(&semaforoTripulantes); 
 					sem_post(&esperarAlgunTripulante);
 				}
-				if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+					if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 				
 				tareaTerminada = true; 
 				
@@ -480,7 +488,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															 break; 
 														 }
 
-														if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
+														if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+														if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 
 														sleep(cicloCPU);
 														
@@ -516,7 +525,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															 break; 
 														 }
 
-														if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
+														if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+														if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 
 														sleep(cicloCPU);
 
@@ -533,7 +543,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 													serializarYMandarPosicionBitacora(tripulante->tid, posxV, posyV, tripulante->posicionX, tripulante->posicionY);
 
-														// TODO mandar posicion a mi ram e imongo
+														serializarYMandarPosicion(tripulante);			
+														
 													}
 
 													if(tripulante->posicionY != tarea->posicionY){
@@ -552,7 +563,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 													
 
 													if(esTareaDeIO(tarea->descripcionTarea)){
-															if(haySabotaje || planificacionPausada ){ sem_wait(&semaforoSabotaje);} 
+															if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+															if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 															tareaTerminada = true;
 															tarea->tareaTerminada = true;
 															sem_post(&semaforoTripulantes); 
@@ -563,7 +575,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 																	expulsarTripulate(tripulante);
 																	 break; 
 																 }
-																if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+																if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+																if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 																sleep(cicloCPU);	
 															}						
 															serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
@@ -574,7 +587,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 														}
 
 														else{
-															if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
+															if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+															if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 															if( tripulante->fueExpulsado){
 																expulsarTripulate(tripulante);
 																	 break; 
@@ -609,7 +623,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 												expulsarTripulate(tripulante);
 												 break; 
 												 }
-												if(haySabotaje || planificacionPausada){sem_wait(&semaforoSabotaje);}
+												if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+												if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 												cambiarDeEstado(tripulante,'R');
 												sem_post(&esperarAlgunTripulante);
 												sem_post(&semaforoTripulantes);} 
@@ -752,7 +767,8 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 	while(posicionX != tripulante->posicionX)
 	{
 		if( tripulante->fueExpulsado){ return 0;}		
-		if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+		if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+		if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 
 		if(posicionX < tripulante->posicionX){
 			tripulante->posicionX--;
@@ -766,7 +782,8 @@ void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * trip
 	
 	while(posicionY != tripulante->posicionY)
 	{	
-		if(haySabotaje || planificacionPausada ){sem_wait(&semaforoSabotaje);}
+		if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+		if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 		if( tripulante->fueExpulsado){ return 0;}
 
 		if(posicionY < tripulante->posicionY){

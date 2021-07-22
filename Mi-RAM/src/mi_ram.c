@@ -470,7 +470,7 @@ char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 		
 	}
 
-}
+} 
 
 
 uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
