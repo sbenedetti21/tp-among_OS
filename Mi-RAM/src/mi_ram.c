@@ -6,7 +6,6 @@
 int main(int argc, char ** argv){
 	navePrincipal = nivel_crear("Nave Principal");
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
-	loggerMemoria = log_create("dumpMemoria.log", "mi_ram.c", 0, LOG_LEVEL_INFO); 
 	leerConfig();
 
 	memoriaPrincipal = malloc(tamanioMemoria);
@@ -14,8 +13,6 @@ int main(int argc, char ** argv){
 	iniciarMemoria();
 	
 	pthread_t servidor;
-	pthread_t senial1; 
-	pthread_t senial2; 
 	pthread_create(&servidor, NULL, servidorPrincipal, puertoMemoria);
 	pthread_create(&senial1, NULL, hiloSIGUSR1, NULL); 
 	pthread_create(&senial2, NULL, hiloSIGUSR2, NULL);
@@ -28,10 +25,16 @@ int main(int argc, char ** argv){
 	// nivel_destruir(navePrincipal);
 	// nivel_gui_terminar();
 	
+	//pthread_t mapa;
+	//pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	//pthread_join(mapa, NULL);
+
+	// nivel_destruir(navePrincipal);
+	// nivel_gui_terminar();
 		
 	pthread_join(servidor, NULL);
 	
-	free(memoriaPrincipal);
+		(memoriaPrincipal);
 
 	return 0; 
 }
@@ -41,11 +44,11 @@ void leerConfig(){
 	t_config * config = config_create("./cfg/miram.config");
 	esquemaMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA"); 
 	algoritmoReemplazo = config_get_string_value(config, "ALGORITMO_REEMPLAZO");
-	criterioSeleccion = config_get_string_value(config, "CRITERIO_SELECCION");
 	tamanioMemoria = config_get_int_value(config, "TAMANIO_MEMORIA");
 	puertoMemoria = config_get_string_value(config, "PUERTO");
 	tamanioPagina = config_get_int_value(config, "TAMANIO_PAGINA");
 	path_SWAP = config_get_string_value(config, "PATH_SWAP");
+	tamanioSwap = config_get_int_value(config, "TAMANIO_SWAP");
 
 }
 
@@ -140,15 +143,32 @@ void atenderDiscordiador(int socketCliente){
 		if(hayLugar == -1){
 
 			if(strcmp(esquemaMemoria, "SEGMENTACION") == 0){
+				log_info(loggerMiram, "No hay lugar para la patota, iniciando compactacion automatica"); 
+				sem_wait(&mutexCompactacion); 
+				compactarMemoria();
+				sem_post(&mutexCompactacion);
+
+				hayLugar = buscarEspacioNecesario(tamanioTareas, cantidadTCBs);
+				if(hayLugar == -1){
+					log_info(loggerMiram, "Rechazo patota por falta de espacio en memoria");
+					
+				}
 			
-			log_info(loggerMiram, "Rechazo patota por falta de espacio en memoria"); 	
-			}	
+				}
+				if(hayLugar == 1){
+					log_info(loggerMiram, "agrego patota");
+				}
+			
+			if(strcmp(esquemaMemoria, "PAGINACION") == 0){
+				log_info(loggerMiram, "Rechazo patota por falta de espacio en memoria");
+			}
+			
 		}
 		if(hayLugar == 1){
-			log_info(loggerMiram, "agrego patota");
-			
+			printf("Encontre lugar para tu patota \n");
+
 			if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
-				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs + 8;
+				int memoriaNecesaria = SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * cantidadTCBs; // +8
 				int framesNecesarios = divisionRedondeadaParaArriba(memoriaNecesaria, tamanioPagina);
 				void * streamPatota = malloc(memoriaNecesaria);
 				memset(streamPatota, 0, memoriaNecesaria);
@@ -169,9 +189,9 @@ void atenderDiscordiador(int socketCliente){
 				offset += tamanioTareas;
 
 
+
 				uint32_t proximaInstruccion = 8, direccionPCB = 0;
 				for (int i = 0; i < cantidadTCBs; i++) {
-					// t_tripulanteConPID * tripu = malloc(sizeof(t_tripulanteConPID)); 
 					// tripu->idPatota = pid;
 					// tripu->longitudTareas = tamanioTareas;
 					int tid = 0;
@@ -182,18 +202,25 @@ void atenderDiscordiador(int socketCliente){
 					memcpy(&x, stream + 4, 4);
 					memcpy(&y, stream + 8, 4);
 					agregarTripulanteAlMapa(tid,x,y);
-					// tripu->idTripulante = tid;
-					// list_add(listaTripulantes, tripu);
-					// agregarTripulante(pid, tamanioTareas, tid);
+				// Calculo de pagina y offset de los tripulantes
 
+					t_tripulantePaginacion * tripu = malloc(sizeof(t_tripulantePaginacion)); 
+					tripu->tid = tid;
+					tripu->pid = idPatota;
+					tripu->nroPagina = (SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * i) / tamanioPagina;
+					tripu->offset = (SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * i) % tamanioPagina;
+					tripu->cantidadDePaginas = ((tripu->offset + SIZEOF_TCB) / tamanioPagina) + 1;
+
+					log_info(loggerMiram, "Tripulante %d, Patota %d, pag %d, offset %d, cantidadPaginas %d", tripu->tid, tripu->pid, tripu->nroPagina, tripu->offset, tripu->cantidadDePaginas);
+
+					list_add(listaTripulantes, tripu);
+				//
 
 					memcpy(streamPatota + offset, stream, (SIZEOF_TCB - 8));
 					stream += (SIZEOF_TCB - 8); offset += (SIZEOF_TCB - 8);
 					memcpy(streamPatota + offset, &proximaInstruccion, sizeof(uint32_t));
-					//memset(streamPatota + offset, 0, sizeof(uint32_t));
 					offset += sizeof(uint32_t);
 					memcpy(streamPatota + offset, &direccionPCB, sizeof(uint32_t));
-					//memset(streamPatota + offset, 0, sizeof(uint32_t));
 					offset += sizeof(uint32_t);
 				};
 				log_info(loggerMiram, "streamPatota a ser alojado en memoria %s", mem_hexstring(streamPatota, memoriaNecesaria));
@@ -202,8 +229,9 @@ void atenderDiscordiador(int socketCliente){
 				
 				llenarFramesConPatota(tablaDePaginas, streamPatota, framesNecesarios, cantidadTCBs, tamanioTareas, memoriaNecesaria, pid);
 
-			
-				
+				mem_hexdump(memoriaPrincipal, tamanioMemoria);
+
+				//dumpDeMemoriaPaginacion();
 				
 			}
 
@@ -230,8 +258,7 @@ void atenderDiscordiador(int socketCliente){
 				for(int i = 0 ; i < cantidadTCBs ;  i++ ){
 					void * tripulante = malloc(SIZEOF_TCB);
 					int offset = 0; 
-					int tripulanteID;
-					int posx = 0, posy = 0; 
+					int tripulanteID = 0, posx = 0, posy = 0; 
 					//Deserializamos los campos que tenemos en el buffer
 					memcpy(tripulante + offset, stream, sizeof(uint32_t));
 					memcpy(&tripulanteID, stream, sizeof(uint32_t));
@@ -239,7 +266,7 @@ void atenderDiscordiador(int socketCliente){
 					offset = offset + sizeof(uint32_t);
 
 					memcpy(tripulante + offset, stream, sizeof(uint32_t));
-					memcpy(&posx, stream, sizeof(uint32_t)); 
+					memcpy(&posx, stream, sizeof(uint32_t));
 					stream += sizeof(uint32_t);
 					offset = offset + sizeof(uint32_t); 
 
@@ -285,8 +312,6 @@ void atenderDiscordiador(int socketCliente){
 			
 			
 			
-			
-
 			}
 			
 
@@ -338,12 +363,11 @@ void atenderDiscordiador(int socketCliente){
 			// memcpy(streamEnvio+offset, stringTarea, tamanioTarea);
 
 			 buffer-> stream = streamEnvio; 
+
+			
 			
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
-			free(buffer);
-
-			//eliminarTripulante(pid, tid); //hay que pasarle la patota y el tripulante
-
+			
 			
 
 		}
@@ -362,7 +386,7 @@ void atenderDiscordiador(int socketCliente){
 			buffer-> stream = streamEnvio;
 
 			mandarPaqueteSerializado(buffer, socketCliente, HAY_TAREA);
-			free(buffer);
+			
 		}
 
 		break;  
@@ -386,7 +410,7 @@ void atenderDiscordiador(int socketCliente){
 
 		moverTripulanteEnMapa(tripulanteid,posx,posy);
 
-		actualizarPosicionTripulante(patotaid, tripulanteid, posx, posy); 
+		// ACTUALIZAR TRIPULANTE EN MEMORIA		
 
 	break; 
 
@@ -426,39 +450,7 @@ void atenderDiscordiador(int socketCliente){
 		break;
 	}
 
-}
 
-void actualizarEstadoTripulante(uint32_t patotaID, uint32_t tripulanteID, char nuevoEstado)
-{
-	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0 ){
-		actualizarEstadoSegmentacion(patotaID, tripulanteID, nuevoEstado); 
-	}
-
-	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
-		//actualizarEstadoPaginacion(); 
-	}
-}
-
-void eliminarTripulante(uint32_t pid, uint32_t tid){
-	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0 ){
-		eliminarTripulanteSegmentacion(pid, tid);  
-	}
-
-	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
-		//eliminar tripulante paginacion
-		}
-
-}
-
-void actualizarPosicionTripulante(uint32_t pid, uint32_t tid, uint32_t posx, uint32_t posy){
-
-	if(strcmp(esquemaMemoria, "SEGMENTACION") == 0 ){
-		actualizarPosicionTripulanteSegmentacion(pid, tid, posx, posy); 
-	}
-
-	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
-		//actualizar posicion paginacion
-	}
 }
 
 char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
@@ -472,11 +464,13 @@ char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 
-		bool coincideIDPatota(t_tablaDePaginas * tablaPagina) {
+		bool coincideIDPatota(referenciaTablaPaginas * tablaPagina) {
 			return tablaPagina->pid == idPatota;
 		}
 		
-		t_tablaDePaginas * tablaDeLaPatota = list_find(listaTablasDePaginas, coincideIDPatota);
+		pthread_mutex_lock(&mutexListaTablas);
+		referenciaTablaPaginas * tablaDeLaPatota = list_find(listaTablasDePaginas, coincideIDPatota);
+		pthread_mutex_unlock(&mutexListaTablas);
 
 		if (tablaDeLaPatota == NULL){
 			log_error(loggerMiram, "No se encontro la tabla de paginas de la patota %d", idPatota);
@@ -500,7 +494,7 @@ uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 		return (segmento->tid == tripulanteID); 
 	}
 	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
-	t_list * tablaPatota = referencia->tablaPatota;  
+	t_list * tablaPatota = referencia -> tablaPatota;  
 	t_segmento * segmentoTripulante = list_find(tablaPatota, coincideTID); 
 
 	return (segmentoTripulante->base);
@@ -626,13 +620,18 @@ void iniciarMemoria() {
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 		listaFrames = list_create();
+		listaFramesSwap = list_create();
 		listaTablasDePaginas = list_create();
-		// listaTripulantes = list_create();
+		listaTripulantes = list_create();
 		pthread_mutex_init(&mutexMemoriaPrincipal, NULL);
 		pthread_mutex_init(&mutexListaTablas, NULL);
 		pthread_mutex_init(&mutexListaFrames, NULL);
+		pthread_mutex_init(&mutexListaFramesSwap, NULL);
 		pthread_mutex_init(&mutexTareas, NULL);
-		iniciarFrames();	
+		pthread_mutex_init(&mutexContadorLRU, NULL);
+		contadorLRU = 0;
+		iniciarFrames();
+		iniciarSwap();	
 	}
 }
 
@@ -647,14 +646,24 @@ int buscarEspacioNecesario(int tamanioTareas, int cantidadTripulantes) {
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
 		int cantidadMemoriaNecesaria = tamanioTareas + SIZEOF_TCB * cantidadTripulantes + SIZEOF_PCB;
-		int cantidadFramesDisponibles = framesDisponibles();
+		int cantidadFramesDisponiblesMemoria = framesDisponibles();
+		int cantidadFramesNecesarios = divisionRedondeadaParaArriba(cantidadMemoriaNecesaria, tamanioPagina);
 
-		if (divisionRedondeadaParaArriba(cantidadMemoriaNecesaria, tamanioPagina) < cantidadFramesDisponibles) {
-			return 1;
+		if (cantidadFramesNecesarios <= cantidadFramesDisponiblesMemoria) {
+			return 1; // si hay lugar en memoria para todo
 		}
 		
-		return -1;
+		int framesNecesariosEnSwap = cantidadFramesNecesarios - cantidadFramesDisponiblesMemoria;
+		int framesDisponiblesEnSwap = framesDisponiblesSwap();
 
+		if (framesDisponiblesEnSwap >= framesNecesariosEnSwap) {
+			for(int i = 0; i < framesNecesariosEnSwap; i++) {
+				llevarPaginaASwap();
+			}
+			return 1;
+		}
+
+		return -1;
 	}	
 
 } 
@@ -704,37 +713,229 @@ int framesDisponibles() {
 	return libre;
 }
 
-uint32_t buscarFrame() {
-
-  bool estaLibre(t_frame * frame) {
-    return frame->ocupado == 0;
-  }
-
-  t_frame * frameLibre = malloc(sizeof(t_frame));
-
-		pthread_mutex_lock(&mutexListaFrames);
-  frameLibre = list_find(listaFrames, estaLibre);
-		pthread_mutex_unlock(&mutexListaFrames);
-  uint32_t direccionFrame = frameLibre->inicio;
-  //free(frameLibre);
-
-  return direccionFrame;
+int framesDisponiblesSwap() {
+	int libre = 0;
+	void estaLibre(t_frame * frame) {
+    	if (frame->ocupado == 0){ libre++; }
+  	}
+	
+	pthread_mutex_lock(&mutexListaFramesSwap);
+	list_iterate(listaFramesSwap, estaLibre);
+	pthread_mutex_unlock(&mutexListaFramesSwap);  
+	return libre;
 }
 
-// void agregarTripulante(uint32_t pid, uint32_t tamanioTareas, uint32_t tid) {
-// 	t_tripulanteConPID * tripu = malloc(sizeof(t_tripulanteConPID)); 
-// 	tripu->idPatota = pid;
-// 	tripu->longitudTareas = tamanioTareas;
-// 	tripu->idTripulante = tid;
-// 	list_add(listaTripulantes, tripu);
-// }
+t_frame * buscarFrame() {
+
+	bool estaLibre(t_frame * frame) {
+		return frame->ocupado == 0;
+	}
+
+	t_frame * frameLibre = malloc(sizeof(t_frame));
+
+	pthread_mutex_lock(&mutexListaFrames);
+    frameLibre = list_find(listaFrames, estaLibre);
+	pthread_mutex_unlock(&mutexListaFrames);
+	//free(frameLibre);
+
+	return frameLibre;
+}
+
+t_frame * buscarFrameSwap() {
+
+	bool estaLibre(t_frame * frame) {
+		return frame->ocupado == 0;
+	}
+
+	t_frame * frameLibre = malloc(sizeof(t_frame));
+
+			pthread_mutex_lock(&mutexListaFramesSwap);
+	frameLibre = list_find(listaFramesSwap, estaLibre);
+			pthread_mutex_unlock(&mutexListaFramesSwap);
+	//free(frameLibre);
+
+	return frameLibre;
+}
+
+void iniciarSwap() {
+	FILE * swap = fopen(path_SWAP, "w");
+	// char cero = '0';
+	// fwrite(&cero, 1, tamanioSwap, swap);
+	log_info(loggerMiram, "Iniciando Frames Swap... ");
+	int cantidadFrames = 0;
+
+	for(int desplazamiento = 0; desplazamiento< tamanioSwap; desplazamiento += tamanioPagina){
+		t_frame * frame = malloc(sizeof(t_frame));
+		frame->inicio = desplazamiento;
+		frame->ocupado = 0;
+
+		pthread_mutex_lock(&mutexListaFramesSwap);
+		list_add(listaFramesSwap, frame);
+		pthread_mutex_unlock(&mutexListaFramesSwap);
+		cantidadFrames ++;
+	}
+	fclose(swap);
+}
+
+void traerPaginaAMemoria(t_pagina* pagina) {
+	llevarPaginaASwap();
+
+	uint32_t nroFrameSwap = pagina->numeroFrame;
+
+	// leer del archivo de SWAP desde el nroFrame * tamPagina
+	// buscar frame libre y asignarle esta pagina nueva
+	// copiar a memoria el contenido leido en la direccion del frame
+	void * memAux = malloc(tamanioPagina);
+
+	FILE * swap = fopen(path_SWAP, "aw+");
+	fseek(swap, nroFrameSwap*tamanioPagina, SEEK_SET);
+	fread(memAux, tamanioPagina, 1, swap);
+
+	// buscar el frame en la lista de frames swapp y poner que esta libre  --> TODO
+	pthread_mutex_lock(&mutexListaFramesSwap);
+	t_frame * frameSwap = list_get(listaFramesSwap, nroFrameSwap);
+	frameSwap->ocupado = 0;
+	pthread_mutex_unlock(&mutexListaFramesSwap);
+	//
+
+	t_frame * frameLibre = buscarFrame();
+
+	//pthread_mutex_lock(&mutexMemoriaPrincipal);
+	memcpy(memoriaPrincipal + frameLibre->inicio, memAux, tamanioPagina);
+	//pthread_mutex_unlock(&mutexMemoriaPrincipal);
+	frameLibre->ocupado = 1;
+	frameLibre->pagina = pagina;
+	frameLibre->pagina->bitDeValidez = 1;
+	frameLibre->pagina->numeroFrame = frameLibre->inicio / tamanioPagina;
+	frameLibre->pagina->bitDeUso = 1;
+	pthread_mutex_lock(&mutexContadorLRU);
+	frameLibre->pagina->ultimaReferencia = contadorLRU;
+	contadorLRU++;
+	pthread_mutex_unlock(&mutexContadorLRU); 
+	int index = frameLibre->inicio / tamanioPagina;
+	pthread_mutex_lock(&mutexListaFrames);
+	list_replace(listaFrames, index, frameLibre);
+	pthread_mutex_unlock(&mutexListaFrames);
+
+	log_info(loggerMiram, "Se trae la pagina %d, del proceso %d a MEMORIA", frameLibre->pagina->numeroPagina, frameLibre->pagina->pid);
+}
+
+void llevarPaginaASwap() {
+
+	t_frame * frameVictima = seleccionarVictima();
+	frameVictima->pagina->bitDeValidez = 0;  // Cambia el valor de la pagina real???
+	
+	void * memAux = malloc(tamanioPagina);
+
+	//pthread_mutex_lock(&mutexMemoriaPrincipal);
+	memcpy(memAux, memoriaPrincipal + frameVictima->inicio, tamanioPagina);
+	//pthread_mutex_unlock(&mutexMemoriaPrincipal);
+
+	frameVictima->ocupado = 0;
+	int index = frameVictima->inicio / tamanioPagina;
+	pthread_mutex_lock(&mutexListaFrames);
+	list_replace(listaFrames, index, frameVictima);
+	pthread_mutex_unlock(&mutexListaFrames);
+	t_frame * frameSwap = buscarFrameSwap();
+	frameSwap->ocupado = 1;
+	frameSwap->pagina = frameVictima->pagina;
+	pthread_mutex_lock(&mutexContadorLRU);
+	frameSwap->pagina->ultimaReferencia = contadorLRU;
+	contadorLRU++;
+	pthread_mutex_unlock(&mutexContadorLRU);
+
+	log_info(loggerMiram, "Se lleva la pagina %d, del proceso %d a SWAP", frameVictima->pagina->numeroPagina, frameVictima->pagina->pid);
+
+	FILE * swap = fopen(path_SWAP, "a+");
+	fseek(swap, frameSwap->inicio, SEEK_SET);
+	fwrite(memAux, tamanioPagina, 1, swap);
+	fclose(swap);
+	free(memAux);
+}
+
+t_frame * seleccionarVictima() {
+
+	t_frame * victima = malloc(sizeof(t_frame));
+
+	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
+		pthread_mutex_lock(&mutexListaFrames);
+		t_list * listaAux = list_duplicate(listaFrames);
+		pthread_mutex_unlock(&mutexListaFrames);
+
+		bool ultReferencia(t_frame * unFrame, t_frame * otroFrame) {
+			if (!otroFrame->ocupado) {
+				return true;
+			}
+			if (!unFrame->ocupado) {
+				return false;
+			}
+			return unFrame->pagina->ultimaReferencia <= otroFrame->pagina->ultimaReferencia;
+		}
+
+		list_sort(listaAux, ultReferencia);
+		victima = list_get(listaAux, 0);
+	}
+
+	if (strcmp(algoritmoReemplazo, "CLOCK") == 0) {
+		
+	}
+
+	return victima;
+}
+
+void dumpDeMemoriaPaginacion() {
+	
+	char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
+	char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha); 
+
+	FILE * dump = fopen(nombreArchivo, "w+"); 
+	
+	pthread_mutex_lock(&mutexListaFrames);
+	for(int i = 0; i < list_size(listaFrames); i++){
+
+		t_frame * frameActual = list_get(listaFrames, i); 
+		char * estado = malloc(10); 
+		char * pagina;
+		char * proceso;
+		if(frameActual->ocupado){
+
+			estado = "Ocupado\0"; 
+			
+			pagina = string_from_format("%2d\0", frameActual->pagina->numeroPagina);
+
+			proceso = string_from_format("%2d\0", frameActual->pagina->pid); 
+			char * frame = string_from_format("Marco: %2d   Estado: %s Proceso: %s Pagina: %s \n", i, estado, proceso, pagina); 
+			
+			fwrite(frame, strlen(frame), 1, dump);	
+
+			
+		}
+		else{
+			estado = "Libre\0"; 
+
+			pagina = "-\0";
+			proceso = "-\0";
+			char * frame = string_from_format("Marco: %2d   Estado: %s Proceso: %s Pagina: %s \n", i, estado, proceso, pagina); 
+			fwrite(frame, strlen(frame), 1, dump);	
+			
+		}
+		
+		
+		 
+
+	}
+	pthread_mutex_unlock(&mutexListaFrames);
+
+	fclose(dump);
+}
 
 void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int cantidadFrames, int cantidadTCBs, int longitudTareas, int memoriaAGuardar, uint32_t pid) {
 
 	int i = 0, j = 0;
 
 	for (i = 0; i < cantidadFrames; i++){ 
-		uint32_t direcProximoFrame = buscarFrame();
+		t_frame * frameLibre = buscarFrame();
+		uint32_t direcProximoFrame = frameLibre->inicio;
 		log_info(loggerMiram,"direc prox frame a escribir %d \n", direcProximoFrame);
 
 		pthread_mutex_lock(&mutexMemoriaPrincipal);
@@ -745,24 +946,31 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		pthread_mutex_unlock(&mutexMemoriaPrincipal);
 
 		uint32_t numeroDeFrame = direcProximoFrame / tamanioPagina;  // no hace falta redondear porque la division de int redondea pra abajo
-		t_frame * frameOcupado = malloc(sizeof(t_frame));
-		frameOcupado->inicio = direcProximoFrame;
-		frameOcupado->ocupado = 1;
-
-		pthread_mutex_lock(&mutexListaFrames);
-		t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
-		pthread_mutex_unlock(&mutexListaFrames);
-		//free(frameParaLiberar);
 
 		t_pagina * pagina = malloc(sizeof(t_pagina));
 		pagina->numeroFrame = numeroDeFrame;
 		pagina->numeroPagina = (uint32_t) i;
 		pagina->pid = pid;
+		pagina->bitDeValidez = 1;
+		pagina->bitDeUso = 1;
+		pthread_mutex_lock(&mutexContadorLRU);
+		pagina->ultimaReferencia = contadorLRU;
+		contadorLRU ++;
+		pthread_mutex_unlock(&mutexContadorLRU);
 		list_add(listaDePaginas, pagina);
-		j = 0;
+		
+		t_frame * frameOcupado = malloc(sizeof(t_frame));
+		frameOcupado->inicio = direcProximoFrame;
+		frameOcupado->ocupado = 1;
+		frameOcupado->pagina = pagina; 
+		j=0; // NO BOIRRAR
+		pthread_mutex_lock(&mutexListaFrames);
+		t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
+		pthread_mutex_unlock(&mutexListaFrames);
+		//free(frameParaLiberar);
 	}
 
-	t_tablaDePaginas * tablaDePaginas = malloc(sizeof(t_tablaDePaginas));
+	referenciaTablaPaginas * tablaDePaginas = malloc(sizeof(referenciaTablaPaginas));
 	tablaDePaginas->longitudTareas = longitudTareas;
 	tablaDePaginas->pid = pid;
 	tablaDePaginas->listaPaginas = listaDePaginas;
@@ -776,114 +984,309 @@ int divisionRedondeadaParaArriba(int x, int y) {
 	return (x -1)/y +1;
 }
 
-char * obtenerProximaTareaPaginacion(t_tablaDePaginas* tablaDePaginas, int tripuID) {
 
-	t_list * tablaPaginas = tablaDePaginas->listaPaginas;
-	int longitudTareas = tablaDePaginas->longitudTareas;
+void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_t tid){
+	
+	bool coincideID(t_tripulantePaginacion * unTripu) {
+		return unTripu->tid == tid;
+	}
 
-	int * frames = malloc(list_size(tablaPaginas) * 4);
-	int i = 0;
+	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	
+	uint32_t offset = referenciaTripulante->offset; 
+	uint32_t cantPaginas = referenciaTripulante-> cantidadDePaginas; 
+	uint32_t pagina = referenciaTripulante ->nroPagina; 
+	void * streamTripulante = malloc(SIZEOF_TCB);
+	int bytesCopiados = 0;
+	
+	pthread_mutex_lock(&mutexMemoriaPrincipal);
+	for(int paginaUsada = 0 ; paginaUsada < cantPaginas; paginaUsada++){
+		uint32_t direccionFrame = obtenerDireccionFrame(referenciaTabla, pagina); 
 
-	void almacenarFrames(t_pagina * pagina) {
+		for(int desplazamiento = 0; desplazamiento + offset < tamanioPagina && bytesCopiados < SIZEOF_TCB; desplazamiento ++){
+			memcpy(streamTripulante + bytesCopiados, memoriaPrincipal + direccionFrame + desplazamiento + offset, 1); 
+			bytesCopiados++;
+		}
+
+		offset = 0; 
+		pagina++; 
+	}
+	pthread_mutex_unlock(&mutexMemoriaPrincipal);
+	mem_hexdump(streamTripulante, SIZEOF_TCB);
+	return streamTripulante; 
+}
+
+uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, uint32_t nroPagina){
+
+	uint32_t direcFrame = 0; 
+
+	bool coincideNro(t_pagina * pagina){
+		return (pagina->numeroPagina == nroPagina);
+	}
+
+	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
+	t_pagina * pagina = list_find(tablaPaginas, coincideNro); 
+	if (!pagina->bitDeValidez) {
+		traerPaginaAMemoria(pagina);
+	}
+	direcFrame = pagina->numeroFrame * tamanioPagina; 
+
+	return direcFrame; 
+}
+
+void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
+
+	bool coincideID(t_tripulantePaginacion * unTripu) {
+		return unTripu->tid == tid;
+	}
+
+	bool coincidePID(referenciaTablaPaginas * referenciaTabla){
+		return (referenciaTabla->pid == pid); 
+	}
+
+	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	pthread_mutex_lock(&mutexListaTablas);
+	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
+	pthread_mutex_unlock(&mutexListaTablas);
+	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
+	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
+	uint32_t offset = referenciaTripulante->offset; 
+	uint32_t bytesPrevios = sizeof(uint32_t)*3; 
+	uint32_t cantidadPaginas = referenciaTripulante->cantidadDePaginas; 
+
+	if((tamanioPagina - offset) > (bytesPrevios + 1)){
+
+
+		uint32_t frame = obtenerDireccionFrame(referenciaTabla, primeraPagina); 
+		//habria que hacer el memcopy en direccion frame + offset + bytesPrevios 
+		pthread_mutex_lock(&mutexMemoriaPrincipal);
+		memcpy(memoriaPrincipal + frame + offset + bytesPrevios, &estadoNuevo, sizeof(char));
+		pthread_mutex_unlock(&mutexMemoriaPrincipal);
+	}
+
+	else{
+
+		for(int nroPagina = 0; nroPagina < cantidadPaginas; nroPagina ++){
+		//bytes que necesitaria recorrer para llegar al estado, es decir los que necesitaria que entren en la pagina para llegar
+		uint32_t bytesProximaPagina = SIZEOF_TCB -(tamanioPagina - offset)- 2*sizeof(uint32_t)- nroPagina * tamanioPagina; 
+		if(bytesProximaPagina < tamanioPagina){
+			uint32_t pagina = nroPagina + primeraPagina + 1; 
+			uint32_t frame = obtenerDireccionFrame(referenciaTabla, pagina); 
+			uint32_t desplazamiento = bytesProximaPagina - 1;
+			pthread_mutex_lock(&mutexMemoriaPrincipal);
+			memcpy(memoriaPrincipal + frame + desplazamiento, &estadoNuevo, sizeof(char));
+			pthread_mutex_unlock(&mutexMemoriaPrincipal);
+		}
+		}
+	}
+	
+}
+
+void actualizarPosicionPaginacion(uint32_t tid, uint32_t pid, uint32_t posx, uint32_t posy) {
+
+	bool coincideID(t_tripulantePaginacion * unTripu) {
+		return unTripu->tid == tid;
+	}
+
+	bool coincidePID(referenciaTablaPaginas * referenciaTabla){
+		return (referenciaTabla->pid == pid); 
+	}
+
+	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	pthread_mutex_lock(&mutexListaTablas);
+	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
+	pthread_mutex_unlock(&mutexListaTablas);
+	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
+	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
+	uint32_t offset = referenciaTripulante->offset; 
+	uint32_t bytesPrevios = sizeof(uint32_t);
+	uint32_t cantidadPaginas = referenciaTripulante->cantidadDePaginas;
+
+	if((tamanioPagina - offset) > (bytesPrevios + sizeof(uint32_t)*2)){
+		uint32_t frame = obtenerDireccionFrame(referenciaTabla, primeraPagina); 
+		//habria que hacer el memcopy en direccion frame + offset + bytesPrevios 
+		pthread_mutex_lock(&mutexMemoriaPrincipal);
+		memcpy(memoriaPrincipal + frame + offset + bytesPrevios, &posx, sizeof(uint32_t));
+		memcpy(memoriaPrincipal + frame + offset + bytesPrevios + 4, &posy, sizeof(uint32_t));
+		pthread_mutex_unlock(&mutexMemoriaPrincipal);
+	} else {
+		int i = 0,j = 0;
+		void * memAux = malloc(8);
+		memcpy(memAux, &posx, 4);
+		memcpy(memAux + 4, &posy, 4);
+		while (j < 8) {
+			uint32_t frame = obtenerDireccionFrame(referenciaTabla, primeraPagina);
+			while (offset + 4 + j < tamanioPagina && j < 8){
+				memcpy(memoriaPrincipal + frame + offset + 4 + j, memAux + j, 1);
+				j++;
+			}
+			offset = 0;
+			i++;
+		}
+	}
+
+}
+
+void eliminarTripulantePaginacion(uint32_t tid, uint32_t pid){
+
+	bool coincideID(t_tripulantePaginacion * unTripu) {
+		return unTripu->tid == tid;
+	}
+		bool coincidePID(referenciaTablaPaginas * referenciaTabla){
+		return (referenciaTabla->pid == pid); 
+	}
+	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
+	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
+	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
+	uint32_t offset = referenciaTripulante->offset; 
+	uint32_t cantidadPaginas = referenciaTripulante->cantidadDePaginas; 
+	
+	uint32_t paginasLlenas = cantidadPaginas - 2;
+
+	//para la primera pagina que ocupa 
+	
+
+	for(int i = 0; i < paginasLlenas; i ++){
+
+		bool coincideNro(t_pagina * pagina){
+			return (pagina->numeroPagina == (primeraPagina + i + 1)); 
+		}
+
+		t_pagina * paginaActual = list_find(tablaPaginas, coincideNro); 
+		paginaActual->bitDeValidez = 0; 
+		uint32_t frame = paginaActual->numeroFrame;
+		t_frame * unFrame =  list_get(listaFrames, frame); 
+		unFrame->ocupado = 0; 
+		
+	}
+
+}
+
+
+uint32_t obtenerDireccionProximaTareaPaginacion(void * streamTripulante){
+	uint32_t direccion = 0; 
+	memcpy(&direccion, streamTripulante + sizeof(uint32_t)*3 + sizeof(char), sizeof(uint32_t)); 
+	return direccion;
+}
+
+char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, uint32_t tid) {
+	void * streamTripulante = malloc(SIZEOF_TCB);
+	streamTripulante = obtenerStreamTripulante(referenciaTabla, tid);
+	int proximaTarea = 0;
+	proximaTarea = obtenerDireccionProximaTareaPaginacion(streamTripulante);
+	if ((proximaTarea) == 0) {
+		return "NO_HAY_TAREA";
+	}
+
+	bool coincideID(t_tripulantePaginacion * unTripu) {
+		return unTripu->tid == tid;
+	}
+
+	t_tripulantePaginacion * referenciaTripu = list_find(listaTripulantes, coincideID);
+
+	/// Encontrar los frames de las tareas
+	int i = 0, j = 0;
+
+	bool coincideIDPatota(referenciaTablaPaginas * tablaPagina) {
+		return tablaPagina->pid == referenciaTripu->pid;
+	}
+		
+	referenciaTablaPaginas * tablaDeLaPatota = list_find(listaTablasDePaginas, coincideIDPatota);
+	int cantidadDePaginas = divisionRedondeadaParaArriba((tablaDeLaPatota->longitudTareas + SIZEOF_PCB) , tamanioPagina);
+	int *frames = malloc(cantidadDePaginas * 4);
+
+	for(int z = 0; z < cantidadDePaginas; z++) {
+		t_pagina * pagina = list_get(tablaDeLaPatota->listaPaginas, z);
+		if (!pagina->bitDeValidez) {
+			traerPaginaAMemoria(pagina);
+		}
 		frames[i] = pagina->numeroFrame;
 		i++;
 	}
 
-	list_iterate(tablaPaginas, almacenarFrames);
+	void * streamTareas = malloc(cantidadDePaginas * tamanioPagina);
 
-	void * streamPatota = malloc(tamanioPagina * i);
-
-	for(int j = 0; j < i; j++) {
-		memcpy(streamPatota + j * tamanioPagina, memoriaPrincipal + tamanioPagina * frames[j], tamanioPagina);
+	pthread_mutex_lock(&mutexMemoriaPrincipal);	
+	for(j = 0; j < i; j++) {
+		memcpy(streamTareas + j * tamanioPagina, memoriaPrincipal + tamanioPagina * frames[j], tamanioPagina);
 	}
-
-	return encontrarTareasDeTripulanteEnStream(streamPatota, tripuID, tablaDePaginas);
-}
-
-char * encontrarTareasDeTripulanteEnStream(void * stream, int id, t_tablaDePaginas * tablaDePaginas ) {
-	int longitudTareas = tablaDePaginas->longitudTareas;
-	int patotaID = tablaDePaginas ->pid;
-	int tamanioPCByTareas = longitudTareas + 8;
-	int direccionPunteroTarea = 0;
-	int direccionTripu = 0;
-	int i = 0;
-	for (i = 0; i < 10; i++){
-		int idTripulante = 0;
-		memcpy(&idTripulante, (char *)stream + tamanioPCByTareas + i * SIZEOF_TCB, 4);
-		if (idTripulante == id) {
-			direccionPunteroTarea = tamanioPCByTareas + i * SIZEOF_TCB + (SIZEOF_TCB - 8);
-			direccionTripu = tamanioPCByTareas + i * SIZEOF_TCB;
-			i=10;
-		}
-	}
-	
-
-	int proximaTarea = 0;
-	memcpy(&proximaTarea, (char *)stream + direccionPunteroTarea, 4);
-	if ((proximaTarea) == 0) {
-		return "NO_HAY_TAREA";
-	}
+	pthread_mutex_unlock(&mutexMemoriaPrincipal);
+	///
 	char * tarea = malloc(40); //como se cuanto ocupan las tareas
 	char c = 'a';
-	i = proximaTarea;
-	int j = 0;
-	memcpy(&c, stream + i, 1);
+	j = 0;i = 0;
+
+	memcpy(&c, streamTareas + proximaTarea, 1);
 	while(c != '|' && c != '\n') {
-		memcpy(tarea + j, stream + i, 1);
+		memcpy(tarea + j, streamTareas + i + proximaTarea, 1);
 		i++;
-		memcpy(&c, stream + i, 1);
+		memcpy(&c, streamTareas + i + proximaTarea, 1);
 		j++;
 	}
 
 	if(c == '\n') {
-		proximaTarea = i + 1;
+		proximaTarea = i + proximaTarea + 1;
 	}
 
 	if(c == '|') {
 		proximaTarea = 0;
 	}
-	realloc(tarea, j + 1);
+
+	printf("prox tarea: %d", proximaTarea);
+	//realloc(tarea, j + 1);
 	char barraCero = '\0';
 	memcpy(tarea + j, &barraCero, 1);
-	// Cambiar el puntero de las tareas
-	actualizarPunteroTarea(direccionTripu, tablaDePaginas, proximaTarea);
+
+	actualizarPunteroTarea(referenciaTripu, referenciaTabla->listaPaginas, proximaTarea);
 
 	return tarea;
 }
 
-void actualizarPunteroTarea(int direccionTripulante, t_tablaDePaginas * tablaDePaginas, int direcProximaTarea) {
-	t_list * tablaPaginas = tablaDePaginas->listaPaginas;
+void actualizarPunteroTarea(t_tripulantePaginacion * unTripu, t_list * tablaDePaginas, int direcProximaTarea) {
 
-	int * frames = malloc(list_size(tablaPaginas) * 4);
-	int i = 0;
-	int j = 0;
+	int * frames = malloc(unTripu->cantidadDePaginas * sizeof(*frames)); 
+	int i = 0, z = 0, nroPrimerPagina = 0, j = 0;
 
-	void almacenarFrames(t_pagina * pagina) {
-		frames[i] = pagina->numeroFrame;
-		i++;
+	void almacenarFrames(t_pagina * pagina) { 
+		if((unTripu->nroPagina == pagina->numeroPagina)) {
+			if (!pagina->bitDeValidez) {
+				traerPaginaAMemoria(pagina);
+			}
+			frames[i] = pagina->numeroFrame;
+			i++;
+			nroPrimerPagina = pagina->numeroPagina;
+		}
 	}
-	list_iterate(tablaPaginas, almacenarFrames);
 
-	int paginaUbicada = (direccionTripulante+(SIZEOF_TCB-8))/tamanioPagina;
-	int offset = (direccionTripulante+(SIZEOF_TCB-8))%tamanioPagina;
+	list_iterate(tablaDePaginas, almacenarFrames);
+
+	while (unTripu->cantidadDePaginas - 1 - z) {
+		t_pagina * pag = malloc(sizeof(t_pagina));
+		pag = list_get(tablaDePaginas, nroPrimerPagina + 1 + z);
+		frames[i] = pag->numeroFrame;
+		i++;
+		z++;
+	}
+
+	i = 0;
 
 	pthread_mutex_lock(&mutexMemoriaPrincipal);
-	if (offset + 4 < tamanioPagina) {
-		memcpy(memoriaPrincipal + tamanioPagina * frames[paginaUbicada] + offset, &direcProximaTarea, 4);
+	if (unTripu->offset + 13 + 4 < tamanioPagina) {
+		memcpy(memoriaPrincipal + tamanioPagina * frames[i] + unTripu->offset + 13, &direcProximaTarea, 4);
 	} else {
 		void * memAux = malloc(4);
 		memcpy(memAux, &direcProximaTarea, 4);
 		while (j < 4) {
-			while (offset + j < tamanioPagina){
-				memcpy(memoriaPrincipal + tamanioPagina * frames[paginaUbicada] + offset + j, memAux + j, 1);
+			while (unTripu->offset + 13 + j < tamanioPagina){
+				memcpy(memoriaPrincipal + tamanioPagina * frames[i] + unTripu->offset + 13 + j, memAux + j, 1);
 				j++;
 			}
-			paginaUbicada++;
+			i++;
 		}
 	}
 	pthread_mutex_unlock(&mutexMemoriaPrincipal);
 }
-
 
 //----------------SEGMENTACION
 
@@ -952,8 +1355,8 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 }
 
 uint32_t encontrarLugarSegmentacion(int tamanioSegmento){
-	if(strcmp(criterioSeleccion, "FIRST_FIT") == 0){return firstFit(tamanioSegmento); }
-	if(strcmp(criterioSeleccion, "BEST_FIT") == 0){ return bestFit(tamanioSegmento);}
+	if(strcmp(algoritmoReemplazo, "FIRST_FIT") == 0){return firstFit(tamanioSegmento); }
+	if(strcmp(algoritmoReemplazo, "BEST_FIT") == 0){ return bestFit(tamanioSegmento);}
 	//es realmente un algoritmo de reemplazo para segmentacion¿? o algoritmo de busqueda de lugar 
 }
 
@@ -1165,9 +1568,9 @@ void imprimirSegmentosLibres(){
 	for(int i = 0; i < (list_size(segmentosLibres)); i++){
 	   t_segmento * segmento = list_get(segmentosLibres, i); 
 	   espacioLibre = espacioLibre + segmento->tamanio;
-	   //printf("Segmento libre que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
+	   printf("Segmento libre que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
 	}
-	//printf("BYtes libres: %d \n", espacioLibre);
+	printf("BYtes libres: %d \n", espacioLibre);
 
 }
 
@@ -1289,14 +1692,7 @@ bool cabeTCB(t_segmento * segmento){
 
 void compactarMemoria(){
 
-	log_info(loggerMiram, "Iniciando compactación de memoria"); 
-
 	list_sort(tablaSegmentosGlobal, seEncuentraPrimeroEnMemoria);
-	for(int i = 0; i < (list_size(tablaSegmentosGlobal)); i++){
-	   t_segmento * segmento = list_get(tablaSegmentosGlobal, i); 
-	   
-	    
-	}
 
 	//para el primer segmento 
 	t_segmento * primerSegmentoOcupado = list_get(tablaSegmentosGlobal, 0); 
@@ -1321,13 +1717,10 @@ void compactarMemoria(){
 	memset(memoriaPrincipal + (espacioLibre->base), 0,espacioLibre->tamanio);
 
 }
- 
-void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevaPosy){
-	uint32_t direccionTripulante = obtenerDireccionTripulante(idPatota, idTripulante); 
-	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t), &nuevaPosx, sizeof(uint32_t)); 
-	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t)*2, &nuevaPosy, sizeof(uint32_t));
-	
-}
+/* 
+void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevoPosy){
+
+}*/
 
 
 //DUMP DE MEMORIA
@@ -1437,10 +1830,6 @@ char idMapa(uint32_t tid){
 	if (id > 90) {
 		id += 6;
 	}
-	
-
-
-
 	return id;
 
 }
