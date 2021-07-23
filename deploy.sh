@@ -11,6 +11,15 @@ sudo make uninstall
 make all
 sudo make install
 cd $CWD
+echo -e "\n\nInstalling nivel-gui libraries...\n\n"
+sudo apt-get install libncurses5-dev
+NIVEL="so-nivel-gui-library"
+git clone "https://github.com/sisoputnfrba/${NIVEL}.git" $NIVEL
+cd $NIVEL
+sudo make uninstall
+make all
+sudo make install
+cd $CWD
 echo -e "\n\nBuilding projects...\n\n"
 make -C ./Discordiador
 make -C ./I-MongoStore
