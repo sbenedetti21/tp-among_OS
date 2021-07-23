@@ -233,7 +233,7 @@ void iniciarPatota(char ** vectorInstruccion){
 				proximoPID ++; 
 				sem_post(&mutexPID);
  
-				
+				/*
 				for(i = 0; i < cantidadTripulantes; i++ ) {  
 					pthread_t hilo;
 					uint32_t posicionAUsar;
@@ -274,8 +274,8 @@ void iniciarPatota(char ** vectorInstruccion){
 				}
 
 				serializarYMandarPCB(vectorInstruccion[2],socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
-
-				/* 
+*/
+				 
 				for(i = 0; i < cantidadTripulantes; i++ ) {  
 					pthread_t hilo;
 					uint32_t posicionAUsar;
@@ -302,6 +302,10 @@ void iniciarPatota(char ** vectorInstruccion){
 
 				int header;
 				recv(socket, &(header) , sizeof(int), 0);
+				if(header == PATOTA_CREADA){
+					log_info(loggerDiscordiador, "Patota creada por MiRam"); 
+				}
+				
 
 				for(int y = 0 ; y < cantidadTripulantes ; y++){
 				if(!planificacionPausada){
@@ -321,7 +325,7 @@ void iniciarPatota(char ** vectorInstruccion){
 					}
 				sem_post(&esperarAlgunTripulante); 
 				}
-				*/
+				
 			
 	
 	close(socket);
@@ -451,12 +455,12 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					break;
 				
 				case NO_HAY_TAREA:	
-									free(vectorTarea);
-									free(requerimientosTarea);
-									free(paquete);
-									free(paquete->buffer->stream);
-									free(paquete->buffer);
-									free(stringTarea);
+									// free(vectorTarea);
+									// free(requerimientosTarea);
+									// free(paquete);
+									// free(paquete->buffer->stream);
+									// free(paquete->buffer);
+									// free(stringTarea);
 									close(socket);
 									noHayMasTareas = true;
 									log_info(loggerDiscordiador,"Tripulante %d termino de trabajar ",tripulante->tid);
@@ -1012,10 +1016,10 @@ void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
 
 	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
 
-	free(a_enviar);
-	free(paquete->buffer->stream);
-	free(paquete->buffer);
-	free(paquete);
+	// free(a_enviar);
+	// free(paquete->buffer->stream);
+	// free(paquete->buffer);
+	// free(paquete);
 }
 
 
@@ -1067,10 +1071,10 @@ void serializarYMandarPCB(char * pathTareas, int socket, uint32_t pid, int canti
 
 	mandarPaqueteSerializado(buffer, socket, INICIAR_PATOTA);
 
-	free(buffer);
-	free(tareas);
+	// free(buffer);
+	// free(tareas);
 
-	list_destroy(listaTCBS);
+	//list_destroy(listaTCBS);
 
 	
 }
@@ -1103,7 +1107,7 @@ void serializarYMandarInicioTareaIO(int parametro, int tipoTarea, uint32_t tid )
 
 	mandarPaqueteSerializado(buffer, socket, HACER_TAREA);
 
-	free(parametroS);
+	//free(parametroS);
 
 }
 

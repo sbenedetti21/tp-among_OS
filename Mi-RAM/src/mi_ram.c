@@ -292,6 +292,8 @@ void atenderDiscordiador(int socketCliente){
 			
 			}
 			
+			int headerAEnviar = PATOTA_CREADA; 
+			send(socketCliente, &headerAEnviar, sizeof(int), 0); 
 
 			
 		
