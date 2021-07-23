@@ -177,15 +177,15 @@ void consola(){
 
 		
 		if(strcmp(vectorInstruccion[0], "EXPULSAR_TRIPULANTE") == 0) {
-				
+
 			bool coincideID(TCB_DISCORDIADOR * tripulantee){
 				return tripulantee->tid ==  atoi(vectorInstruccion[1]);
 			}
 
 			TCB_DISCORDIADOR * tripulante = malloc(sizeof(TCB_DISCORDIADOR)); // ANDA COMO EL TOOR
 
-			tripulante = list_find(listaTripulantes,coincideID);
-
+			tripulante = list_find(listaTripulantes,coincideID);	
+		
 			tripulante->fueExpulsado = true;
 
 			// free(tripulante);  COMPILA PERO ANDA COMO EL TOOR
@@ -273,9 +273,56 @@ void iniciarPatota(char ** vectorInstruccion){
 					
 				}
 
-
 				serializarYMandarPCB(vectorInstruccion[2],socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
+
+				/* 
+				for(i = 0; i < cantidadTripulantes; i++ ) {  
+					pthread_t hilo;
+					uint32_t posicionAUsar;
+
+					if (vectorInstruccion[indice_posiciones] != NULL) {
+						posicionAUsar = vectorInstruccion[3 + i];
+						
+						indice_posiciones++;
+					} else {
+						posicionAUsar = posicionBase;
+					}
+
+					TCB_DISCORDIADOR * tripulante = crearTCB(posicionAUsar,idPatota);
+
+					list_add(listaTCBsNuevos, tripulante);
+					
+
+					pthread_create(&tripulantes[i], NULL, subModuloTripulante , tripulante);
+					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 			
+					
+				} 
 				
+				serializarYMandarPCB(vectorInstruccion[2],socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
+
+				int header;
+				recv(socket, &(header) , sizeof(int), 0);
+
+				for(int y = 0 ; y < cantidadTripulantes ; y++){
+				if(!planificacionPausada){
+
+						TCB_DISCORDIADOR * tripulante = list_get(listaTCBsNuevos,y);
+						
+						salirDeListaEstado(tripulante);
+						
+
+						tripulante->estado = 'R';
+						
+						sem_wait(&cambiarAReady);
+						list_add(listaReady, tripulante);
+						sem_post(&cambiarAReady);
+
+											
+					}
+				sem_post(&esperarAlgunTripulante); 
+				}
+				*/
+			
 	
 	close(socket);
 	
@@ -746,7 +793,7 @@ printf("--------------------------------------------------------- \nEstado actua
 		TCB_DISCORDIADOR *tripulante = list_get(listaTripulantes,i);
 		// PCB *patota = tripulante->punteroPCB;
 
-		printf("Tripulante: %d    Patota:    Estado: %c \n", tripulante->tid , /* patota->pid  ,*/  tripulante->estado);
+		printf("Tripulante: %d    Patota: %d   Estado: %c \n", tripulante->tid , tripulante->pid  , tripulante->estado);
 
 	}
 
@@ -870,7 +917,6 @@ void trasladarseADuranteSabotaje(uint32_t posicionX,uint32_t posicionY, TCB_DISC
 void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 	char * descripcionTarea = tarea->descripcionTarea;
 	int parametros = tarea->parametro;
-	log_info(loggerDiscordiador, "Llego %s", descripcionTarea);
 				if( strcmp(descripcionTarea,"GENERAR_OXIGENO") == 0 ){
 						serializarYMandarInicioTareaIO(parametros, GENERAR_OXIGENO,tid);
 						log_info(loggerDiscordiador, "GENERAR_OXIGENO %d", parametros);

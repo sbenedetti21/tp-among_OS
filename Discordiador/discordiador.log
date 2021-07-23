@@ -33297,3 +33297,231 @@ q¥»Ïp¥»Ïp¥»Ïp¥H Posicion: 1|1 Duracion: 5
 [INFO] 01:55:10:755 discordiador.c/(8375:8384): Tripulante 0 cambio su estado a E
 [INFO] 01:55:10:755 discordiador.c/(8375:8378): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
 [INFO] 01:55:10:756 discordiador.c/(8375:8378): Tripulante 0 termino de trabajar 
+[INFO] 02:23:36:557 discordiador.c/(10884:10884): ---------PROGRAMA INICIADO---------- 
+[INFO] 02:23:39:215 discordiador.c/(10884:10886): INSTRUCCION LEIDA: INICIAR_PATOTA 4 /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
+[INFO] 02:23:39:216 discordiador.c/(10884:10886): Tripulante creado: ID: 0, Posicion 0|5, Estado: N 
+[INFO] 02:23:39:216 discordiador.c/(10884:10886): Tripulante creado: ID: 1, Posicion 2|1, Estado: N 
+[INFO] 02:23:39:216 discordiador.c/(10884:10886): Tripulante creado: ID: 2, Posicion 9|2, Estado: N 
+[INFO] 02:23:39:216 discordiador.c/(10884:10886): Tripulante creado: ID: 3, Posicion 6|4, Estado: N 
+[INFO] 02:23:39:216 discordiador.c/(10884:10886): path de tareas recibido: /home/facundin/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt
+[INFO] 02:23:46:353 discordiador.c/(10884:10886): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 02:23:46:354 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:23:46:355 discordiador.c/(10884:10887): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 02:23:46:355 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:23:46:355 discordiador.c/(10884:10888): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 02:23:46:355 discordiador.c/(10884:10887): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 9|8 Duracion: 6 
+[INFO] 02:23:46:356 discordiador.c/(10884:10888): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 9|8 Duracion: 6 
+[INFO] 02:23:49:357 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 3|5
+[INFO] 02:23:49:357 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 3|5
+[INFO] 02:23:49:357 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a R
+[INFO] 02:23:49:358 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 5|1
+[INFO] 02:23:49:358 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 5|1
+[INFO] 02:23:49:358 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a R
+[INFO] 02:23:49:359 discordiador.c/(10884:10905): Tripulante 2 cambio su estado a E
+[INFO] 02:23:49:359 discordiador.c/(10884:10889): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 02:23:49:359 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:23:49:359 discordiador.c/(10884:10890): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 02:23:49:359 discordiador.c/(10884:10889): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 9|8 Duracion: 6 
+[INFO] 02:23:49:360 discordiador.c/(10884:10890): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 9|8 Duracion: 6 
+[INFO] 02:23:49:360 discordiador.c/(10884:10889): Tripulante 2 cambio su estado a B
+[INFO] 02:23:49:360 discordiador.c/(10884:10906): Llego GENERAR_OXIGENO
+[INFO] 02:23:49:360 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:23:49:360 discordiador.c/(10884:10906): GENERAR_OXIGENO 3
+[INFO] 02:23:49:361 discordiador.c/(10884:10906): Tripulante 2 cambio su estado a R
+[INFO] 02:23:52:361 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 9|4
+[INFO] 02:23:52:361 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 9|4
+[INFO] 02:23:52:361 discordiador.c/(10884:10890): Tripulante 3 cambio su estado a R
+[INFO] 02:23:52:361 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 6|5
+[INFO] 02:23:52:361 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 6|5
+[INFO] 02:23:52:362 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a R
+[INFO] 02:23:52:362 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:23:52:363 discordiador.c/(10884:10905): Tripulante 2 cambio su estado a E
+[INFO] 02:23:55:362 discordiador.c/(10884:10889): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 02:23:55:362 discordiador.c/(10884:10889): Tarea pedida por tripulante 2: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 02:23:55:364 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 8|1
+[INFO] 02:23:55:364 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 8|1
+[INFO] 02:23:55:364 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a R
+[INFO] 02:23:55:364 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:23:55:365 discordiador.c/(10884:10890): Tripulante 3 cambio su estado a B
+[INFO] 02:23:55:365 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:23:55:365 discordiador.c/(10884:10906): Llego GENERAR_OXIGENO
+[INFO] 02:23:55:365 discordiador.c/(10884:10906): GENERAR_OXIGENO 3
+[INFO] 02:23:55:365 discordiador.c/(10884:10906): Tripulante 3 cambio su estado a R
+[INFO] 02:23:58:364 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 6|2
+[INFO] 02:23:58:364 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 6|2
+[INFO] 02:23:58:364 discordiador.c/(10884:10889): Tripulante 2 cambio su estado a R
+[INFO] 02:23:58:364 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:23:58:366 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 9|5
+[INFO] 02:23:58:366 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 9|5
+[INFO] 02:23:58:366 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a R
+[INFO] 02:23:58:366 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:23:59:365 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 9|1
+[INFO] 02:24:01:366 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 9|3
+[INFO] 02:24:01:367 discordiador.c/(10884:10890): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 02:24:01:367 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a R
+[INFO] 02:24:01:367 discordiador.c/(10884:10890): Tarea pedida por tripulante 3: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 02:24:01:367 discordiador.c/(10884:10905): Tripulante 2 cambio su estado a E
+[INFO] 02:24:04:369 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 3|2
+[INFO] 02:24:04:369 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 6|4
+[INFO] 02:24:04:369 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 3|2
+[INFO] 02:24:04:369 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 6|4
+[INFO] 02:24:04:369 discordiador.c/(10884:10890): Tripulante 3 cambio su estado a R
+[INFO] 02:24:04:369 discordiador.c/(10884:10889): Tripulante 2 cambio su estado a R
+[INFO] 02:24:04:370 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:04:370 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:24:04:371 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a B
+[INFO] 02:24:04:371 discordiador.c/(10884:10906): Llego GENERAR_OXIGENO
+[INFO] 02:24:04:371 discordiador.c/(10884:10905): Tripulante 2 cambio su estado a E
+[INFO] 02:24:04:371 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a B
+[INFO] 02:24:04:371 discordiador.c/(10884:10906): GENERAR_OXIGENO 3
+[INFO] 02:24:04:371 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:24:04:371 discordiador.c/(10884:10906): Tripulante 0 cambio su estado a R
+[INFO] 02:24:04:371 discordiador.c/(10884:10906): Llego GENERAR_OXIGENO
+[INFO] 02:24:04:371 discordiador.c/(10884:10906): GENERAR_OXIGENO 3
+[INFO] 02:24:04:372 discordiador.c/(10884:10906): Tripulante 1 cambio su estado a R
+[INFO] 02:24:05:371 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 2|2
+[INFO] 02:24:06:371 discordiador.c/(10884:10889): Tripulante 2 llego a la posicion de su tarea, le queda 1 de quantum
+[INFO] 02:24:06:372 discordiador.c/(10884:10889): Tripulante 2 cambio su estado a B
+[INFO] 02:24:06:372 discordiador.c/(10884:10906): Llego GENERAR_OXIGENO
+[INFO] 02:24:06:372 discordiador.c/(10884:10906): GENERAR_OXIGENO 4
+[INFO] 02:24:06:373 discordiador.c/(10884:10906): Tripulante 2 cambio su estado a R
+[INFO] 02:24:07:373 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 3|4
+[INFO] 02:24:07:373 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 3|4
+[INFO] 02:24:07:373 discordiador.c/(10884:10890): Tripulante 3 cambio su estado a R
+[INFO] 02:24:07:374 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:10:372 discordiador.c/(10884:10887): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 02:24:10:372 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:24:10:373 discordiador.c/(10884:10888): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 02:24:10:374 discordiador.c/(10884:10888): Tarea pedida por tripulante 1: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 02:24:10:374 discordiador.c/(10884:10887): Tarea pedida por tripulante 0: GENERAR_OXIGENO Posicion: 2|3 Duracion: 8 
+[INFO] 02:24:13:375 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 6|5
+[INFO] 02:24:13:375 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 6|5
+[INFO] 02:24:13:376 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a R
+[INFO] 02:24:13:377 discordiador.c/(10884:10905): Tripulante 2 cambio su estado a E
+[INFO] 02:24:13:377 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a R
+[INFO] 02:24:13:377 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:24:14:374 discordiador.c/(10884:10889): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 02:24:14:375 discordiador.c/(10884:10889): Tarea pedida por tripulante 2: CONSUMIR_OXIGENO Posicion: 14|16 Duracion: 4 
+[INFO] 02:24:14:378 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 2|4
+[INFO] 02:24:15:378 discordiador.c/(10884:10890): Tripulante 3 llego a la posicion de su tarea, le queda 1 de quantum
+[INFO] 02:24:15:378 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:15:378 discordiador.c/(10884:10890): Tripulante 3 cambio su estado a B
+[INFO] 02:24:15:378 discordiador.c/(10884:10906): Llego GENERAR_OXIGENO
+[INFO] 02:24:15:379 discordiador.c/(10884:10906): GENERAR_OXIGENO 4
+[INFO] 02:24:15:379 discordiador.c/(10884:10906): Tripulante 3 cambio su estado a R
+[INFO] 02:24:17:376 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 5|3
+[INFO] 02:24:17:376 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 5|3
+[INFO] 02:24:17:377 discordiador.c/(10884:10889): Tripulante 2 cambio su estado a R
+[INFO] 02:24:17:377 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:24:18:380 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 3|5
+[INFO] 02:24:18:380 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 3|5
+[INFO] 02:24:18:380 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a R
+[INFO] 02:24:18:381 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:24:20:379 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a R
+[INFO] 02:24:20:380 discordiador.c/(10884:10905): Tripulante 2 cambio su estado a E
+[INFO] 02:24:23:380 discordiador.c/(10884:10890): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 02:24:23:380 discordiador.c/(10884:10890): Tarea pedida por tripulante 3: CONSUMIR_OXIGENO Posicion: 14|16 Duracion: 4 
+[INFO] 02:24:23:382 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 8|3
+[INFO] 02:24:23:382 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 8|3
+[INFO] 02:24:23:382 discordiador.c/(10884:10889): Tripulante 2 cambio su estado a R
+[INFO] 02:24:23:383 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:24:383 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 2|5
+[INFO] 02:24:26:382 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 5|3
+[INFO] 02:24:26:382 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 5|3
+[INFO] 02:24:26:383 discordiador.c/(10884:10890): Tripulante 3 cambio su estado a R
+[INFO] 02:24:26:383 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:24:26:383 discordiador.c/(10884:10887): Tripulante 0 llego a la posicion de su tarea, le queda 0 de quantum
+[INFO] 02:24:26:384 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a R
+[INFO] 02:24:26:384 discordiador.c/(10884:10905): Tripulante 2 cambio su estado a E
+[INFO] 02:24:27:384 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:24:27:384 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a B
+[INFO] 02:24:27:384 discordiador.c/(10884:10906): Llego GENERAR_OXIGENO
+[INFO] 02:24:27:385 discordiador.c/(10884:10906): GENERAR_OXIGENO 4
+[INFO] 02:24:27:385 discordiador.c/(10884:10906): Tripulante 1 cambio su estado a R
+[INFO] 02:24:29:386 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 11|3
+[INFO] 02:24:29:386 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 11|3
+[INFO] 02:24:29:387 discordiador.c/(10884:10889): Tripulante 2 cambio su estado a R
+[INFO] 02:24:29:387 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:29:387 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a B
+[INFO] 02:24:29:387 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:24:29:387 discordiador.c/(10884:10906): Llego GENERAR_OXIGENO
+[INFO] 02:24:29:387 discordiador.c/(10884:10906): GENERAR_OXIGENO 4
+[INFO] 02:24:29:388 discordiador.c/(10884:10906): Tripulante 0 cambio su estado a R
+[INFO] 02:24:30:385 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 8|3
+[INFO] 02:24:30:386 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 8|3
+[INFO] 02:24:30:387 discordiador.c/(10884:10890): Tripulante 3 cambio su estado a R
+[INFO] 02:24:30:388 discordiador.c/(10884:10905): Tripulante 2 cambio su estado a E
+[INFO] 02:24:33:389 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 14|3
+[INFO] 02:24:33:389 discordiador.c/(10884:10889): Tripulante 2 termino su Q en 14|3
+[INFO] 02:24:33:389 discordiador.c/(10884:10889): Tripulante 2 cambio su estado a R
+[INFO] 02:24:33:390 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:35:386 discordiador.c/(10884:10888): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 02:24:35:388 discordiador.c/(10884:10888): Tarea pedida por tripulante 1: CONSUMIR_OXIGENO Posicion: 14|16 Duracion: 4 
+[INFO] 02:24:37:389 discordiador.c/(10884:10887): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 02:24:37:390 discordiador.c/(10884:10887): Tarea pedida por tripulante 0: CONSUMIR_OXIGENO Posicion: 14|16 Duracion: 4 
+[INFO] 02:24:38:390 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 5|3
+[INFO] 02:24:38:390 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 5|3
+[INFO] 02:24:38:390 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a R
+[INFO] 02:24:38:391 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:24:40:391 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 5|3
+[INFO] 02:24:40:392 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 5|3
+[INFO] 02:24:40:393 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a R
+[INFO] 02:24:40:394 discordiador.c/(10884:10905): Tripulante 2 cambio su estado a E
+[INFO] 02:24:40:394 discordiador.c/(10884:10889): Tripulante 2 cambio su estado a B
+[INFO] 02:24:40:394 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:24:40:395 discordiador.c/(10884:10906): Llego CONSUMIR_OXIGENO
+[INFO] 02:24:40:395 discordiador.c/(10884:10906): Tripulante 2 cambio su estado a R
+[INFO] 02:24:41:392 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 11|3
+[INFO] 02:24:41:392 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 11|3
+[INFO] 02:24:41:393 discordiador.c/(10884:10890): Tripulante 3 cambio su estado a R
+[INFO] 02:24:41:394 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:43:396 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 8|3
+[INFO] 02:24:43:396 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 8|3
+[INFO] 02:24:43:396 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a R
+[INFO] 02:24:43:396 discordiador.c/(10884:10905): Tripulante 2 cambio su estado a E
+[INFO] 02:24:44:395 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 8|3
+[INFO] 02:24:44:395 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 8|3
+[INFO] 02:24:44:395 discordiador.c/(10884:10889): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 02:24:44:396 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a R
+[INFO] 02:24:44:396 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:24:44:397 discordiador.c/(10884:10889): Tripulante 2 termino de trabajar 
+[INFO] 02:24:44:397 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:24:47:398 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 14|3
+[INFO] 02:24:47:398 discordiador.c/(10884:10890): Tripulante 3 termino su Q en 14|3
+[INFO] 02:24:47:398 discordiador.c/(10884:10890): Tripulante 3 cambio su estado a R
+[INFO] 02:24:47:399 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:47:399 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 11|3
+[INFO] 02:24:47:399 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 11|3
+[INFO] 02:24:47:400 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a R
+[INFO] 02:24:47:400 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:24:47:400 discordiador.c/(10884:10890): Tripulante 3 cambio su estado a B
+[INFO] 02:24:47:400 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:24:47:400 discordiador.c/(10884:10906): Llego CONSUMIR_OXIGENO
+[INFO] 02:24:47:401 discordiador.c/(10884:10906): Tripulante 3 cambio su estado a R
+[INFO] 02:24:50:401 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 11|3
+[INFO] 02:24:50:401 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 11|3
+[INFO] 02:24:50:401 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a R
+[INFO] 02:24:50:402 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 14|3
+[INFO] 02:24:50:402 discordiador.c/(10884:10888): Tripulante 1 termino su Q en 14|3
+[INFO] 02:24:50:402 discordiador.c/(10884:10905): Tripulante 3 cambio su estado a E
+[INFO] 02:24:50:402 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a R
+[INFO] 02:24:50:403 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:51:401 discordiador.c/(10884:10890): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 02:24:51:402 discordiador.c/(10884:10890): Tripulante 3 termino de trabajar 
+[INFO] 02:24:51:403 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:24:51:403 discordiador.c/(10884:10888): Tripulante 1 cambio su estado a B
+[INFO] 02:24:51:403 discordiador.c/(10884:10906): Llego CONSUMIR_OXIGENO
+[INFO] 02:24:51:404 discordiador.c/(10884:10906): Tripulante 1 cambio su estado a R
+[INFO] 02:24:53:404 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 14|3
+[INFO] 02:24:53:404 discordiador.c/(10884:10887): Tripulante 0 termino su Q en 14|3
+[INFO] 02:24:53:404 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a R
+[INFO] 02:24:53:405 discordiador.c/(10884:10905): Tripulante 1 cambio su estado a E
+[INFO] 02:24:55:404 discordiador.c/(10884:10888): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 02:24:55:405 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:55:406 discordiador.c/(10884:10888): Tripulante 1 termino de trabajar 
+[INFO] 02:24:55:406 discordiador.c/(10884:10887): Tripulante 0 cambio su estado a B
+[INFO] 02:24:55:407 discordiador.c/(10884:10906): Llego CONSUMIR_OXIGENO
+[INFO] 02:24:55:407 discordiador.c/(10884:10906): Tripulante 0 cambio su estado a R
+[INFO] 02:24:59:408 discordiador.c/(10884:10905): Tripulante 0 cambio su estado a E
+[INFO] 02:24:59:409 discordiador.c/(10884:10887): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 02:24:59:409 discordiador.c/(10884:10887): Tripulante 0 termino de trabajar 
