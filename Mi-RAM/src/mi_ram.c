@@ -23,32 +23,7 @@ int main(int argc, char ** argv){
 	pthread_create(&senial1, NULL, hiloSIGUSR1, NULL); 
 	pthread_create(&senial2, NULL, hiloSIGUSR2, NULL);
 
-	/*t_list * tablaSegmentosPrueba = list_create();
-	char * tareas = "Probando tareas|"; 
-	memcpy(memoriaPrincipal + 10, tareas, 16);
 
-	t_segmento * tareasPruebas = malloc(sizeof(t_segmento)); 
-	tareasPruebas ->base= 10; 
-	tareasPruebas->tamanio = 16; 
-	tareasPruebas->tipoSegmento =SEG_TCB;
-	tareasPruebas->tid = -1; 
-	tareasPruebas->pid = 4; 
-
-	list_add(tablaSegmentosGlobal, tareasPruebas);
-
-	list_add(tablaSegmentosGlobal, tareasPruebas);  
-	list_clean_and_destroy_elements(tablaSegmentosLibres, free); 
-	t_segmento * segLibre = malloc(sizeof(t_segmento)); 
-	segLibre->base=0; 
-	segLibre->tamanio = 10; 
-	t_segmento * segLibre2 = malloc(sizeof(t_segmento)); 
-	segLibre2->base=26; 
-	segLibre2->tamanio = tamanioMemoria - 26; 
-
-	mem_hexdump(memoriaPrincipal, tamanioMemoria);
-	list_add(tablaSegmentosLibres, segLibre); 
-	list_add(tablaSegmentosLibres, segLibre2);
-*/
 	
 
 	 pthread_t mapa;
