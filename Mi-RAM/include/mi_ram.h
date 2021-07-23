@@ -43,7 +43,9 @@ void * hiloSIGUSR1();
 void * hiloSIGUSR2();
 void actualizarEstadoTripulante(uint32_t , uint32_t , char );
 void eliminarTripulante(uint32_t, uint32_t);
- 
+
+bool compactacion = false; 
+
 
 
 // ----------------------------------------  PAGINAS
@@ -84,7 +86,6 @@ typedef struct {
 	int longitudTareas;
 	uint32_t pid;
 	t_list * listaPaginas;
-	int contadorTCB;
 } referenciaTablaPaginas;
 
 typedef struct {
@@ -122,9 +123,14 @@ sem_t mutexTablaGlobal;
 sem_t mutexTablaDeTablas; 
 sem_t mutexTripulantesPatotas; 
 sem_t mutexCompactacion; 
+sem_t mutexSegmentosLibres;
 
 t_list * tripulantesPatotas; 
 
+
+enum tipoSegmento {
+	SEG_TAREAS, SEG_PCB, SEG_TCB
+};
 
 typedef struct{
 	uint32_t pid;
@@ -138,16 +144,18 @@ typedef struct {
 
 typedef struct{
 	
+	int tipoSegmento; 
+	int pid;
 	int tid; 
 	uint32_t base; 
 	uint32_t tamanio; 
  
 } t_segmento; 
 
-
-uint32_t asignarMemoriaSegmentacionTCB(void *, int, t_list *); 
+t_list * tablaSegmentosLibres;
+uint32_t asignarMemoriaSegmentacionTCB(void *, int, t_list *, int); 
 uint32_t asignarMemoriaSegmentacionPCB(void * , t_list *);
-uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * );
+uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * , int);
 uint32_t encontrarLugarSegmentacion(int );
 uint32_t firstFit(int );
 uint32_t bestFit(int );
@@ -160,6 +168,7 @@ bool cabeTCB(t_segmento * );
 void imprimirSegmentosLibres();
 void actualizarProximaTarea(uint32_t, uint32_t);
 void compactarMemoria();
+void actualizarReferenciasTablas(t_segmento *, uint32_t);
 
 
 // --------------------- Generales

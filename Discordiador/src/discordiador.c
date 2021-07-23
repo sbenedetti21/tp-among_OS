@@ -394,7 +394,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 		if(tripulante->fueExpulsado){
 			expulsarTripulate(tripulante);
 			 break; 
-			 }	
+			 }	 
 
 		if(tareaTerminada){
 
@@ -438,7 +438,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					vectorTarea = string_split(stringTarea, ";");
 					
 
-					tarea->descripcionTarea = requerimientosTarea[0];
+					
 
 					if(string_contains(vectorTarea[0]," ")){
 						requerimientosTarea = string_split(vectorTarea[0]," "); 
@@ -447,7 +447,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 						tarea->parametro = atoi(requerimientosTarea[1]);
 					} 
 					else{
-						tarea->descripcionTarea = requerimientosTarea[0];
+						tarea->descripcionTarea = vectorTarea[0];
 
 						if(strcmp(tipoAlgoritmo, "RR") == 0){
 							serializarYMandarInicioTareaNormal(tripulante->tid, tarea->descripcionTarea);

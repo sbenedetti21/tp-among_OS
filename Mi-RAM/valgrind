@@ -1,44 +1,60 @@
-==13739== Memcheck, a memory error detector
-==13739== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==13739== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==13739== Command: ./mi_ram
-==13739== Parent PID: 13729
-==13739== 
-==13739== Thread 3:
-==13739== Conditional jump or move depends on uninitialised value(s)
-==13739==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==13739==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
-==13739==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
-==13739==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
-==13739==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
-==13739==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
-==13739==    by 0x8049872: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
-==13739==    by 0x4062294: start_thread (pthread_create.c:333)
-==13739==    by 0x418C0AD: clone (clone.S:114)
-==13739== 
-==13739== Conditional jump or move depends on uninitialised value(s)
-==13739==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==13739==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
-==13739==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
-==13739==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
-==13739==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
-==13739==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
-==13739==    by 0x8049872: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
-==13739==    by 0x4062294: start_thread (pthread_create.c:333)
-==13739==    by 0x418C0AD: clone (clone.S:114)
-==13739== 
-==13739== Use of uninitialised value of size 4
-==13739==    at 0x804A31C: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
-==13739==    by 0x4062294: start_thread (pthread_create.c:333)
-==13739==    by 0x418C0AD: clone (clone.S:114)
-==13739== 
-==13739== Use of uninitialised value of size 4
-==13739==    at 0x804A338: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
-==13739==    by 0x4062294: start_thread (pthread_create.c:333)
-==13739==    by 0x418C0AD: clone (clone.S:114)
-==13739== 
-==13739== Use of uninitialised value of size 4
-==13739==    at 0x804A354: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
-==13739==    by 0x4062294: start_thread (pthread_create.c:333)
-==13739==    by 0x418C0AD: clone (clone.S:114)
-==13739== 
+==29588== Memcheck, a memory error detector
+==29588== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==29588== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==29588== Command: ./mi_ram
+==29588== Parent PID: 28761
+==29588== 
+==29588== Thread 4:
+==29588== Conditional jump or move depends on uninitialised value(s)
+==29588==    at 0x40E9383: vfprintf (vfprintf.c:1632)
+==29588==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
+==29588==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==29588==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==29588==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==29588==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==29588==    by 0x80498A2: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==29588==    by 0x4062294: start_thread (pthread_create.c:333)
+==29588==    by 0x418C0AD: clone (clone.S:114)
+==29588== 
+==29588== Conditional jump or move depends on uninitialised value(s)
+==29588==    at 0x40E9383: vfprintf (vfprintf.c:1632)
+==29588==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
+==29588==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==29588==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==29588==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==29588==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==29588==    by 0x80498A2: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==29588==    by 0x4062294: start_thread (pthread_create.c:333)
+==29588==    by 0x418C0AD: clone (clone.S:114)
+==29588== 
+==29588== Use of uninitialised value of size 4
+==29588==    at 0x804A356: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==29588==    by 0x4062294: start_thread (pthread_create.c:333)
+==29588==    by 0x418C0AD: clone (clone.S:114)
+==29588== 
+==29588== Use of uninitialised value of size 4
+==29588==    at 0x804A372: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==29588==    by 0x4062294: start_thread (pthread_create.c:333)
+==29588==    by 0x418C0AD: clone (clone.S:114)
+==29588== 
+==29588== Use of uninitialised value of size 4
+==29588==    at 0x804A38E: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==29588==    by 0x4062294: start_thread (pthread_create.c:333)
+==29588==    by 0x418C0AD: clone (clone.S:114)
+==29588== 
+==29588== 
+==29588== HEAP SUMMARY:
+==29588==     in use at exit: 129,307 bytes in 2,757 blocks
+==29588==   total heap usage: 18,849 allocs, 16,092 frees, 565,025 bytes allocated
+==29588== 
+==29588== LEAK SUMMARY:
+==29588==    definitely lost: 16,915 bytes in 1,036 blocks
+==29588==    indirectly lost: 10,159 bytes in 830 blocks
+==29588==      possibly lost: 48,824 bytes in 359 blocks
+==29588==    still reachable: 53,409 bytes in 532 blocks
+==29588==         suppressed: 0 bytes in 0 blocks
+==29588== Rerun with --leak-check=full to see details of leaked memory
+==29588== 
+==29588== For counts of detected and suppressed errors, rerun with: -v
+==29588== Use --track-origins=yes to see where uninitialised values come from
+==29588== ERROR SUMMARY: 649 errors from 5 contexts (suppressed: 0 from 0)

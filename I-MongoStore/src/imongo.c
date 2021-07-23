@@ -1298,7 +1298,7 @@ void serializarYMandarBitacora(char * bitacora, int socket){
 void deserializarNuevaPosicion(t_paquete * paquete){
 		uint32_t posxN;
 		uint32_t posyN;
-		uint32_t posyV;
+		uint32_t posyV; 
 		uint32_t posxV;
 		uint32_t tid;
 
