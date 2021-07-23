@@ -1401,6 +1401,7 @@ void atenderDiscordiador(int socketCliente){
 		deserializarTareaIO(paquete);
 		break;
 	case BITACORA:  ;
+		log_info(loggerImongoStore, "Entre en bitacoraaaaa");
 		uint32_t tid = deserializarPedidoBitacora(paquete);
 		char * bitacora = conseguirBitacora(tid);
 		serializarYMandarBitacora(bitacora, socketCliente);
