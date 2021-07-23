@@ -228,7 +228,7 @@ void atenderDiscordiador(int socketCliente){
 				//printf("ID DE LA PATOTA %d \n", pcb->pid);
 				uint32_t direccionPCB = asignarMemoriaSegmentacionPCB(streamPCB, tablaSegmentos); 
 				
-				uint32_t direccionTareas = asignarMemoriaSegmentacionTareas(tareas, tamanioTareas, tablaSegmentos); 
+				uint32_t direccionTareas = asignarMemoriaSegmentacionTareas(tareas, tamanioTareas, tablaSegmentos, (pcb->pid)); 
 				pcb ->tareas = direccionTareas; 
 				memcpy(memoriaPrincipal + direccionPCB + sizeof(uint32_t), &direccionTareas, 4); 
 				
@@ -265,7 +265,7 @@ void atenderDiscordiador(int socketCliente){
 					
 					
 
-					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tripulanteID, tablaSegmentos); 
+					uint32_t direccionLogica = asignarMemoriaSegmentacionTCB(tripulante, tripulanteID, tablaSegmentos, (pcb->pid)); 
 					
 					referenciaTripulante * referenciaTripulante = malloc(2 * sizeof(uint32_t)); 
 
@@ -1315,7 +1315,7 @@ void actualizarPunteroTarea(t_tripulantePaginacion * unTripu, t_list * tablaDePa
 
 //----------------SEGMENTACION
 
-uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, int tripulanteID, t_list * tablaSegmentos){
+uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, int tripulanteID, t_list * tablaSegmentos, int pid){
 
 		//busco un lugar de memoria (segun algoritmo)
 		uint32_t direccionLogica = 0;
@@ -1329,7 +1329,9 @@ uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, int tripulanteID, t_li
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
 		segmentoNuevo ->tid = tripulanteID;
 		segmentoNuevo -> tamanio = SIZEOF_TCB; 
-		segmentoNuevo -> base = direccionLogica;  
+		segmentoNuevo -> base = direccionLogica;
+		segmentoNuevo->tipoSegmento = SEG_TCB;
+		segmentoNuevo->pid = pid;
 
 		//agrego el segmento a la tabla de segmentos 
 		list_add(tablaSegmentos, segmentoNuevo);
@@ -1345,13 +1347,18 @@ uint32_t asignarMemoriaSegmentacionPCB(void * pcb , t_list * tablaSegmentos){
 		int direccionLogica = encontrarLugarSegmentacion(SIZEOF_PCB); 
 		
 		//le asigno el lugar de memoria encontrado
-		memcpy(memoriaPrincipal + direccionLogica , pcb, SIZEOF_PCB); 
+		memcpy(memoriaPrincipal + direccionLogica , pcb, SIZEOF_PCB);
+
+		int pid = 0;
+		memcpy(&pid, pcb, 4);
 		
 		//creo el segmento para la estructura nueva
 		t_segmento * segmentoNuevo = malloc(sizeof(t_segmento)); 
 		segmentoNuevo->tid = -1; 
-		segmentoNuevo -> tamanio = SIZEOF_PCB; 
-		segmentoNuevo -> base = direccionLogica; 
+		segmentoNuevo->tamanio = SIZEOF_PCB; 
+		segmentoNuevo->base = direccionLogica;
+		segmentoNuevo->tipoSegmento = SEG_PCB;
+		segmentoNuevo->pid = pid;
 
 		//agrego el segmento a la tabla de segmentos 
 		list_add_in_index(tablaSegmentos, 0,segmentoNuevo);
@@ -1362,7 +1369,7 @@ uint32_t asignarMemoriaSegmentacionPCB(void * pcb , t_list * tablaSegmentos){
 		return direccionLogica;
 }
 
-uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_list * tablaSegmentos){
+uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_list * tablaSegmentos, int pid){
 
 	uint32_t direccionLogica = encontrarLugarSegmentacion(tamanioTareas); 
 	memcpy(memoriaPrincipal + direccionLogica, tareas, tamanioTareas); 
@@ -1371,7 +1378,9 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 	t_segmento * segmentoTareas = malloc(sizeof(t_segmento)); 
 	segmentoTareas -> tid = -1; 
 	segmentoTareas->tamanio = tamanioTareas; 
-	segmentoTareas ->base = direccionLogica; 
+	segmentoTareas ->base = direccionLogica;
+	segmentoTareas->tipoSegmento = SEG_TAREAS;
+	segmentoTareas->pid = pid;
 	list_add(tablaSegmentos, segmentoTareas);
 	sem_wait(&mutexTablaGlobal);
 	list_add(tablaSegmentosGlobal, segmentoTareas);  
@@ -1721,7 +1730,7 @@ bool cabeTCB(t_segmento * segmento){
 
 
 void compactarMemoria(){
-
+	sem_wait(&mutexTablaGlobal);
 	if(list_size(tablaSegmentosGlobal) <=0){
 		list_clean_and_destroy_elements(tablaSegmentosLibres, free); 
 		t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
@@ -1749,18 +1758,17 @@ void compactarMemoria(){
 	por cada uno sacar la memoria calcular el lugar de la proxima tarea y actualizar calculando el offset anterior y el nuevo lugar
 	de las tareas 
 	 */
+
 	}
 	for(int i = 0; i < (list_size(tablaSegmentosGlobal)-1); i++){
 		t_segmento * segmentoActual = list_get(tablaSegmentosGlobal, i); 
 		int finSegmento = segmentoActual->base + segmentoActual->tamanio;
 		t_segmento * proximoSegmento = list_get(tablaSegmentosGlobal, i + 1); 
 		
-		/*/if(proximoSegmento->tipoSegmento == 1){
-			actualizarTCBs(proximoSegmento); 
+		if(proximoSegmento->tipoSegmento == SEG_TAREAS){ // segmento de tareas
+			actualizarTareasEnTCBs(proximoSegmento, proximoSegmento->base, finSegmento); 
 		}
-		if(proximoSegmento->tipoSegmento == 2){
-			
-		}*/
+		//actualizarTablaSegmentosGlobal(proximoSegmento, finSegmento);
 		memcpy(memoriaPrincipal + finSegmento, memoriaPrincipal + proximoSegmento->base, proximoSegmento->tamanio); 
 		proximoSegmento->base = finSegmento; 
 		list_replace(tablaSegmentosGlobal, i+1, proximoSegmento);
@@ -1781,12 +1789,42 @@ void compactarMemoria(){
 	memset(memoriaPrincipal + (espacioLibre->base), 0,espacioLibre->tamanio);
 	free(ultimoSegmentoLibre); 
 	}
+	sem_post(&mutexTablaGlobal);
 }
 /* 
 void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevoPosy){
 
 }*/
+void actualizarTareasEnTCBs(t_segmento * unSegmento, uint32_t baseSegmentoAntiguo, uint32_t nuevaPosicion) {
+	bool coincidePID(t_segmento * segmento){
+		return (segmento->pid == unSegmento->pid); 
+	}
 
+	t_list * tcbs = list_filter(tablaSegmentosGlobal, coincidePID);
+
+	void actualizarDireccionTareas(t_segmento * segmentoPatota) {
+		if (segmentoPatota->tid != -1) {
+			int direccionAntigua = 0;
+			// agregar mutex
+			memcpy(&direccionAntigua, memoriaPrincipal + segmentoPatota->base + 13, 4);
+			int offsetDentroDeTareas = direccionAntigua - baseSegmentoAntiguo;
+			int direccionNueva = nuevaPosicion + offsetDentroDeTareas;
+			memcpy(memoriaPrincipal + segmentoPatota->base + 13, &direccionNueva, 4);
+		}
+	}
+
+	list_iterate(tcbs, actualizarDireccionTareas);
+}
+
+void actualizarTablaSegmentosGlobal(t_segmento * unSegmento, uint32_t posicionNueva) {
+	bool coincidePosicion(t_segmento * segmento ){
+		return segmento->base == unSegmento->base;
+	}
+	
+	t_segmento * segmentoNuevo = list_remove(tablaSegmentosGlobal, coincidePosicion);
+	segmentoNuevo->base = posicionNueva;
+	list_add(tablaSegmentosGlobal, segmentoNuevo);
+}
 
 //DUMP DE MEMORIA
 void imprimirSegmentos(){
@@ -1798,19 +1836,29 @@ void imprimirSegmentos(){
 	
 	fwrite("DUMP DE MEMORIA \n", 17, 1, dump); 
 	
+
 	if(list_size(tablaSegmentosGlobal) >0){
-	for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
+		list_sort(tablaSegmentosGlobal, vaAntes);_
+		for(int i = 0; i< list_size(tablaSegmentosGlobal); i++){
 
 
-		referenciaTablaPatota * referencia = list_get(tablaDeTablasSegmentos, i); 
-		t_list * tabla = referencia->tablaPatota; 
-		int proceso = referencia->pid;
-		char pid = proceso + '0'; 
-		for(int x = 0; x < list_size(tabla); x++){
-			t_segmento * unSegmento = list_get(tabla, x);
+		t_segmento * elSegmento = list_get(tablaSegmentosGlobal, i); 
+		
+		int proceso = elSegmento->pid;
+		
+		int pidReferencia = proceso; 
+		int x = 0; 
+		while(pidReferencia = proceso){
 			char * segmento = string_from_format("Proceso: %2d    Segmento: %2d Inicio: %3d Tamaño: %3d \n", proceso, x, unSegmento->base, unSegmento->tamanio); 
-			fwrite(segmento, strlen(segmento), 1, dump); 
+			fwrite(segmento, strlen(segmento), 1, dump);
+			x ++; 
+
 		}
+
+		
+			
+		
+		
 	}
 	}
 
@@ -1827,6 +1875,10 @@ void imprimirSegmentos(){
 		
 	}
 	
+	bool vaAntes(t_segmento * unSegmento, t_segmento* otroSegmento){
+
+		return unSegmento->pid <= otroSegmento->pid && unSegmento->tid <= otroSegmento->tid; 
+	}
 		
 	
 

@@ -126,6 +126,10 @@ sem_t mutexSegmentosLibres;
 t_list * tripulantesPatotas; 
 
 
+enum tipoSegmento {
+	SEG_TAREAS, SEG_PCB, SEG_TCB
+};
+
 typedef struct{
 	uint32_t pid;
 	t_list * tablaPatota;
@@ -147,9 +151,9 @@ typedef struct{
 } t_segmento; 
 
 t_list * tablaSegmentosLibres;
-uint32_t asignarMemoriaSegmentacionTCB(void *, int, t_list *); 
+uint32_t asignarMemoriaSegmentacionTCB(void *, int, t_list *, int); 
 uint32_t asignarMemoriaSegmentacionPCB(void * , t_list *);
-uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * );
+uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * , int);
 uint32_t encontrarLugarSegmentacion(int );
 uint32_t firstFit(int );
 uint32_t bestFit(int );

@@ -1,0 +1,2 @@
+gcc -c -o obj/mi_ram.o src/mi_ram.c -I./include -I../shared/include
+gcc -o mi_ram obj/mi_ram.o ../shared/obj/shared_utils.o -I./include -I../shared/include -lcommons -lpthread -lreadline -lrt -lnivel-gui -lncurses
