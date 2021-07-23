@@ -993,6 +993,7 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 	tablaDePaginas->longitudTareas = longitudTareas;
 	tablaDePaginas->pid = pid;
 	tablaDePaginas->listaPaginas = listaDePaginas;
+	tablaDePaginas->contadorTCB = cantidadTCBs;
 
 	pthread_mutex_lock(&mutexListaTablas);
 	list_add(listaTablasDePaginas, tablaDePaginas);
@@ -1162,34 +1163,31 @@ void eliminarTripulantePaginacion(uint32_t tid, uint32_t pid){
 	bool coincideID(t_tripulantePaginacion * unTripu) {
 		return unTripu->tid == tid;
 	}
-		bool coincidePID(referenciaTablaPaginas * referenciaTabla){
+	bool coincidePID(referenciaTablaPaginas * referenciaTabla){
 		return (referenciaTabla->pid == pid); 
 	}
 	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
-	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
-	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
-	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
-	uint32_t offset = referenciaTripulante->offset; 
-	uint32_t cantidadPaginas = referenciaTripulante->cantidadDePaginas; 
-	
-	uint32_t paginasLlenas = cantidadPaginas - 2;
+	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID);
 
-	//para la primera pagina que ocupa 
-	
-
-	for(int i = 0; i < paginasLlenas; i ++){
-
-		bool coincideNro(t_pagina * pagina){
-			return (pagina->numeroPagina == (primeraPagina + i + 1)); 
+	if (referenciaTabla->contadorTCB == 1) {
+		t_list * listaPaginas = referenciaTabla->listaPaginas;
+		
+		void desocupar(t_pagina * pagina) {
+			if (!pagina->bitDeValidez) {
+				t_frame * frameADesocupar = list_get(listaFramesSwap, pagina->numeroFrame);
+				frameADesocupar->ocupado = 0;
+			}
+			if (pagina->bitDeValidez) {
+				t_frame * frameADesocupar = list_get(listaFrames, pagina->numeroFrame);
+				frameADesocupar->ocupado = 0;
+				pagina->bitDeValidez = 0;
+			}
 		}
 
-		t_pagina * paginaActual = list_find(tablaPaginas, coincideNro); 
-		paginaActual->bitDeValidez = 0; 
-		uint32_t frame = paginaActual->numeroFrame;
-		t_frame * unFrame =  list_get(listaFrames, frame); 
-		unFrame->ocupado = 0; 
-		
+		list_iterate(listaPaginas, desocupar);
+		list_destroy_and_destroy_elements(listaPaginas, free);
 	}
+	referenciaTabla->contadorTCB--;
 
 }
 
