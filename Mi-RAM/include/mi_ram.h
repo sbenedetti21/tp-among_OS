@@ -121,6 +121,7 @@ sem_t mutexTablaGlobal;
 sem_t mutexTablaDeTablas; 
 sem_t mutexTripulantesPatotas; 
 sem_t mutexCompactacion; 
+sem_t mutexSegmentosLibres;
 
 t_list * tripulantesPatotas; 
 
@@ -138,13 +139,14 @@ typedef struct {
 typedef struct{
 	
 	int tipoSegmento; 
+	int pid;
 	int tid; 
 	uint32_t base; 
 	uint32_t tamanio; 
  
 } t_segmento; 
 
-
+t_list * tablaSegmentosLibres;
 uint32_t asignarMemoriaSegmentacionTCB(void *, int, t_list *); 
 uint32_t asignarMemoriaSegmentacionPCB(void * , t_list *);
 uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * );

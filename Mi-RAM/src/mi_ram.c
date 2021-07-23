@@ -21,11 +21,11 @@ int main(int argc, char ** argv){
 
 	
 
-	 pthread_t mapa;
-	 pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	 pthread_join(mapa, NULL);
-	 nivel_destruir(navePrincipal); 
-	 nivel_gui_terminar();
+	//  pthread_t mapa;
+	//  pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	//  pthread_join(mapa, NULL);
+	//  nivel_destruir(navePrincipal); 
+	//  nivel_gui_terminar();
 
 		
 	pthread_join(servidor, NULL);
@@ -288,7 +288,7 @@ void atenderDiscordiador(int socketCliente){
 			list_add(tablaDeTablasSegmentos, referencia); 
 			sem_post(&mutexTablaDeTablas);
 			
-			//mem_hexdump(memoriaPrincipal, tamanioMemoria);
+			mem_hexdump(memoriaPrincipal, tamanioMemoria);
 			
 			}
 			
@@ -410,7 +410,7 @@ void atenderDiscordiador(int socketCliente){
 		memcpy(&estadoNuevo, stream+offset, sizeof(char));
 		
 		actualizarEstadoTripulante(pat, trip, estadoNuevo); 
-		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
+		mem_hexdump(memoriaPrincipal, tamanioMemoria);
 	
 	break; 
 
@@ -619,11 +619,17 @@ void iniciarMemoria() {
 		tablaSegmentosGlobal = list_create(); 
 		tablaDeTablasSegmentos = list_create();
 		tripulantesPatotas = list_create();
+		tablaSegmentosLibres = list_create(); 
+		t_segmento * segmento = malloc(sizeof(t_segmento)); 
+		segmento -> base = 0; 
+		segmento -> tamanio = tamanioMemoria; 
+		list_add(tablaSegmentosLibres, segmento); 
 		
 		sem_init(&mutexTablaGlobal, 0, 1);
 		sem_init(&mutexTablaDeTablas, 0, 1);
 		sem_init(&mutexTripulantesPatotas, 0, 1);
 		sem_init(&mutexCompactacion, 0, 1);
+		sem_init(&mutexSegmentosLibres, 0, 1);
 	}
 
 	if(strcmp(esquemaMemoria, "PAGINACION") == 0) {
@@ -1314,6 +1320,7 @@ uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, int tripulanteID, t_li
 		//busco un lugar de memoria (segun algoritmo)
 		uint32_t direccionLogica = 0;
 		direccionLogica = encontrarLugarSegmentacion(SIZEOF_TCB); 
+		
 		//le asigno el lugar de memoria encontrado
 		memcpy(memoriaPrincipal + direccionLogica, tripulante, SIZEOF_TCB); 
 		   
@@ -1380,10 +1387,8 @@ uint32_t encontrarLugarSegmentacion(int tamanioSegmento){
 
 uint32_t firstFit(int tamanioContenido){
 	int i = 0; 
-	sem_wait(&mutexTablaGlobal);
-	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal); 
-	sem_post(&mutexTablaGlobal);
-	t_segmento * segmentoLibre = list_get(segmentosLibres, i); 
+	t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
+	segmentoLibre = list_get(tablaSegmentosLibres, i); 
 	
 	bool cabeElContenido(t_segmento * segmento){
 
@@ -1394,8 +1399,10 @@ uint32_t firstFit(int tamanioContenido){
 				return false; 
 			}
 		}
+	
+	
 
-	if(!(list_any_satisfy(segmentosLibres, cabeElContenido))){
+	if(!(list_any_satisfy(tablaSegmentosLibres, cabeElContenido))){
 		log_info(loggerMiram, "Compactando memoria");
 		sem_wait(&mutexCompactacion); 
 		compactarMemoria();
@@ -1405,22 +1412,31 @@ uint32_t firstFit(int tamanioContenido){
 
 	while((segmentoLibre -> tamanio) < tamanioContenido){
 		i++; 
-		segmentoLibre = list_get(segmentosLibres, i); 
-	}
-	//printf("La base del primer segmento libre es : %d \n", (segmentoLibre -> base));
-	//printf("El tamanio del primer segmento libre es %d \n", segmentoLibre->tamanio);
+		segmentoLibre = list_get(tablaSegmentosLibres, i); 
 
-	
-	return (segmentoLibre -> base);
+	}
+
+	uint32_t direccion = segmentoLibre->base;
+	uint32_t tamanioAnterior = segmentoLibre -> tamanio; 
+
+	bool coincideBase(t_segmento * segmento){
+		return (segmento->base == direccion); 
+	}
+
+	sem_wait(&mutexSegmentosLibres);
+	list_remove_by_condition(tablaSegmentosLibres, coincideBase);
+	t_segmento * nuevoSegLibre = malloc(sizeof(t_segmento)); 
+	nuevoSegLibre->base = direccion + tamanioContenido; 
+	nuevoSegLibre->tamanio = tamanioAnterior - tamanioContenido;
+	list_add(tablaSegmentosLibres, nuevoSegLibre);
+	sem_post(&mutexSegmentosLibres); 
+	return direccion;
 
 }
 
 uint32_t bestFit(int tamanioContenido){
 
 	int i = 0;  
-	sem_wait(&mutexTablaGlobal);
-	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal); 
-	sem_post(&mutexTablaGlobal);
 	t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
 	t_list * lugaresPosibles = list_create(); 
 
@@ -1434,28 +1450,38 @@ uint32_t bestFit(int tamanioContenido){
 			}
 		}
 
-	if(!(list_any_satisfy(segmentosLibres, cabeElContenido))){
+	sem_wait(&mutexSegmentosLibres);
+	if(!(list_any_satisfy(tablaSegmentosLibres, cabeElContenido))){
 		log_info(loggerMiram, "Compactando memoria"); 
 		sem_wait(&mutexCompactacion); 
 		compactarMemoria();
 		sem_post(&mutexCompactacion);
 	}
 
-	while(i < (list_size(segmentosLibres))){
-		segmentoLibre = list_get(segmentosLibres, i); 
-		if((segmentoLibre ->tamanio) > tamanioContenido){
-			list_add(lugaresPosibles, segmentoLibre); 
-		}
+	lugaresPosibles = list_filter(tablaSegmentosLibres, cabeElContenido); 
 
-		i++;
-
-	}
-
+	
 	list_sort(lugaresPosibles, segmentoMasPequenio); 
 	t_segmento * segmentoElegido = list_get(lugaresPosibles, 0); 
 	
 
-	return (segmentoElegido -> base);  
+	uint32_t direccion = segmentoElegido->base;
+	uint32_t tamanioAnterior = segmentoElegido -> tamanio; 
+
+	bool coincideBase(t_segmento * segmento){
+		return (segmento->base == direccion); 
+	}
+
+	
+	list_remove_by_condition(tablaSegmentosLibres, coincideBase);
+	t_segmento * nuevoSegLibre = malloc(sizeof(t_segmento)); 
+	nuevoSegLibre->base = direccion + tamanioContenido; 
+	nuevoSegLibre->tamanio = tamanioAnterior - tamanioContenido;
+	list_add(tablaSegmentosLibres, nuevoSegLibre);
+	 sem_post(&mutexSegmentosLibres); 
+
+	free(segmentoElegido); 
+	return direccion; 
 
 }
 
@@ -1490,11 +1516,15 @@ void eliminarTripulanteSegmentacion(uint32_t pid, uint32_t tid){
 	t_list * tablaPatota = referencia->tablaPatota; 
 	sem_post(&mutexTablaDeTablas);
 
-	list_remove_by_condition(tablaPatota, coincideTID);
+	t_segmento * segmentoNuevo = malloc(sizeof(t_segmento));
+	segmentoNuevo = list_remove_by_condition(tablaPatota, coincideTID);
 	sem_wait(&mutexTablaGlobal);  
 	list_remove_by_condition(tablaSegmentosGlobal, coincideTID); 
 	sem_post(&mutexTablaGlobal);
-	
+
+	sem_wait(&mutexSegmentosLibres);
+	list_add(tablaSegmentosLibres, segmentoNuevo); 
+	sem_post(&mutexSegmentosLibres); 
 	esElUltimoTripulante(tablaPatota, pid); 
 
 }
@@ -1521,11 +1551,11 @@ void esElUltimoTripulante(t_list * tabla, uint32_t pid){
 	if(list_size(tabla) == 2){
 
 		sem_wait(&mutexTablaGlobal); 
-		list_remove_by_condition(tablaSegmentosGlobal, coincideBasePID);
+		t_segmento * segmentoNuevo = list_remove_by_condition(tablaSegmentosGlobal, coincideBasePID);
 		sem_post(&mutexTablaGlobal); 
 		memset(memoriaPrincipal + (segmentoPID ->base), 0, SIZEOF_PCB); 
 		sem_wait(&mutexTablaGlobal); 
-		list_remove_by_condition(tablaSegmentosGlobal, coincideBaseTareas); 
+		t_segmento * segmentoNuevo2 = list_remove_by_condition(tablaSegmentosGlobal, coincideBaseTareas); 
 		sem_post(&mutexTablaGlobal);
 		memset(memoriaPrincipal + (segmentoTareas->base), 0, tamanioTareas); 
 		
@@ -1533,6 +1563,12 @@ void esElUltimoTripulante(t_list * tabla, uint32_t pid){
 		list_remove_by_condition(tablaDeTablasSegmentos, coincidePID); 
 		sem_post(&mutexTablaDeTablas);
 		list_destroy(tabla);
+
+		sem_wait(&mutexSegmentosLibres);
+		list_add(tablaSegmentosLibres, segmentoNuevo); 
+		list_add(tablaSegmentosLibres, segmentoNuevo2);
+		sem_post(&mutexSegmentosLibres); 
+
 
 		
 
@@ -1618,29 +1654,21 @@ t_list *  obtenerSegmentosLibres(t_list * tablaSegmentos){
 
 }
 
-void imprimirSegmentosLibres(){
-	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal);
-	int espacioLibre = 0; 
-	for(int i = 0; i < (list_size(segmentosLibres)); i++){
-	   t_segmento * segmento = list_get(segmentosLibres, i); 
-	   espacioLibre = espacioLibre + segmento->tamanio;
-	   printf("Segmento libre que empieza en %d y termina en %d \n", segmento->base, segmento->base + segmento->tamanio); 
-	}
-	printf("BYtes libres: %d \n", espacioLibre);
-
-}
 
 int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
-	sem_wait(&mutexTablaGlobal);
-	t_list * segmentosLibres = obtenerSegmentosLibres(tablaSegmentosGlobal); 
-	sem_post(&mutexTablaGlobal);
+	
 	uint32_t bytesLibres = 0; 
 	uint32_t espacioNecesario = tamanioTareas + cantidadTripulantes * SIZEOF_TCB + SIZEOF_PCB; 
 
-	for(int i = 0 ; i< list_size(segmentosLibres); i++){
-		t_segmento * segmentoLibre = list_get(segmentosLibres, i); 
+	log_info(loggerMiram, "Estoy por buscar espacio necesario. Se necesitan %d bytes", espacioNecesario);
+
+	sem_wait(&mutexSegmentosLibres); 
+	for(int i = 0 ; i< list_size(tablaSegmentosLibres); i++){
+		
+		t_segmento * segmentoLibre = list_get(tablaSegmentosLibres, i); 
 		bytesLibres = bytesLibres + (segmentoLibre->tamanio); 
 	}
+	sem_post(&mutexSegmentosLibres);
 
 	if (espacioNecesario <= bytesLibres){
 		return 1;
@@ -1651,62 +1679,6 @@ int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
 
 	
 }
- /*
-int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
-		t_list * copiaSegmentosOcupados = list_duplicate(tablaSegmentosGlobal); 
-		t_list * copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados);
-
-		bool cabenTareasEnElSegmento(t_segmento * segmento){
-
-			if((segmento->tamanio) >= tamanioTareas){
-				return true; 
-			}
-			else{
-				return false; 
-			}
-		}
-		
-		
-		t_segmento * segmentoPosible = malloc(sizeof(t_segmento));
-		segmentoPosible = list_find(copiaSegmentosLibres, cabenTareasEnElSegmento); 
-		
-		if(segmentoPosible != NULL){
-			t_segmento * copiaSegmentoTareas = malloc(sizeof(t_segmento)); 
-			copiaSegmentoTareas -> base = segmentoPosible -> base; 
-			copiaSegmentoTareas -> tamanio = tamanioTareas; 
-			list_add(copiaSegmentosOcupados, copiaSegmentoTareas); 
-		}
-		else{
-			return -1; 
-		}
-
-		for(int i = 0 ; i < cantidadTripulantes; i ++){
-
-			copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados); 
-			segmentoPosible = list_find(copiaSegmentosLibres, cabeTCB); 
-			if(segmentoPosible != NULL){
-				t_segmento * copiaSegmentoTCB = malloc(SIZEOF_TCB); 
-				copiaSegmentoTCB -> base = segmentoPosible -> base; 
-				copiaSegmentoTCB -> tamanio = SIZEOF_TCB;
-				list_add(copiaSegmentosOcupados, copiaSegmentoTCB); 
-			}
-			else{
-				return -1; 
-			}
-
-		}
-
-		copiaSegmentosLibres = obtenerSegmentosLibres(copiaSegmentosOcupados); 
-		segmentoPosible = list_find(copiaSegmentosLibres, cabePCB); 
-		if(segmentoPosible != NULL){
-			return 1;  
-
-		}
-		else{
-			return -1; 
-		}
-	}
-	 */
 
 bool seEncuentraPrimeroEnMemoria(t_segmento * unSegmento, t_segmento* otroSegmento){
 
@@ -1750,6 +1722,16 @@ bool cabeTCB(t_segmento * segmento){
 
 void compactarMemoria(){
 
+	if(list_size(tablaSegmentosGlobal) <=0){
+		list_clean_and_destroy_elements(tablaSegmentosLibres, free); 
+		t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
+		segmentoLibre->base = 0; 
+		segmentoLibre->tamanio = tamanioMemoria; 
+
+		list_add(tablaSegmentosLibres, segmentoLibre);
+	}
+	else{
+
 	list_sort(tablaSegmentosGlobal, seEncuentraPrimeroEnMemoria);
 
 	//para el primer segmento 
@@ -1759,30 +1741,46 @@ void compactarMemoria(){
 		memcpy(memoriaPrincipal, memoriaPrincipal + primerSegmentoOcupado->base, primerSegmentoOcupado->tamanio); 
 		primerSegmentoOcupado -> base = 0; 
 		list_replace(tablaSegmentosGlobal, 0, primerSegmentoOcupado);
-
+	/*
+	buscar si tiene tipo segmento == 1
+	buscar pid de este segmento
+	filtrar tabla segmentos globales por pid igual al pid de las tareas
+	por cada uno buscar los que tid sea distinto de -1 
+	por cada uno sacar la memoria calcular el lugar de la proxima tarea y actualizar calculando el offset anterior y el nuevo lugar
+	de las tareas 
+	 */
 	}
 	for(int i = 0; i < (list_size(tablaSegmentosGlobal)-1); i++){
 		t_segmento * segmentoActual = list_get(tablaSegmentosGlobal, i); 
 		int finSegmento = segmentoActual->base + segmentoActual->tamanio;
 		t_segmento * proximoSegmento = list_get(tablaSegmentosGlobal, i + 1); 
 		
-		if(proximoSegmento->tipoSegmento == 1){
+		/*/if(proximoSegmento->tipoSegmento == 1){
 			actualizarTCBs(proximoSegmento); 
 		}
 		if(proximoSegmento->tipoSegmento == 2){
 			
-		}
+		}*/
 		memcpy(memoriaPrincipal + finSegmento, memoriaPrincipal + proximoSegmento->base, proximoSegmento->tamanio); 
 		proximoSegmento->base = finSegmento; 
 		list_replace(tablaSegmentosGlobal, i+1, proximoSegmento);
 		
-		
-	}
+		}
+	
 
-	t_list * segmentoLibre = obtenerSegmentosLibres(tablaSegmentosGlobal); 
-	t_segmento * espacioLibre = list_get(segmentoLibre, 0); 
+	list_clean_and_destroy_elements(tablaSegmentosLibres, free); 
+	int ultimoIndice = list_size(tablaSegmentosGlobal) - 1; 
+	t_segmento * ultimoSegmentoLibre = list_get(tablaSegmentosGlobal, ultimoIndice); 
+	t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
+	segmentoLibre->base = ultimoSegmentoLibre->base + ultimoSegmentoLibre->tamanio; 
+	segmentoLibre->tamanio = tamanioMemoria - segmentoLibre->base;
+	list_add(tablaSegmentosLibres, segmentoLibre); 
+
+	
+	t_segmento * espacioLibre = list_get(tablaSegmentosLibres, 0); 
 	memset(memoriaPrincipal + (espacioLibre->base), 0,espacioLibre->tamanio);
-sem_post(&mutexTablaGlobal);
+	free(ultimoSegmentoLibre); 
+	}
 }
 /* 
 void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevoPosy){
@@ -1800,7 +1798,9 @@ void imprimirSegmentos(){
 	
 	fwrite("DUMP DE MEMORIA \n", 17, 1, dump); 
 	
+	if(list_size(tablaSegmentosGlobal) >0){
 	for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
+
 
 		referenciaTablaPatota * referencia = list_get(tablaDeTablasSegmentos, i); 
 		t_list * tabla = referencia->tablaPatota; 
@@ -1811,6 +1811,15 @@ void imprimirSegmentos(){
 			char * segmento = string_from_format("Proceso: %2d    Segmento: %2d Inicio: %3d Tamaño: %3d \n", proceso, x, unSegmento->base, unSegmento->tamanio); 
 			fwrite(segmento, strlen(segmento), 1, dump); 
 		}
+	}
+	}
+
+	fwrite("Segmentos Libres: \n", 19, 1, dump); 
+	list_sort(tablaSegmentosLibres, seEncuentraPrimeroEnMemoria); 
+	for(int x = 0; x< list_size(tablaSegmentosLibres); x++){
+		t_segmento * segmentoLibre = list_get(tablaSegmentosLibres, x); 
+		char * escribir = string_from_format("Segmento libre %2d     Inicio: %3d     Tamanio: %3d \n", x, segmentoLibre->base, segmentoLibre->tamanio); 
+		fwrite(escribir, strlen(escribir), 1, dump); 
 	}
 	fclose(dump);		
 			
