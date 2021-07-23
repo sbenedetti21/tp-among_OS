@@ -130,8 +130,8 @@ char * conseguirBitacora(uint32_t);
 
 //SABOTAJES
 void pruebaDeSabotaje();
-int verificarBlocksBitMap(char *);
-int verificarBitacoraBitMap();
+bool verificarBlocksBitMap(char *);
+bool verificarBitacoraBitMap();
 bool sabotajeSuperBloque();
 int llenarBloqueConRecurso(char, int, int);
 bool verificarListBlocks(char *);
@@ -139,7 +139,7 @@ bool verificarBlockCount(char *);
 int reemplazarSizeBloque(int);
 bool verificarSize(char *);
 bool sabotajeFile();
-
+void desmapearSuperbloque();
 //SIGNAL
 void llegoElSignal();
 
