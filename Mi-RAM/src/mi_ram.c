@@ -4,7 +4,46 @@
 
 
 int main(int argc, char ** argv){
-	navePrincipal = nivel_crear("Nave Principal");
+
+
+	t_list * listaSegmentos = list_create(); 
+	t_list * otraLista = list_create(); 
+	t_list * otraLista2 = list_create(); 
+
+	t_segmento * seg1 = malloc(sizeof(t_segmento));
+	t_segmento * seg2 = malloc(sizeof(t_segmento));
+	t_segmento * seg3 = malloc(sizeof(t_segmento));
+
+	seg1->base = 3; 
+	seg2->base = 4; 
+	seg3->base = 1;
+	list_add(otraLista, seg3);
+
+	list_add(listaSegmentos, seg1);
+	list_add(listaSegmentos, seg2);
+
+	void mostrar(t_segmento * segmento){
+		printf("Base: %d \n", segmento->base);
+	}
+	list_iterate(listaSegmentos, mostrar); 
+
+	t_segmento * segmentoObtenido = list_get(listaSegmentos, 0); 
+	segmentoObtenido->base = 5; 
+
+	
+	list_iterate(listaSegmentos, mostrar);
+	list_add(otraLista2, listaSegmentos); 
+	list_add(otraLista2, otraLista); 
+
+	t_list * listaObtenida = list_get(otraLista2, 0);
+	t_segmento * segmento = list_get(listaObtenida, 0); 
+	segmento->base = 7; 
+
+	list_iterate(listaSegmentos, mostrar); 
+	list_iterate(listaObtenida, mostrar);
+
+
+	/*navePrincipal = nivel_crear("Nave Principal");
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
 	leerConfig();
 
@@ -30,7 +69,7 @@ int main(int argc, char ** argv){
 		
 	pthread_join(servidor, NULL);
 	
-		(memoriaPrincipal);
+		(memoriaPrincipal); */
 
 	return 0; 
 }
@@ -475,28 +514,25 @@ char * obtenerProximaTarea(uint32_t idPatota, uint32_t tid) {
 
 uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 
-	
-	bool coincidePID(referenciaTablaPatota * unaReferencia){
-		return (unaReferencia->pid == idPatota); 
-	}
+
 	bool coincideTID(t_segmento * segmento){
 		return (segmento->tid == tripulanteID); 
 	}
 	 
-	sem_wait(&mutexTablaDeTablas); 
-	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
-	sem_post(&mutexTablaDeTablas);
-	 if(referencia == NULL){
-		 log_info(loggerMiram, "Me pideiron una patota queno se creo todavia. wait 3");
+	sem_wait(&mutexTablaGlobal); 
+	t_segmento * segmentoTripulante = list_find(tablaSegmentosGlobal, coincideTID); 
+	sem_post(&mutexTablaGlobal);
+	/* if(referencia == NULL){
+		 log_info(loggerMiram, "Me pidieron una patota queno se creo todavia. wait 3 PAtota %d", idPatota);
 		sleep(3); 
 		sem_wait(&mutexTablaDeTablas); 
 		referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
 		sem_post(&mutexTablaDeTablas);
-	}
-	t_list * tablaPatota = referencia -> tablaPatota;  
+	} */
+	//t_list * tablaPatota = referencia -> tablaPatota;  
 	
 	
-	t_segmento * segmentoTripulante = list_find(tablaPatota, coincideTID); 
+	//t_segmento * segmentoTripulante = list_find(tablaPatota, coincideTID); 
 
 	if(segmentoTripulante == NULL){
 		
@@ -1663,12 +1699,22 @@ int buscarEspacioSegmentacion(int tamanioTareas, int cantidadTripulantes){
 	log_info(loggerMiram, "Estoy por buscar espacio necesario. Se necesitan %d bytes", espacioNecesario);
 
 	sem_wait(&mutexSegmentosLibres); 
+	log_info(loggerMiram, "antes del for de buscar espacio: LIst size de segmentos libres: %d", list_size(tablaSegmentosLibres));
+
 	for(int i = 0 ; i< list_size(tablaSegmentosLibres); i++){
-		
+		log_info(loggerMiram, "Vuelta numero %d", i);
 		t_segmento * segmentoLibre = list_get(tablaSegmentosLibres, i); 
+		if(segmentoLibre == NULL){
+			log_info(loggerMiram, "Me dio una referencia NUla"); 
+
+		}
 		bytesLibres = bytesLibres + (segmentoLibre->tamanio); 
+		log_info(loggerMiram, "Tamanio segmento libre: %d", segmentoLibre ->tamanio);
 	}
+	log_info(loggerMiram, "sali de la llave");
 	sem_post(&mutexSegmentosLibres);
+
+	log_info(loggerMiram, "SAli del for buscar espacio: BYtes libres: %d", bytesLibres); 
 
 	if (espacioNecesario <= bytesLibres){
 		return 1;
@@ -1763,10 +1809,12 @@ void compactarMemoria(){
 		}*/
 		memcpy(memoriaPrincipal + finSegmento, memoriaPrincipal + proximoSegmento->base, proximoSegmento->tamanio); 
 		proximoSegmento->base = finSegmento; 
-		list_replace(tablaSegmentosGlobal, i+1, proximoSegmento);
+		
 		
 		}
 	
+	
+	}
 
 	list_clean_and_destroy_elements(tablaSegmentosLibres, free); 
 	int ultimoIndice = list_size(tablaSegmentosGlobal) - 1; 
@@ -1782,10 +1830,26 @@ void compactarMemoria(){
 	free(ultimoSegmentoLibre); 
 	}
 }
-/* 
-void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevoPosy){
 
-}*/
+void actualizarReferenciasTablas(uint32_t pid, t_segmento * unSegmento, uint32_t nuevaBase){
+
+		bool coincidePID(referenciaTablaPatota * referencia){
+			return (referencia->pid == pid); 
+		}
+		
+		bool coincideBase(t_segmento * segmento){
+			return (segmento->base == unSegmento->base); 
+		}
+		referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
+		t_list * tablaSegmentos = referencia->tablaPatota; 
+		t_segmento * segmentoParaActualizar = list_find(tablaSegmentos, coincideBase); 
+
+		segmentoParaActualizar->base = nuevaBase; 
+
+
+	
+		}
+
 
 
 //DUMP DE MEMORIA
