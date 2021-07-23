@@ -1853,6 +1853,7 @@ r´H
 [INFO] 18:37:08:257 imongo.c/(30781:30786): Sincronizando
 [INFO] 18:37:18:258 imongo.c/(30781:30786): Sincronizando
 [INFO] 18:37:28:270 imongo.c/(30781:30786): Sincronizando
+<<<<<<< HEAD
 [INFO] 20:18:39:038 imongo.c/(7704:7704): ---------CREO FILESYSTEM----------
 [INFO] 20:18:49:038 imongo.c/(7704:7706): Sincronizando
 [INFO] 20:18:59:044 imongo.c/(7704:7706): Sincronizando
@@ -3252,3 +3253,105 @@ r´H
 [INFO] 00:16:16:896 imongo.c/(15581:15942): Trip 2 termino GENERAR_OXIGENO
 [INFO] 00:16:18:564 imongo.c/(15581:15588): Sincronizando
 [INFO] 00:16:19:365 imongo.c/(15581:15953): Consiguiendo bitacora del Tripulante 3
+=======
+[INFO] 19:43:51:608 imongo.c/(30436:30436): ---------CREO FILESYSTEM----------
+[INFO] 19:44:01:609 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:44:11:633 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:44:21:674 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:44:31:708 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:44:41:710 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:44:51:732 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:45:01:750 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:45:04:306 imongo.c/(30436:30537): Cantidad de Parametros 3
+[INFO] 19:45:04:306 imongo.c/(30436:30537): Llego el tripulante 2
+[INFO] 19:45:04:306 imongo.c/(30436:30537): Tripulante 2 genera 3 de Oxigeno
+[INFO] 19:45:04:360 imongo.c/(30436:30537): Se guardo el MD5 0ab78a3c80b43e81c9387415fc8b3d88
+[INFO] 19:45:04:361 imongo.c/(30436:30537): Tripulante 2 termino de generar 3 de Oxigeno
+[INFO] 19:45:11:775 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:45:16:305 imongo.c/(30436:30561): Trip 2 termino GENERAR_OXIGENO
+[INFO] 19:45:16:320 imongo.c/(30436:30570): Cantidad de Parametros 3
+[INFO] 19:45:16:321 imongo.c/(30436:30570): Llego el tripulante 3
+[INFO] 19:45:16:321 imongo.c/(30436:30570): Tripulante 3 genera 3 de Oxigeno
+[INFO] 19:45:16:330 imongo.c/(30436:30570): Se guardo el MD5 bf53d82e718e602b3048f15781abae0f
+[INFO] 19:45:16:331 imongo.c/(30436:30570): Tripulante 3 termino de generar 3 de Oxigeno
+[INFO] 19:45:21:808 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:45:26:317 imongo.c/(30436:30588): Tripulante 1 estaba en 2|1 y ahora esta en 9|2
+[INFO] 19:45:28:327 imongo.c/(30436:30592): Trip 3 termino GENERAR_OXIGENO
+[INFO] 19:45:28:328 imongo.c/(30436:30593): Tripulante 1 estaba en 2|1 y ahora esta en 9|3
+[INFO] 19:45:31:811 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:45:41:833 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:45:51:875 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:46:01:917 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:46:11:929 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:46:22:000 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:46:28:045 imongo.c/(30436:30632): llego la signal
+[INFO] 19:46:28:045 imongo.c/(30436:30632): Sabotaje en la posicion 9|9
+[INFO] 19:46:32:051 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:46:36:050 imongo.c/(30436:30643): entre al sabotaje
+[INFO] 19:46:36:050 imongo.c/(30436:30643): basura cumpleVerificacion -1
+[INFO] 19:46:36:050 imongo.c/(30436:30643): comida cumpleVerificacion -2
+[INFO] 19:46:36:050 imongo.c/(30436:30643): oxigeno cumpleVerificacion -2
+[INFO] 19:46:36:050 imongo.c/(30436:30643): bitacora cumpleVerificacion -2
+[INFO] 19:46:36:050 imongo.c/(30436:30643): Comienza el proceso de verificacion en los Files
+[INFO] 19:46:36:051 imongo.c/(30436:30643): Verificando BlockCount de ./FileSystem/Files/Basura.ims
+[INFO] 19:46:36:051 imongo.c/(30436:30643): Verificando BlockCount de ./FileSystem/Files/Comida.ims
+[INFO] 19:46:36:051 imongo.c/(30436:30643): Verificando BlockCount de ./FileSystem/Files/Oxigeno.ims
+[INFO] 19:46:36:051 imongo.c/(30436:30643): Verificando Size de ./FileSystem/Files/Basura.ims
+[INFO] 19:46:36:051 imongo.c/(30436:30643): Verificando Size de ./FileSystem/Files/Comida.ims
+[INFO] 19:46:36:051 imongo.c/(30436:30643): Verificando Size de ./FileSystem/Files/Oxigeno.ims
+[INFO] 19:46:36:053 imongo.c/(30436:30643): se modifico el Size del archivo de  ./FileSystem/Files/Oxigeno.ims
+[INFO] 19:46:36:053 imongo.c/(30436:30643): Termina el proceso de verificacion en los Files 1
+[INFO] 19:46:36:100 imongo.c/(30436:30643): Se arreglo el Sabotaje en File
+[INFO] 19:46:36:100 imongo.c/(30436:30643): paso sabotaje
+[INFO] 19:46:42:092 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:46:52:096 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:47:02:143 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:47:12:202 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:47:22:227 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:47:32:268 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:47:36:313 imongo.c/(30436:30674): Cantidad de Parametros 3
+[INFO] 19:47:36:313 imongo.c/(30436:30674): Llego el tripulante 1
+[INFO] 19:47:36:313 imongo.c/(30436:30674): Tripulante 1 genera 3 de Oxigeno
+[INFO] 19:47:36:314 imongo.c/(30436:30675): Cantidad de Parametros 3
+[INFO] 19:47:36:314 imongo.c/(30436:30675): Llego el tripulante 0
+[INFO] 19:47:36:314 imongo.c/(30436:30675): Tripulante 0 genera 3 de Oxigeno
+[INFO] 19:47:36:361 imongo.c/(30436:30674): Se guardo el MD5 3dae1a6397f7d0b9bfcc4fca09b4193f
+[INFO] 19:47:36:362 imongo.c/(30436:30674): Tripulante 1 termino de generar 3 de Oxigeno
+[INFO] 19:47:36:386 imongo.c/(30436:30675): Se guardo el MD5 a33374903403515a90c044641ec559cf
+[INFO] 19:47:36:386 imongo.c/(30436:30675): Tripulante 0 termino de generar 3 de Oxigeno
+[INFO] 19:47:40:315 imongo.c/(30436:30694): Cantidad de Parametros 4
+[INFO] 19:47:40:315 imongo.c/(30436:30694): Llego el tripulante 2
+[INFO] 19:47:40:315 imongo.c/(30436:30694): Tripulante 2 genera 4 de Oxigeno
+[INFO] 19:47:40:359 imongo.c/(30436:30694): Se guardo el MD5 6d347a3722d73fe189ea258c618e5e08
+[INFO] 19:47:40:359 imongo.c/(30436:30694): Tripulante 2 termino de generar 4 de Oxigeno
+[INFO] 19:47:42:310 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:47:48:313 imongo.c/(30436:30709): Trip 1 termino GENERAR_OXIGENO
+[INFO] 19:47:48:315 imongo.c/(30436:30711): Trip 0 termino GENERAR_OXIGENO
+[INFO] 19:47:52:313 imongo.c/(30436:30439): Sincronizando
+[INFO] 19:47:59:585 imongo.c/(30718:30718): ---------CREO FILESYSTEM----------
+[INFO] 19:48:09:589 imongo.c/(30718:30720): Sincronizando
+[INFO] 19:48:19:621 imongo.c/(30718:30720): Sincronizando
+[INFO] 19:48:29:593 imongo.c/(30718:30758): Cantidad de Parametros 3
+[INFO] 19:48:29:593 imongo.c/(30718:30758): Llego el tripulante 2
+[INFO] 19:48:29:593 imongo.c/(30718:30758): Tripulante 2 genera 3 de Oxigeno
+[INFO] 19:48:29:607 imongo.c/(30718:30758): Se guardo el MD5 0ab78a3c80b43e81c9387415fc8b3d88
+[INFO] 19:48:29:607 imongo.c/(30718:30758): Tripulante 2 termino de generar 3 de Oxigeno
+[INFO] 19:48:29:677 imongo.c/(30718:30720): Sincronizando
+[INFO] 19:48:39:679 imongo.c/(30718:30720): Sincronizando
+[INFO] 19:48:41:591 imongo.c/(30718:30797): Trip 2 termino GENERAR_OXIGENO
+[INFO] 19:48:41:613 imongo.c/(30718:30806): Cantidad de Parametros 3
+[INFO] 19:48:41:613 imongo.c/(30718:30806): Llego el tripulante 3
+[INFO] 19:48:41:613 imongo.c/(30718:30806): Tripulante 3 genera 3 de Oxigeno
+[INFO] 19:48:41:650 imongo.c/(30718:30806): Se guardo el MD5 bf53d82e718e602b3048f15781abae0f
+[INFO] 19:48:41:650 imongo.c/(30718:30806): Tripulante 3 termino de generar 3 de Oxigeno
+[INFO] 19:48:49:736 imongo.c/(30718:30720): Sincronizando
+[INFO] 19:48:51:606 imongo.c/(30718:30826): Tripulante 1 estaba en 2|1 y ahora esta en 9|2
+[INFO] 19:48:53:609 imongo.c/(30718:30829): Tripulante 1 estaba en 2|1 y ahora esta en 9|3
+[INFO] 19:48:53:612 imongo.c/(30718:30833): Trip 3 termino GENERAR_OXIGENO
+[INFO] 19:48:59:629 imongo.c/(30718:30848): Cantidad de Parametros 3
+[INFO] 19:48:59:630 imongo.c/(30718:30848): Llego el tripulante 1
+[INFO] 19:48:59:630 imongo.c/(30718:30848): Tripulante 1 genera 3 de Oxigeno
+[INFO] 19:48:59:630 imongo.c/(30718:30850): Cantidad de Parametros 3
+[INFO] 19:48:59:630 imongo.c/(30718:30850): Llego el tripulante 0
+[INFO] 19:48:59:630 imongo.c/(30718:30850): Tripulante 0 genera 3 de Oxigeno
+>>>>>>> e18cbc255a12fdb43b45cbbe1724a08422778276

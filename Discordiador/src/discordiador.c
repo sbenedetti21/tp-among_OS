@@ -635,7 +635,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 																	contador++;
 																	break;
 																}
-
+ 
 															
 														}
 																if( tripulante->fueExpulsado){

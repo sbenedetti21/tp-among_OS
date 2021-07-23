@@ -1787,7 +1787,7 @@ void compactarMemoria(){
 	t_segmento * espacioLibre = list_get(segmentoLibre, 0); 
 	memset(memoriaPrincipal + (espacioLibre->base), 0,espacioLibre->tamanio);
 	sem_post(&mutexTablaGlobal);
-}
+} 
 /* 
 void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevoPosy){
 
