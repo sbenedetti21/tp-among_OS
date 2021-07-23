@@ -487,8 +487,8 @@ uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 		return (segmento->tid == tripulanteID); 
 	}
 
-	bool coincideTID(referenciaTablaPatota * referencia){
-		return (referencia-> == idPatota); 
+	bool coincidePID(referenciaTablaPatota * referencia){
+		return (referencia->pid == idPatota); 
 	}
 
 	
@@ -506,7 +506,7 @@ uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 	} 
 
 	t_list * tablaSegmentos = referencia->tablaPatota; 
-	t_segmento * segmentoTripulante = list_find(tablaSEgmentos, coincideTID);
+	t_segmento * segmentoTripulante = list_find(tablaSegmentos, coincideTID);
 	//t_list * tablaPatota = referencia -> tablaPatota;  
 	
 	

@@ -1,60 +1,208 @@
-==29588== Memcheck, a memory error detector
-==29588== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==29588== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==29588== Command: ./mi_ram
-==29588== Parent PID: 28761
-==29588== 
-==29588== Thread 4:
-==29588== Conditional jump or move depends on uninitialised value(s)
-==29588==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==29588==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
-==29588==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
-==29588==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
-==29588==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
-==29588==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
-==29588==    by 0x80498A2: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
-==29588==    by 0x4062294: start_thread (pthread_create.c:333)
-==29588==    by 0x418C0AD: clone (clone.S:114)
-==29588== 
-==29588== Conditional jump or move depends on uninitialised value(s)
-==29588==    at 0x40E9383: vfprintf (vfprintf.c:1632)
-==29588==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
-==29588==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
-==29588==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
-==29588==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
-==29588==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
-==29588==    by 0x80498A2: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
-==29588==    by 0x4062294: start_thread (pthread_create.c:333)
-==29588==    by 0x418C0AD: clone (clone.S:114)
-==29588== 
-==29588== Use of uninitialised value of size 4
-==29588==    at 0x804A356: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
-==29588==    by 0x4062294: start_thread (pthread_create.c:333)
-==29588==    by 0x418C0AD: clone (clone.S:114)
-==29588== 
-==29588== Use of uninitialised value of size 4
-==29588==    at 0x804A372: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
-==29588==    by 0x4062294: start_thread (pthread_create.c:333)
-==29588==    by 0x418C0AD: clone (clone.S:114)
-==29588== 
-==29588== Use of uninitialised value of size 4
-==29588==    at 0x804A38E: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
-==29588==    by 0x4062294: start_thread (pthread_create.c:333)
-==29588==    by 0x418C0AD: clone (clone.S:114)
-==29588== 
-==29588== 
-==29588== HEAP SUMMARY:
-==29588==     in use at exit: 129,307 bytes in 2,757 blocks
-==29588==   total heap usage: 18,849 allocs, 16,092 frees, 565,025 bytes allocated
-==29588== 
-==29588== LEAK SUMMARY:
-==29588==    definitely lost: 16,915 bytes in 1,036 blocks
-==29588==    indirectly lost: 10,159 bytes in 830 blocks
-==29588==      possibly lost: 48,824 bytes in 359 blocks
-==29588==    still reachable: 53,409 bytes in 532 blocks
-==29588==         suppressed: 0 bytes in 0 blocks
-==29588== Rerun with --leak-check=full to see details of leaked memory
-==29588== 
-==29588== For counts of detected and suppressed errors, rerun with: -v
-==29588== Use --track-origins=yes to see where uninitialised values come from
-==29588== ERROR SUMMARY: 649 errors from 5 contexts (suppressed: 0 from 0)
+==32377== Memcheck, a memory error detector
+==32377== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==32377== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==32377== Command: ./mi_ram
+==32377== Parent PID: 32375
+==32377== 
+==32377== Thread 3:
+==32377== Conditional jump or move depends on uninitialised value(s)
+==32377==    at 0x40E9383: vfprintf (vfprintf.c:1632)
+==32377==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
+==32377==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==32377==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==32377==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==32377==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==32377==    by 0x8049922: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== Conditional jump or move depends on uninitialised value(s)
+==32377==    at 0x40E9383: vfprintf (vfprintf.c:1632)
+==32377==    by 0x410B3DE: vsnprintf (vsnprintf.c:114)
+==32377==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==32377==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==32377==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==32377==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==32377==    by 0x8049922: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== Thread 6:
+==32377== Use of uninitialised value of size 4
+==32377==    at 0x804A3D6: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== Use of uninitialised value of size 4
+==32377==    at 0x804A3F2: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== Use of uninitialised value of size 4
+==32377==    at 0x804A40E: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 
+==32377== HEAP SUMMARY:
+==32377==     in use at exit: 132,443 bytes in 1,225 blocks
+==32377==   total heap usage: 6,875 allocs, 5,650 frees, 299,152 bytes allocated
+==32377== 
+==32377== Thread 1:
+==32377== 16 bytes in 4 blocks are definitely lost in loss record 17 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804A9B9: mandarPaqueteSerializado (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804A1EF: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 20 bytes in 1 blocks are definitely lost in loss record 21 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804AAC4: iniciarMemoria (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x8049499: main (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377== 
+==32377== 24 bytes in 3 blocks are definitely lost in loss record 26 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x8049D98: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 24 bytes in 3 blocks are definitely lost in loss record 27 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804A97B: crearPCB (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x8049DAD: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 24 bytes in 3 blocks are definitely lost in loss record 28 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x8049DBD: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 48 bytes in 4 blocks are definitely lost in loss record 34 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804A9E6: mandarPaqueteSerializado (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804A1EF: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 48 bytes in 12 blocks are definitely lost in loss record 35 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804A9B9: mandarPaqueteSerializado (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804A29B: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 60 bytes in 3 blocks are definitely lost in loss record 39 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804CDBE: firstFit (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804CBC1: encontrarLugarSegmentacion (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804CA0F: asignarMemoriaSegmentacionPCB (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x8049DF1: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 60 bytes in 3 blocks are definitely lost in loss record 40 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804CDBE: firstFit (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804CBC1: encontrarLugarSegmentacion (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804CAEA: asignarMemoriaSegmentacionTareas (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x8049E14: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 60 bytes in 3 blocks are definitely lost in loss record 41 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804CDBE: firstFit (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804CBC1: encontrarLugarSegmentacion (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804C93E: asignarMemoriaSegmentacionTCB (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x8049F7B: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 80 (32 direct, 48 indirect) bytes in 4 blocks are definitely lost in loss record 46 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804A9A9: mandarPaqueteSerializado (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804A1EF: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 80 bytes in 4 blocks are definitely lost in loss record 47 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804D2E9: eliminarTripulanteSegmentacion (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804D1B8: eliminarTripulante (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804A208: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 84 bytes in 4 blocks are definitely lost in loss record 52 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x8049E5A: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 163 bytes in 3 blocks are definitely lost in loss record 64 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x80498B3: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 354 bytes in 12 blocks are definitely lost in loss record 74 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804A9E6: mandarPaqueteSerializado (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804A29B: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 381 (8 direct, 373 indirect) bytes in 1 blocks are definitely lost in loss record 75 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x4056D80: config_create (in /usr/lib/libcommons.so)
+==32377==    by 0x804955A: leerConfig (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x8049463: main (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377== 
+==32377== 450 (96 direct, 354 indirect) bytes in 12 blocks are definitely lost in loss record 76 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804A9A9: mandarPaqueteSerializado (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804A29B: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 640 bytes in 16 blocks are definitely lost in loss record 83 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804A0EF: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 640 bytes in 16 blocks are definitely lost in loss record 84 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804A839: obtenerProximaTareaSegmentacion (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804A597: obtenerProximaTarea (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x804A10B: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 1,670 bytes in 110 blocks are definitely lost in loss record 92 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x804984D: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== 3,430 (880 direct, 2,550 indirect) bytes in 110 blocks are definitely lost in loss record 95 of 103
+==32377==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==32377==    by 0x80496E5: atenderDiscordiador (in /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram)
+==32377==    by 0x4062294: start_thread (pthread_create.c:333)
+==32377==    by 0x418C0AD: clone (clone.S:114)
+==32377== 
+==32377== LEAK SUMMARY:
+==32377==    definitely lost: 5,031 bytes in 331 blocks
+==32377==    indirectly lost: 3,325 bytes in 274 blocks
+==32377==      possibly lost: 15,504 bytes in 114 blocks
+==32377==    still reachable: 108,583 bytes in 506 blocks
+==32377==         suppressed: 0 bytes in 0 blocks
+==32377== Reachable blocks (those to which a pointer was found) are not shown.
+==32377== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==32377== 
+==32377== For counts of detected and suppressed errors, rerun with: -v
+==32377== Use --track-origins=yes to see where uninitialised values come from
+==32377== ERROR SUMMARY: 119 errors from 31 contexts (suppressed: 0 from 0)
