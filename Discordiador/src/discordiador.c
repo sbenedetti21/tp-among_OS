@@ -845,7 +845,7 @@ void expulsarTripulate(TCB_DISCORDIADOR * tripulante){
 }
 
 //-----------------------------TAREAS---------------------------------------------------------------------------------------------------
-
+ 
 
 void trasladarseA(uint32_t posicionX,uint32_t posicionY, TCB_DISCORDIADOR * tripulante){
 

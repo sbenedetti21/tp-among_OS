@@ -74,7 +74,7 @@ void servidorPrincipal() {
 
 
 void atenderDiscordiador(int socketCliente){
-
+ 
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->buffer = malloc(sizeof(t_buffer));
 
@@ -805,13 +805,13 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	memset(ceros, 0, tamanioPagina);
 	fwrite(ceros, tamanioPagina, 1, swap);
 	log_info(loggerMiram, "%s", mem_hexstring(memAux, tamanioPagina));
-	log_info(loggerMiram, "\n%s", mem_hexstring(memoriaPrincipal, tamanioMemoria));
+	
 
 	// buscar el frame en la lista de frames swapp y poner que esta libre  --> TODO
 	pthread_mutex_lock(&mutexListaFramesSwap);
 	t_frame * frameSwap = list_get(listaFramesSwap, nroFrameSwap);
-	frameSwap->ocupado = 0;
-	list_replace(listaFramesSwap, frameSwap->inicio / tamanioPagina, frameSwap);
+	frameSwap->ocupado = 1;
+	// list_replace(listaFramesSwap, frameSwap->inicio / tamanioPagina, frameSwap); CREO QUE NO HACE FALTA REEMPLAZAR
 	pthread_mutex_unlock(&mutexListaFramesSwap);
 	//
 
@@ -819,6 +819,7 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 
 	//pthread_mutex_lock(&mutexMemoriaPrincipal);
 	memcpy(memoriaPrincipal + frameLibre->inicio, memAux, tamanioPagina);
+	log_info(loggerMiram, "\n%s", mem_hexstring(memoriaPrincipal, tamanioMemoria));
 	//pthread_mutex_unlock(&mutexMemoriaPrincipal);
 	frameLibre->ocupado = 1;
 	frameLibre->pagina = pagina;
@@ -830,9 +831,9 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	contadorLRU++;
 	pthread_mutex_unlock(&mutexContadorLRU); 
 	int index = frameLibre->inicio / tamanioPagina;
-	pthread_mutex_lock(&mutexListaFrames);
-	list_replace(listaFrames, index, frameLibre);
-	pthread_mutex_unlock(&mutexListaFrames);
+	// pthread_mutex_lock(&mutexListaFrames);
+	// // list_replace(listaFrames, index, frameLibre); SAME ARRIBA
+	// pthread_mutex_unlock(&mutexListaFrames);
 
 	log_info(loggerMiram, "Se trae la pagina %d, del proceso %d a MEMORIA", frameLibre->pagina->numeroPagina, frameLibre->pagina->pid);
 }
@@ -849,14 +850,14 @@ void llevarPaginaASwap() {
 	//pthread_mutex_unlock(&mutexMemoriaPrincipal);
 
 	frameVictima->ocupado = 0;
-	int index = frameVictima->inicio / tamanioPagina;
-	pthread_mutex_lock(&mutexListaFrames);
-	list_replace(listaFrames, index, frameVictima);
-	pthread_mutex_unlock(&mutexListaFrames);
+	// int index = frameVictima->inicio / tamanioPagina;
+	// pthread_mutex_lock(&mutexListaFrames);
+	// list_replace(listaFrames, index, frameVictima); 
+	// pthread_mutex_unlock(&mutexListaFrames);
 	t_frame * frameSwap = buscarFrameSwap();
 	frameSwap->ocupado = 1;
 	frameSwap->pagina = frameVictima->pagina;
-	frameSwap->pagina->numeroFrame = frameSwap->inicio / tamanioPagina;
+	frameSwap->pagina->numeroFrame = (frameSwap->inicio) / tamanioPagina;
 	pthread_mutex_lock(&mutexContadorLRU);
 	frameSwap->pagina->ultimaReferencia = contadorLRU;
 	contadorLRU++;
@@ -977,14 +978,14 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		pthread_mutex_unlock(&mutexContadorLRU);
 		list_add(listaDePaginas, pagina);
 		
-		t_frame * frameOcupado = malloc(sizeof(t_frame));
-		frameOcupado->inicio = direcProximoFrame;
-		frameOcupado->ocupado = 1;
-		frameOcupado->pagina = pagina; 
+		// t_frame * frameOcupado = malloc(sizeof(t_frame));
+		// frameLibre->inicio = direcProximoFrame;
+		frameLibre->ocupado = 1;
+		frameLibre->pagina = pagina;
 		j=0; // NO BOIRRAR
-		pthread_mutex_lock(&mutexListaFrames);
-		t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
-		pthread_mutex_unlock(&mutexListaFrames);
+		// pthread_mutex_lock(&mutexListaFrames);
+		// t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
+		// pthread_mutex_unlock(&mutexListaFrames);
 		//free(frameParaLiberar);
 	}
 
