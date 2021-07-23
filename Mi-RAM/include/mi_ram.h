@@ -43,7 +43,7 @@ void * hiloSIGUSR1();
 void * hiloSIGUSR2();
 void actualizarEstadoTripulante(uint32_t , uint32_t , char );
 void eliminarTripulante(uint32_t, uint32_t);
-
+ 
 
 
 // ----------------------------------------  PAGINAS

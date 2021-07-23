@@ -667,9 +667,9 @@ int buscarEspacioNecesario(int tamanioTareas, int cantidadTripulantes) {
 		int framesDisponiblesEnSwap = framesDisponiblesSwap();
 
 		if (framesDisponiblesEnSwap >= framesNecesariosEnSwap) {
-			for(int i = 0; i < framesNecesariosEnSwap; i++) {
-				llevarPaginaASwap();
-			}
+			// for(int i = 0; i < framesNecesariosEnSwap; i++) {
+			// 	llevarPaginaASwap();
+			// }
 			return 1;
 		}
 
@@ -747,6 +747,13 @@ t_frame * buscarFrame() {
     frameLibre = list_find(listaFrames, estaLibre);
 	pthread_mutex_unlock(&mutexListaFrames);
 	//free(frameLibre);
+
+	if (frameLibre == NULL) {
+		llevarPaginaASwap();
+		return buscarFrame();
+	}
+	
+	frameLibre->ocupado = 1;
 
 	return frameLibre;
 }
@@ -842,7 +849,10 @@ void llevarPaginaASwap() {
 
 	t_frame * frameVictima = seleccionarVictima();
 	frameVictima->pagina->bitDeValidez = 0;  // Cambia el valor de la pagina real???
-	
+	pthread_mutex_lock(&mutexContadorLRU);
+	frameVictima->pagina->ultimaReferencia = contadorLRU;
+	contadorLRU++;
+	pthread_mutex_unlock(&mutexContadorLRU);
 	void * memAux = malloc(tamanioPagina);
 
 	//pthread_mutex_lock(&mutexMemoriaPrincipal);
@@ -877,22 +887,26 @@ t_frame * seleccionarVictima() {
 	t_frame * victima = malloc(sizeof(t_frame));
 
 	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
-		pthread_mutex_lock(&mutexListaFrames);
-		t_list * listaAux = list_duplicate(listaFrames);
-		pthread_mutex_unlock(&mutexListaFrames);
 
-		bool ultReferencia(t_frame * unFrame, t_frame * otroFrame) {
+		t_frame * ultReferenciaLRU(t_frame * unFrame, t_frame * otroFrame) {
 			if (!otroFrame->ocupado) {
-				return true;
+				return otroFrame;
 			}
 			if (!unFrame->ocupado) {
-				return false;
+				return unFrame;
 			}
-			return unFrame->pagina->ultimaReferencia <= otroFrame->pagina->ultimaReferencia;
+			if (unFrame->pagina->ultimaReferencia <= otroFrame->pagina->ultimaReferencia) {
+				return unFrame;
+			} else
+			{
+				return otroFrame;
+			}
+			
 		}
 
-		list_sort(listaAux, ultReferencia);
-		victima = list_get(listaAux, 0);
+		pthread_mutex_lock(&mutexListaFrames);
+		victima = list_get_minimum(listaFrames, ultReferenciaLRU);
+		pthread_mutex_unlock(&mutexListaFrames);
 	}
 
 	if (strcmp(algoritmoReemplazo, "CLOCK") == 0) {
@@ -1158,7 +1172,7 @@ void actualizarPosicionPaginacion(uint32_t pid, uint32_t tid, uint32_t posx, uin
 
 }
 
-void eliminarTripulantePaginacion(uint32_t tid, uint32_t pid){
+void eliminarTripulantePaginacion(uint32_t pid, uint32_t tid){
 
 	bool coincideID(t_tripulantePaginacion * unTripu) {
 		return unTripu->tid == tid;
@@ -1476,14 +1490,15 @@ void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTrip
 	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t)*2, &nuevaPosy, sizeof(uint32_t));
 }
 
-void eliminarTripulante(uint32_t patid, uint32_t tripid) {
+void eliminarTripulante(uint32_t pid, uint32_t tid) {
 	if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
-		eliminarTripulanteSegmentacion(patid, tripid);
-	}	
-	if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
-		eliminarTripulantePaginacion(patid, tripid);
+		eliminarTripulanteSegmentacion(pid, tid);
 	}
-}
+	if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
+		eliminarTripulantePaginacion(pid, tid);
+	}
+}                                                       
+
 
 void eliminarTripulanteSegmentacion(uint32_t pid, uint32_t tid){
 	uint32_t direccionTripulante = obtenerDireccionTripulante(pid, tid); 
