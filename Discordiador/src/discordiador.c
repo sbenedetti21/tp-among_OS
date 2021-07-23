@@ -8,8 +8,8 @@
    
 int main(int argc, char ** argv){  
 
-	loggerDiscordiador = log_create("discordiador.log", "discordiador.c", 0, LOG_LEVEL_INFO); 
-
+	loggerDiscordiador = log_create("discordiador.log", "discordiador.c", 0, LOG_LEVEL_INFO);  
+ 
 	log_info(loggerDiscordiador, "---------PROGRAMA INICIADO---------- ");
 
 	listaTripulantes = list_create();
@@ -400,7 +400,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					tarea->tiempo = atoi(vectorTarea[3]);
 					tarea->tareaTerminada = false;
 
-					log_info(loggerDiscordiador,"Tarea pedida por tripulante %d: %s Posicion: %d|%d Duracion: %d ",tripulante->tid ,tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
+					log_info(loggerDiscordiador,"Tarea pedida por tripulante %d: %s Posicion: %d|%d Duracion: %d ",tripulante->tid , requerimientosTarea[0], tarea->posicionX, tarea->posicionY, tarea->tiempo);
 
 					tripulante->tareaActual = tarea;
 					
