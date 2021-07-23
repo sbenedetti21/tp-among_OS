@@ -130,6 +130,10 @@ void mapearSuperBloque(){
 	free(ubicacionSuperBloque);
 }
 
+void desmapearSuperbloque(){
+	munmap(mapSuperBloque,tamanioSuperBloqueBlocks); 
+	close(archivoSuperBloque);
+}
 //---------------------------------------------------------------------------------------------------//
 //---------------------------------------- USO DEL FILESYSTEM ---------------------------------------//
 void crearFileSystem(){
@@ -778,52 +782,47 @@ void pruebaDeSabotaje(){
 	
 }
 
-int verificarBlocksBitMap(char *ubicacionArchivo){
+bool verificarBlocksBitMap(char *ubicacionArchivo){
     t_config *configGeneral;
     configGeneral = config_create(ubicacionArchivo);
-	int cumpleVerificacion = 0;
+	bool cumpleVerificacion = false;
     if(configGeneral!=NULL){
-        char *listaBlocks = config_get_string_value(configGeneral,"BLOCKS");
-        int blockOcupado;
+        char **listaBlocks = config_get_array_value(configGeneral,"BLOCKS");
+        
 
-        if(listaBlocks[1]!=']'){ 
-            int inicio = 1;
-
-            while(inicio<strlen(listaBlocks)){
-                int tamanio = 1;
-                int marcador = tamanio + inicio;
+        for(int i=0;listaBlocks[i]!=NULL; i++){ 
+        
 				
-                while(listaBlocks[marcador]!=',' && listaBlocks[marcador]!=']'){
-                    tamanio++;
-                    marcador = tamanio + inicio;
-                }
-				
-				char * blockOcupadoString = string_substring(listaBlocks,inicio,tamanio);
-                blockOcupado = atoi(blockOcupadoString) - 1;
+                int blockOcupado = atoi(listaBlocks[i]) - 1;
 				if(!bitarray_test_bit(punteroBitmap, blockOcupado)){
                 	bitarray_set_bit(punteroBitmap, blockOcupado);
-					cumpleVerificacion = 1;
+					log_info(loggerImongoStore, "hola como estas");
+					cumpleVerificacion = true;
 				}
 
-                inicio += tamanio+1;
-            }
-        } 
-
-    } else {
-        //No existe el archivo
-        return -1;
-    }
-    free(ubicacionArchivo);
-    config_destroy(configGeneral);
+                free(listaBlocks[i]);
+        }
+        free(listaBlocks);
+		free(ubicacionArchivo);
+    	config_destroy(configGeneral);
+    } 
+   
 	return cumpleVerificacion;
 }
 
-int verificarBitacoraBitMap(){
+bool verificarBitacoraBitMap(){
+	
     int file_count = 0;
     DIR * dirp;
     struct dirent * entry;
     dirp = opendir(string_from_format("%s/Files/Bitacoras/",puntoDeMontaje));
-    while ((entry = readdir(dirp)) != NULL) {
+    
+	if(dirp == NULL){
+		return false;
+	}
+	
+	while ((entry = readdir(dirp)) != NULL) {
+		
         if (entry->d_type == DT_REG) {
             file_count++;
         }
@@ -831,12 +830,12 @@ int verificarBitacoraBitMap(){
     closedir(dirp);
 
     int i = 0;
-	int cumpleVerificacion = 0;
-    while(file_count>0){
+	bool cumpleVerificacion = false;
+	log_info(loggerImongoStore, "file count %d",file_count);
+    while(file_count>i){
         cumpleVerificacion = verificarBlocksBitMap(string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,i));
-		if(cumpleVerificacion >=0)
-            file_count--;
-
+	
+		log_info(loggerImongoStore, "cumpleVerificacion %d",cumpleVerificacion);
         i++;
    }
 
@@ -872,7 +871,7 @@ log_info(loggerImongoStore, "bitacora cumpleVerificacion %d",cumpleVerificacion)
 }
 
 bool sabotajeSuperBloque(){
-	log_info(loggerImongoStore, "entre al sabotaje");
+	log_info(loggerImongoStore, "entre al sabotaje del SuperBloque");
 //Verificar Cantidad de Bloques
     char * archivoBlocks; 
     archivoBlocks = string_from_format("%s/Blocks.ims",puntoDeMontaje);
@@ -880,9 +879,10 @@ bool sabotajeSuperBloque(){
     stat(archivoBlocks, &buf);
     off_t blockSize = buf.st_size;
     int cantidadDeBloquesAuxiliar = blockSize / tamanioDeBloque;
-
+	desmapearSuperbloque();
+	mapearSuperBloque();
 	leerSuperBloque();
-
+	
 	if(cantidadDeBloquesAuxiliar != cantidadDeBloques){ 
 	 log_info(loggerImongoStore, "cantidadDEBloquesAuxiliar %d, cantidadDeBloques %d",cantidadDeBloquesAuxiliar,cantidadDeBloques);
    	 int marcador = sizeof(uint32_t);
@@ -892,7 +892,7 @@ bool sabotajeSuperBloque(){
 	 log_info(loggerImongoStore, "sabotaje en cantidad de Bloques ");
 	 return true;
 	}	else if(sabotajeBitMap()) { 
-			log_info(loggerImongoStore, "Sabotaje 	BitMap");
+			log_info(loggerImongoStore, "Sabotaje BitMap");
 		//Verificar BitMap
 			return true;
 	} else 
@@ -923,17 +923,18 @@ int llenarBloqueConRecurso(char caracterLlenado, int bloqueALlenar, int sizeALle
 bool verificarListBlocks(char *ubicacionRecurso){
 	log_info(loggerImongoStore,"Verificando Lista de Bloques de %s",ubicacionRecurso);
 	t_config *configRecurso = config_create(ubicacionRecurso);	
-
-	char *archivoMD5 = config_get_string_value(configRecurso, "MD5_ARCHIVO");
-	char *recursoMD5Real = conseguirMD5(configRecurso);
-	log_info(loggerImongoStore,"MD5\n%s\n%s",archivoMD5,recursoMD5Real);
-	if(strcmp(archivoMD5,recursoMD5Real)==0){
-		//MD5 iguales
-		return false;
-	}
-
 	if(configRecurso!=NULL){
-        char **listaBlocks = config_get_array_value(configRecurso, "BLOCKS");
+		char *archivoMD5 = config_get_string_value(configRecurso, "MD5_ARCHIVO");
+		char *recursoMD5Real = conseguirMD5(configRecurso);
+		log_info(loggerImongoStore,"MD5\n%s\n%s",archivoMD5,recursoMD5Real);
+	
+		if(strcmp(archivoMD5,recursoMD5Real)==0){
+			log_info(loggerImongoStore,"COMPARO EL MD5");
+			//MD5 iguales
+			return false;
+		}
+	
+    	char **listaBlocks = config_get_array_value(configRecurso, "BLOCKS");
 		char *caracterLlenado = config_get_string_value(configRecurso, "CARACTER_LLENADO");
 		int sizeALlenar = config_get_int_value(configRecurso, "SIZE");
 
@@ -947,8 +948,9 @@ bool verificarListBlocks(char *ubicacionRecurso){
         
 		config_destroy(configRecurso);
 		free(listaBlocks);
+		return true;
     }
-	return true;
+	return false;
 }
 
 bool verificarBlockCount(char *ubicacionRecurso){
@@ -1039,20 +1041,20 @@ bool sabotajeFile(){
 		cumpleVerificacion +=verificarBlockCount(ubicacionArchivoBasura);
 		cumpleVerificacion +=verificarBlockCount(ubicacionArchivoComida);
 		cumpleVerificacion +=verificarBlockCount(ubicacionArchivoOxigeno);
-	} 
+	}  
 
 	if(!cumpleVerificacion){
 		cumpleVerificacion +=verificarSize(ubicacionArchivoBasura);
 		cumpleVerificacion +=verificarSize(ubicacionArchivoComida);
 		cumpleVerificacion +=verificarSize(ubicacionArchivoOxigeno);
-	}
+	} 
 	
 
 	if(!cumpleVerificacion) {
 		cumpleVerificacion +=verificarListBlocks(ubicacionArchivoBasura);
 		cumpleVerificacion +=verificarListBlocks(ubicacionArchivoComida);
 		cumpleVerificacion +=verificarListBlocks(ubicacionArchivoOxigeno);
-	}
+	} 
 	
     log_info(loggerImongoStore,"Termina el proceso de verificacion en los Files %d",cumpleVerificacion);
 
@@ -1108,7 +1110,7 @@ void llegoElSignal (){
 void sincronizacionMapBlocks(){
 	while(1){
 		sleep(tiempoDeSinc);
-		log_info(loggerImongoStore,"Sincronizando");
+		//log_info(loggerImongoStore,"Sincronizando");
 		memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 		msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	}

@@ -13,6 +13,12 @@ INICIAR_PATOTA 3 /home/utnso/TPCUATRI/Finales/ES3_Patota3.txt 2|3 5|8 5|3
 INICIAR_PATOTA 3 /home/utnso/TPCUATRI/Finales/ES3_Patota4.txt 0|9 4|4 9|0
 INICIAR_PATOTA 3 /home/utnso/TPCUATRI/Finales/ES3_Patota5.txt 0|2 9|6 3|5
 
+//SABOTAJE
+INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaA.txt 0|0
+INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaB.txt 8|0
+INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaC.txt 8|8
+INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaD.txt 0|8
+
 */ 
 
 
@@ -436,8 +442,6 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					stream += tamanioTareas;
 
 					vectorTarea = string_split(stringTarea, ";");
-					
-
 					
 
 					if(string_contains(vectorTarea[0]," ")){
