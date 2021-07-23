@@ -12,7 +12,7 @@ make all
 sudo make install
 cd $CWD
 echo -e "\n\nBuilding projects...\n\n"
-make -C ./discordiador
-make -C ./imongo
-make -C ./mi_ram
+make -C ./Discordiador
+make -C ./I-MongoStore
+make -C ./Mi_RAM
 echo -e "\n\nDeploy done!\n\n"
