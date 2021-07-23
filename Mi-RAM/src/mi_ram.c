@@ -511,17 +511,27 @@ uint32_t obtenerDireccionTripulante(uint32_t idPatota, uint32_t tripulanteID){
 	bool coincideTID(t_segmento * segmento){
 		return (segmento->tid == tripulanteID); 
 	}
+
+	bool coincideTID(referenciaTablaPatota * referencia){
+		return (referencia-> == idPatota); 
+	}
+
+	
+
+	sem_wait(&mutexTablaDeTablas); 
+	referenciaTablaPatota * referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
+	sem_post(&mutexTablaDeTablas); 
 	 
-	sem_wait(&mutexTablaGlobal); 
-	t_segmento * segmentoTripulante = list_find(tablaSegmentosGlobal, coincideTID); 
-	sem_post(&mutexTablaGlobal);
-	/* if(referencia == NULL){
+	if(referencia == NULL){
 		 log_info(loggerMiram, "Me pidieron una patota queno se creo todavia. wait 3 PAtota %d", idPatota);
 		sleep(3); 
 		sem_wait(&mutexTablaDeTablas); 
 		referencia = list_find(tablaDeTablasSegmentos, coincidePID); 
 		sem_post(&mutexTablaDeTablas);
-	} */
+	} 
+
+	t_list * tablaSegmentos = referencia->tablaPatota; 
+	t_segmento * segmentoTripulante = list_find(tablaSEgmentos, coincideTID);
 	//t_list * tablaPatota = referencia -> tablaPatota;  
 	
 	
@@ -700,9 +710,9 @@ int buscarEspacioNecesario(int tamanioTareas, int cantidadTripulantes) {
 		int framesDisponiblesEnSwap = framesDisponiblesSwap();
 
 		if (framesDisponiblesEnSwap >= framesNecesariosEnSwap) {
-			for(int i = 0; i < framesNecesariosEnSwap; i++) {
-				llevarPaginaASwap();
-			}
+			// for(int i = 0; i < framesNecesariosEnSwap; i++) {
+			// 	llevarPaginaASwap();
+			// }
 			return 1;
 		}
 
@@ -781,6 +791,12 @@ t_frame * buscarFrame() {
 	pthread_mutex_unlock(&mutexListaFrames);
 	//free(frameLibre);
 
+	if(frameLibre == NULL){
+		llevarPaginaASwap(); 
+		return buscarFrame(); 
+	}
+
+	frameLibre->ocupado = 1; 
 	return frameLibre;
 }
 
@@ -792,10 +808,11 @@ t_frame * buscarFrameSwap() {
 
 	t_frame * frameLibre = malloc(sizeof(t_frame));
 
-			pthread_mutex_lock(&mutexListaFramesSwap);
+	pthread_mutex_lock(&mutexListaFramesSwap);
 	frameLibre = list_find(listaFramesSwap, estaLibre);
-			pthread_mutex_unlock(&mutexListaFramesSwap);
+	pthread_mutex_unlock(&mutexListaFramesSwap);
 	//free(frameLibre);
+	frameLibre->ocupado = 1; 
 
 	return frameLibre;
 }
@@ -838,20 +855,21 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	memset(ceros, 0, tamanioPagina);
 	fwrite(ceros, tamanioPagina, 1, swap);
 	log_info(loggerMiram, "%s", mem_hexstring(memAux, tamanioPagina));
-	log_info(loggerMiram, "\n%s", mem_hexstring(memoriaPrincipal, tamanioMemoria));
+	
 
 	// buscar el frame en la lista de frames swapp y poner que esta libre  --> TODO
 	pthread_mutex_lock(&mutexListaFramesSwap);
 	t_frame * frameSwap = list_get(listaFramesSwap, nroFrameSwap);
-	frameSwap->ocupado = 0;
-	list_replace(listaFramesSwap, frameSwap->inicio / tamanioPagina, frameSwap);
+	frameSwap->ocupado = 1;
+	//list_replace(listaFramesSwap, frameSwap->inicio / tamanioPagina, frameSwap);
 	pthread_mutex_unlock(&mutexListaFramesSwap);
-	//
+	
 
 	t_frame * frameLibre = buscarFrame();
 
 	//pthread_mutex_lock(&mutexMemoriaPrincipal);
 	memcpy(memoriaPrincipal + frameLibre->inicio, memAux, tamanioPagina);
+	log_info(loggerMiram, "\n%s", mem_hexstring(memoriaPrincipal, tamanioMemoria));
 	//pthread_mutex_unlock(&mutexMemoriaPrincipal);
 	frameLibre->ocupado = 1;
 	frameLibre->pagina = pagina;
@@ -863,9 +881,9 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	contadorLRU++;
 	pthread_mutex_unlock(&mutexContadorLRU); 
 	int index = frameLibre->inicio / tamanioPagina;
-	pthread_mutex_lock(&mutexListaFrames);
-	list_replace(listaFrames, index, frameLibre);
-	pthread_mutex_unlock(&mutexListaFrames);
+	// pthread_mutex_lock(&mutexListaFrames);
+	// list_replace(listaFrames, index, frameLibre);
+	// pthread_mutex_unlock(&mutexListaFrames);
 
 	log_info(loggerMiram, "Se trae la pagina %d, del proceso %d a MEMORIA", frameLibre->pagina->numeroPagina, frameLibre->pagina->pid);
 }
@@ -874,7 +892,11 @@ void llevarPaginaASwap() {
 
 	t_frame * frameVictima = seleccionarVictima();
 	frameVictima->pagina->bitDeValidez = 0;  // Cambia el valor de la pagina real???
-	
+	pthread_mutex_lock(&mutexContadorLRU);
+	frameVictima->pagina->ultimaReferencia = contadorLRU;
+	contadorLRU++;
+	pthread_mutex_unlock(&mutexContadorLRU);
+
 	void * memAux = malloc(tamanioPagina);
 
 	//pthread_mutex_lock(&mutexMemoriaPrincipal);
@@ -882,20 +904,20 @@ void llevarPaginaASwap() {
 	//pthread_mutex_unlock(&mutexMemoriaPrincipal);
 
 	frameVictima->ocupado = 0;
-	int index = frameVictima->inicio / tamanioPagina;
-	pthread_mutex_lock(&mutexListaFrames);
-	list_replace(listaFrames, index, frameVictima);
-	pthread_mutex_unlock(&mutexListaFrames);
+	// int index = frameVictima->inicio / tamanioPagina;
+	// pthread_mutex_lock(&mutexListaFrames);
+	// list_replace(listaFrames, index, frameVictima);
+	// pthread_mutex_unlock(&mutexListaFrames);
 	t_frame * frameSwap = buscarFrameSwap();
 	frameSwap->ocupado = 1;
 	frameSwap->pagina = frameVictima->pagina;
 	frameSwap->pagina->numeroFrame = frameSwap->inicio / tamanioPagina;
-	pthread_mutex_lock(&mutexContadorLRU);
-	frameSwap->pagina->ultimaReferencia = contadorLRU;
-	contadorLRU++;
-	pthread_mutex_unlock(&mutexContadorLRU);
+	// pthread_mutex_lock(&mutexContadorLRU);
+	// frameSwap->pagina->ultimaReferencia = contadorLRU;
+	// contadorLRU++;
+	// pthread_mutex_unlock(&mutexContadorLRU);
 
-	log_info(loggerMiram, "Se lleva la pagina %d, del proceso %d a SWAP", frameVictima->pagina->numeroPagina, frameVictima->pagina->pid);
+	log_info(loggerMiram, "VIctima elegida para Swap: pagina %d de proceso %d", frameVictima->pagina->numeroPagina, frameVictima->pagina->pid);
 
 	FILE * swap = fopen(path_SWAP, "a+");
 	fseek(swap, frameSwap->inicio, SEEK_SET);
@@ -909,22 +931,25 @@ t_frame * seleccionarVictima() {
 	t_frame * victima = malloc(sizeof(t_frame));
 
 	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
-		pthread_mutex_lock(&mutexListaFrames);
-		t_list * listaAux = list_duplicate(listaFrames);
-		pthread_mutex_unlock(&mutexListaFrames);
 
-		bool ultReferencia(t_frame * unFrame, t_frame * otroFrame) {
+
+		t_frame * ultReferenciaLRU(t_frame * unFrame, t_frame * otroFrame) {
 			if (!otroFrame->ocupado) {
-				return true;
+				return otroFrame;
 			}
 			if (!unFrame->ocupado) {
-				return false;
+				return unFrame;
 			}
-			return unFrame->pagina->ultimaReferencia <= otroFrame->pagina->ultimaReferencia;
+			if(unFrame->pagina->ultimaReferencia <= otroFrame->pagina->ultimaReferencia){
+				return unFrame;
+			}else{
+				return otroFrame; 
+			}
 		}
 
-		list_sort(listaAux, ultReferencia);
-		victima = list_get(listaAux, 0);
+		pthread_mutex_lock(&mutexListaFrames);
+		victima = list_get_minimum(listaFrames, ultReferenciaLRU); 
+		pthread_mutex_unlock(&mutexListaFrames);
 	}
 
 	if (strcmp(algoritmoReemplazo, "CLOCK") == 0) {
@@ -1010,14 +1035,14 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		pthread_mutex_unlock(&mutexContadorLRU);
 		list_add(listaDePaginas, pagina);
 		
-		t_frame * frameOcupado = malloc(sizeof(t_frame));
-		frameOcupado->inicio = direcProximoFrame;
-		frameOcupado->ocupado = 1;
-		frameOcupado->pagina = pagina; 
+		// t_frame * frameOcupado = malloc(sizeof(t_frame));
+		// frameOcupado->inicio = direcProximoFrame;
+		frameLibre->ocupado = 1;
+		frameLibre->pagina = pagina; 
 		j=0; // NO BOIRRAR
-		pthread_mutex_lock(&mutexListaFrames);
-		t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
-		pthread_mutex_unlock(&mutexListaFrames);
+		// pthread_mutex_lock(&mutexListaFrames);
+		// t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
+		// pthread_mutex_unlock(&mutexListaFrames);
 		//free(frameParaLiberar);
 	}
 
@@ -1025,6 +1050,7 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 	tablaDePaginas->longitudTareas = longitudTareas;
 	tablaDePaginas->pid = pid;
 	tablaDePaginas->listaPaginas = listaDePaginas;
+	tablaDePaginas->contadorTCB = cantidadTCBs;
 
 	pthread_mutex_lock(&mutexListaTablas);
 	list_add(listaTablasDePaginas, tablaDePaginas);
@@ -1189,39 +1215,39 @@ void actualizarPosicionPaginacion(uint32_t pid, uint32_t tid, uint32_t posx, uin
 
 }
 
-void eliminarTripulantePaginacion(uint32_t tid, uint32_t pid){
+void eliminarTripulantePaginacion(uint32_t pid, uint32_t tid){
 
 	bool coincideID(t_tripulantePaginacion * unTripu) {
 		return unTripu->tid == tid;
 	}
-		bool coincidePID(referenciaTablaPaginas * referenciaTabla){
+	bool coincidePID(referenciaTablaPaginas * referenciaTabla){
 		return (referenciaTabla->pid == pid); 
 	}
 	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
 	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
-	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
-	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
-	uint32_t offset = referenciaTripulante->offset; 
-	uint32_t cantidadPaginas = referenciaTripulante->cantidadDePaginas; 
+
+	if (referenciaTabla->contadorTCB == 1) {
+		t_list * listaPaginas = referenciaTabla->listaPaginas;
+
+		void desocupar(t_pagina * pagina) {
+			if (!pagina->bitDeValidez) {
+				t_frame * frameADesocupar = list_get(listaFramesSwap, pagina->numeroFrame);
+				frameADesocupar->ocupado = 0;
+			}
+			if (pagina->bitDeValidez) {
+				t_frame * frameADesocupar = list_get(listaFrames, pagina->numeroFrame);
+				frameADesocupar->ocupado = 0;
+				pagina->bitDeValidez = 0;
+			}
 	
-	uint32_t paginasLlenas = cantidadPaginas - 2;
-
-	//para la primera pagina que ocupa 
-	
-
-	for(int i = 0; i < paginasLlenas; i ++){
-
-		bool coincideNro(t_pagina * pagina){
-			return (pagina->numeroPagina == (primeraPagina + i + 1)); 
 		}
-
-		t_pagina * paginaActual = list_find(tablaPaginas, coincideNro); 
-		paginaActual->bitDeValidez = 0; 
-		uint32_t frame = paginaActual->numeroFrame;
-		t_frame * unFrame =  list_get(listaFrames, frame); 
-		unFrame->ocupado = 0; 
-		
+		list_iterate(listaPaginas, desocupar); 
+		list_destroy_and_destroy_elements(listaPaginas, free);
 	}
+
+	referenciaTabla->contadorTCB--; 
+
+	
 
 }
 
@@ -1433,8 +1459,7 @@ uint32_t encontrarLugarSegmentacion(int tamanioSegmento){
 
 uint32_t firstFit(int tamanioContenido){
 	int i = 0; 
-	t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
-	segmentoLibre = list_get(tablaSegmentosLibres, i); 
+	t_segmento * segmentoLibre =  list_get(tablaSegmentosLibres, i); 
 	
 	bool cabeElContenido(t_segmento * segmento){
 
@@ -1922,7 +1947,7 @@ void imprimirSegmentos(){
 	fwrite("DUMP DE MEMORIA \n", 17, 1, dump); 
 	
 	
-	sem_wait(&mutexTablaGlobal); 
+	
 	if(list_size(tablaSegmentosGlobal) >0){
 	for(int i = 0; i< list_size(tablaDeTablasSegmentos); i++){
 
@@ -1962,12 +1987,15 @@ void imprimirSegmentos(){
 void sig_handler(uint32_t senial){
 
 	if(senial == SIGUSR1){
-		imprimirSegmentos(); 
-		 
-		 
+		if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
+			imprimirSegmentos(); 
+		}
+		if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
+			dumpDeMemoriaPaginacion();
+		}
 	}
 	else{
-		if(senial == SIGUSR2){
+		if(senial == SIGUSR2 && (strcmp(esquemaMemoria, "SEGMENTACION") == 0)){
 		
 		sem_wait(&mutexTablaDeTablas); 
 		sem_wait(&mutexSegmentosLibres);

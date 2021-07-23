@@ -86,6 +86,7 @@ typedef struct {
 	int longitudTareas;
 	uint32_t pid;
 	t_list * listaPaginas;
+	int contadorTCB;
 } referenciaTablaPaginas;
 
 typedef struct {
