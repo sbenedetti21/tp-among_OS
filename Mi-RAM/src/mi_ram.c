@@ -858,12 +858,12 @@ void llevarPaginaASwap() {
 	frameSwap->ocupado = 1;
 	frameSwap->pagina = frameVictima->pagina;
 	frameSwap->pagina->numeroFrame = (frameSwap->inicio) / tamanioPagina;
-	pthread_mutex_lock(&mutexContadorLRU);
-	frameSwap->pagina->ultimaReferencia = contadorLRU;
-	contadorLRU++;
-	pthread_mutex_unlock(&mutexContadorLRU);
+	// pthread_mutex_lock(&mutexContadorLRU);
+	// frameSwap->pagina->ultimaReferencia = contadorLRU;
+	// contadorLRU++;
+	// pthread_mutex_unlock(&mutexContadorLRU);
 
-	log_info(loggerMiram, "Se lleva la pagina %d, del proceso %d a SWAP", frameVictima->pagina->numeroPagina, frameVictima->pagina->pid);
+	log_info(loggerMiram, "VICTIMA ELEGIDA PARA SWAP: pagina %d, del proceso %d", frameVictima->pagina->numeroPagina, frameVictima->pagina->pid);
 
 	FILE * swap = fopen(path_SWAP, "a+");
 	fseek(swap, frameSwap->inicio, SEEK_SET);
@@ -1832,21 +1832,25 @@ void imprimirSegmentos(){
 void sig_handler(uint32_t senial){
 
 	if(senial == SIGUSR1){
-		imprimirSegmentos(); 
-		 
-		 
+		if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
+			imprimirSegmentos(); 
+		}
+		if (strcmp(esquemaMemoria, "PAGINACION") == 0) {
+			dumpDeMemoriaPaginacion();
+		}
 	}
 	else{
 		if(senial == SIGUSR2){
-		sem_wait(&mutexCompactacion); 
-		compactarMemoria(); 
-		sem_post(&mutexCompactacion);
-		}
-		else{
-			log_error(loggerMiram, "No se reconoce la señal enviada");
-		}
+			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
+				sem_wait(&mutexCompactacion); 
+				compactarMemoria(); 
+				sem_post(&mutexCompactacion);
+				}
+				else{
+					log_error(loggerMiram, "No se reconoce la señal enviada");
+				}				
+			}
 	}
-	
 	
 }
 
