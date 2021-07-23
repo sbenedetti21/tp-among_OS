@@ -413,7 +413,7 @@ void atenderDiscordiador(int socketCliente){
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 	
 	break; 
-
+ 
 	case EXPULSAR_TRIPULANTE: ;
 		 uint32_t tripid = 0, patid = 0;
 		
@@ -426,7 +426,7 @@ void atenderDiscordiador(int socketCliente){
 		eliminarTripulante(patid, tripid);
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
-	break ;
+	break ; 
 
 	
 	default:	
@@ -798,11 +798,18 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	FILE * swap = fopen(path_SWAP, "aw+");
 	fseek(swap, nroFrameSwap*tamanioPagina, SEEK_SET);
 	fread(memAux, tamanioPagina, 1, swap);
+	fseek(swap, nroFrameSwap*tamanioPagina, SEEK_SET);
+	void * ceros = malloc(tamanioPagina);
+	memset(ceros, 0, tamanioPagina);
+	fwrite(ceros, tamanioPagina, 1, swap);
+	log_info(loggerMiram, "%s", mem_hexstring(memAux, tamanioPagina));
+	log_info(loggerMiram, "\n%s", mem_hexstring(memoriaPrincipal, tamanioMemoria));
 
 	// buscar el frame en la lista de frames swapp y poner que esta libre  --> TODO
 	pthread_mutex_lock(&mutexListaFramesSwap);
 	t_frame * frameSwap = list_get(listaFramesSwap, nroFrameSwap);
 	frameSwap->ocupado = 0;
+	list_replace(listaFramesSwap, frameSwap->inicio / tamanioPagina, frameSwap);
 	pthread_mutex_unlock(&mutexListaFramesSwap);
 	//
 
@@ -847,6 +854,7 @@ void llevarPaginaASwap() {
 	t_frame * frameSwap = buscarFrameSwap();
 	frameSwap->ocupado = 1;
 	frameSwap->pagina = frameVictima->pagina;
+	frameSwap->pagina->numeroFrame = frameSwap->inicio / tamanioPagina;
 	pthread_mutex_lock(&mutexContadorLRU);
 	frameSwap->pagina->ultimaReferencia = contadorLRU;
 	contadorLRU++;
@@ -1779,7 +1787,7 @@ void compactarMemoria(){
 	t_segmento * espacioLibre = list_get(segmentoLibre, 0); 
 	memset(memoriaPrincipal + (espacioLibre->base), 0,espacioLibre->tamanio);
 	sem_post(&mutexTablaGlobal);
-}
+} 
 /* 
 void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevoPosy){
 

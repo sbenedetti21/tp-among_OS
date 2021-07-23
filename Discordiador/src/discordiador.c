@@ -1296,7 +1296,7 @@ void serializarYMandarNuevoEstado(TCB_DISCORDIADOR * tripulante){
 
 	mandarPaqueteSerializado(buffer, socket, ACTUALIZAR_ESTADO);
 
-	//free(buffer);  NO ANDA
+
 }
 
 void serializaYMandarExpulsado(uint32_t tid, uint32_t pid ){
@@ -1321,7 +1321,7 @@ void serializaYMandarExpulsado(uint32_t tid, uint32_t pid ){
 
 	mandarPaqueteSerializado(buffer, socket, EXPULSAR_TRIPULANTE);
 
-	free(buffer); 
+
 }
 
 //-----------------------------SABOTAJES---------------------------------------------------------------------------------------------------
