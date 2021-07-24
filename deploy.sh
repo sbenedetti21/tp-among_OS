@@ -26,8 +26,8 @@ TAREAS="a-mongos-pruebas"
 git clone "https://github.com/sisoputnfrba/${TAREAS}.git" $TAREAS
 mv ${TAREAS}/Finales ..
 cd $CWD
-echo -e "\n\nBuilding projects...\n\n"
-make -C ./Discordiador
-make -C ./I-MongoStore
-make -C ./Mi-RAM
-echo -e "\n\nDeploy done!\n\n"
+#echo -e "\n\nBuilding projects...\n\n"
+#make -C ./Discordiador
+#make -C ./I-MongoStore
+#make -C ./Mi-RAM
+#echo -e "\n\nDeploy done!\n\n"
