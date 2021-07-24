@@ -24,10 +24,11 @@ echo -e "Trayendo tareas...\n\n"
 cd ~
 TAREAS="a-mongos-pruebas"
 git clone "https://github.com/sisoputnfrba/${TAREAS}.git" $TAREAS
+echo -e "Moviendo tareas..."
 sudo mv ${TAREAS}/Finales/* ~/
 cd $CWD
-#echo -e "\n\nBuilding projects...\n\n"
-#make -C ./Discordiador
-#make -C ./I-MongoStore
-#make -C ./Mi-RAM
-#echo -e "\n\nDeploy done!\n\n"
+echo -e "\n\nBuilding projects...\n\n"
+make -C ./Discordiador
+make -C ./I-MongoStore
+make -C ./Mi-RAM
+echo -e "\n\nDeploy done!\n\n"
