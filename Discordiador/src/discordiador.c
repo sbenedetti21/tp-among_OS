@@ -548,9 +548,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					 }
 
 					serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
-					cambiarDeEstado(tripulante,'R');					 
-					sem_post(&semaforoTripulantes); 
-					sem_post(&esperarAlgunTripulante);
+					sem_post(&tripulante->semaforoTrabajo); 
 				}
 					if(haySabotaje){ sem_wait(&semaforoSabotaje);}
 					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
