@@ -24,7 +24,7 @@ echo -e "Trayendo tareas...\n\n"
 cd ~
 TAREAS="a-mongos-pruebas"
 git clone "https://github.com/sisoputnfrba/${TAREAS}.git" $TAREAS
-sudo mv -f ${TAREAS}/Finales ..
+sudo mv -f ${TAREAS}/Finales /~/
 cd $CWD
 #echo -e "\n\nBuilding projects...\n\n"
 #make -C ./Discordiador
