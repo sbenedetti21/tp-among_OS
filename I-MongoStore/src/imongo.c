@@ -26,7 +26,7 @@ int main(int argc, char ** argv){
 	//SABOTAJE
 	//pruebaDeSabotaje();
 	//sabotajeImongo();
-	
+	 
 	signal(SIGUSR1, llegoElSignal);
 	// sleep(20);
 	// printf("SIGUSR1");
@@ -77,6 +77,7 @@ void crearBlocks(){
 	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
 	ftruncate(fileno(archivoCrearBlocks), tamanioBlocks);
 	fclose(archivoCrearBlocks);
+	free(ubicacionBlocks);
 }
 
 void mapearBlocks(){
@@ -91,7 +92,8 @@ void crearSuperBloque(){
 	FILE *superBloque = fopen(ubicacionSuperBloque, "w");
 	ftruncate(fileno(superBloque), tamanioSuperBloqueBlocks);
 	fclose(superBloque);
-	
+	free(ubicacionSuperBloque);
+
 	mapearSuperBloque();
 
 	int marcador = 0;
@@ -280,7 +282,7 @@ int leerUltimoBloque(t_config * configGeneral){
 		proximoBlock = bloqueLibreBitMap();
 		agregarBloqueArchivo(proximoBlock, configGeneral);
 	}
-
+	//free(listaBlocks);
 	return proximoBlock;
 }
 
@@ -301,6 +303,7 @@ void agregarBloqueArchivo(int nuevoBloque, t_config * configGeneral){
 	string_append(&nuevaListablocks, "]");
 	config_set_value(configGeneral,"BLOCKS",nuevaListablocks);
 	config_save(configGeneral);
+	//free(listaBlocks);
 }
 
 void agregarSizeArchivo(t_config * configGeneral, int nuevaSize){
@@ -324,7 +327,7 @@ t_config *crearArchivoBitacora(int idTripulante){
 	} else {
 		configBitacora = config_create(ubicacionArchivoBitacora);
 	}
-
+	free(ubicacionArchivoBitacora);
 	return configBitacora;
 }
 //---------------------------------------------------------------------------------------------------//
@@ -472,9 +475,9 @@ void borrarBloqueFile(char *recurso, int cantidadBorrar){
 			indiceFinal--;
 	
 	
-	listaBlocks = string_substring_until(listaBlocks, indiceFinal);
-	string_append(&listaBlocks, "]");
-	config_set_value(configRecurso,"BLOCKS",listaBlocks);
+	char * listaBlocksAuxiliar = string_substring_until(listaBlocksAuxiliar, indiceFinal);
+	string_append(&listaBlocksAuxiliar, "]");
+	config_set_value(configRecurso,"BLOCKS",listaBlocksAuxiliar);
 
 	int sizeAcutal = config_get_int_value(configRecurso, "SIZE");
 	sizeAcutal-=cantidadBorrar;
@@ -483,6 +486,8 @@ void borrarBloqueFile(char *recurso, int cantidadBorrar){
 	config_save(configRecurso);
 	config_destroy(configRecurso);
 	free(listaBlocks);
+	//free(listaBlocksAuxiliar);
+	
 	semaforoListoRecurso(recurso);
 }
 
@@ -591,6 +596,7 @@ void llenarBlocksRecursos(char *recurso, int cantALlenar){
 			marcador = proximoBlock * tamanioDeBloque;
 			cantidadLibreBlock=tamanioDeBloque;
 		}
+		free(caracteresLlenado);
 	}
 
 	actualizarMD5(recurso);
@@ -744,15 +750,16 @@ char * conseguirBitacora(uint32_t idTripulante){
 			inicio+=tamanio;
 			inicio++;
 
-			//free(proximoBlockString);
-			//free(stringBuscado);
+			free(proximoBlockString);
+			free(stringBuscado);
+			
 		}
 	}else{
 		log_info(loggerImongoStore,"No tiene informacion en la bitacora del Tripulante %d",idTripulante);
 	}
 	log_info(loggerImongoStore,"%s",stringBitacora);
 	free(ubicacionBitacoraID);
-
+	free(listaBlocks);
 
 	return stringBitacora;
 }
@@ -803,7 +810,6 @@ bool verificarBlocksBitMap(char *ubicacionArchivo){
                 free(listaBlocks[i]);
         }
         free(listaBlocks);
-		free(ubicacionArchivo);
     	config_destroy(configGeneral);
     } 
    
@@ -848,26 +854,31 @@ bool sabotajeBitMap(){
 	char *ubicacionArchivoBasura = string_from_format("%s/Files/Basura.ims",puntoDeMontaje);
     cumpleVerificacion +=  verificarBlocksBitMap(ubicacionArchivoBasura);
 log_info(loggerImongoStore, "basura cumpleVerificacion %d",cumpleVerificacion);
-
+	free(ubicacionArchivoBasura);
+   
     char *ubicacionArchivoComida = string_from_format("%s/Files/Comida.ims",puntoDeMontaje);
     cumpleVerificacion += verificarBlocksBitMap(ubicacionArchivoComida);
 log_info(loggerImongoStore, "comida cumpleVerificacion %d",cumpleVerificacion);
+	free(ubicacionArchivoComida);
 
     char *ubicacionArchivoOxigeno = string_from_format("%s/Files/Oxigeno.ims",puntoDeMontaje);
    	cumpleVerificacion += verificarBlocksBitMap(ubicacionArchivoOxigeno);
 log_info(loggerImongoStore, "oxigeno cumpleVerificacion %d",cumpleVerificacion);
+	free(ubicacionArchivoOxigeno);
 
     cumpleVerificacion += verificarBitacoraBitMap();
 log_info(loggerImongoStore, "bitacora cumpleVerificacion %d",cumpleVerificacion);
-
+	
 	if(cumpleVerificacion > 0 ){
     int marcador = sizeof(uint32_t) * 2;
 
     memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
     msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
+
 	return true;
 	} else 
 	return false;
+
 }
 
 bool sabotajeSuperBloque(){
@@ -879,6 +890,8 @@ bool sabotajeSuperBloque(){
     stat(archivoBlocks, &buf);
     off_t blockSize = buf.st_size;
     int cantidadDeBloquesAuxiliar = blockSize / tamanioDeBloque;
+	free(archivoBlocks);
+
 	desmapearSuperbloque();
 	mapearSuperBloque();
 	leerSuperBloque();
@@ -908,13 +921,15 @@ int llenarBloqueConRecurso(char caracterLlenado, int bloqueALlenar, int sizeALle
 
 	char *caracteresVaciado = string_repeat('\0',tamanioDeBloque);
 	memcpy(&(mapBlocksCopia[marcador]), caracteresVaciado, tamanioDeBloque);
+	free(caracteresVaciado);
 
 	if(cantFaltante<=cantidadLibreBlock){
 		cantidadLibreBlock = cantFaltante;
 	}
 	char *caracteresLlenado = string_repeat(caracterLlenado,cantidadLibreBlock);
 	memcpy(&(mapBlocksCopia[marcador]), caracteresLlenado, cantidadLibreBlock);
-	
+	free(caracteresLlenado);
+
 	cantFaltante-=cantidadLibreBlock;
 
 	return cantFaltante;
@@ -933,7 +948,9 @@ bool verificarListBlocks(char *ubicacionRecurso){
 			//MD5 iguales
 			return false;
 		}
-	
+		free(archivoMD5);
+		free(recursoMD5Real);
+
     	char **listaBlocks = config_get_array_value(configRecurso, "BLOCKS");
 		char *caracterLlenado = config_get_string_value(configRecurso, "CARACTER_LLENADO");
 		int sizeALlenar = config_get_int_value(configRecurso, "SIZE");
@@ -948,6 +965,8 @@ bool verificarListBlocks(char *ubicacionRecurso){
         
 		config_destroy(configRecurso);
 		free(listaBlocks);
+		free(caracterLlenado);
+
 		return true;
     }
 	return false;
