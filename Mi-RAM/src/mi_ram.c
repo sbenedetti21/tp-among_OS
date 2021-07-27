@@ -635,7 +635,7 @@ uint32_t bestFitSegmentacion(int tamanioContenido){
 		 //VER TEMA DE LOS MUTEX
 		log_info(loggerMiram2, "El contenido no entra en ningun segmento libre. Iniciando compactacion...");
 		compactarMemoriaSegmentacion(); 
-		bestFitSegmentacion(tamanioContenido); 
+		return bestFitSegmentacion(tamanioContenido); 
 	}
 
 	t_list * segmentosPosibles = list_filter(segmentosLibres, cabeElContenido); 
@@ -698,7 +698,7 @@ log_info(loggerMiram2, "Cantidad de segmentos libres: %d", list_size(segmentosLi
 		log_info(loggerMiram2, "El contenido no entra en ningun segmento libre. Iniciando compactacion...");
 		compactarMemoriaSegmentacion(); 
 		log_info(loggerMiram2, "Compactacion terminada");
-		firstFitSegmentacion(tamanioContenido);
+		return firstFitSegmentacion(tamanioContenido);
 		 
 	}
 

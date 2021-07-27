@@ -60186,3 +60186,2891 @@
 [INFO] 17:28:42:841 mi_ram.c/(32427:32654): TAmanio segmento elegido: 10 Tamnio contenido: 30
 [INFO] 17:28:42:841 mi_ram.c/(32427:32654): TAmanio segmento elegido: 21 Tamnio contenido: 30
 [INFO] 17:28:42:841 mi_ram.c/(32427:32654): TAmanio segmento elegido: 25 Tamnio contenido: 30
+[INFO] 17:36:32:209 mi_ram.c/(1119:1119): Arranco programa
+[INFO] 17:36:36:118 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:36:118 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:36:118 mi_ram.c/(1119:1128): Entre a atender discordiador
+[INFO] 17:36:36:118 mi_ram.c/(1119:1128): Antes del primer rcv
+[INFO] 17:36:36:118 mi_ram.c/(1119:1128): DEspues del primer recv
+[INFO] 17:36:36:118 mi_ram.c/(1119:1128): Recibi header: 0
+
+[INFO] 17:36:36:118 mi_ram.c/(1119:1128): Antes del status tamanio buffer
+[INFO] 17:36:36:118 mi_ram.c/(1119:1128):  despues del tamanio buffer
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): buffer rcv
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): 
+0x00000000: 63 00 00 00 41 30 30 3b  31 3b 31 3b 35 0a 41 30  |c...A00;1;1;5.A0|
+0x00000010: 31 3b 31 3b 31 3b 35 0a  41 30 32 3b 31 3b 31 3b  |1;1;1;5.A02;1;1;|
+0x00000020: 35 0a 41 30 33 3b 31 3b  31 3b 35 0a 41 30 34 3b  |5.A03;1;1;5.A04;|
+0x00000030: 31 3b 31 3b 35 0a 41 30  35 3b 31 3b 31 3b 35 0a  |1;1;5.A05;1;1;5.|
+0x00000040: 41 30 36 3b 31 3b 31 3b  35 0a 41 30 37 3b 31 3b  |A06;1;1;5.A07;1;|
+0x00000050: 31 3b 35 0a 41 30 38 3b  31 3b 31 3b 35 0a 41 30  |1;5.A08;1;1;5.A0|
+0x00000060: 39 3b 31 3b 31 3b 35 00  00 00 00 04 00 00 00 00  |9;1;1;5.........|
+0x00000070: 00 00 00 00 00 00 00 00  00 00 00 4e 01 00 00 00  |...........N....|
+0x00000080: 00 00 00 00 00 00 00 00  4e 02 00 00 00 00 00 00  |........N.......|
+0x00000090: 00 00 00 00 00 4e 03 00  00 00 00 00 00 00 00 00  |.....N..........|
+0x000000a0: 00 00 4e 00 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+0x000000b0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+0x000000c0: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): me mandaron una patota
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): cantidad tcbs recibidos: 4 
+
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): Hay lugar.agrego patota
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): Segmento libre que inicia 0 y tamanio: 256
+
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): CAntiadd segmentos libres : 1
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): TAmanio segmento elegido: 256 Tamnio contenido: 8
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): termine
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): cree PCB
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): antes de tareas
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): entre a tareas
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): Segmento libre que inicia 8 y tamanio: 248
+
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): CAntiadd segmentos libres : 1
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): TAmanio segmento elegido: 248 Tamnio contenido: 100
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): termine
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): busque segmento libre tareas
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): Memoria prin + DL: 96fe360
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): tareas: b5200568
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): buscando el segmento nuevo
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): despues de tareas
+[INFO] 17:36:36:119 mi_ram.c/(1119:1128): cree tareas
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Segmento libre que inicia 108 y tamanio: 148
+
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): CAntiadd segmentos libres : 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): TAmanio segmento elegido: 148 Tamnio contenido: 21
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): termine
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): cree tcb numero 0
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Segmento libre que inicia 129 y tamanio: 127
+
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): CAntiadd segmentos libres : 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): TAmanio segmento elegido: 127 Tamnio contenido: 21
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): termine
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): cree tcb numero 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Segmento libre que inicia 150 y tamanio: 106
+
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): CAntiadd segmentos libres : 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): TAmanio segmento elegido: 106 Tamnio contenido: 21
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): termine
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): cree tcb numero 2
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Segmento libre que inicia 171 y tamanio: 85
+
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): Cantidad de segmentos libres: 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): CAntiadd segmentos libres : 1
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): TAmanio segmento elegido: 85 Tamnio contenido: 21
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): termine
+[INFO] 17:36:36:120 mi_ram.c/(1119:1128): cree tcb numero 3
+[INFO] 17:36:44:266 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:44:266 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Entre a atender discordiador
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Antes del primer rcv
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): DEspues del primer recv
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Recibi header: 0
+
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Antes del status tamanio buffer
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155):  despues del tamanio buffer
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): buffer rcv
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): 
+0x00000000: 09 00 00 00 43 30 30 3b  31 3b 31 3b 35 01 00 00  |....C00;1;1;5...|
+0x00000010: 00 01 00 00 00 04 00 00  00 00 00 00 00 00 00 00  |................|
+0x00000020: 00 4e 73 6f 2f 73 65 67  43 2e 74 78 74 00 00 00  |.Nso/segC.txt...|
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): me mandaron una patota
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): cantidad tcbs recibidos: 1 
+
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Hay lugar.agrego patota
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Cantidad de segmentos libres: 1
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Segmento libre que inicia 192 y tamanio: 64
+
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Cantidad de segmentos libres: 1
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Cantidad de segmentos libres: 1
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): CAntiadd segmentos libres : 1
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): TAmanio segmento elegido: 64 Tamnio contenido: 8
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): termine
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): cree PCB
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): antes de tareas
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): entre a tareas
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Cantidad de segmentos libres: 1
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Segmento libre que inicia 200 y tamanio: 56
+
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Cantidad de segmentos libres: 1
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): Cantidad de segmentos libres: 1
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): CAntiadd segmentos libres : 1
+[INFO] 17:36:44:267 mi_ram.c/(1119:1155): TAmanio segmento elegido: 56 Tamnio contenido: 10
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): termine
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): busque segmento libre tareas
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): Memoria prin + DL: 96fe420
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): tareas: b5200dc8
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): buscando el segmento nuevo
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): despues de tareas
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): cree tareas
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): Cantidad de segmentos libres: 1
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): Segmento libre que inicia 210 y tamanio: 46
+
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): Cantidad de segmentos libres: 1
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): Cantidad de segmentos libres: 1
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): CAntiadd segmentos libres : 1
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): TAmanio segmento elegido: 46 Tamnio contenido: 21
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): termine
+[INFO] 17:36:44:268 mi_ram.c/(1119:1155): cree tcb numero 0
+[INFO] 17:36:50:248 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:50:248 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:50:248 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:50:249 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:50:249 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:50:249 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:50:249 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:50:249 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:50:249 mi_ram.c/(1119:1168): Entre a atender discordiador
+[INFO] 17:36:50:249 mi_ram.c/(1119:1168): Antes del primer rcv
+[INFO] 17:36:50:249 mi_ram.c/(1119:1168): DEspues del primer recv
+[INFO] 17:36:50:249 mi_ram.c/(1119:1168): Recibi header: 1
+
+[INFO] 17:36:50:249 mi_ram.c/(1119:1168): Antes del status tamanio buffer
+[INFO] 17:36:50:249 mi_ram.c/(1119:1168):  despues del tamanio buffer
+[INFO] 17:36:50:249 mi_ram.c/(1119:1168): buffer rcv
+[INFO] 17:36:50:249 mi_ram.c/(1119:1168): 
+0x00000000: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:36:50:249 mi_ram.c/(1119:1168): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 17:36:50:249 mi_ram.c/(1119:1168): La tarea a enviar es: A00;1;1;5
+[INFO] 17:36:50:249 mi_ram.c/(1119:1169): Entre a atender discordiador
+[INFO] 17:36:50:249 mi_ram.c/(1119:1169): Antes del primer rcv
+[INFO] 17:36:50:250 mi_ram.c/(1119:1169): DEspues del primer recv
+[INFO] 17:36:50:250 mi_ram.c/(1119:1169): Recibi header: 5
+
+[INFO] 17:36:50:250 mi_ram.c/(1119:1169): Antes del status tamanio buffer
+[INFO] 17:36:50:250 mi_ram.c/(1119:1169):  despues del tamanio buffer
+[INFO] 17:36:50:250 mi_ram.c/(1119:1169): buffer rcv
+[INFO] 17:36:50:250 mi_ram.c/(1119:1169): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:36:50:250 mi_ram.c/(1119:1169): Direccion stream: 96ff718
+[INFO] 17:36:50:250 mi_ram.c/(1119:1169): Direccion tid: b49fe2f4
+[INFO] 17:36:50:250 mi_ram.c/(1119:1169): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:36:50:249 mi_ram.c/(1119:1170): Entre a atender discordiador
+[INFO] 17:36:50:250 mi_ram.c/(1119:1170): Antes del primer rcv
+[INFO] 17:36:50:250 mi_ram.c/(1119:1170): DEspues del primer recv
+[INFO] 17:36:50:250 mi_ram.c/(1119:1170): Recibi header: 1
+
+[INFO] 17:36:50:250 mi_ram.c/(1119:1170): Antes del status tamanio buffer
+[INFO] 17:36:50:250 mi_ram.c/(1119:1170):  despues del tamanio buffer
+[INFO] 17:36:50:250 mi_ram.c/(1119:1170): buffer rcv
+[INFO] 17:36:50:250 mi_ram.c/(1119:1170): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:36:50:250 mi_ram.c/(1119:1170): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:36:50:250 mi_ram.c/(1119:1170): La tarea a enviar es: A00;1;1;5
+[INFO] 17:36:50:250 mi_ram.c/(1119:1167): Entre a atender discordiador
+[INFO] 17:36:50:250 mi_ram.c/(1119:1167): Antes del primer rcv
+[INFO] 17:36:50:250 mi_ram.c/(1119:1167): DEspues del primer recv
+[INFO] 17:36:50:250 mi_ram.c/(1119:1167): Recibi header: 5
+
+[INFO] 17:36:50:251 mi_ram.c/(1119:1167): Antes del status tamanio buffer
+[INFO] 17:36:50:251 mi_ram.c/(1119:1167):  despues del tamanio buffer
+[INFO] 17:36:50:251 mi_ram.c/(1119:1167): buffer rcv
+[INFO] 17:36:50:251 mi_ram.c/(1119:1167): 
+0x00000000: 00 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:36:50:251 mi_ram.c/(1119:1167): Direccion stream: b52012b0
+[INFO] 17:36:50:251 mi_ram.c/(1119:1167): Direccion tid: b5bff2f4
+[INFO] 17:36:50:251 mi_ram.c/(1119:1167): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:36:56:250 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:56:250 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:56:250 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:56:250 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:56:250 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:56:250 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:56:250 mi_ram.c/(1119:1183): Entre a atender discordiador
+[INFO] 17:36:56:251 mi_ram.c/(1119:1183): Antes del primer rcv
+[INFO] 17:36:56:251 mi_ram.c/(1119:1183): DEspues del primer recv
+[INFO] 17:36:56:251 mi_ram.c/(1119:1183): Recibi header: 1
+
+[INFO] 17:36:56:251 mi_ram.c/(1119:1183): Antes del status tamanio buffer
+[INFO] 17:36:56:251 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:56:251 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:56:251 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:56:251 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:56:251 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:36:56:251 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:36:56:251 mi_ram.c/(1119:1183):  despues del tamanio buffer
+[INFO] 17:36:56:251 mi_ram.c/(1119:1183): buffer rcv
+[INFO] 17:36:56:251 mi_ram.c/(1119:1183): 
+0x00000000: 02 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:36:56:251 mi_ram.c/(1119:1183): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 17:36:56:251 mi_ram.c/(1119:1183): La tarea a enviar es: A00;1;1;5
+[INFO] 17:36:56:251 mi_ram.c/(1119:1182): Entre a atender discordiador
+[INFO] 17:36:56:252 mi_ram.c/(1119:1182): Antes del primer rcv
+[INFO] 17:36:56:252 mi_ram.c/(1119:1182): DEspues del primer recv
+[INFO] 17:36:56:252 mi_ram.c/(1119:1182): Recibi header: 5
+
+[INFO] 17:36:56:252 mi_ram.c/(1119:1182): Antes del status tamanio buffer
+[INFO] 17:36:56:252 mi_ram.c/(1119:1182):  despues del tamanio buffer
+[INFO] 17:36:56:252 mi_ram.c/(1119:1182): buffer rcv
+[INFO] 17:36:56:252 mi_ram.c/(1119:1182): 
+0x00000000: 02 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:36:56:252 mi_ram.c/(1119:1182): Direccion stream: b5201448
+[INFO] 17:36:56:252 mi_ram.c/(1119:1182): Direccion tid: b41fd2f4
+[INFO] 17:36:56:252 mi_ram.c/(1119:1182): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:36:56:252 mi_ram.c/(1119:1181): Entre a atender discordiador
+[INFO] 17:36:56:252 mi_ram.c/(1119:1181): Antes del primer rcv
+[INFO] 17:36:56:252 mi_ram.c/(1119:1181): DEspues del primer recv
+[INFO] 17:36:56:252 mi_ram.c/(1119:1181): Recibi header: 5
+
+[INFO] 17:36:56:252 mi_ram.c/(1119:1181): Antes del status tamanio buffer
+[INFO] 17:36:56:252 mi_ram.c/(1119:1181):  despues del tamanio buffer
+[INFO] 17:36:56:252 mi_ram.c/(1119:1181): buffer rcv
+[INFO] 17:36:56:252 mi_ram.c/(1119:1181): 
+0x00000000: 00 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:36:56:252 mi_ram.c/(1119:1181): Direccion stream: b5201568
+[INFO] 17:36:56:253 mi_ram.c/(1119:1181): Direccion tid: b5bff2f4
+[INFO] 17:36:56:253 mi_ram.c/(1119:1181): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184): Entre a atender discordiador
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184): Antes del primer rcv
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184): DEspues del primer recv
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184): Recibi header: 5
+
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184): Antes del status tamanio buffer
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184):  despues del tamanio buffer
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184): buffer rcv
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184): Direccion stream: b52016c8
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184): Direccion tid: b51ff2f4
+[INFO] 17:36:56:253 mi_ram.c/(1119:1184): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:36:56:253 mi_ram.c/(1119:1185): Entre a atender discordiador
+[INFO] 17:36:56:253 mi_ram.c/(1119:1185): Antes del primer rcv
+[INFO] 17:36:56:253 mi_ram.c/(1119:1185): DEspues del primer recv
+[INFO] 17:36:56:254 mi_ram.c/(1119:1185): Recibi header: 5
+
+[INFO] 17:36:56:254 mi_ram.c/(1119:1185): Antes del status tamanio buffer
+[INFO] 17:36:56:254 mi_ram.c/(1119:1185):  despues del tamanio buffer
+[INFO] 17:36:56:254 mi_ram.c/(1119:1185): buffer rcv
+[INFO] 17:36:56:254 mi_ram.c/(1119:1185): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:36:56:254 mi_ram.c/(1119:1185): Direccion stream: b5c00fb0
+[INFO] 17:36:56:254 mi_ram.c/(1119:1185): Direccion tid: b39fc2f4
+[INFO] 17:36:56:254 mi_ram.c/(1119:1185): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:36:56:253 mi_ram.c/(1119:1186): Entre a atender discordiador
+[INFO] 17:36:56:254 mi_ram.c/(1119:1186): Antes del primer rcv
+[INFO] 17:36:56:254 mi_ram.c/(1119:1186): DEspues del primer recv
+[INFO] 17:36:56:254 mi_ram.c/(1119:1186): Recibi header: 1
+
+[INFO] 17:36:56:254 mi_ram.c/(1119:1186): Antes del status tamanio buffer
+[INFO] 17:36:56:254 mi_ram.c/(1119:1186):  despues del tamanio buffer
+[INFO] 17:36:56:254 mi_ram.c/(1119:1186): buffer rcv
+[INFO] 17:36:56:254 mi_ram.c/(1119:1186): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:36:56:254 mi_ram.c/(1119:1186): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:36:56:254 mi_ram.c/(1119:1186): La tarea a enviar es: A00;1;1;5
+[INFO] 17:37:02:252 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:02:252 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:02:253 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:02:253 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:02:253 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:02:253 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:02:253 mi_ram.c/(1119:1203): Entre a atender discordiador
+[INFO] 17:37:02:253 mi_ram.c/(1119:1203): Antes del primer rcv
+[INFO] 17:37:02:253 mi_ram.c/(1119:1203): DEspues del primer recv
+[INFO] 17:37:02:253 mi_ram.c/(1119:1203): Recibi header: 1
+
+[INFO] 17:37:02:253 mi_ram.c/(1119:1203): Antes del status tamanio buffer
+[INFO] 17:37:02:253 mi_ram.c/(1119:1203):  despues del tamanio buffer
+[INFO] 17:37:02:253 mi_ram.c/(1119:1203): buffer rcv
+[INFO] 17:37:02:253 mi_ram.c/(1119:1203): 
+0x00000000: 04 00 00 00 01 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:02:253 mi_ram.c/(1119:1203): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 17:37:02:253 mi_ram.c/(1119:1203): La tarea a enviar es: C00;1;1;5
+[INFO] 17:37:02:253 mi_ram.c/(1119:1201): Entre a atender discordiador
+[INFO] 17:37:02:253 mi_ram.c/(1119:1201): Antes del primer rcv
+[INFO] 17:37:02:253 mi_ram.c/(1119:1201): DEspues del primer recv
+[INFO] 17:37:02:253 mi_ram.c/(1119:1201): Recibi header: 5
+
+[INFO] 17:37:02:253 mi_ram.c/(1119:1201): Antes del status tamanio buffer
+[INFO] 17:37:02:253 mi_ram.c/(1119:1201):  despues del tamanio buffer
+[INFO] 17:37:02:253 mi_ram.c/(1119:1201): buffer rcv
+[INFO] 17:37:02:253 mi_ram.c/(1119:1201): 
+0x00000000: 02 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:02:254 mi_ram.c/(1119:1201): Direccion stream: b52018c8
+[INFO] 17:37:02:254 mi_ram.c/(1119:1201): Direccion tid: b31fb2f4
+[INFO] 17:37:02:254 mi_ram.c/(1119:1201): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:02:253 mi_ram.c/(1119:1202): Entre a atender discordiador
+[INFO] 17:37:02:254 mi_ram.c/(1119:1202): Antes del primer rcv
+[INFO] 17:37:02:254 mi_ram.c/(1119:1202): DEspues del primer recv
+[INFO] 17:37:02:254 mi_ram.c/(1119:1202): Recibi header: 5
+
+[INFO] 17:37:02:254 mi_ram.c/(1119:1202): Antes del status tamanio buffer
+[INFO] 17:37:02:254 mi_ram.c/(1119:1202):  despues del tamanio buffer
+[INFO] 17:37:02:254 mi_ram.c/(1119:1202): buffer rcv
+[INFO] 17:37:02:254 mi_ram.c/(1119:1202): 
+0x00000000: 04 00 00 00 01 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:02:254 mi_ram.c/(1119:1202): Direccion stream: b5201948
+[INFO] 17:37:02:254 mi_ram.c/(1119:1202): Direccion tid: b39fc2f4
+[INFO] 17:37:02:254 mi_ram.c/(1119:1202): PID ACTUALIZAR ESTADO : 1
+[INFO] 17:37:02:255 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:02:255 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:02:255 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:02:255 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206): Entre a atender discordiador
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206): Antes del primer rcv
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206): DEspues del primer recv
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206): Recibi header: 5
+
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206): Antes del status tamanio buffer
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206):  despues del tamanio buffer
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206): buffer rcv
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206): 
+0x00000000: 00 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206): Direccion stream: b52015f8
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206): Direccion tid: b31fb2f4
+[INFO] 17:37:02:255 mi_ram.c/(1119:1206): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:02:255 mi_ram.c/(1119:1205): Entre a atender discordiador
+[INFO] 17:37:02:256 mi_ram.c/(1119:1205): Antes del primer rcv
+[INFO] 17:37:02:256 mi_ram.c/(1119:1205): DEspues del primer recv
+[INFO] 17:37:02:256 mi_ram.c/(1119:1205): Recibi header: 5
+
+[INFO] 17:37:02:256 mi_ram.c/(1119:1205): Antes del status tamanio buffer
+[INFO] 17:37:02:256 mi_ram.c/(1119:1205):  despues del tamanio buffer
+[INFO] 17:37:02:256 mi_ram.c/(1119:1205): buffer rcv
+[INFO] 17:37:02:256 mi_ram.c/(1119:1205): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:02:256 mi_ram.c/(1119:1205): Direccion stream: b5201628
+[INFO] 17:37:02:256 mi_ram.c/(1119:1205): Direccion tid: b39fc2f4
+[INFO] 17:37:02:256 mi_ram.c/(1119:1205): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:08:254 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:08:254 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:08:254 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:08:254 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221): Entre a atender discordiador
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221): Antes del primer rcv
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221): DEspues del primer recv
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221): Recibi header: 5
+
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221): Antes del status tamanio buffer
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221):  despues del tamanio buffer
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221): buffer rcv
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221): Direccion stream: b52018e8
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221): Direccion tid: b31fb2f4
+[INFO] 17:37:08:254 mi_ram.c/(1119:1221): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:08:254 mi_ram.c/(1119:1220): Entre a atender discordiador
+[INFO] 17:37:08:255 mi_ram.c/(1119:1220): Antes del primer rcv
+[INFO] 17:37:08:255 mi_ram.c/(1119:1220): DEspues del primer recv
+[INFO] 17:37:08:255 mi_ram.c/(1119:1220): Recibi header: 5
+
+[INFO] 17:37:08:255 mi_ram.c/(1119:1220): Antes del status tamanio buffer
+[INFO] 17:37:08:255 mi_ram.c/(1119:1220):  despues del tamanio buffer
+[INFO] 17:37:08:255 mi_ram.c/(1119:1220): buffer rcv
+[INFO] 17:37:08:255 mi_ram.c/(1119:1220): 
+0x00000000: 04 00 00 00 01 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:08:255 mi_ram.c/(1119:1220): Direccion stream: b5201b88
+[INFO] 17:37:08:255 mi_ram.c/(1119:1220): Direccion tid: b39fc2f4
+[INFO] 17:37:08:255 mi_ram.c/(1119:1220): PID ACTUALIZAR ESTADO : 1
+[INFO] 17:37:08:256 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:08:256 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:08:256 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:08:256 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223): Entre a atender discordiador
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223): Antes del primer rcv
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223): DEspues del primer recv
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223): Recibi header: 5
+
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223): Antes del status tamanio buffer
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223):  despues del tamanio buffer
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223): buffer rcv
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223): 
+0x00000000: 02 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223): Direccion stream: b5201c10
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223): Direccion tid: b31fb2f4
+[INFO] 17:37:08:256 mi_ram.c/(1119:1223): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:08:256 mi_ram.c/(1119:1222): Entre a atender discordiador
+[INFO] 17:37:08:256 mi_ram.c/(1119:1222): Antes del primer rcv
+[INFO] 17:37:08:256 mi_ram.c/(1119:1222): DEspues del primer recv
+[INFO] 17:37:08:256 mi_ram.c/(1119:1222): Recibi header: 5
+
+[INFO] 17:37:08:256 mi_ram.c/(1119:1222): Antes del status tamanio buffer
+[INFO] 17:37:08:256 mi_ram.c/(1119:1222):  despues del tamanio buffer
+[INFO] 17:37:08:256 mi_ram.c/(1119:1222): buffer rcv
+[INFO] 17:37:08:256 mi_ram.c/(1119:1222): 
+0x00000000: 00 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:08:256 mi_ram.c/(1119:1222): Direccion stream: b5201c40
+[INFO] 17:37:08:257 mi_ram.c/(1119:1222): Direccion tid: b39fc2f4
+[INFO] 17:37:08:257 mi_ram.c/(1119:1222): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:14:255 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:14:255 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:14:255 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:14:255 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:14:255 mi_ram.c/(1119:1234): Entre a atender discordiador
+[INFO] 17:37:14:255 mi_ram.c/(1119:1234): Antes del primer rcv
+[INFO] 17:37:14:255 mi_ram.c/(1119:1234): DEspues del primer recv
+[INFO] 17:37:14:256 mi_ram.c/(1119:1234): Recibi header: 5
+
+[INFO] 17:37:14:256 mi_ram.c/(1119:1234): Antes del status tamanio buffer
+[INFO] 17:37:14:256 mi_ram.c/(1119:1234):  despues del tamanio buffer
+[INFO] 17:37:14:256 mi_ram.c/(1119:1234): buffer rcv
+[INFO] 17:37:14:256 mi_ram.c/(1119:1234): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:14:256 mi_ram.c/(1119:1234): Direccion stream: b5201d10
+[INFO] 17:37:14:256 mi_ram.c/(1119:1234): Direccion tid: b31fb2f4
+[INFO] 17:37:14:256 mi_ram.c/(1119:1234): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233): Entre a atender discordiador
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233): Antes del primer rcv
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233): DEspues del primer recv
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233): Recibi header: 5
+
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233): Antes del status tamanio buffer
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233):  despues del tamanio buffer
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233): buffer rcv
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233): Direccion stream: b52018f8
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233): Direccion tid: b39fc2f4
+[INFO] 17:37:14:256 mi_ram.c/(1119:1233): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:14:257 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:14:257 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:14:257 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:14:257 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236): Entre a atender discordiador
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236): Antes del primer rcv
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236): DEspues del primer recv
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236): Recibi header: 5
+
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236): Antes del status tamanio buffer
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236):  despues del tamanio buffer
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236): buffer rcv
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236): 
+0x00000000: 04 00 00 00 01 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236): Direccion stream: b5201928
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236): Direccion tid: b31fb2f4
+[INFO] 17:37:14:257 mi_ram.c/(1119:1236): PID ACTUALIZAR ESTADO : 1
+[INFO] 17:37:14:257 mi_ram.c/(1119:1235): Entre a atender discordiador
+[INFO] 17:37:14:257 mi_ram.c/(1119:1235): Antes del primer rcv
+[INFO] 17:37:14:257 mi_ram.c/(1119:1235): DEspues del primer recv
+[INFO] 17:37:14:257 mi_ram.c/(1119:1235): Recibi header: 5
+
+[INFO] 17:37:14:257 mi_ram.c/(1119:1235): Antes del status tamanio buffer
+[INFO] 17:37:14:258 mi_ram.c/(1119:1235):  despues del tamanio buffer
+[INFO] 17:37:14:258 mi_ram.c/(1119:1235): buffer rcv
+[INFO] 17:37:14:258 mi_ram.c/(1119:1235): 
+0x00000000: 02 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:14:258 mi_ram.c/(1119:1235): Direccion stream: b5201e50
+[INFO] 17:37:14:258 mi_ram.c/(1119:1235): Direccion tid: b39fc2f4
+[INFO] 17:37:14:258 mi_ram.c/(1119:1235): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:20:256 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:20:256 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:20:257 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:20:257 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255): Entre a atender discordiador
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255): Antes del primer rcv
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255): DEspues del primer recv
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255): Recibi header: 5
+
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255): Antes del status tamanio buffer
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255):  despues del tamanio buffer
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255): buffer rcv
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255): Direccion stream: b5201da8
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255): Direccion tid: b39fc2f4
+[INFO] 17:37:20:257 mi_ram.c/(1119:1255): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256): Entre a atender discordiador
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256): Antes del primer rcv
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256): DEspues del primer recv
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256): Recibi header: 5
+
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256): Antes del status tamanio buffer
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256):  despues del tamanio buffer
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256): buffer rcv
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256): 
+0x00000000: 00 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256): Direccion stream: b5c010b0
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256): Direccion tid: b31fb2f4
+[INFO] 17:37:20:257 mi_ram.c/(1119:1256): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:20:258 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:20:258 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:20:258 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:20:258 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:20:258 mi_ram.c/(1119:1258): Entre a atender discordiador
+[INFO] 17:37:20:258 mi_ram.c/(1119:1258): Antes del primer rcv
+[INFO] 17:37:20:258 mi_ram.c/(1119:1258): DEspues del primer recv
+[INFO] 17:37:20:258 mi_ram.c/(1119:1258): Recibi header: 5
+
+[INFO] 17:37:20:258 mi_ram.c/(1119:1258): Antes del status tamanio buffer
+[INFO] 17:37:20:259 mi_ram.c/(1119:1258):  despues del tamanio buffer
+[INFO] 17:37:20:259 mi_ram.c/(1119:1258): buffer rcv
+[INFO] 17:37:20:259 mi_ram.c/(1119:1258): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:20:259 mi_ram.c/(1119:1258): Direccion stream: b5201f20
+[INFO] 17:37:20:259 mi_ram.c/(1119:1258): Direccion tid: b39fc2f4
+[INFO] 17:37:20:259 mi_ram.c/(1119:1258): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257): Entre a atender discordiador
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257): Antes del primer rcv
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257): DEspues del primer recv
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257): Recibi header: 5
+
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257): Antes del status tamanio buffer
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257):  despues del tamanio buffer
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257): buffer rcv
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257): 
+0x00000000: 04 00 00 00 01 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257): Direccion stream: b5201f50
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257): Direccion tid: b31fb2f4
+[INFO] 17:37:20:259 mi_ram.c/(1119:1257): PID ACTUALIZAR ESTADO : 1
+[INFO] 17:37:22:258 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:22:258 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:22:258 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:22:258 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265): Entre a atender discordiador
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265): Antes del primer rcv
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265): DEspues del primer recv
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265): Recibi header: 5
+
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265): Antes del status tamanio buffer
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265):  despues del tamanio buffer
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265): buffer rcv
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265): 
+0x00000000: 02 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265): Direccion stream: b5202070
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265): Direccion tid: b39fc2f4
+[INFO] 17:37:22:258 mi_ram.c/(1119:1265): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:22:258 mi_ram.c/(1119:1264): Entre a atender discordiador
+[INFO] 17:37:22:258 mi_ram.c/(1119:1264): Antes del primer rcv
+[INFO] 17:37:22:258 mi_ram.c/(1119:1264): DEspues del primer recv
+[INFO] 17:37:22:259 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:22:259 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:22:259 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:22:259 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:22:259 mi_ram.c/(1119:1264): Recibi header: 5
+
+[INFO] 17:37:22:259 mi_ram.c/(1119:1264): Antes del status tamanio buffer
+[INFO] 17:37:22:259 mi_ram.c/(1119:1264):  despues del tamanio buffer
+[INFO] 17:37:22:259 mi_ram.c/(1119:1264): buffer rcv
+[INFO] 17:37:22:259 mi_ram.c/(1119:1264): 
+0x00000000: 00 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:22:259 mi_ram.c/(1119:1264): Direccion stream: b5201fc8
+[INFO] 17:37:22:259 mi_ram.c/(1119:1264): Direccion tid: b31fb2f4
+[INFO] 17:37:22:259 mi_ram.c/(1119:1264): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268): Entre a atender discordiador
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268): Antes del primer rcv
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268): DEspues del primer recv
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268): Recibi header: 5
+
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268): Antes del status tamanio buffer
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268):  despues del tamanio buffer
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268): buffer rcv
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268): Direccion stream: b5202140
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268): Direccion tid: b51ff2f4
+[INFO] 17:37:22:259 mi_ram.c/(1119:1268): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:22:259 mi_ram.c/(1119:1267): Entre a atender discordiador
+[INFO] 17:37:22:260 mi_ram.c/(1119:1267): Antes del primer rcv
+[INFO] 17:37:22:260 mi_ram.c/(1119:1267): DEspues del primer recv
+[INFO] 17:37:22:260 mi_ram.c/(1119:1267): Recibi header: 5
+
+[INFO] 17:37:22:260 mi_ram.c/(1119:1267): Antes del status tamanio buffer
+[INFO] 17:37:22:260 mi_ram.c/(1119:1267):  despues del tamanio buffer
+[INFO] 17:37:22:260 mi_ram.c/(1119:1267): buffer rcv
+[INFO] 17:37:22:260 mi_ram.c/(1119:1267): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:22:260 mi_ram.c/(1119:1267): Direccion stream: b5202170
+[INFO] 17:37:22:260 mi_ram.c/(1119:1267): Direccion tid: b39fc2f4
+[INFO] 17:37:22:260 mi_ram.c/(1119:1267): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:24:258 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:24:258 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:24:259 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:24:259 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275): Entre a atender discordiador
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275): Antes del primer rcv
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275): DEspues del primer recv
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275): Recibi header: 5
+
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275): Antes del status tamanio buffer
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275):  despues del tamanio buffer
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275): buffer rcv
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275): 
+0x00000000: 04 00 00 00 01 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275): Direccion stream: b5202290
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275): Direccion tid: b51ff2f4
+[INFO] 17:37:24:259 mi_ram.c/(1119:1275): PID ACTUALIZAR ESTADO : 1
+[INFO] 17:37:24:259 mi_ram.c/(1119:1274): Entre a atender discordiador
+[INFO] 17:37:24:259 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:24:259 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:24:259 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:24:259 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:24:259 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:24:259 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:24:260 mi_ram.c/(1119:1274): Antes del primer rcv
+[INFO] 17:37:24:260 mi_ram.c/(1119:1274): DEspues del primer recv
+[INFO] 17:37:24:260 mi_ram.c/(1119:1274): Recibi header: 5
+
+[INFO] 17:37:24:260 mi_ram.c/(1119:1274): Antes del status tamanio buffer
+[INFO] 17:37:24:260 mi_ram.c/(1119:1274):  despues del tamanio buffer
+[INFO] 17:37:24:260 mi_ram.c/(1119:1274): buffer rcv
+[INFO] 17:37:24:260 mi_ram.c/(1119:1274): 
+0x00000000: 02 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:24:260 mi_ram.c/(1119:1274): Direccion stream: b52021e8
+[INFO] 17:37:24:260 mi_ram.c/(1119:1274): Direccion tid: b39fc2f4
+[INFO] 17:37:24:260 mi_ram.c/(1119:1274): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278): Entre a atender discordiador
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278): Antes del primer rcv
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278): DEspues del primer recv
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278): Recibi header: 5
+
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278): Antes del status tamanio buffer
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278):  despues del tamanio buffer
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278): buffer rcv
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278): 
+0x00000000: 00 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278): Direccion stream: b5202360
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278): Direccion tid: b31fb2f4
+[INFO] 17:37:24:260 mi_ram.c/(1119:1278): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:24:260 mi_ram.c/(1119:1279): Entre a atender discordiador
+[INFO] 17:37:24:260 mi_ram.c/(1119:1279): Antes del primer rcv
+[INFO] 17:37:24:260 mi_ram.c/(1119:1279): DEspues del primer recv
+[INFO] 17:37:24:260 mi_ram.c/(1119:1279): Recibi header: 1
+
+[INFO] 17:37:24:260 mi_ram.c/(1119:1279): Antes del status tamanio buffer
+[INFO] 17:37:24:260 mi_ram.c/(1119:1279):  despues del tamanio buffer
+[INFO] 17:37:24:260 mi_ram.c/(1119:1279): buffer rcv
+[INFO] 17:37:24:260 mi_ram.c/(1119:1279): 
+0x00000000: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:24:261 mi_ram.c/(1119:1279): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 0
+[INFO] 17:37:24:261 mi_ram.c/(1119:1279): La tarea a enviar es: A01;1;1;5
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277): Entre a atender discordiador
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277): Antes del primer rcv
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277): DEspues del primer recv
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277): Recibi header: 5
+
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277): Antes del status tamanio buffer
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277):  despues del tamanio buffer
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277): buffer rcv
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277): Direccion stream: b5202390
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277): Direccion tid: b51ff2f4
+[INFO] 17:37:24:261 mi_ram.c/(1119:1277): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:26:259 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:26:259 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:26:259 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:26:259 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:26:259 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:26:259 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:26:259 mi_ram.c/(1119:1285): Entre a atender discordiador
+[INFO] 17:37:26:259 mi_ram.c/(1119:1285): Antes del primer rcv
+[INFO] 17:37:26:259 mi_ram.c/(1119:1285): DEspues del primer recv
+[INFO] 17:37:26:260 mi_ram.c/(1119:1285): Recibi header: 5
+
+[INFO] 17:37:26:260 mi_ram.c/(1119:1285): Antes del status tamanio buffer
+[INFO] 17:37:26:260 mi_ram.c/(1119:1285):  despues del tamanio buffer
+[INFO] 17:37:26:260 mi_ram.c/(1119:1285): buffer rcv
+[INFO] 17:37:26:260 mi_ram.c/(1119:1285): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:26:260 mi_ram.c/(1119:1285): Direccion stream: b52019f0
+[INFO] 17:37:26:260 mi_ram.c/(1119:1285): Direccion tid: b5bff2f4
+[INFO] 17:37:26:260 mi_ram.c/(1119:1285): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:26:259 mi_ram.c/(1119:1286): Entre a atender discordiador
+[INFO] 17:37:26:260 mi_ram.c/(1119:1286): Antes del primer rcv
+[INFO] 17:37:26:260 mi_ram.c/(1119:1286): DEspues del primer recv
+[INFO] 17:37:26:260 mi_ram.c/(1119:1286): Recibi header: 1
+
+[INFO] 17:37:26:260 mi_ram.c/(1119:1286): Antes del status tamanio buffer
+[INFO] 17:37:26:260 mi_ram.c/(1119:1286):  despues del tamanio buffer
+[INFO] 17:37:26:260 mi_ram.c/(1119:1286): buffer rcv
+[INFO] 17:37:26:260 mi_ram.c/(1119:1286): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:26:260 mi_ram.c/(1119:1286): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:37:26:260 mi_ram.c/(1119:1286): La tarea a enviar es: A01;1;1;5
+[INFO] 17:37:26:260 mi_ram.c/(1119:1284): Entre a atender discordiador
+[INFO] 17:37:26:260 mi_ram.c/(1119:1284): Antes del primer rcv
+[INFO] 17:37:26:260 mi_ram.c/(1119:1284): DEspues del primer recv
+[INFO] 17:37:26:260 mi_ram.c/(1119:1284): Recibi header: 5
+
+[INFO] 17:37:26:260 mi_ram.c/(1119:1284): Antes del status tamanio buffer
+[INFO] 17:37:26:260 mi_ram.c/(1119:1284):  despues del tamanio buffer
+[INFO] 17:37:26:260 mi_ram.c/(1119:1284): buffer rcv
+[INFO] 17:37:26:260 mi_ram.c/(1119:1284): 
+0x00000000: 04 00 00 00 01 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:26:261 mi_ram.c/(1119:1284): Direccion stream: b5c01360
+[INFO] 17:37:26:261 mi_ram.c/(1119:1284): Direccion tid: b51ff2f4
+[INFO] 17:37:26:261 mi_ram.c/(1119:1284): PID ACTUALIZAR ESTADO : 1
+[INFO] 17:37:28:261 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:28:261 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:28:261 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:28:261 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:28:262 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:28:262 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:28:262 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:28:262 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297): Entre a atender discordiador
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297): Antes del primer rcv
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297): DEspues del primer recv
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297): Recibi header: 6
+
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297): Antes del status tamanio buffer
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297):  despues del tamanio buffer
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297): buffer rcv
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297): 
+0x00000000: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297): entre a es el ultimo tripulante
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297): antes del primer list find
+[INFO] 17:37:28:262 mi_ram.c/(1119:1297): despues del primer list find
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298): Entre a atender discordiador
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298): Antes del primer rcv
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298): DEspues del primer recv
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298): Recibi header: 5
+
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298): Antes del status tamanio buffer
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298):  despues del tamanio buffer
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298): buffer rcv
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298): 
+0x00000000: 02 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298): Direccion stream: 96ffdc0
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298): Direccion tid: b5bff2f4
+[INFO] 17:37:28:262 mi_ram.c/(1119:1298): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:28:262 mi_ram.c/(1119:1296): Entre a atender discordiador
+[INFO] 17:37:28:263 mi_ram.c/(1119:1296): Antes del primer rcv
+[INFO] 17:37:28:263 mi_ram.c/(1119:1296): DEspues del primer recv
+[INFO] 17:37:28:263 mi_ram.c/(1119:1296): Recibi header: 6
+
+[INFO] 17:37:28:263 mi_ram.c/(1119:1296): Antes del status tamanio buffer
+[INFO] 17:37:28:263 mi_ram.c/(1119:1296):  despues del tamanio buffer
+[INFO] 17:37:28:263 mi_ram.c/(1119:1296): buffer rcv
+[INFO] 17:37:28:263 mi_ram.c/(1119:1296): 
+0x00000000: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:28:263 mi_ram.c/(1119:1296): Me pidieron un tripulante inexistente en eliminar tripulante
+[INFO] 17:37:28:262 mi_ram.c/(1119:1299): Entre a atender discordiador
+[INFO] 17:37:28:263 mi_ram.c/(1119:1299): Antes del primer rcv
+[INFO] 17:37:28:263 mi_ram.c/(1119:1299): DEspues del primer recv
+[INFO] 17:37:28:263 mi_ram.c/(1119:1299): Recibi header: 1
+
+[INFO] 17:37:28:263 mi_ram.c/(1119:1299): Antes del status tamanio buffer
+[INFO] 17:37:28:263 mi_ram.c/(1119:1299):  despues del tamanio buffer
+[INFO] 17:37:28:263 mi_ram.c/(1119:1299): buffer rcv
+[INFO] 17:37:28:263 mi_ram.c/(1119:1299): 
+0x00000000: 02 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:28:263 mi_ram.c/(1119:1299): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 2
+[INFO] 17:37:28:263 mi_ram.c/(1119:1299): La tarea a enviar es: A01;1;1;5
+[INFO] 17:37:32:262 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:32:262 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:32:262 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:32:262 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:32:262 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:32:263 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306): Entre a atender discordiador
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306): Antes del primer rcv
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306): DEspues del primer recv
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306): Recibi header: 5
+
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306): Antes del status tamanio buffer
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306):  despues del tamanio buffer
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306): buffer rcv
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306): Direccion stream: b5202600
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306): Direccion tid: b51ff2f4
+[INFO] 17:37:32:263 mi_ram.c/(1119:1306): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:32:263 mi_ram.c/(1119:1307): Entre a atender discordiador
+[INFO] 17:37:32:263 mi_ram.c/(1119:1307): Antes del primer rcv
+[INFO] 17:37:32:263 mi_ram.c/(1119:1307): DEspues del primer recv
+[INFO] 17:37:32:263 mi_ram.c/(1119:1307): Recibi header: 1
+
+[INFO] 17:37:32:263 mi_ram.c/(1119:1307): Antes del status tamanio buffer
+[INFO] 17:37:32:263 mi_ram.c/(1119:1307):  despues del tamanio buffer
+[INFO] 17:37:32:263 mi_ram.c/(1119:1307): buffer rcv
+[INFO] 17:37:32:263 mi_ram.c/(1119:1307): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:32:263 mi_ram.c/(1119:1307): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:37:32:263 mi_ram.c/(1119:1307): La tarea a enviar es: A01;1;1;5
+[INFO] 17:37:32:263 mi_ram.c/(1119:1305): Entre a atender discordiador
+[INFO] 17:37:32:263 mi_ram.c/(1119:1305): Antes del primer rcv
+[INFO] 17:37:32:263 mi_ram.c/(1119:1305): DEspues del primer recv
+[INFO] 17:37:32:264 mi_ram.c/(1119:1305): Recibi header: 5
+
+[INFO] 17:37:32:264 mi_ram.c/(1119:1305): Antes del status tamanio buffer
+[INFO] 17:37:32:264 mi_ram.c/(1119:1305):  despues del tamanio buffer
+[INFO] 17:37:32:264 mi_ram.c/(1119:1305): buffer rcv
+[INFO] 17:37:32:264 mi_ram.c/(1119:1305): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:32:264 mi_ram.c/(1119:1305): Direccion stream: b5202920
+[INFO] 17:37:32:264 mi_ram.c/(1119:1305): Direccion tid: b39fc2f4
+[INFO] 17:37:32:264 mi_ram.c/(1119:1305): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:34:264 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:34:264 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:34:265 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:34:265 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:34:265 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:34:265 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:34:265 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:34:265 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:34:265 mi_ram.c/(1119:1316): Entre a atender discordiador
+[INFO] 17:37:34:265 mi_ram.c/(1119:1316): Antes del primer rcv
+[INFO] 17:37:34:265 mi_ram.c/(1119:1316): DEspues del primer recv
+[INFO] 17:37:34:265 mi_ram.c/(1119:1316): Recibi header: 1
+
+[INFO] 17:37:34:265 mi_ram.c/(1119:1316): Antes del status tamanio buffer
+[INFO] 17:37:34:265 mi_ram.c/(1119:1316):  despues del tamanio buffer
+[INFO] 17:37:34:265 mi_ram.c/(1119:1316): buffer rcv
+[INFO] 17:37:34:265 mi_ram.c/(1119:1316): 
+0x00000000: 04 00 00 00 01 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:34:265 mi_ram.c/(1119:1316): DATOS TRIPU QUE PIDIO TAREA, PID: 1, TID: 4
+[INFO] 17:37:34:265 mi_ram.c/(1119:1316): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 17:37:34:265 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:34:265 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:34:265 mi_ram.c/(1119:1314): Entre a atender discordiador
+[INFO] 17:37:34:265 mi_ram.c/(1119:1314): Antes del primer rcv
+[INFO] 17:37:34:265 mi_ram.c/(1119:1314): DEspues del primer recv
+[INFO] 17:37:34:265 mi_ram.c/(1119:1314): Recibi header: 6
+
+[INFO] 17:37:34:265 mi_ram.c/(1119:1314): Antes del status tamanio buffer
+[INFO] 17:37:34:265 mi_ram.c/(1119:1314):  despues del tamanio buffer
+[INFO] 17:37:34:266 mi_ram.c/(1119:1314): buffer rcv
+[INFO] 17:37:34:266 mi_ram.c/(1119:1314): 
+0x00000000: 02 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:34:266 mi_ram.c/(1119:1314): entre a es el ultimo tripulante
+[INFO] 17:37:34:266 mi_ram.c/(1119:1314): antes del primer list find
+[INFO] 17:37:34:266 mi_ram.c/(1119:1314): despues del primer list find
+[INFO] 17:37:34:265 mi_ram.c/(1119:1315): Entre a atender discordiador
+[INFO] 17:37:34:266 mi_ram.c/(1119:1315): Antes del primer rcv
+[INFO] 17:37:34:266 mi_ram.c/(1119:1315): DEspues del primer recv
+[INFO] 17:37:34:266 mi_ram.c/(1119:1315): Recibi header: 5
+
+[INFO] 17:37:34:266 mi_ram.c/(1119:1315): Antes del status tamanio buffer
+[INFO] 17:37:34:266 mi_ram.c/(1119:1315):  despues del tamanio buffer
+[INFO] 17:37:34:266 mi_ram.c/(1119:1315): buffer rcv
+[INFO] 17:37:34:266 mi_ram.c/(1119:1315): 
+0x00000000: 04 00 00 00 01 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:34:266 mi_ram.c/(1119:1315): Direccion stream: b5c015f8
+[INFO] 17:37:34:266 mi_ram.c/(1119:1315): Direccion tid: b51ff2f4
+[INFO] 17:37:34:266 mi_ram.c/(1119:1315): PID ACTUALIZAR ESTADO : 1
+[INFO] 17:37:34:266 mi_ram.c/(1119:1313): Entre a atender discordiador
+[INFO] 17:37:34:266 mi_ram.c/(1119:1313): Antes del primer rcv
+[INFO] 17:37:34:266 mi_ram.c/(1119:1313): DEspues del primer recv
+[INFO] 17:37:34:266 mi_ram.c/(1119:1313): Recibi header: 6
+
+[INFO] 17:37:34:266 mi_ram.c/(1119:1313): Antes del status tamanio buffer
+[INFO] 17:37:34:267 mi_ram.c/(1119:1313):  despues del tamanio buffer
+[INFO] 17:37:34:267 mi_ram.c/(1119:1313): buffer rcv
+[INFO] 17:37:34:267 mi_ram.c/(1119:1313): 
+0x00000000: 02 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:34:267 mi_ram.c/(1119:1313): Me pidieron un tripulante inexistente en eliminar tripulante
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317): Entre a atender discordiador
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317): Antes del primer rcv
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317): DEspues del primer recv
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317): Recibi header: 5
+
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317): Antes del status tamanio buffer
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317):  despues del tamanio buffer
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317): buffer rcv
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317): Direccion stream: b5202b28
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317): Direccion tid: b49fe2f4
+[INFO] 17:37:34:267 mi_ram.c/(1119:1317): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:36:266 mi_ram.c/(1119:1316): entre a es el ultimo tripulante
+[INFO] 17:37:36:266 mi_ram.c/(1119:1316): antes del primer list find
+[INFO] 17:37:36:266 mi_ram.c/(1119:1316): despues del primer list find
+[INFO] 17:37:36:266 mi_ram.c/(1119:1316): antes del segundo list find
+[INFO] 17:37:36:266 mi_ram.c/(1119:1316): despues del segundo list find
+[INFO] 17:37:36:266 mi_ram.c/(1119:1316): antes del tercer list find
+[INFO] 17:37:36:266 mi_ram.c/(1119:1316): despues del tercer list find
+[INFO] 17:37:36:266 mi_ram.c/(1119:1316): VOy a remover la tabla de patotas del proceso: 1
+[INFO] 17:37:36:266 mi_ram.c/(1119:1316): CAntidad de referencias antes: 2
+[INFO] 17:37:36:266 mi_ram.c/(1119:1316): Cantidad de referencias despues: 1
+[INFO] 17:37:38:265 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:38:265 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:38:266 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:38:266 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328): Entre a atender discordiador
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328): Antes del primer rcv
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328): DEspues del primer recv
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328): Recibi header: 5
+
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328): Antes del status tamanio buffer
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328):  despues del tamanio buffer
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328): buffer rcv
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328): Direccion stream: b5202c00
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328): Direccion tid: b49fe2f4
+[INFO] 17:37:38:266 mi_ram.c/(1119:1328): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:38:266 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:38:266 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:38:267 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:38:267 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:38:267 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:38:267 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327): Entre a atender discordiador
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327): Antes del primer rcv
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327): DEspues del primer recv
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327): Recibi header: 5
+
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327): Antes del status tamanio buffer
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327):  despues del tamanio buffer
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327): buffer rcv
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327): Direccion stream: b5202c30
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327): Direccion tid: b31fb2f4
+[INFO] 17:37:38:267 mi_ram.c/(1119:1327): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:38:267 mi_ram.c/(1119:1330): Entre a atender discordiador
+[INFO] 17:37:38:267 mi_ram.c/(1119:1330): Antes del primer rcv
+[INFO] 17:37:38:267 mi_ram.c/(1119:1330): DEspues del primer recv
+[INFO] 17:37:38:267 mi_ram.c/(1119:1330): Recibi header: 5
+
+[INFO] 17:37:38:268 mi_ram.c/(1119:1330): Antes del status tamanio buffer
+[INFO] 17:37:38:268 mi_ram.c/(1119:1330):  despues del tamanio buffer
+[INFO] 17:37:38:268 mi_ram.c/(1119:1330): buffer rcv
+[INFO] 17:37:38:268 mi_ram.c/(1119:1330): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:38:268 mi_ram.c/(1119:1330): Direccion stream: b5202d10
+[INFO] 17:37:38:268 mi_ram.c/(1119:1330): Direccion tid: b39fc2f4
+[INFO] 17:37:38:268 mi_ram.c/(1119:1330): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:38:267 mi_ram.c/(1119:1331): Entre a atender discordiador
+[INFO] 17:37:38:268 mi_ram.c/(1119:1331): Antes del primer rcv
+[INFO] 17:37:38:268 mi_ram.c/(1119:1331): DEspues del primer recv
+[INFO] 17:37:38:268 mi_ram.c/(1119:1331): Recibi header: 5
+
+[INFO] 17:37:38:268 mi_ram.c/(1119:1331): Antes del status tamanio buffer
+[INFO] 17:37:38:268 mi_ram.c/(1119:1331):  despues del tamanio buffer
+[INFO] 17:37:38:268 mi_ram.c/(1119:1331): buffer rcv
+[INFO] 17:37:38:268 mi_ram.c/(1119:1331): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:38:267 mi_ram.c/(1119:1332): Entre a atender discordiador
+[INFO] 17:37:38:268 mi_ram.c/(1119:1332): Antes del primer rcv
+[INFO] 17:37:38:268 mi_ram.c/(1119:1332): DEspues del primer recv
+[INFO] 17:37:38:268 mi_ram.c/(1119:1332): Recibi header: 1
+
+[INFO] 17:37:38:268 mi_ram.c/(1119:1332): Antes del status tamanio buffer
+[INFO] 17:37:38:268 mi_ram.c/(1119:1332):  despues del tamanio buffer
+[INFO] 17:37:38:268 mi_ram.c/(1119:1332): buffer rcv
+[INFO] 17:37:38:268 mi_ram.c/(1119:1332): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:38:268 mi_ram.c/(1119:1332): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:37:38:268 mi_ram.c/(1119:1332): La tarea a enviar es: A02;1;1;5
+[INFO] 17:37:38:269 mi_ram.c/(1119:1331): Direccion stream: b5c01760
+[INFO] 17:37:38:269 mi_ram.c/(1119:1331): Direccion tid: b51ff2f4
+[INFO] 17:37:38:269 mi_ram.c/(1119:1331): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:42:267 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:42:267 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:42:267 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:42:267 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:42:267 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:42:267 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:42:267 mi_ram.c/(1119:1340): Entre a atender discordiador
+[INFO] 17:37:42:267 mi_ram.c/(1119:1340): Antes del primer rcv
+[INFO] 17:37:42:267 mi_ram.c/(1119:1340): DEspues del primer recv
+[INFO] 17:37:42:267 mi_ram.c/(1119:1340): Recibi header: 5
+
+[INFO] 17:37:42:267 mi_ram.c/(1119:1340): Antes del status tamanio buffer
+[INFO] 17:37:42:267 mi_ram.c/(1119:1340):  despues del tamanio buffer
+[INFO] 17:37:42:267 mi_ram.c/(1119:1340): buffer rcv
+[INFO] 17:37:42:267 mi_ram.c/(1119:1340): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:42:267 mi_ram.c/(1119:1340): Direccion stream: b52027d8
+[INFO] 17:37:42:268 mi_ram.c/(1119:1340): Direccion tid: b5bff2f4
+[INFO] 17:37:42:268 mi_ram.c/(1119:1340): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:42:267 mi_ram.c/(1119:1341): Entre a atender discordiador
+[INFO] 17:37:42:268 mi_ram.c/(1119:1341): Antes del primer rcv
+[INFO] 17:37:42:268 mi_ram.c/(1119:1341): DEspues del primer recv
+[INFO] 17:37:42:268 mi_ram.c/(1119:1341): Recibi header: 1
+
+[INFO] 17:37:42:268 mi_ram.c/(1119:1341): Antes del status tamanio buffer
+[INFO] 17:37:42:268 mi_ram.c/(1119:1341):  despues del tamanio buffer
+[INFO] 17:37:42:268 mi_ram.c/(1119:1341): buffer rcv
+[INFO] 17:37:42:268 mi_ram.c/(1119:1341): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:42:268 mi_ram.c/(1119:1341): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:37:42:268 mi_ram.c/(1119:1341): La tarea a enviar es: A02;1;1;5
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339): Entre a atender discordiador
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339): Antes del primer rcv
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339): DEspues del primer recv
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339): Recibi header: 5
+
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339): Antes del status tamanio buffer
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339):  despues del tamanio buffer
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339): buffer rcv
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339): Direccion stream: b5202b78
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339): Direccion tid: b51ff2f4
+[INFO] 17:37:42:268 mi_ram.c/(1119:1339): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:43:452 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:43:452 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:43:452 mi_ram.c/(1119:1348): Entre a atender discordiador
+[INFO] 17:37:43:452 mi_ram.c/(1119:1348): Antes del primer rcv
+[INFO] 17:37:43:452 mi_ram.c/(1119:1348): DEspues del primer recv
+[INFO] 17:37:43:452 mi_ram.c/(1119:1348): Recibi header: 0
+
+[INFO] 17:37:43:452 mi_ram.c/(1119:1348): Antes del status tamanio buffer
+[INFO] 17:37:43:452 mi_ram.c/(1119:1348):  despues del tamanio buffer
+[INFO] 17:37:43:452 mi_ram.c/(1119:1348): buffer rcv
+[INFO] 17:37:43:452 mi_ram.c/(1119:1348): 
+0x00000000: 1d 00 00 00 42 30 30 3b  31 3b 31 3b 35 0a 42 30  |....B00;1;1;5.B0|
+0x00000010: 31 3b 31 3b 31 3b 35 0a  42 30 32 3b 31 3b 31 3b  |1;1;1;5.B02;1;1;|
+0x00000020: 35 02 00 00 00 02 00 00  00 05 00 00 00 00 00 00  |5...............|
+0x00000030: 00 00 00 00 00 4e 06 00  00 00 00 00 00 00 00 00  |.....N..........|
+0x00000040: 00 00 4e 00 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+0x00000050: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:43:452 mi_ram.c/(1119:1348): me mandaron una patota
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): cantidad tcbs recibidos: 2 
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Hay lugar.agrego patota
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 6
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 108 y tamanio: 21
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 150 y tamanio: 21
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 192 y tamanio: 8
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 200 y tamanio: 10
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 210 y tamanio: 21
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 231 y tamanio: 25
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 6
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 6
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): CAntiadd segmentos libres : 6
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): TAmanio segmento elegido: 21 Tamnio contenido: 8
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): termine
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): cree PCB
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): antes de tareas
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): entre a tareas
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 6
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 116 y tamanio: 13
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 150 y tamanio: 21
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 192 y tamanio: 8
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 200 y tamanio: 10
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 210 y tamanio: 21
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Segmento libre que inicia 231 y tamanio: 25
+
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 6
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 6
+[INFO] 17:37:43:453 mi_ram.c/(1119:1348): El contenido no entra en ningun segmento libre. Iniciando compactacion...
+[INFO] 17:37:44:269 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:44:269 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:44:269 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:44:269 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:44:270 mi_ram.c/(1119:1352): Entre a atender discordiador
+[INFO] 17:37:44:270 mi_ram.c/(1119:1352): Antes del primer rcv
+[INFO] 17:37:44:270 mi_ram.c/(1119:1352): DEspues del primer recv
+[INFO] 17:37:44:270 mi_ram.c/(1119:1352): Recibi header: 5
+
+[INFO] 17:37:44:270 mi_ram.c/(1119:1352): Antes del status tamanio buffer
+[INFO] 17:37:44:270 mi_ram.c/(1119:1352):  despues del tamanio buffer
+[INFO] 17:37:44:270 mi_ram.c/(1119:1352): buffer rcv
+[INFO] 17:37:44:270 mi_ram.c/(1119:1352): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:44:270 mi_ram.c/(1119:1351): Entre a atender discordiador
+[INFO] 17:37:44:270 mi_ram.c/(1119:1351): Antes del primer rcv
+[INFO] 17:37:44:270 mi_ram.c/(1119:1351): DEspues del primer recv
+[INFO] 17:37:44:270 mi_ram.c/(1119:1351): Recibi header: 5
+
+[INFO] 17:37:44:270 mi_ram.c/(1119:1351): Antes del status tamanio buffer
+[INFO] 17:37:44:270 mi_ram.c/(1119:1351):  despues del tamanio buffer
+[INFO] 17:37:44:270 mi_ram.c/(1119:1351): buffer rcv
+[INFO] 17:37:44:270 mi_ram.c/(1119:1351): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:45:454 mi_ram.c/(1119:1348): Iniciando compactacion luego de esperar
+[INFO] 17:37:45:454 mi_ram.c/(1119:1348): LIst size : 5
+[INFO] 17:37:45:454 mi_ram.c/(1119:1348): Cantidad de segmentos: 5
+[INFO] 17:37:45:454 mi_ram.c/(1119:1348): Segmento base: 0, tamanio 8
+[INFO] 17:37:45:454 mi_ram.c/(1119:1348): Compactacion vuelta numero 0 PID del segmento: 0
+[INFO] 17:37:45:454 mi_ram.c/(1119:1348): tipo seg_tareas
+[INFO] 17:37:45:454 mi_ram.c/(1119:1348): Compactacion vuelta numero 1 PID del segmento: 2
+[INFO] 17:37:45:454 mi_ram.c/(1119:1348): tipo seg_pcb
+[INFO] 17:37:45:454 mi_ram.c/(1119:1348): Compactacion vuelta numero 2 PID del segmento: 0
+[INFO] 17:37:45:455 mi_ram.c/(1119:1348): Compactacion vuelta numero 3 PID del segmento: 0
+[INFO] 17:37:45:455 mi_ram.c/(1119:1348): Compactacion terminada
+[INFO] 17:37:45:455 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 1
+[INFO] 17:37:45:455 mi_ram.c/(1119:1348): Segmento libre que inicia 158 y tamanio: 98
+
+[INFO] 17:37:45:455 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 1
+[INFO] 17:37:45:455 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 1
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): CAntiadd segmentos libres : 1
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): TAmanio segmento elegido: 98 Tamnio contenido: 30
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): termine
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): busque segmento libre tareas
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): Memoria prin + DL: 96fe3f6
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): tareas: b5203058
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): buscando el segmento nuevo
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): despues de tareas
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): cree tareas
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 1
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): Segmento libre que inicia 188 y tamanio: 68
+
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 1
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 1
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): CAntiadd segmentos libres : 1
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): TAmanio segmento elegido: 68 Tamnio contenido: 21
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): termine
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): cree tcb numero 0
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 1
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): Segmento libre que inicia 209 y tamanio: 47
+
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 1
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): Cantidad de segmentos libres: 1
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): CAntiadd segmentos libres : 1
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): TAmanio segmento elegido: 47 Tamnio contenido: 21
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): termine
+[INFO] 17:37:45:456 mi_ram.c/(1119:1348): cree tcb numero 1
+[INFO] 17:37:48:269 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:48:269 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:48:269 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:48:269 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:48:269 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:48:269 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369): Entre a atender discordiador
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369): Antes del primer rcv
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369): DEspues del primer recv
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369): Recibi header: 5
+
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369): Antes del status tamanio buffer
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369):  despues del tamanio buffer
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369): buffer rcv
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369): 
+0x00000000: 05 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369): Direccion stream: b5203800
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369): Direccion tid: b31fb2f4
+[INFO] 17:37:48:269 mi_ram.c/(1119:1369): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:37:48:269 mi_ram.c/(1119:1370): Entre a atender discordiador
+[INFO] 17:37:48:269 mi_ram.c/(1119:1370): Antes del primer rcv
+[INFO] 17:37:48:269 mi_ram.c/(1119:1370): DEspues del primer recv
+[INFO] 17:37:48:269 mi_ram.c/(1119:1370): Recibi header: 1
+
+[INFO] 17:37:48:269 mi_ram.c/(1119:1370): Antes del status tamanio buffer
+[INFO] 17:37:48:269 mi_ram.c/(1119:1370):  despues del tamanio buffer
+[INFO] 17:37:48:269 mi_ram.c/(1119:1370): buffer rcv
+[INFO] 17:37:48:269 mi_ram.c/(1119:1370): 
+0x00000000: 05 00 00 00 02 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:48:269 mi_ram.c/(1119:1370): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 5
+[INFO] 17:37:48:270 mi_ram.c/(1119:1370): La tarea a enviar es: B00;1;1;5
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368): Entre a atender discordiador
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368): Antes del primer rcv
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368): DEspues del primer recv
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368): Recibi header: 5
+
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368): Antes del status tamanio buffer
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368):  despues del tamanio buffer
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368): buffer rcv
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368): Direccion stream: b5203680
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368): Direccion tid: b51ff2f4
+[INFO] 17:37:48:270 mi_ram.c/(1119:1368): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:48:271 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:48:271 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:48:271 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:48:271 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:48:271 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:48:271 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379): Entre a atender discordiador
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379): Antes del primer rcv
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379): DEspues del primer recv
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379): Recibi header: 5
+
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379): Antes del status tamanio buffer
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379):  despues del tamanio buffer
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379): buffer rcv
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379): 
+0x00000000: 06 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379): Direccion stream: b5203888
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379): Direccion tid: b49fe2f4
+[INFO] 17:37:48:271 mi_ram.c/(1119:1379): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:37:48:271 mi_ram.c/(1119:1380): Entre a atender discordiador
+[INFO] 17:37:48:271 mi_ram.c/(1119:1380): Antes del primer rcv
+[INFO] 17:37:48:272 mi_ram.c/(1119:1380): DEspues del primer recv
+[INFO] 17:37:48:272 mi_ram.c/(1119:1380): Recibi header: 1
+
+[INFO] 17:37:48:272 mi_ram.c/(1119:1380): Antes del status tamanio buffer
+[INFO] 17:37:48:272 mi_ram.c/(1119:1380):  despues del tamanio buffer
+[INFO] 17:37:48:272 mi_ram.c/(1119:1380): buffer rcv
+[INFO] 17:37:48:272 mi_ram.c/(1119:1380): 
+0x00000000: 06 00 00 00 02 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:48:272 mi_ram.c/(1119:1380): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 6
+[INFO] 17:37:48:272 mi_ram.c/(1119:1380): La tarea a enviar es: B00;1;1;5
+[INFO] 17:37:48:271 mi_ram.c/(1119:1376): Entre a atender discordiador
+[INFO] 17:37:48:272 mi_ram.c/(1119:1376): Antes del primer rcv
+[INFO] 17:37:48:272 mi_ram.c/(1119:1376): DEspues del primer recv
+[INFO] 17:37:48:272 mi_ram.c/(1119:1376): Recibi header: 5
+
+[INFO] 17:37:48:272 mi_ram.c/(1119:1376): Antes del status tamanio buffer
+[INFO] 17:37:48:273 mi_ram.c/(1119:1376):  despues del tamanio buffer
+[INFO] 17:37:48:273 mi_ram.c/(1119:1376): buffer rcv
+[INFO] 17:37:48:273 mi_ram.c/(1119:1376): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:48:273 mi_ram.c/(1119:1376): Direccion stream: 9700200
+[INFO] 17:37:48:273 mi_ram.c/(1119:1376): Direccion tid: b51ff2f4
+[INFO] 17:37:48:273 mi_ram.c/(1119:1376): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:54:271 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:54:271 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:54:271 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:54:271 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391): Entre a atender discordiador
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391): Antes del primer rcv
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391): DEspues del primer recv
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391): Recibi header: 5
+
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391): Antes del status tamanio buffer
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391):  despues del tamanio buffer
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391): buffer rcv
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391): Direccion stream: b5203938
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391): Direccion tid: b31fb2f4
+[INFO] 17:37:54:271 mi_ram.c/(1119:1391): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:54:271 mi_ram.c/(1119:1390): Entre a atender discordiador
+[INFO] 17:37:54:271 mi_ram.c/(1119:1390): Antes del primer rcv
+[INFO] 17:37:54:271 mi_ram.c/(1119:1390): DEspues del primer recv
+[INFO] 17:37:54:271 mi_ram.c/(1119:1390): Recibi header: 5
+
+[INFO] 17:37:54:272 mi_ram.c/(1119:1390): Antes del status tamanio buffer
+[INFO] 17:37:54:272 mi_ram.c/(1119:1390):  despues del tamanio buffer
+[INFO] 17:37:54:272 mi_ram.c/(1119:1390): buffer rcv
+[INFO] 17:37:54:272 mi_ram.c/(1119:1390): 
+0x00000000: 05 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:54:272 mi_ram.c/(1119:1390): Direccion stream: b5203970
+[INFO] 17:37:54:272 mi_ram.c/(1119:1390): Direccion tid: b51ff2f4
+[INFO] 17:37:54:272 mi_ram.c/(1119:1390): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:37:54:273 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:54:273 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:54:273 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:54:273 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:54:273 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:54:273 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395): Entre a atender discordiador
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395): Antes del primer rcv
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395): DEspues del primer recv
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395): Recibi header: 5
+
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395): Antes del status tamanio buffer
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395):  despues del tamanio buffer
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395): buffer rcv
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395): Direccion stream: b5203948
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395): Direccion tid: b31fb2f4
+[INFO] 17:37:54:273 mi_ram.c/(1119:1395): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:37:54:273 mi_ram.c/(1119:1396): Entre a atender discordiador
+[INFO] 17:37:54:273 mi_ram.c/(1119:1396): Antes del primer rcv
+[INFO] 17:37:54:273 mi_ram.c/(1119:1396): DEspues del primer recv
+[INFO] 17:37:54:273 mi_ram.c/(1119:1396): Recibi header: 1
+
+[INFO] 17:37:54:273 mi_ram.c/(1119:1396): Antes del status tamanio buffer
+[INFO] 17:37:54:273 mi_ram.c/(1119:1396):  despues del tamanio buffer
+[INFO] 17:37:54:273 mi_ram.c/(1119:1396): buffer rcv
+[INFO] 17:37:54:273 mi_ram.c/(1119:1396): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:37:54:274 mi_ram.c/(1119:1396): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:37:54:274 mi_ram.c/(1119:1396): La tarea a enviar es: A03;1;1;5
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394): Entre a atender discordiador
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394): Antes del primer rcv
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394): DEspues del primer recv
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394): Recibi header: 5
+
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394): Antes del status tamanio buffer
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394):  despues del tamanio buffer
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394): buffer rcv
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394): 
+0x00000000: 06 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394): Direccion stream: b52034b0
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394): Direccion tid: b51ff2f4
+[INFO] 17:37:54:274 mi_ram.c/(1119:1394): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:37:58:272 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:58:272 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:58:272 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:37:58:272 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:37:58:272 mi_ram.c/(1119:1408): Entre a atender discordiador
+[INFO] 17:37:58:272 mi_ram.c/(1119:1408): Antes del primer rcv
+[INFO] 17:37:58:272 mi_ram.c/(1119:1408): DEspues del primer recv
+[INFO] 17:37:58:272 mi_ram.c/(1119:1408): Recibi header: 5
+
+[INFO] 17:37:58:272 mi_ram.c/(1119:1408): Antes del status tamanio buffer
+[INFO] 17:37:58:272 mi_ram.c/(1119:1408):  despues del tamanio buffer
+[INFO] 17:37:58:272 mi_ram.c/(1119:1408): buffer rcv
+[INFO] 17:37:58:273 mi_ram.c/(1119:1408): 
+0x00000000: 05 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:37:58:273 mi_ram.c/(1119:1408): Direccion stream: b52039f0
+[INFO] 17:37:58:273 mi_ram.c/(1119:1408): Direccion tid: b49fe2f4
+[INFO] 17:37:58:273 mi_ram.c/(1119:1408): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407): Entre a atender discordiador
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407): Antes del primer rcv
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407): DEspues del primer recv
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407): Recibi header: 5
+
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407): Antes del status tamanio buffer
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407):  despues del tamanio buffer
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407): buffer rcv
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407): Direccion stream: b5203a20
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407): Direccion tid: b51ff2f4
+[INFO] 17:37:58:273 mi_ram.c/(1119:1407): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:00:274 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:00:274 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:00:274 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:00:274 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:00:274 mi_ram.c/(1119:1409): Entre a atender discordiador
+[INFO] 17:38:00:274 mi_ram.c/(1119:1409): Antes del primer rcv
+[INFO] 17:38:00:275 mi_ram.c/(1119:1409): DEspues del primer recv
+[INFO] 17:38:00:275 mi_ram.c/(1119:1409): Recibi header: 5
+
+[INFO] 17:38:00:275 mi_ram.c/(1119:1409): Antes del status tamanio buffer
+[INFO] 17:38:00:275 mi_ram.c/(1119:1409):  despues del tamanio buffer
+[INFO] 17:38:00:275 mi_ram.c/(1119:1409): buffer rcv
+[INFO] 17:38:00:275 mi_ram.c/(1119:1409): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:00:275 mi_ram.c/(1119:1409): Direccion stream: b5204160
+[INFO] 17:38:00:275 mi_ram.c/(1119:1409): Direccion tid: b51ff2f4
+[INFO] 17:38:00:275 mi_ram.c/(1119:1409): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:00:274 mi_ram.c/(1119:1410): Entre a atender discordiador
+[INFO] 17:38:00:275 mi_ram.c/(1119:1410): Antes del primer rcv
+[INFO] 17:38:00:275 mi_ram.c/(1119:1410): DEspues del primer recv
+[INFO] 17:38:00:275 mi_ram.c/(1119:1410): Recibi header: 5
+
+[INFO] 17:38:00:275 mi_ram.c/(1119:1410): Antes del status tamanio buffer
+[INFO] 17:38:00:275 mi_ram.c/(1119:1410):  despues del tamanio buffer
+[INFO] 17:38:00:275 mi_ram.c/(1119:1410): buffer rcv
+[INFO] 17:38:00:275 mi_ram.c/(1119:1410): 
+0x00000000: 06 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:00:275 mi_ram.c/(1119:1410): Direccion stream: b5c01cc0
+[INFO] 17:38:00:275 mi_ram.c/(1119:1410): Direccion tid: b49fe2f4
+[INFO] 17:38:00:275 mi_ram.c/(1119:1410): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:04:274 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:04:274 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:04:274 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:04:274 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:04:274 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:04:274 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:04:274 mi_ram.c/(1119:1420): Entre a atender discordiador
+[INFO] 17:38:04:274 mi_ram.c/(1119:1420): Antes del primer rcv
+[INFO] 17:38:04:274 mi_ram.c/(1119:1420): DEspues del primer recv
+[INFO] 17:38:04:274 mi_ram.c/(1119:1420): Recibi header: 5
+
+[INFO] 17:38:04:274 mi_ram.c/(1119:1420): Antes del status tamanio buffer
+[INFO] 17:38:04:274 mi_ram.c/(1119:1420):  despues del tamanio buffer
+[INFO] 17:38:04:274 mi_ram.c/(1119:1420): buffer rcv
+[INFO] 17:38:04:275 mi_ram.c/(1119:1420): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:04:275 mi_ram.c/(1119:1420): Direccion stream: b5204190
+[INFO] 17:38:04:275 mi_ram.c/(1119:1420): Direccion tid: b51ff2f4
+[INFO] 17:38:04:275 mi_ram.c/(1119:1420): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:04:274 mi_ram.c/(1119:1421): Entre a atender discordiador
+[INFO] 17:38:04:275 mi_ram.c/(1119:1421): Antes del primer rcv
+[INFO] 17:38:04:275 mi_ram.c/(1119:1421): DEspues del primer recv
+[INFO] 17:38:04:275 mi_ram.c/(1119:1421): Recibi header: 1
+
+[INFO] 17:38:04:275 mi_ram.c/(1119:1421): Antes del status tamanio buffer
+[INFO] 17:38:04:275 mi_ram.c/(1119:1421):  despues del tamanio buffer
+[INFO] 17:38:04:275 mi_ram.c/(1119:1421): buffer rcv
+[INFO] 17:38:04:275 mi_ram.c/(1119:1421): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:04:275 mi_ram.c/(1119:1421): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:38:04:275 mi_ram.c/(1119:1421): La tarea a enviar es: A03;1;1;5
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419): Entre a atender discordiador
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419): Antes del primer rcv
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419): DEspues del primer recv
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419): Recibi header: 5
+
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419): Antes del status tamanio buffer
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419):  despues del tamanio buffer
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419): buffer rcv
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419): 
+0x00000000: 05 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419): Direccion stream: b5204278
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419): Direccion tid: b49fe2f4
+[INFO] 17:38:04:275 mi_ram.c/(1119:1419): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:06:275 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:06:275 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:06:275 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:06:275 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:06:275 mi_ram.c/(1119:1424): Entre a atender discordiador
+[INFO] 17:38:06:275 mi_ram.c/(1119:1424): Antes del primer rcv
+[INFO] 17:38:06:275 mi_ram.c/(1119:1424): DEspues del primer recv
+[INFO] 17:38:06:275 mi_ram.c/(1119:1424): Recibi header: 5
+
+[INFO] 17:38:06:275 mi_ram.c/(1119:1424): Antes del status tamanio buffer
+[INFO] 17:38:06:276 mi_ram.c/(1119:1424):  despues del tamanio buffer
+[INFO] 17:38:06:276 mi_ram.c/(1119:1424): buffer rcv
+[INFO] 17:38:06:276 mi_ram.c/(1119:1424): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:06:276 mi_ram.c/(1119:1424): Direccion stream: b5204300
+[INFO] 17:38:06:276 mi_ram.c/(1119:1424): Direccion tid: b31fb2f4
+[INFO] 17:38:06:276 mi_ram.c/(1119:1424): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423): Entre a atender discordiador
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423): Antes del primer rcv
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423): DEspues del primer recv
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423): Recibi header: 5
+
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423): Antes del status tamanio buffer
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423):  despues del tamanio buffer
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423): buffer rcv
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423): 
+0x00000000: 06 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423): Direccion stream: b5204330
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423): Direccion tid: b49fe2f4
+[INFO] 17:38:06:276 mi_ram.c/(1119:1423): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:10:276 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:10:276 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:10:276 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:10:276 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435): Entre a atender discordiador
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435): Antes del primer rcv
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435): DEspues del primer recv
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435): Recibi header: 5
+
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435): Antes del status tamanio buffer
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435):  despues del tamanio buffer
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435): buffer rcv
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435): 
+0x00000000: 05 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435): Direccion stream: b5204418
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435): Direccion tid: b31fb2f4
+[INFO] 17:38:10:276 mi_ram.c/(1119:1435): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:10:276 mi_ram.c/(1119:1434): Entre a atender discordiador
+[INFO] 17:38:10:277 mi_ram.c/(1119:1434): Antes del primer rcv
+[INFO] 17:38:10:277 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:10:277 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:10:277 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:10:277 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:10:277 mi_ram.c/(1119:1434): DEspues del primer recv
+[INFO] 17:38:10:277 mi_ram.c/(1119:1434): Recibi header: 5
+
+[INFO] 17:38:10:277 mi_ram.c/(1119:1434): Antes del status tamanio buffer
+[INFO] 17:38:10:277 mi_ram.c/(1119:1434):  despues del tamanio buffer
+[INFO] 17:38:10:277 mi_ram.c/(1119:1434): buffer rcv
+[INFO] 17:38:10:277 mi_ram.c/(1119:1434): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:10:277 mi_ram.c/(1119:1434): Direccion stream: b52044a0
+[INFO] 17:38:10:277 mi_ram.c/(1119:1434): Direccion tid: b49fe2f4
+[INFO] 17:38:10:277 mi_ram.c/(1119:1434): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437): Entre a atender discordiador
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437): Antes del primer rcv
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437): DEspues del primer recv
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437): Recibi header: 5
+
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437): Antes del status tamanio buffer
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437):  despues del tamanio buffer
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437): buffer rcv
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437): 
+0x00000000: 06 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437): Direccion stream: b52044d0
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437): Direccion tid: b51ff2f4
+[INFO] 17:38:10:277 mi_ram.c/(1119:1437): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436): Entre a atender discordiador
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436): Antes del primer rcv
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436): DEspues del primer recv
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436): Recibi header: 5
+
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436): Antes del status tamanio buffer
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436):  despues del tamanio buffer
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436): buffer rcv
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436): Direccion stream: b52045b8
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436): Direccion tid: b31fb2f4
+[INFO] 17:38:10:278 mi_ram.c/(1119:1436): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:12:277 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:12:277 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:12:277 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:12:277 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:12:277 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:12:277 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:12:277 mi_ram.c/(1119:1446): Entre a atender discordiador
+[INFO] 17:38:12:277 mi_ram.c/(1119:1446): Antes del primer rcv
+[INFO] 17:38:12:277 mi_ram.c/(1119:1446): DEspues del primer recv
+[INFO] 17:38:12:277 mi_ram.c/(1119:1446): Recibi header: 1
+
+[INFO] 17:38:12:277 mi_ram.c/(1119:1446): Antes del status tamanio buffer
+[INFO] 17:38:12:277 mi_ram.c/(1119:1446):  despues del tamanio buffer
+[INFO] 17:38:12:277 mi_ram.c/(1119:1446): buffer rcv
+[INFO] 17:38:12:277 mi_ram.c/(1119:1446): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:12:277 mi_ram.c/(1119:1446): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:38:12:277 mi_ram.c/(1119:1446): La tarea a enviar es: A04;1;1;5
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445): Entre a atender discordiador
+[INFO] 17:38:12:278 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:12:278 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:12:278 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:12:278 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445): Antes del primer rcv
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445): DEspues del primer recv
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445): Recibi header: 5
+
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445): Antes del status tamanio buffer
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445):  despues del tamanio buffer
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445): buffer rcv
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445): Direccion stream: b5204020
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445): Direccion tid: b51ff2f4
+[INFO] 17:38:12:278 mi_ram.c/(1119:1445): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:12:278 mi_ram.c/(1119:1444): Entre a atender discordiador
+[INFO] 17:38:12:278 mi_ram.c/(1119:1444): Antes del primer rcv
+[INFO] 17:38:12:278 mi_ram.c/(1119:1444): DEspues del primer recv
+[INFO] 17:38:12:278 mi_ram.c/(1119:1444): Recibi header: 5
+
+[INFO] 17:38:12:278 mi_ram.c/(1119:1444): Antes del status tamanio buffer
+[INFO] 17:38:12:278 mi_ram.c/(1119:1444):  despues del tamanio buffer
+[INFO] 17:38:12:278 mi_ram.c/(1119:1444): buffer rcv
+[INFO] 17:38:12:278 mi_ram.c/(1119:1444): 
+0x00000000: 05 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:12:278 mi_ram.c/(1119:1444): Direccion stream: b52047e0
+[INFO] 17:38:12:278 mi_ram.c/(1119:1444): Direccion tid: b31fb2f4
+[INFO] 17:38:12:279 mi_ram.c/(1119:1444): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449): Entre a atender discordiador
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449): Antes del primer rcv
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449): DEspues del primer recv
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449): Recibi header: 5
+
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449): Antes del status tamanio buffer
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449):  despues del tamanio buffer
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449): buffer rcv
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449): 
+0x00000000: 06 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449): Direccion stream: b52048b8
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449): Direccion tid: b49fe2f4
+[INFO] 17:38:12:279 mi_ram.c/(1119:1449): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:12:279 mi_ram.c/(1119:1450): Entre a atender discordiador
+[INFO] 17:38:12:279 mi_ram.c/(1119:1450): Antes del primer rcv
+[INFO] 17:38:12:279 mi_ram.c/(1119:1450): DEspues del primer recv
+[INFO] 17:38:12:279 mi_ram.c/(1119:1450): Recibi header: 5
+
+[INFO] 17:38:12:279 mi_ram.c/(1119:1450): Antes del status tamanio buffer
+[INFO] 17:38:12:279 mi_ram.c/(1119:1450):  despues del tamanio buffer
+[INFO] 17:38:12:279 mi_ram.c/(1119:1450): buffer rcv
+[INFO] 17:38:12:280 mi_ram.c/(1119:1450): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:12:280 mi_ram.c/(1119:1450): Direccion stream: b5204950
+[INFO] 17:38:12:280 mi_ram.c/(1119:1450): Direccion tid: b41fd2f4
+[INFO] 17:38:12:280 mi_ram.c/(1119:1450): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:16:278 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:16:278 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:16:278 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:16:278 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:16:278 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:16:278 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:16:278 mi_ram.c/(1119:1457): Entre a atender discordiador
+[INFO] 17:38:16:278 mi_ram.c/(1119:1457): Antes del primer rcv
+[INFO] 17:38:16:278 mi_ram.c/(1119:1457): DEspues del primer recv
+[INFO] 17:38:16:278 mi_ram.c/(1119:1457): Recibi header: 5
+
+[INFO] 17:38:16:278 mi_ram.c/(1119:1457): Antes del status tamanio buffer
+[INFO] 17:38:16:279 mi_ram.c/(1119:1457):  despues del tamanio buffer
+[INFO] 17:38:16:279 mi_ram.c/(1119:1457): buffer rcv
+[INFO] 17:38:16:279 mi_ram.c/(1119:1457): 
+0x00000000: 05 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:16:279 mi_ram.c/(1119:1457): Direccion stream: b5204878
+[INFO] 17:38:16:279 mi_ram.c/(1119:1457): Direccion tid: b49fe2f4
+[INFO] 17:38:16:279 mi_ram.c/(1119:1457): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:16:278 mi_ram.c/(1119:1458): Entre a atender discordiador
+[INFO] 17:38:16:279 mi_ram.c/(1119:1458): Antes del primer rcv
+[INFO] 17:38:16:279 mi_ram.c/(1119:1458): DEspues del primer recv
+[INFO] 17:38:16:279 mi_ram.c/(1119:1458): Recibi header: 1
+
+[INFO] 17:38:16:279 mi_ram.c/(1119:1458): Antes del status tamanio buffer
+[INFO] 17:38:16:279 mi_ram.c/(1119:1458):  despues del tamanio buffer
+[INFO] 17:38:16:279 mi_ram.c/(1119:1458): buffer rcv
+[INFO] 17:38:16:279 mi_ram.c/(1119:1458): 
+0x00000000: 05 00 00 00 02 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:16:279 mi_ram.c/(1119:1458): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 5
+[INFO] 17:38:16:279 mi_ram.c/(1119:1458): La tarea a enviar es: B01;1;1;5
+[INFO] 17:38:16:279 mi_ram.c/(1119:1456): Entre a atender discordiador
+[INFO] 17:38:16:279 mi_ram.c/(1119:1456): Antes del primer rcv
+[INFO] 17:38:16:279 mi_ram.c/(1119:1456): DEspues del primer recv
+[INFO] 17:38:16:279 mi_ram.c/(1119:1456): Recibi header: 5
+
+[INFO] 17:38:16:279 mi_ram.c/(1119:1456): Antes del status tamanio buffer
+[INFO] 17:38:16:279 mi_ram.c/(1119:1456):  despues del tamanio buffer
+[INFO] 17:38:16:279 mi_ram.c/(1119:1456): buffer rcv
+[INFO] 17:38:16:279 mi_ram.c/(1119:1456): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:16:279 mi_ram.c/(1119:1456): Direccion stream: b5204888
+[INFO] 17:38:16:280 mi_ram.c/(1119:1456): Direccion tid: b41fd2f4
+[INFO] 17:38:16:280 mi_ram.c/(1119:1456): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:18:278 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:18:278 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:18:278 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:18:278 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:18:278 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:18:278 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:18:278 mi_ram.c/(1119:1471): Entre a atender discordiador
+[INFO] 17:38:18:278 mi_ram.c/(1119:1471): Antes del primer rcv
+[INFO] 17:38:18:278 mi_ram.c/(1119:1471): DEspues del primer recv
+[INFO] 17:38:18:278 mi_ram.c/(1119:1471): Recibi header: 1
+
+[INFO] 17:38:18:278 mi_ram.c/(1119:1471): Antes del status tamanio buffer
+[INFO] 17:38:18:279 mi_ram.c/(1119:1471):  despues del tamanio buffer
+[INFO] 17:38:18:279 mi_ram.c/(1119:1471): buffer rcv
+[INFO] 17:38:18:279 mi_ram.c/(1119:1471): 
+0x00000000: 06 00 00 00 02 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:18:279 mi_ram.c/(1119:1471): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 6
+[INFO] 17:38:18:279 mi_ram.c/(1119:1471): La tarea a enviar es: B01;1;1;5
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469): Entre a atender discordiador
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469): Antes del primer rcv
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469): DEspues del primer recv
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469): Recibi header: 5
+
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469): Antes del status tamanio buffer
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469):  despues del tamanio buffer
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469): buffer rcv
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469): Direccion stream: b5204a78
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469): Direccion tid: b41fd2f4
+[INFO] 17:38:18:279 mi_ram.c/(1119:1469): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:18:279 mi_ram.c/(1119:1470): Entre a atender discordiador
+[INFO] 17:38:18:279 mi_ram.c/(1119:1470): Antes del primer rcv
+[INFO] 17:38:18:279 mi_ram.c/(1119:1470): DEspues del primer recv
+[INFO] 17:38:18:279 mi_ram.c/(1119:1470): Recibi header: 5
+
+[INFO] 17:38:18:279 mi_ram.c/(1119:1470): Antes del status tamanio buffer
+[INFO] 17:38:18:279 mi_ram.c/(1119:1470):  despues del tamanio buffer
+[INFO] 17:38:18:279 mi_ram.c/(1119:1470): buffer rcv
+[INFO] 17:38:18:279 mi_ram.c/(1119:1470): 
+0x00000000: 06 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:18:280 mi_ram.c/(1119:1470): Direccion stream: 97002a8
+[INFO] 17:38:18:280 mi_ram.c/(1119:1470): Direccion tid: b31fb2f4
+[INFO] 17:38:18:280 mi_ram.c/(1119:1470): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:22:280 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:22:280 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:22:280 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:22:280 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:22:280 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:22:280 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:22:280 mi_ram.c/(1119:1480): Entre a atender discordiador
+[INFO] 17:38:22:280 mi_ram.c/(1119:1480): Antes del primer rcv
+[INFO] 17:38:22:280 mi_ram.c/(1119:1480): DEspues del primer recv
+[INFO] 17:38:22:280 mi_ram.c/(1119:1480): Recibi header: 1
+
+[INFO] 17:38:22:280 mi_ram.c/(1119:1480): Antes del status tamanio buffer
+[INFO] 17:38:22:281 mi_ram.c/(1119:1480):  despues del tamanio buffer
+[INFO] 17:38:22:281 mi_ram.c/(1119:1480): buffer rcv
+[INFO] 17:38:22:281 mi_ram.c/(1119:1480): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:22:281 mi_ram.c/(1119:1480): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:38:22:281 mi_ram.c/(1119:1480): La tarea a enviar es: A04;1;1;5
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479): Entre a atender discordiador
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479): Antes del primer rcv
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479): DEspues del primer recv
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479): Recibi header: 5
+
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479): Antes del status tamanio buffer
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479):  despues del tamanio buffer
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479): buffer rcv
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479): Direccion stream: b5204d18
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479): Direccion tid: b41fd2f4
+[INFO] 17:38:22:281 mi_ram.c/(1119:1479): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:22:281 mi_ram.c/(1119:1478): Entre a atender discordiador
+[INFO] 17:38:22:281 mi_ram.c/(1119:1478): Antes del primer rcv
+[INFO] 17:38:22:281 mi_ram.c/(1119:1478): DEspues del primer recv
+[INFO] 17:38:22:281 mi_ram.c/(1119:1478): Recibi header: 5
+
+[INFO] 17:38:22:281 mi_ram.c/(1119:1478): Antes del status tamanio buffer
+[INFO] 17:38:22:281 mi_ram.c/(1119:1478):  despues del tamanio buffer
+[INFO] 17:38:22:281 mi_ram.c/(1119:1478): buffer rcv
+[INFO] 17:38:22:281 mi_ram.c/(1119:1478): 
+0x00000000: 05 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:22:281 mi_ram.c/(1119:1478): Direccion stream: b5204e38
+[INFO] 17:38:22:281 mi_ram.c/(1119:1478): Direccion tid: b31fb2f4
+[INFO] 17:38:22:282 mi_ram.c/(1119:1478): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:24:280 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:24:280 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:24:280 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:24:280 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492): Entre a atender discordiador
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492): Antes del primer rcv
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492): DEspues del primer recv
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492): Recibi header: 5
+
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492): Antes del status tamanio buffer
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492):  despues del tamanio buffer
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492): buffer rcv
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492): Direccion stream: b5204f98
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492): Direccion tid: b41fd2f4
+[INFO] 17:38:24:281 mi_ram.c/(1119:1492): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491): Entre a atender discordiador
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491): Antes del primer rcv
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491): DEspues del primer recv
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491): Recibi header: 5
+
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491): Antes del status tamanio buffer
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491):  despues del tamanio buffer
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491): buffer rcv
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491): 
+0x00000000: 06 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491): Direccion stream: b5205020
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491): Direccion tid: b31fb2f4
+[INFO] 17:38:24:281 mi_ram.c/(1119:1491): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:28:282 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:28:282 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:28:282 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:28:282 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:28:282 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:28:282 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:28:282 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:28:282 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505): Entre a atender discordiador
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505): Antes del primer rcv
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505): DEspues del primer recv
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505): Recibi header: 5
+
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505): Antes del status tamanio buffer
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505):  despues del tamanio buffer
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505): buffer rcv
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505): 
+0x00000000: 05 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505): Direccion stream: b5204ef0
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505): Direccion tid: b41fd2f4
+[INFO] 17:38:28:282 mi_ram.c/(1119:1505): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:28:282 mi_ram.c/(1119:1506): Entre a atender discordiador
+[INFO] 17:38:28:282 mi_ram.c/(1119:1506): Antes del primer rcv
+[INFO] 17:38:28:283 mi_ram.c/(1119:1506): DEspues del primer recv
+[INFO] 17:38:28:283 mi_ram.c/(1119:1506): Recibi header: 5
+
+[INFO] 17:38:28:283 mi_ram.c/(1119:1506): Antes del status tamanio buffer
+[INFO] 17:38:28:283 mi_ram.c/(1119:1506):  despues del tamanio buffer
+[INFO] 17:38:28:283 mi_ram.c/(1119:1506): buffer rcv
+[INFO] 17:38:28:283 mi_ram.c/(1119:1506): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:28:283 mi_ram.c/(1119:1506): Direccion stream: b52050c8
+[INFO] 17:38:28:283 mi_ram.c/(1119:1506): Direccion tid: b49fe2f4
+[INFO] 17:38:28:283 mi_ram.c/(1119:1506): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:28:282 mi_ram.c/(1119:1504): Entre a atender discordiador
+[INFO] 17:38:28:283 mi_ram.c/(1119:1504): Antes del primer rcv
+[INFO] 17:38:28:283 mi_ram.c/(1119:1504): DEspues del primer recv
+[INFO] 17:38:28:283 mi_ram.c/(1119:1504): Recibi header: 5
+
+[INFO] 17:38:28:283 mi_ram.c/(1119:1504): Antes del status tamanio buffer
+[INFO] 17:38:28:283 mi_ram.c/(1119:1504):  despues del tamanio buffer
+[INFO] 17:38:28:283 mi_ram.c/(1119:1504): buffer rcv
+[INFO] 17:38:28:283 mi_ram.c/(1119:1504): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:28:283 mi_ram.c/(1119:1504): Direccion stream: 97002d8
+[INFO] 17:38:28:283 mi_ram.c/(1119:1504): Direccion tid: b31fb2f4
+[INFO] 17:38:28:283 mi_ram.c/(1119:1504): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:28:282 mi_ram.c/(1119:1507): Entre a atender discordiador
+[INFO] 17:38:28:283 mi_ram.c/(1119:1507): Antes del primer rcv
+[INFO] 17:38:28:283 mi_ram.c/(1119:1507): DEspues del primer recv
+[INFO] 17:38:28:283 mi_ram.c/(1119:1507): Recibi header: 5
+
+[INFO] 17:38:28:283 mi_ram.c/(1119:1507): Antes del status tamanio buffer
+[INFO] 17:38:28:283 mi_ram.c/(1119:1507):  despues del tamanio buffer
+[INFO] 17:38:28:283 mi_ram.c/(1119:1507): buffer rcv
+[INFO] 17:38:28:283 mi_ram.c/(1119:1507): 
+0x00000000: 06 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:28:283 mi_ram.c/(1119:1507): Direccion stream: b5c022d0
+[INFO] 17:38:28:284 mi_ram.c/(1119:1507): Direccion tid: b51ff2f4
+[INFO] 17:38:28:284 mi_ram.c/(1119:1507): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:32:283 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:32:283 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:32:283 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:32:283 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:32:283 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:32:283 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:32:283 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:32:283 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:32:284 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:32:284 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515): Entre a atender discordiador
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515): Antes del primer rcv
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515): DEspues del primer recv
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515): Recibi header: 5
+
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515): Antes del status tamanio buffer
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515):  despues del tamanio buffer
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515): buffer rcv
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515): 
+0x00000000: 06 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515): Direccion stream: b5204ee0
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515): Direccion tid: b51ff2f4
+[INFO] 17:38:32:284 mi_ram.c/(1119:1515): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516): Entre a atender discordiador
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516): Antes del primer rcv
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516): DEspues del primer recv
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516): Recibi header: 5
+
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516): Antes del status tamanio buffer
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516):  despues del tamanio buffer
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516): buffer rcv
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516): Direccion stream: b5204e70
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516): Direccion tid: b31fb2f4
+[INFO] 17:38:32:284 mi_ram.c/(1119:1516): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:32:284 mi_ram.c/(1119:1519): Entre a atender discordiador
+[INFO] 17:38:32:284 mi_ram.c/(1119:1519): Antes del primer rcv
+[INFO] 17:38:32:285 mi_ram.c/(1119:1519): DEspues del primer recv
+[INFO] 17:38:32:285 mi_ram.c/(1119:1519): Recibi header: 5
+
+[INFO] 17:38:32:285 mi_ram.c/(1119:1519): Antes del status tamanio buffer
+[INFO] 17:38:32:285 mi_ram.c/(1119:1519):  despues del tamanio buffer
+[INFO] 17:38:32:285 mi_ram.c/(1119:1519): buffer rcv
+[INFO] 17:38:32:285 mi_ram.c/(1119:1519): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:32:285 mi_ram.c/(1119:1519): Direccion stream: b5c023a0
+[INFO] 17:38:32:285 mi_ram.c/(1119:1519): Direccion tid: b41fd2f4
+[INFO] 17:38:32:285 mi_ram.c/(1119:1519): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:32:284 mi_ram.c/(1119:1518): Entre a atender discordiador
+[INFO] 17:38:32:285 mi_ram.c/(1119:1518): Antes del primer rcv
+[INFO] 17:38:32:285 mi_ram.c/(1119:1518): DEspues del primer recv
+[INFO] 17:38:32:285 mi_ram.c/(1119:1518): Recibi header: 5
+
+[INFO] 17:38:32:285 mi_ram.c/(1119:1518): Antes del status tamanio buffer
+[INFO] 17:38:32:285 mi_ram.c/(1119:1518):  despues del tamanio buffer
+[INFO] 17:38:32:285 mi_ram.c/(1119:1518): buffer rcv
+[INFO] 17:38:32:285 mi_ram.c/(1119:1518): 
+0x00000000: 05 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:32:285 mi_ram.c/(1119:1518): Direccion stream: b5205140
+[INFO] 17:38:32:285 mi_ram.c/(1119:1518): Direccion tid: b49fe2f4
+[INFO] 17:38:32:285 mi_ram.c/(1119:1518): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:32:284 mi_ram.c/(1119:1522): Entre a atender discordiador
+[INFO] 17:38:32:285 mi_ram.c/(1119:1522): Antes del primer rcv
+[INFO] 17:38:32:285 mi_ram.c/(1119:1522): DEspues del primer recv
+[INFO] 17:38:32:285 mi_ram.c/(1119:1522): Recibi header: 1
+
+[INFO] 17:38:32:285 mi_ram.c/(1119:1522): Antes del status tamanio buffer
+[INFO] 17:38:32:285 mi_ram.c/(1119:1522):  despues del tamanio buffer
+[INFO] 17:38:32:285 mi_ram.c/(1119:1522): buffer rcv
+[INFO] 17:38:32:285 mi_ram.c/(1119:1522): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:32:285 mi_ram.c/(1119:1522): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:38:32:285 mi_ram.c/(1119:1522): La tarea a enviar es: A05;1;1;5
+[INFO] 17:38:36:285 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:36:285 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:36:285 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:36:285 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:36:285 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:36:285 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:36:285 mi_ram.c/(1119:1532): Entre a atender discordiador
+[INFO] 17:38:36:285 mi_ram.c/(1119:1532): Antes del primer rcv
+[INFO] 17:38:36:286 mi_ram.c/(1119:1532): DEspues del primer recv
+[INFO] 17:38:36:286 mi_ram.c/(1119:1532): Recibi header: 1
+
+[INFO] 17:38:36:286 mi_ram.c/(1119:1532): Antes del status tamanio buffer
+[INFO] 17:38:36:286 mi_ram.c/(1119:1532):  despues del tamanio buffer
+[INFO] 17:38:36:286 mi_ram.c/(1119:1532): buffer rcv
+[INFO] 17:38:36:286 mi_ram.c/(1119:1532): 
+0x00000000: 06 00 00 00 02 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:36:286 mi_ram.c/(1119:1532): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 6
+[INFO] 17:38:36:286 mi_ram.c/(1119:1532): La tarea a enviar es: B02;1;1;5
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531): Entre a atender discordiador
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531): Antes del primer rcv
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531): DEspues del primer recv
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531): Recibi header: 5
+
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531): Antes del status tamanio buffer
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531):  despues del tamanio buffer
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531): buffer rcv
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531): 
+0x00000000: 06 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531): Direccion stream: b5204ec0
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531): Direccion tid: b49fe2f4
+[INFO] 17:38:36:286 mi_ram.c/(1119:1531): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:36:286 mi_ram.c/(1119:1530): Entre a atender discordiador
+[INFO] 17:38:36:286 mi_ram.c/(1119:1530): Antes del primer rcv
+[INFO] 17:38:36:286 mi_ram.c/(1119:1530): DEspues del primer recv
+[INFO] 17:38:36:286 mi_ram.c/(1119:1530): Recibi header: 5
+
+[INFO] 17:38:36:286 mi_ram.c/(1119:1530): Antes del status tamanio buffer
+[INFO] 17:38:36:286 mi_ram.c/(1119:1530):  despues del tamanio buffer
+[INFO] 17:38:36:286 mi_ram.c/(1119:1530): buffer rcv
+[INFO] 17:38:36:287 mi_ram.c/(1119:1530): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:36:287 mi_ram.c/(1119:1530): Direccion stream: b52054f0
+[INFO] 17:38:36:287 mi_ram.c/(1119:1530): Direccion tid: b29fa2f4
+[INFO] 17:38:36:287 mi_ram.c/(1119:1530): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:38:287 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:38:287 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:38:287 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:38:287 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:38:287 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:38:287 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:38:287 mi_ram.c/(1119:1545): Entre a atender discordiador
+[INFO] 17:38:38:287 mi_ram.c/(1119:1545): Antes del primer rcv
+[INFO] 17:38:38:287 mi_ram.c/(1119:1545): DEspues del primer recv
+[INFO] 17:38:38:287 mi_ram.c/(1119:1545): Recibi header: 1
+
+[INFO] 17:38:38:287 mi_ram.c/(1119:1545): Antes del status tamanio buffer
+[INFO] 17:38:38:287 mi_ram.c/(1119:1545):  despues del tamanio buffer
+[INFO] 17:38:38:287 mi_ram.c/(1119:1545): buffer rcv
+[INFO] 17:38:38:287 mi_ram.c/(1119:1545): 
+0x00000000: 05 00 00 00 02 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:38:287 mi_ram.c/(1119:1545): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 5
+[INFO] 17:38:38:287 mi_ram.c/(1119:1545): La tarea a enviar es: B02;1;1;5
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544): Entre a atender discordiador
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544): Antes del primer rcv
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544): DEspues del primer recv
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544): Recibi header: 5
+
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544): Antes del status tamanio buffer
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544):  despues del tamanio buffer
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544): buffer rcv
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544): 
+0x00000000: 05 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544): Direccion stream: b52051d0
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544): Direccion tid: b49fe2f4
+[INFO] 17:38:38:288 mi_ram.c/(1119:1544): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543): Entre a atender discordiador
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543): Antes del primer rcv
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543): DEspues del primer recv
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543): Recibi header: 5
+
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543): Antes del status tamanio buffer
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543):  despues del tamanio buffer
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543): buffer rcv
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543): Direccion stream: b5205200
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543): Direccion tid: b29fa2f4
+[INFO] 17:38:38:288 mi_ram.c/(1119:1543): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:42:288 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:42:288 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:42:288 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:42:288 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:42:288 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:42:288 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559): Entre a atender discordiador
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559): Antes del primer rcv
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559): DEspues del primer recv
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559): Recibi header: 5
+
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559): Antes del status tamanio buffer
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559):  despues del tamanio buffer
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559): buffer rcv
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559): Direccion stream: b5205800
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559): Direccion tid: b49fe2f4
+[INFO] 17:38:42:288 mi_ram.c/(1119:1559): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:42:288 mi_ram.c/(1119:1560): Entre a atender discordiador
+[INFO] 17:38:42:289 mi_ram.c/(1119:1560): Antes del primer rcv
+[INFO] 17:38:42:289 mi_ram.c/(1119:1560): DEspues del primer recv
+[INFO] 17:38:42:289 mi_ram.c/(1119:1560): Recibi header: 1
+
+[INFO] 17:38:42:289 mi_ram.c/(1119:1560): Antes del status tamanio buffer
+[INFO] 17:38:42:289 mi_ram.c/(1119:1560):  despues del tamanio buffer
+[INFO] 17:38:42:289 mi_ram.c/(1119:1560): buffer rcv
+[INFO] 17:38:42:289 mi_ram.c/(1119:1560): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:42:289 mi_ram.c/(1119:1560): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:38:42:289 mi_ram.c/(1119:1560): La tarea a enviar es: A05;1;1;5
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558): Entre a atender discordiador
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558): Antes del primer rcv
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558): DEspues del primer recv
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558): Recibi header: 5
+
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558): Antes del status tamanio buffer
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558):  despues del tamanio buffer
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558): buffer rcv
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558): 
+0x00000000: 06 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558): Direccion stream: b5205830
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558): Direccion tid: b29fa2f4
+[INFO] 17:38:42:289 mi_ram.c/(1119:1558): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:44:288 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:44:288 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:44:288 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:44:288 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567): Entre a atender discordiador
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567): Antes del primer rcv
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567): DEspues del primer recv
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567): Recibi header: 5
+
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567): Antes del status tamanio buffer
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567):  despues del tamanio buffer
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567): buffer rcv
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567): Direccion stream: b5205940
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567): Direccion tid: b41fd2f4
+[INFO] 17:38:44:288 mi_ram.c/(1119:1567): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566): Entre a atender discordiador
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566): Antes del primer rcv
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566): DEspues del primer recv
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566): Recibi header: 5
+
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566): Antes del status tamanio buffer
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566):  despues del tamanio buffer
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566): buffer rcv
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566): 
+0x00000000: 05 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566): Direccion stream: b5205898
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566): Direccion tid: b29fa2f4
+[INFO] 17:38:44:289 mi_ram.c/(1119:1566): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:48:289 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:48:289 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:48:289 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:48:289 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:48:289 mi_ram.c/(1119:1577): Entre a atender discordiador
+[INFO] 17:38:48:289 mi_ram.c/(1119:1577): Antes del primer rcv
+[INFO] 17:38:48:289 mi_ram.c/(1119:1577): DEspues del primer recv
+[INFO] 17:38:48:289 mi_ram.c/(1119:1577): Recibi header: 5
+
+[INFO] 17:38:48:289 mi_ram.c/(1119:1577): Antes del status tamanio buffer
+[INFO] 17:38:48:290 mi_ram.c/(1119:1577):  despues del tamanio buffer
+[INFO] 17:38:48:290 mi_ram.c/(1119:1577): buffer rcv
+[INFO] 17:38:48:290 mi_ram.c/(1119:1577): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:48:290 mi_ram.c/(1119:1577): Direccion stream: b52058c8
+[INFO] 17:38:48:290 mi_ram.c/(1119:1577): Direccion tid: b29fa2f4
+[INFO] 17:38:48:290 mi_ram.c/(1119:1577): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:48:289 mi_ram.c/(1119:1578): Entre a atender discordiador
+[INFO] 17:38:48:290 mi_ram.c/(1119:1578): Antes del primer rcv
+[INFO] 17:38:48:290 mi_ram.c/(1119:1578): DEspues del primer recv
+[INFO] 17:38:48:290 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:48:290 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:48:290 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:48:290 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:48:290 mi_ram.c/(1119:1578): Recibi header: 5
+
+[INFO] 17:38:48:290 mi_ram.c/(1119:1578): Antes del status tamanio buffer
+[INFO] 17:38:48:290 mi_ram.c/(1119:1578):  despues del tamanio buffer
+[INFO] 17:38:48:290 mi_ram.c/(1119:1578): buffer rcv
+[INFO] 17:38:48:290 mi_ram.c/(1119:1578): 
+0x00000000: 06 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:48:290 mi_ram.c/(1119:1578): Direccion stream: 9700508
+[INFO] 17:38:48:290 mi_ram.c/(1119:1578): Direccion tid: b41fd2f4
+[INFO] 17:38:48:290 mi_ram.c/(1119:1578): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:48:290 mi_ram.c/(1119:1580): Entre a atender discordiador
+[INFO] 17:38:48:290 mi_ram.c/(1119:1580): Antes del primer rcv
+[INFO] 17:38:48:290 mi_ram.c/(1119:1580): DEspues del primer recv
+[INFO] 17:38:48:290 mi_ram.c/(1119:1580): Recibi header: 5
+
+[INFO] 17:38:48:291 mi_ram.c/(1119:1580): Antes del status tamanio buffer
+[INFO] 17:38:48:291 mi_ram.c/(1119:1580):  despues del tamanio buffer
+[INFO] 17:38:48:291 mi_ram.c/(1119:1580): buffer rcv
+[INFO] 17:38:48:291 mi_ram.c/(1119:1580): 
+0x00000000: 05 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:48:291 mi_ram.c/(1119:1580): Direccion stream: b5205a80
+[INFO] 17:38:48:291 mi_ram.c/(1119:1580): Direccion tid: b49fe2f4
+[INFO] 17:38:48:291 mi_ram.c/(1119:1580): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:48:291 mi_ram.c/(1119:1579): Entre a atender discordiador
+[INFO] 17:38:48:291 mi_ram.c/(1119:1579): Antes del primer rcv
+[INFO] 17:38:48:291 mi_ram.c/(1119:1579): DEspues del primer recv
+[INFO] 17:38:48:291 mi_ram.c/(1119:1579): Recibi header: 5
+
+[INFO] 17:38:48:291 mi_ram.c/(1119:1579): Antes del status tamanio buffer
+[INFO] 17:38:48:291 mi_ram.c/(1119:1579):  despues del tamanio buffer
+[INFO] 17:38:48:291 mi_ram.c/(1119:1579): buffer rcv
+[INFO] 17:38:48:291 mi_ram.c/(1119:1579): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:48:291 mi_ram.c/(1119:1579): Direccion stream: b52059d8
+[INFO] 17:38:48:291 mi_ram.c/(1119:1579): Direccion tid: b29fa2f4
+[INFO] 17:38:48:292 mi_ram.c/(1119:1579): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:52:290 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:52:290 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:52:290 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:52:290 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:52:290 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:52:290 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:52:290 mi_ram.c/(1119:1589): Entre a atender discordiador
+[INFO] 17:38:52:290 mi_ram.c/(1119:1589): Antes del primer rcv
+[INFO] 17:38:52:290 mi_ram.c/(1119:1589): DEspues del primer recv
+[INFO] 17:38:52:290 mi_ram.c/(1119:1589): Recibi header: 1
+
+[INFO] 17:38:52:290 mi_ram.c/(1119:1589): Antes del status tamanio buffer
+[INFO] 17:38:52:290 mi_ram.c/(1119:1589):  despues del tamanio buffer
+[INFO] 17:38:52:290 mi_ram.c/(1119:1589): buffer rcv
+[INFO] 17:38:52:290 mi_ram.c/(1119:1589): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:52:290 mi_ram.c/(1119:1589): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:38:52:290 mi_ram.c/(1119:1589): La tarea a enviar es: A06;1;1;5
+[INFO] 17:38:52:290 mi_ram.c/(1119:1587): Entre a atender discordiador
+[INFO] 17:38:52:290 mi_ram.c/(1119:1587): Antes del primer rcv
+[INFO] 17:38:52:290 mi_ram.c/(1119:1587): DEspues del primer recv
+[INFO] 17:38:52:291 mi_ram.c/(1119:1587): Recibi header: 5
+
+[INFO] 17:38:52:291 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:52:291 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:52:291 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:52:291 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:52:290 mi_ram.c/(1119:1588): Entre a atender discordiador
+[INFO] 17:38:52:291 mi_ram.c/(1119:1588): Antes del primer rcv
+[INFO] 17:38:52:291 mi_ram.c/(1119:1588): DEspues del primer recv
+[INFO] 17:38:52:291 mi_ram.c/(1119:1588): Recibi header: 5
+
+[INFO] 17:38:52:291 mi_ram.c/(1119:1588): Antes del status tamanio buffer
+[INFO] 17:38:52:291 mi_ram.c/(1119:1588):  despues del tamanio buffer
+[INFO] 17:38:52:291 mi_ram.c/(1119:1588): buffer rcv
+[INFO] 17:38:52:291 mi_ram.c/(1119:1588): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:52:291 mi_ram.c/(1119:1588): Direccion stream: b5205d38
+[INFO] 17:38:52:291 mi_ram.c/(1119:1588): Direccion tid: b49fe2f4
+[INFO] 17:38:52:291 mi_ram.c/(1119:1588): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:52:291 mi_ram.c/(1119:1587): Antes del status tamanio buffer
+[INFO] 17:38:52:291 mi_ram.c/(1119:1587):  despues del tamanio buffer
+[INFO] 17:38:52:291 mi_ram.c/(1119:1587): buffer rcv
+[INFO] 17:38:52:291 mi_ram.c/(1119:1587): 
+0x00000000: 06 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:52:291 mi_ram.c/(1119:1587): Direccion stream: b5205728
+[INFO] 17:38:52:291 mi_ram.c/(1119:1587): Direccion tid: b29fa2f4
+[INFO] 17:38:52:291 mi_ram.c/(1119:1587): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:52:291 mi_ram.c/(1119:1592): Entre a atender discordiador
+[INFO] 17:38:52:292 mi_ram.c/(1119:1592): Antes del primer rcv
+[INFO] 17:38:52:292 mi_ram.c/(1119:1592): DEspues del primer recv
+[INFO] 17:38:52:292 mi_ram.c/(1119:1592): Recibi header: 5
+
+[INFO] 17:38:52:292 mi_ram.c/(1119:1592): Antes del status tamanio buffer
+[INFO] 17:38:52:292 mi_ram.c/(1119:1592):  despues del tamanio buffer
+[INFO] 17:38:52:292 mi_ram.c/(1119:1592): buffer rcv
+[INFO] 17:38:52:292 mi_ram.c/(1119:1592): 
+0x00000000: 05 00 00 00 02 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:52:292 mi_ram.c/(1119:1592): Direccion stream: b5205e60
+[INFO] 17:38:52:292 mi_ram.c/(1119:1592): Direccion tid: b41fd2f4
+[INFO] 17:38:52:292 mi_ram.c/(1119:1592): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593): Entre a atender discordiador
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593): Antes del primer rcv
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593): DEspues del primer recv
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593): Recibi header: 5
+
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593): Antes del status tamanio buffer
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593):  despues del tamanio buffer
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593): buffer rcv
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593): Direccion stream: b5c02858
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593): Direccion tid: b31fb2f4
+[INFO] 17:38:52:292 mi_ram.c/(1119:1593): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:56:291 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:56:291 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:56:291 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:56:291 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:56:291 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:56:291 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:56:291 mi_ram.c/(1119:1601): Entre a atender discordiador
+[INFO] 17:38:56:291 mi_ram.c/(1119:1601): Antes del primer rcv
+[INFO] 17:38:56:292 mi_ram.c/(1119:1601): DEspues del primer recv
+[INFO] 17:38:56:292 mi_ram.c/(1119:1601): Recibi header: 1
+
+[INFO] 17:38:56:292 mi_ram.c/(1119:1601): Antes del status tamanio buffer
+[INFO] 17:38:56:292 mi_ram.c/(1119:1601):  despues del tamanio buffer
+[INFO] 17:38:56:292 mi_ram.c/(1119:1601): buffer rcv
+[INFO] 17:38:56:292 mi_ram.c/(1119:1601): 
+0x00000000: 06 00 00 00 02 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:56:292 mi_ram.c/(1119:1601): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 6
+[INFO] 17:38:56:292 mi_ram.c/(1119:1601): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 17:38:56:292 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:56:292 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:56:292 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:56:292 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:56:292 mi_ram.c/(1119:1600): Entre a atender discordiador
+[INFO] 17:38:56:292 mi_ram.c/(1119:1600): Antes del primer rcv
+[INFO] 17:38:56:292 mi_ram.c/(1119:1600): DEspues del primer recv
+[INFO] 17:38:56:292 mi_ram.c/(1119:1600): Recibi header: 5
+
+[INFO] 17:38:56:292 mi_ram.c/(1119:1600): Antes del status tamanio buffer
+[INFO] 17:38:56:292 mi_ram.c/(1119:1600):  despues del tamanio buffer
+[INFO] 17:38:56:292 mi_ram.c/(1119:1600): buffer rcv
+[INFO] 17:38:56:292 mi_ram.c/(1119:1600): 
+0x00000000: 06 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:56:292 mi_ram.c/(1119:1600): Direccion stream: 9700538
+[INFO] 17:38:56:292 mi_ram.c/(1119:1600): Direccion tid: b41fd2f4
+[INFO] 17:38:56:293 mi_ram.c/(1119:1600): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599): Entre a atender discordiador
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599): Antes del primer rcv
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599): DEspues del primer recv
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599): Recibi header: 5
+
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599): Antes del status tamanio buffer
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599):  despues del tamanio buffer
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599): buffer rcv
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599): Direccion stream: b5205d98
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599): Direccion tid: b31fb2f4
+[INFO] 17:38:56:293 mi_ram.c/(1119:1599): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602): Entre a atender discordiador
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602): Antes del primer rcv
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602): DEspues del primer recv
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602): Recibi header: 5
+
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602): Antes del status tamanio buffer
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602):  despues del tamanio buffer
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602): buffer rcv
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602): 
+0x00000000: 05 00 00 00 02 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602): Direccion stream: b5c02928
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602): Direccion tid: b49fe2f4
+[INFO] 17:38:56:293 mi_ram.c/(1119:1602): PID ACTUALIZAR ESTADO : 2
+[INFO] 17:38:56:293 mi_ram.c/(1119:1603): Entre a atender discordiador
+[INFO] 17:38:56:293 mi_ram.c/(1119:1603): Antes del primer rcv
+[INFO] 17:38:56:293 mi_ram.c/(1119:1603): DEspues del primer recv
+[INFO] 17:38:56:293 mi_ram.c/(1119:1603): Recibi header: 1
+
+[INFO] 17:38:56:293 mi_ram.c/(1119:1603): Antes del status tamanio buffer
+[INFO] 17:38:56:293 mi_ram.c/(1119:1603):  despues del tamanio buffer
+[INFO] 17:38:56:293 mi_ram.c/(1119:1603): buffer rcv
+[INFO] 17:38:56:293 mi_ram.c/(1119:1603): 
+0x00000000: 05 00 00 00 02 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:56:294 mi_ram.c/(1119:1603): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 5
+[INFO] 17:38:56:294 mi_ram.c/(1119:1603): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 17:38:56:294 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:56:294 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:56:294 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:56:294 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:56:294 mi_ram.c/(1119:1605): Entre a atender discordiador
+[INFO] 17:38:56:294 mi_ram.c/(1119:1605): Antes del primer rcv
+[INFO] 17:38:56:294 mi_ram.c/(1119:1605): DEspues del primer recv
+[INFO] 17:38:56:294 mi_ram.c/(1119:1605): Recibi header: 1
+
+[INFO] 17:38:56:294 mi_ram.c/(1119:1605): Antes del status tamanio buffer
+[INFO] 17:38:56:294 mi_ram.c/(1119:1605):  despues del tamanio buffer
+[INFO] 17:38:56:294 mi_ram.c/(1119:1605): buffer rcv
+[INFO] 17:38:56:294 mi_ram.c/(1119:1605): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:38:56:294 mi_ram.c/(1119:1605): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:38:56:294 mi_ram.c/(1119:1605): La tarea a enviar es: A06;1;1;5
+[INFO] 17:38:56:294 mi_ram.c/(1119:1604): Entre a atender discordiador
+[INFO] 17:38:56:294 mi_ram.c/(1119:1604): Antes del primer rcv
+[INFO] 17:38:56:294 mi_ram.c/(1119:1604): DEspues del primer recv
+[INFO] 17:38:56:294 mi_ram.c/(1119:1604): Recibi header: 5
+
+[INFO] 17:38:56:294 mi_ram.c/(1119:1604): Antes del status tamanio buffer
+[INFO] 17:38:56:294 mi_ram.c/(1119:1604):  despues del tamanio buffer
+[INFO] 17:38:56:295 mi_ram.c/(1119:1604): buffer rcv
+[INFO] 17:38:56:295 mi_ram.c/(1119:1604): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:56:295 mi_ram.c/(1119:1604): Direccion stream: b5c02a88
+[INFO] 17:38:56:295 mi_ram.c/(1119:1604): Direccion tid: b49fe2f4
+[INFO] 17:38:56:295 mi_ram.c/(1119:1604): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:58:291 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:58:291 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:58:291 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:38:58:291 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616): Entre a atender discordiador
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616): Antes del primer rcv
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616): DEspues del primer recv
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616): Recibi header: 5
+
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616): Antes del status tamanio buffer
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616):  despues del tamanio buffer
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616): buffer rcv
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616): Direccion stream: 9700750
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616): Direccion tid: b31fb2f4
+[INFO] 17:38:58:291 mi_ram.c/(1119:1616): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615): Entre a atender discordiador
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615): Antes del primer rcv
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615): DEspues del primer recv
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615): Recibi header: 5
+
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615): Antes del status tamanio buffer
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615):  despues del tamanio buffer
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615): buffer rcv
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615): Direccion stream: b5206060
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615): Direccion tid: b49fe2f4
+[INFO] 17:38:58:292 mi_ram.c/(1119:1615): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:38:58:292 mi_ram.c/(1119:1601): entre a es el ultimo tripulante
+[INFO] 17:38:58:292 mi_ram.c/(1119:1601): antes del primer list find
+[INFO] 17:38:58:292 mi_ram.c/(1119:1601): despues del primer list find
+[INFO] 17:38:58:295 mi_ram.c/(1119:1603): entre a es el ultimo tripulante
+[INFO] 17:38:58:295 mi_ram.c/(1119:1603): antes del primer list find
+[INFO] 17:38:58:295 mi_ram.c/(1119:1603): despues del primer list find
+[INFO] 17:38:58:295 mi_ram.c/(1119:1603): antes del segundo list find
+[INFO] 17:38:58:295 mi_ram.c/(1119:1603): despues del segundo list find
+[INFO] 17:38:58:295 mi_ram.c/(1119:1603): antes del tercer list find
+[INFO] 17:38:58:295 mi_ram.c/(1119:1603): despues del tercer list find
+[INFO] 17:38:58:295 mi_ram.c/(1119:1603): VOy a remover la tabla de patotas del proceso: 2
+[INFO] 17:38:58:295 mi_ram.c/(1119:1603): CAntidad de referencias antes: 2
+[INFO] 17:38:58:295 mi_ram.c/(1119:1603): Cantidad de referencias despues: 1
+[INFO] 17:39:02:292 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:02:292 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:02:293 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:02:293 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:02:293 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:02:293 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624): Entre a atender discordiador
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624): Antes del primer rcv
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624): DEspues del primer recv
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624): Recibi header: 5
+
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624): Antes del status tamanio buffer
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624):  despues del tamanio buffer
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624): buffer rcv
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624): Direccion stream: b5203770
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624): Direccion tid: b29fa2f4
+[INFO] 17:39:02:293 mi_ram.c/(1119:1624): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:02:293 mi_ram.c/(1119:1625): Entre a atender discordiador
+[INFO] 17:39:02:293 mi_ram.c/(1119:1625): Antes del primer rcv
+[INFO] 17:39:02:293 mi_ram.c/(1119:1625): DEspues del primer recv
+[INFO] 17:39:02:293 mi_ram.c/(1119:1625): Recibi header: 1
+
+[INFO] 17:39:02:293 mi_ram.c/(1119:1625): Antes del status tamanio buffer
+[INFO] 17:39:02:293 mi_ram.c/(1119:1625):  despues del tamanio buffer
+[INFO] 17:39:02:293 mi_ram.c/(1119:1625): buffer rcv
+[INFO] 17:39:02:293 mi_ram.c/(1119:1625): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:39:02:293 mi_ram.c/(1119:1625): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:39:02:293 mi_ram.c/(1119:1625): La tarea a enviar es: A07;1;1;5
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623): Entre a atender discordiador
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623): Antes del primer rcv
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623): DEspues del primer recv
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623): Recibi header: 5
+
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623): Antes del status tamanio buffer
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623):  despues del tamanio buffer
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623): buffer rcv
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623): Direccion stream: b5206090
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623): Direccion tid: b51ff2f4
+[INFO] 17:39:02:294 mi_ram.c/(1119:1623): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:02:295 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:02:295 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:02:295 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:02:295 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628): Entre a atender discordiador
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628): Antes del primer rcv
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628): DEspues del primer recv
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628): Recibi header: 5
+
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628): Antes del status tamanio buffer
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628):  despues del tamanio buffer
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628): buffer rcv
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628): Direccion stream: b5206348
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628): Direccion tid: b49fe2f4
+[INFO] 17:39:02:295 mi_ram.c/(1119:1628): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:02:295 mi_ram.c/(1119:1627): Entre a atender discordiador
+[INFO] 17:39:02:295 mi_ram.c/(1119:1627): Antes del primer rcv
+[INFO] 17:39:02:295 mi_ram.c/(1119:1627): DEspues del primer recv
+[INFO] 17:39:02:295 mi_ram.c/(1119:1627): Recibi header: 5
+
+[INFO] 17:39:02:297 mi_ram.c/(1119:1627): Antes del status tamanio buffer
+[INFO] 17:39:02:297 mi_ram.c/(1119:1627):  despues del tamanio buffer
+[INFO] 17:39:02:297 mi_ram.c/(1119:1627): buffer rcv
+[INFO] 17:39:02:297 mi_ram.c/(1119:1627): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:02:297 mi_ram.c/(1119:1627): Direccion stream: b52061a0
+[INFO] 17:39:02:297 mi_ram.c/(1119:1627): Direccion tid: b51ff2f4
+[INFO] 17:39:02:297 mi_ram.c/(1119:1627): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:06:296 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:06:296 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:06:296 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:06:296 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:06:296 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:06:296 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:06:296 mi_ram.c/(1119:1636): Entre a atender discordiador
+[INFO] 17:39:06:296 mi_ram.c/(1119:1636): Antes del primer rcv
+[INFO] 17:39:06:296 mi_ram.c/(1119:1636): DEspues del primer recv
+[INFO] 17:39:06:296 mi_ram.c/(1119:1636): Recibi header: 1
+
+[INFO] 17:39:06:296 mi_ram.c/(1119:1636): Antes del status tamanio buffer
+[INFO] 17:39:06:297 mi_ram.c/(1119:1636):  despues del tamanio buffer
+[INFO] 17:39:06:297 mi_ram.c/(1119:1636): buffer rcv
+[INFO] 17:39:06:297 mi_ram.c/(1119:1636): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:39:06:297 mi_ram.c/(1119:1636): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:39:06:297 mi_ram.c/(1119:1636): La tarea a enviar es: A07;1;1;5
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635): Entre a atender discordiador
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635): Antes del primer rcv
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635): DEspues del primer recv
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635): Recibi header: 5
+
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635): Antes del status tamanio buffer
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635):  despues del tamanio buffer
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635): buffer rcv
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635): Direccion stream: b5206248
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635): Direccion tid: b49fe2f4
+[INFO] 17:39:06:297 mi_ram.c/(1119:1635): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:06:297 mi_ram.c/(1119:1634): Entre a atender discordiador
+[INFO] 17:39:06:297 mi_ram.c/(1119:1634): Antes del primer rcv
+[INFO] 17:39:06:297 mi_ram.c/(1119:1634): DEspues del primer recv
+[INFO] 17:39:06:297 mi_ram.c/(1119:1634): Recibi header: 5
+
+[INFO] 17:39:06:297 mi_ram.c/(1119:1634): Antes del status tamanio buffer
+[INFO] 17:39:06:297 mi_ram.c/(1119:1634):  despues del tamanio buffer
+[INFO] 17:39:06:297 mi_ram.c/(1119:1634): buffer rcv
+[INFO] 17:39:06:297 mi_ram.c/(1119:1634): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:06:297 mi_ram.c/(1119:1634): Direccion stream: b5206278
+[INFO] 17:39:06:297 mi_ram.c/(1119:1634): Direccion tid: b51ff2f4
+[INFO] 17:39:06:298 mi_ram.c/(1119:1634): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:08:294 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:08:295 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:08:295 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:08:295 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647): Entre a atender discordiador
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647): Antes del primer rcv
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647): DEspues del primer recv
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647): Recibi header: 5
+
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647): Antes del status tamanio buffer
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647):  despues del tamanio buffer
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647): buffer rcv
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647): Direccion stream: b52066a8
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647): Direccion tid: b49fe2f4
+[INFO] 17:39:08:295 mi_ram.c/(1119:1647): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646): Entre a atender discordiador
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646): Antes del primer rcv
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646): DEspues del primer recv
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646): Recibi header: 5
+
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646): Antes del status tamanio buffer
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646):  despues del tamanio buffer
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646): buffer rcv
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646): Direccion stream: b5206730
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646): Direccion tid: b51ff2f4
+[INFO] 17:39:08:295 mi_ram.c/(1119:1646): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:12:295 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:12:295 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:12:296 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:12:296 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:12:296 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:12:296 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654): Entre a atender discordiador
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654): Antes del primer rcv
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654): DEspues del primer recv
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654): Recibi header: 5
+
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654): Antes del status tamanio buffer
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654):  despues del tamanio buffer
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654): buffer rcv
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654): Direccion stream: b52067b8
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654): Direccion tid: b49fe2f4
+[INFO] 17:39:12:296 mi_ram.c/(1119:1654): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:12:296 mi_ram.c/(1119:1655): Entre a atender discordiador
+[INFO] 17:39:12:296 mi_ram.c/(1119:1655): Antes del primer rcv
+[INFO] 17:39:12:296 mi_ram.c/(1119:1655): DEspues del primer recv
+[INFO] 17:39:12:296 mi_ram.c/(1119:1655): Recibi header: 1
+
+[INFO] 17:39:12:296 mi_ram.c/(1119:1655): Antes del status tamanio buffer
+[INFO] 17:39:12:296 mi_ram.c/(1119:1655):  despues del tamanio buffer
+[INFO] 17:39:12:296 mi_ram.c/(1119:1655): buffer rcv
+[INFO] 17:39:12:296 mi_ram.c/(1119:1655): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:39:12:296 mi_ram.c/(1119:1655): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:39:12:296 mi_ram.c/(1119:1655): La tarea a enviar es: A08;1;1;5
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653): Entre a atender discordiador
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653): Antes del primer rcv
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653): DEspues del primer recv
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653): Recibi header: 5
+
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653): Antes del status tamanio buffer
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653):  despues del tamanio buffer
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653): buffer rcv
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653): Direccion stream: b52067e8
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653): Direccion tid: b51ff2f4
+[INFO] 17:39:12:297 mi_ram.c/(1119:1653): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:12:298 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:12:298 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:12:298 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:12:298 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658): Entre a atender discordiador
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658): Antes del primer rcv
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658): DEspues del primer recv
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658): Recibi header: 5
+
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658): Antes del status tamanio buffer
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658):  despues del tamanio buffer
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658): buffer rcv
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658): Direccion stream: b52068c8
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658): Direccion tid: b29fa2f4
+[INFO] 17:39:12:298 mi_ram.c/(1119:1658): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:12:298 mi_ram.c/(1119:1657): Entre a atender discordiador
+[INFO] 17:39:12:299 mi_ram.c/(1119:1657): Antes del primer rcv
+[INFO] 17:39:12:299 mi_ram.c/(1119:1657): DEspues del primer recv
+[INFO] 17:39:12:299 mi_ram.c/(1119:1657): Recibi header: 5
+
+[INFO] 17:39:12:299 mi_ram.c/(1119:1657): Antes del status tamanio buffer
+[INFO] 17:39:12:299 mi_ram.c/(1119:1657):  despues del tamanio buffer
+[INFO] 17:39:12:299 mi_ram.c/(1119:1657): buffer rcv
+[INFO] 17:39:12:299 mi_ram.c/(1119:1657): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:12:299 mi_ram.c/(1119:1657): Direccion stream: b5206950
+[INFO] 17:39:12:299 mi_ram.c/(1119:1657): Direccion tid: b51ff2f4
+[INFO] 17:39:12:299 mi_ram.c/(1119:1657): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:16:299 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:16:300 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:16:300 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:16:300 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:16:300 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:16:300 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665): Entre a atender discordiador
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665): Antes del primer rcv
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665): DEspues del primer recv
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665): Recibi header: 5
+
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665): Antes del status tamanio buffer
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665):  despues del tamanio buffer
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665): buffer rcv
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665): Direccion stream: b5206600
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665): Direccion tid: b29fa2f4
+[INFO] 17:39:16:300 mi_ram.c/(1119:1665): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:16:300 mi_ram.c/(1119:1666): Entre a atender discordiador
+[INFO] 17:39:16:300 mi_ram.c/(1119:1666): Antes del primer rcv
+[INFO] 17:39:16:300 mi_ram.c/(1119:1666): DEspues del primer recv
+[INFO] 17:39:16:300 mi_ram.c/(1119:1666): Recibi header: 1
+
+[INFO] 17:39:16:300 mi_ram.c/(1119:1666): Antes del status tamanio buffer
+[INFO] 17:39:16:300 mi_ram.c/(1119:1666):  despues del tamanio buffer
+[INFO] 17:39:16:300 mi_ram.c/(1119:1666): buffer rcv
+[INFO] 17:39:16:300 mi_ram.c/(1119:1666): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:39:16:301 mi_ram.c/(1119:1666): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:39:16:301 mi_ram.c/(1119:1666): La tarea a enviar es: A08;1;1;5
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664): Entre a atender discordiador
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664): Antes del primer rcv
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664): DEspues del primer recv
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664): Recibi header: 5
+
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664): Antes del status tamanio buffer
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664):  despues del tamanio buffer
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664): buffer rcv
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664): Direccion stream: b5206a90
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664): Direccion tid: b51ff2f4
+[INFO] 17:39:16:301 mi_ram.c/(1119:1664): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:18:299 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:18:299 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:18:299 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:18:299 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677): Entre a atender discordiador
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677): Antes del primer rcv
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677): DEspues del primer recv
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677): Recibi header: 5
+
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677): Antes del status tamanio buffer
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677):  despues del tamanio buffer
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677): buffer rcv
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677): Direccion stream: b5206c30
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677): Direccion tid: b49fe2f4
+[INFO] 17:39:18:299 mi_ram.c/(1119:1677): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:18:299 mi_ram.c/(1119:1676): Entre a atender discordiador
+[INFO] 17:39:18:299 mi_ram.c/(1119:1676): Antes del primer rcv
+[INFO] 17:39:18:299 mi_ram.c/(1119:1676): DEspues del primer recv
+[INFO] 17:39:18:300 mi_ram.c/(1119:1676): Recibi header: 5
+
+[INFO] 17:39:18:300 mi_ram.c/(1119:1676): Antes del status tamanio buffer
+[INFO] 17:39:18:300 mi_ram.c/(1119:1676):  despues del tamanio buffer
+[INFO] 17:39:18:300 mi_ram.c/(1119:1676): buffer rcv
+[INFO] 17:39:18:300 mi_ram.c/(1119:1676): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:18:300 mi_ram.c/(1119:1676): Direccion stream: b5206cf8
+[INFO] 17:39:18:300 mi_ram.c/(1119:1676): Direccion tid: b51ff2f4
+[INFO] 17:39:18:300 mi_ram.c/(1119:1676): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:22:300 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:22:300 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:22:300 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:22:300 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:22:300 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:22:300 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684): Entre a atender discordiador
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684): Antes del primer rcv
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684): DEspues del primer recv
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684): Recibi header: 5
+
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684): Antes del status tamanio buffer
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684):  despues del tamanio buffer
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684): buffer rcv
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684): Direccion stream: b5206d80
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684): Direccion tid: b49fe2f4
+[INFO] 17:39:22:300 mi_ram.c/(1119:1684): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:22:300 mi_ram.c/(1119:1685): Entre a atender discordiador
+[INFO] 17:39:22:300 mi_ram.c/(1119:1685): Antes del primer rcv
+[INFO] 17:39:22:300 mi_ram.c/(1119:1685): DEspues del primer recv
+[INFO] 17:39:22:300 mi_ram.c/(1119:1685): Recibi header: 1
+
+[INFO] 17:39:22:300 mi_ram.c/(1119:1685): Antes del status tamanio buffer
+[INFO] 17:39:22:301 mi_ram.c/(1119:1685):  despues del tamanio buffer
+[INFO] 17:39:22:301 mi_ram.c/(1119:1685): buffer rcv
+[INFO] 17:39:22:301 mi_ram.c/(1119:1685): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:39:22:301 mi_ram.c/(1119:1685): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:39:22:301 mi_ram.c/(1119:1685): La tarea a enviar es: A09;1;1;5
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683): Entre a atender discordiador
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683): Antes del primer rcv
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683): DEspues del primer recv
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683): Recibi header: 5
+
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683): Antes del status tamanio buffer
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683):  despues del tamanio buffer
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683): buffer rcv
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683): Direccion stream: b5206db0
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683): Direccion tid: b51ff2f4
+[INFO] 17:39:22:301 mi_ram.c/(1119:1683): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:22:301 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:22:301 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:22:302 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:22:302 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688): Entre a atender discordiador
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688): Antes del primer rcv
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688): DEspues del primer recv
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688): Recibi header: 5
+
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688): Antes del status tamanio buffer
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688):  despues del tamanio buffer
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688): buffer rcv
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688): Direccion stream: b5206e80
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688): Direccion tid: b29fa2f4
+[INFO] 17:39:22:302 mi_ram.c/(1119:1688): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:22:302 mi_ram.c/(1119:1687): Entre a atender discordiador
+[INFO] 17:39:22:302 mi_ram.c/(1119:1687): Antes del primer rcv
+[INFO] 17:39:22:302 mi_ram.c/(1119:1687): DEspues del primer recv
+[INFO] 17:39:22:302 mi_ram.c/(1119:1687): Recibi header: 5
+
+[INFO] 17:39:22:302 mi_ram.c/(1119:1687): Antes del status tamanio buffer
+[INFO] 17:39:22:302 mi_ram.c/(1119:1687):  despues del tamanio buffer
+[INFO] 17:39:22:302 mi_ram.c/(1119:1687): buffer rcv
+[INFO] 17:39:22:303 mi_ram.c/(1119:1687): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:22:303 mi_ram.c/(1119:1687): Direccion stream: b5206c40
+[INFO] 17:39:22:303 mi_ram.c/(1119:1687): Direccion tid: b51ff2f4
+[INFO] 17:39:22:303 mi_ram.c/(1119:1687): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:26:302 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:26:302 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:26:302 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:26:302 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:26:302 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:26:302 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:26:302 mi_ram.c/(1119:1698): Entre a atender discordiador
+[INFO] 17:39:26:302 mi_ram.c/(1119:1698): Antes del primer rcv
+[INFO] 17:39:26:302 mi_ram.c/(1119:1698): DEspues del primer recv
+[INFO] 17:39:26:302 mi_ram.c/(1119:1698): Recibi header: 5
+
+[INFO] 17:39:26:302 mi_ram.c/(1119:1698): Antes del status tamanio buffer
+[INFO] 17:39:26:303 mi_ram.c/(1119:1698):  despues del tamanio buffer
+[INFO] 17:39:26:303 mi_ram.c/(1119:1698): buffer rcv
+[INFO] 17:39:26:303 mi_ram.c/(1119:1698): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:26:303 mi_ram.c/(1119:1698): Direccion stream: b5206c70
+[INFO] 17:39:26:303 mi_ram.c/(1119:1698): Direccion tid: b29fa2f4
+[INFO] 17:39:26:303 mi_ram.c/(1119:1698): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:26:302 mi_ram.c/(1119:1699): Entre a atender discordiador
+[INFO] 17:39:26:303 mi_ram.c/(1119:1699): Antes del primer rcv
+[INFO] 17:39:26:303 mi_ram.c/(1119:1699): DEspues del primer recv
+[INFO] 17:39:26:303 mi_ram.c/(1119:1699): Recibi header: 1
+
+[INFO] 17:39:26:303 mi_ram.c/(1119:1699): Antes del status tamanio buffer
+[INFO] 17:39:26:303 mi_ram.c/(1119:1699):  despues del tamanio buffer
+[INFO] 17:39:26:303 mi_ram.c/(1119:1699): buffer rcv
+[INFO] 17:39:26:303 mi_ram.c/(1119:1699): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:39:26:303 mi_ram.c/(1119:1699): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:39:26:303 mi_ram.c/(1119:1699): La tarea a enviar es: A09;1;1;5
+[INFO] 17:39:26:303 mi_ram.c/(1119:1696): Entre a atender discordiador
+[INFO] 17:39:26:303 mi_ram.c/(1119:1696): Antes del primer rcv
+[INFO] 17:39:26:303 mi_ram.c/(1119:1696): DEspues del primer recv
+[INFO] 17:39:26:303 mi_ram.c/(1119:1696): Recibi header: 5
+
+[INFO] 17:39:26:303 mi_ram.c/(1119:1696): Antes del status tamanio buffer
+[INFO] 17:39:26:303 mi_ram.c/(1119:1696):  despues del tamanio buffer
+[INFO] 17:39:26:303 mi_ram.c/(1119:1696): buffer rcv
+[INFO] 17:39:26:303 mi_ram.c/(1119:1696): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:26:303 mi_ram.c/(1119:1696): Direccion stream: b5206fc0
+[INFO] 17:39:26:303 mi_ram.c/(1119:1696): Direccion tid: b51ff2f4
+[INFO] 17:39:26:304 mi_ram.c/(1119:1696): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:28:302 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:28:302 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:28:302 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:28:302 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:28:302 mi_ram.c/(1119:1711): Entre a atender discordiador
+[INFO] 17:39:28:302 mi_ram.c/(1119:1711): Antes del primer rcv
+[INFO] 17:39:28:302 mi_ram.c/(1119:1711): DEspues del primer recv
+[INFO] 17:39:28:302 mi_ram.c/(1119:1711): Recibi header: 5
+
+[INFO] 17:39:28:302 mi_ram.c/(1119:1711): Antes del status tamanio buffer
+[INFO] 17:39:28:302 mi_ram.c/(1119:1711):  despues del tamanio buffer
+[INFO] 17:39:28:302 mi_ram.c/(1119:1711): buffer rcv
+[INFO] 17:39:28:303 mi_ram.c/(1119:1711): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:28:303 mi_ram.c/(1119:1711): Direccion stream: b5206f18
+[INFO] 17:39:28:303 mi_ram.c/(1119:1711): Direccion tid: b49fe2f4
+[INFO] 17:39:28:303 mi_ram.c/(1119:1711): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710): Entre a atender discordiador
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710): Antes del primer rcv
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710): DEspues del primer recv
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710): Recibi header: 5
+
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710): Antes del status tamanio buffer
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710):  despues del tamanio buffer
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710): buffer rcv
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710): Direccion stream: b5207090
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710): Direccion tid: b51ff2f4
+[INFO] 17:39:28:303 mi_ram.c/(1119:1710): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:32:303 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:32:303 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:32:303 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:32:303 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:32:303 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:32:303 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:32:303 mi_ram.c/(1119:1718): Entre a atender discordiador
+[INFO] 17:39:32:303 mi_ram.c/(1119:1718): Antes del primer rcv
+[INFO] 17:39:32:303 mi_ram.c/(1119:1718): DEspues del primer recv
+[INFO] 17:39:32:304 mi_ram.c/(1119:1718): Recibi header: 5
+
+[INFO] 17:39:32:304 mi_ram.c/(1119:1718): Antes del status tamanio buffer
+[INFO] 17:39:32:304 mi_ram.c/(1119:1718):  despues del tamanio buffer
+[INFO] 17:39:32:304 mi_ram.c/(1119:1718): buffer rcv
+[INFO] 17:39:32:304 mi_ram.c/(1119:1718): 
+0x00000000: 01 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:32:304 mi_ram.c/(1119:1718): Direccion stream: b5206ad8
+[INFO] 17:39:32:304 mi_ram.c/(1119:1718): Direccion tid: b49fe2f4
+[INFO] 17:39:32:304 mi_ram.c/(1119:1718): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:32:304 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:32:304 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:32:304 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:32:304 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:32:303 mi_ram.c/(1119:1719): Entre a atender discordiador
+[INFO] 17:39:32:304 mi_ram.c/(1119:1719): Antes del primer rcv
+[INFO] 17:39:32:304 mi_ram.c/(1119:1719): DEspues del primer recv
+[INFO] 17:39:32:304 mi_ram.c/(1119:1719): Recibi header: 1
+
+[INFO] 17:39:32:304 mi_ram.c/(1119:1719): Antes del status tamanio buffer
+[INFO] 17:39:32:304 mi_ram.c/(1119:1719):  despues del tamanio buffer
+[INFO] 17:39:32:304 mi_ram.c/(1119:1719): buffer rcv
+[INFO] 17:39:32:304 mi_ram.c/(1119:1719): 
+0x00000000: 01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:39:32:304 mi_ram.c/(1119:1719): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 1
+[INFO] 17:39:32:304 mi_ram.c/(1119:1719): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 17:39:32:304 mi_ram.c/(1119:1717): Entre a atender discordiador
+[INFO] 17:39:32:304 mi_ram.c/(1119:1717): Antes del primer rcv
+[INFO] 17:39:32:304 mi_ram.c/(1119:1717): DEspues del primer recv
+[INFO] 17:39:32:305 mi_ram.c/(1119:1717): Recibi header: 5
+
+[INFO] 17:39:32:305 mi_ram.c/(1119:1717): Antes del status tamanio buffer
+[INFO] 17:39:32:305 mi_ram.c/(1119:1717):  despues del tamanio buffer
+[INFO] 17:39:32:305 mi_ram.c/(1119:1717): buffer rcv
+[INFO] 17:39:32:305 mi_ram.c/(1119:1717): 
+0x00000000: 01 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:32:305 mi_ram.c/(1119:1717): Direccion stream: b5c032a8
+[INFO] 17:39:32:305 mi_ram.c/(1119:1717): Direccion tid: b51ff2f4
+[INFO] 17:39:32:305 mi_ram.c/(1119:1717): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720): Entre a atender discordiador
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720): Antes del primer rcv
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720): DEspues del primer recv
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720): Recibi header: 5
+
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720): Antes del status tamanio buffer
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720):  despues del tamanio buffer
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720): buffer rcv
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720): Direccion stream: 9700ba8
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720): Direccion tid: b31fb2f4
+[INFO] 17:39:32:305 mi_ram.c/(1119:1720): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721): Entre a atender discordiador
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721): Antes del primer rcv
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721): DEspues del primer recv
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721): Recibi header: 5
+
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721): Antes del status tamanio buffer
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721):  despues del tamanio buffer
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721): buffer rcv
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721): Direccion stream: b52071c0
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721): Direccion tid: b41fd2f4
+[INFO] 17:39:32:305 mi_ram.c/(1119:1721): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:34:304 mi_ram.c/(1119:1719): entre a es el ultimo tripulante
+[INFO] 17:39:34:304 mi_ram.c/(1119:1719): antes del primer list find
+[INFO] 17:39:34:304 mi_ram.c/(1119:1719): despues del primer list find
+[INFO] 17:39:36:304 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:36:304 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:36:304 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:36:304 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:36:304 mi_ram.c/(1119:1120): Conexión establecida con Discordiador
+[INFO] 17:39:36:304 mi_ram.c/(1119:1120): Resultado creacion hilo 0
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729): Entre a atender discordiador
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729): Antes del primer rcv
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729): DEspues del primer recv
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729): Recibi header: 5
+
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729): Antes del status tamanio buffer
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729):  despues del tamanio buffer
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729): buffer rcv
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729): 
+0x00000000: 03 00 00 00 00 00 00 00  45 00 00 00 00 00 00 00  |........E.......|
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729): Direccion stream: b52070c0
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729): Direccion tid: b41fd2f4
+[INFO] 17:39:36:305 mi_ram.c/(1119:1729): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:36:305 mi_ram.c/(1119:1730): Entre a atender discordiador
+[INFO] 17:39:36:305 mi_ram.c/(1119:1730): Antes del primer rcv
+[INFO] 17:39:36:305 mi_ram.c/(1119:1730): DEspues del primer recv
+[INFO] 17:39:36:305 mi_ram.c/(1119:1730): Recibi header: 1
+
+[INFO] 17:39:36:305 mi_ram.c/(1119:1730): Antes del status tamanio buffer
+[INFO] 17:39:36:305 mi_ram.c/(1119:1730):  despues del tamanio buffer
+[INFO] 17:39:36:305 mi_ram.c/(1119:1730): buffer rcv
+[INFO] 17:39:36:305 mi_ram.c/(1119:1730): 
+0x00000000: 03 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 17:39:36:305 mi_ram.c/(1119:1730): DATOS TRIPU QUE PIDIO TAREA, PID: 0, TID: 3
+[INFO] 17:39:36:305 mi_ram.c/(1119:1730): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 17:39:36:305 mi_ram.c/(1119:1728): Entre a atender discordiador
+[INFO] 17:39:36:305 mi_ram.c/(1119:1728): Antes del primer rcv
+[INFO] 17:39:36:305 mi_ram.c/(1119:1728): DEspues del primer recv
+[INFO] 17:39:36:305 mi_ram.c/(1119:1728): Recibi header: 5
+
+[INFO] 17:39:36:306 mi_ram.c/(1119:1728): Antes del status tamanio buffer
+[INFO] 17:39:36:306 mi_ram.c/(1119:1728):  despues del tamanio buffer
+[INFO] 17:39:36:306 mi_ram.c/(1119:1728): buffer rcv
+[INFO] 17:39:36:306 mi_ram.c/(1119:1728): 
+0x00000000: 03 00 00 00 00 00 00 00  52 00 00 00 00 00 00 00  |........R.......|
+[INFO] 17:39:36:306 mi_ram.c/(1119:1728): Direccion stream: b5206b18
+[INFO] 17:39:36:306 mi_ram.c/(1119:1728): Direccion tid: b29fa2f4
+[INFO] 17:39:36:306 mi_ram.c/(1119:1728): PID ACTUALIZAR ESTADO : 0
+[INFO] 17:39:38:305 mi_ram.c/(1119:1730): entre a es el ultimo tripulante
+[INFO] 17:39:38:305 mi_ram.c/(1119:1730): antes del primer list find
+[INFO] 17:39:38:305 mi_ram.c/(1119:1730): despues del primer list find
+[INFO] 17:39:38:305 mi_ram.c/(1119:1730): antes del segundo list find
+[INFO] 17:39:38:305 mi_ram.c/(1119:1730): despues del segundo list find
+[INFO] 17:39:38:305 mi_ram.c/(1119:1730): antes del tercer list find
+[INFO] 17:39:38:305 mi_ram.c/(1119:1730): despues del tercer list find
+[INFO] 17:39:38:305 mi_ram.c/(1119:1730): VOy a remover la tabla de patotas del proceso: 0
+[INFO] 17:39:38:305 mi_ram.c/(1119:1730): CAntidad de referencias antes: 1
+[INFO] 17:39:38:306 mi_ram.c/(1119:1730): Cantidad de referencias despues: 0
