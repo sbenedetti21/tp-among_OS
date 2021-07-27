@@ -168,10 +168,12 @@ void * atenderDiscordiador(void * socket){
 	paquete->buffer->stream = malloc(paquete->buffer->size);
 
 	log_info(loggerMiram2, "buffer rcv");
-	int BUFFER_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+	int BUFFER_RECV = recv(socketCliente, paquete->buffer->stream, paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
 	
 	// ACA
-	void * stream = paquete->buffer->stream;
+	void * stream = paquete->buffer->stream; // ESTE STREAM ESTA BIEN
+
+	log_info(loggerMiram2, "%s", mem_hexstring(paquete->buffer->stream, paquete->buffer->size));
 
 	uint32_t idPatota = 0;
 
@@ -373,6 +375,7 @@ void * atenderDiscordiador(void * socket){
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 
 			//mem_hexdump(memoriaPrincipal, tamanioMemoria);
+			sleep(2);
 			eliminarTripulanteSegmentacion(pid, tid);
 			//expulsarTripulanteDelMapa(tid);
 			
@@ -424,16 +427,17 @@ void * atenderDiscordiador(void * socket){
 	break; 
 
 	case ACTUALIZAR_ESTADO: ;
+
 		 uint32_t trip = 0, pat = 0;
 		char estadoNuevo = 'a';
-		log_info(loggerMiram2, "Direccion stream: %x", stream+offset); 
+		log_info(loggerMiram2, "Direccion stream: %x", stream); 
 		log_info(loggerMiram2, "Direccion tid: %x", &trip);
 		
-		memcpy(&trip, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&pat, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&estadoNuevo, stream+offset, sizeof(char));
+		memcpy(&trip, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&pat, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&estadoNuevo, stream, sizeof(char));
 		log_info(loggerMiram2, "PID ACTUALIZAR ESTADO : %d", pat); 
 		actualizarEstadoTripulanteSegmentacion(pat, trip, estadoNuevo); 
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
@@ -444,11 +448,10 @@ void * atenderDiscordiador(void * socket){
 		
 		 uint32_t tripid = 0, patid = 0;
 		
-		
-		memcpy(&tripid, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&patid, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
+		memcpy(&tripid, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&patid, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
 		eliminarTripulanteSegmentacion(patid, tripid);
 		//expulsarTripulanteDelMapa(tripid);
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
@@ -861,7 +864,7 @@ void eliminarTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante){
 	referenciaTablaPatota * referenciaPatota = list_find(listaReferenciasPatotaSegmentacion, coincidePID); 
 	pthread_mutex_unlock(&mutexListaReferenciasPatotas); 
 
-	if(referenciaPatota == NULL){log_info(loggerMiram2, "Me pidieron una patota inexistente"); }
+	if(referenciaPatota == NULL){log_info(loggerMiram2, "Me pidieron una patota inexistente"); return;}
 	t_segmento * segmentoTripulante = list_find(referenciaPatota->tablaPatota, coincideTID); 
 
 	if(segmentoTripulante == NULL || segmentoTripulante->ocupado == false){
@@ -1125,7 +1128,7 @@ uint32_t obtenerDireccionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTr
 	referenciaTablaPatota * referenciaPatota = list_find(listaReferenciasPatotaSegmentacion, coincidePID); 
 	pthread_mutex_unlock(&mutexListaReferenciasPatotas); 
 
-	if(referenciaPatota == NULL){log_info(loggerMiram2, "Me pidieron una patota inexistente PID: %d", idPatota); }
+	if(referenciaPatota == NULL){log_info(loggerMiram2, "Me pidieron una patota inexistente PID: %d", idPatota); return tamanioMemoria+1;}
 	t_segmento * segmentoTripulante = list_find(referenciaPatota->tablaPatota, coincideTID); 
 
 	if(segmentoTripulante == NULL || segmentoTripulante->ocupado == false){
