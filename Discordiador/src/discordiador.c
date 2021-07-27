@@ -342,10 +342,11 @@ void iniciarPatota(char ** vectorInstruccion){
 					}
 				sem_post(&esperarAlgunTripulante); 
 				}
+
+				list_destroy(listaTCBsNuevos);
 				
 			
 	
-	close(socket);
 	
 }
 
@@ -1029,10 +1030,11 @@ void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
 
 	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
 
-	// free(a_enviar);
-	// free(paquete->buffer->stream);
-	// free(paquete->buffer);
-	// free(paquete);
+	free(a_enviar);
+	free(paquete->buffer->stream);
+	free(paquete->buffer);
+	free(paquete);
+	//close(socket);
 }
 
 
@@ -1084,11 +1086,7 @@ void serializarYMandarPCB(char * pathTareas, int socket, uint32_t pid, int canti
 
 	mandarPaqueteSerializado(buffer, socket, INICIAR_PATOTA);
 
-	// free(buffer);
 	// free(tareas);
-
-	//list_destroy(listaTCBS);
-
 	
 }
 
@@ -1228,8 +1226,6 @@ void serializarYMandarFinalizacionTarea(uint32_t tid, char * nombreTarea){
 	buffer-> stream = stream;
 
 	mandarPaqueteSerializado(buffer, socket, FINALIZO_TAREA);
-	
-
 	
 }
 
