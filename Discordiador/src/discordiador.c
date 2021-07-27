@@ -48,7 +48,11 @@ int main(int argc, char ** argv){
 	list_add(tareasDeIO,"GENERAR_BASURA");
 	list_add(tareasDeIO,"DESCARTAR_BASURA");
 
-	t_config * config = config_create("./cfg/discordiador.config");
+		posicionBase = malloc(sizeof("0|0"));
+	config = malloc(sizeof(config_create("./cfg/discordiador.config")));
+	posicionBase = "0|0";
+	config = config_create("./cfg/discordiador.config");
+	
 
 	socketParaSabotajes = conectarImongo();
 
@@ -56,11 +60,10 @@ int main(int argc, char ** argv){
     pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
 
 
-	
-
 	cicloCPU = config_get_int_value(config, "RETARDO_CICLO_CPU");
 	tiempoSabotaje = config_get_int_value(config, "DURACION_SABOTAJE");
 	gradoMultitarea = config_get_int_value(config, "GRADO_MULTITAREA");
+	//free(config);
 
 	sem_init(&semaforoTripulantes, 0,  gradoMultitarea);
 	sem_init(&consultarSiHayVacios, 0,  1);
@@ -100,23 +103,15 @@ return 0;
 
 
 int conectarImongo(){
-	t_config * config = config_create("./cfg/discordiador.config");
 		char * ip = config_get_string_value(config, "IP_I_MONGO_STORE");
 		char * puerto = config_get_string_value(config, "PUERTO_I_MONGO_STORE");
-
 		return crear_conexion(ip, puerto);
 }
 
 int conectarMiRAM(){
-
-
-	t_config * config = config_create("./cfg/discordiador.config");
 	char * ip = config_get_string_value(config, "IP_MI_RAM_HQ");
 	char * puerto = config_get_string_value(config, "PUERTO_MI_RAM_HQ");
-
-	 int conexion = crear_conexion(ip, puerto);
-
-	 return conexion; 
+	 return crear_conexion(ip, puerto);
 }
 
 //-----------------------------CONSOLA---------------------------------------------------------------------------------------
@@ -234,8 +229,6 @@ void iniciarPatota(char ** vectorInstruccion){
 
 	int socket = conectarMiRAM();
 
-				
-				char * posicionBase = "0|0";
 				int i;
 				int indice_posiciones = 3;
 				int cantidadTripulantes = atoi(vectorInstruccion[1]);
@@ -310,7 +303,7 @@ void iniciarPatota(char ** vectorInstruccion){
 					pthread_create(&tripulantes[i], NULL, subModuloTripulante , tripulante);
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 			
 					
-				} 
+				}  free(i); free(indice_posiciones); free(cantidadTripulantes);
 				
 				serializarYMandarPCB(vectorInstruccion[2],socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
 
@@ -319,9 +312,10 @@ void iniciarPatota(char ** vectorInstruccion){
 				if(header == PATOTA_CREADA){
 					log_info(loggerDiscordiador, "Patota creada por MiRam"); 
 				}
+				free(&header);
 				
-
-				for(int y = 0 ; y < cantidadTripulantes ; y++){
+				int y;
+				for(y = 0 ; y < cantidadTripulantes ; y++){
 				if(!planificacionPausada){
 
 						TCB_DISCORDIADOR * tripulante = list_get(listaTCBsNuevos,y);
@@ -338,12 +332,9 @@ void iniciarPatota(char ** vectorInstruccion){
 											
 					}
 				sem_post(&esperarAlgunTripulante); 
-				}
+				}  free(y);
 
-				list_destroy(listaTCBsNuevos);
-				
-			
-	
+				list_destroy(listaTCBsNuevos);	
 	
 }
 
@@ -383,7 +374,6 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 	bool noHayMasTareas = false;
 	tarea_struct * tarea = malloc(sizeof(tarea_struct));  //HECHO
 
-	t_config * config = config_create("./cfg/discordiador.config");
 	char * tipoAlgoritmo = config_get_string_value(config, "ALGORITMO");
 
 	while (1) {
@@ -473,6 +463,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 									free(paquete);
 									free(paquete->buffer->stream);
 									free(paquete->buffer);
+									free(tarea->descripcionTarea);
 									free(tarea);
 									free(stringTarea);
 									noHayMasTareas = true;
@@ -558,9 +549,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 									     } else{
 											 	int contador = 0; // cantidad de quantum ya utilizado
 
-												t_config * config = config_create("./cfg/discordiador.config");
 												int quantum = atoi(config_get_string_value(config, "QUANTUM"));
-
+												//free(config);
 												// Primero tiene que ir a la posicion en la que esta la tarea, y para esto gasta
 												// quantum. Es por eso que primero se mueve en X lo que pueda, y cuando llega a 
 												// su posicion en X, hace lo mismo con Y. Una vez haya llegado a donde se encuentra
@@ -1084,7 +1074,7 @@ void serializarYMandarPCB(char * pathTareas, int socket, uint32_t pid, int canti
 	mandarPaqueteSerializado(buffer, socket, INICIAR_PATOTA);
 
 	close(socket);
-	
+	free(pathTareas);
 }
 
 void serializarYMandarInicioTareaIO(int parametro, int tipoTarea, uint32_t tid ){
@@ -1196,6 +1186,7 @@ void serializarYMandarInicioTareaNormal(uint32_t tid, char * stringTareas){
 
 	mandarPaqueteSerializado(buffer, socket, INICIO_TAREA_NORMAL);
 	close(socket);
+	free(stringTareas);
 }
 
 void serializarYMandarFinalizacionTarea(uint32_t tid, char * nombreTarea){
@@ -1224,6 +1215,7 @@ void serializarYMandarFinalizacionTarea(uint32_t tid, char * nombreTarea){
 
 	mandarPaqueteSerializado(buffer, socket, FINALIZO_TAREA);
 	close(socket);
+	free(nombreTarea);
 }
 
 void serializarYMandarElegidoDelSabotaje(uint32_t tid){
@@ -1277,7 +1269,6 @@ void serializarYMandarPosicionBitacora(uint32_t tid, uint32_t posxV, uint32_t po
 
 	mandarPaqueteSerializado(buffer, socket, NUEVA_POSICION);
 	close(socket);
-
 }
 
 void serializarYMandarPedidoDeBitacora(uint32_t tid){
@@ -1378,7 +1369,6 @@ void serializaYMandarExpulsado(uint32_t tid, uint32_t pid ){
 
 	mandarPaqueteSerializado(buffer, socket, EXPULSAR_TRIPULANTE);
 	close(socket);
-
 }
 
 //-----------------------------SABOTAJES---------------------------------------------------------------------------------------------------

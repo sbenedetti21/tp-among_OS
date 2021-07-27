@@ -18,6 +18,8 @@ int crear_conexion(char *ip, char* puerto)
 
 
 	freeaddrinfo(server_info);
+	free(ip);
+	free(puerto);
 
 	return socket_cliente;
 
@@ -47,6 +49,7 @@ int crear_conexionServer(char *puerto){
 		printf("error Listening");
 
 	freeaddrinfo(server_info);
+	free(puerto);
 
 	return listening_socket;
 

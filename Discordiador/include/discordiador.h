@@ -10,6 +10,8 @@
 uint32_t cicloCPU;
 int tiempoSabotaje;
 uint32_t proximoPID = 0; 
+char * posicionBase;
+t_config * config;
 
 typedef struct tcb_discordiador{
 	uint32_t tid;
