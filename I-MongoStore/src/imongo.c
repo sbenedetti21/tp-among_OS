@@ -36,9 +36,9 @@ int main(int argc, char ** argv){
 	pthread_t servidor;
 	pthread_t sincronizador;
     pthread_create(&servidor, NULL, servidorPrincipal, NULL);
-     pthread_create(&sincronizador, NULL, sincronizacionMapBlocks, NULL);
+    pthread_create(&sincronizador, NULL, sincronizacionMapBlocks, NULL);
     pthread_join(servidor, NULL);
-	 	pthread_join(sincronizador, NULL);
+	pthread_join(sincronizador, NULL);
 
   
 	//Necesario al finalizar
@@ -1127,7 +1127,7 @@ void servidorPrincipal() {
 
 	struct sockaddr_in addr;
 	socklen_t addrlen = sizeof(addr);
-	pthread_t receptorDiscordiador;
+	pthread_t * receptorDiscordiador = malloc(sizeof(pthread_t)); 
 
 	// SE CONECTA POR PRIMERA VEZ PARA TENER LA CONEXION ESTABLECIDA. LA VA AUSAR PARA MANDAR FSCK
 	socketParaSabotajes = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
@@ -1137,11 +1137,13 @@ void servidorPrincipal() {
 		if(socketCliente == -1){
 			printf("Error en la conexión");
 		} else {
-			pthread_create(&receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
+			pthread_create(receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
+			pthread_detach((*receptorDiscordiador)); 
 		}
+		 
 	}
 
-	close(socketCliente);
+	
 	close(listeningSocket);   
 }
 //FUNCION REPETIDA
@@ -1423,7 +1425,7 @@ void atenderDiscordiador(int socketCliente){
 	}
 
 	guardarBitMap();
-
+	close(socketCliente);
 }
 
     

@@ -43,9 +43,9 @@ int		tamanioPagina;
 
 
 //mutex para valores compartidos 
-sem_t mutexTablaSegmentosGlobal; 
+pthread_mutex_t mutexTablaSegmentosGlobal; 
 pthread_mutex_t mutexListaReferenciasPatotas; 
-sem_t mutexMemoriaPrincipal; 
+pthread_mutex_t mutexMemoriaPrincipal; 
 pthread_mutex_t mutexCompactacion; //(ver si este es necesario o se puede obviar aplicando todos los otros mutex); 
 sem_t semaforoCompactacion; 
 
@@ -83,7 +83,7 @@ typedef struct{
 
 void iniciarMemoria();
 void servidorPrincipal();
-void atenderDiscordiador();
+void * atenderDiscordiador();
 PCB * crearPCB(uint32_t);
 void mandarPaqueteSerializado(t_buffer * , int , int );
 int buscarEspacionNecesario(int, int);

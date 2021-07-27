@@ -1,0 +1,609 @@
+==10379== Helgrind, a thread error detector
+==10379== Copyright (C) 2007-2015, and GNU GPL'd, by OpenWorks LLP et al.
+==10379== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==10379== Command: ./mi_ram
+==10379== Parent PID: 10377
+==10379== 
+==10379== ---Thread-Announcement------------------------------------------
+==10379== 
+==10379== Thread #6 was created
+==10379==    at 0x4165091: clone (clone.S:88)
+==10379==    by 0x40661AD: create_thread (createthread.c:102)
+==10379==    by 0x406799E: pthread_create@@GLIBC_2.1 (pthread_create.c:679)
+==10379==    by 0x4032043: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x80492D9: servidorPrincipal (mi_ram.c:132)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== ---Thread-Announcement------------------------------------------
+==10379== 
+==10379== Thread #5 was created
+==10379==    at 0x4165091: clone (clone.S:88)
+==10379==    by 0x40661AD: create_thread (createthread.c:102)
+==10379==    by 0x406799E: pthread_create@@GLIBC_2.1 (pthread_create.c:679)
+==10379==    by 0x4032043: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x80492D9: servidorPrincipal (mi_ram.c:132)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== ---Thread-Announcement------------------------------------------
+==10379== 
+==10379== Thread #1 is the program's root thread
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379==  Lock at 0x804E15C was first observed
+==10379==    at 0x4032F68: pthread_mutex_init (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x80490B8: main (mi_ram.c:17)
+==10379==  Address 0x804e15c is 0 bytes inside data symbol "mutexListaReferenciasPatotas"
+==10379== 
+==10379== Possible data race during read of size 4 at 0x4237AF0 by thread #6
+==10379== Locks held: 1, at address 0x804E15C
+==10379==    at 0x405B1B9: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B6B7: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1125)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 4 by thread #5
+==10379== Locks held: none
+==10379==    at 0x405B0B8: list_link_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405B254: list_add_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A092: list_add (in /usr/lib/libcommons.so)
+==10379==    by 0x80496D5: atenderDiscordiador (mi_ram.c:244)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x4237af0 is 0 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4059FEA: list_create (in /usr/lib/libcommons.so)
+==10379==    by 0x8049CE4: iniciarMemoria (mi_ram.c:477)
+==10379==    by 0x8049085: main (mi_ram.c:14)
+==10379==  Block was alloc'd by thread #1
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379==  Lock at 0x804E15C was first observed
+==10379==    at 0x4032F68: pthread_mutex_init (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x80490B8: main (mi_ram.c:17)
+==10379==  Address 0x804e15c is 0 bytes inside data symbol "mutexListaReferenciasPatotas"
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CFF0 by thread #6
+==10379== Locks held: 1, at address 0x804E15C
+==10379==    at 0x405A38C: _find_by_condition.2332 (in /usr/lib/libcommons.so)
+==10379==    by 0x405B1E1: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B6B7: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1125)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423cff0 is 0 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x405B14D: list_create_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A07A: list_add (in /usr/lib/libcommons.so)
+==10379==    by 0x80496D5: atenderDiscordiador (mi_ram.c:244)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379==  Lock at 0x804E15C was first observed
+==10379==    at 0x4032F68: pthread_mutex_init (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x80490B8: main (mi_ram.c:17)
+==10379==  Address 0x804e15c is 0 bytes inside data symbol "mutexListaReferenciasPatotas"
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CE10 by thread #6
+==10379== Locks held: 1, at address 0x804E15C
+==10379==    at 0x804B623: coincidePID.7286 (mi_ram.c:1121)
+==10379==    by 0x405A395: _find_by_condition.2332 (in /usr/lib/libcommons.so)
+==10379==    by 0x405B1E1: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B6B7: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1125)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423ce10 is 0 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x8049650: atenderDiscordiador (mi_ram.c:232)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CE14 by thread #6
+==10379== Locks held: none
+==10379==    at 0x804B6F1: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1129)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423ce14 is 4 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x8049650: atenderDiscordiador (mi_ram.c:232)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CDD8 by thread #6
+==10379== Locks held: none
+==10379==    at 0x405B1B9: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B703: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1129)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 4 by thread #5
+==10379== Locks held: none
+==10379==    at 0x405B0B8: list_link_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405B254: list_add_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A262: list_add_in_index (in /usr/lib/libcommons.so)
+==10379==    by 0x804A949: asignarMemoriaSegmentacionPCB (mi_ram.c:796)
+==10379==    by 0x80496BE: atenderDiscordiador (mi_ram.c:243)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423cdd8 is 0 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4059FEA: list_create (in /usr/lib/libcommons.so)
+==10379==    by 0x8049643: atenderDiscordiador (mi_ram.c:231)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CFB8 by thread #6
+==10379== Locks held: none
+==10379==    at 0x405A38C: _find_by_condition.2332 (in /usr/lib/libcommons.so)
+==10379==    by 0x405B1E1: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B703: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1129)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423cfb8 is 0 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x405B14D: list_create_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A247: list_add_in_index (in /usr/lib/libcommons.so)
+==10379==    by 0x804A949: asignarMemoriaSegmentacionPCB (mi_ram.c:796)
+==10379==    by 0x80496BE: atenderDiscordiador (mi_ram.c:243)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CF70 by thread #6
+==10379== Locks held: none
+==10379==    at 0x804B765: coincideTID.7289 (mi_ram.c:1122)
+==10379==    by 0x405A395: _find_by_condition.2332 (in /usr/lib/libcommons.so)
+==10379==    by 0x405B1E1: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B703: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1129)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 4 by thread #5
+==10379== Locks held: none
+==10379==    at 0x804A905: asignarMemoriaSegmentacionPCB (mi_ram.c:788)
+==10379==    by 0x80496BE: atenderDiscordiador (mi_ram.c:243)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423cf70 is 0 bytes inside a block of size 24 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x804A5D2: firstFitSegmentacion (mi_ram.c:721)
+==10379==    by 0x804A026: buscarSegmentoLibre (mi_ram.c:599)
+==10379==    by 0x804A878: asignarMemoriaSegmentacionPCB (mi_ram.c:772)
+==10379==    by 0x80496BE: atenderDiscordiador (mi_ram.c:243)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CFBC by thread #6
+==10379== Locks held: none
+==10379==    at 0x405B1CA: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B703: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1129)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 4 by thread #5
+==10379== Locks held: none
+==10379==    at 0x405B0CE: list_link_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405B254: list_add_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A092: list_add (in /usr/lib/libcommons.so)
+==10379==    by 0x804AB09: asignarMemoriaSegmentacionTareas (mi_ram.c:829)
+==10379==    by 0x804971E: atenderDiscordiador (mi_ram.c:249)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423cfbc is 4 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x405B14D: list_create_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A247: list_add_in_index (in /usr/lib/libcommons.so)
+==10379==    by 0x804A949: asignarMemoriaSegmentacionPCB (mi_ram.c:796)
+==10379==    by 0x80496BE: atenderDiscordiador (mi_ram.c:243)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379==  Lock at 0x804E114 was first observed
+==10379==    at 0x4032F68: pthread_mutex_init (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x8049094: main (mi_ram.c:15)
+==10379==  Address 0x804e114 is 0 bytes inside data symbol "mutexTablaSegmentosGlobal"
+==10379== 
+==10379== Possible data race during read of size 1 at 0x423D270 by thread #6
+==10379== Locks held: none
+==10379==    at 0x804B713: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1131)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 1 by thread #5
+==10379== Locks held: 1, at address 0x804E114
+==10379==    at 0x804A7D9: asignarMemoriaSegmentacionTCB (mi_ram.c:762)
+==10379==    by 0x8049866: atenderDiscordiador (mi_ram.c:288)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423d270 is 16 bytes inside a block of size 24 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x804A5D2: firstFitSegmentacion (mi_ram.c:721)
+==10379==    by 0x804A026: buscarSegmentoLibre (mi_ram.c:599)
+==10379==    by 0x804A738: asignarMemoriaSegmentacionTCB (mi_ram.c:744)
+==10379==    by 0x8049866: atenderDiscordiador (mi_ram.c:288)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379==  Lock at 0x804E114 was first observed
+==10379==    at 0x4032F68: pthread_mutex_init (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x8049094: main (mi_ram.c:15)
+==10379==  Address 0x804e114 is 0 bytes inside data symbol "mutexTablaSegmentosGlobal"
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423D264 by thread #6
+==10379== Locks held: none
+==10379==    at 0x804B741: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1137)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 4 by thread #5
+==10379== Locks held: 1, at address 0x804E114
+==10379==    at 0x804A7C0: asignarMemoriaSegmentacionTCB (mi_ram.c:759)
+==10379==    by 0x8049866: atenderDiscordiador (mi_ram.c:288)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423d264 is 4 bytes inside a block of size 24 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x804A5D2: firstFitSegmentacion (mi_ram.c:721)
+==10379==    by 0x804A026: buscarSegmentoLibre (mi_ram.c:599)
+==10379==    by 0x804A738: asignarMemoriaSegmentacionTCB (mi_ram.c:744)
+==10379==    by 0x8049866: atenderDiscordiador (mi_ram.c:288)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ---Thread-Announcement------------------------------------------
+==10379== 
+==10379== Thread #7 was created
+==10379==    at 0x4165091: clone (clone.S:88)
+==10379==    by 0x40661AD: create_thread (createthread.c:102)
+==10379==    by 0x406799E: pthread_create@@GLIBC_2.1 (pthread_create.c:679)
+==10379==    by 0x4032043: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x80492D9: servidorPrincipal (mi_ram.c:132)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379==  Lock at 0x804E15C was first observed
+==10379==    at 0x4032F68: pthread_mutex_init (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x80490B8: main (mi_ram.c:17)
+==10379==  Address 0x804e15c is 0 bytes inside data symbol "mutexListaReferenciasPatotas"
+==10379== 
+==10379== Possible data race during read of size 4 at 0x4237AF0 by thread #7
+==10379== Locks held: 1, at address 0x804E15C
+==10379==    at 0x405B1B9: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B6B7: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1125)
+==10379==    by 0x804991C: atenderDiscordiador (mi_ram.c:334)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 4 by thread #5
+==10379== Locks held: none
+==10379==    at 0x405B0B8: list_link_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405B254: list_add_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A092: list_add (in /usr/lib/libcommons.so)
+==10379==    by 0x80496D5: atenderDiscordiador (mi_ram.c:244)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x4237af0 is 0 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4059FEA: list_create (in /usr/lib/libcommons.so)
+==10379==    by 0x8049CE4: iniciarMemoria (mi_ram.c:477)
+==10379==    by 0x8049085: main (mi_ram.c:14)
+==10379==  Block was alloc'd by thread #1
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CE14 by thread #7
+==10379== Locks held: none
+==10379==    at 0x804B6F1: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1129)
+==10379==    by 0x804991C: atenderDiscordiador (mi_ram.c:334)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423ce14 is 4 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x8049650: atenderDiscordiador (mi_ram.c:232)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CDD8 by thread #7
+==10379== Locks held: none
+==10379==    at 0x405B1B9: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B703: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1129)
+==10379==    by 0x804991C: atenderDiscordiador (mi_ram.c:334)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 4 by thread #5
+==10379== Locks held: none
+==10379==    at 0x405B0B8: list_link_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405B254: list_add_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A262: list_add_in_index (in /usr/lib/libcommons.so)
+==10379==    by 0x804A949: asignarMemoriaSegmentacionPCB (mi_ram.c:796)
+==10379==    by 0x80496BE: atenderDiscordiador (mi_ram.c:243)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423cdd8 is 0 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4059FEA: list_create (in /usr/lib/libcommons.so)
+==10379==    by 0x8049643: atenderDiscordiador (mi_ram.c:231)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CFBC by thread #7
+==10379== Locks held: none
+==10379==    at 0x405B1CA: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B703: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1129)
+==10379==    by 0x804991C: atenderDiscordiador (mi_ram.c:334)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 4 by thread #5
+==10379== Locks held: none
+==10379==    at 0x405B0CE: list_link_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405B254: list_add_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A092: list_add (in /usr/lib/libcommons.so)
+==10379==    by 0x804AB09: asignarMemoriaSegmentacionTareas (mi_ram.c:829)
+==10379==    by 0x804971E: atenderDiscordiador (mi_ram.c:249)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423cfbc is 4 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x405B14D: list_create_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A247: list_add_in_index (in /usr/lib/libcommons.so)
+==10379==    by 0x804A949: asignarMemoriaSegmentacionPCB (mi_ram.c:796)
+==10379==    by 0x80496BE: atenderDiscordiador (mi_ram.c:243)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379==  Lock at 0x804E114 was first observed
+==10379==    at 0x4032F68: pthread_mutex_init (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x8049094: main (mi_ram.c:15)
+==10379==  Address 0x804e114 is 0 bytes inside data symbol "mutexTablaSegmentosGlobal"
+==10379== 
+==10379== Possible data race during read of size 1 at 0x423D270 by thread #7
+==10379== Locks held: none
+==10379==    at 0x804B713: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1131)
+==10379==    by 0x804991C: atenderDiscordiador (mi_ram.c:334)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 1 by thread #5
+==10379== Locks held: 1, at address 0x804E114
+==10379==    at 0x804A7D9: asignarMemoriaSegmentacionTCB (mi_ram.c:762)
+==10379==    by 0x8049866: atenderDiscordiador (mi_ram.c:288)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423d270 is 16 bytes inside a block of size 24 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x804A5D2: firstFitSegmentacion (mi_ram.c:721)
+==10379==    by 0x804A026: buscarSegmentoLibre (mi_ram.c:599)
+==10379==    by 0x804A738: asignarMemoriaSegmentacionTCB (mi_ram.c:744)
+==10379==    by 0x8049866: atenderDiscordiador (mi_ram.c:288)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379==  Lock at 0x804E114 was first observed
+==10379==    at 0x4032F68: pthread_mutex_init (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x8049094: main (mi_ram.c:15)
+==10379==  Address 0x804e114 is 0 bytes inside data symbol "mutexTablaSegmentosGlobal"
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423D264 by thread #7
+==10379== Locks held: none
+==10379==    at 0x804B741: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1137)
+==10379==    by 0x804991C: atenderDiscordiador (mi_ram.c:334)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 4 by thread #5
+==10379== Locks held: 1, at address 0x804E114
+==10379==    at 0x804A7C0: asignarMemoriaSegmentacionTCB (mi_ram.c:759)
+==10379==    by 0x8049866: atenderDiscordiador (mi_ram.c:288)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423d264 is 4 bytes inside a block of size 24 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x804A5D2: firstFitSegmentacion (mi_ram.c:721)
+==10379==    by 0x804A026: buscarSegmentoLibre (mi_ram.c:599)
+==10379==    by 0x804A738: asignarMemoriaSegmentacionTCB (mi_ram.c:744)
+==10379==    by 0x8049866: atenderDiscordiador (mi_ram.c:288)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379==  Lock at 0x804E0EC was first observed
+==10379==    at 0x4032F68: pthread_mutex_init (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x80490A6: main (mi_ram.c:16)
+==10379==  Address 0x804e0ec is 0 bytes inside data symbol "mutexMemoriaPrincipal"
+==10379== 
+==10379== Possible data race during read of size 1 at 0x42383F9 by thread #7
+==10379== Locks held: none
+==10379==    at 0x8049930: atenderDiscordiador (mi_ram.c:341)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== This conflicts with a previous write of size 4 by thread #5
+==10379== Locks held: 1, at address 0x804E0EC
+==10379==    at 0x40352F2: memcpy (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x804A767: asignarMemoriaSegmentacionTCB (mi_ram.c:747)
+==10379==    by 0x8049866: atenderDiscordiador (mi_ram.c:288)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x42383f9 is 121 bytes inside a block of size 16,384 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x804905D: main (mi_ram.c:12)
+==10379==  Block was alloc'd by thread #1
+==10379== 
+==10379== ---Thread-Announcement------------------------------------------
+==10379== 
+==10379== Thread #8 was created
+==10379==    at 0x4165091: clone (clone.S:88)
+==10379==    by 0x40661AD: create_thread (createthread.c:102)
+==10379==    by 0x406799E: pthread_create@@GLIBC_2.1 (pthread_create.c:679)
+==10379==    by 0x4032043: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x80492D9: servidorPrincipal (mi_ram.c:132)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379== 
+==10379== ----------------------------------------------------------------
+==10379== 
+==10379==  Lock at 0x804E15C was first observed
+==10379==    at 0x4032F68: pthread_mutex_init (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x80490B8: main (mi_ram.c:17)
+==10379==  Address 0x804e15c is 0 bytes inside data symbol "mutexListaReferenciasPatotas"
+==10379== 
+==10379== Possible data race during read of size 4 at 0x423CFF4 by thread #8
+==10379== Locks held: 1, at address 0x804E15C
+==10379==    at 0x405B1CA: list_find_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A413: list_find (in /usr/lib/libcommons.so)
+==10379==    by 0x804B6B7: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1125)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Address 0x423cff4 is 4 bytes inside a block of size 8 alloc'd
+==10379==    at 0x402D36C: malloc (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x405B14D: list_create_element (in /usr/lib/libcommons.so)
+==10379==    by 0x405A07A: list_add (in /usr/lib/libcommons.so)
+==10379==    by 0x80496D5: atenderDiscordiador (mi_ram.c:244)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  Block was alloc'd by thread #5
+==10379== 
+==10379== 
+==10379== Process terminating with default action of signal 11 (SIGSEGV)
+==10379==  Access not within mapped region at address 0x4
+==10379==    at 0x804B6F1: obtenerDireccionTripulanteSegmentacion (mi_ram.c:1129)
+==10379==    by 0x804AB9D: actualizarEstadoTripulanteSegmentacion (mi_ram.c:845)
+==10379==    by 0x8049C2D: atenderDiscordiador (mi_ram.c:438)
+==10379==    by 0x40321E2: ??? (in /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so)
+==10379==    by 0x4067294: start_thread (pthread_create.c:333)
+==10379==    by 0x41650AD: clone (clone.S:114)
+==10379==  If you believe this happened as a result of a stack
+==10379==  overflow in your program's main thread (unlikely but
+==10379==  possible), you can try to increase the size of the
+==10379==  main thread stack using the --main-stacksize= flag.
+==10379==  The main thread stack size used in this run was 8388608.
+==10379== 
+==10379== For counts of detected and suppressed errors, rerun with: -v
+==10379== Use --history-level=approx or =none to gain increased speed, at
+==10379== the cost of reduced accuracy of conflicting-access information
+==10379== ERROR SUMMARY: 38 errors from 18 contexts (suppressed: 7543 from 141)

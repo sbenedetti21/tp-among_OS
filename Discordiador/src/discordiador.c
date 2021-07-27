@@ -314,7 +314,7 @@ void iniciarPatota(char ** vectorInstruccion){
 					pthread_create(&tripulantes[i], NULL, subModuloTripulante , tripulante);
 					
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 			
-					
+					pthread_detach(tripulantes[i]); 
 				} 
 				
 				serializarYMandarPCB(vectorInstruccion[2],socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
