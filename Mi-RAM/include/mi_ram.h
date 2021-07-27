@@ -45,7 +45,7 @@ int		tamanioPagina;
 //mutex para valores compartidos 
 sem_t mutexTablaSegmentosGlobal; 
 pthread_mutex_t mutexListaReferenciasPatotas; 
-pthread_mutex_t mutexMemoriaPrincipal; 
+sem_t mutexMemoriaPrincipal; 
 pthread_mutex_t mutexCompactacion; //(ver si este es necesario o se puede obviar aplicando todos los otros mutex); 
 sem_t semaforoCompactacion; 
 

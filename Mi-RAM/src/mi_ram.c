@@ -13,6 +13,7 @@ int main(int argc, char ** argv){
 	memset(memoriaPrincipal, 0, tamanioMemoria);
 	iniciarMemoria();
 	sem_init(&mutexTablaSegmentosGlobal, 0, 1);
+	sem_init(&mutexMemoriaPrincipal, 0, 1);
 	
 
 	pthread_t servidor;
@@ -126,10 +127,10 @@ void servidorPrincipal() {
 			// memcpy(socket, &socketCliente, 4); 
 			// log_info(loggerMiram2, "Direccion de memoria %x", &socket); 
 			// log_info(loggerMiram2, "Socket cliente %x", &socketCliente);
-			pthread_create(receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
-			
+			int creacionHilo = pthread_create(receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
+			log_info(loggerMiram2, "Resultado creacion hilo %d", creacionHilo);
 			pthread_detach(&receptorDiscordiador);
-			log_info(loggerMiram2, "Contador de hilos: %d", contadorHilos);
+			//log_info(loggerMiram2, "Contador de hilos: %d", contadorHilos);
 			 
 			
 		}
@@ -144,7 +145,7 @@ void servidorPrincipal() {
 }
 
 void atenderDiscordiador(void * socket){
-	contadorHilos++;
+	
 	int socketCliente = 0; 
 	memcpy(&socketCliente, socket, 4);
 
@@ -657,7 +658,7 @@ uint32_t bestFitSegmentacion(int tamanioContenido){
 	list_add(tablaSegmentosGlobal, nuevoSegmentoLibre);
 	sem_post(&mutexTablaSegmentosGlobal); 
 
-	return segmentoElegido->base; 
+	return nuevoSegmentoOcupado->base; 
 
 }
 
@@ -733,16 +734,16 @@ log_info(loggerMiram2, "Cantidad de segmentos libres: %d", list_size(segmentosLi
 
 	
 	log_info(loggerMiram2, "termine");
-	return segmentoElegido->base;
+	return nuevoSegmentoOcupado->base;
 } 
 
 uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, int tripulanteID, t_list * tablaSegmentos, int pid){
 
 		uint32_t direccionLogica = buscarSegmentoLibre(SIZEOF_TCB); 
 		
-		//sem_wait(&mutexMemoriaPrincipal);
+		sem_wait(&mutexMemoriaPrincipal);
 		memcpy(memoriaPrincipal + direccionLogica, tripulante, SIZEOF_TCB); 
-		//sem_post(&mutexMemoriaPrincipal); 
+		sem_post(&mutexMemoriaPrincipal); 
 		   
 
 		bool coincideBase(t_segmento * segmento){
@@ -768,9 +769,9 @@ uint32_t asignarMemoriaSegmentacionPCB(void * pcb , t_list * tablaSegmentos){
 		
 		uint32_t direccionLogica = buscarSegmentoLibre(SIZEOF_PCB); 
 		
-		//sem_wait(&mutexMemoriaPrincipal);
+		sem_wait(&mutexMemoriaPrincipal);
 		memcpy(memoriaPrincipal + direccionLogica , pcb, SIZEOF_PCB);
-		//sem_post(&mutexMemoriaPrincipal); 
+		sem_post(&mutexMemoriaPrincipal); 
 
 		int pid = 0;
 		memcpy(&pid, pcb, 4);
@@ -802,9 +803,9 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 
 	log_info(loggerMiram2, "Memoria prin + DL: %x", memoriaPrincipal+direccionLogica); 
 	log_info(loggerMiram2, "tareas: %x", tareas); 
-	//pthread_mutex_lock(&mutexMemoriaPrincipal);
+	sem_wait(&mutexMemoriaPrincipal);
 	memcpy(memoriaPrincipal + direccionLogica, tareas, tamanioTareas);
-	//pthread_mutex_unlock(&mutexMemoriaPrincipal); 
+	sem_post(&mutexMemoriaPrincipal); 
 
 	bool coincideBase(t_segmento * segmento){
 			return (segmento->base == direccionLogica);
@@ -822,7 +823,7 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, t_li
 	//sem_post(&mutexTablaSegmentosGlobal);
 
 	list_add(tablaSegmentos, segmentoNuevo); 
-	mem_hexdump(memoriaPrincipal, tamanioMemoria);
+	//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
 	return direccionLogica;
 
@@ -839,11 +840,11 @@ void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTrip
 void actualizarEstadoTripulanteSegmentacion(uint32_t pid, uint32_t tid, char estadoNuevo){
 	uint32_t direccionTripulante = obtenerDireccionTripulanteSegmentacion(pid, tid); 
 	//printf("Entre a actualizar estado \n");
-	//pthread_mutex_lock(&mutexMemoriaPrincipal); 
+	sem_wait(&mutexMemoriaPrincipal); 
 	//printf("Entre al mutex de actualizar estado \n");
 	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t)*3, &estadoNuevo, sizeof(char)); 
 	//printf("hice el memcpy actualizar estado \n");
-	//pthread_mutex_lock(&mutexMemoriaPrincipal); 
+	sem_post(&mutexMemoriaPrincipal); 
 	//printf("termine actualizarEstado \n");
 } 
 
@@ -923,10 +924,10 @@ char * obtenerProximaTareaSegmentacion(uint32_t direccionTarea, uint32_t direcci
 	//printf("Saltee el no hay tarea \n"); 
 	while(caracterComparacion != '\n' && caracterComparacion != '|'){
 		//printf("Entre al while"); 
-		//pthread_mutex_lock(&mutexMemoriaPrincipal); 
+		sem_wait(&mutexMemoriaPrincipal); 
 		memcpy(tareaObtenida + desplazamiento, memoriaPrincipal+direccionTarea+desplazamiento, 1 ); 
 		memcpy(&caracterComparacion, memoriaPrincipal + direccionTarea + desplazamiento + 1, 1); 
-		//pthread_mutex_unlock(&mutexMemoriaPrincipal); 
+		sem_post(&mutexMemoriaPrincipal); 
 		//printf("Caracter de comparcaion %c \n", caracterComparacion);
 		desplazamiento ++; 
 	}
@@ -950,9 +951,9 @@ char * obtenerProximaTareaSegmentacion(uint32_t direccionTarea, uint32_t direcci
 
 void actualizarProximaTareaSegmentacion(uint32_t direccionTCB, uint32_t direccionProximaTarea){
 	//printf("DIreccion proxima tarea: %x \n", direccionProximaTarea);
-	//pthread_mutex_lock(&mutexMemoriaPrincipal); 
+	sem_wait(&mutexMemoriaPrincipal); 
 	memcpy(memoriaPrincipal + direccionTCB + 3* sizeof(uint32_t) + sizeof(char), &direccionProximaTarea, sizeof(uint32_t));
-	//pthread_mutex_unlock(&mutexMemoriaPrincipal); 
+	sem_post(&mutexMemoriaPrincipal); 
 	//printf("Ya actualice la direccion de la proxima tarea \n");
 	//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 }

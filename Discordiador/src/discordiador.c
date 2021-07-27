@@ -53,6 +53,7 @@ int main(int argc, char ** argv){
 
 	pthread_t hiloSabotajes;
     pthread_create(&hiloSabotajes, NULL, (void*) atenderImongo, NULL);
+	
 
 
 	
@@ -311,6 +312,7 @@ void iniciarPatota(char ** vectorInstruccion){
 					
 
 					pthread_create(&tripulantes[i], NULL, subModuloTripulante , tripulante);
+					
 					log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 			
 					
 				} 
