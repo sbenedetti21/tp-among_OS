@@ -88,6 +88,8 @@ int main(int argc, char ** argv){
 
 	 	
 	pthread_join(servidor, NULL);
+	pthread_join(senial1, NULL);
+	pthread_join(senial2, NULL);
 	
 	
 		free(memoriaPrincipal); 
@@ -969,7 +971,7 @@ void compactarMemoriaSegmentacion(){
 
 
 	compactacion = true; 
-	sleep(2); 
+	sleep(4); 
 	
 	log_info(loggerMiram2, "Iniciando compactacion luego de esperar");
 	mem_hexdump(memoriaPrincipal, tamanioMemoria);
@@ -1026,7 +1028,8 @@ void compactarMemoriaSegmentacion(){
 
 		t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
 		segmentoLibre->base = 0 ; 
-		segmentoLibre->tamanio = tamanioMemoria; 
+		segmentoLibre->tamanio = tamanioMemoria;
+		list_clean_and_destroy_elements(tablaSegmentosGlobal, free);
 		list_add(tablaSegmentosGlobal, segmentoLibre);
 	}
 
@@ -1057,7 +1060,7 @@ void actualizarDireccionesTareasTCB(t_segmento * segmento, uint32_t baseAnterior
 }
 
 void dumpMemoriaSegmentacion(){
-/*	log_info(loggerMiram2, "Ingrese al dump de memoria"); 
+	log_info(loggerMiram2, "Ingrese al dump de memoria"); 
 
 	char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
 	char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha);
@@ -1080,7 +1083,7 @@ void dumpMemoriaSegmentacion(){
 	log_info(loggerDump, "Segmentos ocupados"); 
 	log_info(loggerMiram2, "Escribi el titulo de segmentos ocupados"); 
 	log_info(loggerMiram2, "La cantidad de referencias a patotas que hay son: %d", list_size(listaReferenciasPatotaSegmentacion)); 
-	if(list_size(listaReferenciasPatotaSegmentacion) >0){
+	if(list_any_satisfy(tablaSegmentosGlobal, segmentoOcupado)){
 		for(int i = 0; i<list_size(listaReferenciasPatotaSegmentacion); i++){
 			referenciaTablaPatota * referenciaActual = list_get(listaReferenciasPatotaSegmentacion, i); 
 			t_list * segmentosOcupados = list_filter(referenciaActual->tablaPatota, segmentoOcupado); 
@@ -1116,7 +1119,7 @@ void dumpMemoriaSegmentacion(){
 	}
 
 	fclose(dump); 
-	*/
+	
 }
 
 uint32_t obtenerDireccionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante){
