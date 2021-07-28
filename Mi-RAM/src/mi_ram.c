@@ -1,6 +1,6 @@
 #include "mi_ram.h"
 
-
+ 
 
 
 int main(int argc, char ** argv){
@@ -110,7 +110,7 @@ void atenderDiscordiador(int socketCliente){
 	case INICIAR_PATOTA: ; 
 		
 		// Deserializamos tareas
-		int tamanioTareas;
+		int tamanioTareas = 0;
 		memcpy(&tamanioTareas, stream, sizeof(int));
 		stream += sizeof(int);
 		char* tareas = malloc(tamanioTareas + 2); //mirar si no es +1
@@ -122,7 +122,7 @@ void atenderDiscordiador(int socketCliente){
 		tamanioTareas++;
 		
 
-		log_info(loggerMiram, "%s", tareas);
+		//log_info(loggerMiram, "%s", tareas);
 
 		//deserializar pid 
 		idPatota = 0; 
@@ -388,15 +388,14 @@ void atenderDiscordiador(int socketCliente){
 		//log_info(loggerMiram, mem_hexstring(stream, sizeof(uint32_t) * 4));
  
 		uint32_t tripulanteid = 0, patotaid = 0, posx = 0, posy = 0;
-		int offset = 0;
-		memcpy(&tripulanteid, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&patotaid, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&posx, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&posy, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
+		memcpy(&tripulanteid, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&patotaid, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&posx, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&posy, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
 
 		log_info(loggerMiram,"Tripulante %d se movio hacia %d|%d",tripulanteid,posx,posy);
 
@@ -408,13 +407,13 @@ void atenderDiscordiador(int socketCliente){
 
 	case ACTUALIZAR_ESTADO: ;
 		 uint32_t trip = 0, pat = 0;
-		char estadoNuevo; 
+		char estadoNuevo = 0; 
 		
-		memcpy(&trip, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&pat, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&estadoNuevo, stream+offset, sizeof(char));
+		memcpy(&trip, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&pat, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&estadoNuevo, stream, sizeof(char));
 		
 		actualizarEstadoTripulante(pat, trip, estadoNuevo); 
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
@@ -425,10 +424,10 @@ void atenderDiscordiador(int socketCliente){
 		 uint32_t tripid = 0, patid = 0;
 		
 		
-		memcpy(&tripid, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&patid, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
+		memcpy(&tripid, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&patid, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
 		expulsarTripulanteDelMapa(tripid);
 		eliminarTripulante(patid, tripid);
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
@@ -759,10 +758,8 @@ t_frame * buscarFrame() {
 		return frame->ocupado == 0;
 	}
 
-	t_frame * frameLibre = malloc(sizeof(t_frame));
-
 	pthread_mutex_lock(&mutexListaFrames);
-    frameLibre = list_find(listaFrames, estaLibre);
+    t_frame * frameLibre = list_find(listaFrames, estaLibre);
 	pthread_mutex_unlock(&mutexListaFrames);
 	//free(frameLibre);
 
@@ -781,10 +778,8 @@ t_frame * buscarFrameSwap() {
 		return frame->ocupado == 0;
 	}
 
-	t_frame * frameLibre = malloc(sizeof(t_frame));
-
 	pthread_mutex_lock(&mutexListaFramesSwap);
-	frameLibre = list_find(listaFramesSwap, estaLibre);
+	t_frame * frameLibre = list_find(listaFramesSwap, estaLibre);
 	pthread_mutex_unlock(&mutexListaFramesSwap);
 	//free(frameLibre);
 	frameLibre->ocupado = 1; 
@@ -856,9 +851,6 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	contadorLRU++;
 	pthread_mutex_unlock(&mutexContadorLRU); 
 	int index = frameLibre->inicio / tamanioPagina;
-	// pthread_mutex_lock(&mutexListaFrames);
-	// list_replace(listaFrames, index, frameLibre);
-	// pthread_mutex_unlock(&mutexListaFrames);
 
 	log_info(loggerMiram, "Se trae la pagina %d, del proceso %d a MEMORIA", frameLibre->pagina->numeroPagina, frameLibre->pagina->pid);
 }
@@ -888,7 +880,7 @@ void llevarPaginaASwap() {
 	frameSwap->pagina = frameVictima->pagina;
 	frameSwap->pagina->numeroFrame = frameSwap->inicio / tamanioPagina;
 	// pthread_mutex_lock(&mutexContadorLRU);
-	// frameSwap->pagina->ultimaReferencia = contadorLRU;
+	// frameSwap->pagina->ultimaReferencia = contadorLRU;   ojo aca con este lru
 	// contadorLRU++;
 	// pthread_mutex_unlock(&mutexContadorLRU);
 
@@ -903,7 +895,7 @@ void llevarPaginaASwap() {
 
 t_frame * seleccionarVictima() {
 
-	t_frame * victima = malloc(sizeof(t_frame));
+	t_frame * victima = 0;
 
 	if (strcmp(algoritmoReemplazo, "LRU") == 0) {
 
@@ -1096,10 +1088,12 @@ void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
 		return (referenciaTabla->pid == pid); 
 	}
 
-	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID);
+	if (referenciaTripulante == NULL) {log_info(loggerMiram, "no existe el tripu"); return;}
 	pthread_mutex_lock(&mutexListaTablas);
 	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
 	pthread_mutex_unlock(&mutexListaTablas);
+	if (referenciaTabla == NULL) {log_info(loggerMiram, "no existe el tripu"); return;}
 	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
 	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
 	uint32_t offset = referenciaTripulante->offset; 
@@ -1192,13 +1186,13 @@ void actualizarPosicionPaginacion(uint32_t pid, uint32_t tid, uint32_t posx, uin
 
 void eliminarTripulantePaginacion(uint32_t pid, uint32_t tid){
 
-	bool coincideID(t_tripulantePaginacion * unTripu) {
+	bool coincideTID(t_tripulantePaginacion * unTripu) {
 		return unTripu->tid == tid;
 	}
 	bool coincidePID(referenciaTablaPaginas * referenciaTabla){
 		return (referenciaTabla->pid == pid); 
 	}
-	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
+	
 	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
 
 	if (referenciaTabla->contadorTCB == 1) {
@@ -1218,11 +1212,11 @@ void eliminarTripulantePaginacion(uint32_t pid, uint32_t tid){
 		}
 		list_iterate(listaPaginas, desocupar); 
 		list_destroy_and_destroy_elements(listaPaginas, free);
+		free(referenciaTabla);
 	}
 
+	list_remove_and_destroy_by_condition(listaTripulantes, coincideTID, free); 
 	referenciaTabla->contadorTCB--; 
-
-	
 
 }
 
@@ -1280,6 +1274,7 @@ char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, u
 	char c = 'a';
 	j = 0;i = 0;
 
+	log_info(loggerMiram, "proximaTarea: %d|%d, c: %c|%d" , proximaTarea, &proximaTarea, c, &c);
 	memcpy(&c, streamTareas + proximaTarea, 1);
 	while(c != '|' && c != '\n') {
 		memcpy(tarea + j, streamTareas + i + proximaTarea, 1);
@@ -1325,8 +1320,7 @@ void actualizarPunteroTarea(t_tripulantePaginacion * unTripu, t_list * tablaDePa
 	list_iterate(tablaDePaginas, almacenarFrames);
 
 	while (unTripu->cantidadDePaginas - 1 - z) {
-		t_pagina * pag = malloc(sizeof(t_pagina));
-		pag = list_get(tablaDePaginas, nroPrimerPagina + 1 + z);
+		t_pagina * pag = list_get(tablaDePaginas, nroPrimerPagina + 1 + z);
 		frames[i] = pag->numeroFrame;
 		i++;
 		z++;
