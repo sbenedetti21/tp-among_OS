@@ -916,8 +916,8 @@ void compactarMemoriaSegmentacion(){
 
 
 	compactacion = true; 
-	sleep(3); 
 	log_info(loggerMiram, "Iniciando compactacion de la memoria...");
+	sleep(2); 
 	
 	mem_hexdump(memoriaPrincipal, tamanioMemoria);
 	
@@ -966,7 +966,7 @@ void compactarMemoriaSegmentacion(){
 		
 		
 	}
-	else{
+	else{ 
 
 		t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
 		segmentoLibre->base = 0 ; 
@@ -978,7 +978,7 @@ void compactarMemoriaSegmentacion(){
 	mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
 	compactacion = false; 
-	int valorSemaforo;
+	int valorSemaforo = 0;
 	sem_getvalue(&semaforoCompactacion, &valorSemaforo);
 	valorSemaforo = valorSemaforo * (-1); 
 	for(int i = 0 ; i< valorSemaforo; i++){

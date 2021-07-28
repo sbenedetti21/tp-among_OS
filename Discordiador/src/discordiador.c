@@ -21,7 +21,7 @@ INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaD.txt 
 
 */ 
 
-
+ 
     
 int main(int argc, char ** argv){  
 
