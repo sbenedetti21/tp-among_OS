@@ -62,8 +62,10 @@ int main(int argc, char ** argv){
 void leerConfig(){ 
 	t_config * config = config_create("./cfg/imongo.config");
 	
-	puntoDeMontaje = config_get_string_value(config, "PUNTO_MONTAJE");
-	puertoImongoStore = config_get_string_value(config, "PUERTO");
+	char *puntoDeMontajeLeido = config_get_string_value(config, "PUNTO_MONTAJE");
+	puntoDeMontaje = string_duplicate(puntoDeMontajeLeido);
+	char *puertoImongoStoreLeido = config_get_string_value(config, "PUERTO");
+	puertoImongoStore = string_duplicate(puertoImongoStoreLeido);
 	tiempoDeSinc = config_get_int_value(config, "TIEMPO_SINCRONIZACION");
 	tamanioDeBloque = config_get_int_value(config, "BLOCK_SIZE");
     cantidadDeBloques = config_get_int_value(config, "CANTIDAD_BLOCKS");
@@ -142,7 +144,7 @@ void desmapearSuperbloque(){
 //---------------------------------------- USO DEL FILESYSTEM ---------------------------------------//
 void crearFileSystem(){
 	mkdir(puntoDeMontaje,0777);
-
+	log_info(loggerImongoStore, "puntoDeMontaje %s", puntoDeMontaje);
 	tamanioBitMap = cantidadDeBloques / 8;
 	tamanioSuperBloqueBlocks = sizeof(uint32_t)*2 + tamanioBitMap;
 	tamanioBlocks = tamanioDeBloque*cantidadDeBloques;
@@ -875,14 +877,17 @@ bool verificarBitacoraBitMap(){
 
     int i = 0;
 	bool cumpleVerificacion = false;
-	log_info(loggerImongoStore, "file count %d",file_count);
-    while(file_count>i){
-        cumpleVerificacion = verificarBlocksBitMap(string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,i));
-	
-		log_info(loggerImongoStore, "cumpleVerificacion %d",cumpleVerificacion);
-        i++;
-   }
+    while(file_count>0){
+		char *ubicacionBitacora = string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,i);
 
+		if(!access(ubicacionBitacora, F_OK )){
+        	cumpleVerificacion = verificarBlocksBitMap(ubicacionBitacora);
+			file_count--;
+		}
+
+        i++;
+		free(ubicacionBitacora);
+   }
    return cumpleVerificacion;
 }
 
