@@ -15,7 +15,7 @@ int main(int argc, char ** argv){
 	mapBlocksCopia = malloc(tamanioBlocks); 
 	memcpy(mapBlocksCopia, mapBlocks, tamanioBlocks);
 	
-	//Inicializacion de los semaforos
+	//Inicializacion de los semaforos 
 	sem_init(&semaforoBloques, 0,  1 ); 
 	sem_init(&semaforoArchivoRecurso, 0, 1);
 	sem_init(&semaforoOxigeno, 0, 1); 

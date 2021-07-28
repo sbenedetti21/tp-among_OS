@@ -15540,3 +15540,459 @@ IRSE;8;8;1|
 [INFO] 19:50:22:602 mi_ram.c/(32377:32680): Cantidad de bytes recibidos en el buffer: 8
 [INFO] 19:50:22:603 mi_ram.c/(32377:32680): DATOS TRIPU QUE PIDIO TAREA, PID: 2, TID: 3
 [INFO] 19:50:22:603 mi_ram.c/(32377:32680): La tarea a enviar es: NO_HAY_TAREA
+[INFO] 15:46:33:775 mi_ram.c/(12101:12101): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 15:47:10:927 mi_ram.c/(12101:12162): Header 0 recibido: INICIAR PATOTA
+[INFO] 15:47:10:927 mi_ram.c/(12101:12162): PID: 0
+[INFO] 15:47:10:927 mi_ram.c/(12101:12162): Tareas recibidas: A00;1;1;5
+A01;1;1;5
+A02;1;1;5
+A03;1;1;5
+A04;1;1;5
+A05;1;1;5
+A06;1;1;5
+A07;1;1;5
+A08;1;1;5
+A09;1;1;5| Tamanio de las tareas: 100
+[INFO] 15:47:10:927 mi_ram.c/(12101:12162): Cantidad de tripulantes: 4 
+
+[INFO] 15:47:10:927 mi_ram.c/(12101:12162): Se necesitan: 192 bytes. Buscando espacio necesario...
+[INFO] 15:47:10:927 mi_ram.c/(12101:12162): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 15:47:10:927 mi_ram.c/(12101:12162): PCB de la patota 0 agregado a memoria
+[INFO] 15:47:10:927 mi_ram.c/(12101:12162): Tareas de la patota 0 agregadas a memoria
+[INFO] 15:47:10:927 mi_ram.c/(12101:12162): Tripulante agregado a memoria. TID: 0
+[INFO] 15:47:10:927 mi_ram.c/(12101:12162): Tripulante agregado a memoria. TID: 1
+[INFO] 15:47:10:928 mi_ram.c/(12101:12162): Tripulante agregado a memoria. TID: 2
+[INFO] 15:47:10:928 mi_ram.c/(12101:12162): Tripulante agregado a memoria. TID: 3
+[INFO] 15:47:35:753 mi_ram.c/(12101:12213): Header 0 recibido: INICIAR PATOTA
+[INFO] 15:47:35:753 mi_ram.c/(12101:12213): PID: 1
+[INFO] 15:47:35:753 mi_ram.c/(12101:12213): Tareas recibidas: C00;1;1;5| Tamanio de las tareas: 10
+[INFO] 15:47:35:754 mi_ram.c/(12101:12213): Cantidad de tripulantes: 1 
+
+[INFO] 15:47:35:754 mi_ram.c/(12101:12213): Se necesitan: 39 bytes. Buscando espacio necesario...
+[INFO] 15:47:35:754 mi_ram.c/(12101:12213): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 15:47:35:754 mi_ram.c/(12101:12213): PCB de la patota 1 agregado a memoria
+[INFO] 15:47:35:754 mi_ram.c/(12101:12213): Tareas de la patota 1 agregadas a memoria
+[INFO] 15:47:35:754 mi_ram.c/(12101:12213): Tripulante agregado a memoria. TID: 4
+[INFO] 15:47:40:637 mi_ram.c/(12101:12228): Header 1 recibido: PEDIR TAREA
+[INFO] 15:47:40:637 mi_ram.c/(12101:12228): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:47:40:637 mi_ram.c/(12101:12228): La tarea a enviar al tripulante 1 es: A00;1;1;5
+[INFO] 15:47:40:637 mi_ram.c/(12101:12226): Header 1 recibido: PEDIR TAREA
+[INFO] 15:47:40:637 mi_ram.c/(12101:12226): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:47:40:637 mi_ram.c/(12101:12226): La tarea a enviar al tripulante 0 es: A00;1;1;5
+[INFO] 15:47:40:637 mi_ram.c/(12101:12227): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:40:638 mi_ram.c/(12101:12227): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:47:40:638 mi_ram.c/(12101:12225): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:40:638 mi_ram.c/(12101:12225): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 15:47:46:643 mi_ram.c/(12101:12247): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:46:651 mi_ram.c/(12101:12247): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 15:47:46:650 mi_ram.c/(12101:12249): Header 1 recibido: PEDIR TAREA
+[INFO] 15:47:46:651 mi_ram.c/(12101:12249): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:47:46:651 mi_ram.c/(12101:12249): La tarea a enviar al tripulante 2 es: A00;1;1;5
+[INFO] 15:47:46:651 mi_ram.c/(12101:12246): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:46:651 mi_ram.c/(12101:12246): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:47:46:650 mi_ram.c/(12101:12248): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:46:651 mi_ram.c/(12101:12248): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 15:47:46:650 mi_ram.c/(12101:12250): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:46:651 mi_ram.c/(12101:12250): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:47:46:650 mi_ram.c/(12101:12251): Header 1 recibido: PEDIR TAREA
+[INFO] 15:47:46:651 mi_ram.c/(12101:12251): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:47:46:652 mi_ram.c/(12101:12251): La tarea a enviar al tripulante 3 es: A00;1;1;5
+[INFO] 15:47:52:654 mi_ram.c/(12101:12265): Header 1 recibido: PEDIR TAREA
+[INFO] 15:47:52:654 mi_ram.c/(12101:12265): Tripulante 4 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 15:47:52:654 mi_ram.c/(12101:12266): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:52:655 mi_ram.c/(12101:12266): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:47:52:655 mi_ram.c/(12101:12265): La tarea a enviar al tripulante 4 es: C00;1;1;5
+[INFO] 15:47:52:655 mi_ram.c/(12101:12263): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:52:655 mi_ram.c/(12101:12263): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:47:52:655 mi_ram.c/(12101:12264): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:52:655 mi_ram.c/(12101:12264): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 15:47:52:655 mi_ram.c/(12101:12262): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:52:655 mi_ram.c/(12101:12262): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 15:47:58:657 mi_ram.c/(12101:12276): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:58:666 mi_ram.c/(12101:12276): Tripulante 4 actualizo cambio su estado a: R
+[INFO] 15:47:58:666 mi_ram.c/(12101:12278): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:58:666 mi_ram.c/(12101:12278): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 15:47:58:666 mi_ram.c/(12101:12277): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:58:666 mi_ram.c/(12101:12277): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 15:47:58:666 mi_ram.c/(12101:12275): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:47:58:666 mi_ram.c/(12101:12275): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:48:04:659 mi_ram.c/(12101:12291): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:04:659 mi_ram.c/(12101:12291): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 15:48:04:659 mi_ram.c/(12101:12293): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:04:659 mi_ram.c/(12101:12293): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:48:04:659 mi_ram.c/(12101:12292): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:04:659 mi_ram.c/(12101:12292): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:48:04:659 mi_ram.c/(12101:12290): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:04:659 mi_ram.c/(12101:12290): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 15:48:06:659 mi_ram.c/(12101:12299): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:06:659 mi_ram.c/(12101:12299): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 15:48:06:659 mi_ram.c/(12101:12298): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:06:660 mi_ram.c/(12101:12298): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:48:10:660 mi_ram.c/(12101:12305): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:10:660 mi_ram.c/(12101:12305): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 15:48:10:660 mi_ram.c/(12101:12304): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:10:660 mi_ram.c/(12101:12304): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:48:12:660 mi_ram.c/(12101:12313): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:12:660 mi_ram.c/(12101:12313): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:48:12:660 mi_ram.c/(12101:12314): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:12:660 mi_ram.c/(12101:12314): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:48:12:660 mi_ram.c/(12101:12314): La tarea a enviar al tripulante 1 es: A01;1;1;5
+[INFO] 15:48:12:661 mi_ram.c/(12101:12311): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:12:661 mi_ram.c/(12101:12311): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 15:48:12:661 mi_ram.c/(12101:12312): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:12:661 mi_ram.c/(12101:12312): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 15:48:12:661 mi_ram.c/(12101:12309): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:12:661 mi_ram.c/(12101:12309): Tripulante 4 actualizo cambio su estado a: R
+[INFO] 15:48:14:661 mi_ram.c/(12101:12322): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:14:661 mi_ram.c/(12101:12322): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:48:14:662 mi_ram.c/(12101:12321): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:14:662 mi_ram.c/(12101:12321): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 15:48:16:662 mi_ram.c/(12101:12328): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:16:662 mi_ram.c/(12101:12328): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 15:48:16:662 mi_ram.c/(12101:12327): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:16:662 mi_ram.c/(12101:12327): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:48:18:663 mi_ram.c/(12101:12332): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:18:663 mi_ram.c/(12101:12332): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 15:48:18:663 mi_ram.c/(12101:12333): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:18:663 mi_ram.c/(12101:12333): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:48:18:663 mi_ram.c/(12101:12333): La tarea a enviar al tripulante 0 es: A01;1;1;5
+[INFO] 15:48:18:663 mi_ram.c/(12101:12334): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:18:664 mi_ram.c/(12101:12334): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 15:48:18:663 mi_ram.c/(12101:12335): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:18:664 mi_ram.c/(12101:12335): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:48:18:664 mi_ram.c/(12101:12335): La tarea a enviar al tripulante 2 es: A01;1;1;5
+[INFO] 15:48:18:664 mi_ram.c/(12101:12329): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:18:664 mi_ram.c/(12101:12329): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:48:18:664 mi_ram.c/(12101:12331): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:18:664 mi_ram.c/(12101:12331): Tripulante 4 actualizo cambio su estado a: R
+[INFO] 15:48:22:665 mi_ram.c/(12101:12350): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:22:665 mi_ram.c/(12101:12350): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:48:22:665 mi_ram.c/(12101:12350): La tarea a enviar al tripulante 3 es: A01;1;1;5
+[INFO] 15:48:22:665 mi_ram.c/(12101:12349): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:22:665 mi_ram.c/(12101:12349): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:48:22:665 mi_ram.c/(12101:12347): Header 6 recibido: EXPULSAR TRIPULANTE
+[INFO] 15:48:22:665 mi_ram.c/(12101:12347): El tripulante 0 fue expulsado
+[INFO] 15:48:22:665 mi_ram.c/(12101:12348): Header 6 recibido: EXPULSAR TRIPULANTE
+[INFO] 15:48:22:666 mi_ram.c/(12101:12348): El tripulante 0 fue expulsado
+[INFO] 15:48:24:665 mi_ram.c/(12101:12357): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:24:665 mi_ram.c/(12101:12357): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:48:24:665 mi_ram.c/(12101:12356): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:24:665 mi_ram.c/(12101:12356): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 15:48:28:667 mi_ram.c/(12101:12363): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:28:667 mi_ram.c/(12101:12363): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 15:48:28:667 mi_ram.c/(12101:12364): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:28:667 mi_ram.c/(12101:12364): Tripulante 4 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 15:48:28:667 mi_ram.c/(12101:12364): La tarea a enviar al tripulante 4 es: NO_HAY_TAREA
+[INFO] 15:48:28:667 mi_ram.c/(12101:12365): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:28:667 mi_ram.c/(12101:12365): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:48:28:667 mi_ram.c/(12101:12366): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:28:667 mi_ram.c/(12101:12366): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 15:48:28:667 mi_ram.c/(12101:12367): Header 6 recibido: EXPULSAR TRIPULANTE
+[INFO] 15:48:28:668 mi_ram.c/(12101:12367): El tripulante 2 fue expulsado
+[INFO] 15:48:28:667 mi_ram.c/(12101:12368): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:28:668 mi_ram.c/(12101:12368): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:48:28:668 mi_ram.c/(12101:12362): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:28:668 mi_ram.c/(12101:12362): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:48:28:668 mi_ram.c/(12101:12370): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:28:668 mi_ram.c/(12101:12370): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:48:28:668 mi_ram.c/(12101:12370): La tarea a enviar al tripulante 1 es: A02;1;1;5
+[INFO] 15:48:28:668 mi_ram.c/(12101:12369): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:28:668 mi_ram.c/(12101:12369): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:48:30:667 mi_ram.c/(12101:12364): Tripulante: 4 termino sus tareas
+[INFO] 15:48:30:667 mi_ram.c/(12101:12364): Todos los tripulantes de la patota 1 terminaron sus tareas. Eliminando patota...
+[INFO] 15:48:30:667 mi_ram.c/(12101:12364): Patota 1 eliminada.
+[INFO] 15:48:32:668 mi_ram.c/(12101:12382): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:32:668 mi_ram.c/(12101:12382): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:48:32:668 mi_ram.c/(12101:12382): La tarea a enviar al tripulante 3 es: A02;1;1;5
+[INFO] 15:48:32:668 mi_ram.c/(12101:12381): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:32:668 mi_ram.c/(12101:12381): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:48:32:668 mi_ram.c/(12101:12380): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:32:668 mi_ram.c/(12101:12380): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:48:34:175 mi_ram.c/(12101:12389): Header 0 recibido: INICIAR PATOTA
+[INFO] 15:48:34:175 mi_ram.c/(12101:12389): PID: 2
+[INFO] 15:48:34:175 mi_ram.c/(12101:12389): Tareas recibidas: B00;1;1;5
+B01;1;1;5
+B02;1;1;5|ido: I Tamanio de las tareas: 30
+[INFO] 15:48:34:175 mi_ram.c/(12101:12389): Cantidad de tripulantes: 2 
+
+[INFO] 15:48:34:176 mi_ram.c/(12101:12389): Se necesitan: 80 bytes. Buscando espacio necesario...
+[INFO] 15:48:34:176 mi_ram.c/(12101:12389): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 15:48:34:176 mi_ram.c/(12101:12389): PCB de la patota 2 agregado a memoria
+[INFO] 15:48:34:176 mi_ram.c/(12101:12389): El contenido no entra en ningun segmento libre. Es necesario compactar.
+[INFO] 15:48:34:176 mi_ram.c/(12101:12389): Iniciando compactacion de la memoria...
+[INFO] 15:48:36:177 mi_ram.c/(12101:12389): Compactacion de la memoria finalizada.
+[INFO] 15:48:36:177 mi_ram.c/(12101:12389): Tareas de la patota 2 agregadas a memoria
+[INFO] 15:48:36:177 mi_ram.c/(12101:12389): Tripulante agregado a memoria. TID: 5
+[INFO] 15:48:36:177 mi_ram.c/(12101:12389): Tripulante agregado a memoria. TID: 6
+[INFO] 15:48:38:671 mi_ram.c/(12101:12401): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:38:671 mi_ram.c/(12101:12401): Tripulante 5 actualizo cambio su estado a: E
+[INFO] 15:48:38:671 mi_ram.c/(12101:12403): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:38:671 mi_ram.c/(12101:12403): Tripulante 6 actualizo cambio su estado a: E
+[INFO] 15:48:38:671 mi_ram.c/(12101:12404): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:38:671 mi_ram.c/(12101:12404): Tripulante 6 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 15:48:38:671 mi_ram.c/(12101:12404): La tarea a enviar al tripulante 6 es: B00;1;1;5
+[INFO] 15:48:38:672 mi_ram.c/(12101:12398): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:38:672 mi_ram.c/(12101:12398): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:48:38:672 mi_ram.c/(12101:12402): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:38:672 mi_ram.c/(12101:12402): Tripulante 5 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 15:48:38:672 mi_ram.c/(12101:12402): La tarea a enviar al tripulante 5 es: B00;1;1;5
+[INFO] 15:48:38:672 mi_ram.c/(12101:12400): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:38:672 mi_ram.c/(12101:12400): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:48:44:672 mi_ram.c/(12101:12420): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:44:672 mi_ram.c/(12101:12420): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:48:44:672 mi_ram.c/(12101:12419): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:44:672 mi_ram.c/(12101:12419): Tripulante 6 actualizo cambio su estado a: R
+[INFO] 15:48:44:673 mi_ram.c/(12101:12423): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:44:673 mi_ram.c/(12101:12423): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:48:44:673 mi_ram.c/(12101:12423): La tarea a enviar al tripulante 1 es: A03;1;1;5
+[INFO] 15:48:44:673 mi_ram.c/(12101:12422): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:44:673 mi_ram.c/(12101:12422): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:48:44:673 mi_ram.c/(12101:12421): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:44:673 mi_ram.c/(12101:12421): Tripulante 5 actualizo cambio su estado a: R
+[INFO] 15:48:48:673 mi_ram.c/(12101:12430): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:48:673 mi_ram.c/(12101:12430): Tripulante 6 actualizo cambio su estado a: E
+[INFO] 15:48:48:673 mi_ram.c/(12101:12429): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:48:673 mi_ram.c/(12101:12429): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:48:50:674 mi_ram.c/(12101:12436): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:50:674 mi_ram.c/(12101:12436): Tripulante 5 actualizo cambio su estado a: E
+[INFO] 15:48:50:674 mi_ram.c/(12101:12435): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:50:674 mi_ram.c/(12101:12435): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:48:54:675 mi_ram.c/(12101:12446): Header 1 recibido: PEDIR TAREA
+[INFO] 15:48:54:675 mi_ram.c/(12101:12446): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:48:54:675 mi_ram.c/(12101:12446): La tarea a enviar al tripulante 3 es: A03;1;1;5
+[INFO] 15:48:54:675 mi_ram.c/(12101:12444): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:54:675 mi_ram.c/(12101:12444): Tripulante 6 actualizo cambio su estado a: R
+[INFO] 15:48:54:675 mi_ram.c/(12101:12445): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:54:675 mi_ram.c/(12101:12445): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:48:56:675 mi_ram.c/(12101:12452): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:56:675 mi_ram.c/(12101:12452): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:48:56:675 mi_ram.c/(12101:12451): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:48:56:675 mi_ram.c/(12101:12451): Tripulante 5 actualizo cambio su estado a: R
+[INFO] 15:49:00:676 mi_ram.c/(12101:12460): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:00:676 mi_ram.c/(12101:12460): Tripulante 6 actualizo cambio su estado a: E
+[INFO] 15:49:00:676 mi_ram.c/(12101:12459): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:00:676 mi_ram.c/(12101:12459): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:49:00:676 mi_ram.c/(12101:12462): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:00:677 mi_ram.c/(12101:12462): Tripulante 5 actualizo cambio su estado a: E
+[INFO] 15:49:00:677 mi_ram.c/(12101:12461): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:00:677 mi_ram.c/(12101:12461): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:49:02:676 mi_ram.c/(12101:12469): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:02:676 mi_ram.c/(12101:12469): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:49:02:676 mi_ram.c/(12101:12469): La tarea a enviar al tripulante 1 es: A04;1;1;5
+[INFO] 15:49:02:677 mi_ram.c/(12101:12468): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:02:677 mi_ram.c/(12101:12468): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:49:02:677 mi_ram.c/(12101:12467): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:02:677 mi_ram.c/(12101:12467): Tripulante 6 actualizo cambio su estado a: R
+[INFO] 15:49:02:677 mi_ram.c/(12101:12472): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:02:677 mi_ram.c/(12101:12472): Tripulante 5 actualizo cambio su estado a: R
+[INFO] 15:49:02:677 mi_ram.c/(12101:12473): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:02:677 mi_ram.c/(12101:12473): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:49:06:677 mi_ram.c/(12101:12484): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:06:686 mi_ram.c/(12101:12484): Tripulante 6 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 15:49:06:686 mi_ram.c/(12101:12484): La tarea a enviar al tripulante 6 es: B01;1;1;5
+[INFO] 15:49:06:687 mi_ram.c/(12101:12483): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:06:687 mi_ram.c/(12101:12483): Tripulante 6 actualizo cambio su estado a: E
+[INFO] 15:49:06:687 mi_ram.c/(12101:12482): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:06:691 mi_ram.c/(12101:12482): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:49:08:677 mi_ram.c/(12101:12489): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:08:677 mi_ram.c/(12101:12489): Tripulante 5 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 15:49:08:677 mi_ram.c/(12101:12489): La tarea a enviar al tripulante 5 es: B01;1;1;5
+[INFO] 15:49:08:678 mi_ram.c/(12101:12488): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:08:678 mi_ram.c/(12101:12488): Tripulante 5 actualizo cambio su estado a: E
+[INFO] 15:49:08:678 mi_ram.c/(12101:12487): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:08:678 mi_ram.c/(12101:12487): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:49:12:688 mi_ram.c/(12101:12500): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:12:688 mi_ram.c/(12101:12500): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:49:12:688 mi_ram.c/(12101:12500): La tarea a enviar al tripulante 3 es: A04;1;1;5
+[INFO] 15:49:12:690 mi_ram.c/(12101:12499): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:12:690 mi_ram.c/(12101:12499): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:49:12:690 mi_ram.c/(12101:12498): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:12:690 mi_ram.c/(12101:12498): Tripulante 6 actualizo cambio su estado a: R
+[INFO] 15:49:14:679 mi_ram.c/(12101:12506): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:14:679 mi_ram.c/(12101:12506): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:49:14:679 mi_ram.c/(12101:12505): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:14:679 mi_ram.c/(12101:12505): Tripulante 5 actualizo cambio su estado a: R
+[INFO] 15:49:18:680 mi_ram.c/(12101:12513): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:18:680 mi_ram.c/(12101:12513): Tripulante 6 actualizo cambio su estado a: E
+[INFO] 15:49:18:680 mi_ram.c/(12101:12512): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:18:680 mi_ram.c/(12101:12512): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:49:18:690 mi_ram.c/(12101:12514): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:18:690 mi_ram.c/(12101:12514): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:49:18:690 mi_ram.c/(12101:12515): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:18:690 mi_ram.c/(12101:12515): Tripulante 5 actualizo cambio su estado a: E
+[INFO] 15:49:22:682 mi_ram.c/(12101:12528): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:22:682 mi_ram.c/(12101:12528): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:49:22:682 mi_ram.c/(12101:12528): La tarea a enviar al tripulante 1 es: A05;1;1;5
+[INFO] 15:49:22:682 mi_ram.c/(12101:12527): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:22:682 mi_ram.c/(12101:12527): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:49:22:682 mi_ram.c/(12101:12526): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:22:682 mi_ram.c/(12101:12526): Tripulante 6 actualizo cambio su estado a: R
+[INFO] 15:49:22:691 mi_ram.c/(12101:12532): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:22:691 mi_ram.c/(12101:12532): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:49:22:691 mi_ram.c/(12101:12531): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:22:691 mi_ram.c/(12101:12531): Tripulante 5 actualizo cambio su estado a: R
+[INFO] 15:49:26:692 mi_ram.c/(12101:12542): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:26:692 mi_ram.c/(12101:12542): Tripulante 6 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 15:49:26:692 mi_ram.c/(12101:12542): La tarea a enviar al tripulante 6 es: B02;1;1;5
+[INFO] 15:49:26:692 mi_ram.c/(12101:12541): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:26:692 mi_ram.c/(12101:12541): Tripulante 6 actualizo cambio su estado a: E
+[INFO] 15:49:26:692 mi_ram.c/(12101:12540): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:26:692 mi_ram.c/(12101:12540): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:49:28:683 mi_ram.c/(12101:12548): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:28:683 mi_ram.c/(12101:12548): Tripulante 5 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 15:49:28:683 mi_ram.c/(12101:12548): La tarea a enviar al tripulante 5 es: B02;1;1;5
+[INFO] 15:49:28:683 mi_ram.c/(12101:12547): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:28:683 mi_ram.c/(12101:12547): Tripulante 5 actualizo cambio su estado a: E
+[INFO] 15:49:28:683 mi_ram.c/(12101:12546): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:28:683 mi_ram.c/(12101:12546): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:49:32:693 mi_ram.c/(12101:12559): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:32:693 mi_ram.c/(12101:12559): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:49:32:694 mi_ram.c/(12101:12559): La tarea a enviar al tripulante 3 es: A05;1;1;5
+[INFO] 15:49:32:694 mi_ram.c/(12101:12558): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:32:694 mi_ram.c/(12101:12558): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:49:32:694 mi_ram.c/(12101:12557): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:32:694 mi_ram.c/(12101:12557): Tripulante 6 actualizo cambio su estado a: R
+[INFO] 15:49:34:685 mi_ram.c/(12101:12565): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:34:685 mi_ram.c/(12101:12565): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:49:34:685 mi_ram.c/(12101:12564): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:34:686 mi_ram.c/(12101:12564): Tripulante 5 actualizo cambio su estado a: R
+[INFO] 15:49:38:687 mi_ram.c/(12101:12572): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:38:687 mi_ram.c/(12101:12572): Tripulante 6 actualizo cambio su estado a: E
+[INFO] 15:49:38:687 mi_ram.c/(12101:12571): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:38:687 mi_ram.c/(12101:12571): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:49:38:695 mi_ram.c/(12101:12574): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:38:695 mi_ram.c/(12101:12574): Tripulante 5 actualizo cambio su estado a: E
+[INFO] 15:49:38:695 mi_ram.c/(12101:12573): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:38:695 mi_ram.c/(12101:12573): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:49:42:687 mi_ram.c/(12101:12585): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:42:687 mi_ram.c/(12101:12585): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:49:42:687 mi_ram.c/(12101:12585): La tarea a enviar al tripulante 1 es: A06;1;1;5
+[INFO] 15:49:42:688 mi_ram.c/(12101:12584): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:42:688 mi_ram.c/(12101:12584): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:49:42:688 mi_ram.c/(12101:12583): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:42:688 mi_ram.c/(12101:12583): Tripulante 6 actualizo cambio su estado a: R
+[INFO] 15:49:42:697 mi_ram.c/(12101:12589): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:42:697 mi_ram.c/(12101:12589): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:49:42:697 mi_ram.c/(12101:12588): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:42:697 mi_ram.c/(12101:12588): Tripulante 5 actualizo cambio su estado a: R
+[INFO] 15:49:46:698 mi_ram.c/(12101:12599): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:46:698 mi_ram.c/(12101:12599): Tripulante 6 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 15:49:46:698 mi_ram.c/(12101:12599): La tarea a enviar al tripulante 6 es: NO_HAY_TAREA
+[INFO] 15:49:46:698 mi_ram.c/(12101:12598): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:46:698 mi_ram.c/(12101:12598): Tripulante 6 actualizo cambio su estado a: E
+[INFO] 15:49:46:698 mi_ram.c/(12101:12597): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:46:698 mi_ram.c/(12101:12597): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:49:46:699 mi_ram.c/(12101:12600): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:46:702 mi_ram.c/(12101:12600): Tripulante 5 actualizo cambio su estado a: E
+[INFO] 15:49:46:699 mi_ram.c/(12101:12601): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:46:702 mi_ram.c/(12101:12601): Tripulante 5 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 15:49:46:702 mi_ram.c/(12101:12601): La tarea a enviar al tripulante 5 es: NO_HAY_TAREA
+[INFO] 15:49:46:702 mi_ram.c/(12101:12603): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:46:703 mi_ram.c/(12101:12603): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:49:46:703 mi_ram.c/(12101:12603): La tarea a enviar al tripulante 3 es: A06;1;1;5
+[INFO] 15:49:46:703 mi_ram.c/(12101:12602): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:46:703 mi_ram.c/(12101:12602): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:49:48:689 mi_ram.c/(12101:12607): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:48:689 mi_ram.c/(12101:12607): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:49:48:689 mi_ram.c/(12101:12606): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:48:689 mi_ram.c/(12101:12606): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:49:48:699 mi_ram.c/(12101:12599): Tripulante: 6 termino sus tareas
+[INFO] 15:49:48:702 mi_ram.c/(12101:12601): Tripulante: 5 termino sus tareas
+[INFO] 15:49:48:702 mi_ram.c/(12101:12601): Todos los tripulantes de la patota 2 terminaron sus tareas. Eliminando patota...
+[INFO] 15:49:48:702 mi_ram.c/(12101:12601): Patota 2 eliminada.
+[INFO] 15:49:50:921 mi_ram.c/(12101:12394): Iniciando dump de memoria...
+[INFO] 15:49:50:921 mi_ram.c/(12101:12394): Dump de memoria finalizado.
+[INFO] 15:49:52:691 mi_ram.c/(12101:12619): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:52:691 mi_ram.c/(12101:12619): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:49:52:691 mi_ram.c/(12101:12620): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:52:691 mi_ram.c/(12101:12620): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:49:52:691 mi_ram.c/(12101:12620): La tarea a enviar al tripulante 1 es: A07;1;1;5
+[INFO] 15:49:52:691 mi_ram.c/(12101:12618): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:52:691 mi_ram.c/(12101:12618): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:49:52:704 mi_ram.c/(12101:12623): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:52:704 mi_ram.c/(12101:12623): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:49:52:704 mi_ram.c/(12101:12622): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:52:704 mi_ram.c/(12101:12622): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:49:56:704 mi_ram.c/(12101:12633): Header 1 recibido: PEDIR TAREA
+[INFO] 15:49:56:704 mi_ram.c/(12101:12633): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:49:56:704 mi_ram.c/(12101:12633): La tarea a enviar al tripulante 3 es: A07;1;1;5
+[INFO] 15:49:56:704 mi_ram.c/(12101:12632): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:56:705 mi_ram.c/(12101:12632): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:49:56:705 mi_ram.c/(12101:12631): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:56:705 mi_ram.c/(12101:12631): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:49:58:693 mi_ram.c/(12101:12637): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:58:693 mi_ram.c/(12101:12637): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:49:58:693 mi_ram.c/(12101:12636): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:49:58:693 mi_ram.c/(12101:12636): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:50:02:694 mi_ram.c/(12101:12647): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:02:694 mi_ram.c/(12101:12647): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:50:02:694 mi_ram.c/(12101:12648): Header 1 recibido: PEDIR TAREA
+[INFO] 15:50:02:694 mi_ram.c/(12101:12648): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:50:02:694 mi_ram.c/(12101:12648): La tarea a enviar al tripulante 1 es: A08;1;1;5
+[INFO] 15:50:02:695 mi_ram.c/(12101:12646): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:02:695 mi_ram.c/(12101:12646): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:50:02:709 mi_ram.c/(12101:12651): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:02:709 mi_ram.c/(12101:12651): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:50:02:709 mi_ram.c/(12101:12650): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:02:709 mi_ram.c/(12101:12650): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:50:06:708 mi_ram.c/(12101:12661): Header 1 recibido: PEDIR TAREA
+[INFO] 15:50:06:708 mi_ram.c/(12101:12661): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:50:06:708 mi_ram.c/(12101:12661): La tarea a enviar al tripulante 3 es: A08;1;1;5
+[INFO] 15:50:06:708 mi_ram.c/(12101:12660): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:06:708 mi_ram.c/(12101:12660): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:50:06:708 mi_ram.c/(12101:12659): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:06:708 mi_ram.c/(12101:12659): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:50:08:695 mi_ram.c/(12101:12665): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:08:695 mi_ram.c/(12101:12665): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:50:08:695 mi_ram.c/(12101:12664): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:08:695 mi_ram.c/(12101:12664): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:50:12:696 mi_ram.c/(12101:12675): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:12:697 mi_ram.c/(12101:12675): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:50:12:697 mi_ram.c/(12101:12676): Header 1 recibido: PEDIR TAREA
+[INFO] 15:50:12:697 mi_ram.c/(12101:12676): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:50:12:697 mi_ram.c/(12101:12676): La tarea a enviar al tripulante 1 es: A09;1;1;5
+[INFO] 15:50:12:697 mi_ram.c/(12101:12674): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:12:697 mi_ram.c/(12101:12674): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:50:12:711 mi_ram.c/(12101:12679): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:12:711 mi_ram.c/(12101:12679): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:50:12:711 mi_ram.c/(12101:12678): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:12:711 mi_ram.c/(12101:12678): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:50:16:710 mi_ram.c/(12101:12689): Header 1 recibido: PEDIR TAREA
+[INFO] 15:50:16:710 mi_ram.c/(12101:12689): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:50:16:710 mi_ram.c/(12101:12689): La tarea a enviar al tripulante 3 es: A09;1;1;5
+[INFO] 15:50:16:710 mi_ram.c/(12101:12688): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:16:710 mi_ram.c/(12101:12688): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:50:16:710 mi_ram.c/(12101:12687): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:16:711 mi_ram.c/(12101:12687): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:50:18:699 mi_ram.c/(12101:12699): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:18:699 mi_ram.c/(12101:12699): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:50:18:699 mi_ram.c/(12101:12698): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:18:699 mi_ram.c/(12101:12698): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:50:22:699 mi_ram.c/(12101:12711): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:22:699 mi_ram.c/(12101:12711): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 15:50:22:699 mi_ram.c/(12101:12712): Header 1 recibido: PEDIR TAREA
+[INFO] 15:50:22:699 mi_ram.c/(12101:12712): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:50:22:699 mi_ram.c/(12101:12712): La tarea a enviar al tripulante 1 es: NO_HAY_TAREA
+[INFO] 15:50:22:700 mi_ram.c/(12101:12710): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:22:700 mi_ram.c/(12101:12710): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 15:50:22:715 mi_ram.c/(12101:12714): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:22:715 mi_ram.c/(12101:12714): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:50:22:715 mi_ram.c/(12101:12713): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:22:715 mi_ram.c/(12101:12713): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:50:24:700 mi_ram.c/(12101:12712): Tripulante: 1 termino sus tareas
+[INFO] 15:50:26:714 mi_ram.c/(12101:12723): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:26:714 mi_ram.c/(12101:12723): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 15:50:26:714 mi_ram.c/(12101:12724): Header 1 recibido: PEDIR TAREA
+[INFO] 15:50:26:714 mi_ram.c/(12101:12724): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 15:50:26:714 mi_ram.c/(12101:12724): La tarea a enviar al tripulante 3 es: NO_HAY_TAREA
+[INFO] 15:50:26:715 mi_ram.c/(12101:12722): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 15:50:26:715 mi_ram.c/(12101:12722): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 15:50:28:715 mi_ram.c/(12101:12724): Tripulante: 3 termino sus tareas
+[INFO] 15:50:28:715 mi_ram.c/(12101:12724): Todos los tripulantes de la patota 0 terminaron sus tareas. Eliminando patota...
+[INFO] 15:50:28:715 mi_ram.c/(12101:12724): Patota 0 eliminada.
+[INFO] 15:50:33:787 mi_ram.c/(12101:12394): Iniciando dump de memoria...
+[INFO] 15:50:33:787 mi_ram.c/(12101:12394): Dump de memoria finalizado.
+[INFO] 15:50:39:858 mi_ram.c/(12101:12394): Iniciando compactacion de la memoria...
+[INFO] 15:50:41:859 mi_ram.c/(12101:12394): Compactacion de la memoria finalizada.
+[INFO] 15:50:46:272 mi_ram.c/(12101:12394): Iniciando dump de memoria...
+[INFO] 15:50:46:272 mi_ram.c/(12101:12394): Dump de memoria finalizado.

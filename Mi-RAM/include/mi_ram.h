@@ -19,10 +19,115 @@
     }
 
 
-#define BACKLOG 10 //TODO
+#define BACKLOG 20
 #define SIZEOF_PCB 8
 #define SIZEOF_TCB 21
 
+
+//Estructuras generales
+
+//logger
+t_log * loggerMiram; 
+t_log * loggerSegmentacion;
+
+//archivo de configuracion
+char * esquemaMemoria;
+char * algoritmoReemplazo;
+char * puertoMemoria;
+char * criterioSeleccion; 
+char * pathSwap; 
+void * memoriaPrincipal;
+int		tamanioSwap; 
+int 	tamanioMemoria; 
+int		tamanioPagina; 
+
+
+//mutex para valores compartidos 
+pthread_mutex_t mutexTablaSegmentosGlobal; 
+pthread_mutex_t mutexListaReferenciasPatotas; 
+pthread_mutex_t mutexMemoriaPrincipal; 
+pthread_mutex_t mutexCompactacion; //(ver si este es necesario o se puede obviar aplicando todos los otros mutex); 
+sem_t semaforoCompactacion; 
+
+//-----------------Segmentacion -----------
+
+//variables globales
+t_list * tablaSegmentosGlobal; 
+t_list * listaReferenciasPatotaSegmentacion; 
+bool compactacion = false; 
+int contadorHilos = 0; 
+
+
+//Estructuras necesarias
+
+
+enum tipoSegmento{
+	SEG_TAREAS, SEG_TCB, SEG_PCB
+};
+
+typedef struct{
+	int tid;  
+	int base; 
+	int tamanio;
+	int tipoSegmento; 
+	bool ocupado; 
+	int pid; 
+} t_segmento; 
+
+
+typedef struct{
+	int pid; 
+	t_list * tablaPatota; 
+} referenciaTablaPatota; 
+
+
+void iniciarMemoria();
+void servidorPrincipal();
+void * atenderDiscordiador();
+PCB * crearPCB(uint32_t);
+void mandarPaqueteSerializado(t_buffer * , int , int );
+int buscarEspacionNecesario(int, int);
+void * hiloSIGUSR1(); 
+void * hiloSIGUSR2();
+void sig_handler(int); 
+
+//funciones segmentacion
+int buscarEspacioNecesarioSegmentacion(int , int );
+uint32_t buscarSegmentoLibre(int );
+uint32_t bestFitSegmentacion(int );
+uint32_t firstFitSegmentacion(int );
+uint32_t asignarMemoriaSegmentacionTCB(void * , int , t_list * , int );
+uint32_t asignarMemoriaSegmentacionPCB(void *  , t_list * );
+uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * , int );
+void actualizarPosicionTripulanteSegmentacion(uint32_t , uint32_t , uint32_t , uint32_t );
+void actualizarEstadoTripulanteSegmentacion(uint32_t , uint32_t , char );
+void actualizarDireccionesTareasTCB(t_segmento *, uint32_t, uint32_t); 
+void actualizarEstructurasSegmentacion(t_segmento *, uint32_t);
+void eliminarTripulanteSegmentacion(uint32_t , uint32_t );
+void esElUltimoTripulante(uint32_t );
+char * obtenerProximaTareaSegmentacion(uint32_t , uint32_t );
+void actualizarProximaTareaSegmentacion(uint32_t , uint32_t );
+void compactarMemoriaSegmentacion();
+void dumpMemoriaSegmentacion();
+uint32_t obtenerDireccionTripulanteSegmentacion(uint32_t , uint32_t );
+bool segmentoLibre(t_segmento * );
+bool segmentoOcupado(t_segmento * );
+bool segmentoMasPequenio(t_segmento * , t_segmento * );
+bool seEncuentraPrimeroEnMemoria(t_segmento * , t_segmento* );
+
+
+
+//--------------- MAPA ---------------------
+// NIVEL* navePrincipal;
+// sem_t semaforoTerminarMapa; 
+// sem_t semaforoMoverTripulante;
+// void iniciarMapa();
+// void agregarTripulanteAlMapa(uint32_t, uint32_t ,uint32_t);
+// void moverTripulanteEnMapa(uint32_t, uint32_t , uint32_t );
+// void expulsarTripulanteDelMapa(uint32_t);
+// char idMapa(uint32_t);
+ 
+/*
 // --------------------------------------- MEMORIA GENERAL
  
 char * esquemaMemoria;
@@ -202,5 +307,7 @@ void agregarTripulanteAlMapa(uint32_t, uint32_t ,uint32_t);
 void moverTripulanteEnMapa(uint32_t, uint32_t , uint32_t );
 void expulsarTripulanteDelMapa(uint32_t);
 char idMapa(uint32_t);
+ */
+
 
 #endif
