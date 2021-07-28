@@ -27,8 +27,8 @@
 //Estructuras generales
 
 //logger
-t_log * loggerMiram2; 
-t_log * loggerDump;
+t_log * loggerMiram; 
+t_log * loggerSegmentacion;
 
 //archivo de configuracion
 char * esquemaMemoria;
