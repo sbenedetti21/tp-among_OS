@@ -117,7 +117,6 @@ void * atenderDiscordiador(void * socket){
 	// ACA
 	void * stream = paquete->buffer->stream; // ESTE STREAM ESTA BIEN
 
-	//log_info(loggerMiram2, "%s", mem_hexstring(paquete->buffer->stream, paquete->buffer->size));
 
 	uint32_t idPatota = 0;
 
@@ -555,12 +554,14 @@ uint32_t buscarSegmentoLibre(int tamanioContenido){
 }
 
 uint32_t bestFitSegmentacion(int tamanioContenido){
-	//pararse aca compactacion 
+	
+	log_info(loggerSegmentacion, "Ingrese a best fit"); 
 	pthread_mutex_lock(&mutexTablaSegmentosGlobal); 
 	t_list * segmentosLibres = list_filter(tablaSegmentosGlobal, segmentoLibre); 
 	for(int i =0; i< list_size(segmentosLibres); i++){
 		t_segmento * segmento = list_get(segmentosLibres, i);
-		 
+		log_info(loggerSegmentacion, "Segmento libre que empieza en: %d y tiene un tamanio de: %d", segmento->base, segmento->tamanio);
+		
 	}
 	
 	pthread_mutex_unlock(&mutexTablaSegmentosGlobal); 
@@ -576,8 +577,8 @@ uint32_t bestFitSegmentacion(int tamanioContenido){
 		}
 
 	if(!list_any_satisfy(segmentosLibres, cabeElContenido)){
-		 //VER TEMA DE LOS MUTEX
-		
+		log_info(loggerMiram, "El contenido no entra en ningun segmento libre. Es necesario compactar.");
+		log_info(loggerSegmentacion, "El contenido no entra en ningun segmento libre. Es necesario compactar y volver a buscar un segmento disponible."); 
 		compactarMemoriaSegmentacion(); 
 		return bestFitSegmentacion(tamanioContenido); 
 	}
@@ -585,6 +586,7 @@ uint32_t bestFitSegmentacion(int tamanioContenido){
 	t_list * segmentosPosibles = list_filter(segmentosLibres, cabeElContenido); 
 	list_sort(segmentosPosibles, segmentoMasPequenio); 
 	t_segmento * segmentoElegido = list_get(segmentosPosibles, 0); 
+	log_info(loggerSegmentacion, "El segmento elegido empieza en: %d y tiene un tamanio de: %d", segmentoElegido->base, segmentoElegido->tamanio);
 
 	bool coincideBase(t_segmento * segmento){
 		return (segmento->base == segmentoElegido->base); 
@@ -612,7 +614,7 @@ uint32_t bestFitSegmentacion(int tamanioContenido){
 }
 
 uint32_t firstFitSegmentacion(int tamanioContenido){
-	
+	log_info(loggerSegmentacion, "Ingrese a first fit");
 	
 	pthread_mutex_lock(&mutexTablaSegmentosGlobal); 
 	list_sort(tablaSegmentosGlobal, seEncuentraPrimeroEnMemoria); 
@@ -620,6 +622,8 @@ uint32_t firstFitSegmentacion(int tamanioContenido){
 	 
 	for(int i = 0; i < list_size(segmentosLibres); i++){
 		t_segmento * segmento = list_get(segmentosLibres, i); 
+		log_info(loggerSegmentacion, "Segmento libre que empieza en: %d y tiene un tamanio de: %d", segmento->base, segmento->tamanio);
+
 		
 	}
 	 
@@ -638,10 +642,9 @@ uint32_t firstFitSegmentacion(int tamanioContenido){
 	
 	
 	if(!list_any_satisfy(segmentosLibres, cabeElContenido)){
-		
-		
+		log_info(loggerMiram, "El contenido no entra en ningun segmento libre. Es necesario compactar.");
+		log_info(loggerSegmentacion, "El contenido no entra en ningun segmento libre. Es necesario compactar y volver a buscar un segmento disponible."); 
 		compactarMemoriaSegmentacion(); 
-		
 		return firstFitSegmentacion(tamanioContenido);
 		 
 
@@ -659,12 +662,13 @@ uint32_t firstFitSegmentacion(int tamanioContenido){
 		segmentoElegido = list_get(segmentosLibres, i);
 		
 	}
+	log_info(loggerSegmentacion, "El segmento elegido empieza en: %d y tiene un tamanio de: %d", segmentoElegido->base, segmentoElegido->tamanio);
 
 	bool coincideBase(t_segmento * segmento){
 		return (segmento->base == segmentoElegido->base); 
 	}
 	
-	int h = 0; 
+	
 	t_segmento * nuevoSegmentoLibre = malloc(sizeof(t_segmento)); 
 	t_segmento * nuevoSegmentoOcupado = malloc(sizeof(t_segmento)); 
 	nuevoSegmentoOcupado->base = segmentoElegido->base; 
@@ -715,7 +719,7 @@ uint32_t asignarMemoriaSegmentacionTCB(void * tripulante, int tripulanteID, t_li
 }
 
 uint32_t asignarMemoriaSegmentacionPCB(void * pcb , t_list * tablaSegmentos){
-	//busco un lugar de memoria (segun algoritmo)
+	
 		
 		uint32_t direccionLogica = buscarSegmentoLibre(SIZEOF_PCB); 
 		
