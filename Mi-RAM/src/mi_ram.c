@@ -88,6 +88,8 @@ int main(int argc, char ** argv){
 
 	 	
 	pthread_join(servidor, NULL);
+	pthread_join(senial1, NULL);
+	pthread_join(senial2, NULL);
 	
 	
 		free(memoriaPrincipal); 
@@ -168,10 +170,12 @@ void * atenderDiscordiador(void * socket){
 	paquete->buffer->stream = malloc(paquete->buffer->size);
 
 	log_info(loggerMiram2, "buffer rcv");
-	int BUFFER_RECV = recv(socketCliente,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+	int BUFFER_RECV = recv(socketCliente, paquete->buffer->stream, paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
 	
 	// ACA
-	void * stream = paquete->buffer->stream;
+	void * stream = paquete->buffer->stream; // ESTE STREAM ESTA BIEN
+
+	log_info(loggerMiram2, "%s", mem_hexstring(paquete->buffer->stream, paquete->buffer->size));
 
 	uint32_t idPatota = 0;
 
@@ -373,6 +377,7 @@ void * atenderDiscordiador(void * socket){
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 
 			//mem_hexdump(memoriaPrincipal, tamanioMemoria);
+			sleep(2);
 			eliminarTripulanteSegmentacion(pid, tid);
 			//expulsarTripulanteDelMapa(tid);
 			
@@ -424,16 +429,17 @@ void * atenderDiscordiador(void * socket){
 	break; 
 
 	case ACTUALIZAR_ESTADO: ;
+
 		 uint32_t trip = 0, pat = 0;
 		char estadoNuevo = 'a';
-		log_info(loggerMiram2, "Direccion stream: %x", stream+offset); 
+		log_info(loggerMiram2, "Direccion stream: %x", stream); 
 		log_info(loggerMiram2, "Direccion tid: %x", &trip);
 		
-		memcpy(&trip, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&pat, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&estadoNuevo, stream+offset, sizeof(char));
+		memcpy(&trip, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&pat, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&estadoNuevo, stream, sizeof(char));
 		log_info(loggerMiram2, "PID ACTUALIZAR ESTADO : %d", pat); 
 		actualizarEstadoTripulanteSegmentacion(pat, trip, estadoNuevo); 
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
@@ -444,11 +450,10 @@ void * atenderDiscordiador(void * socket){
 		
 		 uint32_t tripid = 0, patid = 0;
 		
-		
-		memcpy(&tripid, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
-		memcpy(&patid, stream+offset, sizeof(uint32_t));
-		offset += sizeof(uint32_t);
+		memcpy(&tripid, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
+		memcpy(&patid, stream, sizeof(uint32_t));
+		stream += sizeof(uint32_t);
 		eliminarTripulanteSegmentacion(patid, tripid);
 		//expulsarTripulanteDelMapa(tripid);
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
@@ -632,7 +637,7 @@ uint32_t bestFitSegmentacion(int tamanioContenido){
 		 //VER TEMA DE LOS MUTEX
 		log_info(loggerMiram2, "El contenido no entra en ningun segmento libre. Iniciando compactacion...");
 		compactarMemoriaSegmentacion(); 
-		bestFitSegmentacion(tamanioContenido); 
+		return bestFitSegmentacion(tamanioContenido); 
 	}
 
 	t_list * segmentosPosibles = list_filter(segmentosLibres, cabeElContenido); 
@@ -695,7 +700,7 @@ log_info(loggerMiram2, "Cantidad de segmentos libres: %d", list_size(segmentosLi
 		log_info(loggerMiram2, "El contenido no entra en ningun segmento libre. Iniciando compactacion...");
 		compactarMemoriaSegmentacion(); 
 		log_info(loggerMiram2, "Compactacion terminada");
-		firstFitSegmentacion(tamanioContenido);
+		return firstFitSegmentacion(tamanioContenido);
 		 
 	}
 
@@ -861,7 +866,7 @@ void eliminarTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante){
 	referenciaTablaPatota * referenciaPatota = list_find(listaReferenciasPatotaSegmentacion, coincidePID); 
 	pthread_mutex_unlock(&mutexListaReferenciasPatotas); 
 
-	if(referenciaPatota == NULL){log_info(loggerMiram2, "Me pidieron una patota inexistente"); }
+	if(referenciaPatota == NULL){log_info(loggerMiram2, "Me pidieron una patota inexistente"); return;}
 	t_segmento * segmentoTripulante = list_find(referenciaPatota->tablaPatota, coincideTID); 
 
 	if(segmentoTripulante == NULL || segmentoTripulante->ocupado == false){
@@ -966,7 +971,7 @@ void compactarMemoriaSegmentacion(){
 
 
 	compactacion = true; 
-	sleep(2); 
+	sleep(4); 
 	
 	log_info(loggerMiram2, "Iniciando compactacion luego de esperar");
 	mem_hexdump(memoriaPrincipal, tamanioMemoria);
@@ -1023,7 +1028,8 @@ void compactarMemoriaSegmentacion(){
 
 		t_segmento * segmentoLibre = malloc(sizeof(t_segmento)); 
 		segmentoLibre->base = 0 ; 
-		segmentoLibre->tamanio = tamanioMemoria; 
+		segmentoLibre->tamanio = tamanioMemoria;
+		list_clean_and_destroy_elements(tablaSegmentosGlobal, free);
 		list_add(tablaSegmentosGlobal, segmentoLibre);
 	}
 
@@ -1054,7 +1060,7 @@ void actualizarDireccionesTareasTCB(t_segmento * segmento, uint32_t baseAnterior
 }
 
 void dumpMemoriaSegmentacion(){
-/*	log_info(loggerMiram2, "Ingrese al dump de memoria"); 
+	log_info(loggerMiram2, "Ingrese al dump de memoria"); 
 
 	char * fecha = temporal_get_string_time("%d-%m-%y_%H:%M:%S"); 
 	char * nombreArchivo = string_from_format("dumpMemoria_%s.dmp", fecha);
@@ -1077,7 +1083,7 @@ void dumpMemoriaSegmentacion(){
 	log_info(loggerDump, "Segmentos ocupados"); 
 	log_info(loggerMiram2, "Escribi el titulo de segmentos ocupados"); 
 	log_info(loggerMiram2, "La cantidad de referencias a patotas que hay son: %d", list_size(listaReferenciasPatotaSegmentacion)); 
-	if(list_size(listaReferenciasPatotaSegmentacion) >0){
+	if(list_any_satisfy(tablaSegmentosGlobal, segmentoOcupado)){
 		for(int i = 0; i<list_size(listaReferenciasPatotaSegmentacion); i++){
 			referenciaTablaPatota * referenciaActual = list_get(listaReferenciasPatotaSegmentacion, i); 
 			t_list * segmentosOcupados = list_filter(referenciaActual->tablaPatota, segmentoOcupado); 
@@ -1113,7 +1119,7 @@ void dumpMemoriaSegmentacion(){
 	}
 
 	fclose(dump); 
-	*/
+	
 }
 
 uint32_t obtenerDireccionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante){
@@ -1125,7 +1131,7 @@ uint32_t obtenerDireccionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTr
 	referenciaTablaPatota * referenciaPatota = list_find(listaReferenciasPatotaSegmentacion, coincidePID); 
 	pthread_mutex_unlock(&mutexListaReferenciasPatotas); 
 
-	if(referenciaPatota == NULL){log_info(loggerMiram2, "Me pidieron una patota inexistente PID: %d", idPatota); }
+	if(referenciaPatota == NULL){log_info(loggerMiram2, "Me pidieron una patota inexistente PID: %d", idPatota); return tamanioMemoria+1;}
 	t_segmento * segmentoTripulante = list_find(referenciaPatota->tablaPatota, coincideTID); 
 
 	if(segmentoTripulante == NULL || segmentoTripulante->ocupado == false){
