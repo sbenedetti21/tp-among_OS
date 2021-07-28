@@ -926,7 +926,8 @@ bool sabotajeBitMap(){
     	memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
     	msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
 	}
-
+	
+	free(punteroAlBitMap->bitarray);
 	bitarray_destroy(punteroAlBitMap);
 	return haySabotaje;
 }
