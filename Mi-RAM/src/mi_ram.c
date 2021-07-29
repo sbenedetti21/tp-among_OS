@@ -693,23 +693,28 @@ uint32_t firstFitSegmentacion(int tamanioContenido){
 	}
 	
 	
-	t_segmento * nuevoSegmentoLibre = malloc(sizeof(t_segmento)); 
+	
 	t_segmento * nuevoSegmentoOcupado = malloc(sizeof(t_segmento)); 
 	nuevoSegmentoOcupado->base = segmentoElegido->base; 
 	nuevoSegmentoOcupado->tamanio = tamanioContenido; 
 	nuevoSegmentoOcupado->ocupado = true; 
+	if(segmentoElegido->tamanio != tamanioContenido){
+		t_segmento * nuevoSegmentoLibre = malloc(sizeof(t_segmento)); 
+		nuevoSegmentoLibre->base = segmentoElegido->base + tamanioContenido; 
+		nuevoSegmentoLibre->tamanio = segmentoElegido->tamanio - tamanioContenido; 
+		nuevoSegmentoLibre->ocupado = false;
+		pthread_mutex_lock(&mutexTablaSegmentosGlobal); 
+		list_add(tablaSegmentosGlobal, nuevoSegmentoLibre);
+		pthread_mutex_unlock(&mutexTablaSegmentosGlobal);
+	}
+	
 
-	nuevoSegmentoLibre->base = segmentoElegido->base + tamanioContenido; 
-	nuevoSegmentoLibre->tamanio = segmentoElegido->tamanio - tamanioContenido; 
-	nuevoSegmentoLibre->ocupado = false;
-
-
+	
 	pthread_mutex_lock(&mutexTablaSegmentosGlobal); 
 	list_remove_and_destroy_by_condition(tablaSegmentosGlobal, coincideBase, free); 
 	list_add(tablaSegmentosGlobal, nuevoSegmentoOcupado); 
-	list_add(tablaSegmentosGlobal, nuevoSegmentoLibre);
 	pthread_mutex_unlock(&mutexTablaSegmentosGlobal);
-
+	
 	
 	
 	return nuevoSegmentoOcupado->base;
@@ -815,6 +820,10 @@ uint32_t asignarMemoriaSegmentacionTareas(char * tareas, int tamanioTareas, refe
 
 void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTripulante, uint32_t nuevaPosx, uint32_t nuevaPosy){
 	uint32_t direccionTripulante = obtenerDireccionTripulanteSegmentacion(idPatota, idTripulante); 
+	if(direccionTripulante == tamanioMemoria + 1){
+		log_info(loggerSegmentacion, "quisieron actualizar posicion de tripulante %d eliminado", idTripulante);
+		return; 
+	}
 	pthread_mutex_lock(&mutexMemoriaPrincipal); 
 	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t), &nuevaPosx, sizeof(uint32_t)); 
 	memcpy(memoriaPrincipal + direccionTripulante + sizeof(uint32_t)*2, &nuevaPosy, sizeof(uint32_t));
