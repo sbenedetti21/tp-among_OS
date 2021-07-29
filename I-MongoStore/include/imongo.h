@@ -49,6 +49,7 @@ uint32_t cantidadDeBloques;
 char * puntoDeMontaje;
 int tiempoDeSinc;
 char **posicionesSabotaje;
+char * ipImongo;
 
 //Variables de mapeo del Blocks
 size_t tamanioBlocks;

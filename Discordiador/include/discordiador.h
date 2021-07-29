@@ -104,6 +104,6 @@ char * leerTareas(char *);
 void serializarYMandarPedidoDeBitacora(uint32_t);
 int socketParaSabotajes;
 void expulsarTripulate(TCB_DISCORDIADOR *);
-
+char idMapa(uint32_t);
 
 #endif

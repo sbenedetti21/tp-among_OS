@@ -238,6 +238,7 @@ void iniciarPatota(char ** vectorInstruccion){
 						free(vectorInstruccion[3+i]);
 						list_add(listaTCBsNuevos, tripulante);
 						pthread_create(&tripulantes[i], NULL, subModuloTripulante , tripulante);
+						pthread_detach(tripulantes[i]);
 						log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 			
 
 						indice_posiciones++;
@@ -245,6 +246,7 @@ void iniciarPatota(char ** vectorInstruccion){
 						TCB_DISCORDIADOR * tripulante = crearTCB(posicionBase,idPatota);
 						list_add(listaTCBsNuevos, tripulante);
 						pthread_create(&tripulantes[i], NULL, subModuloTripulante , tripulante);
+						pthread_detach(tripulantes[i]);
 						log_info(loggerDiscordiador, "Tripulante creado: ID: %d, Posicion %d|%d, Estado: %c ", tripulante->tid, tripulante->posicionX, tripulante->posicionY, tripulante->estado ); 			
 
 					}					
@@ -460,12 +462,14 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 						sleep(cicloCPU);	
 					}
+					
 					if( tripulante->fueExpulsado){
 							expulsarTripulate(tripulante);
 							 break; 
 							 }
 					if(haySabotaje){ sem_wait(&semaforoSabotaje);}
-					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}	
+					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
+						
 					serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
 					sem_wait(&tripulante->termineIO);
 					sem_post(&esperarAlgunTripulante);
@@ -786,7 +790,7 @@ printf("--------------------------------------------------------- \nEstado actua
 		TCB_DISCORDIADOR *tripulante = list_get(listaTripulantes,i);
 		// PCB *patota = tripulante->punteroPCB;
 
-		printf("Tripulante: %d   Patota: %d   Estado: %c   Posicion: %d|%d \n", tripulante->tid , tripulante->pid  , tripulante->estado, tripulante->posicionX, tripulante->posicionY);
+		printf("Tripulante: %d (%c)  Patota: %d   Estado: %c   Posicion: %d|%d \n", tripulante->tid , idMapa(tripulante->tid) , tripulante->pid  , tripulante->estado, tripulante->posicionX, tripulante->posicionY);
 
 	}
 
@@ -794,26 +798,17 @@ printf("--------------------------------------------------------- \n");
 
 }
 
+char idMapa(uint32_t tid){
 
-void mostrarLista(t_list * unaLista){
-		for(int e = 0; e < list_size(unaLista); e++){
-					TCB_DISCORDIADOR *tripulante = list_get(unaLista, e);
+	char id = 0;
 
-					printf("index: %d, ID:%d, X:%d, Y:%d \n",e ,tripulante->tid, tripulante->posicionX, tripulante->posicionY);
-				}
-}
+	id = tid + 65;
 
-void cambiarEstadoTripulantesA(char estado){
-	for(int i = 0 ; i < list_size(listaTripulantes) ; i ++){
-				TCB_DISCORDIADOR * tripulante = list_get(listaTripulantes,i); 
+	if (id > 90) {
+		id += 6;
+	}
+	return id;
 
-				if(tripulante->estado != 'F'){
-					
-					cambiarDeEstado(tripulante, estado);
-
-				}
-
-			}
 }
 
 //-----------------------------EXPULAR_TRIPULANTE---------------------------------------------------------------------------------------------------
