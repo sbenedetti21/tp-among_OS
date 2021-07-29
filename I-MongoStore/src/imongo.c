@@ -649,6 +649,7 @@ void llenarBlocksRecursos(char *recurso, int cantALlenar){
 }
 
 void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
+	log_info(loggerImongoStore,"ENTRE AL BACIAR BLOCKS");
 	int cantFaltante = cantAVaciar;
 	int proximoBlock;
 	int sizeRecurso = conseguirSizeBlocks(recurso);
@@ -673,7 +674,7 @@ void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 			borrarBloqueFile(recurso, cantidadEliminar);
 			liberarBloqueBitMap(proximoBlock);
 		}
-
+	
 		marcador -= cantidadEliminar;
 		cantFaltante-=cantidadEliminar;
 
@@ -684,7 +685,7 @@ void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 		free(stringVacio);
 	}
 
-	actualizarMD5(recurso);
+	//actualizarMD5(recurso); //TODO
 }
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------- MENSAJES QUE RECIBE ---------------------------------------//
@@ -744,16 +745,20 @@ void descartarBasura(uint32_t idTripulante){
 		log_info(loggerImongoStore,"No hay recurso que consumir");
 		free(ubicacionArchivoBasura);
 	} else {
+		semaforoEsperaRecurso("Basura");
 		t_config *configRecurso = config_create(ubicacionArchivoBasura);
 		int cantidadBasura = config_get_int_value(configRecurso, "SIZE");
+		config_destroy(configRecurso);
+		semaforoListoRecurso("Basura");
+
+		log_info(loggerImongoStore,"entrando a la funcion vaciar blques recursp");
 
 		vaciarBlocksRecursos("Basura", cantidadBasura);
-
-		config_destroy(configRecurso);
+		
+		log_info(loggerImongoStore,"borro el archivo");
 		remove(ubicacionArchivoBasura);
-
+	
 		free(ubicacionArchivoBasura);
-
 		log_info(loggerImongoStore,"Se descarto la Basura");
 	}
 }
@@ -1206,22 +1211,22 @@ void servidorPrincipal() {
 
 	struct sockaddr_in addr;
 	socklen_t addrlen = sizeof(addr);
-	pthread_t receptorDiscordiador;
 
 	// SE CONECTA POR PRIMERA VEZ PARA TENER LA CONEXION ESTABLECIDA. LA VA AUSAR PARA MANDAR FSCK
 	socketParaSabotajes = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
 
 	while(1){
+		pthread_t * receptorDiscordiador = malloc(sizeof(pthread_t));
 		socketCliente = accept(listeningSocket, (struct sockaddr *) &addr, &addrlen);
 		if(socketCliente == -1){
 			printf("Error en la conexión");
 		} else {
-			pthread_create(&receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
-			//pthread_detach(receptorDiscordiador);
+			pthread_create(receptorDiscordiador, NULL, atenderDiscordiador, socketCliente);
+			pthread_detach((*receptorDiscordiador));
 		}
+		free(receptorDiscordiador);
 	}
 
-	close(socketCliente);
 	close(listeningSocket);   
 }
 
@@ -1521,4 +1526,6 @@ void atenderDiscordiador(int socketCliente){
 	free(paquete->buffer->stream);
 	free(paquete->buffer);
 	free(paquete);
+
+	close(socketCliente);
 }
