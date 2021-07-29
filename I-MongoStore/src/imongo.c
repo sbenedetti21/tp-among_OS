@@ -64,14 +64,18 @@ void leerConfig(){
 	
 	char *puntoDeMontajeLeido = config_get_string_value(config, "PUNTO_MONTAJE");
 	puntoDeMontaje = string_duplicate(puntoDeMontajeLeido);
+
 	char *puertoImongoStoreLeido = config_get_string_value(config, "PUERTO");
 	puertoImongoStore = string_duplicate(puertoImongoStoreLeido);
+
 	tiempoDeSinc = config_get_int_value(config, "TIEMPO_SINCRONIZACION");
 	tamanioDeBloque = config_get_int_value(config, "BLOCK_SIZE");
     cantidadDeBloques = config_get_int_value(config, "CANTIDAD_BLOCKS");
 	posicionesSabotaje = config_get_array_value(config,"POSICIONES_SABOTAJE");
+
 	char * ipImongoLeida = config_get_string_value(config, "IP");
 	ipImongo = string_duplicate(ipImongoLeida);
+
 	config_destroy(config);
 }
 //----------------------------------------------------------------------------------------------------//
@@ -759,53 +763,55 @@ char *conseguirStringBlocks(int bloqueBuscado){
 	int marcador = bloqueBuscado * tamanioDeBloque;
 	memcpy(bloqueStringBuscado,&(mapBlocksCopia[marcador]), tamanioDeBloque);
 
+	bloqueStringBuscado[tamanioDeBloque] = '\0';
 	return bloqueStringBuscado;
 }
 
-char * conseguirBitacora(uint32_t idTripulante){
-
+char *conseguirBitacora(uint32_t idTripulante){
 	log_info(loggerImongoStore,"Consiguiendo bitacora del Tripulante %d",idTripulante);
 	char *ubicacionBitacoraID = string_from_format("%s/Files/Bitacoras/Tripulante%d.ims",puntoDeMontaje,idTripulante);
 
 	t_config *configBitacora = config_create(ubicacionBitacoraID);
-	int sizeAcutal = config_get_int_value(configBitacora, "SIZE");
+	if(configBitacora!=NULL){
+		int sizeAcutal = config_get_int_value(configBitacora, "SIZE");
+		char *stringBitacora = malloc(sizeAcutal);
 
-	char *stringBitacora = malloc(sizeAcutal);
-	int marcador = 0;
-	char *listaBlocks = config_get_string_value(configBitacora,"BLOCKS");
+		char **listaBlocks = config_get_array_value(configBitacora,"BLOCKS");
+		int marcador = 0;
+		int tamanioFaltante = sizeAcutal;
 
-
-	if(listaBlocks[1]!=']'){
-		int inicio = 1;
-		while(inicio<strlen(listaBlocks)){
-			int tamanio = 0;	
-			while(listaBlocks[inicio+tamanio]!=',' && listaBlocks[inicio+tamanio]!=']')
-				tamanio++;
-
-			char *proximoBlockString = string_substring(listaBlocks,inicio,tamanio);
-			int proximoBlock = atoi(proximoBlockString) - 1;
-
+		for(int i = 0;listaBlocks[i]!=NULL; i++){
+			int tamanioPorCopiar;
+		
+			int proximoBlock = atoi(listaBlocks[i]) - 1;
 			char *stringBuscado = conseguirStringBlocks(proximoBlock);
+		
+			if(listaBlocks[i+1]!=NULL){
+				tamanioPorCopiar=tamanioDeBloque;
+			} else {
+				tamanioPorCopiar=tamanioFaltante;
+			}
+			memcpy(&(stringBitacora[marcador]),stringBuscado, tamanioPorCopiar);
 
-			memcpy(&(stringBitacora[marcador]),stringBuscado, tamanioDeBloque);
+			marcador+=tamanioPorCopiar;
+			tamanioFaltante-=tamanioPorCopiar;
 
-
-			marcador+=tamanioDeBloque;
-			inicio+=tamanio;
-			inicio++;
-
-			free(proximoBlockString);
+			free(listaBlocks[i]);
 			free(stringBuscado);
-			
 		}
-	}else{
-		log_info(loggerImongoStore,"No tiene informacion en la bitacora del Tripulante %d",idTripulante);
-	}
-	log_info(loggerImongoStore,"%s",stringBitacora);
-	free(ubicacionBitacoraID);
-	free(listaBlocks);
+	
+		stringBitacora[sizeAcutal-1] = '\0';
 
-	return stringBitacora;
+		config_destroy(configBitacora);
+		free(ubicacionBitacoraID);
+		free(listaBlocks);
+		return stringBitacora;
+	} else {
+		log_info(loggerImongoStore,"No esta el tripulante %d", idTripulante);
+
+		return "No esta el tripulante";
+	}
+
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------------- SABOTAJES --------------------------------------------//
@@ -1336,7 +1342,7 @@ void serializarYMandarBitacora(char * bitacora, int socket){
 	buffer-> stream = stream;
 
 	t_paquete* paquete = malloc(sizeof(t_paquete));
-	 paquete->buffer = malloc(sizeof(buffer->size));
+	 paquete->buffer;
 
 	paquete->header = 3;
 	paquete->buffer = buffer;
@@ -1354,6 +1360,11 @@ void serializarYMandarBitacora(char * bitacora, int socket){
 
 	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
 
+
+	free(paquete->buffer->stream);
+	free(paquete->buffer);
+	free(paquete);
+	free(a_enviar);
 }
 
 void deserializarNuevaPosicion(t_paquete * paquete){
@@ -1489,6 +1500,7 @@ void atenderDiscordiador(int socketCliente){
 		uint32_t tid = deserializarPedidoBitacora(paquete);
 		char * bitacora = conseguirBitacora(tid);
 		serializarYMandarBitacora(bitacora, socketCliente);
+		free(bitacora);
 		break;
 	case INICIO_TAREA_NORMAL:
 		deserializarInicioTareaNormal(paquete);

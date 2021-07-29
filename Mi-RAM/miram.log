@@ -35924,3 +35924,1681 @@ B02;1;1;5|ido: I Tamanio de las tareas: 30
 [INFO] 18:00:19:041 mi_ram.c/(5887:6439): Tripulante: 5 termino sus tareas
 [INFO] 18:00:19:041 mi_ram.c/(5887:6439): Todos los tripulantes de la patota 1 terminaron sus tareas. Eliminando patota...
 [INFO] 18:00:19:041 mi_ram.c/(5887:6439): Patota 1 eliminada.
+[INFO] 18:05:15:812 mi_ram.c/(9444:9444): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:05:26:095 mi_ram.c/(9444:9461): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:05:26:095 mi_ram.c/(9444:9461): PID: 0
+[INFO] 18:05:26:095 mi_ram.c/(9444:9461): Cantidad de tripulantes: 5 
+
+[INFO] 18:05:26:095 mi_ram.c/(9444:9461): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:05:26:095 mi_ram.c/(9444:9461): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:05:26:095 mi_ram.c/(9444:9461): PCB de la patota 0 agregado a memoria
+[INFO] 18:05:26:095 mi_ram.c/(9444:9461): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:05:26:095 mi_ram.c/(9444:9461): Tripulante agregado a memoria. TID: 0
+[INFO] 18:05:26:096 mi_ram.c/(9444:9461): Tripulante agregado a memoria. TID: 1
+[INFO] 18:05:26:096 mi_ram.c/(9444:9461): Tripulante agregado a memoria. TID: 2
+[INFO] 18:05:26:096 mi_ram.c/(9444:9461): Tripulante agregado a memoria. TID: 3
+[INFO] 18:05:26:096 mi_ram.c/(9444:9461): Tripulante agregado a memoria. TID: 4
+[INFO] 18:05:26:097 mi_ram.c/(9444:9469): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:26:097 mi_ram.c/(9444:9469): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:05:26:097 mi_ram.c/(9444:9470): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:26:097 mi_ram.c/(9444:9470): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:05:26:097 mi_ram.c/(9444:9471): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:26:097 mi_ram.c/(9444:9471): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:05:26:097 mi_ram.c/(9444:9472): Header 1 recibido: PEDIR TAREA
+[INFO] 18:05:26:097 mi_ram.c/(9444:9472): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:05:26:097 mi_ram.c/(9444:9472): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:05:26:097 mi_ram.c/(9444:9473): Header 1 recibido: PEDIR TAREA
+[INFO] 18:05:26:097 mi_ram.c/(9444:9473): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:05:26:097 mi_ram.c/(9444:9473): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:05:26:097 mi_ram.c/(9444:9474): Header 1 recibido: PEDIR TAREA
+[INFO] 18:05:26:097 mi_ram.c/(9444:9474): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:05:26:097 mi_ram.c/(9444:9474): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:05:27:097 mi_ram.c/(9444:9475): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:27:100 mi_ram.c/(9444:9475): El tripulante 2 se movio hacia 9|3
+[INFO] 18:05:27:101 mi_ram.c/(9444:9477): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:27:101 mi_ram.c/(9444:9477): El tripulante 0 se movio hacia 1|5
+[INFO] 18:05:27:102 mi_ram.c/(9444:9476): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:27:102 mi_ram.c/(9444:9476): El tripulante 1 se movio hacia 3|1
+[INFO] 18:05:28:098 mi_ram.c/(9444:9485): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:28:100 mi_ram.c/(9444:9485): El tripulante 1 se movio hacia 4|1
+[INFO] 18:05:28:102 mi_ram.c/(9444:9484): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:28:102 mi_ram.c/(9444:9484): El tripulante 0 se movio hacia 2|5
+[INFO] 18:05:28:103 mi_ram.c/(9444:9483): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:28:103 mi_ram.c/(9444:9483): El tripulante 2 se movio hacia 9|4
+[INFO] 18:05:29:099 mi_ram.c/(9444:9488): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:29:099 mi_ram.c/(9444:9488): El tripulante 2 se movio hacia 9|5
+[INFO] 18:05:29:101 mi_ram.c/(9444:9487): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:29:101 mi_ram.c/(9444:9487): El tripulante 0 se movio hacia 3|5
+[INFO] 18:05:29:101 mi_ram.c/(9444:9486): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:29:101 mi_ram.c/(9444:9486): El tripulante 1 se movio hacia 5|1
+[INFO] 18:05:30:100 mi_ram.c/(9444:9491): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:30:100 mi_ram.c/(9444:9491): El tripulante 1 se movio hacia 6|1
+[INFO] 18:05:30:102 mi_ram.c/(9444:9490): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:30:102 mi_ram.c/(9444:9490): El tripulante 0 se movio hacia 4|5
+[INFO] 18:05:30:102 mi_ram.c/(9444:9489): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:30:102 mi_ram.c/(9444:9489): El tripulante 2 se movio hacia 9|6
+[INFO] 18:05:31:101 mi_ram.c/(9444:9494): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:31:101 mi_ram.c/(9444:9494): El tripulante 2 se movio hacia 9|7
+[INFO] 18:05:31:101 mi_ram.c/(9444:9493): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:31:103 mi_ram.c/(9444:9493): El tripulante 0 se movio hacia 5|5
+[INFO] 18:05:31:103 mi_ram.c/(9444:9492): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:31:103 mi_ram.c/(9444:9492): El tripulante 1 se movio hacia 7|1
+[INFO] 18:05:32:104 mi_ram.c/(9444:9499): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:32:104 mi_ram.c/(9444:9499): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:05:32:105 mi_ram.c/(9444:9501): Header 1 recibido: PEDIR TAREA
+[INFO] 18:05:32:105 mi_ram.c/(9444:9501): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:05:32:105 mi_ram.c/(9444:9501): La tarea a enviar al tripulante 3 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:05:32:105 mi_ram.c/(9444:9503): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:32:105 mi_ram.c/(9444:9503): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 18:05:32:104 mi_ram.c/(9444:9500): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:32:105 mi_ram.c/(9444:9500): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 18:05:32:105 mi_ram.c/(9444:9497): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:32:105 mi_ram.c/(9444:9497): El tripulante 1 se movio hacia 8|1
+[INFO] 18:05:32:105 mi_ram.c/(9444:9496): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:32:105 mi_ram.c/(9444:9496): El tripulante 0 se movio hacia 6|5
+[INFO] 18:05:32:106 mi_ram.c/(9444:9495): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:32:106 mi_ram.c/(9444:9495): El tripulante 2 se movio hacia 9|8
+[INFO] 18:05:33:102 mi_ram.c/(9444:9509): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:33:104 mi_ram.c/(9444:9509): El tripulante 0 se movio hacia 7|5
+[INFO] 18:05:33:105 mi_ram.c/(9444:9508): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:33:105 mi_ram.c/(9444:9508): El tripulante 1 se movio hacia 9|1
+[INFO] 18:05:33:109 mi_ram.c/(9444:9510): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:33:109 mi_ram.c/(9444:9510): El tripulante 3 se movio hacia 7|4
+[INFO] 18:05:34:103 mi_ram.c/(9444:9512): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:34:105 mi_ram.c/(9444:9512): El tripulante 1 se movio hacia 9|2
+[INFO] 18:05:34:105 mi_ram.c/(9444:9511): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:34:105 mi_ram.c/(9444:9511): El tripulante 0 se movio hacia 8|5
+[INFO] 18:05:34:107 mi_ram.c/(9444:9513): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:34:109 mi_ram.c/(9444:9513): El tripulante 3 se movio hacia 8|4
+[INFO] 18:05:35:104 mi_ram.c/(9444:9515): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:35:105 mi_ram.c/(9444:9515): El tripulante 0 se movio hacia 9|5
+[INFO] 18:05:35:107 mi_ram.c/(9444:9514): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:35:108 mi_ram.c/(9444:9514): El tripulante 1 se movio hacia 9|3
+[INFO] 18:05:35:110 mi_ram.c/(9444:9516): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:35:110 mi_ram.c/(9444:9516): El tripulante 3 se movio hacia 9|4
+[INFO] 18:05:36:104 mi_ram.c/(9444:9518): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:36:106 mi_ram.c/(9444:9518): El tripulante 1 se movio hacia 9|4
+[INFO] 18:05:36:104 mi_ram.c/(9444:9517): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:36:109 mi_ram.c/(9444:9517): El tripulante 0 se movio hacia 9|6
+[INFO] 18:05:36:111 mi_ram.c/(9444:9519): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:36:111 mi_ram.c/(9444:9519): El tripulante 3 se movio hacia 9|5
+[INFO] 18:05:37:105 mi_ram.c/(9444:9525): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:37:107 mi_ram.c/(9444:9525): El tripulante 0 se movio hacia 9|7
+[INFO] 18:05:37:108 mi_ram.c/(9444:9524): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:37:108 mi_ram.c/(9444:9524): El tripulante 1 se movio hacia 9|5
+[INFO] 18:05:37:110 mi_ram.c/(9444:9526): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:37:111 mi_ram.c/(9444:9526): El tripulante 3 se movio hacia 9|6
+[INFO] 18:05:38:107 mi_ram.c/(9444:9535): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:38:108 mi_ram.c/(9444:9535): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:05:38:110 mi_ram.c/(9444:9536): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:38:111 mi_ram.c/(9444:9536): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 18:05:38:110 mi_ram.c/(9444:9537): Header 1 recibido: PEDIR TAREA
+[INFO] 18:05:38:111 mi_ram.c/(9444:9537): Tripulante 4 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:05:38:111 mi_ram.c/(9444:9537): La tarea a enviar al tripulante 4 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:05:38:110 mi_ram.c/(9444:9539): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:38:112 mi_ram.c/(9444:9539): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 18:05:38:113 mi_ram.c/(9444:9533): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:38:113 mi_ram.c/(9444:9533): El tripulante 1 se movio hacia 9|6
+[INFO] 18:05:38:116 mi_ram.c/(9444:9540): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:38:116 mi_ram.c/(9444:9540): El tripulante 3 se movio hacia 9|7
+[INFO] 18:05:38:116 mi_ram.c/(9444:9532): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:38:116 mi_ram.c/(9444:9532): El tripulante 0 se movio hacia 9|8
+[INFO] 18:05:39:106 mi_ram.c/(9444:9546): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:39:108 mi_ram.c/(9444:9546): El tripulante 1 se movio hacia 9|7
+[INFO] 18:05:39:111 mi_ram.c/(9444:9550): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:39:111 mi_ram.c/(9444:9550): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:05:39:113 mi_ram.c/(9444:9551): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:39:113 mi_ram.c/(9444:9551): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:05:39:113 mi_ram.c/(9444:9552): Header 1 recibido: PEDIR TAREA
+[INFO] 18:05:39:113 mi_ram.c/(9444:9552): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:05:39:113 mi_ram.c/(9444:9552): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:05:39:113 mi_ram.c/(9444:9554): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:39:113 mi_ram.c/(9444:9554): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 18:05:39:119 mi_ram.c/(9444:9548): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:39:119 mi_ram.c/(9444:9548): El tripulante 3 se movio hacia 9|8
+[INFO] 18:05:39:121 mi_ram.c/(9444:9555): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:39:122 mi_ram.c/(9444:9555): El tripulante 4 se movio hacia 1|0
+[INFO] 18:05:40:108 mi_ram.c/(9444:9570): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:40:110 mi_ram.c/(9444:9570): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 18:05:40:120 mi_ram.c/(9444:9568): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:05:40:120 mi_ram.c/(9444:9568): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:05:40:123 mi_ram.c/(9444:9572): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:40:124 mi_ram.c/(9444:9572): El tripulante 4 se movio hacia 2|0
+[INFO] 18:05:40:124 mi_ram.c/(9444:9573): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:40:124 mi_ram.c/(9444:9573): El tripulante 2 se movio hacia 8|8
+[INFO] 18:05:40:125 mi_ram.c/(9444:9566): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:40:125 mi_ram.c/(9444:9566): El tripulante 1 se movio hacia 9|8
+[INFO] 18:05:41:114 mi_ram.c/(9444:9577): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:41:116 mi_ram.c/(9444:9577): El tripulante 4 se movio hacia 3|0
+[INFO] 18:05:41:114 mi_ram.c/(9444:9576): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:41:117 mi_ram.c/(9444:9576): El tripulante 2 se movio hacia 7|8
+[INFO] 18:05:42:114 mi_ram.c/(9444:9579): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:42:116 mi_ram.c/(9444:9579): El tripulante 2 se movio hacia 6|8
+[INFO] 18:05:42:117 mi_ram.c/(9444:9578): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:05:42:117 mi_ram.c/(9444:9578): El tripulante 4 se movio hacia 4|0
+[ERROR] 18:05:49:132 mi_ram.c/(9444:9581): No se pudo recibir el header
+[ERROR] 18:05:49:132 mi_ram.c/(9444:9580): No se pudo recibir el header
+[INFO] 18:06:40:328 mi_ram.c/(9621:9621): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:07:01:436 mi_ram.c/(9621:9658): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:07:01:436 mi_ram.c/(9621:9658): PID: 0
+[INFO] 18:07:01:436 mi_ram.c/(9621:9658): Cantidad de tripulantes: 5 
+
+[INFO] 18:07:01:436 mi_ram.c/(9621:9658): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:07:01:436 mi_ram.c/(9621:9658): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:07:01:437 mi_ram.c/(9621:9658): PCB de la patota 0 agregado a memoria
+[INFO] 18:07:01:437 mi_ram.c/(9621:9658): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:07:01:437 mi_ram.c/(9621:9658): Tripulante agregado a memoria. TID: 0
+[INFO] 18:07:01:437 mi_ram.c/(9621:9658): Tripulante agregado a memoria. TID: 1
+[INFO] 18:07:01:437 mi_ram.c/(9621:9658): Tripulante agregado a memoria. TID: 2
+[INFO] 18:07:01:437 mi_ram.c/(9621:9658): Tripulante agregado a memoria. TID: 3
+[INFO] 18:07:01:437 mi_ram.c/(9621:9658): Tripulante agregado a memoria. TID: 4
+[INFO] 18:07:01:440 mi_ram.c/(9621:9666): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:01:440 mi_ram.c/(9621:9666): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:07:01:440 mi_ram.c/(9621:9667): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:01:440 mi_ram.c/(9621:9667): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:07:01:440 mi_ram.c/(9621:9668): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:01:440 mi_ram.c/(9621:9668): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:07:01:440 mi_ram.c/(9621:9669): Header 1 recibido: PEDIR TAREA
+[INFO] 18:07:01:440 mi_ram.c/(9621:9669): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:07:01:441 mi_ram.c/(9621:9669): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:07:01:441 mi_ram.c/(9621:9670): Header 1 recibido: PEDIR TAREA
+[INFO] 18:07:01:441 mi_ram.c/(9621:9670): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:07:01:441 mi_ram.c/(9621:9670): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:07:01:442 mi_ram.c/(9621:9671): Header 1 recibido: PEDIR TAREA
+[INFO] 18:07:01:442 mi_ram.c/(9621:9671): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:07:01:442 mi_ram.c/(9621:9671): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:07:02:441 mi_ram.c/(9621:9672): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:02:442 mi_ram.c/(9621:9672): El tripulante 2 se movio hacia 9|3
+[INFO] 18:07:02:444 mi_ram.c/(9621:9673): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:02:445 mi_ram.c/(9621:9673): El tripulante 1 se movio hacia 3|1
+[INFO] 18:07:02:447 mi_ram.c/(9621:9674): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:02:447 mi_ram.c/(9621:9674): El tripulante 0 se movio hacia 1|5
+[INFO] 18:07:03:442 mi_ram.c/(9621:9675): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:03:443 mi_ram.c/(9621:9675): El tripulante 2 se movio hacia 9|4
+[INFO] 18:07:03:445 mi_ram.c/(9621:9676): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:03:446 mi_ram.c/(9621:9676): El tripulante 1 se movio hacia 4|1
+[INFO] 18:07:03:446 mi_ram.c/(9621:9677): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:03:447 mi_ram.c/(9621:9677): El tripulante 0 se movio hacia 2|5
+[INFO] 18:07:04:442 mi_ram.c/(9621:9678): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:04:444 mi_ram.c/(9621:9678): El tripulante 2 se movio hacia 9|5
+[INFO] 18:07:04:445 mi_ram.c/(9621:9679): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:04:447 mi_ram.c/(9621:9679): El tripulante 0 se movio hacia 3|5
+[INFO] 18:07:04:447 mi_ram.c/(9621:9680): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:04:448 mi_ram.c/(9621:9680): El tripulante 1 se movio hacia 5|1
+[INFO] 18:07:05:443 mi_ram.c/(9621:9681): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:05:445 mi_ram.c/(9621:9681): El tripulante 2 se movio hacia 9|6
+[INFO] 18:07:05:446 mi_ram.c/(9621:9682): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:05:448 mi_ram.c/(9621:9682): El tripulante 1 se movio hacia 6|1
+[INFO] 18:07:05:448 mi_ram.c/(9621:9683): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:05:449 mi_ram.c/(9621:9683): El tripulante 0 se movio hacia 4|5
+[INFO] 18:07:06:443 mi_ram.c/(9621:9691): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:06:445 mi_ram.c/(9621:9691): El tripulante 2 se movio hacia 9|7
+[INFO] 18:07:06:446 mi_ram.c/(9621:9692): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:06:448 mi_ram.c/(9621:9692): El tripulante 0 se movio hacia 5|5
+[INFO] 18:07:06:448 mi_ram.c/(9621:9693): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:06:449 mi_ram.c/(9621:9693): El tripulante 1 se movio hacia 7|1
+[INFO] 18:07:07:448 mi_ram.c/(9621:9697): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:07:451 mi_ram.c/(9621:9697): El tripulante 0 se movio hacia 6|5
+[INFO] 18:07:07:449 mi_ram.c/(9621:9698): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:07:452 mi_ram.c/(9621:9698): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:07:07:449 mi_ram.c/(9621:9699): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:07:452 mi_ram.c/(9621:9699): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 18:07:07:449 mi_ram.c/(9621:9700): Header 1 recibido: PEDIR TAREA
+[INFO] 18:07:07:452 mi_ram.c/(9621:9700): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:07:07:452 mi_ram.c/(9621:9700): La tarea a enviar al tripulante 3 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:07:07:449 mi_ram.c/(9621:9702): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:07:452 mi_ram.c/(9621:9702): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 18:07:07:453 mi_ram.c/(9621:9696): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:07:453 mi_ram.c/(9621:9696): El tripulante 1 se movio hacia 8|1
+[INFO] 18:07:07:455 mi_ram.c/(9621:9694): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:07:455 mi_ram.c/(9621:9694): El tripulante 2 se movio hacia 9|8
+[INFO] 18:07:08:445 mi_ram.c/(9621:9706): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:08:450 mi_ram.c/(9621:9706): El tripulante 1 se movio hacia 9|1
+[INFO] 18:07:08:452 mi_ram.c/(9621:9705): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:08:452 mi_ram.c/(9621:9705): El tripulante 0 se movio hacia 7|5
+[INFO] 18:07:08:453 mi_ram.c/(9621:9707): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:08:455 mi_ram.c/(9621:9707): El tripulante 3 se movio hacia 7|4
+[INFO] 18:07:09:446 mi_ram.c/(9621:9709): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:09:447 mi_ram.c/(9621:9709): El tripulante 0 se movio hacia 8|5
+[INFO] 18:07:09:449 mi_ram.c/(9621:9708): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:09:450 mi_ram.c/(9621:9708): El tripulante 1 se movio hacia 9|2
+[INFO] 18:07:09:452 mi_ram.c/(9621:9710): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:09:454 mi_ram.c/(9621:9710): El tripulante 3 se movio hacia 8|4
+[INFO] 18:07:10:447 mi_ram.c/(9621:9712): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:10:448 mi_ram.c/(9621:9712): El tripulante 1 se movio hacia 9|3
+[INFO] 18:07:10:450 mi_ram.c/(9621:9711): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:10:451 mi_ram.c/(9621:9711): El tripulante 0 se movio hacia 9|5
+[INFO] 18:07:10:453 mi_ram.c/(9621:9713): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:10:454 mi_ram.c/(9621:9713): El tripulante 3 se movio hacia 9|4
+[INFO] 18:07:11:448 mi_ram.c/(9621:9723): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:11:450 mi_ram.c/(9621:9723): El tripulante 0 se movio hacia 9|6
+[INFO] 18:07:11:451 mi_ram.c/(9621:9722): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:11:453 mi_ram.c/(9621:9722): El tripulante 1 se movio hacia 9|4
+[INFO] 18:07:11:458 mi_ram.c/(9621:9724): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:11:458 mi_ram.c/(9621:9724): El tripulante 3 se movio hacia 9|5
+[INFO] 18:07:12:448 mi_ram.c/(9621:9725): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:12:450 mi_ram.c/(9621:9725): El tripulante 0 se movio hacia 9|7
+[INFO] 18:07:12:451 mi_ram.c/(9621:9726): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:12:453 mi_ram.c/(9621:9726): El tripulante 1 se movio hacia 9|5
+[INFO] 18:07:12:454 mi_ram.c/(9621:9727): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:12:462 mi_ram.c/(9621:9727): El tripulante 3 se movio hacia 9|6
+[INFO] 18:07:13:450 mi_ram.c/(9621:9731): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:13:452 mi_ram.c/(9621:9731): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 18:07:13:454 mi_ram.c/(9621:9732): Header 1 recibido: PEDIR TAREA
+[INFO] 18:07:13:457 mi_ram.c/(9621:9732): Tripulante 4 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:07:13:457 mi_ram.c/(9621:9732): La tarea a enviar al tripulante 4 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:07:13:454 mi_ram.c/(9621:9734): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:13:457 mi_ram.c/(9621:9734): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 18:07:13:454 mi_ram.c/(9621:9735): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:13:457 mi_ram.c/(9621:9735): El tripulante 1 se movio hacia 9|6
+[INFO] 18:07:13:457 mi_ram.c/(9621:9730): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:13:457 mi_ram.c/(9621:9730): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:07:13:459 mi_ram.c/(9621:9736): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:13:459 mi_ram.c/(9621:9736): El tripulante 3 se movio hacia 9|7
+[INFO] 18:07:13:460 mi_ram.c/(9621:9728): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:13:460 mi_ram.c/(9621:9728): El tripulante 0 se movio hacia 9|8
+[INFO] 18:07:14:450 mi_ram.c/(9621:9739): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:14:451 mi_ram.c/(9621:9739): El tripulante 1 se movio hacia 9|7
+[INFO] 18:07:14:460 mi_ram.c/(9621:9741): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:14:460 mi_ram.c/(9621:9741): El tripulante 3 se movio hacia 9|8
+[INFO] 18:07:14:460 mi_ram.c/(9621:9745): Header 1 recibido: PEDIR TAREA
+[INFO] 18:07:14:460 mi_ram.c/(9621:9745): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:07:14:460 mi_ram.c/(9621:9745): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:07:14:460 mi_ram.c/(9621:9747): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:14:460 mi_ram.c/(9621:9747): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 18:07:14:460 mi_ram.c/(9621:9748): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:14:460 mi_ram.c/(9621:9748): El tripulante 4 se movio hacia 1|0
+[INFO] 18:07:14:461 mi_ram.c/(9621:9743): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:14:461 mi_ram.c/(9621:9743): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:07:14:461 mi_ram.c/(9621:9744): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:14:461 mi_ram.c/(9621:9744): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:07:15:452 mi_ram.c/(9621:9755): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:15:457 mi_ram.c/(9621:9755): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 18:07:15:459 mi_ram.c/(9621:9753): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:15:459 mi_ram.c/(9621:9753): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:07:15:461 mi_ram.c/(9621:9756): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:15:461 mi_ram.c/(9621:9756): El tripulante 4 se movio hacia 2|0
+[INFO] 18:07:15:462 mi_ram.c/(9621:9751): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:15:462 mi_ram.c/(9621:9751): El tripulante 1 se movio hacia 9|8
+[INFO] 18:07:15:462 mi_ram.c/(9621:9758): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:15:462 mi_ram.c/(9621:9758): El tripulante 2 se movio hacia 8|8
+[INFO] 18:07:16:458 mi_ram.c/(9621:9760): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:16:460 mi_ram.c/(9621:9760): El tripulante 4 se movio hacia 3|0
+[INFO] 18:07:16:462 mi_ram.c/(9621:9761): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:16:463 mi_ram.c/(9621:9761): El tripulante 2 se movio hacia 7|8
+[INFO] 18:07:17:459 mi_ram.c/(9621:9762): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:17:461 mi_ram.c/(9621:9762): El tripulante 4 se movio hacia 4|0
+[INFO] 18:07:17:462 mi_ram.c/(9621:9763): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:17:463 mi_ram.c/(9621:9763): El tripulante 2 se movio hacia 6|8
+[INFO] 18:07:18:460 mi_ram.c/(9621:9764): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:18:462 mi_ram.c/(9621:9764): El tripulante 4 se movio hacia 5|0
+[INFO] 18:07:18:469 mi_ram.c/(9621:9765): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:18:469 mi_ram.c/(9621:9765): El tripulante 2 se movio hacia 5|8
+[INFO] 18:07:19:460 mi_ram.c/(9621:9766): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:19:461 mi_ram.c/(9621:9766): El tripulante 4 se movio hacia 6|0
+[INFO] 18:07:19:463 mi_ram.c/(9621:9767): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:19:464 mi_ram.c/(9621:9767): El tripulante 2 se movio hacia 4|8
+[INFO] 18:07:20:455 mi_ram.c/(9621:9770): Header 1 recibido: PEDIR TAREA
+[INFO] 18:07:20:456 mi_ram.c/(9621:9770): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:07:20:456 mi_ram.c/(9621:9770): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:07:20:457 mi_ram.c/(9621:9769): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:07:20:457 mi_ram.c/(9621:9769): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:07:20:462 mi_ram.c/(9621:9771): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:20:462 mi_ram.c/(9621:9771): El tripulante 4 se movio hacia 7|0
+[INFO] 18:07:20:464 mi_ram.c/(9621:9772): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:20:465 mi_ram.c/(9621:9772): El tripulante 2 se movio hacia 3|8
+[INFO] 18:07:21:457 mi_ram.c/(9621:9773): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:21:461 mi_ram.c/(9621:9773): El tripulante 0 se movio hacia 8|8
+[INFO] 18:07:21:463 mi_ram.c/(9621:9775): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:21:463 mi_ram.c/(9621:9775): El tripulante 4 se movio hacia 8|0
+[INFO] 18:07:21:466 mi_ram.c/(9621:9776): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:07:21:466 mi_ram.c/(9621:9776): El tripulante 2 se movio hacia 2|8
+[ERROR] 18:07:56:297 mi_ram.c/(9621:9779): No se pudo recibir el header
+[INFO] 18:07:56:297 mi_ram.c/(9621:9779): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:12:33:892 mi_ram.c/(10089:10089): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:12:40:520 mi_ram.c/(10089:10096): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:12:40:520 mi_ram.c/(10089:10096): PID: 0
+[INFO] 18:12:40:520 mi_ram.c/(10089:10096): Cantidad de tripulantes: 5 
+
+[INFO] 18:12:40:520 mi_ram.c/(10089:10096): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:12:40:520 mi_ram.c/(10089:10096): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:12:40:520 mi_ram.c/(10089:10096): PCB de la patota 0 agregado a memoria
+[INFO] 18:12:40:520 mi_ram.c/(10089:10096): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:12:40:520 mi_ram.c/(10089:10096): Tripulante agregado a memoria. TID: 0
+[INFO] 18:12:40:520 mi_ram.c/(10089:10096): Tripulante agregado a memoria. TID: 1
+[INFO] 18:12:40:520 mi_ram.c/(10089:10096): Tripulante agregado a memoria. TID: 2
+[INFO] 18:12:40:521 mi_ram.c/(10089:10096): Tripulante agregado a memoria. TID: 3
+[INFO] 18:12:40:521 mi_ram.c/(10089:10096): Tripulante agregado a memoria. TID: 4
+[INFO] 18:12:40:522 mi_ram.c/(10089:10104): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:40:522 mi_ram.c/(10089:10104): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:12:40:522 mi_ram.c/(10089:10105): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:40:522 mi_ram.c/(10089:10105): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:12:40:522 mi_ram.c/(10089:10106): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:40:522 mi_ram.c/(10089:10106): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:12:40:522 mi_ram.c/(10089:10107): Header 1 recibido: PEDIR TAREA
+[INFO] 18:12:40:522 mi_ram.c/(10089:10107): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:12:40:522 mi_ram.c/(10089:10107): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:12:40:522 mi_ram.c/(10089:10108): Header 1 recibido: PEDIR TAREA
+[INFO] 18:12:40:522 mi_ram.c/(10089:10108): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:12:40:522 mi_ram.c/(10089:10108): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:12:40:522 mi_ram.c/(10089:10109): Header 1 recibido: PEDIR TAREA
+[INFO] 18:12:40:522 mi_ram.c/(10089:10109): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:12:40:522 mi_ram.c/(10089:10109): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:12:41:524 mi_ram.c/(10089:10112): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:41:526 mi_ram.c/(10089:10112): El tripulante 0 se movio hacia 1|5
+[INFO] 18:12:41:524 mi_ram.c/(10089:10111): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:41:527 mi_ram.c/(10089:10111): El tripulante 1 se movio hacia 3|1
+[INFO] 18:12:41:524 mi_ram.c/(10089:10110): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:41:529 mi_ram.c/(10089:10110): El tripulante 2 se movio hacia 9|3
+[INFO] 18:12:42:525 mi_ram.c/(10089:10120): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:42:527 mi_ram.c/(10089:10120): El tripulante 2 se movio hacia 9|4
+[INFO] 18:12:42:528 mi_ram.c/(10089:10119): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:42:530 mi_ram.c/(10089:10119): El tripulante 1 se movio hacia 4|1
+[INFO] 18:12:42:531 mi_ram.c/(10089:10118): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:42:531 mi_ram.c/(10089:10118): El tripulante 0 se movio hacia 2|5
+[INFO] 18:12:43:526 mi_ram.c/(10089:10123): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:43:527 mi_ram.c/(10089:10123): El tripulante 0 se movio hacia 3|5
+[INFO] 18:12:43:528 mi_ram.c/(10089:10122): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:43:530 mi_ram.c/(10089:10122): El tripulante 1 se movio hacia 5|1
+[INFO] 18:12:43:531 mi_ram.c/(10089:10121): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:43:531 mi_ram.c/(10089:10121): El tripulante 2 se movio hacia 9|5
+[INFO] 18:12:44:526 mi_ram.c/(10089:10126): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:44:526 mi_ram.c/(10089:10126): El tripulante 2 se movio hacia 9|6
+[INFO] 18:12:44:528 mi_ram.c/(10089:10125): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:44:528 mi_ram.c/(10089:10125): El tripulante 1 se movio hacia 6|1
+[INFO] 18:12:44:528 mi_ram.c/(10089:10124): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:44:528 mi_ram.c/(10089:10124): El tripulante 0 se movio hacia 4|5
+[INFO] 18:12:45:526 mi_ram.c/(10089:10127): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:45:528 mi_ram.c/(10089:10127): El tripulante 2 se movio hacia 9|7
+[INFO] 18:12:45:530 mi_ram.c/(10089:10129): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:45:530 mi_ram.c/(10089:10129): El tripulante 0 se movio hacia 5|5
+[INFO] 18:12:45:531 mi_ram.c/(10089:10128): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:45:531 mi_ram.c/(10089:10128): El tripulante 1 se movio hacia 7|1
+[INFO] 18:12:46:527 mi_ram.c/(10089:10130): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:46:531 mi_ram.c/(10089:10130): El tripulante 2 se movio hacia 9|8
+[INFO] 18:12:46:532 mi_ram.c/(10089:10133): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:46:532 mi_ram.c/(10089:10133): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 18:12:46:532 mi_ram.c/(10089:10134): Header 1 recibido: PEDIR TAREA
+[INFO] 18:12:46:532 mi_ram.c/(10089:10134): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:12:46:532 mi_ram.c/(10089:10134): La tarea a enviar al tripulante 3 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:12:46:532 mi_ram.c/(10089:10136): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:46:532 mi_ram.c/(10089:10136): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 18:12:46:532 mi_ram.c/(10089:10137): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:46:532 mi_ram.c/(10089:10137): El tripulante 0 se movio hacia 6|5
+[INFO] 18:12:46:532 mi_ram.c/(10089:10138): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:46:532 mi_ram.c/(10089:10138): El tripulante 1 se movio hacia 8|1
+[INFO] 18:12:46:533 mi_ram.c/(10089:10132): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:46:533 mi_ram.c/(10089:10132): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:12:47:528 mi_ram.c/(10089:10142): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:47:530 mi_ram.c/(10089:10142): El tripulante 0 se movio hacia 7|5
+[INFO] 18:12:47:531 mi_ram.c/(10089:10141): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:47:532 mi_ram.c/(10089:10141): El tripulante 1 se movio hacia 9|1
+[INFO] 18:12:47:534 mi_ram.c/(10089:10143): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:47:535 mi_ram.c/(10089:10143): El tripulante 3 se movio hacia 7|4
+[INFO] 18:12:48:529 mi_ram.c/(10089:10145): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:48:530 mi_ram.c/(10089:10145): El tripulante 1 se movio hacia 9|2
+[INFO] 18:12:48:531 mi_ram.c/(10089:10144): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:48:531 mi_ram.c/(10089:10144): El tripulante 0 se movio hacia 8|5
+[INFO] 18:12:48:533 mi_ram.c/(10089:10146): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:48:535 mi_ram.c/(10089:10146): El tripulante 3 se movio hacia 8|4
+[INFO] 18:12:49:529 mi_ram.c/(10089:10147): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:49:530 mi_ram.c/(10089:10147): El tripulante 1 se movio hacia 9|3
+[INFO] 18:12:49:532 mi_ram.c/(10089:10148): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:49:533 mi_ram.c/(10089:10148): El tripulante 0 se movio hacia 9|5
+[INFO] 18:12:49:535 mi_ram.c/(10089:10149): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:49:536 mi_ram.c/(10089:10149): El tripulante 3 se movio hacia 9|4
+[INFO] 18:12:50:529 mi_ram.c/(10089:10151): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:50:531 mi_ram.c/(10089:10151): El tripulante 1 se movio hacia 9|4
+[INFO] 18:12:50:532 mi_ram.c/(10089:10152): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:50:534 mi_ram.c/(10089:10152): El tripulante 0 se movio hacia 9|6
+[INFO] 18:12:50:535 mi_ram.c/(10089:10153): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:50:536 mi_ram.c/(10089:10153): El tripulante 3 se movio hacia 9|5
+[INFO] 18:12:51:529 mi_ram.c/(10089:10154): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:51:531 mi_ram.c/(10089:10154): El tripulante 1 se movio hacia 9|5
+[INFO] 18:12:51:533 mi_ram.c/(10089:10155): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:51:534 mi_ram.c/(10089:10155): El tripulante 0 se movio hacia 9|7
+[INFO] 18:12:51:535 mi_ram.c/(10089:10156): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:51:537 mi_ram.c/(10089:10156): El tripulante 3 se movio hacia 9|6
+[INFO] 18:12:52:530 mi_ram.c/(10089:10157): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:52:533 mi_ram.c/(10089:10157): El tripulante 1 se movio hacia 9|6
+[INFO] 18:12:52:541 mi_ram.c/(10089:10158): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:52:541 mi_ram.c/(10089:10158): El tripulante 0 se movio hacia 9|8
+[INFO] 18:12:52:541 mi_ram.c/(10089:10160): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:52:541 mi_ram.c/(10089:10160): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:12:52:541 mi_ram.c/(10089:10161): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:52:541 mi_ram.c/(10089:10161): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 18:12:52:541 mi_ram.c/(10089:10162): Header 1 recibido: PEDIR TAREA
+[INFO] 18:12:52:541 mi_ram.c/(10089:10162): Tripulante 4 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:12:52:541 mi_ram.c/(10089:10162): La tarea a enviar al tripulante 4 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:12:52:541 mi_ram.c/(10089:10164): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:52:541 mi_ram.c/(10089:10164): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 18:12:52:542 mi_ram.c/(10089:10165): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:52:542 mi_ram.c/(10089:10165): El tripulante 3 se movio hacia 9|7
+[INFO] 18:12:53:532 mi_ram.c/(10089:10169): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:53:533 mi_ram.c/(10089:10169): El tripulante 1 se movio hacia 9|7
+[INFO] 18:12:53:540 mi_ram.c/(10089:10172): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:53:540 mi_ram.c/(10089:10172): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:12:53:540 mi_ram.c/(10089:10173): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:53:540 mi_ram.c/(10089:10173): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:12:53:540 mi_ram.c/(10089:10174): Header 1 recibido: PEDIR TAREA
+[INFO] 18:12:53:540 mi_ram.c/(10089:10174): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:12:53:540 mi_ram.c/(10089:10174): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:12:53:540 mi_ram.c/(10089:10176): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:53:540 mi_ram.c/(10089:10176): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 18:12:53:541 mi_ram.c/(10089:10170): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:53:541 mi_ram.c/(10089:10170): El tripulante 3 se movio hacia 9|8
+[INFO] 18:12:53:544 mi_ram.c/(10089:10178): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:53:544 mi_ram.c/(10089:10178): El tripulante 4 se movio hacia 1|0
+[INFO] 18:12:54:532 mi_ram.c/(10089:10184): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:54:534 mi_ram.c/(10089:10184): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 18:12:54:537 mi_ram.c/(10089:10182): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:54:537 mi_ram.c/(10089:10182): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:12:54:539 mi_ram.c/(10089:10180): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:54:539 mi_ram.c/(10089:10180): El tripulante 1 se movio hacia 9|8
+[INFO] 18:12:54:542 mi_ram.c/(10089:10186): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:54:543 mi_ram.c/(10089:10186): El tripulante 2 se movio hacia 8|8
+[INFO] 18:12:54:545 mi_ram.c/(10089:10188): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:54:545 mi_ram.c/(10089:10188): El tripulante 4 se movio hacia 2|0
+[INFO] 18:12:55:541 mi_ram.c/(10089:10189): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:55:542 mi_ram.c/(10089:10189): El tripulante 2 se movio hacia 7|8
+[INFO] 18:12:55:543 mi_ram.c/(10089:10190): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:55:544 mi_ram.c/(10089:10190): El tripulante 4 se movio hacia 3|0
+[INFO] 18:12:56:541 mi_ram.c/(10089:10191): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:56:542 mi_ram.c/(10089:10191): El tripulante 2 se movio hacia 6|8
+[INFO] 18:12:56:544 mi_ram.c/(10089:10192): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:56:545 mi_ram.c/(10089:10192): El tripulante 4 se movio hacia 4|0
+[INFO] 18:12:57:541 mi_ram.c/(10089:10193): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:57:542 mi_ram.c/(10089:10193): El tripulante 2 se movio hacia 5|8
+[INFO] 18:12:57:544 mi_ram.c/(10089:10194): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:57:545 mi_ram.c/(10089:10194): El tripulante 4 se movio hacia 5|0
+[INFO] 18:12:58:542 mi_ram.c/(10089:10200): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:58:544 mi_ram.c/(10089:10200): El tripulante 2 se movio hacia 4|8
+[INFO] 18:12:58:545 mi_ram.c/(10089:10201): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:58:547 mi_ram.c/(10089:10201): El tripulante 4 se movio hacia 6|0
+[INFO] 18:12:59:537 mi_ram.c/(10089:10204): Header 1 recibido: PEDIR TAREA
+[INFO] 18:12:59:537 mi_ram.c/(10089:10204): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:12:59:537 mi_ram.c/(10089:10204): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:12:59:538 mi_ram.c/(10089:10203): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:12:59:538 mi_ram.c/(10089:10203): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:12:59:542 mi_ram.c/(10089:10205): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:59:544 mi_ram.c/(10089:10205): El tripulante 2 se movio hacia 3|8
+[INFO] 18:12:59:545 mi_ram.c/(10089:10206): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:12:59:547 mi_ram.c/(10089:10206): El tripulante 4 se movio hacia 7|0
+[INFO] 18:19:29:177 mi_ram.c/(10089:10487): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:29:179 mi_ram.c/(10089:10487): Tripulante 4 actualizo cambio su estado a: B
+[INFO] 18:19:29:177 mi_ram.c/(10089:10489): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:29:180 mi_ram.c/(10089:10489): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:19:29:177 mi_ram.c/(10089:10490): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:29:181 mi_ram.c/(10089:10490): Tripulante 4 actualizo cambio su estado a: S
+[INFO] 18:19:29:177 mi_ram.c/(10089:10485): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:29:181 mi_ram.c/(10089:10485): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:19:29:177 mi_ram.c/(10089:10486): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:29:181 mi_ram.c/(10089:10486): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:19:29:177 mi_ram.c/(10089:10488): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:29:181 mi_ram.c/(10089:10488): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:19:35:608 mi_ram.c/(10510:10510): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): PID: 0
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): Cantidad de tripulantes: 5 
+
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): PCB de la patota 0 agregado a memoria
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): Tripulante agregado a memoria. TID: 0
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): Tripulante agregado a memoria. TID: 1
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): Tripulante agregado a memoria. TID: 2
+[INFO] 18:19:42:801 mi_ram.c/(10510:10525): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:42:801 mi_ram.c/(10510:10525): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:19:42:801 mi_ram.c/(10510:10526): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:42:801 mi_ram.c/(10510:10526): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): Tripulante agregado a memoria. TID: 3
+[INFO] 18:19:42:801 mi_ram.c/(10510:10517): Tripulante agregado a memoria. TID: 4
+[INFO] 18:19:42:801 mi_ram.c/(10510:10527): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:42:801 mi_ram.c/(10510:10527): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:19:42:801 mi_ram.c/(10510:10528): Header 1 recibido: PEDIR TAREA
+[INFO] 18:19:42:801 mi_ram.c/(10510:10528): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:19:42:801 mi_ram.c/(10510:10528): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:19:42:802 mi_ram.c/(10510:10529): Header 1 recibido: PEDIR TAREA
+[INFO] 18:19:42:802 mi_ram.c/(10510:10529): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:19:42:802 mi_ram.c/(10510:10529): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:19:42:804 mi_ram.c/(10510:10530): Header 1 recibido: PEDIR TAREA
+[INFO] 18:19:42:804 mi_ram.c/(10510:10530): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:19:42:804 mi_ram.c/(10510:10530): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:19:43:802 mi_ram.c/(10510:10532): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:43:803 mi_ram.c/(10510:10532): El tripulante 1 se movio hacia 3|1
+[INFO] 18:19:43:802 mi_ram.c/(10510:10531): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:43:806 mi_ram.c/(10510:10531): El tripulante 2 se movio hacia 9|3
+[INFO] 18:19:43:807 mi_ram.c/(10510:10533): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:43:807 mi_ram.c/(10510:10533): El tripulante 0 se movio hacia 1|5
+[INFO] 18:19:44:802 mi_ram.c/(10510:10535): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:44:804 mi_ram.c/(10510:10535): El tripulante 2 se movio hacia 9|4
+[INFO] 18:19:44:805 mi_ram.c/(10510:10534): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:44:805 mi_ram.c/(10510:10534): El tripulante 1 se movio hacia 4|1
+[INFO] 18:19:44:806 mi_ram.c/(10510:10536): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:44:806 mi_ram.c/(10510:10536): El tripulante 0 se movio hacia 2|5
+[INFO] 18:19:45:803 mi_ram.c/(10510:10538): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:45:805 mi_ram.c/(10510:10538): El tripulante 1 se movio hacia 5|1
+[INFO] 18:19:45:806 mi_ram.c/(10510:10537): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:45:808 mi_ram.c/(10510:10537): El tripulante 2 se movio hacia 9|5
+[INFO] 18:19:45:809 mi_ram.c/(10510:10539): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:45:809 mi_ram.c/(10510:10539): El tripulante 0 se movio hacia 3|5
+[INFO] 18:19:46:804 mi_ram.c/(10510:10541): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:46:805 mi_ram.c/(10510:10541): El tripulante 2 se movio hacia 9|6
+[INFO] 18:19:46:807 mi_ram.c/(10510:10540): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:46:808 mi_ram.c/(10510:10540): El tripulante 1 se movio hacia 6|1
+[INFO] 18:19:46:809 mi_ram.c/(10510:10542): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:46:809 mi_ram.c/(10510:10542): El tripulante 0 se movio hacia 4|5
+[INFO] 18:19:47:804 mi_ram.c/(10510:10544): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:47:806 mi_ram.c/(10510:10544): El tripulante 1 se movio hacia 7|1
+[INFO] 18:19:47:808 mi_ram.c/(10510:10543): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:47:809 mi_ram.c/(10510:10543): El tripulante 2 se movio hacia 9|7
+[INFO] 18:19:47:811 mi_ram.c/(10510:10545): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:47:811 mi_ram.c/(10510:10545): El tripulante 0 se movio hacia 5|5
+[INFO] 18:19:48:807 mi_ram.c/(10510:10556): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:48:808 mi_ram.c/(10510:10556): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:19:48:809 mi_ram.c/(10510:10557): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:48:810 mi_ram.c/(10510:10557): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 18:19:48:809 mi_ram.c/(10510:10558): Header 1 recibido: PEDIR TAREA
+[INFO] 18:19:48:811 mi_ram.c/(10510:10558): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:19:48:811 mi_ram.c/(10510:10558): La tarea a enviar al tripulante 3 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:19:48:809 mi_ram.c/(10510:10560): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:48:811 mi_ram.c/(10510:10560): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 18:19:48:812 mi_ram.c/(10510:10554): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:48:812 mi_ram.c/(10510:10554): El tripulante 2 se movio hacia 9|8
+[INFO] 18:19:48:813 mi_ram.c/(10510:10561): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:48:813 mi_ram.c/(10510:10561): El tripulante 0 se movio hacia 6|5
+[INFO] 18:19:48:813 mi_ram.c/(10510:10553): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:48:813 mi_ram.c/(10510:10553): El tripulante 1 se movio hacia 8|1
+[INFO] 18:19:49:806 mi_ram.c/(10510:10567): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:49:807 mi_ram.c/(10510:10567): El tripulante 1 se movio hacia 9|1
+[INFO] 18:19:49:809 mi_ram.c/(10510:10568): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:49:810 mi_ram.c/(10510:10568): El tripulante 0 se movio hacia 7|5
+[INFO] 18:19:49:812 mi_ram.c/(10510:10569): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:49:813 mi_ram.c/(10510:10569): El tripulante 3 se movio hacia 7|4
+[INFO] 18:19:50:806 mi_ram.c/(10510:10574): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:50:807 mi_ram.c/(10510:10574): El tripulante 1 se movio hacia 9|2
+[INFO] 18:19:50:809 mi_ram.c/(10510:10575): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:50:810 mi_ram.c/(10510:10575): El tripulante 0 se movio hacia 8|5
+[INFO] 18:19:50:812 mi_ram.c/(10510:10576): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:50:813 mi_ram.c/(10510:10576): El tripulante 3 se movio hacia 8|4
+[INFO] 18:19:51:806 mi_ram.c/(10510:10580): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:51:807 mi_ram.c/(10510:10580): El tripulante 1 se movio hacia 9|3
+[INFO] 18:19:51:809 mi_ram.c/(10510:10581): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:51:810 mi_ram.c/(10510:10581): El tripulante 0 se movio hacia 9|5
+[INFO] 18:19:51:813 mi_ram.c/(10510:10582): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:51:814 mi_ram.c/(10510:10582): El tripulante 3 se movio hacia 9|4
+[INFO] 18:19:52:806 mi_ram.c/(10510:10588): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:52:808 mi_ram.c/(10510:10588): El tripulante 1 se movio hacia 9|4
+[INFO] 18:19:52:813 mi_ram.c/(10510:10589): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:52:815 mi_ram.c/(10510:10589): El tripulante 0 se movio hacia 9|6
+[INFO] 18:19:52:816 mi_ram.c/(10510:10590): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:52:816 mi_ram.c/(10510:10590): El tripulante 3 se movio hacia 9|5
+[INFO] 18:19:53:808 mi_ram.c/(10510:10599): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:53:809 mi_ram.c/(10510:10599): El tripulante 1 se movio hacia 9|5
+[INFO] 18:19:53:813 mi_ram.c/(10510:10600): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:53:814 mi_ram.c/(10510:10600): El tripulante 0 se movio hacia 9|7
+[INFO] 18:19:53:815 mi_ram.c/(10510:10601): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:53:816 mi_ram.c/(10510:10601): El tripulante 3 se movio hacia 9|6
+[INFO] 18:19:54:808 mi_ram.c/(10510:10605): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:54:809 mi_ram.c/(10510:10605): El tripulante 1 se movio hacia 9|6
+[INFO] 18:19:54:815 mi_ram.c/(10510:10609): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:54:818 mi_ram.c/(10510:10609): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 18:19:54:816 mi_ram.c/(10510:10610): Header 1 recibido: PEDIR TAREA
+[INFO] 18:19:54:818 mi_ram.c/(10510:10610): Tripulante 4 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:19:54:818 mi_ram.c/(10510:10610): La tarea a enviar al tripulante 4 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:19:54:816 mi_ram.c/(10510:10612): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:54:818 mi_ram.c/(10510:10612): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 18:19:54:818 mi_ram.c/(10510:10608): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:54:818 mi_ram.c/(10510:10608): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:19:54:825 mi_ram.c/(10510:10613): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:54:825 mi_ram.c/(10510:10613): El tripulante 3 se movio hacia 9|7
+[INFO] 18:19:54:826 mi_ram.c/(10510:10606): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:54:826 mi_ram.c/(10510:10606): El tripulante 0 se movio hacia 9|8
+[INFO] 18:19:55:811 mi_ram.c/(10510:10616): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:55:811 mi_ram.c/(10510:10616): El tripulante 1 se movio hacia 9|7
+[INFO] 18:19:55:816 mi_ram.c/(10510:10621): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:55:816 mi_ram.c/(10510:10621): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:19:55:816 mi_ram.c/(10510:10622): Header 1 recibido: PEDIR TAREA
+[INFO] 18:19:55:816 mi_ram.c/(10510:10622): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:19:55:816 mi_ram.c/(10510:10622): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:19:55:817 mi_ram.c/(10510:10624): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:55:817 mi_ram.c/(10510:10624): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 18:19:55:817 mi_ram.c/(10510:10620): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:55:817 mi_ram.c/(10510:10620): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:19:55:824 mi_ram.c/(10510:10626): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:55:824 mi_ram.c/(10510:10626): El tripulante 4 se movio hacia 1|0
+[INFO] 18:19:55:825 mi_ram.c/(10510:10618): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:55:825 mi_ram.c/(10510:10618): El tripulante 3 se movio hacia 9|8
+[INFO] 18:19:56:812 mi_ram.c/(10510:10637): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:56:814 mi_ram.c/(10510:10637): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 18:19:56:821 mi_ram.c/(10510:10635): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:19:56:821 mi_ram.c/(10510:10635): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:19:56:826 mi_ram.c/(10510:10638): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:56:826 mi_ram.c/(10510:10638): El tripulante 2 se movio hacia 8|8
+[INFO] 18:19:56:826 mi_ram.c/(10510:10639): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:56:826 mi_ram.c/(10510:10639): El tripulante 4 se movio hacia 2|0
+[INFO] 18:19:56:827 mi_ram.c/(10510:10633): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:56:827 mi_ram.c/(10510:10633): El tripulante 1 se movio hacia 9|8
+[INFO] 18:19:57:818 mi_ram.c/(10510:10642): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:57:820 mi_ram.c/(10510:10642): El tripulante 2 se movio hacia 7|8
+[INFO] 18:19:57:821 mi_ram.c/(10510:10643): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:19:57:822 mi_ram.c/(10510:10643): El tripulante 4 se movio hacia 3|0
+[INFO] 18:22:53:154 mi_ram.c/(10510:10811): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:22:53:155 mi_ram.c/(10510:10811): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:22:53:155 mi_ram.c/(10510:10813): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:22:53:157 mi_ram.c/(10510:10813): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:22:53:155 mi_ram.c/(10510:10814): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:22:53:157 mi_ram.c/(10510:10814): Tripulante 4 actualizo cambio su estado a: S
+[INFO] 18:22:53:155 mi_ram.c/(10510:10812): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:22:53:157 mi_ram.c/(10510:10812): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:22:53:157 mi_ram.c/(10510:10809): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:22:53:157 mi_ram.c/(10510:10809): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:22:53:157 mi_ram.c/(10510:10810): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:22:53:157 mi_ram.c/(10510:10810): Tripulante 4 actualizo cambio su estado a: B
+[INFO] 18:23:19:752 mi_ram.c/(10852:10852): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:23:26:956 mi_ram.c/(10852:10864): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:23:26:956 mi_ram.c/(10852:10864): PID: 0
+[INFO] 18:23:26:956 mi_ram.c/(10852:10864): Cantidad de tripulantes: 5 
+
+[INFO] 18:23:26:956 mi_ram.c/(10852:10864): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:23:26:956 mi_ram.c/(10852:10864): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:23:26:956 mi_ram.c/(10852:10864): PCB de la patota 0 agregado a memoria
+[INFO] 18:23:26:957 mi_ram.c/(10852:10864): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:23:26:957 mi_ram.c/(10852:10864): Tripulante agregado a memoria. TID: 0
+[INFO] 18:23:26:957 mi_ram.c/(10852:10864): Tripulante agregado a memoria. TID: 1
+[INFO] 18:23:26:957 mi_ram.c/(10852:10864): Tripulante agregado a memoria. TID: 2
+[INFO] 18:23:26:957 mi_ram.c/(10852:10864): Tripulante agregado a memoria. TID: 3
+[INFO] 18:23:26:957 mi_ram.c/(10852:10864): Tripulante agregado a memoria. TID: 4
+[INFO] 18:23:26:961 mi_ram.c/(10852:10872): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:26:961 mi_ram.c/(10852:10872): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:23:26:961 mi_ram.c/(10852:10873): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:26:961 mi_ram.c/(10852:10873): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:23:26:961 mi_ram.c/(10852:10874): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:26:961 mi_ram.c/(10852:10874): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:23:26:961 mi_ram.c/(10852:10875): Header 1 recibido: PEDIR TAREA
+[INFO] 18:23:26:961 mi_ram.c/(10852:10875): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:23:26:961 mi_ram.c/(10852:10875): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:23:26:961 mi_ram.c/(10852:10876): Header 1 recibido: PEDIR TAREA
+[INFO] 18:23:26:961 mi_ram.c/(10852:10876): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:23:26:961 mi_ram.c/(10852:10876): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:23:26:961 mi_ram.c/(10852:10877): Header 1 recibido: PEDIR TAREA
+[INFO] 18:23:26:961 mi_ram.c/(10852:10877): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:23:26:961 mi_ram.c/(10852:10877): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:23:27:962 mi_ram.c/(10852:10880): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:27:964 mi_ram.c/(10852:10880): El tripulante 0 se movio hacia 1|5
+[INFO] 18:23:27:965 mi_ram.c/(10852:10879): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:27:967 mi_ram.c/(10852:10879): El tripulante 2 se movio hacia 9|3
+[INFO] 18:23:27:968 mi_ram.c/(10852:10878): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:27:968 mi_ram.c/(10852:10878): El tripulante 1 se movio hacia 3|1
+[INFO] 18:23:28:963 mi_ram.c/(10852:10883): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:28:963 mi_ram.c/(10852:10883): El tripulante 1 se movio hacia 4|1
+[INFO] 18:23:28:965 mi_ram.c/(10852:10882): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:28:965 mi_ram.c/(10852:10882): El tripulante 2 se movio hacia 9|4
+[INFO] 18:23:28:965 mi_ram.c/(10852:10881): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:28:965 mi_ram.c/(10852:10881): El tripulante 0 se movio hacia 2|5
+[INFO] 18:23:29:964 mi_ram.c/(10852:10886): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:29:968 mi_ram.c/(10852:10886): El tripulante 0 se movio hacia 3|5
+[INFO] 18:23:29:969 mi_ram.c/(10852:10885): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:29:969 mi_ram.c/(10852:10885): El tripulante 1 se movio hacia 5|1
+[INFO] 18:23:29:969 mi_ram.c/(10852:10884): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:29:969 mi_ram.c/(10852:10884): El tripulante 2 se movio hacia 9|5
+[INFO] 18:23:30:969 mi_ram.c/(10852:10890): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:30:970 mi_ram.c/(10852:10890): El tripulante 2 se movio hacia 9|6
+[INFO] 18:23:30:971 mi_ram.c/(10852:10889): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:30:973 mi_ram.c/(10852:10889): El tripulante 1 se movio hacia 6|1
+[INFO] 18:23:30:973 mi_ram.c/(10852:10888): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:30:973 mi_ram.c/(10852:10888): El tripulante 0 se movio hacia 4|5
+[INFO] 18:23:31:965 mi_ram.c/(10852:10899): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:31:967 mi_ram.c/(10852:10899): El tripulante 0 se movio hacia 5|5
+[INFO] 18:23:31:968 mi_ram.c/(10852:10898): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:31:970 mi_ram.c/(10852:10898): El tripulante 1 se movio hacia 7|1
+[INFO] 18:23:31:971 mi_ram.c/(10852:10897): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:31:971 mi_ram.c/(10852:10897): El tripulante 2 se movio hacia 9|7
+[INFO] 18:23:32:968 mi_ram.c/(10852:10910): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:32:969 mi_ram.c/(10852:10910): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:23:32:971 mi_ram.c/(10852:10911): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:32:972 mi_ram.c/(10852:10911): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 18:23:32:971 mi_ram.c/(10852:10912): Header 1 recibido: PEDIR TAREA
+[INFO] 18:23:32:973 mi_ram.c/(10852:10912): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:23:32:973 mi_ram.c/(10852:10912): La tarea a enviar al tripulante 3 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:23:32:971 mi_ram.c/(10852:10914): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:32:973 mi_ram.c/(10852:10914): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 18:23:32:974 mi_ram.c/(10852:10908): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:32:974 mi_ram.c/(10852:10908): El tripulante 2 se movio hacia 9|8
+[INFO] 18:23:32:974 mi_ram.c/(10852:10907): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:32:974 mi_ram.c/(10852:10907): El tripulante 1 se movio hacia 8|1
+[INFO] 18:23:32:975 mi_ram.c/(10852:10906): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:32:975 mi_ram.c/(10852:10906): El tripulante 0 se movio hacia 6|5
+[INFO] 18:23:33:968 mi_ram.c/(10852:10923): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:33:969 mi_ram.c/(10852:10923): El tripulante 0 se movio hacia 7|5
+[INFO] 18:23:33:970 mi_ram.c/(10852:10922): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:33:972 mi_ram.c/(10852:10922): El tripulante 1 se movio hacia 9|1
+[INFO] 18:23:33:973 mi_ram.c/(10852:10924): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:33:974 mi_ram.c/(10852:10924): El tripulante 3 se movio hacia 7|4
+[INFO] 18:23:34:969 mi_ram.c/(10852:10930): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:34:970 mi_ram.c/(10852:10930): El tripulante 1 se movio hacia 9|2
+[INFO] 18:23:34:971 mi_ram.c/(10852:10929): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:34:972 mi_ram.c/(10852:10929): El tripulante 0 se movio hacia 8|5
+[INFO] 18:23:34:974 mi_ram.c/(10852:10931): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:34:975 mi_ram.c/(10852:10931): El tripulante 3 se movio hacia 8|4
+[INFO] 18:23:35:969 mi_ram.c/(10852:10936): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:35:971 mi_ram.c/(10852:10936): El tripulante 0 se movio hacia 9|5
+[INFO] 18:23:35:972 mi_ram.c/(10852:10935): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:35:974 mi_ram.c/(10852:10935): El tripulante 1 se movio hacia 9|3
+[INFO] 18:23:35:975 mi_ram.c/(10852:10937): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:35:976 mi_ram.c/(10852:10937): El tripulante 3 se movio hacia 9|4
+[INFO] 18:23:36:969 mi_ram.c/(10852:10941): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:36:970 mi_ram.c/(10852:10941): El tripulante 0 se movio hacia 9|6
+[INFO] 18:23:36:971 mi_ram.c/(10852:10942): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:36:973 mi_ram.c/(10852:10942): El tripulante 1 se movio hacia 9|4
+[INFO] 18:23:36:975 mi_ram.c/(10852:10943): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:36:976 mi_ram.c/(10852:10943): El tripulante 3 se movio hacia 9|5
+[INFO] 18:23:37:969 mi_ram.c/(10852:10944): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:37:970 mi_ram.c/(10852:10944): El tripulante 0 se movio hacia 9|7
+[INFO] 18:23:37:972 mi_ram.c/(10852:10945): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:37:973 mi_ram.c/(10852:10945): El tripulante 1 se movio hacia 9|5
+[INFO] 18:23:37:975 mi_ram.c/(10852:10946): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:37:976 mi_ram.c/(10852:10946): El tripulante 3 se movio hacia 9|6
+[INFO] 18:23:38:973 mi_ram.c/(10852:10953): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:38:978 mi_ram.c/(10852:10953): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 18:23:38:977 mi_ram.c/(10852:10954): Header 1 recibido: PEDIR TAREA
+[INFO] 18:23:38:979 mi_ram.c/(10852:10954): Tripulante 4 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:23:38:979 mi_ram.c/(10852:10954): La tarea a enviar al tripulante 4 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:23:38:977 mi_ram.c/(10852:10956): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:38:981 mi_ram.c/(10852:10956): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 18:23:38:977 mi_ram.c/(10852:10957): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:38:981 mi_ram.c/(10852:10957): El tripulante 1 se movio hacia 9|6
+[INFO] 18:23:38:981 mi_ram.c/(10852:10952): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:38:981 mi_ram.c/(10852:10952): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:23:38:983 mi_ram.c/(10852:10958): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:38:983 mi_ram.c/(10852:10958): El tripulante 3 se movio hacia 9|7
+[INFO] 18:23:38:984 mi_ram.c/(10852:10950): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:38:984 mi_ram.c/(10852:10950): El tripulante 0 se movio hacia 9|8
+[INFO] 18:23:39:982 mi_ram.c/(10852:10964): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:39:982 mi_ram.c/(10852:10964): El tripulante 1 se movio hacia 9|7
+[INFO] 18:23:39:984 mi_ram.c/(10852:10965): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:39:984 mi_ram.c/(10852:10965): El tripulante 3 se movio hacia 9|8
+[INFO] 18:23:39:984 mi_ram.c/(10852:10968): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:39:984 mi_ram.c/(10852:10968): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:23:39:984 mi_ram.c/(10852:10969): Header 1 recibido: PEDIR TAREA
+[INFO] 18:23:39:984 mi_ram.c/(10852:10969): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:23:39:984 mi_ram.c/(10852:10969): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:23:39:984 mi_ram.c/(10852:10967): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:39:984 mi_ram.c/(10852:10967): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:23:39:984 mi_ram.c/(10852:10971): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:39:984 mi_ram.c/(10852:10971): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 18:23:39:985 mi_ram.c/(10852:10972): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:39:985 mi_ram.c/(10852:10972): El tripulante 4 se movio hacia 1|0
+[INFO] 18:23:40:975 mi_ram.c/(10852:10981): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:40:977 mi_ram.c/(10852:10981): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 18:23:40:982 mi_ram.c/(10852:10979): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:23:40:982 mi_ram.c/(10852:10979): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:23:40:992 mi_ram.c/(10852:10977): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:40:992 mi_ram.c/(10852:10977): El tripulante 1 se movio hacia 9|8
+[INFO] 18:23:40:993 mi_ram.c/(10852:10983): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:40:993 mi_ram.c/(10852:10983): El tripulante 4 se movio hacia 2|0
+[INFO] 18:23:40:993 mi_ram.c/(10852:10984): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:40:993 mi_ram.c/(10852:10984): El tripulante 2 se movio hacia 8|8
+[INFO] 18:23:41:982 mi_ram.c/(10852:10987): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:41:983 mi_ram.c/(10852:10987): El tripulante 4 se movio hacia 3|0
+[INFO] 18:23:41:985 mi_ram.c/(10852:10988): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:23:41:986 mi_ram.c/(10852:10988): El tripulante 2 se movio hacia 7|8
+[INFO] 18:24:21:433 mi_ram.c/(10852:11031): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:21:434 mi_ram.c/(10852:11031): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:24:21:434 mi_ram.c/(10852:11033): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:21:436 mi_ram.c/(10852:11033): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:24:21:434 mi_ram.c/(10852:11034): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:21:436 mi_ram.c/(10852:11034): Tripulante 4 actualizo cambio su estado a: S
+[INFO] 18:24:21:434 mi_ram.c/(10852:11032): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:21:436 mi_ram.c/(10852:11032): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:24:21:436 mi_ram.c/(10852:11030): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:21:436 mi_ram.c/(10852:11030): Tripulante 4 actualizo cambio su estado a: B
+[INFO] 18:24:21:436 mi_ram.c/(10852:11029): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:21:436 mi_ram.c/(10852:11029): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:24:29:558 mi_ram.c/(11047:11047): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): PID: 0
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): Cantidad de tripulantes: 5 
+
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): PCB de la patota 0 agregado a memoria
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): Tripulante agregado a memoria. TID: 0
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): Tripulante agregado a memoria. TID: 1
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): Tripulante agregado a memoria. TID: 2
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): Tripulante agregado a memoria. TID: 3
+[INFO] 18:24:37:589 mi_ram.c/(11047:11062): Tripulante agregado a memoria. TID: 4
+[INFO] 18:24:37:590 mi_ram.c/(11047:11070): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:37:590 mi_ram.c/(11047:11070): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:24:37:590 mi_ram.c/(11047:11071): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:37:590 mi_ram.c/(11047:11071): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:24:37:592 mi_ram.c/(11047:11072): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:37:592 mi_ram.c/(11047:11072): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:24:37:593 mi_ram.c/(11047:11073): Header 1 recibido: PEDIR TAREA
+[INFO] 18:24:37:593 mi_ram.c/(11047:11073): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:24:37:593 mi_ram.c/(11047:11073): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:24:37:593 mi_ram.c/(11047:11074): Header 1 recibido: PEDIR TAREA
+[INFO] 18:24:37:593 mi_ram.c/(11047:11074): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:24:37:593 mi_ram.c/(11047:11074): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:24:37:594 mi_ram.c/(11047:11075): Header 1 recibido: PEDIR TAREA
+[INFO] 18:24:37:594 mi_ram.c/(11047:11075): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:24:37:594 mi_ram.c/(11047:11075): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:24:38:593 mi_ram.c/(11047:11077): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:38:595 mi_ram.c/(11047:11077): El tripulante 1 se movio hacia 3|1
+[INFO] 18:24:38:596 mi_ram.c/(11047:11076): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:38:596 mi_ram.c/(11047:11076): El tripulante 2 se movio hacia 9|3
+[INFO] 18:24:38:597 mi_ram.c/(11047:11078): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:38:597 mi_ram.c/(11047:11078): El tripulante 0 se movio hacia 1|5
+[INFO] 18:24:39:595 mi_ram.c/(11047:11080): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:39:596 mi_ram.c/(11047:11080): El tripulante 2 se movio hacia 9|4
+[INFO] 18:24:39:597 mi_ram.c/(11047:11079): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:39:599 mi_ram.c/(11047:11079): El tripulante 1 se movio hacia 4|1
+[INFO] 18:24:39:600 mi_ram.c/(11047:11081): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:39:600 mi_ram.c/(11047:11081): El tripulante 0 se movio hacia 2|5
+[INFO] 18:24:40:596 mi_ram.c/(11047:11084): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:40:598 mi_ram.c/(11047:11084): El tripulante 0 se movio hacia 3|5
+[INFO] 18:24:40:599 mi_ram.c/(11047:11083): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:40:599 mi_ram.c/(11047:11083): El tripulante 1 se movio hacia 5|1
+[INFO] 18:24:40:599 mi_ram.c/(11047:11082): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:40:599 mi_ram.c/(11047:11082): El tripulante 2 se movio hacia 9|5
+[INFO] 18:24:41:597 mi_ram.c/(11047:11087): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:41:597 mi_ram.c/(11047:11087): El tripulante 2 se movio hacia 9|6
+[INFO] 18:24:41:599 mi_ram.c/(11047:11086): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:41:599 mi_ram.c/(11047:11086): El tripulante 1 se movio hacia 6|1
+[INFO] 18:24:41:599 mi_ram.c/(11047:11085): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:41:599 mi_ram.c/(11047:11085): El tripulante 0 se movio hacia 4|5
+[INFO] 18:24:42:598 mi_ram.c/(11047:11090): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:42:598 mi_ram.c/(11047:11090): El tripulante 0 se movio hacia 5|5
+[INFO] 18:24:42:598 mi_ram.c/(11047:11089): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:42:599 mi_ram.c/(11047:11089): El tripulante 1 se movio hacia 7|1
+[INFO] 18:24:42:600 mi_ram.c/(11047:11088): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:42:600 mi_ram.c/(11047:11088): El tripulante 2 se movio hacia 9|7
+[INFO] 18:24:43:601 mi_ram.c/(11047:11095): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:43:601 mi_ram.c/(11047:11095): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:24:43:601 mi_ram.c/(11047:11096): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:43:601 mi_ram.c/(11047:11096): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 18:24:43:601 mi_ram.c/(11047:11097): Header 1 recibido: PEDIR TAREA
+[INFO] 18:24:43:601 mi_ram.c/(11047:11097): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:24:43:601 mi_ram.c/(11047:11097): La tarea a enviar al tripulante 3 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:24:43:601 mi_ram.c/(11047:11098): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:43:601 mi_ram.c/(11047:11098): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 18:24:43:602 mi_ram.c/(11047:11093): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:43:602 mi_ram.c/(11047:11093): El tripulante 2 se movio hacia 9|8
+[INFO] 18:24:43:602 mi_ram.c/(11047:11092): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:43:602 mi_ram.c/(11047:11092): El tripulante 1 se movio hacia 8|1
+[INFO] 18:24:43:603 mi_ram.c/(11047:11091): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:43:603 mi_ram.c/(11047:11091): El tripulante 0 se movio hacia 6|5
+[INFO] 18:24:44:599 mi_ram.c/(11047:11103): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:44:600 mi_ram.c/(11047:11103): El tripulante 0 se movio hacia 7|5
+[INFO] 18:24:44:602 mi_ram.c/(11047:11102): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:44:603 mi_ram.c/(11047:11102): El tripulante 1 se movio hacia 9|1
+[INFO] 18:24:44:604 mi_ram.c/(11047:11104): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:44:605 mi_ram.c/(11047:11104): El tripulante 3 se movio hacia 7|4
+[INFO] 18:24:45:600 mi_ram.c/(11047:11106): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:45:601 mi_ram.c/(11047:11106): El tripulante 1 se movio hacia 9|2
+[INFO] 18:24:45:602 mi_ram.c/(11047:11105): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:45:602 mi_ram.c/(11047:11105): El tripulante 0 se movio hacia 8|5
+[INFO] 18:24:45:604 mi_ram.c/(11047:11107): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:45:604 mi_ram.c/(11047:11107): El tripulante 3 se movio hacia 8|4
+[INFO] 18:24:46:600 mi_ram.c/(11047:11109): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:46:602 mi_ram.c/(11047:11109): El tripulante 0 se movio hacia 9|5
+[INFO] 18:24:46:602 mi_ram.c/(11047:11108): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:46:602 mi_ram.c/(11047:11108): El tripulante 1 se movio hacia 9|3
+[INFO] 18:24:46:605 mi_ram.c/(11047:11110): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:46:605 mi_ram.c/(11047:11110): El tripulante 3 se movio hacia 9|4
+[INFO] 18:24:47:600 mi_ram.c/(11047:11111): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:47:602 mi_ram.c/(11047:11111): El tripulante 0 se movio hacia 9|6
+[INFO] 18:24:47:604 mi_ram.c/(11047:11112): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:47:605 mi_ram.c/(11047:11112): El tripulante 1 se movio hacia 9|4
+[INFO] 18:24:47:606 mi_ram.c/(11047:11113): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:47:608 mi_ram.c/(11047:11113): El tripulante 3 se movio hacia 9|5
+[INFO] 18:24:48:601 mi_ram.c/(11047:11115): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:48:602 mi_ram.c/(11047:11115): El tripulante 1 se movio hacia 9|5
+[INFO] 18:24:48:604 mi_ram.c/(11047:11114): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:48:604 mi_ram.c/(11047:11114): El tripulante 0 se movio hacia 9|7
+[INFO] 18:24:48:606 mi_ram.c/(11047:11116): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:48:607 mi_ram.c/(11047:11116): El tripulante 3 se movio hacia 9|6
+[INFO] 18:24:49:606 mi_ram.c/(11047:11120): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:49:606 mi_ram.c/(11047:11120): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:24:49:606 mi_ram.c/(11047:11121): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:49:606 mi_ram.c/(11047:11121): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 18:24:49:606 mi_ram.c/(11047:11122): Header 1 recibido: PEDIR TAREA
+[INFO] 18:24:49:606 mi_ram.c/(11047:11122): Tripulante 4 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:24:49:606 mi_ram.c/(11047:11122): La tarea a enviar al tripulante 4 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:24:49:606 mi_ram.c/(11047:11123): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:49:606 mi_ram.c/(11047:11123): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 18:24:49:607 mi_ram.c/(11047:11118): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:49:607 mi_ram.c/(11047:11118): El tripulante 0 se movio hacia 9|8
+[INFO] 18:24:49:607 mi_ram.c/(11047:11117): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:49:608 mi_ram.c/(11047:11117): El tripulante 1 se movio hacia 9|6
+[INFO] 18:24:49:608 mi_ram.c/(11047:11125): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:49:608 mi_ram.c/(11047:11125): El tripulante 3 se movio hacia 9|7
+[INFO] 18:24:50:605 mi_ram.c/(11047:11129): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:50:606 mi_ram.c/(11047:11129): El tripulante 1 se movio hacia 9|7
+[INFO] 18:24:50:609 mi_ram.c/(11047:11133): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:50:612 mi_ram.c/(11047:11133): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:24:50:611 mi_ram.c/(11047:11134): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:50:612 mi_ram.c/(11047:11134): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:24:50:611 mi_ram.c/(11047:11136): Header 1 recibido: PEDIR TAREA
+[INFO] 18:24:50:612 mi_ram.c/(11047:11136): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:24:50:612 mi_ram.c/(11047:11136): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:24:50:611 mi_ram.c/(11047:11137): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:50:612 mi_ram.c/(11047:11137): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 18:24:50:612 mi_ram.c/(11047:11131): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:50:612 mi_ram.c/(11047:11131): El tripulante 3 se movio hacia 9|8
+[INFO] 18:24:50:613 mi_ram.c/(11047:11130): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:50:613 mi_ram.c/(11047:11130): El tripulante 4 se movio hacia 1|0
+[INFO] 18:24:51:606 mi_ram.c/(11047:11146): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:51:613 mi_ram.c/(11047:11146): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 18:24:51:613 mi_ram.c/(11047:11144): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:24:51:613 mi_ram.c/(11047:11144): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:24:51:616 mi_ram.c/(11047:11147): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:51:619 mi_ram.c/(11047:11147): El tripulante 4 se movio hacia 2|0
+[INFO] 18:24:51:619 mi_ram.c/(11047:11148): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:51:619 mi_ram.c/(11047:11148): El tripulante 2 se movio hacia 8|8
+[INFO] 18:24:51:620 mi_ram.c/(11047:11142): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:51:620 mi_ram.c/(11047:11142): El tripulante 1 se movio hacia 9|8
+[INFO] 18:24:52:608 mi_ram.c/(11047:11151): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:52:611 mi_ram.c/(11047:11151): El tripulante 4 se movio hacia 3|0
+[INFO] 18:24:52:613 mi_ram.c/(11047:11152): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:52:615 mi_ram.c/(11047:11152): El tripulante 2 se movio hacia 7|8
+[INFO] 18:24:53:609 mi_ram.c/(11047:11153): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:53:610 mi_ram.c/(11047:11153): El tripulante 4 se movio hacia 4|0
+[INFO] 18:24:53:614 mi_ram.c/(11047:11154): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:24:53:615 mi_ram.c/(11047:11154): El tripulante 2 se movio hacia 6|8
+[INFO] 18:25:35:335 mi_ram.c/(11047:11187): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:35:336 mi_ram.c/(11047:11187): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:25:35:336 mi_ram.c/(11047:11189): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:35:338 mi_ram.c/(11047:11189): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:25:35:336 mi_ram.c/(11047:11188): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:35:339 mi_ram.c/(11047:11188): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:25:35:336 mi_ram.c/(11047:11190): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:35:339 mi_ram.c/(11047:11190): Tripulante 4 actualizo cambio su estado a: S
+[INFO] 18:25:35:339 mi_ram.c/(11047:11185): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:35:339 mi_ram.c/(11047:11185): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:25:35:339 mi_ram.c/(11047:11186): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:35:339 mi_ram.c/(11047:11186): Tripulante 4 actualizo cambio su estado a: B
+[INFO] 18:25:43:572 mi_ram.c/(11201:11201): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): PID: 0
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): Cantidad de tripulantes: 5 
+
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): PCB de la patota 0 agregado a memoria
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): Tripulante agregado a memoria. TID: 0
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): Tripulante agregado a memoria. TID: 1
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): Tripulante agregado a memoria. TID: 2
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): Tripulante agregado a memoria. TID: 3
+[INFO] 18:25:50:934 mi_ram.c/(11201:11210): Tripulante agregado a memoria. TID: 4
+[INFO] 18:25:50:936 mi_ram.c/(11201:11218): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:50:936 mi_ram.c/(11201:11218): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:25:50:936 mi_ram.c/(11201:11219): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:50:936 mi_ram.c/(11201:11219): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:25:50:936 mi_ram.c/(11201:11220): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:50:936 mi_ram.c/(11201:11220): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:25:50:936 mi_ram.c/(11201:11221): Header 1 recibido: PEDIR TAREA
+[INFO] 18:25:50:936 mi_ram.c/(11201:11221): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:25:50:936 mi_ram.c/(11201:11221): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:25:50:936 mi_ram.c/(11201:11222): Header 1 recibido: PEDIR TAREA
+[INFO] 18:25:50:936 mi_ram.c/(11201:11222): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:25:50:936 mi_ram.c/(11201:11222): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:25:50:937 mi_ram.c/(11201:11223): Header 1 recibido: PEDIR TAREA
+[INFO] 18:25:50:937 mi_ram.c/(11201:11223): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:25:50:937 mi_ram.c/(11201:11223): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:25:53:190 mi_ram.c/(11201:11229): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:53:191 mi_ram.c/(11201:11229): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:25:53:191 mi_ram.c/(11201:11231): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:53:193 mi_ram.c/(11201:11231): Tripulante 4 actualizo cambio su estado a: B
+[INFO] 18:25:53:191 mi_ram.c/(11201:11230): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:53:194 mi_ram.c/(11201:11230): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:25:53:191 mi_ram.c/(11201:11232): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:53:194 mi_ram.c/(11201:11232): Tripulante 4 actualizo cambio su estado a: S
+[INFO] 18:25:53:194 mi_ram.c/(11201:11227): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:53:194 mi_ram.c/(11201:11227): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:25:53:194 mi_ram.c/(11201:11228): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:25:53:194 mi_ram.c/(11201:11228): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:25:54:483 mi_ram.c/(11233:11233): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:26:06:106 mi_ram.c/(11233:11247): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:26:06:106 mi_ram.c/(11233:11247): PID: 0
+[INFO] 18:26:06:106 mi_ram.c/(11233:11247): Cantidad de tripulantes: 5 
+
+[INFO] 18:26:06:106 mi_ram.c/(11233:11247): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:26:06:106 mi_ram.c/(11233:11247): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:26:06:107 mi_ram.c/(11233:11247): PCB de la patota 0 agregado a memoria
+[INFO] 18:26:06:107 mi_ram.c/(11233:11247): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:26:06:107 mi_ram.c/(11233:11247): Tripulante agregado a memoria. TID: 0
+[INFO] 18:26:06:107 mi_ram.c/(11233:11247): Tripulante agregado a memoria. TID: 1
+[INFO] 18:26:06:107 mi_ram.c/(11233:11247): Tripulante agregado a memoria. TID: 2
+[INFO] 18:26:06:107 mi_ram.c/(11233:11247): Tripulante agregado a memoria. TID: 3
+[INFO] 18:26:06:107 mi_ram.c/(11233:11247): Tripulante agregado a memoria. TID: 4
+[INFO] 18:26:06:108 mi_ram.c/(11233:11255): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:06:108 mi_ram.c/(11233:11255): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:26:06:109 mi_ram.c/(11233:11256): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:06:109 mi_ram.c/(11233:11256): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:26:06:109 mi_ram.c/(11233:11257): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:06:109 mi_ram.c/(11233:11257): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:26:06:109 mi_ram.c/(11233:11258): Header 1 recibido: PEDIR TAREA
+[INFO] 18:26:06:109 mi_ram.c/(11233:11258): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:26:06:109 mi_ram.c/(11233:11258): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:26:06:109 mi_ram.c/(11233:11259): Header 1 recibido: PEDIR TAREA
+[INFO] 18:26:06:109 mi_ram.c/(11233:11259): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:26:06:109 mi_ram.c/(11233:11259): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:26:06:109 mi_ram.c/(11233:11260): Header 1 recibido: PEDIR TAREA
+[INFO] 18:26:06:109 mi_ram.c/(11233:11260): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:26:06:109 mi_ram.c/(11233:11260): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:26:07:110 mi_ram.c/(11233:11263): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:07:111 mi_ram.c/(11233:11263): El tripulante 0 se movio hacia 1|5
+[INFO] 18:26:07:112 mi_ram.c/(11233:11262): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:07:113 mi_ram.c/(11233:11262): El tripulante 1 se movio hacia 3|1
+[INFO] 18:26:07:115 mi_ram.c/(11233:11261): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:07:115 mi_ram.c/(11233:11261): El tripulante 2 se movio hacia 9|3
+[INFO] 18:26:08:110 mi_ram.c/(11233:11271): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:08:113 mi_ram.c/(11233:11271): El tripulante 0 se movio hacia 2|5
+[INFO] 18:26:08:115 mi_ram.c/(11233:11273): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:08:116 mi_ram.c/(11233:11273): El tripulante 2 se movio hacia 9|4
+[INFO] 18:26:08:117 mi_ram.c/(11233:11272): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:08:117 mi_ram.c/(11233:11272): El tripulante 1 se movio hacia 4|1
+[INFO] 18:26:09:112 mi_ram.c/(11233:11276): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:09:114 mi_ram.c/(11233:11276): El tripulante 1 se movio hacia 5|1
+[INFO] 18:26:09:115 mi_ram.c/(11233:11275): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:09:116 mi_ram.c/(11233:11275): El tripulante 2 se movio hacia 9|5
+[INFO] 18:26:09:118 mi_ram.c/(11233:11274): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:09:118 mi_ram.c/(11233:11274): El tripulante 0 se movio hacia 3|5
+[INFO] 18:26:10:112 mi_ram.c/(11233:11280): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:10:114 mi_ram.c/(11233:11280): El tripulante 0 se movio hacia 4|5
+[INFO] 18:26:10:115 mi_ram.c/(11233:11279): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:10:116 mi_ram.c/(11233:11279): El tripulante 2 se movio hacia 9|6
+[INFO] 18:26:10:117 mi_ram.c/(11233:11278): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:10:117 mi_ram.c/(11233:11278): El tripulante 1 se movio hacia 6|1
+[INFO] 18:26:11:111 mi_ram.c/(11233:11284): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:11:113 mi_ram.c/(11233:11284): El tripulante 1 se movio hacia 7|1
+[INFO] 18:26:11:114 mi_ram.c/(11233:11283): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:11:116 mi_ram.c/(11233:11283): El tripulante 2 se movio hacia 9|7
+[INFO] 18:26:11:117 mi_ram.c/(11233:11282): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:11:117 mi_ram.c/(11233:11282): El tripulante 0 se movio hacia 5|5
+[INFO] 18:26:12:114 mi_ram.c/(11233:11290): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:12:115 mi_ram.c/(11233:11290): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:26:12:116 mi_ram.c/(11233:11291): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:12:119 mi_ram.c/(11233:11291): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 18:26:12:116 mi_ram.c/(11233:11292): Header 1 recibido: PEDIR TAREA
+[INFO] 18:26:12:119 mi_ram.c/(11233:11292): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:26:12:119 mi_ram.c/(11233:11292): La tarea a enviar al tripulante 3 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:26:12:116 mi_ram.c/(11233:11294): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:12:119 mi_ram.c/(11233:11294): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 18:26:12:119 mi_ram.c/(11233:11288): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:12:119 mi_ram.c/(11233:11288): El tripulante 0 se movio hacia 6|5
+[INFO] 18:26:12:120 mi_ram.c/(11233:11287): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:12:120 mi_ram.c/(11233:11287): El tripulante 2 se movio hacia 9|8
+[INFO] 18:26:12:120 mi_ram.c/(11233:11286): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:12:120 mi_ram.c/(11233:11286): El tripulante 1 se movio hacia 8|1
+[INFO] 18:26:13:112 mi_ram.c/(11233:11304): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:13:114 mi_ram.c/(11233:11304): El tripulante 0 se movio hacia 7|5
+[INFO] 18:26:13:115 mi_ram.c/(11233:11305): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:13:116 mi_ram.c/(11233:11305): El tripulante 1 se movio hacia 9|1
+[INFO] 18:26:13:119 mi_ram.c/(11233:11306): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:13:120 mi_ram.c/(11233:11306): El tripulante 3 se movio hacia 7|4
+[INFO] 18:26:14:113 mi_ram.c/(11233:11308): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:14:114 mi_ram.c/(11233:11308): El tripulante 0 se movio hacia 8|5
+[INFO] 18:26:14:115 mi_ram.c/(11233:11307): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:14:116 mi_ram.c/(11233:11307): El tripulante 1 se movio hacia 9|2
+[INFO] 18:26:14:120 mi_ram.c/(11233:11309): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:14:122 mi_ram.c/(11233:11309): El tripulante 3 se movio hacia 8|4
+[INFO] 18:26:15:113 mi_ram.c/(11233:11316): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:15:114 mi_ram.c/(11233:11316): El tripulante 0 se movio hacia 9|5
+[INFO] 18:26:15:116 mi_ram.c/(11233:11315): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:15:118 mi_ram.c/(11233:11315): El tripulante 1 se movio hacia 9|3
+[INFO] 18:26:15:120 mi_ram.c/(11233:11317): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:15:121 mi_ram.c/(11233:11317): El tripulante 3 se movio hacia 9|4
+[INFO] 18:26:16:113 mi_ram.c/(11233:11319): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:16:115 mi_ram.c/(11233:11319): El tripulante 1 se movio hacia 9|4
+[INFO] 18:26:16:116 mi_ram.c/(11233:11318): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:16:116 mi_ram.c/(11233:11318): El tripulante 0 se movio hacia 9|6
+[INFO] 18:26:16:120 mi_ram.c/(11233:11320): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:16:121 mi_ram.c/(11233:11320): El tripulante 3 se movio hacia 9|5
+[INFO] 18:26:17:113 mi_ram.c/(11233:11321): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:17:115 mi_ram.c/(11233:11321): El tripulante 1 se movio hacia 9|5
+[INFO] 18:26:17:116 mi_ram.c/(11233:11322): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:17:117 mi_ram.c/(11233:11322): El tripulante 0 se movio hacia 9|7
+[INFO] 18:26:17:121 mi_ram.c/(11233:11323): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:17:122 mi_ram.c/(11233:11323): El tripulante 3 se movio hacia 9|6
+[INFO] 18:26:18:116 mi_ram.c/(11233:11332): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:18:116 mi_ram.c/(11233:11332): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:26:18:117 mi_ram.c/(11233:11333): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:18:117 mi_ram.c/(11233:11333): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 18:26:18:117 mi_ram.c/(11233:11334): Header 1 recibido: PEDIR TAREA
+[INFO] 18:26:18:117 mi_ram.c/(11233:11334): Tripulante 4 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:26:18:117 mi_ram.c/(11233:11334): La tarea a enviar al tripulante 4 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:26:18:117 mi_ram.c/(11233:11336): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:18:117 mi_ram.c/(11233:11336): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 18:26:18:119 mi_ram.c/(11233:11330): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:18:119 mi_ram.c/(11233:11330): El tripulante 0 se movio hacia 9|8
+[INFO] 18:26:18:119 mi_ram.c/(11233:11329): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:18:119 mi_ram.c/(11233:11329): El tripulante 1 se movio hacia 9|6
+[INFO] 18:26:18:123 mi_ram.c/(11233:11339): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:18:123 mi_ram.c/(11233:11339): El tripulante 3 se movio hacia 9|7
+[INFO] 18:26:19:115 mi_ram.c/(11233:11341): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:19:118 mi_ram.c/(11233:11341): El tripulante 1 se movio hacia 9|7
+[INFO] 18:26:19:120 mi_ram.c/(11233:11342): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:19:120 mi_ram.c/(11233:11342): El tripulante 4 se movio hacia 1|0
+[INFO] 18:26:19:123 mi_ram.c/(11233:11346): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:19:123 mi_ram.c/(11233:11346): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:26:19:123 mi_ram.c/(11233:11347): Header 1 recibido: PEDIR TAREA
+[INFO] 18:26:19:123 mi_ram.c/(11233:11347): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:26:19:123 mi_ram.c/(11233:11347): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:26:19:123 mi_ram.c/(11233:11349): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:19:123 mi_ram.c/(11233:11349): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 18:26:19:124 mi_ram.c/(11233:11345): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:19:124 mi_ram.c/(11233:11345): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:26:19:126 mi_ram.c/(11233:11343): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:19:126 mi_ram.c/(11233:11343): El tripulante 3 se movio hacia 9|8
+[INFO] 18:26:20:116 mi_ram.c/(11233:11357): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:20:118 mi_ram.c/(11233:11357): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 18:26:20:121 mi_ram.c/(11233:11355): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:26:20:121 mi_ram.c/(11233:11355): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:26:20:123 mi_ram.c/(11233:11358): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:20:123 mi_ram.c/(11233:11358): El tripulante 4 se movio hacia 2|0
+[INFO] 18:26:20:124 mi_ram.c/(11233:11353): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:20:124 mi_ram.c/(11233:11353): El tripulante 1 se movio hacia 9|8
+[INFO] 18:26:20:125 mi_ram.c/(11233:11360): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:20:125 mi_ram.c/(11233:11360): El tripulante 2 se movio hacia 8|8
+[INFO] 18:26:21:121 mi_ram.c/(11233:11362): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:21:122 mi_ram.c/(11233:11362): El tripulante 4 se movio hacia 3|0
+[INFO] 18:26:21:124 mi_ram.c/(11233:11363): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:26:21:124 mi_ram.c/(11233:11363): El tripulante 2 se movio hacia 7|8
+[INFO] 18:27:02:433 mi_ram.c/(11233:11398): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:27:02:434 mi_ram.c/(11233:11398): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:27:02:434 mi_ram.c/(11233:11400): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:27:02:436 mi_ram.c/(11233:11400): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:27:02:434 mi_ram.c/(11233:11399): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:27:02:437 mi_ram.c/(11233:11399): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:27:02:434 mi_ram.c/(11233:11401): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:27:02:437 mi_ram.c/(11233:11401): Tripulante 4 actualizo cambio su estado a: S
+[INFO] 18:27:02:437 mi_ram.c/(11233:11396): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:27:02:437 mi_ram.c/(11233:11396): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:27:02:437 mi_ram.c/(11233:11397): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:27:02:437 mi_ram.c/(11233:11397): Tripulante 4 actualizo cambio su estado a: B
+[INFO] 18:28:10:065 mi_ram.c/(11448:11448): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): PID: 0
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): Cantidad de tripulantes: 5 
+
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): PCB de la patota 0 agregado a memoria
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): Tripulante agregado a memoria. TID: 0
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): Tripulante agregado a memoria. TID: 1
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): Tripulante agregado a memoria. TID: 2
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): Tripulante agregado a memoria. TID: 3
+[INFO] 18:28:21:238 mi_ram.c/(11448:11470): Tripulante agregado a memoria. TID: 4
+[INFO] 18:28:21:240 mi_ram.c/(11448:11478): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:21:240 mi_ram.c/(11448:11478): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:28:21:240 mi_ram.c/(11448:11479): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:21:240 mi_ram.c/(11448:11479): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:28:21:240 mi_ram.c/(11448:11480): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:21:240 mi_ram.c/(11448:11480): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:28:21:240 mi_ram.c/(11448:11481): Header 1 recibido: PEDIR TAREA
+[INFO] 18:28:21:240 mi_ram.c/(11448:11481): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:28:21:240 mi_ram.c/(11448:11481): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:28:21:241 mi_ram.c/(11448:11482): Header 1 recibido: PEDIR TAREA
+[INFO] 18:28:21:241 mi_ram.c/(11448:11482): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:28:21:241 mi_ram.c/(11448:11482): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:28:21:243 mi_ram.c/(11448:11483): Header 1 recibido: PEDIR TAREA
+[INFO] 18:28:21:243 mi_ram.c/(11448:11483): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:28:21:243 mi_ram.c/(11448:11483): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:28:22:241 mi_ram.c/(11448:11485): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:22:242 mi_ram.c/(11448:11485): El tripulante 1 se movio hacia 3|1
+[INFO] 18:28:22:244 mi_ram.c/(11448:11484): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:22:245 mi_ram.c/(11448:11484): El tripulante 2 se movio hacia 9|3
+[INFO] 18:28:22:246 mi_ram.c/(11448:11486): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:22:248 mi_ram.c/(11448:11486): El tripulante 0 se movio hacia 1|5
+[INFO] 18:28:23:242 mi_ram.c/(11448:11488): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:23:243 mi_ram.c/(11448:11488): El tripulante 2 se movio hacia 9|4
+[INFO] 18:28:23:244 mi_ram.c/(11448:11487): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:23:244 mi_ram.c/(11448:11487): El tripulante 1 se movio hacia 4|1
+[INFO] 18:28:23:246 mi_ram.c/(11448:11489): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:23:246 mi_ram.c/(11448:11489): El tripulante 0 se movio hacia 2|5
+[INFO] 18:28:24:242 mi_ram.c/(11448:11491): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:24:243 mi_ram.c/(11448:11491): El tripulante 1 se movio hacia 5|1
+[INFO] 18:28:24:245 mi_ram.c/(11448:11490): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:24:246 mi_ram.c/(11448:11490): El tripulante 2 se movio hacia 9|5
+[INFO] 18:28:24:247 mi_ram.c/(11448:11492): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:24:248 mi_ram.c/(11448:11492): El tripulante 0 se movio hacia 3|5
+[INFO] 18:28:25:243 mi_ram.c/(11448:11494): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:25:245 mi_ram.c/(11448:11494): El tripulante 2 se movio hacia 9|6
+[INFO] 18:28:25:245 mi_ram.c/(11448:11493): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:25:245 mi_ram.c/(11448:11493): El tripulante 1 se movio hacia 6|1
+[INFO] 18:28:25:246 mi_ram.c/(11448:11495): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:25:248 mi_ram.c/(11448:11495): El tripulante 0 se movio hacia 4|5
+[INFO] 18:28:26:244 mi_ram.c/(11448:11497): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:26:246 mi_ram.c/(11448:11497): El tripulante 1 se movio hacia 7|1
+[INFO] 18:28:26:244 mi_ram.c/(11448:11496): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:26:247 mi_ram.c/(11448:11496): El tripulante 2 se movio hacia 9|7
+[INFO] 18:28:26:248 mi_ram.c/(11448:11498): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:26:248 mi_ram.c/(11448:11498): El tripulante 0 se movio hacia 5|5
+[INFO] 18:28:27:247 mi_ram.c/(11448:11502): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:27:247 mi_ram.c/(11448:11502): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:28:27:247 mi_ram.c/(11448:11503): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:27:247 mi_ram.c/(11448:11503): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 18:28:27:247 mi_ram.c/(11448:11504): Header 1 recibido: PEDIR TAREA
+[INFO] 18:28:27:247 mi_ram.c/(11448:11504): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:28:27:247 mi_ram.c/(11448:11504): La tarea a enviar al tripulante 3 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:28:27:247 mi_ram.c/(11448:11505): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:27:247 mi_ram.c/(11448:11505): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 18:28:27:248 mi_ram.c/(11448:11500): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:27:248 mi_ram.c/(11448:11500): El tripulante 2 se movio hacia 9|8
+[INFO] 18:28:27:249 mi_ram.c/(11448:11499): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:27:249 mi_ram.c/(11448:11499): El tripulante 1 se movio hacia 8|1
+[INFO] 18:28:27:249 mi_ram.c/(11448:11507): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:27:249 mi_ram.c/(11448:11507): El tripulante 0 se movio hacia 6|5
+[INFO] 18:28:28:245 mi_ram.c/(11448:11512): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:28:246 mi_ram.c/(11448:11512): El tripulante 1 se movio hacia 9|1
+[INFO] 18:28:28:248 mi_ram.c/(11448:11513): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:28:249 mi_ram.c/(11448:11513): El tripulante 3 se movio hacia 7|4
+[INFO] 18:28:28:250 mi_ram.c/(11448:11514): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:28:251 mi_ram.c/(11448:11514): El tripulante 0 se movio hacia 7|5
+[INFO] 18:28:29:246 mi_ram.c/(11448:11515): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:29:247 mi_ram.c/(11448:11515): El tripulante 1 se movio hacia 9|2
+[INFO] 18:28:29:248 mi_ram.c/(11448:11516): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:29:249 mi_ram.c/(11448:11516): El tripulante 3 se movio hacia 8|4
+[INFO] 18:28:29:251 mi_ram.c/(11448:11517): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:29:252 mi_ram.c/(11448:11517): El tripulante 0 se movio hacia 8|5
+[INFO] 18:28:30:246 mi_ram.c/(11448:11518): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:30:248 mi_ram.c/(11448:11518): El tripulante 1 se movio hacia 9|3
+[INFO] 18:28:30:249 mi_ram.c/(11448:11519): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:30:250 mi_ram.c/(11448:11519): El tripulante 3 se movio hacia 9|4
+[INFO] 18:28:30:251 mi_ram.c/(11448:11520): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:30:252 mi_ram.c/(11448:11520): El tripulante 0 se movio hacia 9|5
+[INFO] 18:28:31:247 mi_ram.c/(11448:11521): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:31:249 mi_ram.c/(11448:11521): El tripulante 1 se movio hacia 9|4
+[INFO] 18:28:31:250 mi_ram.c/(11448:11522): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:31:252 mi_ram.c/(11448:11522): El tripulante 3 se movio hacia 9|5
+[INFO] 18:28:31:253 mi_ram.c/(11448:11523): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:31:254 mi_ram.c/(11448:11523): El tripulante 0 se movio hacia 9|6
+[INFO] 18:28:32:248 mi_ram.c/(11448:11524): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:32:249 mi_ram.c/(11448:11524): El tripulante 1 se movio hacia 9|5
+[INFO] 18:28:32:251 mi_ram.c/(11448:11525): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:32:251 mi_ram.c/(11448:11525): El tripulante 3 se movio hacia 9|6
+[INFO] 18:28:32:253 mi_ram.c/(11448:11526): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:32:254 mi_ram.c/(11448:11526): El tripulante 0 se movio hacia 9|7
+[INFO] 18:28:33:248 mi_ram.c/(11448:11527): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:33:250 mi_ram.c/(11448:11527): El tripulante 1 se movio hacia 9|6
+[INFO] 18:28:33:251 mi_ram.c/(11448:11528): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:33:254 mi_ram.c/(11448:11528): El tripulante 3 se movio hacia 9|7
+[INFO] 18:28:33:256 mi_ram.c/(11448:11531): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:33:256 mi_ram.c/(11448:11531): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:28:33:256 mi_ram.c/(11448:11532): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:33:256 mi_ram.c/(11448:11532): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 18:28:33:256 mi_ram.c/(11448:11533): Header 1 recibido: PEDIR TAREA
+[INFO] 18:28:33:256 mi_ram.c/(11448:11533): Tripulante 4 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:28:33:256 mi_ram.c/(11448:11533): La tarea a enviar al tripulante 4 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:28:33:256 mi_ram.c/(11448:11534): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:33:256 mi_ram.c/(11448:11534): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 18:28:33:257 mi_ram.c/(11448:11529): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:33:257 mi_ram.c/(11448:11529): El tripulante 0 se movio hacia 9|8
+[INFO] 18:28:34:250 mi_ram.c/(11448:11541): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:34:253 mi_ram.c/(11448:11541): El tripulante 1 se movio hacia 9|7
+[INFO] 18:28:34:255 mi_ram.c/(11448:11544): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:34:255 mi_ram.c/(11448:11544): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:28:34:257 mi_ram.c/(11448:11545): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:34:257 mi_ram.c/(11448:11545): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:28:34:257 mi_ram.c/(11448:11546): Header 1 recibido: PEDIR TAREA
+[INFO] 18:28:34:257 mi_ram.c/(11448:11546): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:28:34:257 mi_ram.c/(11448:11546): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:28:34:257 mi_ram.c/(11448:11548): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:34:257 mi_ram.c/(11448:11548): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 18:28:34:258 mi_ram.c/(11448:11542): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:34:258 mi_ram.c/(11448:11542): El tripulante 3 se movio hacia 9|8
+[INFO] 18:28:34:260 mi_ram.c/(11448:11549): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:34:260 mi_ram.c/(11448:11549): El tripulante 4 se movio hacia 1|0
+[INFO] 18:28:35:251 mi_ram.c/(11448:11557): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:35:252 mi_ram.c/(11448:11557): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 18:28:35:255 mi_ram.c/(11448:11555): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:28:35:255 mi_ram.c/(11448:11555): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:28:35:258 mi_ram.c/(11448:11553): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:35:258 mi_ram.c/(11448:11553): El tripulante 1 se movio hacia 9|8
+[INFO] 18:28:35:258 mi_ram.c/(11448:11560): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:35:258 mi_ram.c/(11448:11560): El tripulante 2 se movio hacia 8|8
+[INFO] 18:28:35:259 mi_ram.c/(11448:11559): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:35:259 mi_ram.c/(11448:11559): El tripulante 4 se movio hacia 2|0
+[INFO] 18:28:36:257 mi_ram.c/(11448:11562): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:36:259 mi_ram.c/(11448:11562): El tripulante 2 se movio hacia 7|8
+[INFO] 18:28:36:261 mi_ram.c/(11448:11563): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:36:262 mi_ram.c/(11448:11563): El tripulante 4 se movio hacia 3|0
+[INFO] 18:28:37:258 mi_ram.c/(11448:11564): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:37:259 mi_ram.c/(11448:11564): El tripulante 2 se movio hacia 6|8
+[INFO] 18:28:37:260 mi_ram.c/(11448:11565): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:37:261 mi_ram.c/(11448:11565): El tripulante 4 se movio hacia 4|0
+[INFO] 18:28:38:259 mi_ram.c/(11448:11566): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:38:260 mi_ram.c/(11448:11566): El tripulante 2 se movio hacia 5|8
+[INFO] 18:28:38:261 mi_ram.c/(11448:11567): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:38:263 mi_ram.c/(11448:11567): El tripulante 4 se movio hacia 5|0
+[INFO] 18:28:39:259 mi_ram.c/(11448:11568): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:39:260 mi_ram.c/(11448:11568): El tripulante 2 se movio hacia 4|8
+[INFO] 18:28:39:262 mi_ram.c/(11448:11569): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:28:39:263 mi_ram.c/(11448:11569): El tripulante 4 se movio hacia 6|0
+[INFO] 18:30:35:203 mi_ram.c/(11448:11666): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:30:35:204 mi_ram.c/(11448:11666): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:30:35:204 mi_ram.c/(11448:11668): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:30:35:206 mi_ram.c/(11448:11668): Tripulante 4 actualizo cambio su estado a: S
+[INFO] 18:30:35:204 mi_ram.c/(11448:11667): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:30:35:207 mi_ram.c/(11448:11667): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:30:35:207 mi_ram.c/(11448:11665): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:30:35:208 mi_ram.c/(11448:11665): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:30:35:208 mi_ram.c/(11448:11664): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:30:35:208 mi_ram.c/(11448:11664): Tripulante 4 actualizo cambio su estado a: B
+[INFO] 18:30:35:208 mi_ram.c/(11448:11663): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:30:35:208 mi_ram.c/(11448:11663): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:30:48:287 mi_ram.c/(11684:11684): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:32:17:996 mi_ram.c/(11791:11791): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): PID: 0
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): Cantidad de tripulantes: 5 
+
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): PCB de la patota 0 agregado a memoria
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): Tripulante agregado a memoria. TID: 0
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): Tripulante agregado a memoria. TID: 1
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): Tripulante agregado a memoria. TID: 2
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): Tripulante agregado a memoria. TID: 3
+[INFO] 18:32:23:905 mi_ram.c/(11791:11810): Tripulante agregado a memoria. TID: 4
+[INFO] 18:32:23:908 mi_ram.c/(11791:11818): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:23:908 mi_ram.c/(11791:11818): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:32:23:909 mi_ram.c/(11791:11819): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:23:909 mi_ram.c/(11791:11819): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:32:23:909 mi_ram.c/(11791:11820): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:23:909 mi_ram.c/(11791:11820): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:32:23:909 mi_ram.c/(11791:11821): Header 1 recibido: PEDIR TAREA
+[INFO] 18:32:23:909 mi_ram.c/(11791:11821): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:32:23:909 mi_ram.c/(11791:11821): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:32:23:909 mi_ram.c/(11791:11822): Header 1 recibido: PEDIR TAREA
+[INFO] 18:32:23:909 mi_ram.c/(11791:11822): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:32:23:909 mi_ram.c/(11791:11822): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:32:23:910 mi_ram.c/(11791:11823): Header 1 recibido: PEDIR TAREA
+[INFO] 18:32:23:910 mi_ram.c/(11791:11823): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:32:23:910 mi_ram.c/(11791:11823): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:32:24:910 mi_ram.c/(11791:11825): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:24:911 mi_ram.c/(11791:11825): El tripulante 1 se movio hacia 3|1
+[INFO] 18:32:24:912 mi_ram.c/(11791:11824): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:24:913 mi_ram.c/(11791:11824): El tripulante 2 se movio hacia 9|3
+[INFO] 18:32:24:915 mi_ram.c/(11791:11826): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:24:915 mi_ram.c/(11791:11826): El tripulante 0 se movio hacia 1|5
+[INFO] 18:32:25:911 mi_ram.c/(11791:11828): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:25:912 mi_ram.c/(11791:11828): El tripulante 2 se movio hacia 9|4
+[INFO] 18:32:25:913 mi_ram.c/(11791:11827): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:25:914 mi_ram.c/(11791:11827): El tripulante 1 se movio hacia 4|1
+[INFO] 18:32:25:916 mi_ram.c/(11791:11829): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:25:916 mi_ram.c/(11791:11829): El tripulante 0 se movio hacia 2|5
+[INFO] 18:32:26:912 mi_ram.c/(11791:11831): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:26:913 mi_ram.c/(11791:11831): El tripulante 1 se movio hacia 5|1
+[INFO] 18:32:26:914 mi_ram.c/(11791:11830): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:26:916 mi_ram.c/(11791:11830): El tripulante 2 se movio hacia 9|5
+[INFO] 18:32:26:917 mi_ram.c/(11791:11832): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:26:917 mi_ram.c/(11791:11832): El tripulante 0 se movio hacia 3|5
+[INFO] 18:32:27:912 mi_ram.c/(11791:11834): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:27:914 mi_ram.c/(11791:11834): El tripulante 2 se movio hacia 9|6
+[INFO] 18:32:27:915 mi_ram.c/(11791:11833): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:27:916 mi_ram.c/(11791:11833): El tripulante 1 se movio hacia 6|1
+[INFO] 18:32:27:918 mi_ram.c/(11791:11835): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:27:918 mi_ram.c/(11791:11835): El tripulante 0 se movio hacia 4|5
+[INFO] 18:32:28:913 mi_ram.c/(11791:11837): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:28:914 mi_ram.c/(11791:11837): El tripulante 1 se movio hacia 7|1
+[INFO] 18:32:28:916 mi_ram.c/(11791:11836): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:28:917 mi_ram.c/(11791:11836): El tripulante 2 se movio hacia 9|7
+[INFO] 18:32:28:918 mi_ram.c/(11791:11838): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:28:918 mi_ram.c/(11791:11838): El tripulante 0 se movio hacia 5|5
+[INFO] 18:32:29:919 mi_ram.c/(11791:11848): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:29:920 mi_ram.c/(11791:11848): El tripulante 0 se movio hacia 6|5
+[INFO] 18:32:29:921 mi_ram.c/(11791:11849): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:29:922 mi_ram.c/(11791:11849): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:32:29:921 mi_ram.c/(11791:11850): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:29:923 mi_ram.c/(11791:11850): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 18:32:29:921 mi_ram.c/(11791:11851): Header 1 recibido: PEDIR TAREA
+[INFO] 18:32:29:924 mi_ram.c/(11791:11851): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:32:29:924 mi_ram.c/(11791:11851): La tarea a enviar al tripulante 3 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:32:29:921 mi_ram.c/(11791:11852): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:29:924 mi_ram.c/(11791:11852): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 18:32:29:924 mi_ram.c/(11791:11847): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:29:924 mi_ram.c/(11791:11847): El tripulante 2 se movio hacia 9|8
+[INFO] 18:32:29:925 mi_ram.c/(11791:11846): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:29:925 mi_ram.c/(11791:11846): El tripulante 1 se movio hacia 8|1
+[INFO] 18:32:30:915 mi_ram.c/(11791:11857): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:30:916 mi_ram.c/(11791:11857): El tripulante 1 se movio hacia 9|1
+[INFO] 18:32:30:918 mi_ram.c/(11791:11858): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:30:918 mi_ram.c/(11791:11858): El tripulante 0 se movio hacia 7|5
+[INFO] 18:32:30:924 mi_ram.c/(11791:11859): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:30:925 mi_ram.c/(11791:11859): El tripulante 3 se movio hacia 7|4
+[INFO] 18:32:31:916 mi_ram.c/(11791:11863): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:31:917 mi_ram.c/(11791:11863): El tripulante 1 se movio hacia 9|2
+[INFO] 18:32:31:918 mi_ram.c/(11791:11864): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:31:919 mi_ram.c/(11791:11864): El tripulante 0 se movio hacia 8|5
+[INFO] 18:32:31:925 mi_ram.c/(11791:11865): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:31:925 mi_ram.c/(11791:11865): El tripulante 3 se movio hacia 8|4
+[INFO] 18:32:32:917 mi_ram.c/(11791:11870): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:32:919 mi_ram.c/(11791:11870): El tripulante 0 se movio hacia 9|5
+[INFO] 18:32:32:920 mi_ram.c/(11791:11869): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:32:921 mi_ram.c/(11791:11869): El tripulante 1 se movio hacia 9|3
+[INFO] 18:32:32:925 mi_ram.c/(11791:11871): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:32:927 mi_ram.c/(11791:11871): El tripulante 3 se movio hacia 9|4
+[INFO] 18:32:33:922 mi_ram.c/(11791:11877): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:33:923 mi_ram.c/(11791:11877): El tripulante 0 se movio hacia 9|6
+[INFO] 18:32:33:923 mi_ram.c/(11791:11878): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:33:925 mi_ram.c/(11791:11878): El tripulante 1 se movio hacia 9|4
+[INFO] 18:32:33:928 mi_ram.c/(11791:11879): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:33:929 mi_ram.c/(11791:11879): El tripulante 3 se movio hacia 9|5
+[INFO] 18:32:34:919 mi_ram.c/(11791:11886): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:34:920 mi_ram.c/(11791:11886): El tripulante 0 se movio hacia 9|7
+[INFO] 18:32:34:922 mi_ram.c/(11791:11885): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:34:923 mi_ram.c/(11791:11885): El tripulante 1 se movio hacia 9|5
+[INFO] 18:32:34:926 mi_ram.c/(11791:11887): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:34:927 mi_ram.c/(11791:11887): El tripulante 3 se movio hacia 9|6
+[INFO] 18:32:35:923 mi_ram.c/(11791:11893): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:35:925 mi_ram.c/(11791:11893): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:32:35:924 mi_ram.c/(11791:11895): Header 1 recibido: PEDIR TAREA
+[INFO] 18:32:35:927 mi_ram.c/(11791:11895): Tripulante 4 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:32:35:927 mi_ram.c/(11791:11895): La tarea a enviar al tripulante 4 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:32:35:924 mi_ram.c/(11791:11894): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:35:928 mi_ram.c/(11791:11894): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 18:32:35:924 mi_ram.c/(11791:11896): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:35:928 mi_ram.c/(11791:11896): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 18:32:35:929 mi_ram.c/(11791:11892): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:35:929 mi_ram.c/(11791:11892): El tripulante 0 se movio hacia 9|8
+[INFO] 18:32:35:932 mi_ram.c/(11791:11891): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:35:932 mi_ram.c/(11791:11891): El tripulante 1 se movio hacia 9|6
+[INFO] 18:32:35:933 mi_ram.c/(11791:11899): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:35:933 mi_ram.c/(11791:11899): El tripulante 3 se movio hacia 9|7
+[INFO] 18:32:36:921 mi_ram.c/(11791:11907): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:36:922 mi_ram.c/(11791:11907): El tripulante 1 se movio hacia 9|7
+[INFO] 18:32:36:937 mi_ram.c/(11791:11910): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:36:937 mi_ram.c/(11791:11910): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:32:36:939 mi_ram.c/(11791:11911): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:36:939 mi_ram.c/(11791:11911): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:32:36:939 mi_ram.c/(11791:11912): Header 1 recibido: PEDIR TAREA
+[INFO] 18:32:36:939 mi_ram.c/(11791:11912): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:32:36:939 mi_ram.c/(11791:11912): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:32:36:939 mi_ram.c/(11791:11913): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:36:939 mi_ram.c/(11791:11913): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 18:32:36:939 mi_ram.c/(11791:11909): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:36:939 mi_ram.c/(11791:11909): El tripulante 4 se movio hacia 1|0
+[INFO] 18:32:36:939 mi_ram.c/(11791:11908): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:36:939 mi_ram.c/(11791:11908): El tripulante 3 se movio hacia 9|8
+[INFO] 18:32:37:925 mi_ram.c/(11791:11922): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:37:926 mi_ram.c/(11791:11922): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 18:32:37:927 mi_ram.c/(11791:11921): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:32:37:928 mi_ram.c/(11791:11921): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:32:37:936 mi_ram.c/(11791:11924): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:37:936 mi_ram.c/(11791:11924): El tripulante 4 se movio hacia 2|0
+[INFO] 18:32:37:938 mi_ram.c/(11791:11919): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:37:938 mi_ram.c/(11791:11919): El tripulante 1 se movio hacia 9|8
+[INFO] 18:32:37:946 mi_ram.c/(11791:11926): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:37:946 mi_ram.c/(11791:11926): El tripulante 2 se movio hacia 8|8
+[INFO] 18:32:38:929 mi_ram.c/(11791:11929): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:38:931 mi_ram.c/(11791:11929): El tripulante 4 se movio hacia 3|0
+[INFO] 18:32:38:940 mi_ram.c/(11791:11930): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:32:38:941 mi_ram.c/(11791:11930): El tripulante 2 se movio hacia 7|8
+[INFO] 18:35:09:839 mi_ram.c/(12016:12016): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 18:35:15:536 mi_ram.c/(12016:12024): Header 0 recibido: INICIAR PATOTA
+[INFO] 18:35:15:536 mi_ram.c/(12016:12024): PID: 0
+[INFO] 18:35:15:536 mi_ram.c/(12016:12024): Cantidad de tripulantes: 5 
+
+[INFO] 18:35:15:536 mi_ram.c/(12016:12024): Se necesitan: 188 bytes. Buscando espacio necesario...
+[INFO] 18:35:15:536 mi_ram.c/(12016:12024): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 18:35:15:536 mi_ram.c/(12016:12024): PCB de la patota 0 agregado a memoria
+[INFO] 18:35:15:536 mi_ram.c/(12016:12024): Tareas de la patota 0 agregadas a memoria
+[INFO] 18:35:15:536 mi_ram.c/(12016:12024): Tripulante agregado a memoria. TID: 0
+[INFO] 18:35:15:536 mi_ram.c/(12016:12024): Tripulante agregado a memoria. TID: 1
+[INFO] 18:35:15:537 mi_ram.c/(12016:12024): Tripulante agregado a memoria. TID: 2
+[INFO] 18:35:15:537 mi_ram.c/(12016:12024): Tripulante agregado a memoria. TID: 3
+[INFO] 18:35:15:537 mi_ram.c/(12016:12024): Tripulante agregado a memoria. TID: 4
+[INFO] 18:35:15:538 mi_ram.c/(12016:12032): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:15:538 mi_ram.c/(12016:12032): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 18:35:15:539 mi_ram.c/(12016:12033): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:15:539 mi_ram.c/(12016:12033): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 18:35:15:539 mi_ram.c/(12016:12034): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:15:539 mi_ram.c/(12016:12034): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:35:15:539 mi_ram.c/(12016:12035): Header 1 recibido: PEDIR TAREA
+[INFO] 18:35:15:539 mi_ram.c/(12016:12035): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:35:15:539 mi_ram.c/(12016:12035): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:35:15:539 mi_ram.c/(12016:12036): Header 1 recibido: PEDIR TAREA
+[INFO] 18:35:15:539 mi_ram.c/(12016:12036): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:35:15:539 mi_ram.c/(12016:12036): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:35:15:539 mi_ram.c/(12016:12037): Header 1 recibido: PEDIR TAREA
+[INFO] 18:35:15:539 mi_ram.c/(12016:12037): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:35:15:539 mi_ram.c/(12016:12037): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:35:16:539 mi_ram.c/(12016:12040): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:16:540 mi_ram.c/(12016:12040): El tripulante 0 se movio hacia 1|5
+[INFO] 18:35:16:542 mi_ram.c/(12016:12039): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:16:543 mi_ram.c/(12016:12039): El tripulante 1 se movio hacia 3|1
+[INFO] 18:35:16:544 mi_ram.c/(12016:12038): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:16:544 mi_ram.c/(12016:12038): El tripulante 2 se movio hacia 9|3
+[INFO] 18:35:17:542 mi_ram.c/(12016:12043): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:17:543 mi_ram.c/(12016:12043): El tripulante 2 se movio hacia 9|4
+[INFO] 18:35:17:544 mi_ram.c/(12016:12042): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:17:545 mi_ram.c/(12016:12042): El tripulante 1 se movio hacia 4|1
+[INFO] 18:35:17:547 mi_ram.c/(12016:12041): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:17:547 mi_ram.c/(12016:12041): El tripulante 0 se movio hacia 2|5
+[INFO] 18:35:18:542 mi_ram.c/(12016:12052): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:18:543 mi_ram.c/(12016:12052): El tripulante 0 se movio hacia 3|5
+[INFO] 18:35:18:545 mi_ram.c/(12016:12051): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:18:546 mi_ram.c/(12016:12051): El tripulante 1 se movio hacia 5|1
+[INFO] 18:35:18:547 mi_ram.c/(12016:12050): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:18:547 mi_ram.c/(12016:12050): El tripulante 2 se movio hacia 9|5
+[INFO] 18:35:19:543 mi_ram.c/(12016:12061): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:19:544 mi_ram.c/(12016:12061): El tripulante 2 se movio hacia 9|6
+[INFO] 18:35:19:545 mi_ram.c/(12016:12060): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:19:546 mi_ram.c/(12016:12060): El tripulante 1 se movio hacia 6|1
+[INFO] 18:35:19:548 mi_ram.c/(12016:12059): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:19:548 mi_ram.c/(12016:12059): El tripulante 0 se movio hacia 4|5
+[INFO] 18:35:20:544 mi_ram.c/(12016:12067): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:20:545 mi_ram.c/(12016:12067): El tripulante 0 se movio hacia 5|5
+[INFO] 18:35:20:547 mi_ram.c/(12016:12066): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:20:548 mi_ram.c/(12016:12066): El tripulante 1 se movio hacia 7|1
+[INFO] 18:35:20:550 mi_ram.c/(12016:12065): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:20:551 mi_ram.c/(12016:12065): El tripulante 2 se movio hacia 9|7
+[INFO] 18:35:21:548 mi_ram.c/(12016:12075): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:21:550 mi_ram.c/(12016:12075): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:35:21:550 mi_ram.c/(12016:12077): Header 1 recibido: PEDIR TAREA
+[INFO] 18:35:21:551 mi_ram.c/(12016:12077): Tripulante 3 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:35:21:551 mi_ram.c/(12016:12077): La tarea a enviar al tripulante 3 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:35:21:550 mi_ram.c/(12016:12078): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:21:553 mi_ram.c/(12016:12078): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 18:35:21:550 mi_ram.c/(12016:12076): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:21:553 mi_ram.c/(12016:12076): Tripulante 3 actualizo cambio su estado a: E
+[INFO] 18:35:21:553 mi_ram.c/(12016:12073): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:21:553 mi_ram.c/(12016:12073): El tripulante 2 se movio hacia 9|8
+[INFO] 18:35:21:556 mi_ram.c/(12016:12072): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:21:556 mi_ram.c/(12016:12072): El tripulante 1 se movio hacia 8|1
+[INFO] 18:35:21:556 mi_ram.c/(12016:12071): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:21:556 mi_ram.c/(12016:12071): El tripulante 0 se movio hacia 6|5
+[INFO] 18:35:22:546 mi_ram.c/(12016:12088): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:22:547 mi_ram.c/(12016:12088): El tripulante 0 se movio hacia 7|5
+[INFO] 18:35:22:549 mi_ram.c/(12016:12087): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:22:551 mi_ram.c/(12016:12087): El tripulante 1 se movio hacia 9|1
+[INFO] 18:35:22:552 mi_ram.c/(12016:12089): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:22:554 mi_ram.c/(12016:12089): El tripulante 3 se movio hacia 7|4
+[INFO] 18:35:23:547 mi_ram.c/(12016:12095): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:23:548 mi_ram.c/(12016:12095): El tripulante 1 se movio hacia 9|2
+[INFO] 18:35:23:550 mi_ram.c/(12016:12094): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:23:551 mi_ram.c/(12016:12094): El tripulante 0 se movio hacia 8|5
+[INFO] 18:35:23:552 mi_ram.c/(12016:12096): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:23:553 mi_ram.c/(12016:12096): El tripulante 3 se movio hacia 8|4
+[INFO] 18:35:24:547 mi_ram.c/(12016:12098): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:24:549 mi_ram.c/(12016:12098): El tripulante 0 se movio hacia 9|5
+[INFO] 18:35:24:550 mi_ram.c/(12016:12097): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:24:551 mi_ram.c/(12016:12097): El tripulante 1 se movio hacia 9|3
+[INFO] 18:35:24:553 mi_ram.c/(12016:12099): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:24:554 mi_ram.c/(12016:12099): El tripulante 3 se movio hacia 9|4
+[INFO] 18:35:25:548 mi_ram.c/(12016:12101): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:25:550 mi_ram.c/(12016:12101): El tripulante 1 se movio hacia 9|4
+[INFO] 18:35:25:551 mi_ram.c/(12016:12100): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:25:552 mi_ram.c/(12016:12100): El tripulante 0 se movio hacia 9|6
+[INFO] 18:35:25:554 mi_ram.c/(12016:12102): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:25:555 mi_ram.c/(12016:12102): El tripulante 3 se movio hacia 9|5
+[INFO] 18:35:26:550 mi_ram.c/(12016:12104): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:26:551 mi_ram.c/(12016:12104): El tripulante 0 se movio hacia 9|7
+[INFO] 18:35:26:552 mi_ram.c/(12016:12103): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:26:553 mi_ram.c/(12016:12103): El tripulante 1 se movio hacia 9|5
+[INFO] 18:35:26:555 mi_ram.c/(12016:12105): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:26:556 mi_ram.c/(12016:12105): El tripulante 3 se movio hacia 9|6
+[INFO] 18:35:27:553 mi_ram.c/(12016:12109): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:27:553 mi_ram.c/(12016:12109): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:35:27:553 mi_ram.c/(12016:12110): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:27:553 mi_ram.c/(12016:12110): Tripulante 4 actualizo cambio su estado a: E
+[INFO] 18:35:27:553 mi_ram.c/(12016:12111): Header 1 recibido: PEDIR TAREA
+[INFO] 18:35:27:553 mi_ram.c/(12016:12111): Tripulante 4 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:35:27:553 mi_ram.c/(12016:12111): La tarea a enviar al tripulante 4 es: GENERAR_OXIGENO 3;9;8;6
+[INFO] 18:35:27:553 mi_ram.c/(12016:12112): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:27:553 mi_ram.c/(12016:12112): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 18:35:27:559 mi_ram.c/(12016:12107): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:27:559 mi_ram.c/(12016:12107): El tripulante 1 se movio hacia 9|6
+[INFO] 18:35:27:559 mi_ram.c/(12016:12106): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:27:559 mi_ram.c/(12016:12106): El tripulante 0 se movio hacia 9|8
+[INFO] 18:35:27:559 mi_ram.c/(12016:12115): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:27:559 mi_ram.c/(12016:12115): El tripulante 3 se movio hacia 9|7
+[INFO] 18:35:28:553 mi_ram.c/(12016:12119): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:28:554 mi_ram.c/(12016:12119): El tripulante 1 se movio hacia 9|7
+[INFO] 18:35:28:565 mi_ram.c/(12016:12120): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:28:568 mi_ram.c/(12016:12120): El tripulante 4 se movio hacia 1|0
+[INFO] 18:35:28:570 mi_ram.c/(12016:12122): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:28:570 mi_ram.c/(12016:12122): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:35:28:570 mi_ram.c/(12016:12123): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:28:570 mi_ram.c/(12016:12123): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 18:35:28:570 mi_ram.c/(12016:12124): Header 1 recibido: PEDIR TAREA
+[INFO] 18:35:28:570 mi_ram.c/(12016:12124): Tripulante 2 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 18:35:28:570 mi_ram.c/(12016:12124): La tarea a enviar al tripulante 2 es: GENERAR_OXIGENO 4;2;3;8
+[INFO] 18:35:28:570 mi_ram.c/(12016:12125): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:28:570 mi_ram.c/(12016:12125): Tripulante 3 actualizo cambio su estado a: R
+[INFO] 18:35:28:570 mi_ram.c/(12016:12121): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:28:570 mi_ram.c/(12016:12121): El tripulante 3 se movio hacia 9|8
+[INFO] 18:35:29:554 mi_ram.c/(12016:12135): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:29:555 mi_ram.c/(12016:12135): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 18:35:29:556 mi_ram.c/(12016:12134): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:29:558 mi_ram.c/(12016:12134): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:35:29:563 mi_ram.c/(12016:12137): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:29:563 mi_ram.c/(12016:12137): El tripulante 4 se movio hacia 2|0
+[INFO] 18:35:29:565 mi_ram.c/(12016:12132): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:29:565 mi_ram.c/(12016:12132): El tripulante 1 se movio hacia 9|8
+[INFO] 18:35:29:575 mi_ram.c/(12016:12139): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:29:575 mi_ram.c/(12016:12139): El tripulante 2 se movio hacia 8|8
+[INFO] 18:35:30:557 mi_ram.c/(12016:12142): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:30:558 mi_ram.c/(12016:12142): El tripulante 4 se movio hacia 3|0
+[INFO] 18:35:30:572 mi_ram.c/(12016:12143): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 18:35:30:573 mi_ram.c/(12016:12143): El tripulante 2 se movio hacia 7|8
+[INFO] 18:35:38:584 mi_ram.c/(12016:12152): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:38:585 mi_ram.c/(12016:12152): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 18:35:38:585 mi_ram.c/(12016:12156): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:38:588 mi_ram.c/(12016:12156): Tripulante 3 actualizo cambio su estado a: B
+[INFO] 18:35:38:585 mi_ram.c/(12016:12155): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:38:588 mi_ram.c/(12016:12155): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 18:35:38:585 mi_ram.c/(12016:12157): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:38:588 mi_ram.c/(12016:12157): Tripulante 4 actualizo cambio su estado a: S
+[INFO] 18:35:38:588 mi_ram.c/(12016:12154): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:38:588 mi_ram.c/(12016:12154): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 18:35:38:589 mi_ram.c/(12016:12153): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 18:35:38:589 mi_ram.c/(12016:12153): Tripulante 4 actualizo cambio su estado a: B
