@@ -31,9 +31,8 @@ int crear_conexionServer(char *puerto, char * ip){
 	memset(&hints, 0, sizeof(hints));
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
-	hints.ai_flags = ip; //PREGUNTAR EL TEMA DE LA IP
 
-	getaddrinfo(NULL, puerto, &hints, &server_info);
+	getaddrinfo(ip, puerto, &hints, &server_info);
 
 	int listening_socket= socket(server_info->ai_family, server_info->ai_socktype, server_info->ai_protocol);
 
