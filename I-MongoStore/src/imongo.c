@@ -3,7 +3,7 @@
 int main(int argc, char ** argv){
 	loggerImongoStore = log_create("imongo.log", "imongo.c", 0, LOG_LEVEL_INFO); 
 
-	leerConfig();
+	leerConfig(); 
 
 	char * valorInicio = readline("Ingrese 0 si se quiere crear un FileSystem limpio, cualquier otro caracter si se busca leer un FileSystem existente\n");
 	int valor = atoi(valorInicio);

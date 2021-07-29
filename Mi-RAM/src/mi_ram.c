@@ -218,7 +218,7 @@ void atenderDiscordiador(int socketCliente){
 
 				//dumpDeMemoriaPaginacion();
 				
-			}
+			} 
 
 			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {
 

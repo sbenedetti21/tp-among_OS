@@ -12,6 +12,7 @@ int tiempoSabotaje;
 uint32_t proximoPID = 0; 
 char * posicionBase;
 t_config * config;
+int cantidadBloqueados;
 
 typedef struct tcb_discordiador{
     uint32_t tid;
@@ -25,7 +26,7 @@ typedef struct tcb_discordiador{
     bool fueExpulsado;
 } TCB_DISCORDIADOR;
 
-bool planificacionPausada;
+bool planificacionPausada = false;
 
 int proximoTID = 0;
 sem_t semaforoTripulantes; 
@@ -44,6 +45,7 @@ sem_t semaforoSabotaje;
 sem_t semaforoSabotajeBloqueados;
 sem_t mutexPID; 
 sem_t semaforoPlanificacionPausada;
+sem_t contadorBloqueados;
  
 
 t_log * loggerDiscordiador; 
