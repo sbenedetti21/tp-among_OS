@@ -44,12 +44,12 @@ void atenderDiscordiador(int);
 
 //Informacion config
 char * puertoImongoStore;
-char * ipImongo;
 uint32_t tamanioDeBloque;
 uint32_t cantidadDeBloques;
 char * puntoDeMontaje;
 int tiempoDeSinc;
 char **posicionesSabotaje;
+char * ipImongo;
 
 //Variables de mapeo del Blocks
 size_t tamanioBlocks;
@@ -85,7 +85,7 @@ void inicializarFileSystem(int);
 void borrarFileSystem(const char *);
 
 //USO DEL BITMAP
-void crearBitmap();
+t_bitarray * crearBitmap();
 void guardarBitMap();
 int bloqueLibreBitMap();
 void liberarBloqueBitMap(int);
@@ -131,8 +131,9 @@ char * conseguirBitacora(uint32_t);
 
 //SABOTAJES
 void pruebaDeSabotaje();
-bool verificarBlocksBitMap(char *);
-bool verificarBitacoraBitMap();
+bool verificarLosBitMap(t_bitarray *);
+void verificarBlocksBitMap(char *, t_bitarray *);
+void verificarBitacoraBitMap(t_bitarray *);
 bool sabotajeSuperBloque();
 int llenarBloqueConRecurso(char, int, int);
 bool verificarListBlocks(char *);

@@ -10,20 +10,23 @@
 uint32_t cicloCPU;
 int tiempoSabotaje;
 uint32_t proximoPID = 0; 
+char * posicionBase;
+t_config * config;
+int cantidadBloqueados;
 
 typedef struct tcb_discordiador{
-	uint32_t tid;
-	char estado;
-	uint32_t posicionX;
-	uint32_t posicionY;
-	sem_t semaforoTrabajo;
-	sem_t termineIO;
-	uint32_t pid;
-	tarea_struct * tareaActual; 
-	bool fueExpulsado;
+    uint32_t tid;
+    char estado;
+    uint32_t posicionX;
+    uint32_t posicionY;
+    sem_t semaforoTrabajo;
+    sem_t termineIO;
+    uint32_t pid;
+    tarea_struct * tareaActual; 
+    bool fueExpulsado;
 } TCB_DISCORDIADOR;
 
-bool planificacionPausada;
+bool planificacionPausada = false;
 
 int proximoTID = 0;
 sem_t semaforoTripulantes; 
@@ -42,6 +45,7 @@ sem_t semaforoSabotaje;
 sem_t semaforoSabotajeBloqueados;
 sem_t mutexPID; 
 sem_t semaforoPlanificacionPausada;
+sem_t contadorBloqueados;
  
 
 t_log * loggerDiscordiador; 
@@ -100,6 +104,6 @@ char * leerTareas(char *);
 void serializarYMandarPedidoDeBitacora(uint32_t);
 int socketParaSabotajes;
 void expulsarTripulate(TCB_DISCORDIADOR *);
-
+char idMapa(uint32_t);
 
 #endif
