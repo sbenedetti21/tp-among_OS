@@ -49,10 +49,11 @@ void leerConfig(){
 	tamanioPagina = config_get_int_value(config, "TAMANIO_PAGINA");
 	pathSwap = config_get_string_value(config, "PATH_SWAP");
 	tamanioSwap = config_get_int_value(config, "TAMANIO_SWAP");
+	ipRam = config_get_string_value(config, "IP");
 
 }
 void servidorPrincipal() {
-	int listeningSocket = crear_conexionServer(puertoMemoria);
+	int listeningSocket = crear_conexionServer(puertoMemoria, ipRam);
 
 	
 

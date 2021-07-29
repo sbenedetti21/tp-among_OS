@@ -44,6 +44,7 @@ void atenderDiscordiador(int);
 
 //Informacion config
 char * puertoImongoStore;
+char * ipImongo;
 uint32_t tamanioDeBloque;
 uint32_t cantidadDeBloques;
 char * puntoDeMontaje;

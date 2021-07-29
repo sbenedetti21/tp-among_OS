@@ -68,6 +68,7 @@ void leerConfig(){
 	tamanioDeBloque = config_get_int_value(config, "BLOCK_SIZE");
     cantidadDeBloques = config_get_int_value(config, "CANTIDAD_BLOCKS");
 	posicionesSabotaje = config_get_array_value(config,"POSICIONES_SABOTAJE");
+	ipImongo = config_get_string_value(config, "IP");
 }
 //----------------------------------------------------------------------------------------------------//
 //----------------------------------- ARCHIVO BLOCKS Y SUPERBLOQUE -----------------------------------//
@@ -1120,7 +1121,7 @@ void sincronizacionMapBlocks(){
 //-------------------------------------- ATENDER DISCORDIADOR ---------------------------------------//
 
 void servidorPrincipal() {
-	int listeningSocket = crear_conexionServer(puertoImongoStore);
+	int listeningSocket = crear_conexionServer(puertoImongoStore, ipImongo);
 	int socketCliente;
 		
 	printf("Conectado con el servidor, esperando tripulantes\n");

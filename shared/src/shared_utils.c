@@ -23,7 +23,7 @@ int crear_conexion(char *ip, char* puerto)
 
 }
 
-int crear_conexionServer(char *puerto){
+int crear_conexionServer(char *puerto, char * ip){
 
 	struct addrinfo hints;
 	struct addrinfo *server_info;
@@ -31,7 +31,7 @@ int crear_conexionServer(char *puerto){
 	memset(&hints, 0, sizeof(hints));
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
-	hints.ai_flags = AI_PASSIVE; //PREGUNTAR EL TEMA DE LA IP
+	hints.ai_flags = ip; //PREGUNTAR EL TEMA DE LA IP
 
 	getaddrinfo(NULL, puerto, &hints, &server_info);
 

@@ -22,7 +22,7 @@
 
 int crear_conexion(char *, char*);
 
-int crear_conexionServer(char*);
+int crear_conexionServer(char*, char *);
 
 
 // TCB - Tripulante Control Block -- ocupa 17 bytes (no)
