@@ -1502,7 +1502,7 @@ void atenderDiscordiador(int socketCliente){
 		raise(SIGUSR1);
 		break;
 	}
-
+ 
 	guardarBitMap();
 
 	free(paquete->buffer->stream);
