@@ -51,6 +51,7 @@ bool compactacion = false;
 // ----------------------------------------  PAGINAS
 
 int contadorLRU;
+int punteroClock = 0;
 
 char * path_SWAP;
 t_list * listaFrames;
@@ -87,6 +88,7 @@ typedef struct {
 	uint32_t pid;
 	t_list * listaPaginas;
 	int contadorTCB;
+	pthread_mutex_t semaforoPatota;
 } referenciaTablaPaginas;
 
 typedef struct {
@@ -99,7 +101,7 @@ typedef struct {
 
 char * obtenerProximaTareaPaginacion(referenciaTablaPaginas* , uint32_t);
 uint32_t obtenerDireccionProximaTareaPaginacion(void *);
-uint32_t obtenerDireccionFrame(referenciaTablaPaginas *, uint32_t);
+uint32_t obtenerDireccionFrame(referenciaTablaPaginas *, int);
 char * encontrarTareasDeTripulanteEnStream(void *, t_tripulantePaginacion *, referenciaTablaPaginas*);
 void actualizarPunteroTarea(t_tripulantePaginacion *, t_list*, int);
 

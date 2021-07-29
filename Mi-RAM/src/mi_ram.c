@@ -8,7 +8,7 @@ int main(int argc, char ** argv){
 
 
 
-	navePrincipal = nivel_crear("Nave Principal");
+	// navePrincipal = nivel_crear("Nave Principal");
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
 	leerConfig();
 
@@ -26,11 +26,11 @@ int main(int argc, char ** argv){
 
 	
 
-	 pthread_t mapa;
-	 pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	 pthread_join(mapa, NULL);
-	 nivel_destruir(navePrincipal); 
-	 nivel_gui_terminar();
+	//  pthread_t mapa;
+	//  pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	//  pthread_join(mapa, NULL);
+	//  nivel_destruir(navePrincipal); 
+	//  nivel_gui_terminar();
 
 	 	
 	pthread_join(servidor, NULL);
@@ -186,7 +186,7 @@ void atenderDiscordiador(int socketCliente){
 				
 					memcpy(&x, stream + 4, 4);
 					memcpy(&y, stream + 8, 4);
-					agregarTripulanteAlMapa(tid,x,y);
+					//agregarTripulanteAlMapa(tid,x,y);
 				// Calculo de pagina y offset de los tripulantes
 
 					t_tripulantePaginacion * tripu = malloc(sizeof(t_tripulantePaginacion)); 
@@ -282,7 +282,7 @@ void atenderDiscordiador(int socketCliente){
 					list_add(tripulantesPatotas, referenciaTripulante);
 					sem_post(&mutexTripulantesPatotas);
 
-				agregarTripulanteAlMapa(tripulanteID, posx, posy);
+				//agregarTripulanteAlMapa(tripulanteID, posx, posy);
 			
 				}
 
@@ -340,7 +340,7 @@ void atenderDiscordiador(int socketCliente){
 		if(strcmp(stringTarea, "NO_HAY_TAREA") == 0){ //Esto cambialo cuando sepas si hay tarea o no
 
 			
-			expulsarTripulanteDelMapa(tid);
+			//expulsarTripulanteDelMapa(tid);
 			t_buffer* buffer = malloc(sizeof(t_buffer)); // se puede mandar un buffer vacio????????????
 			buffer-> size = sizeof(int);
 			void * streamEnvio = malloc(buffer->size);
@@ -399,7 +399,7 @@ void atenderDiscordiador(int socketCliente){
 
 		log_info(loggerMiram,"Tripulante %d se movio hacia %d|%d",tripulanteid,posx,posy);
 
-		moverTripulanteEnMapa(tripulanteid,posx,posy);
+		//moverTripulanteEnMapa(tripulanteid,posx,posy);
 
 		actualizarPosicionTripulante(patotaid, tripulanteid, posx, posy);
 
@@ -428,7 +428,7 @@ void atenderDiscordiador(int socketCliente){
 		stream += sizeof(uint32_t);
 		memcpy(&patid, stream, sizeof(uint32_t));
 		stream += sizeof(uint32_t);
-		expulsarTripulanteDelMapa(tripid);
+		//expulsarTripulanteDelMapa(tripid);
 		eliminarTripulante(patid, tripid);
 		//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
@@ -824,7 +824,7 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	void * ceros = malloc(tamanioPagina);
 	memset(ceros, 0, tamanioPagina);
 	fwrite(ceros, tamanioPagina, 1, swap);
-	log_info(loggerMiram, "%s", mem_hexstring(memAux, tamanioPagina));
+	//log_info(loggerMiram, "%s", mem_hexstring(memAux, tamanioPagina));
 	
 
 	// buscar el frame en la lista de frames swapp y poner que esta libre  --> TODO
@@ -839,7 +839,7 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 
 	//pthread_mutex_lock(&mutexMemoriaPrincipal);
 	memcpy(memoriaPrincipal + frameLibre->inicio, memAux, tamanioPagina);
-	log_info(loggerMiram, "\n%s", mem_hexstring(memoriaPrincipal, tamanioMemoria));
+	//log_info(loggerMiram, "\n%s", mem_hexstring(memoriaPrincipal, tamanioMemoria));
 	//pthread_mutex_unlock(&mutexMemoriaPrincipal);
 	frameLibre->ocupado = 1;
 	frameLibre->pagina = pagina;
@@ -921,9 +921,28 @@ t_frame * seleccionarVictima() {
 
 	if (strcmp(algoritmoReemplazo, "CLOCK") == 0) {
 		
+		while(1) {
+			t_frame * frame = list_get(listaFrames, punteroClock);
+			if(!(frame->pagina->bitDeUso)) {
+				punteroClock++;
+				checkeoPunteroClock();
+				return frame;
+			}
+			if(frame->pagina->bitDeUso) {
+				frame->pagina->bitDeUso = 0;
+				punteroClock++;
+				checkeoPunteroClock();
+			}
+		}
+
 	}
 
 	return victima;
+}
+
+void checkeoPunteroClock() {
+	int cantidadFrames = tamanioMemoria/tamanioPagina;
+	if (punteroClock == cantidadFrames) {punteroClock = 0;}
 }
 
 void dumpDeMemoriaPaginacion() {
@@ -1018,6 +1037,7 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 	tablaDePaginas->pid = pid;
 	tablaDePaginas->listaPaginas = listaDePaginas;
 	tablaDePaginas->contadorTCB = cantidadTCBs;
+	pthread_mutex_init(&(tablaDePaginas->semaforoPatota), NULL);
 
 	pthread_mutex_lock(&mutexListaTablas);
 	list_add(listaTablasDePaginas, tablaDePaginas);
@@ -1037,9 +1057,11 @@ void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_
 
 	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID); 
 	
+	pthread_mutex_lock(&(referenciaTabla->semaforoPatota));
 	uint32_t offset = referenciaTripulante->offset; 
 	uint32_t cantPaginas = referenciaTripulante-> cantidadDePaginas; 
-	uint32_t pagina = referenciaTripulante ->nroPagina; 
+	uint32_t pagina = referenciaTripulante ->nroPagina;
+	pthread_mutex_unlock(&(referenciaTabla->semaforoPatota));
 	void * streamTripulante = malloc(SIZEOF_TCB);
 	int bytesCopiados = 0;
 	
@@ -1060,7 +1082,7 @@ void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_
 	return streamTripulante; 
 }
 
-uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, uint32_t nroPagina){
+uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, int nroPagina){
 
 	uint32_t direcFrame = 0; 
 
@@ -1068,12 +1090,15 @@ uint32_t obtenerDireccionFrame(referenciaTablaPaginas * referenciaTabla, uint32_
 		return (pagina->numeroPagina == nroPagina);
 	}
 
-	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
-	t_pagina * pagina = list_find(tablaPaginas, coincideNro); 
-	if (!pagina->bitDeValidez) {
+	//pthread_mutex_lock(&(referenciaTabla->semaforoPatota));
+
+	t_pagina * pagina = list_find(referenciaTabla->listaPaginas, coincideNro);
+	if(pagina == NULL) {log_info(loggerMiram, "pagina null");}
+	if (!(pagina->bitDeValidez)) {
 		traerPaginaAMemoria(pagina);
 	}
 	direcFrame = pagina->numeroFrame * tamanioPagina; 
+	//pthread_mutex_unlock(&(referenciaTabla->semaforoPatota));
 
 	return direcFrame; 
 }
@@ -1094,7 +1119,7 @@ void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
 	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
 	pthread_mutex_unlock(&mutexListaTablas);
 	if (referenciaTabla == NULL) {log_info(loggerMiram, "no existe el tripu"); return;}
-	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
+
 	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
 	uint32_t offset = referenciaTripulante->offset; 
 	uint32_t bytesPrevios = sizeof(uint32_t)*3; 
@@ -1153,7 +1178,7 @@ void actualizarPosicionPaginacion(uint32_t pid, uint32_t tid, uint32_t posx, uin
 	pthread_mutex_lock(&mutexListaTablas);
 	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
 	pthread_mutex_unlock(&mutexListaTablas);
-	t_list * tablaPaginas = referenciaTabla->listaPaginas; 
+	//t_list * tablaPaginas = referenciaTabla->listaPaginas; 
 	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
 	uint32_t offset = referenciaTripulante->offset; 
 	uint32_t bytesPrevios = sizeof(uint32_t);
@@ -1196,7 +1221,6 @@ void eliminarTripulantePaginacion(uint32_t pid, uint32_t tid){
 	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
 
 	if (referenciaTabla->contadorTCB == 1) {
-		t_list * listaPaginas = referenciaTabla->listaPaginas;
 
 		void desocupar(t_pagina * pagina) {
 			if (!pagina->bitDeValidez) {
@@ -1208,15 +1232,20 @@ void eliminarTripulantePaginacion(uint32_t pid, uint32_t tid){
 				frameADesocupar->ocupado = 0;
 				pagina->bitDeValidez = 0;
 			}
-	
 		}
+
+		pthread_mutex_lock(&(referenciaTabla->semaforoPatota));
+		t_list * listaPaginas = referenciaTabla->listaPaginas;
 		list_iterate(listaPaginas, desocupar); 
 		list_destroy_and_destroy_elements(listaPaginas, free);
+		pthread_mutex_unlock(&(referenciaTabla->semaforoPatota));
 		free(referenciaTabla);
 	}
 
-	list_remove_and_destroy_by_condition(listaTripulantes, coincideTID, free); 
-	referenciaTabla->contadorTCB--; 
+	list_remove_and_destroy_by_condition(listaTripulantes, coincideTID, free);
+	pthread_mutex_lock(&(referenciaTabla->semaforoPatota)); 
+	referenciaTabla->contadorTCB--;
+	pthread_mutex_unlock(&(referenciaTabla->semaforoPatota));
 
 }
 
@@ -1230,9 +1259,9 @@ uint32_t obtenerDireccionProximaTareaPaginacion(void * streamTripulante){
 char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, uint32_t tid) {
 	void * streamTripulante = malloc(SIZEOF_TCB);
 	streamTripulante = obtenerStreamTripulante(referenciaTabla, tid);
-	int proximaTarea = 0;
-	proximaTarea = obtenerDireccionProximaTareaPaginacion(streamTripulante);
-	if ((proximaTarea) == 0) {
+	int direccionProximaTarea = 0;
+	direccionProximaTarea = obtenerDireccionProximaTareaPaginacion(streamTripulante);
+	if ((direccionProximaTarea) == 0) {
 		return "NO_HAY_TAREA";
 	}
 
@@ -1244,59 +1273,45 @@ char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, u
 
 	/// Encontrar los frames de las tareas
 	int i = 0, j = 0;
+	char c = 0;
+	char * tarea = malloc(40);
+	int paginaATraer = direccionProximaTarea / tamanioPagina;
+	int offsetTareas = direccionProximaTarea % tamanioPagina;
+	int direccionFrame = 0;
+	
 
-	bool coincideIDPatota(referenciaTablaPaginas * tablaPagina) {
-		return tablaPagina->pid == referenciaTripu->pid;
-	}
-		
-	referenciaTablaPaginas * tablaDeLaPatota = list_find(listaTablasDePaginas, coincideIDPatota);
-	int cantidadDePaginas = divisionRedondeadaParaArriba((tablaDeLaPatota->longitudTareas + SIZEOF_PCB) , tamanioPagina);
-	int *frames = malloc(cantidadDePaginas * 4);
-
-	for(int z = 0; z < cantidadDePaginas; z++) {
-		t_pagina * pagina = list_get(tablaDeLaPatota->listaPaginas, z);
-		if (!pagina->bitDeValidez) {
-			traerPaginaAMemoria(pagina);
+	
+	while (c != '\n' && c != '|') {
+		log_info(loggerMiram, "pagina: %d, offset: %d", paginaATraer, offsetTareas);
+		direccionFrame = obtenerDireccionFrame(referenciaTabla, paginaATraer);
+		while(c != '\n' && c != '|' && (offsetTareas) < tamanioPagina) {
+			memcpy(tarea + i, memoriaPrincipal + direccionFrame + offsetTareas, 1);
+			i++;
+			offsetTareas++;
+			memcpy(&c, memoriaPrincipal + direccionFrame + offsetTareas, 1);
+			log_info(loggerMiram, "%c", c);
 		}
-		frames[i] = pagina->numeroFrame;
-		i++;
+
+		paginaATraer++;
+		offsetTareas = 0;
+
 	}
 
-	void * streamTareas = malloc(cantidadDePaginas * tamanioPagina);
-
-	pthread_mutex_lock(&mutexMemoriaPrincipal);	
-	for(j = 0; j < i; j++) {
-		memcpy(streamTareas + j * tamanioPagina, memoriaPrincipal + tamanioPagina * frames[j], tamanioPagina);
-	}
-	pthread_mutex_unlock(&mutexMemoriaPrincipal);
-	///
-	char * tarea = malloc(40); //como se cuanto ocupan las tareas
-	char c = 'a';
-	j = 0;i = 0;
-
-	log_info(loggerMiram, "proximaTarea: %d|%d, c: %c|%d" , proximaTarea, &proximaTarea, c, &c);
-	memcpy(&c, streamTareas + proximaTarea, 1);
-	while(c != '|' && c != '\n') {
-		memcpy(tarea + j, streamTareas + i + proximaTarea, 1);
-		i++;
-		memcpy(&c, streamTareas + i + proximaTarea, 1);
-		j++;
-	}
 
 	if(c == '\n') {
-		proximaTarea = i + proximaTarea + 1;
-	}
+        direccionProximaTarea = i + direccionProximaTarea + 1;
+    }
 
-	if(c == '|') {
-		proximaTarea = 0;
-	}
+    if(c == '|') {
+        direccionProximaTarea = 0;
+    }
 
-	printf("prox tarea: %d", proximaTarea);
-	//realloc(tarea, j + 1);
-	char barraCero = '\0';
-	memcpy(tarea + j, &barraCero, 1);
-
-	actualizarPunteroTarea(referenciaTripu, referenciaTabla->listaPaginas, proximaTarea);
+    printf("prox tarea: %d", direccionProximaTarea);
+    //realloc(tarea, j + 1);
+    char barraCero = '\0';
+    memcpy(tarea + i, &barraCero, 1);
+	
+	actualizarPunteroTarea(referenciaTripu, referenciaTabla->listaPaginas, direccionProximaTarea);
 
 	return tarea;
 }
@@ -2003,42 +2018,42 @@ void * hiloSIGUSR2(){
 
 // ------------------------------------------------------ MAPA ----------------------------------------------
 
-void iniciarMapa() {
-	sem_init(&semaforoMoverTripulante,0,1);
-	sem_init(&semaforoTerminarMapa,0,0);
-	nivel_gui_inicializar();
-	sem_wait(&semaforoTerminarMapa);
-}
+// void iniciarMapa() {
+// 	sem_init(&semaforoMoverTripulante,0,1);
+// 	sem_init(&semaforoTerminarMapa,0,0);
+// 	nivel_gui_inicializar();
+// 	sem_wait(&semaforoTerminarMapa);
+// }
 
-void agregarTripulanteAlMapa(uint32_t tid, uint32_t x, uint32_t y) { 
-	char id = idMapa(tid); //aca el tid es un uint  
-    personaje_crear(navePrincipal, id, x, y);
-	nivel_gui_dibujar(navePrincipal);
-}
+// void agregarTripulanteAlMapa(uint32_t tid, uint32_t x, uint32_t y) { 
+// 	char id = idMapa(tid); //aca el tid es un uint  
+//     personaje_crear(navePrincipal, id, x, y);
+// 	nivel_gui_dibujar(navePrincipal);
+// }
 
-void moverTripulanteEnMapa(uint32_t tid, uint32_t x, uint32_t y){
-	char id = idMapa(tid);
-	sem_wait(&semaforoMoverTripulante);
-	item_mover(navePrincipal, id, x, y);
-	nivel_gui_dibujar(navePrincipal);
-	sem_post(&semaforoMoverTripulante);
-}
+// void moverTripulanteEnMapa(uint32_t tid, uint32_t x, uint32_t y){
+// 	char id = idMapa(tid);
+// 	sem_wait(&semaforoMoverTripulante);
+// 	item_mover(navePrincipal, id, x, y);
+// 	nivel_gui_dibujar(navePrincipal);
+// 	sem_post(&semaforoMoverTripulante);
+// }
 
-void expulsarTripulanteDelMapa(uint32_t tid) {
-	char id = idMapa(tid);
-	item_borrar(navePrincipal, id);
-	nivel_gui_dibujar(navePrincipal);
-}
+// void expulsarTripulanteDelMapa(uint32_t tid) {
+// 	char id = idMapa(tid);
+// 	item_borrar(navePrincipal, id);
+// 	nivel_gui_dibujar(navePrincipal);
+// }
 
-char idMapa(uint32_t tid){
+// char idMapa(uint32_t tid){
 
-	char id = 0;
+// 	char id = 0;
 
-	id = tid + 65;
+// 	id = tid + 65;
 
-	if (id > 90) {
-		id += 6;
-	}
-	return id;
+// 	if (id > 90) {
+// 		id += 6;
+// 	}
+// 	return id;
 
-}
+// }
