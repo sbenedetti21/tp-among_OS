@@ -78,7 +78,8 @@ typedef struct{
 
 typedef struct{
 	int pid; 
-	t_list * tablaPatota; 
+	t_list * tablaPatota;
+	pthread_mutex_t semaforoPatota;  
 } referenciaTablaPatota; 
 
 
@@ -97,9 +98,9 @@ int buscarEspacioNecesarioSegmentacion(int , int );
 uint32_t buscarSegmentoLibre(int );
 uint32_t bestFitSegmentacion(int );
 uint32_t firstFitSegmentacion(int );
-uint32_t asignarMemoriaSegmentacionTCB(void * , int , t_list * , int );
-uint32_t asignarMemoriaSegmentacionPCB(void *  , t_list * );
-uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * , int );
+uint32_t asignarMemoriaSegmentacionTCB(void * , int , referenciaTablaPatota * , int );
+uint32_t asignarMemoriaSegmentacionPCB(void *  , referenciaTablaPatota * );
+uint32_t asignarMemoriaSegmentacionTareas(char * , int , referenciaTablaPatota * , int );
 void actualizarPosicionTripulanteSegmentacion(uint32_t , uint32_t , uint32_t , uint32_t );
 void actualizarEstadoTripulanteSegmentacion(uint32_t , uint32_t , char );
 void actualizarDireccionesTareasTCB(t_segmento *, uint32_t, uint32_t); 
