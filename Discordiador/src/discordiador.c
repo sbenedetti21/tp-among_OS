@@ -91,7 +91,8 @@ int main(int argc, char ** argv){
 	sem_init(&semaforoSabotaje,0,0);
 	sem_init(&semaforoPlanificacionPausada,0,0);
 	sem_init(&mutexPID, 0, 1); 
-	sem_init(&contadorBloqueados, 0, 1); 
+	sem_init(&contadorBloqueados, 0, 1);
+	
 
 	pthread_t hiloConsola;
 	pthread_create(&hiloConsola, NULL, (void*) consola, NULL);
@@ -337,6 +338,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 	int contador = 0; // cantidad de quantum ya utilizado
 	int quantum = atoi(config_get_string_value(config, "QUANTUM"));
 	bool esLaPrimera = true;
+	bool ultimaTareaDeIO = false;
+	int tiempoBloqueo = 0;
 	uint32_t posxV;
 	uint32_t posyV;
 	bool tareaTerminada = true; 
@@ -401,10 +404,6 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 						tarea->parametro = atoi(requerimientosTarea[1]);
 					} else{
 						tarea->descripcionTarea = vectorTarea[0];
-
-						if(strcmp(tipoAlgoritmo, "RR") == 0){
-							serializarYMandarInicioTareaNormal(tripulante->tid, tarea->descripcionTarea);
-						}
 						
 					}
 
@@ -437,11 +436,46 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 		}
 
+		if(ultimaTareaDeIO){
+			cambiarDeEstado(tripulante,'B');
+			sem_post(&semaforoTripulantes);
+			sem_post(&gestionarIO);
+			for(int e = 0; e < tiempoBloqueo + 1; e++){
+				
+				if( tripulante->fueExpulsado){
+					expulsarTripulate(tripulante);
+						break; 
+						}
+
+				if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+				if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
+
+				sleep(cicloCPU);	
+			}
+			
+			if( tripulante->fueExpulsado){
+					expulsarTripulate(tripulante);
+						break; 
+						}
+			if(haySabotaje){ sem_wait(&semaforoSabotaje);}
+			if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
+					
+			sem_wait(&tripulante->termineIO);
+			serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
+			
+			if(!noHayMasTareas){ 
+				sem_post(&esperarAlgunTripulante);
+			}
+
+		
+		}
+
 		if(noHayMasTareas){ break;} //Si MIRAM avisa que no hay mas tareas termina el hilo
 
 		tareaTerminada = tarea->tareaTerminada;	
 
 		if(strcmp(tipoAlgoritmo, "FIFO") == 0){
+				ultimaTareaDeIO = false;
 
 				sem_wait(&tripulante->semaforoTrabajo);	
 
@@ -451,39 +485,13 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 							 break; 
 				}
 				serializarYMandarPosicionBitacora(tripulante->tid, posxV, posyV, tripulante->posicionX, tripulante->posicionY);
-
 				if(esTareaDeIO(tarea->descripcionTarea)){
 					if(haySabotaje){ sem_wait(&semaforoSabotaje);}
 					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 					sem_post(&semaforoTripulantes);
-					cambiarDeEstado(tripulante,'B');
-					sem_post(&gestionarIO);
-					for(int e = 0; e < tarea->tiempo + 1; e++){
-						
-						if( tripulante->fueExpulsado){
-							expulsarTripulate(tripulante);
-							 break; 
-							 }
-
-						if(haySabotaje){ sem_wait(&semaforoSabotaje);}
-					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
-
-						sleep(cicloCPU);	
-					}
-					
-					if( tripulante->fueExpulsado){
-							expulsarTripulate(tripulante);
-							 break; 
-							 }
-					if(haySabotaje){ sem_wait(&semaforoSabotaje);}
-					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
-						
-					serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
-					sem_wait(&tripulante->termineIO);
-					sem_post(&esperarAlgunTripulante);
-				}
-
-				else{
+					tiempoBloqueo = tarea->tiempo;
+					ultimaTareaDeIO = true;
+				} else{
 					serializarYMandarInicioTareaNormal(tripulante->tid, tarea->descripcionTarea);
 					for(int e = 0; e < tarea->tiempo; e++){
 
@@ -505,7 +513,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 					serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
 					sem_post(&tripulante->semaforoTrabajo); 
-				}	
+				}
 					if(haySabotaje){ sem_wait(&semaforoSabotaje);}
 					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 				
@@ -528,14 +536,20 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 											 	if(esLaPrimera){
 												sem_wait(&tripulante->semaforoTrabajo);
 												esLaPrimera = false;
-												}
+												}							
 
-												if(contador == quantum){
+												if(contador == quantum && !ultimaTareaDeIO){
 												cambiarDeEstado(tripulante,'R');
 												sem_post(&esperarAlgunTripulante);
 												sem_post(&semaforoTripulantes);
 												sem_wait(&tripulante->semaforoTrabajo);
 												contador = 0;
+												}
+
+												if(ultimaTareaDeIO){
+													ultimaTareaDeIO = false;
+													sem_wait(&tripulante->semaforoTrabajo);
+													contador = 0;
 												}
 
 												//free(config);
@@ -608,6 +622,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 														if(tripulante->posicionY == tarea->posicionY){
 															contador++;
+															serializarYMandarInicioTareaNormal(tripulante->tid, tarea->descripcionTarea);
 															break; 
 														}		
 														
@@ -639,21 +654,10 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															tarea->tareaTerminada = true;
 															//free(tarea->descripcionTarea);
 															//sem_post(&semaforoTripulantes); 
-															cambiarDeEstado(tripulante,'B');
-															sem_post(&gestionarIO);
-															for(int e = 0; e < tarea->tiempo; e++){
-																if( tripulante->fueExpulsado){
-																	expulsarTripulate(tripulante);
-																	 break; 
-																 }
-																if(haySabotaje){ sem_wait(&semaforoSabotaje);}
-																if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
-																sleep(cicloCPU);	
-															}						
-															serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
-															sem_wait(&tripulante->termineIO);
-															//sem_post(&esperarAlgunTripulante);			
+															//sem_post(&esperarAlgunTripulante);
+															tiempoBloqueo = tarea->tiempo;			
 															contador++;
+															ultimaTareaDeIO = true;
 															free(requerimientosTarea[0]);
 															free(requerimientosTarea[1]);
 															free(requerimientosTarea);
@@ -727,9 +731,9 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 		
 											}
 
-			if(planificacionPausada){
-				cambiarDeEstado(tripulante,'B');				
-			}
+			// if(planificacionPausada){
+			// 	cambiarDeEstado(tripulante,'B');				
+			// }
 
 
 		}
@@ -785,16 +789,16 @@ void gestionadorIO(){
 			TCB_DISCORDIADOR* tripulantee = list_get(listaBloqueados, 0);
 			sem_post(&cambiarABloqueado);
 
+			log_info(loggerDiscordiador,"Arranque IO de %d", tripulantee->tid);
+
 			gestionarTarea(tripulantee->tareaActual,tripulantee->tid);	
 
 			if(haySabotaje){
 						sem_wait(&semaforoSabotaje);
 					}	
 
-			if(strcmp(tipoAlgoritmo, "FIFO") == 0){
 			cambiarDeEstado(tripulantee,'R');
-			}
-
+			
 			sem_post(&tripulantee->termineIO);
 		 } 
 			
