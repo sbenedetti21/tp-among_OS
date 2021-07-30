@@ -157,7 +157,7 @@ void consola(){
 
 				ponerReadyNuevosTripulantes();
 
-				planificacionPausada = false;
+				planificacionPausada = true;
 				int r = 0;
 				for(r = 0 ; r < ( gradoMultitarea + cantidadBloqueados ); r ++){
 				sem_post(&semaforoPlanificacionPausada);
@@ -356,9 +356,9 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 			expulsarTripulate(tripulante);
 			 break; 
 			 }
+		
 
-
-		if(tareaTerminada){
+		if(tareaTerminada && !esLaPrimera ){
 
 				posxV = tripulante->posicionX;
 				posyV = tripulante->posicionY;
@@ -448,7 +448,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 						}
 
 				if(haySabotaje){ sem_wait(&semaforoSabotaje);}
-				if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
+				
 
 				sleep(cicloCPU);	
 			}
@@ -478,6 +478,85 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 				ultimaTareaDeIO = false;
 
 				sem_wait(&tripulante->semaforoTrabajo);	
+
+				if(esLaPrimera){
+
+				posxV = tripulante->posicionX;
+				posyV = tripulante->posicionY;
+
+				int socket = conectarMiRAM();
+				
+
+				serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid);
+
+				t_paquete* paquete = malloc(sizeof(t_paquete)); //LISTO
+				paquete->buffer = malloc(sizeof(t_buffer)); //LISTO
+
+				int headerRECV = recv(socket, &(paquete->header) , sizeof(int), MSG_WAITALL);
+				if(!headerRECV) { log_error(loggerDiscordiador, "No se pudo recibir el header al recibir una tarea");}
+
+				
+				switch (paquete->header)
+				{
+				case HAY_TAREA:;
+
+					int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), MSG_WAITALL);
+					if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer al recibir una tarea");}
+
+					paquete->buffer->stream = malloc(paquete->buffer->size); //LISTO
+
+					int BUFFER_RECV = recv(socket,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+					if(! BUFFER_RECV){ log_error(loggerDiscordiador,"No se pudo recibir el buffer al recibir una tarea");}
+
+					void* stream = paquete->buffer->stream;
+
+					int tamanioTareas;
+					memcpy(&tamanioTareas, stream, sizeof(int));
+					stream += sizeof(int);
+					char* stringTarea = malloc(tamanioTareas);  // LISTO
+					memcpy(stringTarea, stream, tamanioTareas);
+					stream += tamanioTareas;
+
+					vectorTarea = string_split(stringTarea, ";");
+					requerimientosTarea = string_split(vectorTarea[0]," ");
+
+					if(string_contains(vectorTarea[0]," ")){
+						tarea->descripcionTarea = requerimientosTarea[0];
+						tarea->parametro = atoi(requerimientosTarea[1]);
+					} else{
+						tarea->descripcionTarea = vectorTarea[0];
+						
+					}
+
+					tarea->posicionX = atoi(vectorTarea[1]);			//Llena el struct tarea 
+					tarea->posicionY = atoi(vectorTarea[2]);
+					tarea->tiempo = atoi(vectorTarea[3]);
+					tarea->tareaTerminada = false;
+
+					log_info(loggerDiscordiador,"Tarea pedida por tripulante %d: %s Posicion: %d|%d Duracion: %d ",tripulante->tid ,tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
+
+					tripulante->tareaActual = tarea;
+
+					free(stringTarea);
+					free(paquete->buffer->stream);
+					free(paquete->buffer);
+					free(paquete);
+					
+					break;
+				
+				case NO_HAY_TAREA:								
+									free(paquete->buffer);
+									free(paquete);
+									noHayMasTareas = true;
+									log_info(loggerDiscordiador,"Tripulante %d termino de trabajar ",tripulante->tid);
+
+									break;
+				}
+				
+				esLaPrimera = false;
+
+		}
+
 
 				trasladarseA(tarea->posicionX,tarea->posicionY, tripulante);
 				if( tripulante->fueExpulsado){
@@ -535,7 +614,85 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 											 	if(esLaPrimera){
 												sem_wait(&tripulante->semaforoTrabajo);
-												esLaPrimera = false;
+												
+												if(esLaPrimera ){
+
+															posxV = tripulante->posicionX;
+															posyV = tripulante->posicionY;
+
+															int socket = conectarMiRAM();
+															
+
+															serializarYMandarPedidoDeTarea(socket, tripulante->pid, tripulante->tid);
+
+															t_paquete* paquete = malloc(sizeof(t_paquete)); //LISTO
+															paquete->buffer = malloc(sizeof(t_buffer)); //LISTO
+
+															int headerRECV = recv(socket, &(paquete->header) , sizeof(int), MSG_WAITALL);
+															if(!headerRECV) { log_error(loggerDiscordiador, "No se pudo recibir el header al recibir una tarea");}
+
+															
+															switch (paquete->header)
+															{
+															case HAY_TAREA:;
+
+																int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), MSG_WAITALL);
+																if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer al recibir una tarea");}
+
+																paquete->buffer->stream = malloc(paquete->buffer->size); //LISTO
+
+																int BUFFER_RECV = recv(socket,paquete->buffer->stream,paquete->buffer->size, MSG_WAITALL); // se guardan las tareas en stream
+																if(! BUFFER_RECV){ log_error(loggerDiscordiador,"No se pudo recibir el buffer al recibir una tarea");}
+
+																void* stream = paquete->buffer->stream;
+
+																int tamanioTareas;
+																memcpy(&tamanioTareas, stream, sizeof(int));
+																stream += sizeof(int);
+																char* stringTarea = malloc(tamanioTareas);  // LISTO
+																memcpy(stringTarea, stream, tamanioTareas);
+																stream += tamanioTareas;
+
+																vectorTarea = string_split(stringTarea, ";");
+																requerimientosTarea = string_split(vectorTarea[0]," ");
+
+																if(string_contains(vectorTarea[0]," ")){
+																	tarea->descripcionTarea = requerimientosTarea[0];
+																	tarea->parametro = atoi(requerimientosTarea[1]);
+																} else{
+																	tarea->descripcionTarea = vectorTarea[0];
+																	
+																}
+
+																tarea->posicionX = atoi(vectorTarea[1]);			//Llena el struct tarea 
+																tarea->posicionY = atoi(vectorTarea[2]);
+																tarea->tiempo = atoi(vectorTarea[3]);
+																tarea->tareaTerminada = false;
+
+																log_info(loggerDiscordiador,"Tarea pedida por tripulante %d: %s Posicion: %d|%d Duracion: %d ",tripulante->tid ,tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
+
+																tripulante->tareaActual = tarea;
+
+																free(stringTarea);
+																free(paquete->buffer->stream);
+																free(paquete->buffer);
+																free(paquete);
+																
+																break;
+															
+															case NO_HAY_TAREA:								
+																				free(paquete->buffer);
+																				free(paquete);
+																				noHayMasTareas = true;
+																				log_info(loggerDiscordiador,"Tripulante %d termino de trabajar ",tripulante->tid);
+
+																				break;
+															}
+															
+															esLaPrimera = false;
+
+													}
+
 												}							
 
 												if(contador == quantum && !ultimaTareaDeIO){
@@ -964,9 +1121,9 @@ void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 }
 
 
-char * leerTareas(char* nombreTareas) {
+char * leerTareas(char* pathTareas) {
 
-	char * pathTareas = string_from_format("/home/utnso/%s", nombreTareas);
+	//char * pathTareas = string_from_format("/home/utnso/%s", nombreTareas);
 	FILE* archivo = fopen(pathTareas,"r");
 	if (archivo == NULL)
 	{

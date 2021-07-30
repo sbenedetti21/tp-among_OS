@@ -227,7 +227,7 @@ void * atenderDiscordiador(void * socket){
 					offset = offset + sizeof(uint32_t);
 
 					memcpy(tripulante + offset, &direccionPCB, sizeof(uint32_t));
-
+ 
 					
 					
 
