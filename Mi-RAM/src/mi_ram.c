@@ -3,7 +3,7 @@
 
 int main(int argc, char ** argv){
 
-	//navePrincipal = nivel_crear("Nave Principal");
+	navePrincipal = nivel_crear("Nave Principal");
 	loggerMiram = log_create("miram.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
 	loggerSegmentacion = log_create("segmentacion.log", "mi_ram.c", 0, LOG_LEVEL_INFO);
 	leerConfig();
@@ -21,11 +21,11 @@ int main(int argc, char ** argv){
 	pthread_create(&senial1, NULL, hiloSIGUSR1, NULL); 
 	pthread_create(&senial2, NULL, hiloSIGUSR2, NULL);
 
-	//  pthread_t mapa;
-	//  pthread_create(&mapa, NULL, iniciarMapa, NULL);
-	//  pthread_join(mapa, NULL);
-	//  nivel_destruir(navePrincipal); 
-	//  nivel_gui_terminar();
+	pthread_t mapa;
+	pthread_create(&mapa, NULL, iniciarMapa, NULL);
+	pthread_join(mapa, NULL);
+	nivel_destruir(navePrincipal); 
+	nivel_gui_terminar();
 
 	 	
 	pthread_join(servidor, NULL);
@@ -236,7 +236,7 @@ void * atenderDiscordiador(void * socket){
 					
 					
 
-				//agregarTripulanteAlMapa(tripulanteID, posx, posy);
+				agregarTripulanteAlMapa(tripulanteID, posx, posy);
 				
 			
 				}
@@ -283,7 +283,7 @@ void * atenderDiscordiador(void * socket){
 				
 					memcpy(&x, stream + 4, 4);
 					memcpy(&y, stream + 8, 4);
-					//agregarTripulanteAlMapa(tid,x,y);
+					agregarTripulanteAlMapa(tid,x,y);
 				// Calculo de pagina y offset de los tripulantes
 
 					t_tripulantePaginacion * tripu = malloc(sizeof(t_tripulantePaginacion)); 
@@ -378,7 +378,7 @@ void * atenderDiscordiador(void * socket){
 			sleep(2);
 			log_info(loggerMiram, "Tripulante: %d termino sus tareas", tid); 
 			eliminarTripulante(pid, tid);
-			//expulsarTripulanteDelMapa(tid);
+			expulsarTripulanteDelMapa(tid);
 			
 			  
 
@@ -422,7 +422,7 @@ void * atenderDiscordiador(void * socket){
 
 		log_info(loggerMiram,"El tripulante %d se movio hacia %d|%d",tripulanteid,posx,posy);
 
-		//moverTripulanteEnMapa(tripulanteid,posx,posy);
+		moverTripulanteEnMapa(tripulanteid,posx,posy);
 
 		actualizarPosicionTripulante(patotaid, tripulanteid, posx, posy);
 
@@ -456,7 +456,7 @@ void * atenderDiscordiador(void * socket){
 		memcpy(&patid, stream, sizeof(uint32_t));
 		stream += sizeof(uint32_t);
 		eliminarTripulante(patid, tripid);
-		//expulsarTripulanteDelMapa(tripid);
+		expulsarTripulanteDelMapa(tripid);
 		log_info(loggerMiram, "El tripulante %d fue expulsado", tripid); 
 
 	break ; 
@@ -1893,7 +1893,6 @@ char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, u
 			i++;
 			offsetTareas++;
 			memcpy(&c, memoriaPrincipal + direccionFrame + offsetTareas, 1);
-			log_info(loggerMiram, "%c", c);
 		}
 
 		paginaATraer++;
@@ -1910,7 +1909,7 @@ char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, u
         direccionProximaTarea = 0;
     }
 
-    printf("prox tarea: %d", direccionProximaTarea);
+    //printf("prox tarea: %d", direccionProximaTarea);
     //realloc(tarea, j + 1);
     char barraCero = '\0';
     memcpy(tarea + i, &barraCero, 1);
@@ -2036,42 +2035,42 @@ int divisionRedondeadaParaArriba(int x, int y) {
 
 // ------------------------------------------------------ MAPA ----------------------------------------------
 
-// void iniciarMapa() {
-// 	sem_init(&semaforoMoverTripulante,0,1);
-// 	sem_init(&semaforoTerminarMapa,0,0);
-// 	nivel_gui_inicializar();
-// 	pthread_mutex_lock(&semaforoTerminarMapa);
-// }
+void iniciarMapa() {
+	sem_init(&semaforoMoverTripulante,0,1);
+	sem_init(&semaforoTerminarMapa,0,0);
+	nivel_gui_inicializar();
+	sem_wait(&semaforoTerminarMapa);
+}
 
-// void agregarTripulanteAlMapa(uint32_t tid, uint32_t x, uint32_t y) { 
-// 	char id = idMapa(tid); //aca el tid es un uint  
-//     personaje_crear(navePrincipal, id, x, y);
-// 	nivel_gui_dibujar(navePrincipal);
-// }
+void agregarTripulanteAlMapa(uint32_t tid, uint32_t x, uint32_t y) { 
+	char id = idMapa(tid); //aca el tid es un uint  
+    personaje_crear(navePrincipal, id, x, y);
+	nivel_gui_dibujar(navePrincipal);
+}
 
-// void moverTripulanteEnMapa(uint32_t tid, uint32_t x, uint32_t y){
-// 	char id = idMapa(tid);
-// 	pthread_mutex_lock(&semaforoMoverTripulante);
-// 	item_mover(navePrincipal, id, x, y);
-// 	nivel_gui_dibujar(navePrincipal);
-// 	pthread_mutex_unlock(&semaforoMoverTripulante);
-// }
+void moverTripulanteEnMapa(uint32_t tid, uint32_t x, uint32_t y){
+	char id = idMapa(tid);
+	sem_wait(&semaforoMoverTripulante);
+	item_mover(navePrincipal, id, x, y);
+	nivel_gui_dibujar(navePrincipal);
+	sem_post(&semaforoMoverTripulante);
+}
 
-// void expulsarTripulanteDelMapa(uint32_t tid) {
-// 	char id = idMapa(tid);
-// 	item_borrar(navePrincipal, id);
-// 	nivel_gui_dibujar(navePrincipal);
-// }
+void expulsarTripulanteDelMapa(uint32_t tid) {
+	char id = idMapa(tid);
+	item_borrar(navePrincipal, id);
+	nivel_gui_dibujar(navePrincipal);
+}
 
-// char idMapa(uint32_t tid){
+char idMapa(uint32_t tid){
 
-// 	char id = 0;
+	char id = 0;
 
-// 	id = tid + 65;
+	id = tid + 65;
 
-// 	if (id > 90) {
-// 		id += 6;
-// 	}
-// 	return id;
+	if (id > 90) {
+		id += 6;
+	}
+	return id;
 
-// }
+}

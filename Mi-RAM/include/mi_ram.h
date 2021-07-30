@@ -193,13 +193,13 @@ t_frame * buscarFrameSwap();
 void dumpDeMemoriaPaginacion();
 
 //--------------- MAPA ---------------------
-// NIVEL* navePrincipal;
-// sem_t semaforoTerminarMapa; 
-// sem_t semaforoMoverTripulante;
-// void iniciarMapa();
-// void agregarTripulanteAlMapa(uint32_t, uint32_t ,uint32_t);
-// void moverTripulanteEnMapa(uint32_t, uint32_t , uint32_t );
-// void expulsarTripulanteDelMapa(uint32_t);
-// char idMapa(uint32_t);
+NIVEL* navePrincipal;
+sem_t semaforoTerminarMapa; 
+sem_t semaforoMoverTripulante;
+void iniciarMapa();
+void agregarTripulanteAlMapa(uint32_t, uint32_t ,uint32_t);
+void moverTripulanteEnMapa(uint32_t, uint32_t , uint32_t );
+void expulsarTripulanteDelMapa(uint32_t);
+char idMapa(uint32_t);
 
 #endif
