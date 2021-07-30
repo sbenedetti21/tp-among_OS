@@ -2,5 +2,5 @@
 FILE=mi_ram
 make $FILE
 if test -f "./$FILE"; then
-    valgrind --tool=helgrind ./$FILE
+    valgrind --log-file="helgrind" --tool=helgrind ./$FILE
 fi
