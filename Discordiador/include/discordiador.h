@@ -13,6 +13,7 @@ uint32_t proximoPID = 0;
 char * posicionBase;
 t_config * config;
 int cantidadBloqueados;
+char * tipoAlgoritmo;
 
 typedef struct tcb_discordiador{
     uint32_t tid;
