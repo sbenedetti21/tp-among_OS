@@ -373,7 +373,8 @@ void * atenderDiscordiador(void * socket){
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 
 			//mem_hexdump(memoriaPrincipal, tamanioMemoria);
-			sleep(2);
+			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {sleep(2);}
+			
 			log_info(loggerMiram, "Tripulante: %d termino sus tareas", tid); 
 			eliminarTripulante(pid, tid);
 			expulsarTripulanteDelMapa(tid);
@@ -1732,11 +1733,11 @@ void actualizarEstadoPaginacion(uint32_t tid, uint32_t pid, char estadoNuevo){
 	}
 
 	t_tripulantePaginacion * referenciaTripulante = list_find(listaTripulantes, coincideID);
-	if (referenciaTripulante == NULL) {log_info(loggerMiram, "no existe el tripu"); return;}
+	if (referenciaTripulante == NULL) {log_info(loggerSegmentacion, "no existe el tripu"); return;}
 	pthread_mutex_lock(&mutexListaTablas);
 	referenciaTablaPaginas * referenciaTabla = list_find(listaTablasDePaginas, coincidePID); 
 	pthread_mutex_unlock(&mutexListaTablas);
-	if (referenciaTabla == NULL) {log_info(loggerMiram, "no existe el tripu"); return;}
+	if (referenciaTabla == NULL) {log_info(loggerSegmentacion, "no existe el tripu"); return;}
 
 	uint32_t primeraPagina = referenciaTripulante->nroPagina; 
 	uint32_t offset = referenciaTripulante->offset; 
@@ -1888,7 +1889,7 @@ char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, u
 
 	
 	while (c != '\n' && c != '|') {
-		log_info(loggerMiram, "pagina: %d, offset: %d", paginaATraer, offsetTareas);
+		//log_info(loggerMiram, "pagina: %d, offset: %d", paginaATraer, offsetTareas);
 		direccionFrame = obtenerDireccionFrame(referenciaTabla, paginaATraer);
 		while(c != '\n' && c != '|' && (offsetTareas) < tamanioPagina) {
 			memcpy(tarea + i, memoriaPrincipal + direccionFrame + offsetTareas, 1);
