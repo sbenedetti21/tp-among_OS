@@ -23,7 +23,8 @@ typedef struct tcb_discordiador{
     sem_t semaforoTrabajo;
     sem_t termineIO;
     uint32_t pid;
-    tarea_struct * tareaActual; 
+    char * descripcionTarea;
+    int parametros;
     bool fueExpulsado;
 } TCB_DISCORDIADOR;
 
@@ -76,7 +77,7 @@ void serializarYMandarPCB(char*,int,uint32_t, int, t_list *);
 void serializarYMandarInicioTareaIO(int, int, uint32_t);
 void serializarYMandarInicioTareaNormal(uint32_t, char*);
 void serializarYMandarPedidoDeTarea(int, uint32_t, uint32_t);
-void gestionarTarea(tarea_struct * , uint32_t);
+void gestionarTarea(char*,int , uint32_t);
 void serializarYMandarElegidoDelSabotaje(uint32_t);
 int gradoMultitarea;
 bool esTareaDeIO(char*);
