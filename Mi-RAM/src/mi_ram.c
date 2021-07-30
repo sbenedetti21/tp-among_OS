@@ -1144,7 +1144,7 @@ void compactarMemoriaSegmentacion(){
 	log_info(loggerMiram, "Iniciando compactacion de la memoria...");
 	sleep(2); 
 	
-	mem_hexdump(memoriaPrincipal, tamanioMemoria);
+	//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 	
 	t_list * listaLibres = list_filter(tablaSegmentosGlobal, segmentoOcupado);
 	tablaSegmentosGlobal = listaLibres; 
@@ -1178,7 +1178,7 @@ void compactarMemoriaSegmentacion(){
 			free(memAux);
 			actualizarEstructurasSegmentacion(segmentoActual, nuevaBase); 
 			segmentoActual->base = nuevaBase; 
-			mem_hexdump(memoriaPrincipal, tamanioMemoria);
+			//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 		}
 		
 		t_segmento * ultimoSegmentoOcupado = list_get(tablaSegmentosGlobal, list_size(tablaSegmentosGlobal)-1); 
@@ -1201,7 +1201,7 @@ void compactarMemoriaSegmentacion(){
 		list_add(tablaSegmentosGlobal, segmentoLibre);
 	}
 
-	mem_hexdump(memoriaPrincipal, tamanioMemoria);
+	//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
 	compactacion = false; 
 	int valorSemaforo = 0;
