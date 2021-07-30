@@ -375,10 +375,12 @@ void * atenderDiscordiador(void * socket){
 			//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {sleep(2);}
 			
-			log_info(loggerMiram, "Tripulante: %d termino sus tareas", tid); 
+			 
 			eliminarTripulante(pid, tid);
+			log_info(loggerMiram, "Tripulante: %d termino sus tareas", tid);
 			expulsarTripulanteDelMapa(tid);
 			
+
 			  
 
 		}
@@ -1411,7 +1413,7 @@ void iniciarFrames(){
 
 	return;
 }
-
+ 
 void iniciarSwap() {
 	FILE * swap = fopen(path_SWAP, "w");
 	// char cero = '0';
@@ -1509,7 +1511,7 @@ void llevarPaginaASwap() {
 	// contadorLRU++;
 	// pthread_mutex_unlock(&mutexContadorLRU);
 
-	log_info(loggerMiram, "Victima elegida para llevar a SWAP: pagina %d de proceso %c", frameVictima->pagina->numeroPagina, idMapa(frameVictima->pagina->pid));
+	
 
 	FILE * swap = fopen(path_SWAP, "a+");
 	fseek(swap, frameSwap->inicio, SEEK_SET);
@@ -1551,6 +1553,7 @@ t_frame * seleccionarVictima() {
 			if(!(frame->pagina->bitDeUso)) {
 				punteroClock++;
 				checkeoPunteroClock();
+				log_info(loggerMiram, "Victima elegida para llevar a SWAP: pagina %d de proceso %c", frame->pagina->numeroPagina, idMapa(frame->pagina->pid));
 				return frame;
 			}
 			if(frame->pagina->bitDeUso) {
@@ -1562,6 +1565,7 @@ t_frame * seleccionarVictima() {
 
 	}
 
+	log_info(loggerMiram, "Victima elegida para llevar a SWAP: pagina %d de proceso %c", victima->pagina->numeroPagina, idMapa(victima->pagina->pid));
 	return victima;
 }
 
@@ -1572,6 +1576,7 @@ void dumpDeMemoriaPaginacion() {
 
 	FILE * dump = fopen(nombreArchivo, "w+"); 
 	
+	fwrite("\n\n DUMP DE MEMORIA \n\n",21, 1,dump);
 	pthread_mutex_lock(&mutexListaFrames);
 	for(int i = 0; i < list_size(listaFrames); i++){
 
@@ -1593,10 +1598,10 @@ void dumpDeMemoriaPaginacion() {
 			
 		}
 		else{
-			estado = "Libre\0"; 
+			estado = "Libre  \0"; 
 
-			pagina = "-\0";
-			proceso = "-\0";
+			pagina = " -\0";
+			proceso = " -\0";
 			char * frame = string_from_format("Marco: %2d   Estado: %s Proceso: %s Pagina: %s \n", i, estado, proceso, pagina); 
 			fwrite(frame, strlen(frame), 1, dump);	
 			
@@ -1854,6 +1859,8 @@ void eliminarTripulantePaginacion(uint32_t pid, uint32_t tid){
 	pthread_mutex_lock(&(referenciaTabla->semaforoPatota)); 
 	referenciaTabla->contadorTCB--;
 	pthread_mutex_unlock(&(referenciaTabla->semaforoPatota));
+
+	dumpDeMemoriaPaginacion();
 
 }
 

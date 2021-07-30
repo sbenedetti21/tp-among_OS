@@ -1004,7 +1004,7 @@ void expulsarTripulate(TCB_DISCORDIADOR * tripulante){
 				return tripulante->tid == tid;
 			}
 
-
+ 
 			serializaYMandarExpulsado(tripulante->tid, tripulante->pid);
 
 			salirDeListaEstado(tripulante);
@@ -1121,9 +1121,9 @@ void gestionarTarea(tarea_struct * tarea, uint32_t tid){
 }
 
 
-char * leerTareas(char* pathTareas) {
+char * leerTareas(char* nombreTareas) {
 
-	//char * pathTareas = string_from_format("/home/utnso/%s", nombreTareas);
+	char * pathTareas = string_from_format("/home/utnso/%s", nombreTareas);
 	FILE* archivo = fopen(pathTareas,"r");
 	if (archivo == NULL)
 	{
