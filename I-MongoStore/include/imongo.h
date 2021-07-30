@@ -116,6 +116,7 @@ void borrarBloqueFile(char *, int);
 
 //CODIGO MD5
 char *generarMD5(char *);
+char *conseguirMD5(t_config *,char *);
 void actualizarMD5(char * );
 
 //CODIGO DE LOS BLOCKS DE RECURSOS

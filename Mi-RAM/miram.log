@@ -53480,3 +53480,394 @@ B02;1;1;5|ido: I Tamanio de las tareas: 30
 [INFO] 20:15:57:126 mi_ram.c/(27935:28201): Todos los tripulantes de la patota 0 terminaron sus tareas. Eliminando patota...
 [INFO] 20:15:57:126 mi_ram.c/(27935:28201): Patota 0 eliminada.
 >>>>>>> e9c1089a4fb610b448b192c24319a60d7a7f38ee
+[INFO] 22:06:20:441 mi_ram.c/(6077:6077): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 22:07:51:110 mi_ram.c/(6077:6135): Header 0 recibido: INICIAR PATOTA
+[INFO] 22:07:51:110 mi_ram.c/(6077:6135): PID: 0
+[INFO] 22:07:51:110 mi_ram.c/(6077:6135): Cantidad de tripulantes: 2 
+
+[INFO] 22:07:51:110 mi_ram.c/(6077:6135): Se necesitan: 189 bytes. Buscando espacio necesario...
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): PCB de la patota 0 agregado a memoria
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Tareas de la patota 0 agregadas a memoria
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Tripulante agregado a memoria. TID: 0
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Tripulante agregado a memoria. TID: 1
+[INFO] 22:07:53:021 mi_ram.c/(6077:6144): Header 1 recibido: PEDIR TAREA
+[INFO] 22:07:53:021 mi_ram.c/(6077:6144): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:07:53:021 mi_ram.c/(6077:6144): La tarea a enviar al tripulante 1 es: GENERAR_BASURA 20;14;13;13
+[INFO] 22:07:53:023 mi_ram.c/(6077:6142): Header 1 recibido: PEDIR TAREA
+[INFO] 22:07:53:023 mi_ram.c/(6077:6142): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:07:53:023 mi_ram.c/(6077:6142): La tarea a enviar al tripulante 0 es: GENERAR_BASURA 20;14;13;13
+[INFO] 22:07:53:023 mi_ram.c/(6077:6143): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:53:023 mi_ram.c/(6077:6143): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:07:53:024 mi_ram.c/(6077:6141): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:53:024 mi_ram.c/(6077:6141): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:07:54:025 mi_ram.c/(6077:6147): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:54:026 mi_ram.c/(6077:6147): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:07:54:026 mi_ram.c/(6077:6149): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:54:028 mi_ram.c/(6077:6149): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:07:54:026 mi_ram.c/(6077:6150): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:54:028 mi_ram.c/(6077:6150): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:07:54:028 mi_ram.c/(6077:6148): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:54:028 mi_ram.c/(6077:6148): El tripulante 0 se movio hacia 1|5
+[INFO] 22:07:54:028 mi_ram.c/(6077:6146): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:54:028 mi_ram.c/(6077:6146): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:07:54:028 mi_ram.c/(6077:6145): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:54:028 mi_ram.c/(6077:6145): El tripulante 1 se movio hacia 3|1
+[INFO] 22:07:55:026 mi_ram.c/(6077:6155): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:55:028 mi_ram.c/(6077:6155): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:07:55:028 mi_ram.c/(6077:6156): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:55:028 mi_ram.c/(6077:6156): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:07:55:028 mi_ram.c/(6077:6154): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:55:028 mi_ram.c/(6077:6154): El tripulante 0 se movio hacia 2|5
+[INFO] 22:07:55:029 mi_ram.c/(6077:6153): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:55:029 mi_ram.c/(6077:6153): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:07:55:029 mi_ram.c/(6077:6152): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:55:029 mi_ram.c/(6077:6152): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:07:55:029 mi_ram.c/(6077:6151): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:55:030 mi_ram.c/(6077:6151): El tripulante 1 se movio hacia 4|1
+[INFO] 22:07:56:027 mi_ram.c/(6077:6160): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:56:028 mi_ram.c/(6077:6160): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:07:56:028 mi_ram.c/(6077:6159): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:56:028 mi_ram.c/(6077:6159): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:07:56:029 mi_ram.c/(6077:6158): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:56:029 mi_ram.c/(6077:6158): El tripulante 1 se movio hacia 5|1
+[INFO] 22:07:56:029 mi_ram.c/(6077:6162): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:56:029 mi_ram.c/(6077:6162): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:07:56:029 mi_ram.c/(6077:6163): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:56:029 mi_ram.c/(6077:6163): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:07:56:030 mi_ram.c/(6077:6161): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:56:030 mi_ram.c/(6077:6161): El tripulante 0 se movio hacia 3|5
+[INFO] 22:07:57:033 mi_ram.c/(6077:6169): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:57:033 mi_ram.c/(6077:6169): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:07:57:033 mi_ram.c/(6077:6170): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:57:033 mi_ram.c/(6077:6170): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:07:57:039 mi_ram.c/(6077:6167): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:57:039 mi_ram.c/(6077:6167): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:07:57:039 mi_ram.c/(6077:6168): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:57:039 mi_ram.c/(6077:6168): El tripulante 0 se movio hacia 4|5
+[INFO] 22:07:57:039 mi_ram.c/(6077:6166): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:57:039 mi_ram.c/(6077:6166): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:07:57:041 mi_ram.c/(6077:6165): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:57:041 mi_ram.c/(6077:6165): El tripulante 1 se movio hacia 6|1
+[INFO] 22:07:58:028 mi_ram.c/(6077:6173): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:58:028 mi_ram.c/(6077:6173): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:07:58:028 mi_ram.c/(6077:6172): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:58:028 mi_ram.c/(6077:6172): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:07:58:029 mi_ram.c/(6077:6171): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:58:029 mi_ram.c/(6077:6171): El tripulante 1 se movio hacia 7|1
+[INFO] 22:07:58:030 mi_ram.c/(6077:6176): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:58:030 mi_ram.c/(6077:6176): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:07:58:030 mi_ram.c/(6077:6175): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:58:030 mi_ram.c/(6077:6175): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:07:58:030 mi_ram.c/(6077:6174): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:58:030 mi_ram.c/(6077:6174): El tripulante 0 se movio hacia 5|5
+[INFO] 22:07:59:029 mi_ram.c/(6077:6179): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:59:029 mi_ram.c/(6077:6179): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:07:59:029 mi_ram.c/(6077:6178): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:59:029 mi_ram.c/(6077:6178): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:07:59:030 mi_ram.c/(6077:6177): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:59:030 mi_ram.c/(6077:6177): El tripulante 1 se movio hacia 8|1
+[INFO] 22:07:59:031 mi_ram.c/(6077:6182): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:59:031 mi_ram.c/(6077:6182): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:07:59:031 mi_ram.c/(6077:6181): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:07:59:031 mi_ram.c/(6077:6181): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:07:59:031 mi_ram.c/(6077:6180): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:07:59:032 mi_ram.c/(6077:6180): El tripulante 0 se movio hacia 6|5
+[INFO] 22:08:00:030 mi_ram.c/(6077:6185): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:00:030 mi_ram.c/(6077:6185): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:00:030 mi_ram.c/(6077:6184): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:00:030 mi_ram.c/(6077:6184): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:00:031 mi_ram.c/(6077:6183): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:00:031 mi_ram.c/(6077:6183): El tripulante 1 se movio hacia 9|1
+[INFO] 22:08:00:035 mi_ram.c/(6077:6188): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:00:035 mi_ram.c/(6077:6188): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:00:035 mi_ram.c/(6077:6187): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:00:035 mi_ram.c/(6077:6187): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:00:035 mi_ram.c/(6077:6186): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:00:035 mi_ram.c/(6077:6186): El tripulante 0 se movio hacia 7|5
+[INFO] 22:08:01:031 mi_ram.c/(6077:6191): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:01:032 mi_ram.c/(6077:6191): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:01:032 mi_ram.c/(6077:6190): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:01:032 mi_ram.c/(6077:6190): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:01:033 mi_ram.c/(6077:6189): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:01:033 mi_ram.c/(6077:6189): El tripulante 1 se movio hacia 10|1
+[INFO] 22:08:01:034 mi_ram.c/(6077:6194): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:01:034 mi_ram.c/(6077:6194): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:01:034 mi_ram.c/(6077:6193): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:01:034 mi_ram.c/(6077:6193): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:01:035 mi_ram.c/(6077:6192): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:01:035 mi_ram.c/(6077:6192): El tripulante 0 se movio hacia 8|5
+[INFO] 22:08:02:031 mi_ram.c/(6077:6196): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:02:036 mi_ram.c/(6077:6196): El tripulante 1 se movio hacia 11|1
+[INFO] 22:08:02:037 mi_ram.c/(6077:6200): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:02:037 mi_ram.c/(6077:6200): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:02:037 mi_ram.c/(6077:6201): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:02:037 mi_ram.c/(6077:6201): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:02:038 mi_ram.c/(6077:6198): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:02:038 mi_ram.c/(6077:6198): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:02:038 mi_ram.c/(6077:6199): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:02:038 mi_ram.c/(6077:6199): El tripulante 0 se movio hacia 9|5
+[INFO] 22:08:02:038 mi_ram.c/(6077:6197): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:02:038 mi_ram.c/(6077:6197): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:03:035 mi_ram.c/(6077:6204): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:03:035 mi_ram.c/(6077:6204): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:03:035 mi_ram.c/(6077:6203): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:03:035 mi_ram.c/(6077:6203): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:03:036 mi_ram.c/(6077:6202): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:03:036 mi_ram.c/(6077:6202): El tripulante 1 se movio hacia 12|1
+[INFO] 22:08:03:036 mi_ram.c/(6077:6207): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:03:036 mi_ram.c/(6077:6207): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:03:036 mi_ram.c/(6077:6206): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:03:037 mi_ram.c/(6077:6206): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:03:037 mi_ram.c/(6077:6205): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:03:037 mi_ram.c/(6077:6205): El tripulante 0 se movio hacia 10|5
+[INFO] 22:08:04:036 mi_ram.c/(6077:6210): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:04:036 mi_ram.c/(6077:6210): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:04:036 mi_ram.c/(6077:6209): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:04:036 mi_ram.c/(6077:6209): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:04:038 mi_ram.c/(6077:6208): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:04:038 mi_ram.c/(6077:6208): El tripulante 1 se movio hacia 13|1
+[INFO] 22:08:04:038 mi_ram.c/(6077:6213): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:04:038 mi_ram.c/(6077:6213): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:04:038 mi_ram.c/(6077:6212): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:04:038 mi_ram.c/(6077:6212): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:04:039 mi_ram.c/(6077:6211): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:04:039 mi_ram.c/(6077:6211): El tripulante 0 se movio hacia 11|5
+[INFO] 22:08:05:041 mi_ram.c/(6077:6218): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:05:042 mi_ram.c/(6077:6218): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:05:042 mi_ram.c/(6077:6219): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:05:043 mi_ram.c/(6077:6219): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:05:043 mi_ram.c/(6077:6217): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:05:043 mi_ram.c/(6077:6217): El tripulante 0 se movio hacia 12|5
+[INFO] 22:08:05:044 mi_ram.c/(6077:6216): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:05:044 mi_ram.c/(6077:6216): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:05:044 mi_ram.c/(6077:6215): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:05:044 mi_ram.c/(6077:6215): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:05:046 mi_ram.c/(6077:6214): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:05:046 mi_ram.c/(6077:6214): El tripulante 1 se movio hacia 14|1
+[INFO] 22:08:06:041 mi_ram.c/(6077:6223): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:06:042 mi_ram.c/(6077:6223): El tripulante 0 se movio hacia 13|5
+[INFO] 22:08:06:042 mi_ram.c/(6077:6225): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:06:043 mi_ram.c/(6077:6225): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:06:042 mi_ram.c/(6077:6226): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:06:043 mi_ram.c/(6077:6226): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:06:042 mi_ram.c/(6077:6224): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:06:043 mi_ram.c/(6077:6224): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:06:044 mi_ram.c/(6077:6222): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:06:044 mi_ram.c/(6077:6222): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:06:046 mi_ram.c/(6077:6220): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:06:046 mi_ram.c/(6077:6220): El tripulante 1 se movio hacia 14|2
+[INFO] 22:08:07:039 mi_ram.c/(6077:6228): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:07:047 mi_ram.c/(6077:6228): El tripulante 1 se movio hacia 14|3
+[INFO] 22:08:07:048 mi_ram.c/(6077:6229): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:07:048 mi_ram.c/(6077:6229): El tripulante 0 se movio hacia 14|5
+[INFO] 22:08:07:048 mi_ram.c/(6077:6231): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:07:048 mi_ram.c/(6077:6231): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:07:048 mi_ram.c/(6077:6233): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:07:048 mi_ram.c/(6077:6233): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:07:049 mi_ram.c/(6077:6234): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:07:049 mi_ram.c/(6077:6234): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:07:049 mi_ram.c/(6077:6232): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:07:049 mi_ram.c/(6077:6232): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:08:043 mi_ram.c/(6077:6239): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:08:046 mi_ram.c/(6077:6239): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:08:045 mi_ram.c/(6077:6240): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:08:046 mi_ram.c/(6077:6240): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:08:045 mi_ram.c/(6077:6241): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:08:046 mi_ram.c/(6077:6241): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:08:045 mi_ram.c/(6077:6242): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:08:047 mi_ram.c/(6077:6242): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:08:048 mi_ram.c/(6077:6236): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:08:048 mi_ram.c/(6077:6236): El tripulante 0 se movio hacia 14|6
+[INFO] 22:08:08:048 mi_ram.c/(6077:6235): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:08:048 mi_ram.c/(6077:6235): El tripulante 1 se movio hacia 14|4
+[INFO] 22:08:09:050 mi_ram.c/(6077:6249): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:09:050 mi_ram.c/(6077:6249): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:09:050 mi_ram.c/(6077:6247): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:09:050 mi_ram.c/(6077:6247): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:09:050 mi_ram.c/(6077:6248): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:09:050 mi_ram.c/(6077:6248): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:09:051 mi_ram.c/(6077:6244): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:09:051 mi_ram.c/(6077:6244): El tripulante 1 se movio hacia 14|5
+[INFO] 22:08:09:051 mi_ram.c/(6077:6243): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:09:051 mi_ram.c/(6077:6243): El tripulante 0 se movio hacia 14|7
+[INFO] 22:08:09:053 mi_ram.c/(6077:6250): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:09:053 mi_ram.c/(6077:6250): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:10:045 mi_ram.c/(6077:6255): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:10:046 mi_ram.c/(6077:6255): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:10:047 mi_ram.c/(6077:6256): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:10:049 mi_ram.c/(6077:6256): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:10:047 mi_ram.c/(6077:6257): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:10:049 mi_ram.c/(6077:6257): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:10:047 mi_ram.c/(6077:6258): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:10:049 mi_ram.c/(6077:6258): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:10:050 mi_ram.c/(6077:6253): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:10:050 mi_ram.c/(6077:6253): El tripulante 0 se movio hacia 14|8
+[INFO] 22:08:10:051 mi_ram.c/(6077:6251): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:10:051 mi_ram.c/(6077:6251): El tripulante 1 se movio hacia 14|6
+[INFO] 22:08:11:046 mi_ram.c/(6077:6264): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:11:051 mi_ram.c/(6077:6264): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:11:050 mi_ram.c/(6077:6265): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:11:056 mi_ram.c/(6077:6265): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:11:050 mi_ram.c/(6077:6266): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:11:056 mi_ram.c/(6077:6266): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:11:050 mi_ram.c/(6077:6267): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:11:056 mi_ram.c/(6077:6267): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:11:057 mi_ram.c/(6077:6262): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:11:057 mi_ram.c/(6077:6262): El tripulante 1 se movio hacia 14|7
+[INFO] 22:08:11:059 mi_ram.c/(6077:6260): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:11:059 mi_ram.c/(6077:6260): El tripulante 0 se movio hacia 14|9
+[INFO] 22:08:12:045 mi_ram.c/(6077:6269): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:12:049 mi_ram.c/(6077:6269): El tripulante 1 se movio hacia 14|8
+[INFO] 22:08:12:050 mi_ram.c/(6077:6272): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:12:052 mi_ram.c/(6077:6272): El tripulante 0 se movio hacia 14|10
+[INFO] 22:08:12:051 mi_ram.c/(6077:6274): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:12:052 mi_ram.c/(6077:6274): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:12:051 mi_ram.c/(6077:6275): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:12:052 mi_ram.c/(6077:6275): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:12:051 mi_ram.c/(6077:6276): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:12:052 mi_ram.c/(6077:6276): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:12:052 mi_ram.c/(6077:6271): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:12:052 mi_ram.c/(6077:6271): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:13:048 mi_ram.c/(6077:6282): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:13:049 mi_ram.c/(6077:6282): El tripulante 0 se movio hacia 14|11
+[INFO] 22:08:13:050 mi_ram.c/(6077:6283): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:13:056 mi_ram.c/(6077:6283): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:13:050 mi_ram.c/(6077:6285): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:13:056 mi_ram.c/(6077:6285): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:13:050 mi_ram.c/(6077:6286): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:13:056 mi_ram.c/(6077:6286): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:13:057 mi_ram.c/(6077:6281): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:13:057 mi_ram.c/(6077:6281): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:13:059 mi_ram.c/(6077:6279): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:13:059 mi_ram.c/(6077:6279): El tripulante 1 se movio hacia 14|9
+[INFO] 22:08:14:050 mi_ram.c/(6077:6290): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:14:050 mi_ram.c/(6077:6290): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:14:050 mi_ram.c/(6077:6292): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:14:050 mi_ram.c/(6077:6292): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:14:050 mi_ram.c/(6077:6293): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:14:050 mi_ram.c/(6077:6293): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:14:050 mi_ram.c/(6077:6294): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:14:050 mi_ram.c/(6077:6294): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:14:051 mi_ram.c/(6077:6288): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:14:051 mi_ram.c/(6077:6288): El tripulante 1 se movio hacia 14|10
+[INFO] 22:08:14:051 mi_ram.c/(6077:6287): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:14:051 mi_ram.c/(6077:6287): El tripulante 0 se movio hacia 14|12
+[INFO] 22:08:15:052 mi_ram.c/(6077:6304): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:15:052 mi_ram.c/(6077:6304): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:15:052 mi_ram.c/(6077:6299): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:15:052 mi_ram.c/(6077:6299): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:15:052 mi_ram.c/(6077:6300): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:15:052 mi_ram.c/(6077:6300): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:15:052 mi_ram.c/(6077:6301): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:15:052 mi_ram.c/(6077:6301): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:15:052 mi_ram.c/(6077:6303): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:15:052 mi_ram.c/(6077:6303): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 22:08:15:052 mi_ram.c/(6077:6305): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:15:052 mi_ram.c/(6077:6305): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:15:053 mi_ram.c/(6077:6296): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:15:053 mi_ram.c/(6077:6296): El tripulante 0 se movio hacia 14|13
+[INFO] 22:08:15:054 mi_ram.c/(6077:6295): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:15:054 mi_ram.c/(6077:6295): El tripulante 1 se movio hacia 14|11
+[INFO] 22:08:16:054 mi_ram.c/(6077:6310): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:16:056 mi_ram.c/(6077:6310): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:16:055 mi_ram.c/(6077:6311): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:16:058 mi_ram.c/(6077:6311): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:16:061 mi_ram.c/(6077:6308): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:16:061 mi_ram.c/(6077:6308): El tripulante 1 se movio hacia 14|12
+[INFO] 22:08:28:064 mi_ram.c/(6077:6405): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:28:065 mi_ram.c/(6077:6405): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:28:066 mi_ram.c/(6077:6404): Header 1 recibido: PEDIR TAREA
+[INFO] 22:08:28:067 mi_ram.c/(6077:6404): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:08:28:068 mi_ram.c/(6077:6404): La tarea a enviar al tripulante 0 es: DESCARTAR_BASURA 0;14;13;13
+[INFO] 22:08:28:071 mi_ram.c/(6077:6409): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:28:071 mi_ram.c/(6077:6409): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:28:071 mi_ram.c/(6077:6407): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:28:071 mi_ram.c/(6077:6407): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 22:08:29:062 mi_ram.c/(6077:6415): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:29:062 mi_ram.c/(6077:6415): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:29:063 mi_ram.c/(6077:6414): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:29:063 mi_ram.c/(6077:6414): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:29:066 mi_ram.c/(6077:6412): Header 4 recibido: ACTUALIZAR POSICION
+[INFO] 22:08:29:066 mi_ram.c/(6077:6412): El tripulante 1 se movio hacia 14|13
+[INFO] 22:08:41:081 mi_ram.c/(6077:6425): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:41:082 mi_ram.c/(6077:6425): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:41:086 mi_ram.c/(6077:6423): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:41:088 mi_ram.c/(6077:6423): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 22:08:41:089 mi_ram.c/(6077:6422): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:41:089 mi_ram.c/(6077:6422): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:41:089 mi_ram.c/(6077:6421): Header 1 recibido: PEDIR TAREA
+[INFO] 22:08:41:089 mi_ram.c/(6077:6421): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:08:41:089 mi_ram.c/(6077:6421): La tarea a enviar al tripulante 0 es: GENERAR_OXIGENO 20;14;13;13
+[INFO] 22:08:41:091 mi_ram.c/(6077:6429): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:41:091 mi_ram.c/(6077:6429): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:08:41:092 mi_ram.c/(6077:6427): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:41:092 mi_ram.c/(6077:6427): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 22:08:54:089 mi_ram.c/(6077:6438): Header 1 recibido: PEDIR TAREA
+[INFO] 22:08:54:090 mi_ram.c/(6077:6438): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:08:54:091 mi_ram.c/(6077:6438): La tarea a enviar al tripulante 1 es: DESCARTAR_BASURA 0;14;13;13
+[INFO] 22:08:54:094 mi_ram.c/(6077:6436): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:54:094 mi_ram.c/(6077:6436): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:08:54:095 mi_ram.c/(6077:6439): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:54:095 mi_ram.c/(6077:6439): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 22:08:54:095 mi_ram.c/(6077:6441): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:54:095 mi_ram.c/(6077:6441): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:08:54:098 mi_ram.c/(6077:6444): Header 1 recibido: PEDIR TAREA
+[INFO] 22:08:54:098 mi_ram.c/(6077:6444): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:08:54:098 mi_ram.c/(6077:6444): La tarea a enviar al tripulante 0 es: GENERAR_COMIDA 200;14;13;13
+[INFO] 22:08:54:098 mi_ram.c/(6077:6443): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:54:098 mi_ram.c/(6077:6443): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:08:54:100 mi_ram.c/(6077:6446): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:54:100 mi_ram.c/(6077:6446): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 22:08:54:100 mi_ram.c/(6077:6448): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:08:54:100 mi_ram.c/(6077:6448): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:09:07:106 mi_ram.c/(6077:6466): Header 1 recibido: PEDIR TAREA
+[INFO] 22:09:07:108 mi_ram.c/(6077:6466): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:09:07:111 mi_ram.c/(6077:6466): La tarea a enviar al tripulante 1 es: GENERAR_OXIGENO 20;14;13;13
+[INFO] 22:09:07:109 mi_ram.c/(6077:6468): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:07:111 mi_ram.c/(6077:6468): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:09:07:109 mi_ram.c/(6077:6469): Header 1 recibido: PEDIR TAREA
+[INFO] 22:09:07:111 mi_ram.c/(6077:6469): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:09:07:111 mi_ram.c/(6077:6469): La tarea a enviar al tripulante 0 es: CONSUMIR_OXIGENO 2;14;13;13
+[INFO] 22:09:07:114 mi_ram.c/(6077:6464): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:07:114 mi_ram.c/(6077:6464): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:09:07:114 mi_ram.c/(6077:6475): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:07:114 mi_ram.c/(6077:6475): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 22:09:07:114 mi_ram.c/(6077:6470): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:07:114 mi_ram.c/(6077:6470): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 22:09:07:115 mi_ram.c/(6077:6472): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:07:115 mi_ram.c/(6077:6472): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:09:07:115 mi_ram.c/(6077:6474): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:07:115 mi_ram.c/(6077:6474): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 22:09:20:124 mi_ram.c/(6077:6492): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:20:125 mi_ram.c/(6077:6492): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:09:20:127 mi_ram.c/(6077:6495): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:20:128 mi_ram.c/(6077:6495): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 22:09:20:127 mi_ram.c/(6077:6496): Header 1 recibido: PEDIR TAREA
+[INFO] 22:09:20:129 mi_ram.c/(6077:6496): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:09:20:129 mi_ram.c/(6077:6496): La tarea a enviar al tripulante 0 es: NO_HAY_TAREA
+[INFO] 22:09:20:127 mi_ram.c/(6077:6494): Header 1 recibido: PEDIR TAREA
+[INFO] 22:09:20:130 mi_ram.c/(6077:6494): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:09:20:130 mi_ram.c/(6077:6494): La tarea a enviar al tripulante 1 es: GENERAR_COMIDA 200;14;13;13
+[INFO] 22:09:20:135 mi_ram.c/(6077:6497): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:20:135 mi_ram.c/(6077:6497): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 22:09:20:135 mi_ram.c/(6077:6499): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:20:135 mi_ram.c/(6077:6499): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:09:22:130 mi_ram.c/(6077:6496): Tripulante: 0 termino sus tareas
+[INFO] 22:09:33:139 mi_ram.c/(6077:6520): Header 1 recibido: PEDIR TAREA
+[INFO] 22:09:33:140 mi_ram.c/(6077:6520): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:09:33:141 mi_ram.c/(6077:6520): La tarea a enviar al tripulante 1 es: CONSUMIR_OXIGENO 2;14;13;13
+[INFO] 22:09:33:144 mi_ram.c/(6077:6518): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:33:144 mi_ram.c/(6077:6518): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:09:33:145 mi_ram.c/(6077:6521): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:33:145 mi_ram.c/(6077:6521): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 22:09:33:146 mi_ram.c/(6077:6523): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:33:146 mi_ram.c/(6077:6523): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 22:09:46:153 mi_ram.c/(6077:6540): Header 1 recibido: PEDIR TAREA
+[INFO] 22:09:46:154 mi_ram.c/(6077:6540): Tripulante 1 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 22:09:46:155 mi_ram.c/(6077:6540): La tarea a enviar al tripulante 1 es: NO_HAY_TAREA
+[INFO] 22:09:46:159 mi_ram.c/(6077:6538): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 22:09:46:159 mi_ram.c/(6077:6538): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 22:09:48:158 mi_ram.c/(6077:6540): Tripulante: 1 termino sus tareas
+[INFO] 22:09:48:158 mi_ram.c/(6077:6540): Todos los tripulantes de la patota 0 terminaron sus tareas. Eliminando patota...
+[INFO] 22:09:48:158 mi_ram.c/(6077:6540): Patota 0 eliminada.

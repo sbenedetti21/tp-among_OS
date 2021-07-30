@@ -4511,3 +4511,45 @@
 [INFO] 20:15:57:126 mi_ram.c/(27935:28201): Tamanio de la tabla de la patota 0 despues del remove: 2
 [INFO] 20:15:57:126 mi_ram.c/(27935:28201): Entre a es el ultimo tripulante
 >>>>>>> e9c1089a4fb610b448b192c24319a60d7a7f38ee
+[INFO] 22:07:51:110 mi_ram.c/(6077:6135): INgrese a buscarEspacioNecesario
+[INFO] 22:07:51:110 mi_ram.c/(6077:6135): Antes del mutex
+[INFO] 22:07:51:110 mi_ram.c/(6077:6135): no apunta a nulo la tabla global
+[INFO] 22:07:51:110 mi_ram.c/(6077:6135): Tamanio tabla global :1
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Ingrese a first fit
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Entre al mutex first fit
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Despues del sort
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): El tamanio de segmentosLibres: 1
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Segmento libre que empieza en: 0 y tiene un tamanio de: 16384
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): El segmento elegido empieza en: 0 y tiene un tamanio de: 16384
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Ingrese a first fit
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Entre al mutex first fit
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Despues del sort
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): El tamanio de segmentosLibres: 1
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Segmento libre que empieza en: 8 y tiene un tamanio de: 16376
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): El segmento elegido empieza en: 8 y tiene un tamanio de: 16376
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Ingrese a first fit
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Entre al mutex first fit
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Despues del sort
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): El tamanio de segmentosLibres: 1
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Segmento libre que empieza en: 147 y tiene un tamanio de: 16237
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): El segmento elegido empieza en: 147 y tiene un tamanio de: 16237
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Ingrese a first fit
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Entre al mutex first fit
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Despues del sort
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): El tamanio de segmentosLibres: 1
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): Segmento libre que empieza en: 168 y tiene un tamanio de: 16216
+[INFO] 22:07:51:111 mi_ram.c/(6077:6135): El segmento elegido empieza en: 168 y tiene un tamanio de: 16216
+[INFO] 22:09:22:130 mi_ram.c/(6077:6496): Entre a eliminar tripulante segmentacion PID: 0 TID: 0
+[INFO] 22:09:22:130 mi_ram.c/(6077:6496): Tamanio de la lista referencias: 1
+[INFO] 22:09:22:130 mi_ram.c/(6077:6496): La referencia a la patota no es nula
+[INFO] 22:09:22:130 mi_ram.c/(6077:6496): Encontre el segmento del tripulante a eliminar. Base: 147, tamanio: 21
+[INFO] 22:09:22:130 mi_ram.c/(6077:6496): Tamanio de la tabla de la patota 0 antes del remove: 4
+[INFO] 22:09:22:130 mi_ram.c/(6077:6496): Tamanio de la tabla de la patota 0 despues del remove: 3
+[INFO] 22:09:22:130 mi_ram.c/(6077:6496): Entre a es el ultimo tripulante
+[INFO] 22:09:48:158 mi_ram.c/(6077:6540): Entre a eliminar tripulante segmentacion PID: 0 TID: 1
+[INFO] 22:09:48:158 mi_ram.c/(6077:6540): Tamanio de la lista referencias: 1
+[INFO] 22:09:48:158 mi_ram.c/(6077:6540): La referencia a la patota no es nula
+[INFO] 22:09:48:158 mi_ram.c/(6077:6540): Encontre el segmento del tripulante a eliminar. Base: 168, tamanio: 21
+[INFO] 22:09:48:158 mi_ram.c/(6077:6540): Tamanio de la tabla de la patota 0 antes del remove: 3
+[INFO] 22:09:48:158 mi_ram.c/(6077:6540): Tamanio de la tabla de la patota 0 despues del remove: 2
+[INFO] 22:09:48:158 mi_ram.c/(6077:6540): Entre a es el ultimo tripulante

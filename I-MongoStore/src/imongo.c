@@ -448,6 +448,12 @@ void agregarBloqueFile(int nuevoBloque, char *recurso){
 	
 	semaforoEsperaRecurso(recurso);
 	t_config *configRecurso = config_create(ubicacionFileRecurso);
+
+	if(configRecurso==NULL){
+		creacionFileRecurso(recurso[0],ubicacionFileRecurso);
+		configRecurso = config_create(ubicacionFileRecurso);
+	}
+
 	agregarBloqueArchivo(nuevoBloque, configRecurso);
 	config_destroy(configRecurso);
 	semaforoListoRecurso(recurso);
@@ -460,7 +466,10 @@ void agregarSizeFile(char *recurso, int nuevaSize){
 	
 	semaforoEsperaRecurso(recurso);
 	t_config *configRecurso = config_create(ubicacionFileRecurso);
-
+	if(configRecurso==NULL){
+		creacionFileRecurso(recurso[0],ubicacionFileRecurso);
+		configRecurso = config_create(ubicacionFileRecurso);
+	}
 	agregarSizeArchivo(configRecurso, nuevaSize);
 	config_destroy(configRecurso);
 	semaforoListoRecurso(recurso);
@@ -473,6 +482,12 @@ int ultimoBloqueFile(char *recurso){
 	
 	semaforoEsperaRecurso(recurso);
 	t_config *configRecurso = config_create(ubicacionFileRecurso);
+
+	if(configRecurso==NULL){
+		free(ubicacionFileRecurso);
+		semaforoListoRecurso(recurso);
+		return -1;
+	}
 
 	int proximoBlock = leerUltimoBloque(configRecurso);
 	config_destroy(configRecurso);
@@ -489,6 +504,11 @@ int conseguirSizeBlocks(char *recurso){
 	semaforoEsperaRecurso(recurso);
 	t_config *configRecurso = config_create(ubicacionFileRecurso);
 
+	if(configRecurso==NULL){
+		creacionFileRecurso(recurso[0],ubicacionFileRecurso);
+		configRecurso = config_create(ubicacionFileRecurso);
+	}
+
 	int sizeDeLosBlocks = config_get_int_value(configRecurso,"SIZE");
 	config_destroy(configRecurso);
 	semaforoListoRecurso(recurso);
@@ -504,41 +524,44 @@ void borrarBloqueFile(char *recurso, int cantidadBorrar){
 	semaforoEsperaRecurso(recurso);
 	t_config *configRecurso = config_create(ubicacionFileRecurso);
 
-	int nuevaCantidadBloques = config_get_int_value(configRecurso,"BLOCK_COUNT");
-	nuevaCantidadBloques--;
-	char *stringBlockCount = string_itoa(nuevaCantidadBloques);
-	config_set_value(configRecurso,"BLOCK_COUNT",stringBlockCount);
+	if(configRecurso!=NULL){
+		int nuevaCantidadBloques = config_get_int_value(configRecurso,"BLOCK_COUNT");
+		nuevaCantidadBloques--;
+		char *stringBlockCount = string_itoa(nuevaCantidadBloques);
+		config_set_value(configRecurso,"BLOCK_COUNT",stringBlockCount);
 
-	char *listaBlocks = config_get_string_value(configRecurso,"BLOCKS");
-	int indiceFinal = strlen(listaBlocks)-1;
-	while(listaBlocks[indiceFinal]!=',' && indiceFinal>1)
+		char *listaBlocks = config_get_string_value(configRecurso,"BLOCKS");
+		int indiceFinal = strlen(listaBlocks)-1;
+		while(listaBlocks[indiceFinal]!=',' && indiceFinal>1)
 			indiceFinal--;
 	
 	
-	char * listaBlocksAuxiliar = string_substring_until(listaBlocksAuxiliar, indiceFinal);
-	string_append(&listaBlocksAuxiliar, "]");
-	config_set_value(configRecurso,"BLOCKS",listaBlocksAuxiliar);
+		char * listaBlocksAuxiliar = string_substring_until(listaBlocks, indiceFinal);
+		string_append(&listaBlocksAuxiliar, "]");
+		config_set_value(configRecurso,"BLOCKS",listaBlocksAuxiliar);
 
-	int sizeAcutal = config_get_int_value(configRecurso, "SIZE");
-	sizeAcutal-=cantidadBorrar;
-	char *stringSize = string_itoa(sizeAcutal);
-	config_set_value(configRecurso,"SIZE",stringSize);
+		int sizeAcutal = config_get_int_value(configRecurso, "SIZE");
+		sizeAcutal-=cantidadBorrar;
+		char *stringSize = string_itoa(sizeAcutal);
+		config_set_value(configRecurso,"SIZE",stringSize);
 
-	config_save(configRecurso);
-	config_destroy(configRecurso);
+		config_save(configRecurso);
+		config_destroy(configRecurso);
 	
-	semaforoListoRecurso(recurso);
 
-	free(stringBlockCount);
-	free(stringSize);
-	free(listaBlocks);
-	free(listaBlocksAuxiliar);
+		free(stringBlockCount);
+		free(listaBlocksAuxiliar);
+		free(stringSize);
+	}
+
+	semaforoListoRecurso(recurso);
 	free(ubicacionFileRecurso);
 }
 
-char *generarMD5(char * ubicacionArchivo){
+char *generarMD5(char * recurso){
     char *md5_sum = malloc(32);
-    FILE *p = popen("md5sum FileSystem/archivoMD5.ims", "r");
+	char *ubicacionMD5 = string_from_format("md5sum FileSystem/archivoMD5%s.ims",recurso);
+    FILE *p = popen(ubicacionMD5, "r");
 
     int i;
     for (i = 0; i < 32; i++) {
@@ -546,21 +569,20 @@ char *generarMD5(char * ubicacionArchivo){
 	}
 	md5_sum[i] = '\0';
     pclose(p);
-
+	free(ubicacionMD5);
 	return md5_sum;
 }
 
-char *conseguirMD5(t_config *configRecurso){
+char *conseguirMD5(t_config *configRecurso, char *recurso){
 	int sizeRecurso = config_get_int_value(configRecurso,"SIZE");
 	char ** listaBloques= config_get_array_value(configRecurso,"BLOCKS");
 
-	char * ubicacionArchivoMD5 = string_from_format("%s/archivoMD5.ims",puntoDeMontaje);
+	char * ubicacionArchivoMD5 = string_from_format("%s/archivoMD5%s.ims",puntoDeMontaje,recurso);
 	FILE * archivoMD5 = fopen(ubicacionArchivoMD5,"w");
 	
 	for(int i = 0; sizeRecurso>0; i++){
 		int bloqueABuscar = atoi(listaBloques[i]) - 1;
 		int marcador =  bloqueABuscar * tamanioDeBloque;
-		int marcador2 = i * tamanioDeBloque;
 		
 		int cantidadACopiar;
 		if(sizeRecurso>tamanioDeBloque)
@@ -570,7 +592,7 @@ char *conseguirMD5(t_config *configRecurso){
 		
 		char *bloqueACopiar = malloc(cantidadACopiar);
 		memcpy(bloqueACopiar, &(mapBlocksCopia[marcador]), cantidadACopiar);
-		fwrite(bloqueACopiar,1,cantidadACopiar,archivoMD5);
+		fwrite(bloqueACopiar,cantidadACopiar,1,archivoMD5);
 
 		sizeRecurso-=cantidadACopiar;
 		free(listaBloques[i]);
@@ -579,30 +601,33 @@ char *conseguirMD5(t_config *configRecurso){
 	
 	fclose(archivoMD5);
 	
-	char *md5_sum = generarMD5(ubicacionArchivoMD5);
+	char *md5_sum = generarMD5(recurso);
 	
 	remove(ubicacionArchivoMD5);
 	
 	free(ubicacionArchivoMD5);
 	free(listaBloques);
-
+	
 	return md5_sum;
 }
 
 void actualizarMD5(char *recurso){
-	semaforoEsperaRecurso(recurso);
 	char * ubicacionArchivo = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
-	t_config *  configRecurso = config_create(ubicacionArchivo);
 
-	char *md5_sum = conseguirMD5(configRecurso);
+	semaforoEsperaRecurso(recurso);
+	t_config *configRecurso = config_create(ubicacionArchivo);
+	if(configRecurso!=NULL){
+		char *md5_sum = conseguirMD5(configRecurso,recurso);
 
-	config_set_value(configRecurso,"MD5_ARCHIVO",md5_sum);
+		config_set_value(configRecurso,"MD5_ARCHIVO",md5_sum);
 
-	config_save(configRecurso);
-	config_destroy(configRecurso);
+		config_save(configRecurso);
+		config_destroy(configRecurso);
+
+		free(md5_sum);
+	}
 	semaforoListoRecurso(recurso);
 
-	free(md5_sum);
 	free(ubicacionArchivo);
 }
 //---------------------------------------------------------------------------------------------------//
@@ -649,7 +674,6 @@ void llenarBlocksRecursos(char *recurso, int cantALlenar){
 }
 
 void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
-	log_info(loggerImongoStore,"ENTRE AL BACIAR BLOCKS");
 	int cantFaltante = cantAVaciar;
 	int proximoBlock;
 	int sizeRecurso = conseguirSizeBlocks(recurso);
@@ -674,7 +698,7 @@ void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 			borrarBloqueFile(recurso, cantidadEliminar);
 			liberarBloqueBitMap(proximoBlock);
 		}
-	
+
 		marcador -= cantidadEliminar;
 		cantFaltante-=cantidadEliminar;
 
@@ -685,7 +709,7 @@ void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 		free(stringVacio);
 	}
 
-	//actualizarMD5(recurso); //TODO
+	actualizarMD5(recurso);
 }
 //---------------------------------------------------------------------------------------------------//
 //--------------------------------------- MENSAJES QUE RECIBE ---------------------------------------//
@@ -745,20 +769,16 @@ void descartarBasura(uint32_t idTripulante){
 		log_info(loggerImongoStore,"No hay recurso que consumir");
 		free(ubicacionArchivoBasura);
 	} else {
-		semaforoEsperaRecurso("Basura");
 		t_config *configRecurso = config_create(ubicacionArchivoBasura);
 		int cantidadBasura = config_get_int_value(configRecurso, "SIZE");
 		config_destroy(configRecurso);
-		semaforoListoRecurso("Basura");
-
-		log_info(loggerImongoStore,"entrando a la funcion vaciar blques recursp");
 
 		vaciarBlocksRecursos("Basura", cantidadBasura);
-		
-		log_info(loggerImongoStore,"borro el archivo");
+
 		remove(ubicacionArchivoBasura);
-	
+
 		free(ubicacionArchivoBasura);
+
 		log_info(loggerImongoStore,"Se descarto la Basura");
 	}
 }
@@ -1003,7 +1023,7 @@ bool verificarListBlocks(char *ubicacionRecurso){
 	t_config *configRecurso = config_create(ubicacionRecurso);	
 	if(configRecurso!=NULL){
 		char *archivoMD5 = config_get_string_value(configRecurso, "MD5_ARCHIVO");
-		char *recursoMD5Real = conseguirMD5(configRecurso);
+		char *recursoMD5Real = conseguirMD5(configRecurso,"Sabotaje");
 		log_info(loggerImongoStore,"MD5\n%s\n%s",archivoMD5,recursoMD5Real);
 	
 		if(strcmp(archivoMD5,recursoMD5Real)==0){
@@ -1195,7 +1215,6 @@ void llegoElSignal (){
 void sincronizacionMapBlocks(){
 	while(1){
 		sleep(tiempoDeSinc);
-		//log_info(loggerImongoStore,"Sincronizando");
 		memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
 		msync(mapBlocks, tamanioBlocks, MS_SYNC);
 	}
