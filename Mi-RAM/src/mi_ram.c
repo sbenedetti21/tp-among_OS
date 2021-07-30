@@ -153,7 +153,7 @@ void * atenderDiscordiador(void * socket){
 		int cantidadTCBs = 0; 
 		memcpy(&cantidadTCBs, stream, sizeof(int));
 		stream += sizeof(int); //lo que sigue en el stream son los tcbs
-		log_info(loggerMiram, "PID: %d", idPatota); 
+		log_info(loggerMiram, "PID: %c", idMapa(idPatota)); 
 		//log_info(loggerMiram, "Tareas recibidas: %s Tamanio de las tareas: %d", tareas, tamanioTareas); 
 		log_info(loggerMiram, "Cantidad de tripulantes: %d \n", cantidadTCBs);
 
@@ -293,10 +293,8 @@ void * atenderDiscordiador(void * socket){
 					tripu->offset = (SIZEOF_PCB + tamanioTareas + SIZEOF_TCB * i) % tamanioPagina;
 					tripu->cantidadDePaginas = ((tripu->offset + SIZEOF_TCB) / tamanioPagina) + 1;
 
-					log_info(loggerMiram, "Tripulante %d, Patota %d, pag %d, offset %d, cantidadPaginas %d", tripu->tid, tripu->pid, tripu->nroPagina, tripu->offset, tripu->cantidadDePaginas);
-
 					list_add(listaTripulantes, tripu);
-				//
+					log_info(loggerMiram, "Tripulante agregado a memoria. TID: %d", tid);
 
 					memcpy(streamPatota + offset, stream, (SIZEOF_TCB - 8));
 					stream += (SIZEOF_TCB - 8); offset += (SIZEOF_TCB - 8);
@@ -1144,7 +1142,7 @@ void compactarMemoriaSegmentacion(){
 	log_info(loggerMiram, "Iniciando compactacion de la memoria...");
 	sleep(2); 
 	
-	mem_hexdump(memoriaPrincipal, tamanioMemoria);
+	//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 	
 	t_list * listaLibres = list_filter(tablaSegmentosGlobal, segmentoOcupado);
 	tablaSegmentosGlobal = listaLibres; 
@@ -1178,7 +1176,7 @@ void compactarMemoriaSegmentacion(){
 			free(memAux);
 			actualizarEstructurasSegmentacion(segmentoActual, nuevaBase); 
 			segmentoActual->base = nuevaBase; 
-			mem_hexdump(memoriaPrincipal, tamanioMemoria);
+			//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 		}
 		
 		t_segmento * ultimoSegmentoOcupado = list_get(tablaSegmentosGlobal, list_size(tablaSegmentosGlobal)-1); 
@@ -1201,7 +1199,7 @@ void compactarMemoriaSegmentacion(){
 		list_add(tablaSegmentosGlobal, segmentoLibre);
 	}
 
-	mem_hexdump(memoriaPrincipal, tamanioMemoria);
+	//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
 	compactacion = false; 
 	int valorSemaforo = 0;
@@ -1478,7 +1476,7 @@ void traerPaginaAMemoria(t_pagina* pagina) {
 	pthread_mutex_unlock(&mutexContadorLRU); 
 	int index = frameLibre->inicio / tamanioPagina;
 
-	log_info(loggerMiram, "Se trae la pagina %d, del proceso %d a MEMORIA", frameLibre->pagina->numeroPagina, frameLibre->pagina->pid);
+	log_info(loggerMiram, "Se trae la pagina %d, del proceso %c a MEMORIA", frameLibre->pagina->numeroPagina, idMapa(frameLibre->pagina->pid));
 }
 
 void llevarPaginaASwap() {
@@ -1510,7 +1508,7 @@ void llevarPaginaASwap() {
 	// contadorLRU++;
 	// pthread_mutex_unlock(&mutexContadorLRU);
 
-	log_info(loggerMiram, "VIctima elegida para Swap: pagina %d de proceso %d", frameVictima->pagina->numeroPagina, frameVictima->pagina->pid);
+	log_info(loggerMiram, "Victima elegida para llevar a SWAP: pagina %d de proceso %c", frameVictima->pagina->numeroPagina, idMapa(frameVictima->pagina->pid));
 
 	FILE * swap = fopen(path_SWAP, "a+");
 	fseek(swap, frameSwap->inicio, SEEK_SET);
@@ -1619,7 +1617,7 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 	for (i = 0; i < cantidadFrames; i++){ 
 		t_frame * frameLibre = buscarFrame();
 		uint32_t direcProximoFrame = frameLibre->inicio;
-		log_info(loggerMiram,"direc prox frame a escribir %d \n", direcProximoFrame);
+		//log_info(loggerMiram,"direc prox frame a escribir %d \n", direcProximoFrame);
 
 		pthread_mutex_lock(&mutexMemoriaPrincipal);
 		while ((i * tamanioPagina + j) < (memoriaAGuardar) && j < tamanioPagina){
@@ -1644,8 +1642,10 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 		
 		// t_frame * frameOcupado = malloc(sizeof(t_frame));
 		// frameOcupado->inicio = direcProximoFrame;
+		pthread_mutex_lock(&mutexListaFrames);
 		frameLibre->ocupado = 1;
 		frameLibre->pagina = pagina; 
+		pthread_mutex_unlock(&mutexListaFrames);
 		j=0; // NO BOIRRAR
 		// pthread_mutex_lock(&mutexListaFrames);
 		// t_frame * frameParaLiberar = list_replace(listaFrames, numeroDeFrame, frameOcupado);  // ver si se puede usar replace and destroy para liberar memoria
@@ -1663,6 +1663,8 @@ void llenarFramesConPatota(t_list* listaDePaginas, void * streamDePatota, int ca
 	pthread_mutex_lock(&mutexListaTablas);
 	list_add(listaTablasDePaginas, tablaDePaginas);
 	pthread_mutex_unlock(&mutexListaTablas);
+
+	
 }
 
 void * obtenerStreamTripulante(referenciaTablaPaginas * referenciaTabla, uint32_t tid){
