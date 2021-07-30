@@ -36,12 +36,28 @@ char * algoritmoReemplazo;
 char * puertoMemoria;
 char * ipRam;
 char * criterioSeleccion; 
-char * pathSwap;
+char * path_SWAP;
 void * memoriaPrincipal;
 int		tamanioSwap; 
 int 	tamanioMemoria; 
 int		tamanioPagina; 
 
+
+//funciones generales
+
+void iniciarMemoria();
+void servidorPrincipal();
+void * atenderDiscordiador();
+PCB * crearPCB(uint32_t);
+void mandarPaqueteSerializado(t_buffer * , int , int );
+int buscarEspacionNecesario(int, int);
+char * obtenerProximaTarea(uint32_t, uint32_t);
+void actualizarEstadoTripulante(uint32_t , uint32_t , char );
+void eliminarTripulante(uint32_t, uint32_t);
+
+void * hiloSIGUSR1(); 
+void * hiloSIGUSR2();
+void sig_handler(int); 
 
 //mutex para valores compartidos 
 pthread_mutex_t mutexTablaSegmentosGlobal; 
@@ -83,15 +99,6 @@ typedef struct{
 } referenciaTablaPatota; 
 
 
-void iniciarMemoria();
-void servidorPrincipal();
-void * atenderDiscordiador();
-PCB * crearPCB(uint32_t);
-void mandarPaqueteSerializado(t_buffer * , int , int );
-int buscarEspacionNecesario(int, int);
-void * hiloSIGUSR1(); 
-void * hiloSIGUSR2();
-void sig_handler(int); 
 
 //funciones segmentacion
 int buscarEspacioNecesarioSegmentacion(int , int );
@@ -118,54 +125,16 @@ bool segmentoMasPequenio(t_segmento * , t_segmento * );
 bool seEncuentraPrimeroEnMemoria(t_segmento * , t_segmento* );
 
 
-
-//--------------- MAPA ---------------------
-// NIVEL* navePrincipal;
-// sem_t semaforoTerminarMapa; 
-// sem_t semaforoMoverTripulante;
-// void iniciarMapa();
-// void agregarTripulanteAlMapa(uint32_t, uint32_t ,uint32_t);
-// void moverTripulanteEnMapa(uint32_t, uint32_t , uint32_t );
-// void expulsarTripulanteDelMapa(uint32_t);
-// char idMapa(uint32_t);
- 
-/*
-// --------------------------------------- MEMORIA GENERAL
- 
-char * esquemaMemoria;
-char * algoritmoReemplazo;
-char * puertoMemoria;
-void * memoriaPrincipal; 
-char * criterioSeleccion; 
-
-int buscarEspacioNecesario(int, int);
-TCB * deserializar_TCB(void *);
-char * obtenerProximaTareaSegmentacion(uint32_t, uint32_t);
-uint32_t obtenerDireccionTripulante(uint32_t, uint32_t );
-uint32_t obtenerDireccionProximaTarea(uint32_t);
-char * obtenerProximaTarea(uint32_t, uint32_t);
-void imprimirSegmentos();
-void sig_handler(uint32_t senial);
-void * hiloSIGUSR1();
-void * hiloSIGUSR2();
-void actualizarEstadoTripulante(uint32_t , uint32_t , char );
-void eliminarTripulante(uint32_t, uint32_t);
-
-bool compactacion = false; 
-
-
-
-// ----------------------------------------  PAGINAS
+// PAGINACION
 
 int contadorLRU;
+int punteroClock = 0;
 
-char * path_SWAP;
 t_list * listaFrames;
 t_list * listaFramesSwap;
 t_list * listaTablasDePaginas;
 t_list * listaTripulantes;
-int tamanioPagina, tamanioMemoria, tamanioSwap;
-pthread_mutex_t mutexMemoriaPrincipal;
+
 pthread_mutex_t mutexListaTablas;
 pthread_mutex_t mutexListaFrames;
 pthread_mutex_t mutexListaFramesSwap;
@@ -194,6 +163,7 @@ typedef struct {
 	uint32_t pid;
 	t_list * listaPaginas;
 	int contadorTCB;
+	pthread_mutex_t semaforoPatota;
 } referenciaTablaPaginas;
 
 typedef struct {
@@ -206,7 +176,7 @@ typedef struct {
 
 char * obtenerProximaTareaPaginacion(referenciaTablaPaginas* , uint32_t);
 uint32_t obtenerDireccionProximaTareaPaginacion(void *);
-uint32_t obtenerDireccionFrame(referenciaTablaPaginas *, uint32_t);
+uint32_t obtenerDireccionFrame(referenciaTablaPaginas *, int);
 char * encontrarTareasDeTripulanteEnStream(void *, t_tripulantePaginacion *, referenciaTablaPaginas*);
 void actualizarPunteroTarea(t_tripulantePaginacion *, t_list*, int);
 
@@ -222,94 +192,14 @@ t_frame * buscarFrameSwap();
 
 void dumpDeMemoriaPaginacion();
 
-
-// ----------------------------------------  SEGMENTOS
-
-t_list * tablaSegmentosGlobal; 
-t_list * tablaDeTablasSegmentos;  // va a estar conformado por muchos struct de tipo referenciaTablaPatota
-sem_t mutexTablaGlobal;
-sem_t mutexTablaDeTablas; 
-sem_t mutexTripulantesPatotas; 
-sem_t mutexCompactacion; 
-sem_t mutexSegmentosLibres;
-
-t_list * tripulantesPatotas; 
-
-
-enum tipoSegmento {
-	SEG_TAREAS, SEG_PCB, SEG_TCB
-};
-
-typedef struct{
-	uint32_t pid;
-	t_list * tablaPatota;
-} referenciaTablaPatota;
-
-typedef struct {
-	uint32_t pid;
-	uint32_t tid;
-} referenciaTripulante;
-
-typedef struct{
-	
-	int tipoSegmento; 
-	int pid;
-	int tid; 
-	uint32_t base; 
-	uint32_t tamanio; 
- 
-} t_segmento; 
-
-t_list * tablaSegmentosLibres;
-uint32_t asignarMemoriaSegmentacionTCB(void *, int, t_list *, int); 
-uint32_t asignarMemoriaSegmentacionPCB(void * , t_list *);
-uint32_t asignarMemoriaSegmentacionTareas(char * , int , t_list * , int);
-uint32_t encontrarLugarSegmentacion(int );
-uint32_t firstFit(int );
-uint32_t bestFit(int );
-t_list *  obtenerSegmentosLibres(t_list * );
-int buscarEspacioSegmentacion(int , int );
-bool seEncuentraPrimeroEnMemoria(t_segmento * , t_segmento* );
-bool segmentoMasPequenio(t_segmento * , t_segmento * );
-bool cabePCB(t_segmento * );
-bool cabeTCB(t_segmento * );
-void imprimirSegmentosLibres();
-void actualizarProximaTarea(uint32_t, uint32_t);
-void compactarMemoria();
-void actualizarReferenciasTablas(t_segmento *, uint32_t);
-
-
-// --------------------- Generales
-
-t_log * loggerMiram; 
-void servidorPrincipal();
-
-void atenderDiscordiador(int);
-void recibir_TCB(int);
-PCB * crearPCB(uint32_t);
-
-typedef struct {
-
-	int socket;
-	struct sockaddr_in address;
-	socklen_t addresslength; 
-
- 
-} structConexion;
-
-void mandarPaqueteSerializado(t_buffer *, int, int);
-
-
 //--------------- MAPA ---------------------
-NIVEL* navePrincipal;
-sem_t semaforoTerminarMapa; 
-sem_t semaforoMoverTripulante;
-void iniciarMapa();
-void agregarTripulanteAlMapa(uint32_t, uint32_t ,uint32_t);
-void moverTripulanteEnMapa(uint32_t, uint32_t , uint32_t );
-void expulsarTripulanteDelMapa(uint32_t);
-char idMapa(uint32_t);
- */
-
+// NIVEL* navePrincipal;
+// sem_t semaforoTerminarMapa; 
+// sem_t semaforoMoverTripulante;
+// void iniciarMapa();
+// void agregarTripulanteAlMapa(uint32_t, uint32_t ,uint32_t);
+// void moverTripulanteEnMapa(uint32_t, uint32_t , uint32_t );
+// void expulsarTripulanteDelMapa(uint32_t);
+// char idMapa(uint32_t);
 
 #endif
