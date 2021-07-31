@@ -22,9 +22,11 @@ typedef struct tcb_discordiador{
     uint32_t posicionY;
     sem_t semaforoTrabajo;
     sem_t termineIO;
+    sem_t empeceIO;
     uint32_t pid;
     char * descripcionTarea;
     int parametros;
+    int tiempo;
     bool fueExpulsado;
 } TCB_DISCORDIADOR;
 

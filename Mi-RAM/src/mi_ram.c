@@ -1436,7 +1436,6 @@ void iniciarSwap() {
 }
 
 void traerPaginaAMemoria(t_pagina* pagina) {
-	llevarPaginaASwap();
 
 	uint32_t nroFrameSwap = pagina->numeroFrame;
 

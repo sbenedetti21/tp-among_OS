@@ -28,7 +28,7 @@ INICIAR_PATOTA 3 /home/facundin/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota5.tx
  
 //FILESISTEM
 INICIAR_PATOTA 3 FS_PatotaA.txt
-INICIAR_PATOTA 3 /home/facundin/TPCUATRI/a-mongos-pruebas/Finales/FS_PatotaB.txt
+INICIAR_PATOTA 3 FS_PatotaB.txt
  
 60 OXIGENO
 60 COMIDA
@@ -41,6 +41,10 @@ INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaA.txt 
 INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaB.txt 8|0
 INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaC.txt 8|8
 INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaD.txt 0|8
+
+
+definitely lost: 1,176 bytes in 78 blocks
+indirectly lost: 1,209 bytes in 195 blocks
 
 */ 
 
@@ -170,7 +174,7 @@ void consola(){
 
 				ponerReadyNuevosTripulantes();
 
-				planificacionPausada = true;
+				planificacionPausada = false;
 				int r = 0;
 				for(r = 0 ; r < ( gradoMultitarea + cantidadBloqueados ); r ++){
 				sem_post(&semaforoPlanificacionPausada);
@@ -321,6 +325,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 
 		sem_init(&tripulante->semaforoTrabajo, 0, 0); 
 		sem_init(&tripulante->termineIO,0,0);
+		sem_init(&tripulante->empeceIO,0,0);
 	 
 		tripulante->estado = 'N';
 		tripulante->tid = proximoTID;  
@@ -330,6 +335,7 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 		tripulante->fueExpulsado = false; 
 		tripulante->descripcionTarea = malloc(30);
 		tripulante->parametros = -1;
+		tripulante->tiempo = 0;
 
 		sem_wait(&cambiarANuevo);	
 		list_add(listaNuevos, tripulante);
@@ -361,11 +367,18 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 	bool noHayMasTareas = false;
 	tarea_struct * tarea = malloc(sizeof(tarea_struct)); //HECHO
 	char * descripcionTareaAnterior;
-
+	char ** vectorTarea = malloc(45);
+	 vectorTarea[0]= malloc(30);
+	 vectorTarea[1]= malloc(5); 
+	 vectorTarea[2]= malloc(5); 
+	 vectorTarea[3]= malloc(5); 
+	//LISTO   
+	char ** requerimientosTarea = malloc(30); //LISTO
+	requerimientosTarea[0] = malloc(25);
+	requerimientosTarea[1] = malloc(5);
 	while (1) {
 
-		char ** vectorTarea;  //LISTO   
-		char ** requerimientosTarea; //LISTO
+		
 
 		if( tripulante->fueExpulsado){
 			expulsarTripulate(tripulante);
@@ -374,6 +387,13 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 		
 
 		if(tareaTerminada && !esLaPrimera ){
+
+				//free(requerimientosTarea[0]);
+				//free(requerimientosTarea[1]);
+				//free(requerimientosTarea);
+				
+				//free(tarea->descripcionTarea);
+				//free(tarea);
 
 				posxV = tripulante->posicionX;
 				posyV = tripulante->posicionY;
@@ -393,6 +413,12 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 				switch (paquete->header)
 				{
 				case HAY_TAREA:;
+				
+				free(vectorTarea[0]);
+				free(vectorTarea[1]);
+				free(vectorTarea[2]);
+				free(vectorTarea[3]);
+				free(vectorTarea);
 
 					int statusTamanioBuffer = recv(socket,&(paquete-> buffer-> size), sizeof(uint32_t), MSG_WAITALL);
 					if(! statusTamanioBuffer){ log_error(loggerDiscordiador, "No se pudo recibir el tamanio del buffer al recibir una tarea");}
@@ -412,9 +438,10 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					stream += tamanioTareas;
 
 					vectorTarea = string_split(stringTarea, ";");
-					requerimientosTarea = string_split(vectorTarea[0]," ");
+					
 
 					if(string_contains(vectorTarea[0]," ")){
+						requerimientosTarea = string_split(vectorTarea[0]," ");
 						tarea->descripcionTarea = requerimientosTarea[0];
 						tarea->parametro = atoi(requerimientosTarea[1]);
 					} else{
@@ -451,8 +478,11 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 		if(ultimaTareaDeIO){
 			sem_post(&gestionarIO);
+			sem_wait(&tripulante->empeceIO);
 
-			for(int e = 0; e < tiempoBloqueo + cicloCPU; e++){
+			printf("%s %s %d %d",tripulante->descripcionTarea, tarea->descripcionTarea, tripulante->tiempo, tarea->tiempo);
+
+			for(int e = 0; e < tripulante->tiempo + cicloCPU; e++){
 				
 				if( tripulante->fueExpulsado){
 					expulsarTripulate(tripulante);
@@ -473,18 +503,26 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 			if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 					
 			sem_post(&tripulante->termineIO);
-			serializarYMandarFinalizacionTarea(tripulante->tid, descripcionTareaAnterior);
+			serializarYMandarFinalizacionTarea(tripulante->tid, tripulante->descripcionTarea);
+			
 
 			log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
-			
+		
 			sem_wait(&estoyListo);
+
 			if(!noHayMasTareas){ 
 				sem_post(&esperarAlgunTripulante);
 			}
 		
 		}
 
-		if(noHayMasTareas){ break;} //Si MIRAM avisa que no hay mas tareas termina el hilo
+		if(noHayMasTareas){
+				free(vectorTarea[0]);
+				free(vectorTarea[1]);
+				free(vectorTarea[2]);
+				free(vectorTarea[3]);
+				free(vectorTarea);
+			break;} //Si MIRAM avisa que no hay mas tareas termina el hilo
 
 		if(strcmp(tipoAlgoritmo, "FIFO") == 0){
 
@@ -568,8 +606,11 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 				memcpy((tripulante->descripcionTarea),tarea->descripcionTarea,30); //liberar cuando expulso
 				memcpy(&(tripulante->parametros),&(tarea->parametro), 4);	
+				memcpy(&(tripulante->tiempo),&(tarea->tiempo), 4);	
+
 				
 				trasladarseA(tarea->posicionX,tarea->posicionY, tripulante);
+
 				if( tripulante->fueExpulsado){
 							expulsarTripulate(tripulante);
 							 break; 
@@ -582,9 +623,11 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					if(haySabotaje){ sem_wait(&semaforoSabotaje);}
 					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 					sem_post(&semaforoTripulantes);
-					tiempoBloqueo = tarea->tiempo;
-					descripcionTareaAnterior = tarea->descripcionTarea;
 					ultimaTareaDeIO = true;
+
+					free(requerimientosTarea[0]);
+					free(requerimientosTarea[1]);
+					free(requerimientosTarea);
 
 				} else{
 
@@ -611,6 +654,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					sem_post(&tripulante->semaforoTrabajo); 
 
 					log_info(loggerDiscordiador, "Tripulante %d terminó su tarea", tripulante->tid);
+
 				}
 					if(haySabotaje){ sem_wait(&semaforoSabotaje);}
 					if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
@@ -693,7 +737,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 																free(paquete->buffer);
 																free(paquete);
 																
-																break;
+																break; 
 															
 															case NO_HAY_TAREA:								
 																				free(paquete->buffer);
@@ -709,7 +753,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 												}
 
 												memcpy((tripulante->descripcionTarea),tarea->descripcionTarea,30);
-												memcpy(&(tripulante->parametros),&(tarea->parametro), 4);							
+												memcpy(&(tripulante->parametros),&(tarea->parametro), 4);
+												memcpy(&(tripulante->tiempo),&(tarea->tiempo), 4);						
 
 												if(contador == quantum && !ultimaTareaDeIO){
 												cambiarDeEstado(tripulante,'R');
@@ -833,9 +878,9 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															tiempoBloqueo = tarea->tiempo;			
 															contador++;
 															ultimaTareaDeIO = true;
-															// free(requerimientosTarea[0]);
-															// free(requerimientosTarea[1]);
-															// free(requerimientosTarea);
+															free(requerimientosTarea[0]);
+															free(requerimientosTarea[1]);
+															free(requerimientosTarea);
 															// free(vectorTarea[0]);
 															// free(vectorTarea[1]);
 															// free(vectorTarea[2]);
@@ -966,6 +1011,8 @@ void gestionadorIO(){
 			sem_wait(&cambiarABloqueado);
 			TCB_DISCORDIADOR* tripulantee = list_get(listaBloqueados, 0);
 			sem_post(&cambiarABloqueado);
+
+			sem_post(&tripulantee->empeceIO);
 
 			log_info(loggerDiscordiador,"Arranque IO de %d", tripulantee->tid);
 
