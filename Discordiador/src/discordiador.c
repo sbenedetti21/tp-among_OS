@@ -6,7 +6,7 @@
 // FRAN: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 // BENE: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/PAG_PatotaA.txt 1|1
 /* 
-DIFI:  
+DIFI:   
   
 INICIAR_PATOTA 3 ES3_Patota1.txt 9|9 0|0 5|5
 INICIAR_PATOTA 3 ES3_Patota2.txt 4|0 2|6 8|2
@@ -995,7 +995,7 @@ printf("--------------------------------------------------------- \nEstado actua
 		TCB_DISCORDIADOR *tripulante = list_get(listaTripulantes,i);
 		// PCB *patota = tripulante->punteroPCB;
 
-		printf("Tripulante: %d (%c)  Patota: %d   Estado: %c   Posicion: %d|%d \n", tripulante->tid , idMapa(tripulante->tid) , tripulante->pid  , tripulante->estado, tripulante->posicionX, tripulante->posicionY);
+		printf("Tripulante: %2d (%c)  Patota: %2d   Estado: %c   Posicion: %d|%d \n", tripulante->tid , idMapa(tripulante->tid) , tripulante->pid  , tripulante->estado, tripulante->posicionX, tripulante->posicionY);
 
 	}
 
@@ -1142,9 +1142,9 @@ void gestionarTarea(char * descripcionTarea, int parametros, uint32_t tid){
 }
 
 
-char * leerTareas(char* pathTareas) {
+char * leerTareas(char* nombreTareas) {
 
-	//char * pathTareas = string_from_format("/home/utnso/%s", nombreTareas);
+	char * pathTareas = string_from_format("/home/utnso/%s", nombreTareas);
 	FILE* archivo = fopen(pathTareas,"r");
 	if (archivo == NULL)
 	{

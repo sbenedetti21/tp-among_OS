@@ -1894,7 +1894,7 @@ char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, u
 	pthread_mutex_unlock(&mutexListaTripulantes);
 
 	/// Encontrar los frames de las tareas
-	int i = 0, j = 0;
+	int i = 0, j = 0; 
 	char c = 0;
 	char * tarea = malloc(40);
 	int paginaATraer = direccionProximaTarea / tamanioPagina;

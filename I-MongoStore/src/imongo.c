@@ -1115,7 +1115,7 @@ bool verificarSize(char *ubicacionRecurso){
 
 			sizeReal += reemplazarSizeBloque(blockOcupado);
 			free(listaBlocks[i]);
-	    }
+	    } 
         
 		if(sizeAuxiliar != sizeReal){
 			char *stringSize = string_itoa(sizeReal);
