@@ -4381,3 +4381,945 @@ Termina la ejecucion de la tarea DORMIR
 [INFO] 21:08:17:033 discordiador.c/(10040:10041): Tripulante 5 se encuentra en 0|0
 [INFO] 21:08:17:033 discordiador.c/(10040:10041): Tripulante 3 nos va a salvar del sabotaje en -1243611072|-1243608032 !!
 [INFO] 21:08:17:033 discordiador.c/(10040:10041): Tripulante 3 cambio su estado a S
+[INFO] 21:10:55:895 discordiador.c/(10934:10934): ---------PROGRAMA INICIADO---------- 
+[INFO] 21:11:14:384 discordiador.c/(10934:10936): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaA.txt 1|1
+[INFO] 21:11:14:386 discordiador.c/(10934:10936): Tripulante creado: ID: 0, Posicion 1|1, Estado: N 
+[INFO] 21:11:14:389 discordiador.c/(10934:10936): path de tareas recibido: /home/utnso/PAG_PatotaA.txt
+[INFO] 21:11:23:315 discordiador.c/(10934:10936): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaB.txt 3|3
+[INFO] 21:11:23:316 discordiador.c/(10934:10936): Tripulante creado: ID: 1, Posicion 3|3, Estado: N 
+[INFO] 21:11:23:316 discordiador.c/(10934:10936): path de tareas recibido: /home/utnso/PAG_PatotaB.txt
+[INFO] 21:11:37:060 discordiador.c/(10934:10936): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaC.txt 5|5
+[INFO] 21:11:37:061 discordiador.c/(10934:10936): Tripulante creado: ID: 2, Posicion 5|5, Estado: N 
+[INFO] 21:11:37:061 discordiador.c/(10934:10936): path de tareas recibido: /home/utnso/PAG_PatotaC.txt
+[INFO] 21:11:46:872 discordiador.c/(10934:10936): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 21:11:46:872 discordiador.c/(10934:11010): SANDRO
+[INFO] 21:11:46:875 discordiador.c/(10934:11010): Tripulante 0 cambio su estado a E
+[INFO] 21:11:46:895 discordiador.c/(10934:10960): Tarea pedida por tripulante 0: A00 Posicion: 1|1 Duracion: 5 
+[INFO] 21:11:48:895 discordiador.c/(10934:10960): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:11:50:896 discordiador.c/(10934:10960): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:11:52:896 discordiador.c/(10934:10960): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:11:54:896 discordiador.c/(10934:10960): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[ERROR] 21:11:55:449 discordiador.c/(10934:10935): No se pudo recibir el header
+[ERROR] 21:11:55:450 discordiador.c/(10934:10935): No se pudo recibir el tamanio del buffer 
+[ERROR] 21:11:55:450 discordiador.c/(10934:10935): No se pudo recibir el buffer
+[INFO] 21:11:55:450 discordiador.c/(10934:10935): la posicion en x -1243611072
+[INFO] 21:11:55:450 discordiador.c/(10934:10935): la posicion en y -1243611072
+[INFO] 21:11:55:450 discordiador.c/(10934:10935): Tripulante 0 cambio su estado a B
+[INFO] 21:11:55:450 discordiador.c/(10934:10935): Tripulante 1 cambio su estado a B
+[INFO] 21:11:55:450 discordiador.c/(10934:10935): Tripulante 2 cambio su estado a B
+[INFO] 21:11:55:450 discordiador.c/(10934:10935): Tripulante 0 se encuentra en 1|1
+[INFO] 21:11:55:450 discordiador.c/(10934:10935): Tripulante 1 se encuentra en 3|3
+[INFO] 21:11:55:450 discordiador.c/(10934:10935): Tripulante 2 se encuentra en 5|5
+[INFO] 21:11:55:450 discordiador.c/(10934:10935): Tripulante 0 nos va a salvar del sabotaje en -1243611072|-1243611072 !!
+[INFO] 21:11:55:450 discordiador.c/(10934:10935): Tripulante 0 cambio su estado a S
+[INFO] 21:12:20:698 discordiador.c/(11131:11131): ---------PROGRAMA INICIADO---------- 
+[INFO] 21:12:23:172 discordiador.c/(11131:11133): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaA.txt 1|1
+[INFO] 21:12:23:174 discordiador.c/(11131:11133): Tripulante creado: ID: 0, Posicion 1|1, Estado: N 
+[INFO] 21:12:23:174 discordiador.c/(11131:11133): path de tareas recibido: /home/utnso/PAG_PatotaA.txt
+[INFO] 21:12:27:870 discordiador.c/(11131:11133): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaB.txt 3|3
+[INFO] 21:12:27:871 discordiador.c/(11131:11133): Tripulante creado: ID: 1, Posicion 3|3, Estado: N 
+[INFO] 21:12:27:871 discordiador.c/(11131:11133): path de tareas recibido: /home/utnso/PAG_PatotaB.txt
+[INFO] 21:12:32:236 discordiador.c/(11131:11133): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaC.txt 5|5
+[INFO] 21:12:32:236 discordiador.c/(11131:11133): Tripulante creado: ID: 2, Posicion 5|5, Estado: N 
+[INFO] 21:12:32:236 discordiador.c/(11131:11133): path de tareas recibido: /home/utnso/PAG_PatotaC.txt
+[INFO] 21:12:38:125 discordiador.c/(11131:11133): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 21:12:38:126 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:12:38:128 discordiador.c/(11131:11162): Tripulante 0 cambio su estado a E
+[INFO] 21:12:38:160 discordiador.c/(11131:11137): Tarea pedida por tripulante 0: A00 Posicion: 1|1 Duracion: 5 
+[INFO] 21:12:40:161 discordiador.c/(11131:11137): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:12:42:161 discordiador.c/(11131:11137): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:12:44:162 discordiador.c/(11131:11137): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:12:46:163 discordiador.c/(11131:11137): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:12:48:163 discordiador.c/(11131:11137): Tripulante 0 terminó su tarea
+[INFO] 21:12:48:169 discordiador.c/(11131:11137): Tarea pedida por tripulante 0: A01 Posicion: 1|1 Duracion: 5 
+[INFO] 21:12:48:169 discordiador.c/(11131:11137): Tripulante 0 cambio su estado a R
+[INFO] 21:12:48:169 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:12:48:169 discordiador.c/(11131:11162): Tripulante 1 cambio su estado a E
+[INFO] 21:12:48:196 discordiador.c/(11131:11146): Tarea pedida por tripulante 1: B00 Posicion: 3|3 Duracion: 5 
+[INFO] 21:12:50:196 discordiador.c/(11131:11146): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:12:52:196 discordiador.c/(11131:11146): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:12:54:197 discordiador.c/(11131:11146): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:12:56:198 discordiador.c/(11131:11146): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:12:58:198 discordiador.c/(11131:11146): Tripulante 1 terminó su tarea
+[INFO] 21:12:58:204 discordiador.c/(11131:11146): Tarea pedida por tripulante 1: B01 Posicion: 3|3 Duracion: 5 
+[INFO] 21:12:58:204 discordiador.c/(11131:11146): Tripulante 1 cambio su estado a R
+[INFO] 21:12:58:204 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:12:58:204 discordiador.c/(11131:11162): Tripulante 2 cambio su estado a E
+[INFO] 21:12:58:233 discordiador.c/(11131:11152): Tarea pedida por tripulante 2: C00 Posicion: 5|5 Duracion: 5 
+[INFO] 21:13:00:233 discordiador.c/(11131:11152): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:13:02:234 discordiador.c/(11131:11152): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:13:04:234 discordiador.c/(11131:11152): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:13:06:234 discordiador.c/(11131:11152): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:13:08:235 discordiador.c/(11131:11152): Tripulante 2 terminó su tarea
+[INFO] 21:13:08:242 discordiador.c/(11131:11152): Tarea pedida por tripulante 2: C01 Posicion: 5|5 Duracion: 5 
+[INFO] 21:13:08:242 discordiador.c/(11131:11152): Tripulante 2 cambio su estado a R
+[INFO] 21:13:08:242 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:13:08:242 discordiador.c/(11131:11162): Tripulante 0 cambio su estado a E
+[INFO] 21:13:10:242 discordiador.c/(11131:11137): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:13:12:243 discordiador.c/(11131:11137): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:13:14:243 discordiador.c/(11131:11137): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:13:16:244 discordiador.c/(11131:11137): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:13:18:244 discordiador.c/(11131:11137): Tripulante 0 terminó su tarea
+[INFO] 21:13:18:252 discordiador.c/(11131:11137): Tarea pedida por tripulante 0: A02 Posicion: 1|1 Duracion: 5 
+[INFO] 21:13:18:252 discordiador.c/(11131:11137): Tripulante 0 cambio su estado a R
+[INFO] 21:13:18:252 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:13:18:252 discordiador.c/(11131:11162): Tripulante 1 cambio su estado a E
+[INFO] 21:13:20:252 discordiador.c/(11131:11146): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:13:22:253 discordiador.c/(11131:11146): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:13:24:254 discordiador.c/(11131:11146): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:13:26:254 discordiador.c/(11131:11146): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:13:28:255 discordiador.c/(11131:11146): Tripulante 1 terminó su tarea
+[INFO] 21:13:28:262 discordiador.c/(11131:11146): Tarea pedida por tripulante 1: B02 Posicion: 3|3 Duracion: 5 
+[INFO] 21:13:28:263 discordiador.c/(11131:11146): Tripulante 1 cambio su estado a R
+[INFO] 21:13:28:263 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:13:28:263 discordiador.c/(11131:11162): Tripulante 2 cambio su estado a E
+[INFO] 21:13:30:263 discordiador.c/(11131:11152): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:13:32:263 discordiador.c/(11131:11152): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:13:34:264 discordiador.c/(11131:11152): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:13:36:265 discordiador.c/(11131:11152): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:13:38:266 discordiador.c/(11131:11152): Tripulante 2 terminó su tarea
+[INFO] 21:13:38:275 discordiador.c/(11131:11152): Tarea pedida por tripulante 2: C02 Posicion: 5|5 Duracion: 5 
+[INFO] 21:13:38:276 discordiador.c/(11131:11152): Tripulante 2 cambio su estado a R
+[INFO] 21:13:38:276 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:13:38:276 discordiador.c/(11131:11162): Tripulante 0 cambio su estado a E
+[INFO] 21:13:40:276 discordiador.c/(11131:11137): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:13:42:277 discordiador.c/(11131:11137): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:13:44:277 discordiador.c/(11131:11137): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:13:46:277 discordiador.c/(11131:11137): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:13:48:278 discordiador.c/(11131:11137): Tripulante 0 terminó su tarea
+[INFO] 21:13:48:284 discordiador.c/(11131:11137): Tripulante 0 termino de trabajar 
+[INFO] 21:13:48:284 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:13:48:284 discordiador.c/(11131:11162): Tripulante 1 cambio su estado a E
+[INFO] 21:13:50:285 discordiador.c/(11131:11146): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:13:52:286 discordiador.c/(11131:11146): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:13:54:286 discordiador.c/(11131:11146): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:13:56:287 discordiador.c/(11131:11146): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:13:58:287 discordiador.c/(11131:11146): Tripulante 1 terminó su tarea
+[INFO] 21:13:58:293 discordiador.c/(11131:11146): Tripulante 1 termino de trabajar 
+[INFO] 21:13:58:293 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:13:58:293 discordiador.c/(11131:11162): Tripulante 2 cambio su estado a E
+[INFO] 21:14:00:293 discordiador.c/(11131:11152): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:14:02:294 discordiador.c/(11131:11152): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:14:04:294 discordiador.c/(11131:11152): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:14:06:294 discordiador.c/(11131:11152): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:14:08:294 discordiador.c/(11131:11152): Tripulante 2 terminó su tarea
+[INFO] 21:14:08:301 discordiador.c/(11131:11152): Tarea pedida por tripulante 2: C03 Posicion: 5|5 Duracion: 5 
+[INFO] 21:14:08:301 discordiador.c/(11131:11152): Tripulante 2 cambio su estado a R
+[INFO] 21:14:08:301 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:14:08:301 discordiador.c/(11131:11162): Tripulante 2 cambio su estado a E
+[INFO] 21:14:10:301 discordiador.c/(11131:11152): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:14:12:301 discordiador.c/(11131:11152): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:14:14:302 discordiador.c/(11131:11152): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:14:16:302 discordiador.c/(11131:11152): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:14:18:303 discordiador.c/(11131:11152): Tripulante 2 terminó su tarea
+[INFO] 21:14:18:311 discordiador.c/(11131:11152): Tarea pedida por tripulante 2: C04 Posicion: 5|5 Duracion: 5 
+[INFO] 21:14:18:312 discordiador.c/(11131:11152): Tripulante 2 cambio su estado a R
+[INFO] 21:14:18:312 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:14:18:312 discordiador.c/(11131:11162): Tripulante 2 cambio su estado a E
+[INFO] 21:14:20:312 discordiador.c/(11131:11152): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:14:22:312 discordiador.c/(11131:11152): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:14:24:312 discordiador.c/(11131:11152): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:14:26:313 discordiador.c/(11131:11152): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:14:28:314 discordiador.c/(11131:11152): Tripulante 2 terminó su tarea
+[INFO] 21:14:28:321 discordiador.c/(11131:11152): Tarea pedida por tripulante 2: C05 Posicion: 5|5 Duracion: 5 
+[INFO] 21:14:28:322 discordiador.c/(11131:11152): Tripulante 2 cambio su estado a R
+[INFO] 21:14:28:322 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:14:28:322 discordiador.c/(11131:11162): Tripulante 2 cambio su estado a E
+[INFO] 21:14:30:322 discordiador.c/(11131:11152): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:14:32:322 discordiador.c/(11131:11152): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:14:34:322 discordiador.c/(11131:11152): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:14:36:322 discordiador.c/(11131:11152): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:14:38:322 discordiador.c/(11131:11152): Tripulante 2 terminó su tarea
+[INFO] 21:14:38:328 discordiador.c/(11131:11152): Tarea pedida por tripulante 2: C06 Posicion: 5|5 Duracion: 5 
+[INFO] 21:14:38:329 discordiador.c/(11131:11152): Tripulante 2 cambio su estado a R
+[INFO] 21:14:38:329 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:14:38:329 discordiador.c/(11131:11162): Tripulante 2 cambio su estado a E
+[INFO] 21:14:40:329 discordiador.c/(11131:11152): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:14:42:329 discordiador.c/(11131:11152): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:14:44:330 discordiador.c/(11131:11152): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:14:46:330 discordiador.c/(11131:11152): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:14:48:331 discordiador.c/(11131:11152): Tripulante 2 terminó su tarea
+[INFO] 21:14:48:338 discordiador.c/(11131:11152): Tarea pedida por tripulante 2: C07 Posicion: 5|5 Duracion: 5 
+[INFO] 21:14:48:338 discordiador.c/(11131:11152): Tripulante 2 cambio su estado a R
+[INFO] 21:14:48:338 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:14:48:338 discordiador.c/(11131:11162): Tripulante 2 cambio su estado a E
+[INFO] 21:14:50:338 discordiador.c/(11131:11152): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:14:52:338 discordiador.c/(11131:11152): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:14:54:339 discordiador.c/(11131:11152): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:14:56:339 discordiador.c/(11131:11152): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:14:58:340 discordiador.c/(11131:11152): Tripulante 2 terminó su tarea
+[INFO] 21:14:58:346 discordiador.c/(11131:11152): Tarea pedida por tripulante 2: C08 Posicion: 5|5 Duracion: 5 
+[INFO] 21:14:58:346 discordiador.c/(11131:11152): Tripulante 2 cambio su estado a R
+[INFO] 21:14:58:346 discordiador.c/(11131:11162): SANDRO
+[INFO] 21:14:58:346 discordiador.c/(11131:11162): Tripulante 2 cambio su estado a E
+[INFO] 21:15:00:347 discordiador.c/(11131:11152): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:15:02:348 discordiador.c/(11131:11152): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:15:04:348 discordiador.c/(11131:11152): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:15:06:348 discordiador.c/(11131:11152): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:15:08:349 discordiador.c/(11131:11152): Tripulante 2 terminó su tarea
+[INFO] 21:15:08:355 discordiador.c/(11131:11152): Tripulante 2 termino de trabajar 
+[ERROR] 21:15:41:351 discordiador.c/(11131:11132): No se pudo recibir el header
+[ERROR] 21:15:41:351 discordiador.c/(11131:11132): No se pudo recibir el tamanio del buffer 
+[ERROR] 21:15:41:351 discordiador.c/(11131:11132): No se pudo recibir el buffer
+[INFO] 21:15:41:351 discordiador.c/(11131:11132): la posicion en x -1242562376
+[INFO] 21:15:41:351 discordiador.c/(11131:11132): la posicion en y -1242562376
+[INFO] 21:18:47:212 discordiador.c/(11829:11829): ---------PROGRAMA INICIADO---------- 
+[INFO] 21:18:53:445 discordiador.c/(11829:11831): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaA.txt 1|1
+[INFO] 21:18:53:446 discordiador.c/(11829:11831): Tripulante creado: ID: 0, Posicion 1|1, Estado: N 
+[INFO] 21:18:53:446 discordiador.c/(11829:11831): path de tareas recibido: /home/utnso/PAG_PatotaA.txt
+[INFO] 21:18:58:352 discordiador.c/(11829:11831): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaB.txt 3|3
+[INFO] 21:18:58:353 discordiador.c/(11829:11831): Tripulante creado: ID: 1, Posicion 3|3, Estado: N 
+[INFO] 21:18:58:353 discordiador.c/(11829:11831): path de tareas recibido: /home/utnso/PAG_PatotaB.txt
+[INFO] 21:19:01:566 discordiador.c/(11829:11831): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaC.txt 5|5
+[INFO] 21:19:01:567 discordiador.c/(11829:11831): Tripulante creado: ID: 2, Posicion 5|5, Estado: N 
+[INFO] 21:19:01:567 discordiador.c/(11829:11831): path de tareas recibido: /home/utnso/PAG_PatotaC.txt
+[INFO] 21:19:04:600 discordiador.c/(11829:11831): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 21:19:04:606 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:19:04:608 discordiador.c/(11829:11866): Tripulante 0 cambio su estado a E
+[INFO] 21:19:04:647 discordiador.c/(11829:11845): Tarea pedida por tripulante 0: A00 Posicion: 1|1 Duracion: 5 
+[INFO] 21:19:06:647 discordiador.c/(11829:11845): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:19:08:647 discordiador.c/(11829:11845): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:19:10:647 discordiador.c/(11829:11845): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:19:12:648 discordiador.c/(11829:11845): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:19:14:648 discordiador.c/(11829:11845): Tripulante 0 terminó su tarea
+[INFO] 21:19:14:658 discordiador.c/(11829:11845): Tarea pedida por tripulante 0: A01 Posicion: 1|1 Duracion: 5 
+[INFO] 21:19:14:658 discordiador.c/(11829:11845): Tripulante 0 cambio su estado a R
+[INFO] 21:19:14:658 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:19:14:659 discordiador.c/(11829:11866): Tripulante 1 cambio su estado a E
+[INFO] 21:19:14:687 discordiador.c/(11829:11854): Tarea pedida por tripulante 1: B00 Posicion: 3|3 Duracion: 5 
+[INFO] 21:19:16:687 discordiador.c/(11829:11854): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:19:18:688 discordiador.c/(11829:11854): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:19:20:688 discordiador.c/(11829:11854): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:19:22:689 discordiador.c/(11829:11854): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:19:24:689 discordiador.c/(11829:11854): Tripulante 1 terminó su tarea
+[INFO] 21:19:24:699 discordiador.c/(11829:11854): Tarea pedida por tripulante 1: B01 Posicion: 3|3 Duracion: 5 
+[INFO] 21:19:24:699 discordiador.c/(11829:11854): Tripulante 1 cambio su estado a R
+[INFO] 21:19:24:699 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:19:24:699 discordiador.c/(11829:11866): Tripulante 2 cambio su estado a E
+[INFO] 21:19:24:721 discordiador.c/(11829:11861): Tarea pedida por tripulante 2: C00 Posicion: 5|5 Duracion: 5 
+[INFO] 21:19:26:721 discordiador.c/(11829:11861): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:19:28:721 discordiador.c/(11829:11861): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:19:30:721 discordiador.c/(11829:11861): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:19:32:722 discordiador.c/(11829:11861): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:19:34:722 discordiador.c/(11829:11861): Tripulante 2 terminó su tarea
+[INFO] 21:19:34:732 discordiador.c/(11829:11861): Tarea pedida por tripulante 2: C01 Posicion: 5|5 Duracion: 5 
+[INFO] 21:19:34:732 discordiador.c/(11829:11861): Tripulante 2 cambio su estado a R
+[INFO] 21:19:34:732 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:19:34:732 discordiador.c/(11829:11866): Tripulante 0 cambio su estado a E
+[INFO] 21:19:36:732 discordiador.c/(11829:11845): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:19:38:733 discordiador.c/(11829:11845): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:19:40:734 discordiador.c/(11829:11845): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:19:42:735 discordiador.c/(11829:11845): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:19:44:736 discordiador.c/(11829:11845): Tripulante 0 terminó su tarea
+[INFO] 21:19:44:753 discordiador.c/(11829:11845): Tarea pedida por tripulante 0: A02 Posicion: 1|1 Duracion: 5 
+[INFO] 21:19:44:753 discordiador.c/(11829:11845): Tripulante 0 cambio su estado a R
+[INFO] 21:19:44:753 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:19:44:753 discordiador.c/(11829:11866): Tripulante 1 cambio su estado a E
+[INFO] 21:19:46:754 discordiador.c/(11829:11854): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:19:48:755 discordiador.c/(11829:11854): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:19:50:755 discordiador.c/(11829:11854): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:19:52:756 discordiador.c/(11829:11854): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:19:54:756 discordiador.c/(11829:11854): Tripulante 1 terminó su tarea
+[INFO] 21:19:54:771 discordiador.c/(11829:11854): Tarea pedida por tripulante 1: B02 Posicion: 3|3 Duracion: 5 
+[INFO] 21:19:54:771 discordiador.c/(11829:11854): Tripulante 1 cambio su estado a R
+[INFO] 21:19:54:771 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:19:54:771 discordiador.c/(11829:11866): Tripulante 2 cambio su estado a E
+[INFO] 21:19:56:771 discordiador.c/(11829:11861): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:19:58:771 discordiador.c/(11829:11861): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:20:00:772 discordiador.c/(11829:11861): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:20:02:773 discordiador.c/(11829:11861): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:20:04:773 discordiador.c/(11829:11861): Tripulante 2 terminó su tarea
+[INFO] 21:20:04:790 discordiador.c/(11829:11861): Tarea pedida por tripulante 2: C02 Posicion: 5|5 Duracion: 5 
+[INFO] 21:20:04:790 discordiador.c/(11829:11861): Tripulante 2 cambio su estado a R
+[INFO] 21:20:04:790 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:20:04:790 discordiador.c/(11829:11866): Tripulante 0 cambio su estado a E
+[INFO] 21:20:06:791 discordiador.c/(11829:11845): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:20:08:791 discordiador.c/(11829:11845): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:20:10:792 discordiador.c/(11829:11845): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:20:12:793 discordiador.c/(11829:11845): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:20:14:794 discordiador.c/(11829:11845): Tripulante 0 terminó su tarea
+[INFO] 21:20:14:804 discordiador.c/(11829:11845): Tripulante 0 termino de trabajar 
+[INFO] 21:20:14:804 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:20:14:805 discordiador.c/(11829:11866): Tripulante 1 cambio su estado a E
+[INFO] 21:20:16:805 discordiador.c/(11829:11854): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:20:18:805 discordiador.c/(11829:11854): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:20:20:806 discordiador.c/(11829:11854): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:20:22:806 discordiador.c/(11829:11854): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:20:24:807 discordiador.c/(11829:11854): Tripulante 1 terminó su tarea
+[INFO] 21:20:24:817 discordiador.c/(11829:11854): Tripulante 1 termino de trabajar 
+[INFO] 21:20:24:817 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:20:24:818 discordiador.c/(11829:11866): Tripulante 2 cambio su estado a E
+[INFO] 21:20:26:818 discordiador.c/(11829:11861): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:20:28:819 discordiador.c/(11829:11861): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:20:30:820 discordiador.c/(11829:11861): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:20:32:820 discordiador.c/(11829:11861): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:20:34:822 discordiador.c/(11829:11861): Tripulante 2 terminó su tarea
+[INFO] 21:20:34:835 discordiador.c/(11829:11861): Tarea pedida por tripulante 2: C03 Posicion: 5|5 Duracion: 5 
+[INFO] 21:20:34:836 discordiador.c/(11829:11861): Tripulante 2 cambio su estado a R
+[INFO] 21:20:34:836 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:20:34:836 discordiador.c/(11829:11866): Tripulante 2 cambio su estado a E
+[INFO] 21:20:36:836 discordiador.c/(11829:11861): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:20:38:836 discordiador.c/(11829:11861): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:20:40:837 discordiador.c/(11829:11861): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:20:42:838 discordiador.c/(11829:11861): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:20:44:839 discordiador.c/(11829:11861): Tripulante 2 terminó su tarea
+[INFO] 21:20:44:848 discordiador.c/(11829:11861): Tarea pedida por tripulante 2: C04 Posicion: 5|5 Duracion: 5 
+[INFO] 21:20:44:849 discordiador.c/(11829:11861): Tripulante 2 cambio su estado a R
+[INFO] 21:20:44:849 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:20:44:849 discordiador.c/(11829:11866): Tripulante 2 cambio su estado a E
+[INFO] 21:20:46:850 discordiador.c/(11829:11861): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:20:48:850 discordiador.c/(11829:11861): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:20:50:852 discordiador.c/(11829:11861): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:20:52:852 discordiador.c/(11829:11861): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:20:54:853 discordiador.c/(11829:11861): Tripulante 2 terminó su tarea
+[INFO] 21:20:54:868 discordiador.c/(11829:11861): Tarea pedida por tripulante 2: C05 Posicion: 5|5 Duracion: 5 
+[INFO] 21:20:54:869 discordiador.c/(11829:11861): Tripulante 2 cambio su estado a R
+[INFO] 21:20:54:869 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:20:54:869 discordiador.c/(11829:11866): Tripulante 2 cambio su estado a E
+[INFO] 21:20:56:869 discordiador.c/(11829:11861): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:20:58:869 discordiador.c/(11829:11861): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:21:00:871 discordiador.c/(11829:11861): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:21:02:871 discordiador.c/(11829:11861): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:21:04:872 discordiador.c/(11829:11861): Tripulante 2 terminó su tarea
+[INFO] 21:21:04:881 discordiador.c/(11829:11861): Tarea pedida por tripulante 2: C06 Posicion: 5|5 Duracion: 5 
+[INFO] 21:21:04:881 discordiador.c/(11829:11861): Tripulante 2 cambio su estado a R
+[INFO] 21:21:04:881 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:21:04:881 discordiador.c/(11829:11866): Tripulante 2 cambio su estado a E
+[INFO] 21:21:06:882 discordiador.c/(11829:11861): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:21:08:882 discordiador.c/(11829:11861): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:21:10:883 discordiador.c/(11829:11861): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:21:12:883 discordiador.c/(11829:11861): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:21:14:884 discordiador.c/(11829:11861): Tripulante 2 terminó su tarea
+[INFO] 21:21:14:894 discordiador.c/(11829:11861): Tarea pedida por tripulante 2: C07 Posicion: 5|5 Duracion: 5 
+[INFO] 21:21:14:894 discordiador.c/(11829:11861): Tripulante 2 cambio su estado a R
+[INFO] 21:21:14:894 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:21:14:894 discordiador.c/(11829:11866): Tripulante 2 cambio su estado a E
+[INFO] 21:21:16:896 discordiador.c/(11829:11861): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:21:18:897 discordiador.c/(11829:11861): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:21:20:898 discordiador.c/(11829:11861): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:21:22:898 discordiador.c/(11829:11861): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:21:24:898 discordiador.c/(11829:11861): Tripulante 2 terminó su tarea
+[INFO] 21:21:24:911 discordiador.c/(11829:11861): Tarea pedida por tripulante 2: C08 Posicion: 5|5 Duracion: 5 
+[INFO] 21:21:24:911 discordiador.c/(11829:11861): Tripulante 2 cambio su estado a R
+[INFO] 21:21:24:911 discordiador.c/(11829:11866): SANDRO
+[INFO] 21:21:24:911 discordiador.c/(11829:11866): Tripulante 2 cambio su estado a E
+[INFO] 21:21:26:911 discordiador.c/(11829:11861): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:21:28:912 discordiador.c/(11829:11861): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:21:30:913 discordiador.c/(11829:11861): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:21:32:913 discordiador.c/(11829:11861): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:21:34:913 discordiador.c/(11829:11861): Tripulante 2 terminó su tarea
+[INFO] 21:21:34:923 discordiador.c/(11829:11861): Tripulante 2 termino de trabajar 
+[ERROR] 21:22:01:651 discordiador.c/(11829:11830): No se pudo recibir el header
+[ERROR] 21:22:01:651 discordiador.c/(11829:11830): No se pudo recibir el tamanio del buffer 
+[ERROR] 21:22:01:651 discordiador.c/(11829:11830): No se pudo recibir el buffer
+[INFO] 21:22:01:651 discordiador.c/(11829:11830): la posicion en x -1243610952
+[INFO] 21:22:01:651 discordiador.c/(11829:11830): la posicion en y -1243610952
+[INFO] 21:24:02:670 discordiador.c/(12409:12409): ---------PROGRAMA INICIADO---------- 
+[INFO] 21:24:06:783 discordiador.c/(12409:12411): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaA.txt 1|1
+[INFO] 21:24:06:785 discordiador.c/(12409:12411): Tripulante creado: ID: 0, Posicion 1|1, Estado: N 
+[INFO] 21:24:06:785 discordiador.c/(12409:12411): path de tareas recibido: /home/utnso/PAG_PatotaA.txt
+[INFO] 21:24:10:572 discordiador.c/(12409:12411): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaB.txt 3|3
+[INFO] 21:24:10:572 discordiador.c/(12409:12411): Tripulante creado: ID: 1, Posicion 3|3, Estado: N 
+[INFO] 21:24:10:572 discordiador.c/(12409:12411): path de tareas recibido: /home/utnso/PAG_PatotaB.txt
+[INFO] 21:24:15:703 discordiador.c/(12409:12411): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaC.txt 5|5
+[INFO] 21:24:15:703 discordiador.c/(12409:12411): Tripulante creado: ID: 2, Posicion 5|5, Estado: N 
+[INFO] 21:24:15:703 discordiador.c/(12409:12411): path de tareas recibido: /home/utnso/PAG_PatotaC.txt
+[INFO] 21:24:19:266 discordiador.c/(12409:12411): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 21:24:19:269 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:24:19:271 discordiador.c/(12409:12443): Tripulante 0 cambio su estado a E
+[INFO] 21:24:19:308 discordiador.c/(12409:12419): Tarea pedida por tripulante 0: A00 Posicion: 1|1 Duracion: 5 
+[INFO] 21:24:21:309 discordiador.c/(12409:12419): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:24:23:309 discordiador.c/(12409:12419): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:24:25:310 discordiador.c/(12409:12419): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:24:27:311 discordiador.c/(12409:12419): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:24:29:312 discordiador.c/(12409:12419): Tripulante 0 terminó su tarea
+[INFO] 21:24:29:322 discordiador.c/(12409:12419): Tarea pedida por tripulante 0: A01 Posicion: 1|1 Duracion: 5 
+[INFO] 21:24:29:322 discordiador.c/(12409:12419): Tripulante 0 cambio su estado a R
+[INFO] 21:24:29:322 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:24:29:322 discordiador.c/(12409:12443): Tripulante 1 cambio su estado a E
+[INFO] 21:24:29:366 discordiador.c/(12409:12425): Tarea pedida por tripulante 1: B00 Posicion: 3|3 Duracion: 5 
+[INFO] 21:24:31:366 discordiador.c/(12409:12425): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:24:33:367 discordiador.c/(12409:12425): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:24:35:368 discordiador.c/(12409:12425): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:24:37:368 discordiador.c/(12409:12425): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:24:39:369 discordiador.c/(12409:12425): Tripulante 1 terminó su tarea
+[INFO] 21:24:39:378 discordiador.c/(12409:12425): Tarea pedida por tripulante 1: B01 Posicion: 3|3 Duracion: 5 
+[INFO] 21:24:39:379 discordiador.c/(12409:12425): Tripulante 1 cambio su estado a R
+[INFO] 21:24:39:379 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:24:39:379 discordiador.c/(12409:12443): Tripulante 2 cambio su estado a E
+[INFO] 21:24:39:402 discordiador.c/(12409:12435): Tarea pedida por tripulante 2: C00 Posicion: 5|5 Duracion: 5 
+[INFO] 21:24:41:403 discordiador.c/(12409:12435): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:24:43:403 discordiador.c/(12409:12435): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:24:45:403 discordiador.c/(12409:12435): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:24:47:403 discordiador.c/(12409:12435): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:24:49:403 discordiador.c/(12409:12435): Tripulante 2 terminó su tarea
+[INFO] 21:24:49:418 discordiador.c/(12409:12435): Tarea pedida por tripulante 2: C01 Posicion: 5|5 Duracion: 5 
+[INFO] 21:24:49:419 discordiador.c/(12409:12435): Tripulante 2 cambio su estado a R
+[INFO] 21:24:49:419 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:24:49:419 discordiador.c/(12409:12443): Tripulante 0 cambio su estado a E
+[INFO] 21:24:51:419 discordiador.c/(12409:12419): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:24:53:419 discordiador.c/(12409:12419): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:24:55:419 discordiador.c/(12409:12419): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:24:57:420 discordiador.c/(12409:12419): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:24:59:420 discordiador.c/(12409:12419): Tripulante 0 terminó su tarea
+[INFO] 21:24:59:435 discordiador.c/(12409:12419): Tarea pedida por tripulante 0: A02 Posicion: 1|1 Duracion: 5 
+[INFO] 21:24:59:435 discordiador.c/(12409:12419): Tripulante 0 cambio su estado a R
+[INFO] 21:24:59:435 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:24:59:435 discordiador.c/(12409:12443): Tripulante 1 cambio su estado a E
+[INFO] 21:25:01:435 discordiador.c/(12409:12425): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:25:03:436 discordiador.c/(12409:12425): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:25:05:437 discordiador.c/(12409:12425): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:25:07:437 discordiador.c/(12409:12425): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:25:09:438 discordiador.c/(12409:12425): Tripulante 1 terminó su tarea
+[INFO] 21:25:09:453 discordiador.c/(12409:12425): Tarea pedida por tripulante 1: B02 Posicion: 3|3 Duracion: 5 
+[INFO] 21:25:09:453 discordiador.c/(12409:12425): Tripulante 1 cambio su estado a R
+[INFO] 21:25:09:453 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:25:09:453 discordiador.c/(12409:12443): Tripulante 2 cambio su estado a E
+[INFO] 21:25:11:454 discordiador.c/(12409:12435): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:25:13:454 discordiador.c/(12409:12435): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:25:15:455 discordiador.c/(12409:12435): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:25:17:456 discordiador.c/(12409:12435): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:25:19:457 discordiador.c/(12409:12435): Tripulante 2 terminó su tarea
+[INFO] 21:25:19:474 discordiador.c/(12409:12435): Tarea pedida por tripulante 2: C02 Posicion: 5|5 Duracion: 5 
+[INFO] 21:25:19:474 discordiador.c/(12409:12435): Tripulante 2 cambio su estado a R
+[INFO] 21:25:19:474 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:25:19:474 discordiador.c/(12409:12443): Tripulante 0 cambio su estado a E
+[INFO] 21:25:21:474 discordiador.c/(12409:12419): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:25:23:474 discordiador.c/(12409:12419): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:25:25:475 discordiador.c/(12409:12419): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:25:27:476 discordiador.c/(12409:12419): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:25:29:477 discordiador.c/(12409:12419): Tripulante 0 terminó su tarea
+[INFO] 21:25:29:513 discordiador.c/(12409:12419): Tripulante 0 termino de trabajar 
+[INFO] 21:25:29:513 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:25:29:514 discordiador.c/(12409:12443): Tripulante 1 cambio su estado a E
+[INFO] 21:25:31:514 discordiador.c/(12409:12425): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:25:33:515 discordiador.c/(12409:12425): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:25:35:515 discordiador.c/(12409:12425): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:25:37:515 discordiador.c/(12409:12425): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:25:39:515 discordiador.c/(12409:12425): Tripulante 1 terminó su tarea
+[INFO] 21:25:39:530 discordiador.c/(12409:12425): Tripulante 1 termino de trabajar 
+[INFO] 21:25:39:530 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:25:39:530 discordiador.c/(12409:12443): Tripulante 2 cambio su estado a E
+[INFO] 21:25:41:530 discordiador.c/(12409:12435): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:25:43:531 discordiador.c/(12409:12435): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:25:45:532 discordiador.c/(12409:12435): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:25:47:532 discordiador.c/(12409:12435): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:25:49:533 discordiador.c/(12409:12435): Tripulante 2 terminó su tarea
+[INFO] 21:25:49:543 discordiador.c/(12409:12435): Tarea pedida por tripulante 2: C03 Posicion: 5|5 Duracion: 5 
+[INFO] 21:25:49:544 discordiador.c/(12409:12435): Tripulante 2 cambio su estado a R
+[INFO] 21:25:49:544 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:25:49:544 discordiador.c/(12409:12443): Tripulante 2 cambio su estado a E
+[INFO] 21:25:51:546 discordiador.c/(12409:12435): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:25:53:547 discordiador.c/(12409:12435): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:25:55:547 discordiador.c/(12409:12435): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:25:57:547 discordiador.c/(12409:12435): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:25:59:547 discordiador.c/(12409:12435): Tripulante 2 terminó su tarea
+[INFO] 21:25:59:562 discordiador.c/(12409:12435): Tarea pedida por tripulante 2: C04 Posicion: 5|5 Duracion: 5 
+[INFO] 21:25:59:562 discordiador.c/(12409:12435): Tripulante 2 cambio su estado a R
+[INFO] 21:25:59:562 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:25:59:562 discordiador.c/(12409:12443): Tripulante 2 cambio su estado a E
+[INFO] 21:26:01:562 discordiador.c/(12409:12435): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:26:03:563 discordiador.c/(12409:12435): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:26:05:564 discordiador.c/(12409:12435): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:26:07:564 discordiador.c/(12409:12435): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:26:09:565 discordiador.c/(12409:12435): Tripulante 2 terminó su tarea
+[INFO] 21:26:09:581 discordiador.c/(12409:12435): Tarea pedida por tripulante 2: C05 Posicion: 5|5 Duracion: 5 
+[INFO] 21:26:09:581 discordiador.c/(12409:12435): Tripulante 2 cambio su estado a R
+[INFO] 21:26:09:581 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:26:09:581 discordiador.c/(12409:12443): Tripulante 2 cambio su estado a E
+[INFO] 21:26:11:582 discordiador.c/(12409:12435): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:26:13:582 discordiador.c/(12409:12435): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:26:15:582 discordiador.c/(12409:12435): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:26:17:582 discordiador.c/(12409:12435): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:26:19:583 discordiador.c/(12409:12435): Tripulante 2 terminó su tarea
+[INFO] 21:26:19:596 discordiador.c/(12409:12435): Tarea pedida por tripulante 2: C06 Posicion: 5|5 Duracion: 5 
+[INFO] 21:26:19:597 discordiador.c/(12409:12435): Tripulante 2 cambio su estado a R
+[INFO] 21:26:19:597 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:26:19:597 discordiador.c/(12409:12443): Tripulante 2 cambio su estado a E
+[INFO] 21:26:21:597 discordiador.c/(12409:12435): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:26:23:597 discordiador.c/(12409:12435): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:26:25:598 discordiador.c/(12409:12435): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:26:27:599 discordiador.c/(12409:12435): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:26:29:599 discordiador.c/(12409:12435): Tripulante 2 terminó su tarea
+[INFO] 21:26:29:613 discordiador.c/(12409:12435): Tarea pedida por tripulante 2: C07 Posicion: 5|5 Duracion: 5 
+[INFO] 21:26:29:613 discordiador.c/(12409:12435): Tripulante 2 cambio su estado a R
+[INFO] 21:26:29:613 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:26:29:613 discordiador.c/(12409:12443): Tripulante 2 cambio su estado a E
+[INFO] 21:26:31:613 discordiador.c/(12409:12435): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:26:33:614 discordiador.c/(12409:12435): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:26:35:615 discordiador.c/(12409:12435): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:26:37:616 discordiador.c/(12409:12435): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:26:39:616 discordiador.c/(12409:12435): Tripulante 2 terminó su tarea
+[INFO] 21:26:39:627 discordiador.c/(12409:12435): Tarea pedida por tripulante 2: C08 Posicion: 5|5 Duracion: 5 
+[INFO] 21:26:39:629 discordiador.c/(12409:12435): Tripulante 2 cambio su estado a R
+[INFO] 21:26:39:629 discordiador.c/(12409:12443): SANDRO
+[INFO] 21:26:39:629 discordiador.c/(12409:12443): Tripulante 2 cambio su estado a E
+[INFO] 21:26:41:630 discordiador.c/(12409:12435): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:26:43:631 discordiador.c/(12409:12435): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:26:45:631 discordiador.c/(12409:12435): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:26:47:631 discordiador.c/(12409:12435): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:26:49:631 discordiador.c/(12409:12435): Tripulante 2 terminó su tarea
+[INFO] 21:26:49:642 discordiador.c/(12409:12435): Tripulante 2 termino de trabajar 
+[ERROR] 21:26:57:737 discordiador.c/(12409:12410): No se pudo recibir el header
+[ERROR] 21:26:57:738 discordiador.c/(12409:12410): No se pudo recibir el tamanio del buffer 
+[ERROR] 21:26:57:738 discordiador.c/(12409:12410): No se pudo recibir el buffer
+[INFO] 21:26:57:738 discordiador.c/(12409:12410): la posicion en x -1242562376
+[INFO] 21:26:57:738 discordiador.c/(12409:12410): la posicion en y -1242562376
+[INFO] 21:36:14:935 discordiador.c/(13590:13590): ---------PROGRAMA INICIADO---------- 
+[INFO] 21:36:19:799 discordiador.c/(13590:13592): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaA.txt 1|1
+[INFO] 21:36:19:801 discordiador.c/(13590:13592): Tripulante creado: ID: 0, Posicion 1|1, Estado: N 
+[INFO] 21:36:19:802 discordiador.c/(13590:13592): path de tareas recibido: /home/utnso/PAG_PatotaA.txt
+[INFO] 21:36:22:535 discordiador.c/(13590:13592): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaB.txt 3|3
+[INFO] 21:36:22:535 discordiador.c/(13590:13592): Tripulante creado: ID: 1, Posicion 3|3, Estado: N 
+[INFO] 21:36:22:535 discordiador.c/(13590:13592): path de tareas recibido: /home/utnso/PAG_PatotaB.txt
+[INFO] 21:36:25:963 discordiador.c/(13590:13592): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaC.txt 5|5
+[INFO] 21:36:25:964 discordiador.c/(13590:13592): Tripulante creado: ID: 2, Posicion 5|5, Estado: N 
+[INFO] 21:36:25:964 discordiador.c/(13590:13592): path de tareas recibido: /home/utnso/PAG_PatotaC.txt
+[INFO] 21:36:29:041 discordiador.c/(13590:13592): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 21:36:29:047 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:36:29:049 discordiador.c/(13590:13621): Tripulante 0 cambio su estado a E
+[INFO] 21:36:29:084 discordiador.c/(13590:13601): Tarea pedida por tripulante 0: A00 Posicion: 1|1 Duracion: 5 
+[INFO] 21:36:31:085 discordiador.c/(13590:13601): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:36:33:085 discordiador.c/(13590:13601): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:36:35:086 discordiador.c/(13590:13601): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:36:37:086 discordiador.c/(13590:13601): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:36:39:087 discordiador.c/(13590:13601): Tripulante 0 terminó su tarea
+[INFO] 21:36:39:104 discordiador.c/(13590:13601): Tarea pedida por tripulante 0: A01 Posicion: 1|1 Duracion: 5 
+[INFO] 21:36:39:104 discordiador.c/(13590:13601): Tripulante 0 cambio su estado a R
+[INFO] 21:36:39:104 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:36:39:104 discordiador.c/(13590:13621): Tripulante 1 cambio su estado a E
+[INFO] 21:36:39:137 discordiador.c/(13590:13607): Tarea pedida por tripulante 1: B00 Posicion: 3|3 Duracion: 5 
+[INFO] 21:36:41:137 discordiador.c/(13590:13607): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:36:43:137 discordiador.c/(13590:13607): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:36:45:138 discordiador.c/(13590:13607): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:36:47:138 discordiador.c/(13590:13607): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:36:49:139 discordiador.c/(13590:13607): Tripulante 1 terminó su tarea
+[INFO] 21:36:49:178 discordiador.c/(13590:13607): Tarea pedida por tripulante 1: B01 Posicion: 3|3 Duracion: 5 
+[INFO] 21:36:49:179 discordiador.c/(13590:13607): Tripulante 1 cambio su estado a R
+[INFO] 21:36:49:179 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:36:49:179 discordiador.c/(13590:13621): Tripulante 2 cambio su estado a E
+[INFO] 21:36:49:193 discordiador.c/(13590:13613): Tarea pedida por tripulante 2: C00 Posicion: 5|5 Duracion: 5 
+[INFO] 21:36:51:193 discordiador.c/(13590:13613): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:36:53:194 discordiador.c/(13590:13613): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:36:55:194 discordiador.c/(13590:13613): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:36:57:194 discordiador.c/(13590:13613): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:36:59:195 discordiador.c/(13590:13613): Tripulante 2 terminó su tarea
+[INFO] 21:36:59:210 discordiador.c/(13590:13613): Tarea pedida por tripulante 2: C01 Posicion: 5|5 Duracion: 5 
+[INFO] 21:36:59:210 discordiador.c/(13590:13613): Tripulante 2 cambio su estado a R
+[INFO] 21:36:59:210 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:36:59:210 discordiador.c/(13590:13621): Tripulante 0 cambio su estado a E
+[INFO] 21:37:01:210 discordiador.c/(13590:13601): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:37:03:211 discordiador.c/(13590:13601): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:37:05:212 discordiador.c/(13590:13601): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:37:07:212 discordiador.c/(13590:13601): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:37:09:212 discordiador.c/(13590:13601): Tripulante 0 terminó su tarea
+[INFO] 21:37:09:231 discordiador.c/(13590:13601): Tarea pedida por tripulante 0: A02 Posicion: 1|1 Duracion: 5 
+[INFO] 21:37:09:231 discordiador.c/(13590:13601): Tripulante 0 cambio su estado a R
+[INFO] 21:37:09:231 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:37:09:231 discordiador.c/(13590:13621): Tripulante 1 cambio su estado a E
+[INFO] 21:37:11:231 discordiador.c/(13590:13607): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:37:13:232 discordiador.c/(13590:13607): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:37:15:233 discordiador.c/(13590:13607): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:37:17:233 discordiador.c/(13590:13607): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:37:19:233 discordiador.c/(13590:13607): Tripulante 1 terminó su tarea
+[INFO] 21:37:19:250 discordiador.c/(13590:13607): Tarea pedida por tripulante 1: B02 Posicion: 3|3 Duracion: 5 
+[INFO] 21:37:19:250 discordiador.c/(13590:13607): Tripulante 1 cambio su estado a R
+[INFO] 21:37:19:250 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:37:19:250 discordiador.c/(13590:13621): Tripulante 2 cambio su estado a E
+[INFO] 21:37:21:250 discordiador.c/(13590:13613): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:37:23:251 discordiador.c/(13590:13613): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:37:25:251 discordiador.c/(13590:13613): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:37:27:252 discordiador.c/(13590:13613): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:37:29:253 discordiador.c/(13590:13613): Tripulante 2 terminó su tarea
+[INFO] 21:37:29:269 discordiador.c/(13590:13613): Tarea pedida por tripulante 2: C02 Posicion: 5|5 Duracion: 5 
+[INFO] 21:37:29:269 discordiador.c/(13590:13613): Tripulante 2 cambio su estado a R
+[INFO] 21:37:29:269 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:37:29:269 discordiador.c/(13590:13621): Tripulante 0 cambio su estado a E
+[INFO] 21:37:31:270 discordiador.c/(13590:13601): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:37:33:270 discordiador.c/(13590:13601): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:37:35:271 discordiador.c/(13590:13601): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:37:37:271 discordiador.c/(13590:13601): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:37:39:272 discordiador.c/(13590:13601): Tripulante 0 terminó su tarea
+[INFO] 21:37:39:288 discordiador.c/(13590:13601): Tripulante 0 termino de trabajar 
+[INFO] 21:37:39:288 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:37:39:288 discordiador.c/(13590:13621): Tripulante 1 cambio su estado a E
+[INFO] 21:37:41:288 discordiador.c/(13590:13607): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:37:43:289 discordiador.c/(13590:13607): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:37:45:289 discordiador.c/(13590:13607): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:37:47:290 discordiador.c/(13590:13607): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:37:49:291 discordiador.c/(13590:13607): Tripulante 1 terminó su tarea
+[INFO] 21:37:49:329 discordiador.c/(13590:13607): Tripulante 1 termino de trabajar 
+[INFO] 21:37:49:329 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:37:49:329 discordiador.c/(13590:13621): Tripulante 2 cambio su estado a E
+[INFO] 21:37:51:329 discordiador.c/(13590:13613): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:37:53:330 discordiador.c/(13590:13613): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:37:55:330 discordiador.c/(13590:13613): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:37:57:330 discordiador.c/(13590:13613): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:37:59:331 discordiador.c/(13590:13613): Tripulante 2 terminó su tarea
+[INFO] 21:37:59:349 discordiador.c/(13590:13613): Tarea pedida por tripulante 2: C03 Posicion: 5|5 Duracion: 5 
+[INFO] 21:37:59:350 discordiador.c/(13590:13613): Tripulante 2 cambio su estado a R
+[INFO] 21:37:59:350 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:37:59:350 discordiador.c/(13590:13621): Tripulante 2 cambio su estado a E
+[INFO] 21:38:01:350 discordiador.c/(13590:13613): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:38:03:350 discordiador.c/(13590:13613): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:38:05:351 discordiador.c/(13590:13613): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:38:07:352 discordiador.c/(13590:13613): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:38:09:353 discordiador.c/(13590:13613): Tripulante 2 terminó su tarea
+[INFO] 21:38:09:365 discordiador.c/(13590:13613): Tarea pedida por tripulante 2: C04 Posicion: 5|5 Duracion: 5 
+[INFO] 21:38:09:366 discordiador.c/(13590:13613): Tripulante 2 cambio su estado a R
+[INFO] 21:38:09:366 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:38:09:366 discordiador.c/(13590:13621): Tripulante 2 cambio su estado a E
+[INFO] 21:38:11:366 discordiador.c/(13590:13613): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:38:13:366 discordiador.c/(13590:13613): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:38:15:367 discordiador.c/(13590:13613): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:38:17:367 discordiador.c/(13590:13613): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:38:19:368 discordiador.c/(13590:13613): Tripulante 2 terminó su tarea
+[INFO] 21:38:19:385 discordiador.c/(13590:13613): Tarea pedida por tripulante 2: C05 Posicion: 5|5 Duracion: 5 
+[INFO] 21:38:19:385 discordiador.c/(13590:13613): Tripulante 2 cambio su estado a R
+[INFO] 21:38:19:385 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:38:19:385 discordiador.c/(13590:13621): Tripulante 2 cambio su estado a E
+[INFO] 21:38:21:386 discordiador.c/(13590:13613): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:38:23:386 discordiador.c/(13590:13613): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:38:25:387 discordiador.c/(13590:13613): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:38:27:387 discordiador.c/(13590:13613): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:38:29:387 discordiador.c/(13590:13613): Tripulante 2 terminó su tarea
+[INFO] 21:38:29:401 discordiador.c/(13590:13613): Tarea pedida por tripulante 2: C06 Posicion: 5|5 Duracion: 5 
+[INFO] 21:38:29:401 discordiador.c/(13590:13613): Tripulante 2 cambio su estado a R
+[INFO] 21:38:29:401 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:38:29:401 discordiador.c/(13590:13621): Tripulante 2 cambio su estado a E
+[INFO] 21:38:31:401 discordiador.c/(13590:13613): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:38:33:402 discordiador.c/(13590:13613): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:38:35:402 discordiador.c/(13590:13613): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:38:37:402 discordiador.c/(13590:13613): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:38:39:403 discordiador.c/(13590:13613): Tripulante 2 terminó su tarea
+[INFO] 21:38:39:417 discordiador.c/(13590:13613): Tarea pedida por tripulante 2: C07 Posicion: 5|5 Duracion: 5 
+[INFO] 21:38:39:418 discordiador.c/(13590:13613): Tripulante 2 cambio su estado a R
+[INFO] 21:38:39:418 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:38:39:418 discordiador.c/(13590:13621): Tripulante 2 cambio su estado a E
+[INFO] 21:38:41:418 discordiador.c/(13590:13613): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:38:43:418 discordiador.c/(13590:13613): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:38:45:418 discordiador.c/(13590:13613): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:38:47:418 discordiador.c/(13590:13613): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:38:49:418 discordiador.c/(13590:13613): Tripulante 2 terminó su tarea
+[INFO] 21:38:49:434 discordiador.c/(13590:13613): Tarea pedida por tripulante 2: C08 Posicion: 5|5 Duracion: 5 
+[INFO] 21:38:49:434 discordiador.c/(13590:13613): Tripulante 2 cambio su estado a R
+[INFO] 21:38:49:434 discordiador.c/(13590:13621): SANDRO
+[INFO] 21:38:49:434 discordiador.c/(13590:13621): Tripulante 2 cambio su estado a E
+[INFO] 21:38:51:435 discordiador.c/(13590:13613): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:38:53:435 discordiador.c/(13590:13613): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:38:55:435 discordiador.c/(13590:13613): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:38:57:435 discordiador.c/(13590:13613): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:38:59:436 discordiador.c/(13590:13613): Tripulante 2 terminó su tarea
+[INFO] 21:38:59:448 discordiador.c/(13590:13613): Tripulante 2 termino de trabajar 
+[ERROR] 21:41:58:393 discordiador.c/(13590:13591): No se pudo recibir el header
+[ERROR] 21:41:58:393 discordiador.c/(13590:13591): No se pudo recibir el tamanio del buffer 
+[ERROR] 21:41:58:393 discordiador.c/(13590:13591): No se pudo recibir el buffer
+[INFO] 21:41:58:393 discordiador.c/(13590:13591): la posicion en x -1243610952
+[INFO] 21:41:58:393 discordiador.c/(13590:13591): la posicion en y -1243610952
+[INFO] 21:46:35:284 discordiador.c/(14570:14570): ---------PROGRAMA INICIADO---------- 
+[INFO] 21:46:39:535 discordiador.c/(14570:14572): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaA.txt 1|1
+[INFO] 21:46:39:537 discordiador.c/(14570:14572): Tripulante creado: ID: 0, Posicion 1|1, Estado: N 
+[INFO] 21:46:39:537 discordiador.c/(14570:14572): path de tareas recibido: /home/utnso/PAG_PatotaA.txt
+[INFO] 21:46:42:373 discordiador.c/(14570:14572): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaB.txt 3|3
+[INFO] 21:46:42:373 discordiador.c/(14570:14572): Tripulante creado: ID: 1, Posicion 3|3, Estado: N 
+[INFO] 21:46:42:373 discordiador.c/(14570:14572): path de tareas recibido: /home/utnso/PAG_PatotaB.txt
+[INFO] 21:46:45:267 discordiador.c/(14570:14572): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaC.txt 5|5
+[INFO] 21:46:45:267 discordiador.c/(14570:14572): Tripulante creado: ID: 2, Posicion 5|5, Estado: N 
+[INFO] 21:46:45:267 discordiador.c/(14570:14572): path de tareas recibido: /home/utnso/PAG_PatotaC.txt
+[INFO] 21:46:49:349 discordiador.c/(14570:14572): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 21:46:49:354 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:46:49:356 discordiador.c/(14570:14600): Tripulante 0 cambio su estado a E
+[INFO] 21:46:49:423 discordiador.c/(14570:14581): Tarea pedida por tripulante 0: A00 Posicion: 1|1 Duracion: 5 
+[INFO] 21:46:51:423 discordiador.c/(14570:14581): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:46:53:424 discordiador.c/(14570:14581): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:46:55:424 discordiador.c/(14570:14581): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:46:57:425 discordiador.c/(14570:14581): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:46:59:425 discordiador.c/(14570:14581): Tripulante 0 terminó su tarea
+[INFO] 21:46:59:438 discordiador.c/(14570:14581): Tarea pedida por tripulante 0: A01 Posicion: 1|1 Duracion: 5 
+[INFO] 21:46:59:439 discordiador.c/(14570:14581): Tripulante 0 cambio su estado a R
+[INFO] 21:46:59:439 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:46:59:439 discordiador.c/(14570:14600): Tripulante 1 cambio su estado a E
+[INFO] 21:46:59:467 discordiador.c/(14570:14587): Tarea pedida por tripulante 1: B00 Posicion: 3|3 Duracion: 5 
+[INFO] 21:47:01:467 discordiador.c/(14570:14587): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:47:03:468 discordiador.c/(14570:14587): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:47:05:469 discordiador.c/(14570:14587): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:47:07:469 discordiador.c/(14570:14587): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:47:09:470 discordiador.c/(14570:14587): Tripulante 1 terminó su tarea
+[INFO] 21:47:09:485 discordiador.c/(14570:14587): Tarea pedida por tripulante 1: B01 Posicion: 3|3 Duracion: 5 
+[INFO] 21:47:09:486 discordiador.c/(14570:14587): Tripulante 1 cambio su estado a R
+[INFO] 21:47:09:486 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:47:09:486 discordiador.c/(14570:14600): Tripulante 2 cambio su estado a E
+[INFO] 21:47:09:505 discordiador.c/(14570:14593): Tarea pedida por tripulante 2: C00 Posicion: 5|5 Duracion: 5 
+[INFO] 21:47:11:506 discordiador.c/(14570:14593): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:47:13:507 discordiador.c/(14570:14593): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:47:15:508 discordiador.c/(14570:14593): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:47:17:509 discordiador.c/(14570:14593): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:47:19:510 discordiador.c/(14570:14593): Tripulante 2 terminó su tarea
+[INFO] 21:47:19:523 discordiador.c/(14570:14593): Tarea pedida por tripulante 2: C01 Posicion: 5|5 Duracion: 5 
+[INFO] 21:47:19:524 discordiador.c/(14570:14593): Tripulante 2 cambio su estado a R
+[INFO] 21:47:19:524 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:47:19:524 discordiador.c/(14570:14600): Tripulante 0 cambio su estado a E
+[INFO] 21:47:21:524 discordiador.c/(14570:14581): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:47:23:524 discordiador.c/(14570:14581): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:47:25:524 discordiador.c/(14570:14581): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:47:27:525 discordiador.c/(14570:14581): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:47:29:526 discordiador.c/(14570:14581): Tripulante 0 terminó su tarea
+[INFO] 21:47:29:543 discordiador.c/(14570:14581): Tarea pedida por tripulante 0: A02 Posicion: 1|1 Duracion: 5 
+[INFO] 21:47:29:543 discordiador.c/(14570:14581): Tripulante 0 cambio su estado a R
+[INFO] 21:47:29:543 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:47:29:543 discordiador.c/(14570:14600): Tripulante 1 cambio su estado a E
+[INFO] 21:47:31:543 discordiador.c/(14570:14587): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:47:33:543 discordiador.c/(14570:14587): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:47:35:543 discordiador.c/(14570:14587): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:47:37:544 discordiador.c/(14570:14587): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:47:39:545 discordiador.c/(14570:14587): Tripulante 1 terminó su tarea
+[INFO] 21:47:39:561 discordiador.c/(14570:14587): Tarea pedida por tripulante 1: B02 Posicion: 3|3 Duracion: 5 
+[INFO] 21:47:39:561 discordiador.c/(14570:14587): Tripulante 1 cambio su estado a R
+[INFO] 21:47:39:561 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:47:39:561 discordiador.c/(14570:14600): Tripulante 2 cambio su estado a E
+[INFO] 21:47:41:562 discordiador.c/(14570:14593): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:47:43:563 discordiador.c/(14570:14593): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:47:45:564 discordiador.c/(14570:14593): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:47:47:564 discordiador.c/(14570:14593): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:47:49:565 discordiador.c/(14570:14593): Tripulante 2 terminó su tarea
+[INFO] 21:47:49:582 discordiador.c/(14570:14593): Tarea pedida por tripulante 2: C02 Posicion: 5|5 Duracion: 5 
+[INFO] 21:47:49:582 discordiador.c/(14570:14593): Tripulante 2 cambio su estado a R
+[INFO] 21:47:49:582 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:47:49:582 discordiador.c/(14570:14600): Tripulante 0 cambio su estado a E
+[INFO] 21:47:51:583 discordiador.c/(14570:14581): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:47:53:583 discordiador.c/(14570:14581): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:47:55:583 discordiador.c/(14570:14581): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:47:57:584 discordiador.c/(14570:14581): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:47:59:584 discordiador.c/(14570:14581): Tripulante 0 terminó su tarea
+[INFO] 21:47:59:597 discordiador.c/(14570:14581): Tripulante 0 termino de trabajar 
+[INFO] 21:47:59:597 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:47:59:598 discordiador.c/(14570:14600): Tripulante 1 cambio su estado a E
+[INFO] 21:48:01:598 discordiador.c/(14570:14587): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:48:03:599 discordiador.c/(14570:14587): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:48:05:599 discordiador.c/(14570:14587): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:48:07:599 discordiador.c/(14570:14587): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:48:09:600 discordiador.c/(14570:14587): Tripulante 1 terminó su tarea
+[INFO] 21:48:09:611 discordiador.c/(14570:14587): Tripulante 1 termino de trabajar 
+[INFO] 21:48:09:611 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:48:09:611 discordiador.c/(14570:14600): Tripulante 2 cambio su estado a E
+[INFO] 21:48:11:611 discordiador.c/(14570:14593): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:48:13:613 discordiador.c/(14570:14593): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:48:15:613 discordiador.c/(14570:14593): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:48:17:613 discordiador.c/(14570:14593): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:48:19:613 discordiador.c/(14570:14593): Tripulante 2 terminó su tarea
+[INFO] 21:48:19:627 discordiador.c/(14570:14593): Tarea pedida por tripulante 2: C03 Posicion: 5|5 Duracion: 5 
+[INFO] 21:48:19:628 discordiador.c/(14570:14593): Tripulante 2 cambio su estado a R
+[INFO] 21:48:19:628 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:48:19:628 discordiador.c/(14570:14600): Tripulante 2 cambio su estado a E
+[INFO] 21:48:21:628 discordiador.c/(14570:14593): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:48:23:628 discordiador.c/(14570:14593): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:48:25:629 discordiador.c/(14570:14593): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:48:27:629 discordiador.c/(14570:14593): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:48:29:630 discordiador.c/(14570:14593): Tripulante 2 terminó su tarea
+[INFO] 21:48:29:644 discordiador.c/(14570:14593): Tarea pedida por tripulante 2: C04 Posicion: 5|5 Duracion: 5 
+[INFO] 21:48:29:644 discordiador.c/(14570:14593): Tripulante 2 cambio su estado a R
+[INFO] 21:48:29:644 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:48:29:644 discordiador.c/(14570:14600): Tripulante 2 cambio su estado a E
+[INFO] 21:48:31:644 discordiador.c/(14570:14593): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:48:33:645 discordiador.c/(14570:14593): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:48:35:645 discordiador.c/(14570:14593): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:48:37:645 discordiador.c/(14570:14593): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:48:39:646 discordiador.c/(14570:14593): Tripulante 2 terminó su tarea
+[INFO] 21:48:39:662 discordiador.c/(14570:14593): Tarea pedida por tripulante 2: C05 Posicion: 5|5 Duracion: 5 
+[INFO] 21:48:39:662 discordiador.c/(14570:14593): Tripulante 2 cambio su estado a R
+[INFO] 21:48:39:662 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:48:39:662 discordiador.c/(14570:14600): Tripulante 2 cambio su estado a E
+[INFO] 21:48:41:662 discordiador.c/(14570:14593): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:48:43:663 discordiador.c/(14570:14593): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:48:45:664 discordiador.c/(14570:14593): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:48:47:664 discordiador.c/(14570:14593): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:48:49:665 discordiador.c/(14570:14593): Tripulante 2 terminó su tarea
+[INFO] 21:48:49:679 discordiador.c/(14570:14593): Tarea pedida por tripulante 2: C06 Posicion: 5|5 Duracion: 5 
+[INFO] 21:48:49:679 discordiador.c/(14570:14593): Tripulante 2 cambio su estado a R
+[INFO] 21:48:49:679 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:48:49:679 discordiador.c/(14570:14600): Tripulante 2 cambio su estado a E
+[INFO] 21:48:51:680 discordiador.c/(14570:14593): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:48:53:680 discordiador.c/(14570:14593): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:48:55:681 discordiador.c/(14570:14593): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:48:57:681 discordiador.c/(14570:14593): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:48:59:682 discordiador.c/(14570:14593): Tripulante 2 terminó su tarea
+[INFO] 21:48:59:695 discordiador.c/(14570:14593): Tarea pedida por tripulante 2: C07 Posicion: 5|5 Duracion: 5 
+[INFO] 21:48:59:696 discordiador.c/(14570:14593): Tripulante 2 cambio su estado a R
+[INFO] 21:48:59:696 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:48:59:696 discordiador.c/(14570:14600): Tripulante 2 cambio su estado a E
+[INFO] 21:49:01:697 discordiador.c/(14570:14593): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:49:03:697 discordiador.c/(14570:14593): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:49:05:698 discordiador.c/(14570:14593): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:49:07:700 discordiador.c/(14570:14593): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:49:09:701 discordiador.c/(14570:14593): Tripulante 2 terminó su tarea
+[INFO] 21:49:09:715 discordiador.c/(14570:14593): Tarea pedida por tripulante 2: C08 Posicion: 5|5 Duracion: 5 
+[INFO] 21:49:09:715 discordiador.c/(14570:14593): Tripulante 2 cambio su estado a R
+[INFO] 21:49:09:715 discordiador.c/(14570:14600): SANDRO
+[INFO] 21:49:09:715 discordiador.c/(14570:14600): Tripulante 2 cambio su estado a E
+[INFO] 21:49:11:716 discordiador.c/(14570:14593): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:49:13:716 discordiador.c/(14570:14593): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:49:15:716 discordiador.c/(14570:14593): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:49:17:716 discordiador.c/(14570:14593): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:49:19:717 discordiador.c/(14570:14593): Tripulante 2 terminó su tarea
+[INFO] 21:49:19:732 discordiador.c/(14570:14593): Tripulante 2 termino de trabajar 
+[ERROR] 21:50:36:687 discordiador.c/(14570:14571): No se pudo recibir el header
+[ERROR] 21:50:36:687 discordiador.c/(14570:14571): No se pudo recibir el tamanio del buffer 
+[ERROR] 21:50:36:687 discordiador.c/(14570:14571): No se pudo recibir el buffer
+[INFO] 21:50:36:687 discordiador.c/(14570:14571): la posicion en x -1242562376
+[INFO] 21:50:36:687 discordiador.c/(14570:14571): la posicion en y -1242562376
+[INFO] 21:50:46:122 discordiador.c/(15049:15049): ---------PROGRAMA INICIADO---------- 
+[INFO] 21:50:46:123 discordiador.c/(15049:15050): Recibi header: 0
+
+[INFO] 21:50:46:123 discordiador.c/(15049:15050): la posicion en x -1243611072
+[INFO] 21:50:46:123 discordiador.c/(15049:15050): la posicion en y -1243611072
+[INFO] 21:50:51:711 discordiador.c/(15070:15070): ---------PROGRAMA INICIADO---------- 
+[INFO] 21:50:55:590 discordiador.c/(15070:15072): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaA.txt 1|1
+[INFO] 21:50:55:591 discordiador.c/(15070:15072): Tripulante creado: ID: 0, Posicion 1|1, Estado: N 
+[INFO] 21:50:55:591 discordiador.c/(15070:15072): path de tareas recibido: /home/utnso/PAG_PatotaA.txt
+[INFO] 21:50:58:114 discordiador.c/(15070:15072): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaB.txt 3|3
+[INFO] 21:50:58:115 discordiador.c/(15070:15072): Tripulante creado: ID: 1, Posicion 3|3, Estado: N 
+[INFO] 21:50:58:115 discordiador.c/(15070:15072): path de tareas recibido: /home/utnso/PAG_PatotaB.txt
+[INFO] 21:51:02:328 discordiador.c/(15070:15072): INSTRUCCION LEIDA: INICIAR_PATOTA 1 PAG_PatotaC.txt 5|5
+[INFO] 21:51:02:328 discordiador.c/(15070:15072): Tripulante creado: ID: 2, Posicion 5|5, Estado: N 
+[INFO] 21:51:02:328 discordiador.c/(15070:15072): path de tareas recibido: /home/utnso/PAG_PatotaC.txt
+[INFO] 21:51:05:260 discordiador.c/(15070:15072): INSTRUCCION LEIDA: INICIAR_PLANIFICACION
+[INFO] 21:51:05:265 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:05:267 discordiador.c/(15070:15099): Tripulante 0 cambio su estado a E
+[INFO] 21:51:05:301 discordiador.c/(15070:15079): Tarea pedida por tripulante 0: A00 Posicion: 1|1 Duracion: 5 
+[INFO] 21:51:06:301 discordiador.c/(15070:15079): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:07:301 discordiador.c/(15070:15079): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:08:301 discordiador.c/(15070:15079): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:09:302 discordiador.c/(15070:15079): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:51:10:303 discordiador.c/(15070:15079): Tripulante 0 terminó su tarea
+[INFO] 21:51:10:316 discordiador.c/(15070:15079): Tarea pedida por tripulante 0: A01 Posicion: 1|1 Duracion: 5 
+[INFO] 21:51:10:317 discordiador.c/(15070:15079): Tripulante 0 cambio su estado a R
+[INFO] 21:51:10:317 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:10:317 discordiador.c/(15070:15099): Tripulante 1 cambio su estado a E
+[INFO] 21:51:10:347 discordiador.c/(15070:15086): Tarea pedida por tripulante 1: B00 Posicion: 3|3 Duracion: 5 
+[INFO] 21:51:11:348 discordiador.c/(15070:15086): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:12:348 discordiador.c/(15070:15086): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:13:348 discordiador.c/(15070:15086): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:14:348 discordiador.c/(15070:15086): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:51:15:349 discordiador.c/(15070:15086): Tripulante 1 terminó su tarea
+[INFO] 21:51:15:355 discordiador.c/(15070:15086): Tarea pedida por tripulante 1: B01 Posicion: 3|3 Duracion: 5 
+[INFO] 21:51:15:355 discordiador.c/(15070:15086): Tripulante 1 cambio su estado a R
+[INFO] 21:51:15:355 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:15:355 discordiador.c/(15070:15099): Tripulante 2 cambio su estado a E
+[INFO] 21:51:15:372 discordiador.c/(15070:15095): Tarea pedida por tripulante 2: C00 Posicion: 5|5 Duracion: 5 
+[INFO] 21:51:16:372 discordiador.c/(15070:15095): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:17:372 discordiador.c/(15070:15095): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:18:372 discordiador.c/(15070:15095): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:19:373 discordiador.c/(15070:15095): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:51:20:373 discordiador.c/(15070:15095): Tripulante 2 terminó su tarea
+[INFO] 21:51:20:379 discordiador.c/(15070:15095): Tarea pedida por tripulante 2: C01 Posicion: 5|5 Duracion: 5 
+[INFO] 21:51:20:380 discordiador.c/(15070:15095): Tripulante 2 cambio su estado a R
+[INFO] 21:51:20:380 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:20:380 discordiador.c/(15070:15099): Tripulante 0 cambio su estado a E
+[INFO] 21:51:21:381 discordiador.c/(15070:15079): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:22:381 discordiador.c/(15070:15079): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:23:381 discordiador.c/(15070:15079): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:24:382 discordiador.c/(15070:15079): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:51:25:382 discordiador.c/(15070:15079): Tripulante 0 terminó su tarea
+[INFO] 21:51:25:390 discordiador.c/(15070:15079): Tarea pedida por tripulante 0: A02 Posicion: 1|1 Duracion: 5 
+[INFO] 21:51:25:391 discordiador.c/(15070:15079): Tripulante 0 cambio su estado a R
+[INFO] 21:51:25:391 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:25:391 discordiador.c/(15070:15099): Tripulante 1 cambio su estado a E
+[INFO] 21:51:26:391 discordiador.c/(15070:15086): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:27:391 discordiador.c/(15070:15086): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:28:391 discordiador.c/(15070:15086): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:29:392 discordiador.c/(15070:15086): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:51:30:392 discordiador.c/(15070:15086): Tripulante 1 terminó su tarea
+[INFO] 21:51:30:401 discordiador.c/(15070:15086): Tarea pedida por tripulante 1: B02 Posicion: 3|3 Duracion: 5 
+[INFO] 21:51:30:401 discordiador.c/(15070:15086): Tripulante 1 cambio su estado a R
+[INFO] 21:51:30:401 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:30:401 discordiador.c/(15070:15099): Tripulante 2 cambio su estado a E
+[INFO] 21:51:31:401 discordiador.c/(15070:15095): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:32:403 discordiador.c/(15070:15095): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:33:404 discordiador.c/(15070:15095): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:34:405 discordiador.c/(15070:15095): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:51:35:406 discordiador.c/(15070:15095): Tripulante 2 terminó su tarea
+[INFO] 21:51:35:415 discordiador.c/(15070:15095): Tarea pedida por tripulante 2: C02 Posicion: 5|5 Duracion: 5 
+[INFO] 21:51:35:415 discordiador.c/(15070:15095): Tripulante 2 cambio su estado a R
+[INFO] 21:51:35:415 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:35:415 discordiador.c/(15070:15099): Tripulante 0 cambio su estado a E
+[INFO] 21:51:36:415 discordiador.c/(15070:15079): Tripulante  0 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:37:416 discordiador.c/(15070:15079): Tripulante  0 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:38:418 discordiador.c/(15070:15079): Tripulante  0 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:39:418 discordiador.c/(15070:15079): Tripulante  0 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:51:40:419 discordiador.c/(15070:15079): Tripulante 0 terminó su tarea
+[INFO] 21:51:40:463 discordiador.c/(15070:15079): Tripulante 0 termino de trabajar 
+[INFO] 21:51:40:463 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:40:463 discordiador.c/(15070:15099): Tripulante 1 cambio su estado a E
+[INFO] 21:51:41:464 discordiador.c/(15070:15086): Tripulante  1 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:42:464 discordiador.c/(15070:15086): Tripulante  1 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:43:465 discordiador.c/(15070:15086): Tripulante  1 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:44:466 discordiador.c/(15070:15086): Tripulante  1 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:51:45:467 discordiador.c/(15070:15086): Tripulante 1 terminó su tarea
+[INFO] 21:51:45:475 discordiador.c/(15070:15086): Tripulante 1 termino de trabajar 
+[INFO] 21:51:45:475 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:45:475 discordiador.c/(15070:15099): Tripulante 2 cambio su estado a E
+[INFO] 21:51:46:475 discordiador.c/(15070:15095): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:47:476 discordiador.c/(15070:15095): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:48:477 discordiador.c/(15070:15095): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:49:477 discordiador.c/(15070:15095): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:51:50:479 discordiador.c/(15070:15095): Tripulante 2 terminó su tarea
+[INFO] 21:51:50:486 discordiador.c/(15070:15095): Tarea pedida por tripulante 2: C03 Posicion: 5|5 Duracion: 5 
+[INFO] 21:51:50:486 discordiador.c/(15070:15095): Tripulante 2 cambio su estado a R
+[INFO] 21:51:50:486 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:50:486 discordiador.c/(15070:15099): Tripulante 2 cambio su estado a E
+[INFO] 21:51:51:487 discordiador.c/(15070:15095): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:52:487 discordiador.c/(15070:15095): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:53:487 discordiador.c/(15070:15095): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:54:487 discordiador.c/(15070:15095): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:51:55:488 discordiador.c/(15070:15095): Tripulante 2 terminó su tarea
+[INFO] 21:51:55:497 discordiador.c/(15070:15095): Tarea pedida por tripulante 2: C04 Posicion: 5|5 Duracion: 5 
+[INFO] 21:51:55:497 discordiador.c/(15070:15095): Tripulante 2 cambio su estado a R
+[INFO] 21:51:55:497 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:51:55:497 discordiador.c/(15070:15099): Tripulante 2 cambio su estado a E
+[INFO] 21:51:56:498 discordiador.c/(15070:15095): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:51:57:498 discordiador.c/(15070:15095): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:51:58:498 discordiador.c/(15070:15095): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:51:59:498 discordiador.c/(15070:15095): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:52:00:499 discordiador.c/(15070:15095): Tripulante 2 terminó su tarea
+[INFO] 21:52:00:507 discordiador.c/(15070:15095): Tarea pedida por tripulante 2: C05 Posicion: 5|5 Duracion: 5 
+[INFO] 21:52:00:507 discordiador.c/(15070:15095): Tripulante 2 cambio su estado a R
+[INFO] 21:52:00:507 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:52:00:508 discordiador.c/(15070:15099): Tripulante 2 cambio su estado a E
+[INFO] 21:52:01:508 discordiador.c/(15070:15095): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:52:02:508 discordiador.c/(15070:15095): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:52:03:509 discordiador.c/(15070:15095): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:52:04:509 discordiador.c/(15070:15095): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:52:05:510 discordiador.c/(15070:15095): Tripulante 2 terminó su tarea
+[INFO] 21:52:05:517 discordiador.c/(15070:15095): Tarea pedida por tripulante 2: C06 Posicion: 5|5 Duracion: 5 
+[INFO] 21:52:05:518 discordiador.c/(15070:15095): Tripulante 2 cambio su estado a R
+[INFO] 21:52:05:518 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:52:05:518 discordiador.c/(15070:15099): Tripulante 2 cambio su estado a E
+[INFO] 21:52:06:518 discordiador.c/(15070:15095): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:52:07:518 discordiador.c/(15070:15095): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:52:08:519 discordiador.c/(15070:15095): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:52:09:519 discordiador.c/(15070:15095): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:52:10:519 discordiador.c/(15070:15095): Tripulante 2 terminó su tarea
+[INFO] 21:52:10:526 discordiador.c/(15070:15095): Tarea pedida por tripulante 2: C07 Posicion: 5|5 Duracion: 5 
+[INFO] 21:52:10:526 discordiador.c/(15070:15095): Tripulante 2 cambio su estado a R
+[INFO] 21:52:10:526 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:52:10:526 discordiador.c/(15070:15099): Tripulante 2 cambio su estado a E
+[INFO] 21:52:11:526 discordiador.c/(15070:15095): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:52:12:526 discordiador.c/(15070:15095): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:52:13:527 discordiador.c/(15070:15095): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:52:14:527 discordiador.c/(15070:15095): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:52:15:528 discordiador.c/(15070:15095): Tripulante 2 terminó su tarea
+[INFO] 21:52:15:536 discordiador.c/(15070:15095): Tarea pedida por tripulante 2: C08 Posicion: 5|5 Duracion: 5 
+[INFO] 21:52:15:536 discordiador.c/(15070:15095): Tripulante 2 cambio su estado a R
+[INFO] 21:52:15:536 discordiador.c/(15070:15099): SANDRO
+[INFO] 21:52:15:536 discordiador.c/(15070:15099): Tripulante 2 cambio su estado a E
+[INFO] 21:52:16:536 discordiador.c/(15070:15095): Tripulante  2 le faltan 4s para terminar la tarea y le queda 5 quantum restante
+[INFO] 21:52:17:537 discordiador.c/(15070:15095): Tripulante  2 le faltan 3s para terminar la tarea y le queda 4 quantum restante
+[INFO] 21:52:18:537 discordiador.c/(15070:15095): Tripulante  2 le faltan 2s para terminar la tarea y le queda 3 quantum restante
+[INFO] 21:52:19:538 discordiador.c/(15070:15095): Tripulante  2 le faltan 1s para terminar la tarea y le queda 2 quantum restante
+[INFO] 21:52:20:539 discordiador.c/(15070:15095): Tripulante 2 terminó su tarea
+[INFO] 21:52:20:545 discordiador.c/(15070:15095): Tripulante 2 termino de trabajar 
+[ERROR] 21:52:43:106 discordiador.c/(15070:15071): No se pudo recibir el header
+[ERROR] 21:52:43:106 discordiador.c/(15070:15071): No se pudo recibir el tamanio del buffer 
+[ERROR] 21:52:43:106 discordiador.c/(15070:15071): No se pudo recibir el buffer
+[INFO] 21:52:43:106 discordiador.c/(15070:15071): la posicion en x -1242562376
+[INFO] 21:52:43:106 discordiador.c/(15070:15071): la posicion en y -1242562376

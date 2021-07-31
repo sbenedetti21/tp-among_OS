@@ -140,6 +140,7 @@ pthread_mutex_t mutexListaFrames;
 pthread_mutex_t mutexListaFramesSwap;
 pthread_mutex_t mutexTareas;
 pthread_mutex_t mutexContadorLRU;
+pthread_mutex_t mutexListaTripulantes;
 
 typedef struct {
 	uint32_t numeroPagina;
@@ -195,7 +196,7 @@ void dumpDeMemoriaPaginacion();
 //--------------- MAPA ---------------------
 NIVEL* navePrincipal;
 sem_t semaforoTerminarMapa; 
-sem_t semaforoMoverTripulante;
+sem_t semaforoCambiosMapa;
 void iniciarMapa();
 void agregarTripulanteAlMapa(uint32_t, uint32_t ,uint32_t);
 void moverTripulanteEnMapa(uint32_t, uint32_t , uint32_t );

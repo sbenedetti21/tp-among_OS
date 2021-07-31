@@ -7960,3 +7960,1208 @@
 [INFO] 21:08:17:034 mi_ram.c/(9998:10655): Tripulante 1 actualizo cambio su estado a: B
 [INFO] 21:08:17:035 mi_ram.c/(9998:10654): Header 5 recibido: ACTUALIZAR ESTADO
 [INFO] 21:08:17:035 mi_ram.c/(9998:10654): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 21:10:40:151 mi_ram.c/(10882:10882): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 21:10:44:103 mi_ram.c/(10895:10895): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 21:11:14:395 mi_ram.c/(10895:10961): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:11:14:397 mi_ram.c/(10895:10961): PID: A
+[INFO] 21:11:14:400 mi_ram.c/(10895:10961): Cantidad de tripulantes: 1 
+
+[INFO] 21:11:14:406 mi_ram.c/(10895:10961): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:11:14:421 mi_ram.c/(10895:10961): PCB de la patota 0 agregado a memoria
+[INFO] 21:11:14:425 mi_ram.c/(10895:10961): Tareas de la patota 0 agregadas a memoria
+[INFO] 21:11:14:429 mi_ram.c/(10895:10961): Tripulante agregado a memoria. TID: 0
+[INFO] 21:11:23:319 mi_ram.c/(10895:10974): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:11:23:320 mi_ram.c/(10895:10974): PID: B
+[INFO] 21:11:23:320 mi_ram.c/(10895:10974): Cantidad de tripulantes: 1 
+
+[INFO] 21:11:23:321 mi_ram.c/(10895:10974): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:11:23:324 mi_ram.c/(10895:10974): PCB de la patota 1 agregado a memoria
+[INFO] 21:11:23:326 mi_ram.c/(10895:10974): Tareas de la patota 1 agregadas a memoria
+[INFO] 21:11:23:332 mi_ram.c/(10895:10974): Tripulante agregado a memoria. TID: 1
+[INFO] 21:11:37:064 mi_ram.c/(10895:10991): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:11:37:065 mi_ram.c/(10895:10991): PID: C
+[INFO] 21:11:37:065 mi_ram.c/(10895:10991): Cantidad de tripulantes: 1 
+
+[INFO] 21:11:37:067 mi_ram.c/(10895:10991): Rechazo patota por falta de espacio en memoria.
+[INFO] 21:11:46:876 mi_ram.c/(10895:11012): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:11:46:888 mi_ram.c/(10895:11012): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:11:46:891 mi_ram.c/(10895:11013): Header 1 recibido: PEDIR TAREA
+[INFO] 21:11:46:892 mi_ram.c/(10895:11013): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:11:46:894 mi_ram.c/(10895:11013): La tarea a enviar al tripulante 0 es: A00;1;1;5
+[INFO] 21:11:55:454 mi_ram.c/(10895:11028): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:11:55:456 mi_ram.c/(10895:11028): Tripulante 0 actualizo cambio su estado a: B
+[INFO] 21:11:55:457 mi_ram.c/(10895:11029): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:11:55:470 mi_ram.c/(10895:11029): Tripulante 1 actualizo cambio su estado a: B
+[INFO] 21:11:55:473 mi_ram.c/(10895:11030): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:11:55:474 mi_ram.c/(10895:11030): Tripulante 2 actualizo cambio su estado a: B
+[INFO] 21:11:55:477 mi_ram.c/(10895:11031): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:11:55:481 mi_ram.c/(10895:11031): Tripulante 0 actualizo cambio su estado a: S
+[INFO] 21:12:17:384 mi_ram.c/(11117:11117): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 21:12:17:408 mi_ram.c/(11117:11117): Iniciando Frames... 
+[INFO] 21:12:17:411 mi_ram.c/(11117:11117): -------------------------
+[INFO] 21:12:17:412 mi_ram.c/(11117:11117): Disponibilidad de frames: 
+[INFO] 21:12:17:412 mi_ram.c/(11117:11117): el frame 0 esta ocupado: 0 
+[INFO] 21:12:17:413 mi_ram.c/(11117:11117): el frame 1 esta ocupado: 0 
+[INFO] 21:12:17:413 mi_ram.c/(11117:11117): el frame 2 esta ocupado: 0 
+[INFO] 21:12:17:413 mi_ram.c/(11117:11117): el frame 3 esta ocupado: 0 
+[INFO] 21:12:17:414 mi_ram.c/(11117:11117): Iniciando Frames Swap... 
+[INFO] 21:12:23:182 mi_ram.c/(11117:11138): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:12:23:183 mi_ram.c/(11117:11138): PID: A
+[INFO] 21:12:23:184 mi_ram.c/(11117:11138): Cantidad de tripulantes: 1 
+
+[INFO] 21:12:23:185 mi_ram.c/(11117:11138): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:12:23:245 mi_ram.c/(11117:11138): Tripulante agregado a memoria. TID: 0
+[INFO] 21:12:23:251 mi_ram.c/(11117:11138): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  41 30 30 3b 31 3b 31 3b  |........A00;1;1;|
+0x00000010: 35 0a 41 30 31 3b 31 3b  31 3b 35 0a 41 30 32 3b  |5.A01;1;1;5.A02;|
+0x00000020: 31 3b 31 3b 35 7c 00 00  00 00 01 00 00 00 01 00  |1;1;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:12:27:875 mi_ram.c/(11117:11147): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:12:27:876 mi_ram.c/(11117:11147): PID: B
+[INFO] 21:12:27:876 mi_ram.c/(11117:11147): Cantidad de tripulantes: 1 
+
+[INFO] 21:12:27:876 mi_ram.c/(11117:11147): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:12:27:886 mi_ram.c/(11117:11147): Tripulante agregado a memoria. TID: 1
+[INFO] 21:12:27:888 mi_ram.c/(11117:11147): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  42 30 30 3b 33 3b 33 3b  |........B00;3;3;|
+0x00000010: 35 0a 42 30 31 3b 33 3b  33 3b 35 0a 42 30 32 3b  |5.B01;3;3;5.B02;|
+0x00000020: 33 3b 33 3b 35 7c 01 00  00 00 03 00 00 00 03 00  |3;3;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:12:32:239 mi_ram.c/(11117:11151): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:12:32:240 mi_ram.c/(11117:11151): PID: C
+[INFO] 21:12:32:240 mi_ram.c/(11117:11151): Cantidad de tripulantes: 1 
+
+[INFO] 21:12:32:242 mi_ram.c/(11117:11151): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:12:32:246 mi_ram.c/(11117:11151): Tripulante agregado a memoria. TID: 2
+[INFO] 21:12:32:255 mi_ram.c/(11117:11151): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  43 30 30 3b 35 3b 35 3b  |........C00;5;5;|
+0x00000010: 35 0a 43 30 31 3b 35 3b  35 3b 35 0a 43 30 32 3b  |5.C01;5;5;5.C02;|
+0x00000020: 35 3b 35 3b 35 0a 43 30  33 3b 35 3b 35 3b 35 0a  |5;5;5.C03;5;5;5.|
+0x00000030: 43 30 34 3b 35 3b 35 3b  35 0a 43 30 35 3b 35 3b  |C04;5;5;5.C05;5;|
+0x00000040: 35 3b 35 0a 43 30 36 3b  35 3b 35 3b 35 0a 43 30  |5;5.C06;5;5;5.C0|
+0x00000050: 37 3b 35 3b 35 3b 35 0a  43 30 38 3b 35 3b 35 3b  |7;5;5;5.C08;5;5;|
+0x00000060: 35 7c 02 00 00 00 05 00  00 00 05 00 00 00 4e 08  |5|............N.|
+0x00000070: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 21:12:32:257 mi_ram.c/(11117:11151): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:12:32:262 mi_ram.c/(11117:11151): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:12:32:263 mi_ram.c/(11117:11151): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:12:32:268 mi_ram.c/(11117:11151): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:12:38:130 mi_ram.c/(11117:11164): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:12:38:142 mi_ram.c/(11117:11164): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:12:38:145 mi_ram.c/(11117:11164): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:12:38:148 mi_ram.c/(11117:11164): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:12:38:149 mi_ram.c/(11117:11165): Header 1 recibido: PEDIR TAREA
+[INFO] 21:12:38:150 mi_ram.c/(11117:11165): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:12:38:156 mi_ram.c/(11117:11165): Victima elegida para llevar a SWAP: pagina 1 de proceso C
+[INFO] 21:12:38:158 mi_ram.c/(11117:11165): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:12:38:159 mi_ram.c/(11117:11165): La tarea a enviar al tripulante 0 es: A00;1;1;5
+[INFO] 21:12:48:167 mi_ram.c/(11117:11181): Header 1 recibido: PEDIR TAREA
+[INFO] 21:12:48:167 mi_ram.c/(11117:11181): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:12:48:168 mi_ram.c/(11117:11181): La tarea a enviar al tripulante 0 es: A01;1;1;5
+[INFO] 21:12:48:180 mi_ram.c/(11117:11182): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:12:48:181 mi_ram.c/(11117:11182): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:12:48:183 mi_ram.c/(11117:11183): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:12:48:185 mi_ram.c/(11117:11183): Victima elegida para llevar a SWAP: pagina 2 de proceso C
+[INFO] 21:12:48:191 mi_ram.c/(11117:11183): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:12:48:186 mi_ram.c/(11117:11184): Header 1 recibido: PEDIR TAREA
+[INFO] 21:12:48:191 mi_ram.c/(11117:11184): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:12:48:193 mi_ram.c/(11117:11184): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:12:48:194 mi_ram.c/(11117:11184): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:12:48:195 mi_ram.c/(11117:11184): La tarea a enviar al tripulante 1 es: B00;3;3;5
+[INFO] 21:12:48:193 mi_ram.c/(11117:11183): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:12:58:201 mi_ram.c/(11117:11198): Header 1 recibido: PEDIR TAREA
+[INFO] 21:12:58:202 mi_ram.c/(11117:11198): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:12:58:204 mi_ram.c/(11117:11198): La tarea a enviar al tripulante 1 es: B01;3;3;5
+[INFO] 21:12:58:208 mi_ram.c/(11117:11199): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:12:58:214 mi_ram.c/(11117:11199): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:12:58:215 mi_ram.c/(11117:11200): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:12:58:223 mi_ram.c/(11117:11200): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:12:58:224 mi_ram.c/(11117:11200): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:12:58:228 mi_ram.c/(11117:11200): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:12:58:229 mi_ram.c/(11117:11201): Header 1 recibido: PEDIR TAREA
+[INFO] 21:12:58:229 mi_ram.c/(11117:11201): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:12:58:231 mi_ram.c/(11117:11201): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:12:58:232 mi_ram.c/(11117:11201): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:12:58:233 mi_ram.c/(11117:11201): La tarea a enviar al tripulante 2 es: C00;5;5;5
+[INFO] 21:13:08:239 mi_ram.c/(11117:11225): Header 1 recibido: PEDIR TAREA
+[INFO] 21:13:08:240 mi_ram.c/(11117:11225): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:13:08:241 mi_ram.c/(11117:11225): La tarea a enviar al tripulante 2 es: C01;5;5;5
+[INFO] 21:13:08:245 mi_ram.c/(11117:11226): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:13:08:250 mi_ram.c/(11117:11226): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:13:08:253 mi_ram.c/(11117:11227): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:13:08:254 mi_ram.c/(11117:11227): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:13:08:256 mi_ram.c/(11117:11227): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:13:08:256 mi_ram.c/(11117:11227): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:13:18:247 mi_ram.c/(11117:11241): Header 1 recibido: PEDIR TAREA
+[INFO] 21:13:18:248 mi_ram.c/(11117:11241): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:13:18:249 mi_ram.c/(11117:11241): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:13:18:251 mi_ram.c/(11117:11241): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:13:18:252 mi_ram.c/(11117:11241): La tarea a enviar al tripulante 0 es: A02;1;1;5
+[INFO] 21:13:18:255 mi_ram.c/(11117:11242): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:13:18:257 mi_ram.c/(11117:11242): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:13:18:262 mi_ram.c/(11117:11243): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:13:18:263 mi_ram.c/(11117:11243): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:13:18:264 mi_ram.c/(11117:11243): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:13:18:265 mi_ram.c/(11117:11243): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:13:28:258 mi_ram.c/(11117:11257): Header 1 recibido: PEDIR TAREA
+[INFO] 21:13:28:259 mi_ram.c/(11117:11257): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:13:28:260 mi_ram.c/(11117:11257): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:13:28:261 mi_ram.c/(11117:11257): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:13:28:262 mi_ram.c/(11117:11257): La tarea a enviar al tripulante 1 es: B02;3;3;5
+[INFO] 21:13:28:266 mi_ram.c/(11117:11258): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:13:28:270 mi_ram.c/(11117:11258): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:13:28:273 mi_ram.c/(11117:11259): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:13:28:274 mi_ram.c/(11117:11259): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:13:28:276 mi_ram.c/(11117:11259): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:13:28:277 mi_ram.c/(11117:11259): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:13:38:270 mi_ram.c/(11117:11273): Header 1 recibido: PEDIR TAREA
+[INFO] 21:13:38:270 mi_ram.c/(11117:11273): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:13:38:272 mi_ram.c/(11117:11273): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:13:38:273 mi_ram.c/(11117:11273): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:13:38:274 mi_ram.c/(11117:11273): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:13:38:274 mi_ram.c/(11117:11273): Se trae la pagina 1, del proceso C a MEMORIA
+[INFO] 21:13:38:275 mi_ram.c/(11117:11273): La tarea a enviar al tripulante 2 es: C02;5;5;5
+[INFO] 21:13:38:282 mi_ram.c/(11117:11274): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:13:38:284 mi_ram.c/(11117:11274): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:13:38:285 mi_ram.c/(11117:11275): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:13:38:286 mi_ram.c/(11117:11275): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:13:38:287 mi_ram.c/(11117:11275): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:13:38:288 mi_ram.c/(11117:11275): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:13:48:281 mi_ram.c/(11117:11291): Header 1 recibido: PEDIR TAREA
+[INFO] 21:13:48:282 mi_ram.c/(11117:11291): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:13:48:283 mi_ram.c/(11117:11291): La tarea a enviar al tripulante 0 es: NO_HAY_TAREA
+[INFO] 21:13:48:290 mi_ram.c/(11117:11292): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:13:48:291 mi_ram.c/(11117:11292): Victima elegida para llevar a SWAP: pagina 225 de proceso A
+[INFO] 21:13:48:297 mi_ram.c/(11117:11292): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:13:48:300 mi_ram.c/(11117:11292): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:13:48:299 mi_ram.c/(11117:11291): Tripulante: 0 termino sus tareas
+[INFO] 21:13:58:290 mi_ram.c/(11117:11306): Header 1 recibido: PEDIR TAREA
+[INFO] 21:13:58:291 mi_ram.c/(11117:11306): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:13:58:292 mi_ram.c/(11117:11306): La tarea a enviar al tripulante 1 es: NO_HAY_TAREA
+[INFO] 21:13:58:297 mi_ram.c/(11117:11307): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:13:58:303 mi_ram.c/(11117:11307): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:13:58:302 mi_ram.c/(11117:11306): Tripulante: 1 termino sus tareas
+[INFO] 21:14:08:298 mi_ram.c/(11117:11322): Header 1 recibido: PEDIR TAREA
+[INFO] 21:14:08:299 mi_ram.c/(11117:11322): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:14:08:300 mi_ram.c/(11117:11322): La tarea a enviar al tripulante 2 es: C03;5;5;5
+[INFO] 21:14:08:304 mi_ram.c/(11117:11323): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:08:306 mi_ram.c/(11117:11323): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:14:08:310 mi_ram.c/(11117:11324): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:08:311 mi_ram.c/(11117:11324): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:14:18:308 mi_ram.c/(11117:11348): Header 1 recibido: PEDIR TAREA
+[INFO] 21:14:18:310 mi_ram.c/(11117:11348): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:14:18:311 mi_ram.c/(11117:11348): La tarea a enviar al tripulante 2 es: C04;5;5;5
+[INFO] 21:14:18:315 mi_ram.c/(11117:11349): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:18:319 mi_ram.c/(11117:11349): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:14:18:321 mi_ram.c/(11117:11350): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:18:323 mi_ram.c/(11117:11350): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:14:28:317 mi_ram.c/(11117:11364): Header 1 recibido: PEDIR TAREA
+[INFO] 21:14:28:318 mi_ram.c/(11117:11364): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:14:28:319 mi_ram.c/(11117:11364): Victima elegida para llevar a SWAP: pagina 69 de proceso B
+[INFO] 21:14:28:320 mi_ram.c/(11117:11364): Se trae la pagina 2, del proceso C a MEMORIA
+[INFO] 21:14:28:321 mi_ram.c/(11117:11364): La tarea a enviar al tripulante 2 es: C05;5;5;5
+[INFO] 21:14:28:329 mi_ram.c/(11117:11365): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:28:330 mi_ram.c/(11117:11365): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:14:28:331 mi_ram.c/(11117:11366): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:28:332 mi_ram.c/(11117:11366): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:14:38:326 mi_ram.c/(11117:11380): Header 1 recibido: PEDIR TAREA
+[INFO] 21:14:38:326 mi_ram.c/(11117:11380): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:14:38:328 mi_ram.c/(11117:11380): La tarea a enviar al tripulante 2 es: C06;5;5;5
+[INFO] 21:14:38:332 mi_ram.c/(11117:11381): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:38:333 mi_ram.c/(11117:11381): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:14:38:337 mi_ram.c/(11117:11382): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:38:339 mi_ram.c/(11117:11382): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:14:48:335 mi_ram.c/(11117:11404): Header 1 recibido: PEDIR TAREA
+[INFO] 21:14:48:335 mi_ram.c/(11117:11404): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:14:48:337 mi_ram.c/(11117:11404): La tarea a enviar al tripulante 2 es: C07;5;5;5
+[INFO] 21:14:48:341 mi_ram.c/(11117:11405): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:48:347 mi_ram.c/(11117:11405): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:14:48:348 mi_ram.c/(11117:11406): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:48:349 mi_ram.c/(11117:11406): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:14:58:343 mi_ram.c/(11117:11420): Header 1 recibido: PEDIR TAREA
+[INFO] 21:14:58:344 mi_ram.c/(11117:11420): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:14:58:345 mi_ram.c/(11117:11420): La tarea a enviar al tripulante 2 es: C08;5;5;5
+[INFO] 21:14:58:350 mi_ram.c/(11117:11421): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:58:355 mi_ram.c/(11117:11421): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:14:58:356 mi_ram.c/(11117:11422): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:14:58:357 mi_ram.c/(11117:11422): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:15:08:352 mi_ram.c/(11117:11438): Header 1 recibido: PEDIR TAREA
+[INFO] 21:15:08:353 mi_ram.c/(11117:11438): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:15:08:355 mi_ram.c/(11117:11438): La tarea a enviar al tripulante 2 es: NO_HAY_TAREA
+[INFO] 21:15:08:356 mi_ram.c/(11117:11438): Tripulante: 2 termino sus tareas
+[INFO] 21:18:44:045 mi_ram.c/(11817:11817): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 21:18:44:090 mi_ram.c/(11817:11817): Iniciando Frames... 
+[INFO] 21:18:44:092 mi_ram.c/(11817:11817): -------------------------
+[INFO] 21:18:44:104 mi_ram.c/(11817:11817): Disponibilidad de frames: 
+[INFO] 21:18:44:105 mi_ram.c/(11817:11817): el frame 0 esta ocupado: 0 
+[INFO] 21:18:44:105 mi_ram.c/(11817:11817): el frame 1 esta ocupado: 0 
+[INFO] 21:18:44:106 mi_ram.c/(11817:11817): el frame 2 esta ocupado: 0 
+[INFO] 21:18:44:106 mi_ram.c/(11817:11817): el frame 3 esta ocupado: 0 
+[INFO] 21:18:44:106 mi_ram.c/(11817:11817): Iniciando Frames Swap... 
+[INFO] 21:18:53:458 mi_ram.c/(11817:11846): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:18:53:466 mi_ram.c/(11817:11846): PID: A
+[INFO] 21:18:53:469 mi_ram.c/(11817:11846): Cantidad de tripulantes: 1 
+
+[INFO] 21:18:53:470 mi_ram.c/(11817:11846): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:18:53:536 mi_ram.c/(11817:11846): Tripulante agregado a memoria. TID: 0
+[INFO] 21:18:53:542 mi_ram.c/(11817:11846): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  41 30 30 3b 31 3b 31 3b  |........A00;1;1;|
+0x00000010: 35 0a 41 30 31 3b 31 3b  31 3b 35 0a 41 30 32 3b  |5.A01;1;1;5.A02;|
+0x00000020: 31 3b 31 3b 35 7c 00 00  00 00 01 00 00 00 01 00  |1;1;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:18:58:359 mi_ram.c/(11817:11855): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:18:58:361 mi_ram.c/(11817:11855): PID: B
+[INFO] 21:18:58:362 mi_ram.c/(11817:11855): Cantidad de tripulantes: 1 
+
+[INFO] 21:18:58:362 mi_ram.c/(11817:11855): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:18:58:375 mi_ram.c/(11817:11855): Tripulante agregado a memoria. TID: 1
+[INFO] 21:18:58:378 mi_ram.c/(11817:11855): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  42 30 30 3b 33 3b 33 3b  |........B00;3;3;|
+0x00000010: 35 0a 42 30 31 3b 33 3b  33 3b 35 0a 42 30 32 3b  |5.B01;3;3;5.B02;|
+0x00000020: 33 3b 33 3b 35 7c 01 00  00 00 03 00 00 00 03 00  |3;3;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:19:01:574 mi_ram.c/(11817:11860): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:19:01:578 mi_ram.c/(11817:11860): PID: C
+[INFO] 21:19:01:578 mi_ram.c/(11817:11860): Cantidad de tripulantes: 1 
+
+[INFO] 21:19:01:580 mi_ram.c/(11817:11860): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:19:01:590 mi_ram.c/(11817:11860): Tripulante agregado a memoria. TID: 2
+[INFO] 21:19:01:597 mi_ram.c/(11817:11860): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  43 30 30 3b 35 3b 35 3b  |........C00;5;5;|
+0x00000010: 35 0a 43 30 31 3b 35 3b  35 3b 35 0a 43 30 32 3b  |5.C01;5;5;5.C02;|
+0x00000020: 35 3b 35 3b 35 0a 43 30  33 3b 35 3b 35 3b 35 0a  |5;5;5.C03;5;5;5.|
+0x00000030: 43 30 34 3b 35 3b 35 3b  35 0a 43 30 35 3b 35 3b  |C04;5;5;5.C05;5;|
+0x00000040: 35 3b 35 0a 43 30 36 3b  35 3b 35 3b 35 0a 43 30  |5;5.C06;5;5;5.C0|
+0x00000050: 37 3b 35 3b 35 3b 35 0a  43 30 38 3b 35 3b 35 3b  |7;5;5;5.C08;5;5;|
+0x00000060: 35 7c 02 00 00 00 05 00  00 00 05 00 00 00 4e 08  |5|............N.|
+0x00000070: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 21:19:01:599 mi_ram.c/(11817:11860): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:19:01:606 mi_ram.c/(11817:11860): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:19:01:607 mi_ram.c/(11817:11860): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:19:01:608 mi_ram.c/(11817:11860): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:19:04:609 mi_ram.c/(11817:11868): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:04:624 mi_ram.c/(11817:11868): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:19:04:627 mi_ram.c/(11817:11868): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:19:04:629 mi_ram.c/(11817:11868): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:19:04:628 mi_ram.c/(11817:11869): Header 1 recibido: PEDIR TAREA
+[INFO] 21:19:04:630 mi_ram.c/(11817:11869): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:19:04:639 mi_ram.c/(11817:11869): Victima elegida para llevar a SWAP: pagina 1 de proceso C
+[INFO] 21:19:04:642 mi_ram.c/(11817:11869): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:19:04:644 mi_ram.c/(11817:11869): La tarea a enviar al tripulante 0 es: A00;1;1;5
+[INFO] 21:19:14:651 mi_ram.c/(11817:11885): Header 1 recibido: PEDIR TAREA
+[INFO] 21:19:14:656 mi_ram.c/(11817:11885): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:19:14:658 mi_ram.c/(11817:11885): La tarea a enviar al tripulante 0 es: A01;1;1;5
+[INFO] 21:19:14:665 mi_ram.c/(11817:11887): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:14:666 mi_ram.c/(11817:11887): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:19:14:667 mi_ram.c/(11817:11888): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:14:675 mi_ram.c/(11817:11888): Victima elegida para llevar a SWAP: pagina 2 de proceso C
+[INFO] 21:19:14:679 mi_ram.c/(11817:11888): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:19:14:681 mi_ram.c/(11817:11888): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:19:14:683 mi_ram.c/(11817:11889): Header 1 recibido: PEDIR TAREA
+[INFO] 21:19:14:684 mi_ram.c/(11817:11889): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:19:14:685 mi_ram.c/(11817:11889): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:19:14:686 mi_ram.c/(11817:11889): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:19:14:687 mi_ram.c/(11817:11889): La tarea a enviar al tripulante 1 es: B00;3;3;5
+[INFO] 21:19:24:693 mi_ram.c/(11817:11904): Header 1 recibido: PEDIR TAREA
+[INFO] 21:19:24:697 mi_ram.c/(11817:11904): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:19:24:698 mi_ram.c/(11817:11904): La tarea a enviar al tripulante 1 es: B01;3;3;5
+[INFO] 21:19:24:706 mi_ram.c/(11817:11906): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:24:707 mi_ram.c/(11817:11906): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:19:24:709 mi_ram.c/(11817:11907): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:24:710 mi_ram.c/(11817:11907): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:19:24:712 mi_ram.c/(11817:11907): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:19:24:712 mi_ram.c/(11817:11907): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:19:24:711 mi_ram.c/(11817:11908): Header 1 recibido: PEDIR TAREA
+[INFO] 21:19:24:713 mi_ram.c/(11817:11908): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:19:24:714 mi_ram.c/(11817:11908): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:19:24:715 mi_ram.c/(11817:11908): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:19:24:716 mi_ram.c/(11817:11908): La tarea a enviar al tripulante 2 es: C00;5;5;5
+[INFO] 21:19:34:726 mi_ram.c/(11817:11928): Header 1 recibido: PEDIR TAREA
+[INFO] 21:19:34:729 mi_ram.c/(11817:11928): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:19:34:731 mi_ram.c/(11817:11928): La tarea a enviar al tripulante 2 es: C01;5;5;5
+[INFO] 21:19:34:738 mi_ram.c/(11817:11930): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:34:740 mi_ram.c/(11817:11930): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:19:34:741 mi_ram.c/(11817:11931): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:34:742 mi_ram.c/(11817:11931): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:19:34:743 mi_ram.c/(11817:11931): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:19:34:744 mi_ram.c/(11817:11931): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:19:44:742 mi_ram.c/(11817:11961): Header 1 recibido: PEDIR TAREA
+[INFO] 21:19:44:746 mi_ram.c/(11817:11961): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:19:44:747 mi_ram.c/(11817:11961): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:19:44:752 mi_ram.c/(11817:11961): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:19:44:753 mi_ram.c/(11817:11961): La tarea a enviar al tripulante 0 es: A02;1;1;5
+[INFO] 21:19:44:757 mi_ram.c/(11817:11963): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:44:758 mi_ram.c/(11817:11963): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:19:44:759 mi_ram.c/(11817:11964): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:44:760 mi_ram.c/(11817:11964): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:19:44:761 mi_ram.c/(11817:11964): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:19:44:761 mi_ram.c/(11817:11964): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:19:54:760 mi_ram.c/(11817:11986): Header 1 recibido: PEDIR TAREA
+[INFO] 21:19:54:764 mi_ram.c/(11817:11986): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:19:54:765 mi_ram.c/(11817:11986): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:19:54:767 mi_ram.c/(11817:11986): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:19:54:770 mi_ram.c/(11817:11986): La tarea a enviar al tripulante 1 es: B02;3;3;5
+[INFO] 21:19:54:774 mi_ram.c/(11817:11988): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:54:775 mi_ram.c/(11817:11988): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:19:54:777 mi_ram.c/(11817:11989): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:19:54:778 mi_ram.c/(11817:11989): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:19:54:779 mi_ram.c/(11817:11989): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:19:54:780 mi_ram.c/(11817:11989): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:20:04:776 mi_ram.c/(11817:12004): Header 1 recibido: PEDIR TAREA
+[INFO] 21:20:04:780 mi_ram.c/(11817:12004): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:20:04:783 mi_ram.c/(11817:12004): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:20:04:784 mi_ram.c/(11817:12004): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:20:04:788 mi_ram.c/(11817:12004): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:20:04:789 mi_ram.c/(11817:12004): Se trae la pagina 1, del proceso C a MEMORIA
+[INFO] 21:20:04:789 mi_ram.c/(11817:12004): La tarea a enviar al tripulante 2 es: C02;5;5;5
+[INFO] 21:20:04:793 mi_ram.c/(11817:12006): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:20:04:795 mi_ram.c/(11817:12006): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:20:04:797 mi_ram.c/(11817:12007): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:20:04:799 mi_ram.c/(11817:12007): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:20:04:805 mi_ram.c/(11817:12007): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:20:04:805 mi_ram.c/(11817:12007): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:20:14:798 mi_ram.c/(11817:12022): Header 1 recibido: PEDIR TAREA
+[INFO] 21:20:14:802 mi_ram.c/(11817:12022): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:20:14:804 mi_ram.c/(11817:12022): La tarea a enviar al tripulante 0 es: NO_HAY_TAREA
+[INFO] 21:20:14:814 mi_ram.c/(11817:12024): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:20:14:815 mi_ram.c/(11817:12024): Victima elegida para llevar a SWAP: pagina 225 de proceso A
+[INFO] 21:20:14:817 mi_ram.c/(11817:12024): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:20:14:820 mi_ram.c/(11817:12024): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:20:14:821 mi_ram.c/(11817:12022): Tripulante: 0 termino sus tareas
+[INFO] 21:20:24:810 mi_ram.c/(11817:12040): Header 1 recibido: PEDIR TAREA
+[INFO] 21:20:24:814 mi_ram.c/(11817:12040): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:20:24:817 mi_ram.c/(11817:12040): La tarea a enviar al tripulante 1 es: NO_HAY_TAREA
+[INFO] 21:20:24:825 mi_ram.c/(11817:12042): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:20:24:827 mi_ram.c/(11817:12042): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:20:24:828 mi_ram.c/(11817:12040): Tripulante: 1 termino sus tareas
+[INFO] 21:20:34:825 mi_ram.c/(11817:12058): Header 1 recibido: PEDIR TAREA
+[INFO] 21:20:34:830 mi_ram.c/(11817:12058): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:20:34:832 mi_ram.c/(11817:12058): La tarea a enviar al tripulante 2 es: C03;5;5;5
+[INFO] 21:20:34:839 mi_ram.c/(11817:12060): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:20:34:840 mi_ram.c/(11817:12060): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:20:34:841 mi_ram.c/(11817:12061): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:20:34:843 mi_ram.c/(11817:12061): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:20:44:842 mi_ram.c/(11817:12079): Header 1 recibido: PEDIR TAREA
+[INFO] 21:20:44:846 mi_ram.c/(11817:12079): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:20:44:847 mi_ram.c/(11817:12079): La tarea a enviar al tripulante 2 es: C04;5;5;5
+[INFO] 21:20:44:855 mi_ram.c/(11817:12081): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:20:44:856 mi_ram.c/(11817:12081): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:20:44:857 mi_ram.c/(11817:12082): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:20:44:859 mi_ram.c/(11817:12082): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:20:54:856 mi_ram.c/(11817:12105): Header 1 recibido: PEDIR TAREA
+[INFO] 21:20:54:860 mi_ram.c/(11817:12105): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:20:54:863 mi_ram.c/(11817:12105): Victima elegida para llevar a SWAP: pagina 69 de proceso B
+[INFO] 21:20:54:867 mi_ram.c/(11817:12105): Se trae la pagina 2, del proceso C a MEMORIA
+[INFO] 21:20:54:868 mi_ram.c/(11817:12105): La tarea a enviar al tripulante 2 es: C05;5;5;5
+[INFO] 21:20:54:872 mi_ram.c/(11817:12107): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:20:54:874 mi_ram.c/(11817:12107): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:20:54:876 mi_ram.c/(11817:12108): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:20:54:877 mi_ram.c/(11817:12108): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:21:04:875 mi_ram.c/(11817:12123): Header 1 recibido: PEDIR TAREA
+[INFO] 21:21:04:879 mi_ram.c/(11817:12123): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:21:04:880 mi_ram.c/(11817:12123): La tarea a enviar al tripulante 2 es: C06;5;5;5
+[INFO] 21:21:04:888 mi_ram.c/(11817:12125): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:21:04:889 mi_ram.c/(11817:12125): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:21:04:890 mi_ram.c/(11817:12126): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:21:04:892 mi_ram.c/(11817:12126): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:21:14:887 mi_ram.c/(11817:12141): Header 1 recibido: PEDIR TAREA
+[INFO] 21:21:14:892 mi_ram.c/(11817:12141): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:21:14:894 mi_ram.c/(11817:12141): La tarea a enviar al tripulante 2 es: C07;5;5;5
+[INFO] 21:21:14:901 mi_ram.c/(11817:12143): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:21:14:902 mi_ram.c/(11817:12143): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:21:14:903 mi_ram.c/(11817:12144): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:21:14:905 mi_ram.c/(11817:12144): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:21:24:902 mi_ram.c/(11817:12159): Header 1 recibido: PEDIR TAREA
+[INFO] 21:21:24:906 mi_ram.c/(11817:12159): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:21:24:909 mi_ram.c/(11817:12159): La tarea a enviar al tripulante 2 es: C08;5;5;5
+[INFO] 21:21:24:914 mi_ram.c/(11817:12161): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:21:24:916 mi_ram.c/(11817:12161): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:21:24:917 mi_ram.c/(11817:12162): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:21:24:918 mi_ram.c/(11817:12162): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:21:34:917 mi_ram.c/(11817:12177): Header 1 recibido: PEDIR TAREA
+[INFO] 21:21:34:921 mi_ram.c/(11817:12177): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:21:34:922 mi_ram.c/(11817:12177): La tarea a enviar al tripulante 2 es: NO_HAY_TAREA
+[INFO] 21:21:34:927 mi_ram.c/(11817:12177): Tripulante: 2 termino sus tareas
+[INFO] 21:23:57:459 mi_ram.c/(12394:12394): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 21:23:57:487 mi_ram.c/(12394:12394): Iniciando Frames... 
+[INFO] 21:23:57:490 mi_ram.c/(12394:12394): -------------------------
+[INFO] 21:23:57:490 mi_ram.c/(12394:12394): Disponibilidad de frames: 
+[INFO] 21:23:57:491 mi_ram.c/(12394:12394): el frame 0 esta ocupado: 0 
+[INFO] 21:23:57:491 mi_ram.c/(12394:12394): el frame 1 esta ocupado: 0 
+[INFO] 21:23:57:491 mi_ram.c/(12394:12394): el frame 2 esta ocupado: 0 
+[INFO] 21:23:57:491 mi_ram.c/(12394:12394): el frame 3 esta ocupado: 0 
+[INFO] 21:23:57:492 mi_ram.c/(12394:12394): Iniciando Frames Swap... 
+[INFO] 21:24:06:797 mi_ram.c/(12394:12420): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:24:06:800 mi_ram.c/(12394:12420): PID: A
+[INFO] 21:24:06:801 mi_ram.c/(12394:12420): Cantidad de tripulantes: 1 
+
+[INFO] 21:24:06:806 mi_ram.c/(12394:12420): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:24:06:808 mi_ram.c/(12394:12420): Tripulante agregado a memoria. TID: 0
+[INFO] 21:24:06:814 mi_ram.c/(12394:12420): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  41 30 30 3b 31 3b 31 3b  |........A00;1;1;|
+0x00000010: 35 0a 41 30 31 3b 31 3b  31 3b 35 0a 41 30 32 3b  |5.A01;1;1;5.A02;|
+0x00000020: 31 3b 31 3b 35 7c 00 00  00 00 01 00 00 00 01 00  |1;1;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:24:10:579 mi_ram.c/(12394:12424): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:24:10:580 mi_ram.c/(12394:12424): PID: B
+[INFO] 21:24:10:580 mi_ram.c/(12394:12424): Cantidad de tripulantes: 1 
+
+[INFO] 21:24:10:580 mi_ram.c/(12394:12424): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:24:10:581 mi_ram.c/(12394:12424): Tripulante agregado a memoria. TID: 1
+[INFO] 21:24:10:587 mi_ram.c/(12394:12424): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  42 30 30 3b 33 3b 33 3b  |........B00;3;3;|
+0x00000010: 35 0a 42 30 31 3b 33 3b  33 3b 35 0a 42 30 32 3b  |5.B01;3;3;5.B02;|
+0x00000020: 33 3b 33 3b 35 7c 01 00  00 00 03 00 00 00 03 00  |3;3;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:24:15:709 mi_ram.c/(12394:12434): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:24:15:714 mi_ram.c/(12394:12434): PID: C
+[INFO] 21:24:15:714 mi_ram.c/(12394:12434): Cantidad de tripulantes: 1 
+
+[INFO] 21:24:15:716 mi_ram.c/(12394:12434): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:24:15:717 mi_ram.c/(12394:12434): Tripulante agregado a memoria. TID: 2
+[INFO] 21:24:15:726 mi_ram.c/(12394:12434): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  43 30 30 3b 35 3b 35 3b  |........C00;5;5;|
+0x00000010: 35 0a 43 30 31 3b 35 3b  35 3b 35 0a 43 30 32 3b  |5.C01;5;5;5.C02;|
+0x00000020: 35 3b 35 3b 35 0a 43 30  33 3b 35 3b 35 3b 35 0a  |5;5;5.C03;5;5;5.|
+0x00000030: 43 30 34 3b 35 3b 35 3b  35 0a 43 30 35 3b 35 3b  |C04;5;5;5.C05;5;|
+0x00000040: 35 3b 35 0a 43 30 36 3b  35 3b 35 3b 35 0a 43 30  |5;5.C06;5;5;5.C0|
+0x00000050: 37 3b 35 3b 35 3b 35 0a  43 30 38 3b 35 3b 35 3b  |7;5;5;5.C08;5;5;|
+0x00000060: 35 7c 02 00 00 00 05 00  00 00 05 00 00 00 4e 08  |5|............N.|
+0x00000070: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 21:24:15:728 mi_ram.c/(12394:12434): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:24:15:734 mi_ram.c/(12394:12434): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:24:15:735 mi_ram.c/(12394:12434): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:24:15:736 mi_ram.c/(12394:12434): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:24:19:273 mi_ram.c/(12394:12445): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:24:19:286 mi_ram.c/(12394:12445): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:24:19:293 mi_ram.c/(12394:12445): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:24:19:295 mi_ram.c/(12394:12446): Header 1 recibido: PEDIR TAREA
+[INFO] 21:24:19:296 mi_ram.c/(12394:12446): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:24:19:300 mi_ram.c/(12394:12446): Victima elegida para llevar a SWAP: pagina 1 de proceso C
+[INFO] 21:24:19:301 mi_ram.c/(12394:12445): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:24:19:303 mi_ram.c/(12394:12446): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:24:19:307 mi_ram.c/(12394:12446): La tarea a enviar al tripulante 0 es: A00;1;1;5
+[INFO] 21:24:29:315 mi_ram.c/(12394:12462): Header 1 recibido: PEDIR TAREA
+[INFO] 21:24:29:319 mi_ram.c/(12394:12462): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:24:29:321 mi_ram.c/(12394:12462): La tarea a enviar al tripulante 0 es: A01;1;1;5
+[INFO] 21:24:29:329 mi_ram.c/(12394:12464): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:24:29:331 mi_ram.c/(12394:12464): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:24:29:332 mi_ram.c/(12394:12465): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:24:29:340 mi_ram.c/(12394:12465): Victima elegida para llevar a SWAP: pagina 2 de proceso C
+[INFO] 21:24:29:349 mi_ram.c/(12394:12465): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:24:29:354 mi_ram.c/(12394:12465): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:24:29:358 mi_ram.c/(12394:12466): Header 1 recibido: PEDIR TAREA
+[INFO] 21:24:29:359 mi_ram.c/(12394:12466): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:24:29:361 mi_ram.c/(12394:12466): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:24:29:364 mi_ram.c/(12394:12466): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:24:29:366 mi_ram.c/(12394:12466): La tarea a enviar al tripulante 1 es: B00;3;3;5
+[INFO] 21:24:39:372 mi_ram.c/(12394:12481): Header 1 recibido: PEDIR TAREA
+[INFO] 21:24:39:376 mi_ram.c/(12394:12481): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:24:39:378 mi_ram.c/(12394:12481): La tarea a enviar al tripulante 1 es: B01;3;3;5
+[INFO] 21:24:39:385 mi_ram.c/(12394:12483): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:24:39:386 mi_ram.c/(12394:12483): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:24:39:387 mi_ram.c/(12394:12484): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:24:39:389 mi_ram.c/(12394:12484): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:24:39:391 mi_ram.c/(12394:12484): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:24:39:392 mi_ram.c/(12394:12484): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:24:39:390 mi_ram.c/(12394:12485): Header 1 recibido: PEDIR TAREA
+[INFO] 21:24:39:393 mi_ram.c/(12394:12485): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:24:39:394 mi_ram.c/(12394:12485): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:24:39:399 mi_ram.c/(12394:12485): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:24:39:401 mi_ram.c/(12394:12485): La tarea a enviar al tripulante 2 es: C00;5;5;5
+[INFO] 21:24:49:407 mi_ram.c/(12394:12508): Header 1 recibido: PEDIR TAREA
+[INFO] 21:24:49:411 mi_ram.c/(12394:12508): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:24:49:418 mi_ram.c/(12394:12508): La tarea a enviar al tripulante 2 es: C01;5;5;5
+[INFO] 21:24:49:422 mi_ram.c/(12394:12510): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:24:49:423 mi_ram.c/(12394:12510): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:24:49:425 mi_ram.c/(12394:12511): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:24:49:426 mi_ram.c/(12394:12511): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:24:49:427 mi_ram.c/(12394:12511): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:24:49:428 mi_ram.c/(12394:12511): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:24:59:424 mi_ram.c/(12394:12526): Header 1 recibido: PEDIR TAREA
+[INFO] 21:24:59:428 mi_ram.c/(12394:12526): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:24:59:429 mi_ram.c/(12394:12526): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:24:59:431 mi_ram.c/(12394:12526): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:24:59:434 mi_ram.c/(12394:12526): La tarea a enviar al tripulante 0 es: A02;1;1;5
+[INFO] 21:24:59:438 mi_ram.c/(12394:12528): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:24:59:439 mi_ram.c/(12394:12528): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:24:59:453 mi_ram.c/(12394:12529): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:24:59:454 mi_ram.c/(12394:12529): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:24:59:455 mi_ram.c/(12394:12529): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:24:59:455 mi_ram.c/(12394:12529): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:25:09:441 mi_ram.c/(12394:12544): Header 1 recibido: PEDIR TAREA
+[INFO] 21:25:09:445 mi_ram.c/(12394:12544): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:25:09:447 mi_ram.c/(12394:12544): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:25:09:448 mi_ram.c/(12394:12544): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:25:09:452 mi_ram.c/(12394:12544): La tarea a enviar al tripulante 1 es: B02;3;3;5
+[INFO] 21:25:09:457 mi_ram.c/(12394:12546): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:25:09:459 mi_ram.c/(12394:12546): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:25:09:460 mi_ram.c/(12394:12547): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:25:09:461 mi_ram.c/(12394:12547): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:25:09:462 mi_ram.c/(12394:12547): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:25:09:463 mi_ram.c/(12394:12547): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:25:19:461 mi_ram.c/(12394:12567): Header 1 recibido: PEDIR TAREA
+[INFO] 21:25:19:465 mi_ram.c/(12394:12567): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:25:19:467 mi_ram.c/(12394:12567): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:25:19:468 mi_ram.c/(12394:12567): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:25:19:472 mi_ram.c/(12394:12567): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:25:19:473 mi_ram.c/(12394:12567): Se trae la pagina 1, del proceso C a MEMORIA
+[INFO] 21:25:19:473 mi_ram.c/(12394:12567): La tarea a enviar al tripulante 2 es: C02;5;5;5
+[INFO] 21:25:19:477 mi_ram.c/(12394:12569): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:25:19:479 mi_ram.c/(12394:12569): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:25:19:481 mi_ram.c/(12394:12570): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:25:19:482 mi_ram.c/(12394:12570): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:25:19:483 mi_ram.c/(12394:12570): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:25:19:488 mi_ram.c/(12394:12570): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:25:29:480 mi_ram.c/(12394:12590): Header 1 recibido: PEDIR TAREA
+[INFO] 21:25:29:484 mi_ram.c/(12394:12590): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:25:29:509 mi_ram.c/(12394:12590): La tarea a enviar al tripulante 0 es: NO_HAY_TAREA
+[INFO] 21:25:29:520 mi_ram.c/(12394:12592): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:25:29:521 mi_ram.c/(12394:12592): Victima elegida para llevar a SWAP: pagina 69 de proceso A
+[INFO] 21:25:29:524 mi_ram.c/(12394:12592): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:25:29:527 mi_ram.c/(12394:12592): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:25:29:528 mi_ram.c/(12394:12590): Tripulante: 0 termino sus tareas
+[INFO] 21:25:39:519 mi_ram.c/(12394:12610): Header 1 recibido: PEDIR TAREA
+[INFO] 21:25:39:523 mi_ram.c/(12394:12610): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:25:39:529 mi_ram.c/(12394:12610): La tarea a enviar al tripulante 1 es: NO_HAY_TAREA
+[INFO] 21:25:39:536 mi_ram.c/(12394:12612): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:25:39:536 mi_ram.c/(12394:12612): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:25:39:537 mi_ram.c/(12394:12610): Tripulante: 1 termino sus tareas
+[INFO] 21:25:49:537 mi_ram.c/(12394:12630): Header 1 recibido: PEDIR TAREA
+[INFO] 21:25:49:541 mi_ram.c/(12394:12630): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:25:49:542 mi_ram.c/(12394:12630): La tarea a enviar al tripulante 2 es: C03;5;5;5
+[INFO] 21:25:49:550 mi_ram.c/(12394:12632): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:25:49:551 mi_ram.c/(12394:12632): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:25:49:552 mi_ram.c/(12394:12633): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:25:49:554 mi_ram.c/(12394:12633): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:25:59:552 mi_ram.c/(12394:12648): Header 1 recibido: PEDIR TAREA
+[INFO] 21:25:59:557 mi_ram.c/(12394:12648): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:25:59:558 mi_ram.c/(12394:12648): La tarea a enviar al tripulante 2 es: C04;5;5;5
+[INFO] 21:25:59:565 mi_ram.c/(12394:12650): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:25:59:567 mi_ram.c/(12394:12650): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:25:59:570 mi_ram.c/(12394:12651): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:25:59:571 mi_ram.c/(12394:12651): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:26:09:572 mi_ram.c/(12394:12666): Header 1 recibido: PEDIR TAREA
+[INFO] 21:26:09:573 mi_ram.c/(12394:12666): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:26:09:575 mi_ram.c/(12394:12666): Victima elegida para llevar a SWAP: pagina 225 de proceso B
+[INFO] 21:26:09:580 mi_ram.c/(12394:12666): Se trae la pagina 2, del proceso C a MEMORIA
+[INFO] 21:26:09:580 mi_ram.c/(12394:12666): La tarea a enviar al tripulante 2 es: C05;5;5;5
+[INFO] 21:26:09:584 mi_ram.c/(12394:12668): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:26:09:586 mi_ram.c/(12394:12668): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:26:09:587 mi_ram.c/(12394:12669): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:26:09:588 mi_ram.c/(12394:12669): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:26:19:586 mi_ram.c/(12394:12684): Header 1 recibido: PEDIR TAREA
+[INFO] 21:26:19:590 mi_ram.c/(12394:12684): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:26:19:592 mi_ram.c/(12394:12684): La tarea a enviar al tripulante 2 es: C06;5;5;5
+[INFO] 21:26:19:600 mi_ram.c/(12394:12686): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:26:19:602 mi_ram.c/(12394:12686): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:26:19:603 mi_ram.c/(12394:12687): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:26:19:605 mi_ram.c/(12394:12687): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:26:29:602 mi_ram.c/(12394:12703): Header 1 recibido: PEDIR TAREA
+[INFO] 21:26:29:607 mi_ram.c/(12394:12703): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:26:29:609 mi_ram.c/(12394:12703): La tarea a enviar al tripulante 2 es: C07;5;5;5
+[INFO] 21:26:29:616 mi_ram.c/(12394:12705): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:26:29:618 mi_ram.c/(12394:12705): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:26:29:619 mi_ram.c/(12394:12706): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:26:29:620 mi_ram.c/(12394:12706): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:26:39:620 mi_ram.c/(12394:12731): Header 1 recibido: PEDIR TAREA
+[INFO] 21:26:39:624 mi_ram.c/(12394:12731): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:26:39:626 mi_ram.c/(12394:12731): La tarea a enviar al tripulante 2 es: C08;5;5;5
+[INFO] 21:26:39:633 mi_ram.c/(12394:12733): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:26:39:635 mi_ram.c/(12394:12733): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:26:39:638 mi_ram.c/(12394:12734): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:26:39:639 mi_ram.c/(12394:12734): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:26:49:635 mi_ram.c/(12394:12751): Header 1 recibido: PEDIR TAREA
+[INFO] 21:26:49:640 mi_ram.c/(12394:12751): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:26:49:641 mi_ram.c/(12394:12751): La tarea a enviar al tripulante 2 es: NO_HAY_TAREA
+[INFO] 21:26:49:646 mi_ram.c/(12394:12751): Tripulante: 2 termino sus tareas
+[INFO] 21:36:11:690 mi_ram.c/(13579:13579): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 21:36:11:723 mi_ram.c/(13579:13579): Iniciando Frames... 
+[INFO] 21:36:11:726 mi_ram.c/(13579:13579): -------------------------
+[INFO] 21:36:11:726 mi_ram.c/(13579:13579): Disponibilidad de frames: 
+[INFO] 21:36:11:727 mi_ram.c/(13579:13579): el frame 0 esta ocupado: 0 
+[INFO] 21:36:11:728 mi_ram.c/(13579:13579): el frame 1 esta ocupado: 0 
+[INFO] 21:36:11:728 mi_ram.c/(13579:13579): el frame 2 esta ocupado: 0 
+[INFO] 21:36:11:728 mi_ram.c/(13579:13579): el frame 3 esta ocupado: 0 
+[INFO] 21:36:11:729 mi_ram.c/(13579:13579): Iniciando Frames Swap... 
+[INFO] 21:36:19:812 mi_ram.c/(13579:13602): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:36:19:819 mi_ram.c/(13579:13602): PID: A
+[INFO] 21:36:19:819 mi_ram.c/(13579:13602): Cantidad de tripulantes: 1 
+
+[INFO] 21:36:19:822 mi_ram.c/(13579:13602): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:36:19:823 mi_ram.c/(13579:13602): Tripulante agregado a memoria. TID: 0
+[INFO] 21:36:19:831 mi_ram.c/(13579:13602): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  41 30 30 3b 31 3b 31 3b  |........A00;1;1;|
+0x00000010: 35 0a 41 30 31 3b 31 3b  31 3b 35 0a 41 30 32 3b  |5.A01;1;1;5.A02;|
+0x00000020: 31 3b 31 3b 35 7c 00 00  00 00 01 00 00 00 01 00  |1;1;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:36:22:541 mi_ram.c/(13579:13606): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:36:22:542 mi_ram.c/(13579:13606): PID: B
+[INFO] 21:36:22:545 mi_ram.c/(13579:13606): Cantidad de tripulantes: 1 
+
+[INFO] 21:36:22:546 mi_ram.c/(13579:13606): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:36:22:546 mi_ram.c/(13579:13606): Tripulante agregado a memoria. TID: 1
+[INFO] 21:36:22:549 mi_ram.c/(13579:13606): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  42 30 30 3b 33 3b 33 3b  |........B00;3;3;|
+0x00000010: 35 0a 42 30 31 3b 33 3b  33 3b 35 0a 42 30 32 3b  |5.B01;3;3;5.B02;|
+0x00000020: 33 3b 33 3b 35 7c 01 00  00 00 03 00 00 00 03 00  |3;3;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:36:25:970 mi_ram.c/(13579:13612): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:36:25:971 mi_ram.c/(13579:13612): PID: C
+[INFO] 21:36:25:971 mi_ram.c/(13579:13612): Cantidad de tripulantes: 1 
+
+[INFO] 21:36:25:974 mi_ram.c/(13579:13612): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:36:25:974 mi_ram.c/(13579:13612): Tripulante agregado a memoria. TID: 2
+[INFO] 21:36:25:984 mi_ram.c/(13579:13612): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  43 30 30 3b 35 3b 35 3b  |........C00;5;5;|
+0x00000010: 35 0a 43 30 31 3b 35 3b  35 3b 35 0a 43 30 32 3b  |5.C01;5;5;5.C02;|
+0x00000020: 35 3b 35 3b 35 0a 43 30  33 3b 35 3b 35 3b 35 0a  |5;5;5.C03;5;5;5.|
+0x00000030: 43 30 34 3b 35 3b 35 3b  35 0a 43 30 35 3b 35 3b  |C04;5;5;5.C05;5;|
+0x00000040: 35 3b 35 0a 43 30 36 3b  35 3b 35 3b 35 0a 43 30  |5;5.C06;5;5;5.C0|
+0x00000050: 37 3b 35 3b 35 3b 35 0a  43 30 38 3b 35 3b 35 3b  |7;5;5;5.C08;5;5;|
+0x00000060: 35 7c 02 00 00 00 05 00  00 00 05 00 00 00 4e 08  |5|............N.|
+0x00000070: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 21:36:25:989 mi_ram.c/(13579:13612): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:36:25:994 mi_ram.c/(13579:13612): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:36:25:996 mi_ram.c/(13579:13612): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:36:25:997 mi_ram.c/(13579:13612): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:36:29:050 mi_ram.c/(13579:13623): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:36:29:064 mi_ram.c/(13579:13623): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:36:29:068 mi_ram.c/(13579:13623): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:36:29:075 mi_ram.c/(13579:13623): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:36:29:071 mi_ram.c/(13579:13624): Header 1 recibido: PEDIR TAREA
+[INFO] 21:36:29:076 mi_ram.c/(13579:13624): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:36:29:079 mi_ram.c/(13579:13624): Victima elegida para llevar a SWAP: pagina 1 de proceso C
+[INFO] 21:36:29:081 mi_ram.c/(13579:13624): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:36:29:083 mi_ram.c/(13579:13624): La tarea a enviar al tripulante 0 es: A00;1;1;5
+[INFO] 21:36:39:090 mi_ram.c/(13579:13639): Header 1 recibido: PEDIR TAREA
+[INFO] 21:36:39:098 mi_ram.c/(13579:13639): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:36:39:100 mi_ram.c/(13579:13639): La tarea a enviar al tripulante 0 es: A01;1;1;5
+[INFO] 21:36:39:108 mi_ram.c/(13579:13641): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:36:39:109 mi_ram.c/(13579:13641): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:36:39:111 mi_ram.c/(13579:13642): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:36:39:128 mi_ram.c/(13579:13642): Victima elegida para llevar a SWAP: pagina 2 de proceso C
+[INFO] 21:36:39:129 mi_ram.c/(13579:13642): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:36:39:130 mi_ram.c/(13579:13642): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:36:39:132 mi_ram.c/(13579:13643): Header 1 recibido: PEDIR TAREA
+[INFO] 21:36:39:133 mi_ram.c/(13579:13643): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:36:39:134 mi_ram.c/(13579:13643): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:36:39:136 mi_ram.c/(13579:13643): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:36:39:136 mi_ram.c/(13579:13643): La tarea a enviar al tripulante 1 es: B00;3;3;5
+[INFO] 21:36:49:147 mi_ram.c/(13579:13658): Header 1 recibido: PEDIR TAREA
+[INFO] 21:36:49:166 mi_ram.c/(13579:13658): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:36:49:175 mi_ram.c/(13579:13658): La tarea a enviar al tripulante 1 es: B01;3;3;5
+[INFO] 21:36:49:182 mi_ram.c/(13579:13662): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:36:49:184 mi_ram.c/(13579:13662): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:36:49:185 mi_ram.c/(13579:13663): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:36:49:187 mi_ram.c/(13579:13663): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:36:49:189 mi_ram.c/(13579:13663): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:36:49:189 mi_ram.c/(13579:13663): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:36:49:188 mi_ram.c/(13579:13664): Header 1 recibido: PEDIR TAREA
+[INFO] 21:36:49:190 mi_ram.c/(13579:13664): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:36:49:191 mi_ram.c/(13579:13664): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:36:49:192 mi_ram.c/(13579:13664): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:36:49:193 mi_ram.c/(13579:13664): La tarea a enviar al tripulante 2 es: C00;5;5;5
+[INFO] 21:36:59:198 mi_ram.c/(13579:13679): Header 1 recibido: PEDIR TAREA
+[INFO] 21:36:59:205 mi_ram.c/(13579:13679): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:36:59:209 mi_ram.c/(13579:13679): La tarea a enviar al tripulante 2 es: C01;5;5;5
+[INFO] 21:36:59:213 mi_ram.c/(13579:13681): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:36:59:215 mi_ram.c/(13579:13681): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:36:59:217 mi_ram.c/(13579:13682): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:36:59:218 mi_ram.c/(13579:13682): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:36:59:220 mi_ram.c/(13579:13682): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:36:59:221 mi_ram.c/(13579:13682): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:37:09:215 mi_ram.c/(13579:13698): Header 1 recibido: PEDIR TAREA
+[INFO] 21:37:09:225 mi_ram.c/(13579:13698): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:37:09:227 mi_ram.c/(13579:13698): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:37:09:229 mi_ram.c/(13579:13698): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:37:09:230 mi_ram.c/(13579:13698): La tarea a enviar al tripulante 0 es: A02;1;1;5
+[INFO] 21:37:09:234 mi_ram.c/(13579:13700): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:37:09:235 mi_ram.c/(13579:13700): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:37:09:237 mi_ram.c/(13579:13701): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:37:09:243 mi_ram.c/(13579:13701): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:37:09:244 mi_ram.c/(13579:13701): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:37:09:245 mi_ram.c/(13579:13701): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:37:19:237 mi_ram.c/(13579:13716): Header 1 recibido: PEDIR TAREA
+[INFO] 21:37:19:242 mi_ram.c/(13579:13716): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:37:19:247 mi_ram.c/(13579:13716): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:37:19:249 mi_ram.c/(13579:13716): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:37:19:249 mi_ram.c/(13579:13716): La tarea a enviar al tripulante 1 es: B02;3;3;5
+[INFO] 21:37:19:253 mi_ram.c/(13579:13718): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:37:19:254 mi_ram.c/(13579:13718): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:37:19:257 mi_ram.c/(13579:13719): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:37:19:258 mi_ram.c/(13579:13719): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:37:19:265 mi_ram.c/(13579:13719): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:37:19:266 mi_ram.c/(13579:13719): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:37:29:256 mi_ram.c/(13579:13734): Header 1 recibido: PEDIR TAREA
+[INFO] 21:37:29:261 mi_ram.c/(13579:13734): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:37:29:263 mi_ram.c/(13579:13734): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:37:29:266 mi_ram.c/(13579:13734): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:37:29:267 mi_ram.c/(13579:13734): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:37:29:268 mi_ram.c/(13579:13734): Se trae la pagina 1, del proceso C a MEMORIA
+[INFO] 21:37:29:268 mi_ram.c/(13579:13734): La tarea a enviar al tripulante 2 es: C02;5;5;5
+[INFO] 21:37:29:272 mi_ram.c/(13579:13736): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:37:29:274 mi_ram.c/(13579:13736): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:37:29:275 mi_ram.c/(13579:13737): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:37:29:276 mi_ram.c/(13579:13737): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:37:29:277 mi_ram.c/(13579:13737): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:37:29:278 mi_ram.c/(13579:13737): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:37:39:276 mi_ram.c/(13579:13752): Header 1 recibido: PEDIR TAREA
+[INFO] 21:37:39:282 mi_ram.c/(13579:13752): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:37:39:284 mi_ram.c/(13579:13752): La tarea a enviar al tripulante 0 es: NO_HAY_TAREA
+[INFO] 21:37:39:294 mi_ram.c/(13579:13754): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:37:39:296 mi_ram.c/(13579:13754): Victima elegida para llevar a SWAP: pagina 69 de proceso A
+[INFO] 21:37:39:298 mi_ram.c/(13579:13754): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:37:39:306 mi_ram.c/(13579:13754): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:37:39:307 mi_ram.c/(13579:13752): Tripulante: 0 termino sus tareas
+[INFO] 21:37:49:313 mi_ram.c/(13579:13772): Header 1 recibido: PEDIR TAREA
+[INFO] 21:37:49:318 mi_ram.c/(13579:13772): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:37:49:326 mi_ram.c/(13579:13772): La tarea a enviar al tripulante 1 es: NO_HAY_TAREA
+[INFO] 21:37:49:336 mi_ram.c/(13579:13774): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:37:49:337 mi_ram.c/(13579:13774): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:37:49:337 mi_ram.c/(13579:13772): Tripulante: 1 termino sus tareas
+[INFO] 21:37:59:335 mi_ram.c/(13579:13790): Header 1 recibido: PEDIR TAREA
+[INFO] 21:37:59:340 mi_ram.c/(13579:13790): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:37:59:349 mi_ram.c/(13579:13790): La tarea a enviar al tripulante 2 es: C03;5;5;5
+[INFO] 21:37:59:353 mi_ram.c/(13579:13792): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:37:59:354 mi_ram.c/(13579:13792): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:37:59:355 mi_ram.c/(13579:13793): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:37:59:356 mi_ram.c/(13579:13793): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:38:09:356 mi_ram.c/(13579:13809): Header 1 recibido: PEDIR TAREA
+[INFO] 21:38:09:361 mi_ram.c/(13579:13809): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:38:09:365 mi_ram.c/(13579:13809): La tarea a enviar al tripulante 2 es: C04;5;5;5
+[INFO] 21:38:09:369 mi_ram.c/(13579:13811): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:38:09:371 mi_ram.c/(13579:13811): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:38:09:372 mi_ram.c/(13579:13812): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:38:09:373 mi_ram.c/(13579:13812): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:38:19:371 mi_ram.c/(13579:13827): Header 1 recibido: PEDIR TAREA
+[INFO] 21:38:19:376 mi_ram.c/(13579:13827): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:38:19:382 mi_ram.c/(13579:13827): Victima elegida para llevar a SWAP: pagina 225 de proceso B
+[INFO] 21:38:19:384 mi_ram.c/(13579:13827): Se trae la pagina 2, del proceso C a MEMORIA
+[INFO] 21:38:19:385 mi_ram.c/(13579:13827): La tarea a enviar al tripulante 2 es: C05;5;5;5
+[INFO] 21:38:19:389 mi_ram.c/(13579:13829): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:38:19:390 mi_ram.c/(13579:13829): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:38:19:391 mi_ram.c/(13579:13830): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:38:19:392 mi_ram.c/(13579:13830): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:38:29:390 mi_ram.c/(13579:13845): Header 1 recibido: PEDIR TAREA
+[INFO] 21:38:29:396 mi_ram.c/(13579:13845): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:38:29:400 mi_ram.c/(13579:13845): La tarea a enviar al tripulante 2 es: C06;5;5;5
+[INFO] 21:38:29:404 mi_ram.c/(13579:13847): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:38:29:406 mi_ram.c/(13579:13847): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:38:29:407 mi_ram.c/(13579:13848): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:38:29:408 mi_ram.c/(13579:13848): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:38:39:406 mi_ram.c/(13579:13863): Header 1 recibido: PEDIR TAREA
+[INFO] 21:38:39:411 mi_ram.c/(13579:13863): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:38:39:413 mi_ram.c/(13579:13863): La tarea a enviar al tripulante 2 es: C07;5;5;5
+[INFO] 21:38:39:421 mi_ram.c/(13579:13865): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:38:39:422 mi_ram.c/(13579:13865): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:38:39:423 mi_ram.c/(13579:13866): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:38:39:425 mi_ram.c/(13579:13866): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:38:49:422 mi_ram.c/(13579:13883): Header 1 recibido: PEDIR TAREA
+[INFO] 21:38:49:427 mi_ram.c/(13579:13883): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:38:49:429 mi_ram.c/(13579:13883): La tarea a enviar al tripulante 2 es: C08;5;5;5
+[INFO] 21:38:49:437 mi_ram.c/(13579:13885): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:38:49:440 mi_ram.c/(13579:13885): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:38:49:442 mi_ram.c/(13579:13886): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:38:49:443 mi_ram.c/(13579:13886): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:38:59:439 mi_ram.c/(13579:13901): Header 1 recibido: PEDIR TAREA
+[INFO] 21:38:59:445 mi_ram.c/(13579:13901): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:38:59:446 mi_ram.c/(13579:13901): La tarea a enviar al tripulante 2 es: NO_HAY_TAREA
+[INFO] 21:38:59:450 mi_ram.c/(13579:13901): Tripulante: 2 termino sus tareas
+[INFO] 21:46:12:380 mi_ram.c/(14507:14507): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 21:46:12:412 mi_ram.c/(14507:14507): Iniciando Frames... 
+[INFO] 21:46:12:415 mi_ram.c/(14507:14507): -------------------------
+[INFO] 21:46:12:415 mi_ram.c/(14507:14507): Disponibilidad de frames: 
+[INFO] 21:46:12:416 mi_ram.c/(14507:14507): el frame 0 esta ocupado: 0 
+[INFO] 21:46:12:416 mi_ram.c/(14507:14507): el frame 1 esta ocupado: 0 
+[INFO] 21:46:12:417 mi_ram.c/(14507:14507): el frame 2 esta ocupado: 0 
+[INFO] 21:46:12:417 mi_ram.c/(14507:14507): el frame 3 esta ocupado: 0 
+[INFO] 21:46:12:418 mi_ram.c/(14507:14507): Iniciando Frames Swap... 
+[INFO] 21:46:31:262 mi_ram.c/(14556:14556): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 21:46:31:296 mi_ram.c/(14556:14556): Iniciando Frames... 
+[INFO] 21:46:31:299 mi_ram.c/(14556:14556): -------------------------
+[INFO] 21:46:31:300 mi_ram.c/(14556:14556): Disponibilidad de frames: 
+[INFO] 21:46:31:300 mi_ram.c/(14556:14556): el frame 0 esta ocupado: 0 
+[INFO] 21:46:31:301 mi_ram.c/(14556:14556): el frame 1 esta ocupado: 0 
+[INFO] 21:46:31:301 mi_ram.c/(14556:14556): el frame 2 esta ocupado: 0 
+[INFO] 21:46:31:301 mi_ram.c/(14556:14556): el frame 3 esta ocupado: 0 
+[INFO] 21:46:31:302 mi_ram.c/(14556:14556): Iniciando Frames Swap... 
+[INFO] 21:46:39:547 mi_ram.c/(14556:14582): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:46:39:554 mi_ram.c/(14556:14582): PID: A
+[INFO] 21:46:39:555 mi_ram.c/(14556:14582): Cantidad de tripulantes: 1 
+
+[INFO] 21:46:39:559 mi_ram.c/(14556:14582): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:46:39:561 mi_ram.c/(14556:14582): Tripulante agregado a memoria. TID: 0
+[INFO] 21:46:39:567 mi_ram.c/(14556:14582): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  41 30 30 3b 31 3b 31 3b  |........A00;1;1;|
+0x00000010: 35 0a 41 30 31 3b 31 3b  31 3b 35 0a 41 30 32 3b  |5.A01;1;1;5.A02;|
+0x00000020: 31 3b 31 3b 35 7c 00 00  00 00 01 00 00 00 01 00  |1;1;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:46:42:379 mi_ram.c/(14556:14586): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:46:42:380 mi_ram.c/(14556:14586): PID: B
+[INFO] 21:46:42:381 mi_ram.c/(14556:14586): Cantidad de tripulantes: 1 
+
+[INFO] 21:46:42:382 mi_ram.c/(14556:14586): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:46:42:382 mi_ram.c/(14556:14586): Tripulante agregado a memoria. TID: 1
+[INFO] 21:46:42:389 mi_ram.c/(14556:14586): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  42 30 30 3b 33 3b 33 3b  |........B00;3;3;|
+0x00000010: 35 0a 42 30 31 3b 33 3b  33 3b 35 0a 42 30 32 3b  |5.B01;3;3;5.B02;|
+0x00000020: 33 3b 33 3b 35 7c 01 00  00 00 03 00 00 00 03 00  |3;3;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:46:45:274 mi_ram.c/(14556:14592): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:46:45:274 mi_ram.c/(14556:14592): PID: C
+[INFO] 21:46:45:275 mi_ram.c/(14556:14592): Cantidad de tripulantes: 1 
+
+[INFO] 21:46:45:278 mi_ram.c/(14556:14592): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:46:45:278 mi_ram.c/(14556:14592): Tripulante agregado a memoria. TID: 2
+[INFO] 21:46:45:290 mi_ram.c/(14556:14592): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  43 30 30 3b 35 3b 35 3b  |........C00;5;5;|
+0x00000010: 35 0a 43 30 31 3b 35 3b  35 3b 35 0a 43 30 32 3b  |5.C01;5;5;5.C02;|
+0x00000020: 35 3b 35 3b 35 0a 43 30  33 3b 35 3b 35 3b 35 0a  |5;5;5.C03;5;5;5.|
+0x00000030: 43 30 34 3b 35 3b 35 3b  35 0a 43 30 35 3b 35 3b  |C04;5;5;5.C05;5;|
+0x00000040: 35 3b 35 0a 43 30 36 3b  35 3b 35 3b 35 0a 43 30  |5;5.C06;5;5;5.C0|
+0x00000050: 37 3b 35 3b 35 3b 35 0a  43 30 38 3b 35 3b 35 3b  |7;5;5;5.C08;5;5;|
+0x00000060: 35 7c 02 00 00 00 05 00  00 00 05 00 00 00 4e 08  |5|............N.|
+0x00000070: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 21:46:45:293 mi_ram.c/(14556:14592): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:46:45:298 mi_ram.c/(14556:14592): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:46:45:300 mi_ram.c/(14556:14592): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:46:45:304 mi_ram.c/(14556:14592): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:46:49:357 mi_ram.c/(14556:14602): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:46:49:406 mi_ram.c/(14556:14602): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:46:49:406 mi_ram.c/(14556:14603): Header 1 recibido: PEDIR TAREA
+[INFO] 21:46:49:408 mi_ram.c/(14556:14603): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:46:49:410 mi_ram.c/(14556:14603): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:46:49:416 mi_ram.c/(14556:14603): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:46:49:417 mi_ram.c/(14556:14603): Victima elegida para llevar a SWAP: pagina 1 de proceso C
+[INFO] 21:46:49:419 mi_ram.c/(14556:14603): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:46:49:414 mi_ram.c/(14556:14602): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:46:49:420 mi_ram.c/(14556:14602): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:46:49:422 mi_ram.c/(14556:14603): La tarea a enviar al tripulante 0 es: A00;1;1;5
+[INFO] 21:46:59:429 mi_ram.c/(14556:14620): Header 1 recibido: PEDIR TAREA
+[INFO] 21:46:59:434 mi_ram.c/(14556:14620): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:46:59:436 mi_ram.c/(14556:14620): La tarea a enviar al tripulante 0 es: A01;1;1;5
+[INFO] 21:46:59:442 mi_ram.c/(14556:14622): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:46:59:443 mi_ram.c/(14556:14622): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:46:59:444 mi_ram.c/(14556:14623): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:46:59:452 mi_ram.c/(14556:14623): Victima elegida para llevar a SWAP: pagina 2 de proceso C
+[INFO] 21:46:59:453 mi_ram.c/(14556:14623): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:46:59:459 mi_ram.c/(14556:14623): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:46:59:462 mi_ram.c/(14556:14624): Header 1 recibido: PEDIR TAREA
+[INFO] 21:46:59:463 mi_ram.c/(14556:14624): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:46:59:464 mi_ram.c/(14556:14624): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:46:59:466 mi_ram.c/(14556:14624): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:46:59:467 mi_ram.c/(14556:14624): La tarea a enviar al tripulante 1 es: B00;3;3;5
+[INFO] 21:47:09:475 mi_ram.c/(14556:14640): Header 1 recibido: PEDIR TAREA
+[INFO] 21:47:09:480 mi_ram.c/(14556:14640): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:47:09:482 mi_ram.c/(14556:14640): La tarea a enviar al tripulante 1 es: B01;3;3;5
+[INFO] 21:47:09:489 mi_ram.c/(14556:14642): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:09:490 mi_ram.c/(14556:14642): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:47:09:491 mi_ram.c/(14556:14643): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:09:493 mi_ram.c/(14556:14643): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:47:09:494 mi_ram.c/(14556:14643): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:47:09:496 mi_ram.c/(14556:14643): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:47:09:496 mi_ram.c/(14556:14644): Header 1 recibido: PEDIR TAREA
+[INFO] 21:47:09:497 mi_ram.c/(14556:14644): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:47:09:503 mi_ram.c/(14556:14644): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:47:09:504 mi_ram.c/(14556:14644): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:47:09:505 mi_ram.c/(14556:14644): La tarea a enviar al tripulante 2 es: C00;5;5;5
+[INFO] 21:47:19:513 mi_ram.c/(14556:14659): Header 1 recibido: PEDIR TAREA
+[INFO] 21:47:19:518 mi_ram.c/(14556:14659): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:47:19:519 mi_ram.c/(14556:14659): La tarea a enviar al tripulante 2 es: C01;5;5;5
+[INFO] 21:47:19:527 mi_ram.c/(14556:14661): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:19:528 mi_ram.c/(14556:14661): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:47:19:529 mi_ram.c/(14556:14662): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:19:531 mi_ram.c/(14556:14662): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:47:19:532 mi_ram.c/(14556:14662): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:47:19:532 mi_ram.c/(14556:14662): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:47:29:530 mi_ram.c/(14556:14677): Header 1 recibido: PEDIR TAREA
+[INFO] 21:47:29:536 mi_ram.c/(14556:14677): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:47:29:537 mi_ram.c/(14556:14677): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:47:29:541 mi_ram.c/(14556:14677): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:47:29:542 mi_ram.c/(14556:14677): La tarea a enviar al tripulante 0 es: A02;1;1;5
+[INFO] 21:47:29:546 mi_ram.c/(14556:14679): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:29:548 mi_ram.c/(14556:14679): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:47:29:549 mi_ram.c/(14556:14680): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:29:550 mi_ram.c/(14556:14680): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:47:29:551 mi_ram.c/(14556:14680): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:47:29:552 mi_ram.c/(14556:14680): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:47:39:549 mi_ram.c/(14556:14695): Header 1 recibido: PEDIR TAREA
+[INFO] 21:47:39:554 mi_ram.c/(14556:14695): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:47:39:555 mi_ram.c/(14556:14695): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:47:39:560 mi_ram.c/(14556:14695): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:47:39:560 mi_ram.c/(14556:14695): La tarea a enviar al tripulante 1 es: B02;3;3;5
+[INFO] 21:47:39:564 mi_ram.c/(14556:14697): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:39:566 mi_ram.c/(14556:14697): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:47:39:567 mi_ram.c/(14556:14698): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:39:569 mi_ram.c/(14556:14698): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:47:39:570 mi_ram.c/(14556:14698): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:47:39:571 mi_ram.c/(14556:14698): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:47:49:568 mi_ram.c/(14556:14718): Header 1 recibido: PEDIR TAREA
+[INFO] 21:47:49:573 mi_ram.c/(14556:14718): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:47:49:575 mi_ram.c/(14556:14718): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:47:49:579 mi_ram.c/(14556:14718): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:47:49:580 mi_ram.c/(14556:14718): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:47:49:581 mi_ram.c/(14556:14718): Se trae la pagina 1, del proceso C a MEMORIA
+[INFO] 21:47:49:582 mi_ram.c/(14556:14718): La tarea a enviar al tripulante 2 es: C02;5;5;5
+[INFO] 21:47:49:585 mi_ram.c/(14556:14720): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:49:587 mi_ram.c/(14556:14720): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:47:49:588 mi_ram.c/(14556:14721): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:49:590 mi_ram.c/(14556:14721): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:47:49:591 mi_ram.c/(14556:14721): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:47:49:596 mi_ram.c/(14556:14721): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:47:59:587 mi_ram.c/(14556:14741): Header 1 recibido: PEDIR TAREA
+[INFO] 21:47:59:592 mi_ram.c/(14556:14741): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:47:59:594 mi_ram.c/(14556:14741): La tarea a enviar al tripulante 0 es: NO_HAY_TAREA
+[INFO] 21:47:59:603 mi_ram.c/(14556:14743): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:47:59:604 mi_ram.c/(14556:14743): Victima elegida para llevar a SWAP: pagina 69 de proceso A
+[INFO] 21:47:59:605 mi_ram.c/(14556:14743): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:47:59:626 mi_ram.c/(14556:14743): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:47:59:625 mi_ram.c/(14556:14741): Tripulante: 0 termino sus tareas
+[INFO] 21:48:09:604 mi_ram.c/(14556:14759): Header 1 recibido: PEDIR TAREA
+[INFO] 21:48:09:609 mi_ram.c/(14556:14759): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:48:09:610 mi_ram.c/(14556:14759): La tarea a enviar al tripulante 1 es: NO_HAY_TAREA
+[INFO] 21:48:09:619 mi_ram.c/(14556:14761): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:09:620 mi_ram.c/(14556:14761): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:48:09:620 mi_ram.c/(14556:14759): Tripulante: 1 termino sus tareas
+[INFO] 21:48:19:617 mi_ram.c/(14556:14777): Header 1 recibido: PEDIR TAREA
+[INFO] 21:48:19:622 mi_ram.c/(14556:14777): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:48:19:624 mi_ram.c/(14556:14777): La tarea a enviar al tripulante 2 es: C03;5;5;5
+[INFO] 21:48:19:631 mi_ram.c/(14556:14779): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:19:633 mi_ram.c/(14556:14779): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:48:19:634 mi_ram.c/(14556:14780): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:19:635 mi_ram.c/(14556:14780): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:48:29:633 mi_ram.c/(14556:14801): Header 1 recibido: PEDIR TAREA
+[INFO] 21:48:29:638 mi_ram.c/(14556:14801): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:48:29:639 mi_ram.c/(14556:14801): La tarea a enviar al tripulante 2 es: C04;5;5;5
+[INFO] 21:48:29:647 mi_ram.c/(14556:14803): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:29:649 mi_ram.c/(14556:14803): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:48:29:652 mi_ram.c/(14556:14804): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:29:654 mi_ram.c/(14556:14804): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:48:39:649 mi_ram.c/(14556:14825): Header 1 recibido: PEDIR TAREA
+[INFO] 21:48:39:654 mi_ram.c/(14556:14825): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:48:39:655 mi_ram.c/(14556:14825): Victima elegida para llevar a SWAP: pagina 225 de proceso B
+[INFO] 21:48:39:661 mi_ram.c/(14556:14825): Se trae la pagina 2, del proceso C a MEMORIA
+[INFO] 21:48:39:662 mi_ram.c/(14556:14825): La tarea a enviar al tripulante 2 es: C05;5;5;5
+[INFO] 21:48:39:666 mi_ram.c/(14556:14827): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:39:667 mi_ram.c/(14556:14827): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:48:39:668 mi_ram.c/(14556:14828): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:39:669 mi_ram.c/(14556:14828): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:48:49:668 mi_ram.c/(14556:14843): Header 1 recibido: PEDIR TAREA
+[INFO] 21:48:49:673 mi_ram.c/(14556:14843): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:48:49:679 mi_ram.c/(14556:14843): La tarea a enviar al tripulante 2 es: C06;5;5;5
+[INFO] 21:48:49:683 mi_ram.c/(14556:14845): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:49:684 mi_ram.c/(14556:14845): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:48:49:685 mi_ram.c/(14556:14846): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:49:686 mi_ram.c/(14556:14846): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:48:59:685 mi_ram.c/(14556:14863): Header 1 recibido: PEDIR TAREA
+[INFO] 21:48:59:690 mi_ram.c/(14556:14863): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:48:59:691 mi_ram.c/(14556:14863): La tarea a enviar al tripulante 2 es: C07;5;5;5
+[INFO] 21:48:59:699 mi_ram.c/(14556:14865): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:59:700 mi_ram.c/(14556:14865): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:48:59:701 mi_ram.c/(14556:14866): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:48:59:703 mi_ram.c/(14556:14866): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:49:09:704 mi_ram.c/(14556:14881): Header 1 recibido: PEDIR TAREA
+[INFO] 21:49:09:709 mi_ram.c/(14556:14881): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:49:09:711 mi_ram.c/(14556:14881): La tarea a enviar al tripulante 2 es: C08;5;5;5
+[INFO] 21:49:09:719 mi_ram.c/(14556:14883): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:49:09:722 mi_ram.c/(14556:14883): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:49:09:721 mi_ram.c/(14556:14884): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:49:09:723 mi_ram.c/(14556:14884): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:49:19:721 mi_ram.c/(14556:14899): Header 1 recibido: PEDIR TAREA
+[INFO] 21:49:19:727 mi_ram.c/(14556:14899): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:49:19:731 mi_ram.c/(14556:14899): La tarea a enviar al tripulante 2 es: NO_HAY_TAREA
+[INFO] 21:49:19:733 mi_ram.c/(14556:14899): Tripulante: 2 termino sus tareas
+[INFO] 21:50:45:034 mi_ram.c/(15044:15044): ---------------------------INICIANDO MI-RAM-HQ-------------------------
+[INFO] 21:50:45:066 mi_ram.c/(15044:15044): Iniciando Frames... 
+[INFO] 21:50:45:070 mi_ram.c/(15044:15044): -------------------------
+[INFO] 21:50:45:072 mi_ram.c/(15044:15044): Disponibilidad de frames: 
+[INFO] 21:50:45:072 mi_ram.c/(15044:15044): el frame 0 esta ocupado: 0 
+[INFO] 21:50:45:074 mi_ram.c/(15044:15044): el frame 1 esta ocupado: 0 
+[INFO] 21:50:45:074 mi_ram.c/(15044:15044): el frame 2 esta ocupado: 0 
+[INFO] 21:50:45:074 mi_ram.c/(15044:15044): el frame 3 esta ocupado: 0 
+[INFO] 21:50:45:075 mi_ram.c/(15044:15044): Iniciando Frames Swap... 
+[INFO] 21:50:55:603 mi_ram.c/(15044:15081): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:50:55:606 mi_ram.c/(15044:15081): PID: A
+[INFO] 21:50:55:610 mi_ram.c/(15044:15081): Cantidad de tripulantes: 1 
+
+[INFO] 21:50:55:611 mi_ram.c/(15044:15081): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:50:55:616 mi_ram.c/(15044:15081): Tripulante agregado a memoria. TID: 0
+[INFO] 21:50:55:621 mi_ram.c/(15044:15081): streamPatota a ser alojado en memoria 
+0x00000000: 00 00 00 00 08 00 00 00  41 30 30 3b 31 3b 31 3b  |........A00;1;1;|
+0x00000010: 35 0a 41 30 31 3b 31 3b  31 3b 35 0a 41 30 32 3b  |5.A01;1;1;5.A02;|
+0x00000020: 31 3b 31 3b 35 7c 00 00  00 00 01 00 00 00 01 00  |1;1;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:50:58:119 mi_ram.c/(15044:15085): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:50:58:121 mi_ram.c/(15044:15085): PID: B
+[INFO] 21:50:58:122 mi_ram.c/(15044:15085): Cantidad de tripulantes: 1 
+
+[INFO] 21:50:58:122 mi_ram.c/(15044:15085): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:50:58:126 mi_ram.c/(15044:15085): Tripulante agregado a memoria. TID: 1
+[INFO] 21:50:58:128 mi_ram.c/(15044:15085): streamPatota a ser alojado en memoria 
+0x00000000: 01 00 00 00 08 00 00 00  42 30 30 3b 33 3b 33 3b  |........B00;3;3;|
+0x00000010: 35 0a 42 30 31 3b 33 3b  33 3b 35 0a 42 30 32 3b  |5.B01;3;3;5.B02;|
+0x00000020: 33 3b 33 3b 35 7c 01 00  00 00 03 00 00 00 03 00  |3;3;5|..........|
+0x00000030: 00 00 4e 08 00 00 00 00  00 00 00 00 00 00 00 00  |..N.............|
+[INFO] 21:51:02:335 mi_ram.c/(15044:15094): Header 0 recibido: INICIAR PATOTA
+[INFO] 21:51:02:336 mi_ram.c/(15044:15094): PID: C
+[INFO] 21:51:02:336 mi_ram.c/(15044:15094): Cantidad de tripulantes: 1 
+
+[INFO] 21:51:02:341 mi_ram.c/(15044:15094): Espacio necesario existente. Agrego patota a memoria...
+[INFO] 21:51:02:342 mi_ram.c/(15044:15094): Tripulante agregado a memoria. TID: 2
+[INFO] 21:51:02:352 mi_ram.c/(15044:15094): streamPatota a ser alojado en memoria 
+0x00000000: 02 00 00 00 08 00 00 00  43 30 30 3b 35 3b 35 3b  |........C00;5;5;|
+0x00000010: 35 0a 43 30 31 3b 35 3b  35 3b 35 0a 43 30 32 3b  |5.C01;5;5;5.C02;|
+0x00000020: 35 3b 35 3b 35 0a 43 30  33 3b 35 3b 35 3b 35 0a  |5;5;5.C03;5;5;5.|
+0x00000030: 43 30 34 3b 35 3b 35 3b  35 0a 43 30 35 3b 35 3b  |C04;5;5;5.C05;5;|
+0x00000040: 35 3b 35 0a 43 30 36 3b  35 3b 35 3b 35 0a 43 30  |5;5.C06;5;5;5.C0|
+0x00000050: 37 3b 35 3b 35 3b 35 0a  43 30 38 3b 35 3b 35 3b  |7;5;5;5.C08;5;5;|
+0x00000060: 35 7c 02 00 00 00 05 00  00 00 05 00 00 00 4e 08  |5|............N.|
+0x00000070: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+[INFO] 21:51:02:354 mi_ram.c/(15044:15094): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:51:02:359 mi_ram.c/(15044:15094): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:51:02:363 mi_ram.c/(15044:15094): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:51:02:364 mi_ram.c/(15044:15094): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:51:05:269 mi_ram.c/(15044:15101): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:05:283 mi_ram.c/(15044:15101): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:51:05:287 mi_ram.c/(15044:15101): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:51:05:288 mi_ram.c/(15044:15102): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:05:289 mi_ram.c/(15044:15102): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:51:05:291 mi_ram.c/(15044:15101): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:51:05:297 mi_ram.c/(15044:15102): Victima elegida para llevar a SWAP: pagina 1 de proceso C
+[INFO] 21:51:05:298 mi_ram.c/(15044:15102): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:51:05:300 mi_ram.c/(15044:15102): La tarea a enviar al tripulante 0 es: A00;1;1;5
+[INFO] 21:51:10:308 mi_ram.c/(15044:15111): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:10:314 mi_ram.c/(15044:15111): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:51:10:315 mi_ram.c/(15044:15111): La tarea a enviar al tripulante 0 es: A01;1;1;5
+[INFO] 21:51:10:322 mi_ram.c/(15044:15113): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:10:324 mi_ram.c/(15044:15113): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:51:10:325 mi_ram.c/(15044:15114): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:10:332 mi_ram.c/(15044:15114): Victima elegida para llevar a SWAP: pagina 2 de proceso C
+[INFO] 21:51:10:339 mi_ram.c/(15044:15114): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:51:10:340 mi_ram.c/(15044:15114): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:51:10:343 mi_ram.c/(15044:15115): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:10:343 mi_ram.c/(15044:15115): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:51:10:345 mi_ram.c/(15044:15115): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:51:10:346 mi_ram.c/(15044:15115): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:51:10:347 mi_ram.c/(15044:15115): La tarea a enviar al tripulante 1 es: B00;3;3;5
+[INFO] 21:51:15:352 mi_ram.c/(15044:15124): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:15:352 mi_ram.c/(15044:15124): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:51:15:354 mi_ram.c/(15044:15124): La tarea a enviar al tripulante 1 es: B01;3;3;5
+[INFO] 21:51:15:358 mi_ram.c/(15044:15125): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:15:359 mi_ram.c/(15044:15125): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:51:15:364 mi_ram.c/(15044:15126): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:15:365 mi_ram.c/(15044:15126): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:51:15:367 mi_ram.c/(15044:15126): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:51:15:368 mi_ram.c/(15044:15126): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:51:15:366 mi_ram.c/(15044:15127): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:15:368 mi_ram.c/(15044:15127): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:51:15:370 mi_ram.c/(15044:15127): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:51:15:371 mi_ram.c/(15044:15127): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:51:15:371 mi_ram.c/(15044:15127): La tarea a enviar al tripulante 2 es: C00;5;5;5
+[INFO] 21:51:20:377 mi_ram.c/(15044:15136): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:20:377 mi_ram.c/(15044:15136): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:51:20:379 mi_ram.c/(15044:15136): La tarea a enviar al tripulante 2 es: C01;5;5;5
+[INFO] 21:51:20:383 mi_ram.c/(15044:15137): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:20:384 mi_ram.c/(15044:15137): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:51:20:388 mi_ram.c/(15044:15138): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:20:390 mi_ram.c/(15044:15138): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:51:20:391 mi_ram.c/(15044:15138): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:51:20:391 mi_ram.c/(15044:15138): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:51:25:386 mi_ram.c/(15044:15147): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:25:386 mi_ram.c/(15044:15147): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:51:25:388 mi_ram.c/(15044:15147): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:51:25:389 mi_ram.c/(15044:15147): Se trae la pagina 0, del proceso A a MEMORIA
+[INFO] 21:51:25:390 mi_ram.c/(15044:15147): La tarea a enviar al tripulante 0 es: A02;1;1;5
+[INFO] 21:51:25:398 mi_ram.c/(15044:15148): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:25:400 mi_ram.c/(15044:15148): Tripulante 0 actualizo cambio su estado a: R
+[INFO] 21:51:25:402 mi_ram.c/(15044:15149): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:25:404 mi_ram.c/(15044:15149): Victima elegida para llevar a SWAP: pagina 3 de proceso C
+[INFO] 21:51:25:405 mi_ram.c/(15044:15149): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:51:25:406 mi_ram.c/(15044:15149): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:51:30:396 mi_ram.c/(15044:15158): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:30:396 mi_ram.c/(15044:15158): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:51:30:398 mi_ram.c/(15044:15158): Victima elegida para llevar a SWAP: pagina 0 de proceso C
+[INFO] 21:51:30:400 mi_ram.c/(15044:15158): Se trae la pagina 0, del proceso B a MEMORIA
+[INFO] 21:51:30:401 mi_ram.c/(15044:15158): La tarea a enviar al tripulante 1 es: B02;3;3;5
+[INFO] 21:51:30:407 mi_ram.c/(15044:15159): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:30:409 mi_ram.c/(15044:15159): Tripulante 1 actualizo cambio su estado a: R
+[INFO] 21:51:30:410 mi_ram.c/(15044:15160): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:30:411 mi_ram.c/(15044:15160): Victima elegida para llevar a SWAP: pagina 1 de proceso A
+[INFO] 21:51:30:412 mi_ram.c/(15044:15160): Se trae la pagina 3, del proceso C a MEMORIA
+[INFO] 21:51:30:413 mi_ram.c/(15044:15160): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:51:35:409 mi_ram.c/(15044:15169): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:35:410 mi_ram.c/(15044:15169): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:51:35:411 mi_ram.c/(15044:15169): Victima elegida para llevar a SWAP: pagina 0 de proceso A
+[INFO] 21:51:35:412 mi_ram.c/(15044:15169): Se trae la pagina 0, del proceso C a MEMORIA
+[INFO] 21:51:35:413 mi_ram.c/(15044:15169): Victima elegida para llevar a SWAP: pagina 1 de proceso B
+[INFO] 21:51:35:414 mi_ram.c/(15044:15169): Se trae la pagina 1, del proceso C a MEMORIA
+[INFO] 21:51:35:415 mi_ram.c/(15044:15169): La tarea a enviar al tripulante 2 es: C02;5;5;5
+[INFO] 21:51:35:421 mi_ram.c/(15044:15170): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:35:423 mi_ram.c/(15044:15170): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:51:35:424 mi_ram.c/(15044:15171): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:35:426 mi_ram.c/(15044:15171): Victima elegida para llevar a SWAP: pagina 0 de proceso B
+[INFO] 21:51:35:427 mi_ram.c/(15044:15171): Se trae la pagina 1, del proceso A a MEMORIA
+[INFO] 21:51:35:427 mi_ram.c/(15044:15171): Tripulante 0 actualizo cambio su estado a: E
+[INFO] 21:51:40:461 mi_ram.c/(15044:15180): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:40:462 mi_ram.c/(15044:15180): Tripulante 0 (perteneciente a la patota 0) pidio una tarea.
+[INFO] 21:51:40:463 mi_ram.c/(15044:15180): La tarea a enviar al tripulante 0 es: NO_HAY_TAREA
+[INFO] 21:51:40:485 mi_ram.c/(15044:15180): Tripulante: 0 termino sus tareas
+[INFO] 21:51:40:485 mi_ram.c/(15044:15181): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:40:487 mi_ram.c/(15044:15181): Victima elegida para llevar a SWAP: pagina 225 de proceso A
+[INFO] 21:51:40:489 mi_ram.c/(15044:15181): Se trae la pagina 1, del proceso B a MEMORIA
+[INFO] 21:51:40:489 mi_ram.c/(15044:15181): Tripulante 1 actualizo cambio su estado a: E
+[INFO] 21:51:45:472 mi_ram.c/(15044:15190): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:45:473 mi_ram.c/(15044:15190): Tripulante 1 (perteneciente a la patota 1) pidio una tarea.
+[INFO] 21:51:45:474 mi_ram.c/(15044:15190): La tarea a enviar al tripulante 1 es: NO_HAY_TAREA
+[INFO] 21:51:45:483 mi_ram.c/(15044:15191): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:45:485 mi_ram.c/(15044:15191): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:51:45:484 mi_ram.c/(15044:15190): Tripulante: 1 termino sus tareas
+[INFO] 21:51:50:482 mi_ram.c/(15044:15203): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:50:483 mi_ram.c/(15044:15203): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:51:50:485 mi_ram.c/(15044:15203): La tarea a enviar al tripulante 2 es: C03;5;5;5
+[INFO] 21:51:50:489 mi_ram.c/(15044:15204): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:50:494 mi_ram.c/(15044:15204): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:51:50:497 mi_ram.c/(15044:15205): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:50:498 mi_ram.c/(15044:15205): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:51:55:493 mi_ram.c/(15044:15214): Header 1 recibido: PEDIR TAREA
+[INFO] 21:51:55:494 mi_ram.c/(15044:15214): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:51:55:496 mi_ram.c/(15044:15214): La tarea a enviar al tripulante 2 es: C04;5;5;5
+[INFO] 21:51:55:500 mi_ram.c/(15044:15215): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:55:505 mi_ram.c/(15044:15215): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:51:55:508 mi_ram.c/(15044:15216): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:51:55:509 mi_ram.c/(15044:15216): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:52:00:503 mi_ram.c/(15044:15225): Header 1 recibido: PEDIR TAREA
+[INFO] 21:52:00:503 mi_ram.c/(15044:15225): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:52:00:505 mi_ram.c/(15044:15225): Victima elegida para llevar a SWAP: pagina 225 de proceso B
+[INFO] 21:52:00:506 mi_ram.c/(15044:15225): Se trae la pagina 2, del proceso C a MEMORIA
+[INFO] 21:52:00:507 mi_ram.c/(15044:15225): La tarea a enviar al tripulante 2 es: C05;5;5;5
+[INFO] 21:52:00:514 mi_ram.c/(15044:15226): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:52:00:515 mi_ram.c/(15044:15226): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:52:00:518 mi_ram.c/(15044:15227): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:52:00:519 mi_ram.c/(15044:15227): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:52:05:514 mi_ram.c/(15044:15236): Header 1 recibido: PEDIR TAREA
+[INFO] 21:52:05:514 mi_ram.c/(15044:15236): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:52:05:517 mi_ram.c/(15044:15236): La tarea a enviar al tripulante 2 es: C06;5;5;5
+[INFO] 21:52:05:530 mi_ram.c/(15044:15237): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:52:05:531 mi_ram.c/(15044:15237): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:52:05:534 mi_ram.c/(15044:15238): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:52:05:536 mi_ram.c/(15044:15238): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:52:10:523 mi_ram.c/(15044:15247): Header 1 recibido: PEDIR TAREA
+[INFO] 21:52:10:523 mi_ram.c/(15044:15247): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:52:10:525 mi_ram.c/(15044:15247): La tarea a enviar al tripulante 2 es: C07;5;5;5
+[INFO] 21:52:10:529 mi_ram.c/(15044:15248): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:52:10:534 mi_ram.c/(15044:15248): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:52:10:537 mi_ram.c/(15044:15249): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:52:10:538 mi_ram.c/(15044:15249): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:52:15:531 mi_ram.c/(15044:15258): Header 1 recibido: PEDIR TAREA
+[INFO] 21:52:15:532 mi_ram.c/(15044:15258): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:52:15:535 mi_ram.c/(15044:15258): La tarea a enviar al tripulante 2 es: C08;5;5;5
+[INFO] 21:52:15:539 mi_ram.c/(15044:15259): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:52:15:544 mi_ram.c/(15044:15259): Tripulante 2 actualizo cambio su estado a: R
+[INFO] 21:52:15:546 mi_ram.c/(15044:15260): Header 5 recibido: ACTUALIZAR ESTADO
+[INFO] 21:52:15:547 mi_ram.c/(15044:15260): Tripulante 2 actualizo cambio su estado a: E
+[INFO] 21:52:20:542 mi_ram.c/(15044:15269): Header 1 recibido: PEDIR TAREA
+[INFO] 21:52:20:543 mi_ram.c/(15044:15269): Tripulante 2 (perteneciente a la patota 2) pidio una tarea.
+[INFO] 21:52:20:544 mi_ram.c/(15044:15269): La tarea a enviar al tripulante 2 es: NO_HAY_TAREA
+[INFO] 21:52:20:546 mi_ram.c/(15044:15269): Tripulante: 2 termino sus tareas
