@@ -28,6 +28,9 @@ echo -e "Moviendo tareas..."
 sudo mv ${TAREAS}/Finales/* ~/
 cd $CWD
 sudo mv removeRepo.sh ~/
+cd ~
+chmod +x removeRepo.sh
+cd $CWD
 echo -e "\n\nBuilding projects...\n\n"
 make -C ./Discordiador
 make -C ./I-MongoStore
