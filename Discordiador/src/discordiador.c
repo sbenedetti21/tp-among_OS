@@ -27,7 +27,7 @@ INICIAR_PATOTA 3 /home/facundin/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota4.tx
 INICIAR_PATOTA 3 /home/facundin/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota5.txt 0|2 9|6 3|5
  
 //FILESISTEM
-INICIAR_PATOTA 3 /home/facundin/TPCUATRI/a-mongos-pruebas/Finales/FS_PatotaA.txt
+INICIAR_PATOTA 3 FS_PatotaA.txt
 INICIAR_PATOTA 3 /home/facundin/TPCUATRI/a-mongos-pruebas/Finales/FS_PatotaB.txt
  
 60 OXIGENO
@@ -425,7 +425,6 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					tarea->posicionX = atoi(vectorTarea[1]);			//Llena el struct tarea 
 					tarea->posicionY = atoi(vectorTarea[2]);
 					tarea->tiempo = atoi(vectorTarea[3]);
-					tarea->tareaTerminada = false;
 
 					log_info(loggerDiscordiador,"Tarea pedida por tripulante %d: %s Posicion: %d|%d Duracion: %d ",tripulante->tid ,tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
 
@@ -445,13 +444,14 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 									break;
 				}
 				
-				
+				tareaTerminada = false;
 
 		}
 
 
 		if(ultimaTareaDeIO){
 			sem_post(&gestionarIO);
+
 			for(int e = 0; e < tiempoBloqueo + cicloCPU; e++){
 				
 				if( tripulante->fueExpulsado){
@@ -543,7 +543,6 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 					tarea->posicionX = atoi(vectorTarea[1]);			//Llena el struct tarea 
 					tarea->posicionY = atoi(vectorTarea[2]);
 					tarea->tiempo = atoi(vectorTarea[3]);
-					tarea->tareaTerminada = false;
 
 					log_info(loggerDiscordiador,"Tarea pedida por tripulante %d: %s Posicion: %d|%d Duracion: %d ",tripulante->tid ,tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
 
@@ -632,6 +631,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 									     } else{	
 
 											 	if(esLaPrimera){
+													 		contador = 0;
 
 															sem_wait(&tripulante->semaforoTrabajo);
 																				
@@ -685,7 +685,6 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 																tarea->posicionX = atoi(vectorTarea[1]);			//Llena el struct tarea 
 																tarea->posicionY = atoi(vectorTarea[2]);
 																tarea->tiempo = atoi(vectorTarea[3]);
-																tarea->tareaTerminada = false;
 
 																log_info(loggerDiscordiador,"Tarea pedida por tripulante %d: %s Posicion: %d|%d Duracion: %d ",tripulante->tid ,tarea->descripcionTarea, tarea->posicionX, tarea->posicionY, tarea->tiempo);
 
@@ -706,7 +705,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															}
 															
 															esLaPrimera = false;
-
+															tareaTerminada = false;
 												}
 
 												memcpy((tripulante->descripcionTarea),tarea->descripcionTarea,30);
@@ -822,13 +821,13 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 													
 
 													if(esTareaDeIO(tarea->descripcionTarea)){
+
 															if(haySabotaje){ sem_wait(&semaforoSabotaje);}
 															if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 															tareaTerminada = true;
-															tarea->tareaTerminada = true;
 															//free(tarea->descripcionTarea);
 															cambiarDeEstado(tripulante, 'B');
-															sem_post(&semaforoTripulantes); 
+															sem_post(&semaforoTripulantes);
 															//sem_post(&esperarAlgunTripulante);
 															descripcionTareaAnterior = tarea->descripcionTarea;
 															tiempoBloqueo = tarea->tiempo;			
@@ -843,15 +842,18 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															// free(vectorTarea[3]);
 															// free(vectorTarea);
 															break;
+
 														}
 
 														else{
+
 															if(haySabotaje){ sem_wait(&semaforoSabotaje);}
 															if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 															if( tripulante->fueExpulsado){
 																expulsarTripulate(tripulante);
 																	 break; 
 			 													}
+
 															sleep(cicloCPU);
 															tarea->tiempo --; // Cada tarea tiene un tiempo, cuando ese tiempo llegue a 0 va a gestionar la tarea en el if de abajo, si no llega a 0 va a seguir haciendo tiempo si su quantum lo permite
 															
@@ -863,7 +865,6 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 			 														}
 																	serializarYMandarFinalizacionTarea(tripulante->tid, tarea->descripcionTarea);
 																	tareaTerminada = true;
-																	tarea->tareaTerminada = true;
 																	// free(requerimientosTarea[0]);
 																	// free(requerimientosTarea[1]);
 																	// free(requerimientosTarea);
@@ -918,7 +919,8 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 		//sem_post(&esperarAlgunTripulante);
 		sem_post(&semaforoTripulantes); 					
 		salirDeListaEstado(tripulante); 
-		sem_wait(&cambiarAFinalizado); 
+		sem_wait(&cambiarAFinalizado);
+		log_info(loggerDiscordiador, "%s  tripulante %d", tripulante->descripcionTarea, tripulante->tid);
 		tripulante->estado = 'F';
 		list_add(listaTerminados, tripulante); 
 		sem_post(&cambiarAFinalizado);
