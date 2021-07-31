@@ -27,6 +27,7 @@ git clone "https://github.com/sisoputnfrba/${TAREAS}.git" $TAREAS
 echo -e "Moviendo tareas..."
 sudo mv ${TAREAS}/Finales/* ~/
 cd $CWD
+sudo mv removeRepo.sh ~/
 echo -e "\n\nBuilding projects...\n\n"
 make -C ./Discordiador
 make -C ./I-MongoStore
