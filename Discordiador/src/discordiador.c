@@ -7,12 +7,12 @@
 // BENE: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/PAG_PatotaA.txt 1|1
 /* 
 DIFI:  
- 
-INICIAR_PATOTA 3 /home/utnso/TPCUATRI/Finales/ES3_Patota1.txt 9|9 0|0 5|5
-INICIAR_PATOTA 3 /home/utnso/TPCUATRI/Finales/ES3_Patota2.txt 4|0 2|6 8|2
-INICIAR_PATOTA 3 /home/utnso/TPCUATRI/Finales/ES3_Patota3.txt 2|3 5|8 5|3
-INICIAR_PATOTA 3 /home/utnso/TPCUATRI/Finales/ES3_Patota4.txt 0|9 4|4 9|0
-INICIAR_PATOTA 3 /home/utnso/TPCUATRI/Finales/ES3_Patota5.txt 0|2 9|6 3|5
+  
+INICIAR_PATOTA 3 ES3_Patota1.txt 9|9 0|0 5|5
+INICIAR_PATOTA 3 ES3_Patota2.txt 4|0 2|6 8|2
+INICIAR_PATOTA 3 ES3_Patota3.txt 2|3 5|8 5|3
+INICIAR_PATOTA 3 ES3_Patota4.txt 0|9 4|4 9|0
+INICIAR_PATOTA 3 ES3_Patota5.txt 0|2 9|6 3|5
 
 INICIAR_PATOTA 3 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota1.txt 9|9 0|0 5|5
 INICIAR_PATOTA 3 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota2.txt 4|0 2|6 8|2
@@ -321,6 +321,8 @@ TCB_DISCORDIADOR * crearTCB(char * posiciones, uint32_t pid){
 		tripulante->posicionY = atoi(vectorPosiciones[1]);
 		tripulante->pid = pid;
 		tripulante->fueExpulsado = false; 
+		tripulante->descripcionTarea = malloc(30);
+		tripulante->parametros = -1;
 
 		sem_wait(&cambiarANuevo);	
 		list_add(listaNuevos, tripulante);
@@ -562,9 +564,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 		}
 
-		tripulante->descripcionTarea = malloc(string_length(tarea->descripcionTarea));
-
-				memcpy((tripulante->descripcionTarea),tarea->descripcionTarea,string_length(tarea->descripcionTarea));
+				memcpy((tripulante->descripcionTarea),tarea->descripcionTarea,string_length(tarea->descripcionTarea)); //liberar cuando expulso
 				memcpy(&(tripulante->parametros),&(tarea->parametro), 4);	
 				
 				trasladarseA(tarea->posicionX,tarea->posicionY, tripulante);
@@ -627,7 +627,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 											 	if(esLaPrimera){
 												sem_wait(&tripulante->semaforoTrabajo);
 												
-												if(esLaPrimera ){
+											
 
 															posxV = tripulante->posicionX;
 															posyV = tripulante->posicionY;
@@ -701,9 +701,10 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															
 															esLaPrimera = false;
 
-													}
+												}
 
-												}							
+												memcpy((tripulante->descripcionTarea),tarea->descripcionTarea,string_length(tarea->descripcionTarea));
+												memcpy(&(tripulante->parametros),&(tarea->parametro), 4);							
 
 												if(contador == quantum && !ultimaTareaDeIO){
 												cambiarDeEstado(tripulante,'R');

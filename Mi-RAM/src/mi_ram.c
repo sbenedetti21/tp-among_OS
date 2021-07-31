@@ -1894,7 +1894,7 @@ char * obtenerProximaTareaPaginacion(referenciaTablaPaginas * referenciaTabla, u
 	int direccionFrame = 0;
 	
 
-	
+ 	
 	while (c != '\n' && c != '|') {
 		//log_info(loggerMiram, "pagina: %d, offset: %d", paginaATraer, offsetTareas);
 		direccionFrame = obtenerDireccionFrame(referenciaTabla, paginaATraer);
