@@ -360,6 +360,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 	int quantum = atoi(config_get_string_value(config, "QUANTUM"));
 	bool esLaPrimera = true;
 	bool ultimaTareaDeIO = false;
+	bool estaEmpezando;
 	int tiempoBloqueo = 0;
 	uint32_t posxV;
 	uint32_t posyV;
@@ -472,6 +473,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 				}
 				
 				tareaTerminada = false;
+				estaEmpezando = true;
 
 		}
 
@@ -479,8 +481,6 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 		if(ultimaTareaDeIO){
 			sem_post(&gestionarIO);
 			sem_wait(&tripulante->empeceIO);
-
-			printf("%s %s %d %d",tripulante->descripcionTarea, tarea->descripcionTarea, tripulante->tiempo, tarea->tiempo);
 
 			for(int e = 0; e < tripulante->tiempo + cicloCPU; e++){
 				
@@ -750,6 +750,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															
 															esLaPrimera = false;
 															tareaTerminada = false;
+															estaEmpezando = true;
 												}
 
 												memcpy((tripulante->descripcionTarea),tarea->descripcionTarea,30);
@@ -804,7 +805,13 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 															contador++;
 															break; 
 														}
+
+
 													}
+
+													if(tripulante->posicionY == tarea->posicionY){
+														serializarYMandarPosicionBitacora(tripulante->tid, posxV, posyV, tripulante->posicionX, tripulante->posicionY);
+													}	
 
 													if(tripulante->posicionY != tarea->posicionY){
 													log_info(loggerDiscordiador, "Tripulante %d termino su Q en %d|%d", tripulante->tid, tripulante->posicionX, tripulante->posicionY);
@@ -840,7 +847,7 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 														if(tripulante->posicionY == tarea->posicionY){
 															contador++;
-															serializarYMandarInicioTareaNormal(tripulante->tid, tarea->descripcionTarea);
+															serializarYMandarPosicionBitacora(tripulante->tid, posxV, posyV, tripulante->posicionX, tripulante->posicionY);
 															break; 
 														}		
 														
@@ -856,14 +863,17 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 
 													if(haySabotaje){ sem_wait(&semaforoSabotaje);}
 													if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
-													serializarYMandarPosicionBitacora(tripulante->tid, posxV, posyV, tripulante->posicionX, tripulante->posicionY);
+													
 												}
 
 												
 
 												for( contador ; contador < quantum ;  contador ++){ //Si entra aca, es porque ya llego a la psocion y todavia le queda quantum para ejecutar
 			
-													
+													if(estaEmpezando){
+														serializarYMandarInicioTareaNormal(tripulante->tid, tarea->descripcionTarea);
+														estaEmpezando = false;
+													}
 
 													if(esTareaDeIO(tarea->descripcionTarea)){
 
@@ -1547,7 +1557,7 @@ void serializarYMandarPedidoDeBitacora(uint32_t tid){
 
 	log_info(loggerDiscordiador,"%d",tamanioBitacora);
 
-	log_info(loggerDiscordiador," Bitacora tripulante %d: \n %s",tid,bitacora);
+	log_info(loggerDiscordiador,"\nBitacora tripulante %d: \n %s",tid,bitacora);
 
 	/*
 	close(socket);

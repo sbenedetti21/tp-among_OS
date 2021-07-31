@@ -716,10 +716,6 @@ void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 void generarRecurso(char *recurso, int cantidadALlenar, uint32_t idTripulante){
 	log_info(loggerImongoStore,"Tripulante %d genera %d de %s",idTripulante, cantidadALlenar, recurso);
 
-	char *mensajeBitacora = string_from_format("Comienza la ejecucion de la tarea Generar %s\n",recurso);
-	llenarBlocksBitcoras(mensajeBitacora,idTripulante);
-	free(mensajeBitacora);
-
 	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
 
 	sem_wait(&semaforoArchivoRecurso);
@@ -1265,9 +1261,6 @@ void deserializarTareaIO(t_paquete * paquete){
 
 	uint32_t *tid = malloc(sizeof(uint32_t));
 	*tid = parametroS->tid;   // ID TRIPULANTE
-
-	log_info(loggerImongoStore,"Cantidad de Parametros %d",parametroS->parametro);
-	log_info(loggerImongoStore,"Llego el tripulante %d",parametroS->tid);
 
 	switch (tipoTarea)
 	{

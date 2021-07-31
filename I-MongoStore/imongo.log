@@ -9663,3 +9663,236 @@
 [INFO] 15:56:04:027 imongo.c/(18195:22535): Tripulante 9 estaba en 9|8 y ahora esta en 9|9
 [INFO] 15:56:04:027 imongo.c/(18195:22536): Trip 11 termino SALUDAR
 [INFO] 15:56:05:033 imongo.c/(18195:22540): Trip 9 termino SALUDAR
+[INFO] 19:57:38:079 imongo.c/(28554:28554): ---------CREO FILESYSTEM----------
+[INFO] 19:57:56:973 imongo.c/(28554:28606): Trip 0 arranco GENERAR_OXIGENO
+[INFO] 19:57:56:974 imongo.c/(28554:28614): Cantidad de Parametros 12
+[INFO] 19:57:56:974 imongo.c/(28554:28614): Llego el tripulante 0
+[INFO] 19:57:56:974 imongo.c/(28554:28614): Tripulante 0 genera 12 de Oxigeno
+[INFO] 19:57:56:975 imongo.c/(28554:28615): Trip 1 arranco GENERAR_OXIGENO
+[INFO] 19:57:56:976 imongo.c/(28554:28619): Trip 2 arranco GENERAR_OXIGENO
+[INFO] 19:57:57:032 imongo.c/(28554:28614): Tripulante 0 termino de generar 12 de Oxigeno
+[INFO] 19:58:10:975 imongo.c/(28554:28626): Trip 0 termino GENERAR_OXIGENO
+[INFO] 19:58:10:976 imongo.c/(28554:28627): Cantidad de Parametros 12
+[INFO] 19:58:10:976 imongo.c/(28554:28627): Llego el tripulante 1
+[INFO] 19:58:10:976 imongo.c/(28554:28627): Tripulante 1 genera 12 de Oxigeno
+[INFO] 19:58:10:976 imongo.c/(28554:28629): Trip 0 arranco JUEGA_FORZA_HORIZON
+[INFO] 19:58:11:022 imongo.c/(28554:28627): Tripulante 1 termino de generar 12 de Oxigeno
+[INFO] 19:58:22:978 imongo.c/(28554:28644): Trip 0 termino JUEGA_FORZA_HORIZON
+[INFO] 19:58:22:979 imongo.c/(28554:28646): Trip 0 arranco GENERAR_COMIDA
+[INFO] 19:58:24:976 imongo.c/(28554:28649): Trip 1 termino GENERAR_OXIGENO
+[INFO] 19:58:24:977 imongo.c/(28554:28651): Cantidad de Parametros 12
+[INFO] 19:58:24:977 imongo.c/(28554:28651): Llego el tripulante 2
+[INFO] 19:58:24:977 imongo.c/(28554:28651): Tripulante 2 genera 12 de Oxigeno
+[INFO] 19:58:24:977 imongo.c/(28554:28653): Trip 1 arranco JUEGA_FORZA_HORIZON
+[INFO] 19:58:25:012 imongo.c/(28554:28651): Tripulante 2 termino de generar 12 de Oxigeno
+[INFO] 19:58:36:979 imongo.c/(28554:28662): Trip 1 termino JUEGA_FORZA_HORIZON
+[INFO] 19:58:36:980 imongo.c/(28554:28664): Trip 1 arranco GENERAR_COMIDA
+[INFO] 19:58:38:977 imongo.c/(28554:28667): Trip 2 termino GENERAR_OXIGENO
+[INFO] 19:58:38:977 imongo.c/(28554:28669): Cantidad de Parametros 12
+[INFO] 19:58:38:978 imongo.c/(28554:28669): Llego el tripulante 0
+[INFO] 19:58:38:978 imongo.c/(28554:28669): Tripulante 0 genera 12 de Comida
+[INFO] 19:58:38:978 imongo.c/(28554:28671): Trip 2 arranco JUEGA_FORZA_HORIZON
+[INFO] 19:58:39:004 imongo.c/(28554:28669): Tripulante 0 termino de generar 12 de Comida
+[INFO] 19:58:50:981 imongo.c/(28554:28678): Trip 2 termino JUEGA_FORZA_HORIZON
+[INFO] 19:58:50:982 imongo.c/(28554:28680): Trip 2 arranco GENERAR_COMIDA
+[INFO] 19:58:52:978 imongo.c/(28554:28684): Trip 0 termino GENERAR_COMIDA
+[INFO] 19:58:52:979 imongo.c/(28554:28686): Cantidad de Parametros 12
+[INFO] 19:58:52:979 imongo.c/(28554:28686): Llego el tripulante 1
+[INFO] 19:58:52:979 imongo.c/(28554:28686): Tripulante 1 genera 12 de Comida
+[INFO] 19:58:52:979 imongo.c/(28554:28688): Trip 0 arranco JUEGA_GEARS_OF_WAR
+[INFO] 19:58:53:010 imongo.c/(28554:28686): Tripulante 1 termino de generar 12 de Comida
+[INFO] 19:59:04:981 imongo.c/(28554:28695): Trip 0 termino JUEGA_GEARS_OF_WAR
+[INFO] 19:59:04:982 imongo.c/(28554:28697): Trip 0 arranco GENERAR_BASURA
+[INFO] 19:59:06:980 imongo.c/(28554:28701): Trip 1 termino GENERAR_COMIDA
+[INFO] 19:59:06:980 imongo.c/(28554:28703): Cantidad de Parametros 12
+[INFO] 19:59:06:980 imongo.c/(28554:28703): Llego el tripulante 2
+[INFO] 19:59:06:980 imongo.c/(28554:28703): Tripulante 2 genera 12 de Comida
+[INFO] 19:59:06:981 imongo.c/(28554:28705): Trip 1 arranco JUEGA_GEARS_OF_WAR
+[INFO] 19:59:07:007 imongo.c/(28554:28703): Tripulante 2 termino de generar 12 de Comida
+[INFO] 19:59:18:983 imongo.c/(28554:28723): Trip 1 termino JUEGA_GEARS_OF_WAR
+[INFO] 19:59:18:983 imongo.c/(28554:28725): Trip 1 arranco GENERAR_BASURA
+[INFO] 19:59:20:980 imongo.c/(28554:28729): Trip 2 termino GENERAR_COMIDA
+[INFO] 19:59:20:981 imongo.c/(28554:28730): Cantidad de Parametros 12
+[INFO] 19:59:20:981 imongo.c/(28554:28730): Llego el tripulante 0
+[INFO] 19:59:20:981 imongo.c/(28554:28730): Tripulante 0 genera 12 de Basura
+[INFO] 19:59:20:981 imongo.c/(28554:28732): Trip 2 arranco JUEGA_GEARS_OF_WAR
+[INFO] 19:59:21:023 imongo.c/(28554:28730): Tripulante 0 termino de generar 12 de Basura
+[INFO] 19:59:32:983 imongo.c/(28554:28755): Trip 2 termino JUEGA_GEARS_OF_WAR
+[INFO] 19:59:32:984 imongo.c/(28554:28757): Trip 2 arranco GENERAR_BASURA
+[INFO] 19:59:34:982 imongo.c/(28554:28771): Trip 0 termino GENERAR_BASURA
+[INFO] 19:59:34:982 imongo.c/(28554:28774): Trip 0 arranco JUEGA_HALO
+[INFO] 19:59:34:982 imongo.c/(28554:28773): Cantidad de Parametros 12
+[INFO] 19:59:34:982 imongo.c/(28554:28773): Llego el tripulante 1
+[INFO] 19:59:34:982 imongo.c/(28554:28773): Tripulante 1 genera 12 de Basura
+[INFO] 19:59:35:022 imongo.c/(28554:28773): Tripulante 1 termino de generar 12 de Basura
+[INFO] 19:59:46:984 imongo.c/(28554:28792): Trip 0 termino JUEGA_HALO
+[INFO] 19:59:46:985 imongo.c/(28554:28794): Trip 0 arranco GRITARLE_A_PATOTA_B
+[INFO] 19:59:48:983 imongo.c/(28554:28796): Trip 1 termino GENERAR_BASURA
+[INFO] 19:59:48:984 imongo.c/(28554:28798): Cantidad de Parametros 12
+[INFO] 19:59:48:984 imongo.c/(28554:28798): Llego el tripulante 2
+[INFO] 19:59:48:984 imongo.c/(28554:28798): Tripulante 2 genera 12 de Basura
+[INFO] 19:59:48:986 imongo.c/(28554:28800): Trip 0 termino GRITARLE_A_PATOTA_B
+[INFO] 19:59:48:987 imongo.c/(28554:28803): Trip 1 arranco JUEGA_HALO
+[INFO] 19:59:49:025 imongo.c/(28554:28798): Tripulante 2 termino de generar 12 de Basura
+[INFO] 20:00:00:989 imongo.c/(28554:28810): Trip 1 termino JUEGA_HALO
+[INFO] 20:00:00:990 imongo.c/(28554:28812): Trip 1 arranco GRITARLE_A_PATOTA_B
+[INFO] 20:00:02:985 imongo.c/(28554:28814): Trip 2 termino GENERAR_BASURA
+[INFO] 20:00:02:990 imongo.c/(28554:28816): Trip 1 termino GRITARLE_A_PATOTA_B
+[INFO] 20:00:02:991 imongo.c/(28554:28819): Trip 2 arranco JUEGA_HALO
+[INFO] 20:00:09:821 imongo.c/(28554:28822): Entre en bitacoraaaaa
+[INFO] 20:00:09:821 imongo.c/(28554:28822): Consiguiendo bitacora del Tripulante 2
+[INFO] 20:00:14:993 imongo.c/(28554:28826): Trip 2 termino JUEGA_HALO
+[INFO] 20:00:14:993 imongo.c/(28554:28828): Trip 2 arranco GRITARLE_A_PATOTA_B
+[INFO] 20:00:16:993 imongo.c/(28554:28829): Trip 2 termino GRITARLE_A_PATOTA_B
+[INFO] 20:03:07:329 imongo.c/(28554:28925): Entre en bitacoraaaaa
+[INFO] 20:03:07:329 imongo.c/(28554:28925): Consiguiendo bitacora del Tripulante 1
+[INFO] 20:04:51:145 imongo.c/(29075:29075): ---------CREO FILESYSTEM----------
+[INFO] 20:05:42:391 imongo.c/(29075:29163): Tripulante 2 estaba en 5|5 y ahora esta en 7|2
+[INFO] 20:05:50:393 imongo.c/(29075:29190): Tripulante 0 estaba en 9|9 y ahora esta en 7|2
+[INFO] 20:05:50:394 imongo.c/(29075:29191): Trip 0 arranco ARREGLAR_REACTOR
+[INFO] 20:06:00:396 imongo.c/(29075:29217): Trip 1 arranco ARREGLAR_REACTOR
+[INFO] 20:06:00:396 imongo.c/(29075:29216): Tripulante 1 estaba en 0|0 y ahora esta en 7|2
+[INFO] 20:06:02:396 imongo.c/(29075:29220): Trip 2 arranco ARREGLAR_REACTOR
+[INFO] 20:06:10:397 imongo.c/(29075:29239): Trip 2 termino ARREGLAR_REACTOR
+[INFO] 20:06:18:400 imongo.c/(29075:29254): Trip 0 termino ARREGLAR_REACTOR
+[INFO] 20:06:28:402 imongo.c/(29075:29288): Trip 1 termino ARREGLAR_REACTOR
+[INFO] 20:06:40:404 imongo.c/(29075:29319): Tripulante 2 estaba en 7|2 y ahora esta en 7|7
+[INFO] 20:06:40:405 imongo.c/(29075:29320): Trip 2 arranco BARRER
+[INFO] 20:06:48:406 imongo.c/(29075:29344): Tripulante 0 estaba en 7|2 y ahora esta en 7|7
+[INFO] 20:06:48:406 imongo.c/(29075:29345): Trip 0 arranco BARRER
+[INFO] 20:06:58:408 imongo.c/(29075:29373): Tripulante 1 estaba en 7|2 y ahora esta en 7|7
+[INFO] 20:06:58:408 imongo.c/(29075:29374): Trip 1 arranco BARRER
+[INFO] 20:07:08:410 imongo.c/(29075:29395): Trip 2 termino BARRER
+[INFO] 20:07:16:413 imongo.c/(29075:29420): Trip 0 termino BARRER
+[INFO] 20:07:26:416 imongo.c/(29075:29441): Trip 1 termino BARRER
+[INFO] 20:08:24:127 imongo.c/(29075:29522): Entre en bitacoraaaaa
+[INFO] 20:08:24:127 imongo.c/(29075:29522): Consiguiendo bitacora del Tripulante 0
+[INFO] 20:08:56:711 imongo.c/(29607:29607): ---------CREO FILESYSTEM----------
+[INFO] 20:09:59:073 imongo.c/(29607:29732): Tripulante 2 estaba en 5|5 y ahora esta en 7|2
+[INFO] 20:09:59:074 imongo.c/(29607:29739): Trip 2 arranco ARREGLAR_REACTOR
+[INFO] 20:10:07:075 imongo.c/(29607:29752): Trip 2 termino ARREGLAR_REACTOR
+[INFO] 20:10:07:076 imongo.c/(29607:29755): Tripulante 0 estaba en 9|9 y ahora esta en 7|2
+[INFO] 20:10:07:076 imongo.c/(29607:29759): Trip 1 arranco ARREGLAR_REACTOR
+[INFO] 20:10:07:077 imongo.c/(29607:29756): Trip 0 arranco ARREGLAR_REACTOR
+[INFO] 20:10:07:077 imongo.c/(29607:29758): Tripulante 1 estaba en 0|0 y ahora esta en 7|2
+[INFO] 20:10:15:078 imongo.c/(29607:29776): Trip 0 termino ARREGLAR_REACTOR
+[INFO] 20:10:15:078 imongo.c/(29607:29778): Trip 1 termino ARREGLAR_REACTOR
+[INFO] 20:10:17:079 imongo.c/(29607:29782): Tripulante 2 estaba en 7|2 y ahora esta en 7|7
+[INFO] 20:10:17:079 imongo.c/(29607:29784): Trip 2 arranco BARRER
+[INFO] 20:10:25:081 imongo.c/(29607:29807): Trip 2 termino BARRER
+[INFO] 20:10:25:082 imongo.c/(29607:29810): Tripulante 0 estaba en 7|2 y ahora esta en 7|7
+[INFO] 20:10:25:082 imongo.c/(29607:29812): Trip 0 arranco BARRER
+[INFO] 20:10:25:082 imongo.c/(29607:29813): Tripulante 1 estaba en 7|2 y ahora esta en 7|7
+[INFO] 20:10:25:082 imongo.c/(29607:29814): Trip 1 arranco BARRER
+[INFO] 20:10:33:084 imongo.c/(29607:29825): Trip 0 termino BARRER
+[INFO] 20:10:33:085 imongo.c/(29607:29826): Trip 1 termino BARRER
+[INFO] 20:10:53:091 imongo.c/(29607:29880): Trip 2 arranco GENERAR_OXIGENO
+[INFO] 20:10:53:091 imongo.c/(29607:29879): Tripulante 2 estaba en 7|7 y ahora esta en 0|0
+[INFO] 20:10:53:091 imongo.c/(29607:29883): Tripulante 2 genera 12 de Oxigeno
+[INFO] 20:10:53:158 imongo.c/(29607:29883): Tripulante 2 termino de generar 12 de Oxigeno
+[INFO] 20:11:01:091 imongo.c/(29607:29899): Tripulante 1 estaba en 7|7 y ahora esta en 0|0
+[INFO] 20:11:01:092 imongo.c/(29607:29902): Tripulante 0 estaba en 7|7 y ahora esta en 0|0
+[INFO] 20:11:01:092 imongo.c/(29607:29901): Trip 1 arranco GENERAR_OXIGENO
+[INFO] 20:11:01:092 imongo.c/(29607:29904): Trip 0 arranco GENERAR_OXIGENO
+[INFO] 20:11:07:093 imongo.c/(29607:29909): Trip 2 termino GENERAR_OXIGENO
+[INFO] 20:11:07:093 imongo.c/(29607:29911): Tripulante 1 genera 12 de Oxigeno
+[INFO] 20:11:07:096 imongo.c/(29607:29911): Tripulante 1 termino de generar 12 de Oxigeno
+[INFO] 20:11:15:096 imongo.c/(29607:29919): Tripulante 2 estaba en 0|0 y ahora esta en 2|2
+[INFO] 20:11:15:097 imongo.c/(29607:29920): Trip 2 arranco CAMINAR
+[INFO] 20:11:17:097 imongo.c/(29607:29922): Trip 2 termino CAMINAR
+[INFO] 20:11:21:094 imongo.c/(29607:29928): Trip 1 termino GENERAR_OXIGENO
+[INFO] 20:11:21:095 imongo.c/(29607:29930): Tripulante 0 genera 12 de Oxigeno
+[INFO] 20:11:21:099 imongo.c/(29607:29930): Tripulante 0 termino de generar 12 de Oxigeno
+[INFO] 20:11:23:099 imongo.c/(29607:29940): Trip 2 arranco GENERAR_COMIDA
+[INFO] 20:11:23:100 imongo.c/(29607:29938): Tripulante 2 estaba en 2|2 y ahora esta en 3|4
+[INFO] 20:11:29:097 imongo.c/(29607:29948): Tripulante 1 estaba en 0|0 y ahora esta en 2|2
+[INFO] 20:11:29:098 imongo.c/(29607:29949): Trip 1 arranco CAMINAR
+[INFO] 20:11:31:098 imongo.c/(29607:29950): Trip 1 termino CAMINAR
+[INFO] 20:11:35:096 imongo.c/(29607:29956): Trip 0 termino GENERAR_OXIGENO
+[INFO] 20:11:35:096 imongo.c/(29607:29958): Tripulante 2 genera 12 de Comida
+[INFO] 20:11:35:139 imongo.c/(29607:29958): Tripulante 2 termino de generar 12 de Comida
+[INFO] 20:11:37:100 imongo.c/(29607:29968): Tripulante 1 estaba en 2|2 y ahora esta en 3|4
+[INFO] 20:11:37:101 imongo.c/(29607:29969): Trip 1 arranco GENERAR_COMIDA
+[INFO] 20:11:43:099 imongo.c/(29607:29977): Trip 0 arranco CAMINAR
+[INFO] 20:11:43:099 imongo.c/(29607:29976): Tripulante 0 estaba en 0|0 y ahora esta en 2|2
+[INFO] 20:11:45:099 imongo.c/(29607:29978): Trip 0 termino CAMINAR
+[INFO] 20:11:49:097 imongo.c/(29607:29984): Trip 2 termino GENERAR_COMIDA
+[INFO] 20:11:49:098 imongo.c/(29607:29985): Tripulante 1 genera 12 de Comida
+[INFO] 20:11:49:101 imongo.c/(29607:29985): Tripulante 1 termino de generar 12 de Comida
+[INFO] 20:11:51:101 imongo.c/(29607:29993): Tripulante 0 estaba en 2|2 y ahora esta en 3|4
+[INFO] 20:11:51:102 imongo.c/(29607:29994): Trip 0 arranco GENERAR_COMIDA
+[INFO] 20:11:55:100 imongo.c/(29607:30000): Tripulante 2 estaba en 3|4 y ahora esta en 5|5
+[INFO] 20:11:55:100 imongo.c/(29607:30001): Trip 2 arranco COMER
+[INFO] 20:12:03:099 imongo.c/(29607:30006): Trip 1 termino GENERAR_COMIDA
+[INFO] 20:12:03:099 imongo.c/(29607:30008): Tripulante 0 genera 12 de Comida
+[INFO] 20:12:03:103 imongo.c/(29607:30008): Tripulante 0 termino de generar 12 de Comida
+[INFO] 20:12:05:102 imongo.c/(29607:30013): Trip 2 termino COMER
+[INFO] 20:12:05:103 imongo.c/(29607:30015): Trip 2 arranco CONSUMIR_COMIDA
+[INFO] 20:12:09:101 imongo.c/(29607:30022): Tripulante 1 estaba en 3|4 y ahora esta en 5|5
+[INFO] 20:12:09:101 imongo.c/(29607:30023): Trip 1 arranco COMER
+[INFO] 20:12:17:100 imongo.c/(29607:30027): Trip 0 termino GENERAR_COMIDA
+[INFO] 20:12:17:100 imongo.c/(29607:30029): Tripulante 2 consume 10 de Comida
+[INFO] 20:12:17:128 imongo.c/(29607:30029): Se consumio 10 de Comida
+[INFO] 20:12:19:103 imongo.c/(29607:30037): Trip 1 termino COMER
+[INFO] 20:12:19:104 imongo.c/(29607:30039): Trip 1 arranco CONSUMIR_COMIDA
+[INFO] 20:12:23:102 imongo.c/(29607:30050): Tripulante 0 estaba en 3|4 y ahora esta en 5|5
+[INFO] 20:12:23:102 imongo.c/(29607:30051): Trip 0 arranco COMER
+[INFO] 20:12:31:101 imongo.c/(29607:30055): Trip 2 termino CONSUMIR_COMIDA
+[INFO] 20:12:31:102 imongo.c/(29607:30057): Tripulante 1 consume 10 de Comida
+[INFO] 20:12:31:102 imongo.c/(29607:30059): Trip 2 arranco TIRAR_TODO_AL_PISO
+[INFO] 20:12:31:147 imongo.c/(29607:30057): Se consumio 10 de Comida
+[INFO] 20:12:33:103 imongo.c/(29607:30063): Trip 2 termino TIRAR_TODO_AL_PISO
+[INFO] 20:12:33:104 imongo.c/(29607:30065): Trip 0 termino COMER
+[INFO] 20:12:33:105 imongo.c/(29607:30066): Trip 2 arranco GENERAR_BASURA
+[INFO] 20:12:33:105 imongo.c/(29607:30069): Trip 0 arranco CONSUMIR_COMIDA
+[INFO] 20:12:45:103 imongo.c/(29607:30075): Trip 1 termino CONSUMIR_COMIDA
+[INFO] 20:12:45:103 imongo.c/(29607:30077): Tripulante 2 genera 30 de Basura
+[INFO] 20:12:45:103 imongo.c/(29607:30079): Trip 1 arranco TIRAR_TODO_AL_PISO
+[INFO] 20:12:45:107 imongo.c/(29607:30077): Tripulante 2 termino de generar 30 de Basura
+[INFO] 20:12:47:104 imongo.c/(29607:30084): Trip 1 termino TIRAR_TODO_AL_PISO
+[INFO] 20:12:47:105 imongo.c/(29607:30086): Trip 1 arranco GENERAR_BASURA
+[INFO] 20:12:51:104 imongo.c/(29607:30089): Trip 2 termino GENERAR_BASURA
+[INFO] 20:12:51:104 imongo.c/(29607:30091): Tripulante 0 consume 10 de Comida
+[INFO] 20:12:51:148 imongo.c/(29607:30091): Se consumio 10 de Comida
+[INFO] 20:12:55:105 imongo.c/(29607:30099): Tripulante 2 estaba en 5|5 y ahora esta en 6|6
+[INFO] 20:12:55:106 imongo.c/(29607:30100): Trip 2 arranco BARRER
+[INFO] 20:13:05:105 imongo.c/(29607:30104): Trip 0 termino CONSUMIR_COMIDA
+[INFO] 20:13:05:106 imongo.c/(29607:30107): Tripulante 1 genera 30 de Basura
+[INFO] 20:13:05:106 imongo.c/(29607:30108): Trip 0 arranco TIRAR_TODO_AL_PISO
+[INFO] 20:13:05:109 imongo.c/(29607:30107): Tripulante 1 termino de generar 30 de Basura
+[INFO] 20:13:07:107 imongo.c/(29607:30112): Trip 0 termino TIRAR_TODO_AL_PISO
+[INFO] 20:13:07:108 imongo.c/(29607:30114): Trip 0 arranco GENERAR_BASURA
+[INFO] 20:13:11:106 imongo.c/(29607:30117): Trip 1 termino GENERAR_BASURA
+[INFO] 20:13:11:106 imongo.c/(29607:30119): Tripulante 0 genera 30 de Basura
+[INFO] 20:13:11:110 imongo.c/(29607:30119): Tripulante 0 termino de generar 30 de Basura
+[INFO] 20:13:15:108 imongo.c/(29607:30128): Tripulante 1 estaba en 5|5 y ahora esta en 6|6
+[INFO] 20:13:15:108 imongo.c/(29607:30129): Trip 1 arranco BARRER
+[INFO] 20:13:15:109 imongo.c/(29607:30130): Trip 2 termino BARRER
+[INFO] 20:13:15:110 imongo.c/(29607:30132): Trip 2 arranco DESCARTAR_BASURA
+[INFO] 20:13:17:107 imongo.c/(29607:30138): Trip 0 termino GENERAR_BASURA
+[INFO] 20:13:17:107 imongo.c/(29607:30139): Tripulante 2 descarta Basura
+[INFO] 20:13:17:134 imongo.c/(29607:30139): Se descarto la Basura
+[INFO] 20:13:21:109 imongo.c/(29607:30146): Tripulante 0 estaba en 5|5 y ahora esta en 6|6
+[INFO] 20:13:21:110 imongo.c/(29607:30148): Trip 0 arranco BARRER
+[INFO] 20:13:23:108 imongo.c/(29607:30151): Trip 2 termino DESCARTAR_BASURA
+[INFO] 20:13:35:111 imongo.c/(29607:30172): Trip 2 arranco SALUDAR
+[INFO] 20:13:35:112 imongo.c/(29607:30171): Tripulante 2 estaba en 6|6 y ahora esta en 9|9
+[INFO] 20:13:35:112 imongo.c/(29607:30173): Trip 1 termino BARRER
+[INFO] 20:13:35:113 imongo.c/(29607:30175): Trip 1 arranco DESCARTAR_BASURA
+[INFO] 20:13:35:113 imongo.c/(29607:30178): Tripulante 1 descarta Basura
+[INFO] 20:13:35:201 imongo.c/(29607:30178): No hay recurso que consumir
+[INFO] 20:13:37:112 imongo.c/(29607:30180): Trip 2 termino SALUDAR
+[INFO] 20:13:41:114 imongo.c/(29607:30184): Trip 0 termino BARRER
+[INFO] 20:13:41:114 imongo.c/(29607:30187): Trip 1 termino DESCARTAR_BASURA
+[INFO] 20:13:41:115 imongo.c/(29607:30189): Trip 0 arranco DESCARTAR_BASURA
+[INFO] 20:13:41:115 imongo.c/(29607:30192): Tripulante 0 descarta Basura
+[INFO] 20:13:41:186 imongo.c/(29607:30192): No hay recurso que consumir
+[INFO] 20:13:47:116 imongo.c/(29607:30199): Trip 0 termino DESCARTAR_BASURA
+[INFO] 20:13:53:118 imongo.c/(29607:30210): Tripulante 1 estaba en 6|6 y ahora esta en 9|9
+[INFO] 20:13:53:118 imongo.c/(29607:30211): Trip 1 arranco SALUDAR
+[INFO] 20:13:55:119 imongo.c/(29607:30213): Trip 1 termino SALUDAR
+[INFO] 20:13:59:120 imongo.c/(29607:30221): Tripulante 0 estaba en 6|6 y ahora esta en 9|9
+[INFO] 20:13:59:120 imongo.c/(29607:30222): Trip 0 arranco SALUDAR
+[INFO] 20:14:01:120 imongo.c/(29607:30224): Trip 0 termino SALUDAR
+[INFO] 20:14:32:086 imongo.c/(29607:30246): Entre en bitacoraaaaa
+[INFO] 20:14:32:086 imongo.c/(29607:30246): Consiguiendo bitacora del Tripulante 0
