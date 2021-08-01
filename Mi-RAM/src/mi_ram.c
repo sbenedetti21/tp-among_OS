@@ -1143,8 +1143,15 @@ void compactarMemoriaSegmentacion(){
 
 
 	compactacion = true; 
+	
+	
+	 
 	log_info(loggerMiram, "Iniciando compactacion de la memoria...");
-	sleep(2); 
+	if(strcmp(criterioSeleccion, "BEST_FIT") == 0){
+		//sleep(1);
+	}else{
+		sleep(2); 
+	}
 	
 	//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 	
