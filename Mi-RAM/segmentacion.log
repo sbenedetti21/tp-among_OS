@@ -8517,3 +8517,289 @@
 [INFO] 16:04:01:648 mi_ram.c/(5249:5326): El tamanio de segmentosLibres: 1
 [INFO] 16:04:01:648 mi_ram.c/(5249:5326): Segmento libre que empieza en: 209 y tiene un tamanio de: 47
 [INFO] 16:04:01:649 mi_ram.c/(5249:5326): El segmento elegido empieza en: 209 y tiene un tamanio de: 47
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): INgrese a buscarEspacioNecesario
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Antes del mutex
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): no apunta a nulo la tabla global
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Tamanio tabla global :1
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Ingrese a first fit
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Entre al mutex first fit
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Despues del sort
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): El tamanio de segmentosLibres: 1
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Segmento libre que empieza en: 0 y tiene un tamanio de: 2048
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): El segmento elegido empieza en: 0 y tiene un tamanio de: 2048
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Ingrese a first fit
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Entre al mutex first fit
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Despues del sort
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): El tamanio de segmentosLibres: 1
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Segmento libre que empieza en: 8 y tiene un tamanio de: 2040
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): El segmento elegido empieza en: 8 y tiene un tamanio de: 2040
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Ingrese a first fit
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Entre al mutex first fit
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Despues del sort
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): El tamanio de segmentosLibres: 1
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): Segmento libre que empieza en: 175 y tiene un tamanio de: 1873
+[INFO] 17:56:11:330 mi_ram.c/(4638:4714): El segmento elegido empieza en: 175 y tiene un tamanio de: 1873
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): INgrese a buscarEspacioNecesario
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Antes del mutex
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): no apunta a nulo la tabla global
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Tamanio tabla global :4
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Ingrese a first fit
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Entre al mutex first fit
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Despues del sort
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): El tamanio de segmentosLibres: 1
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Segmento libre que empieza en: 196 y tiene un tamanio de: 1852
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): El segmento elegido empieza en: 196 y tiene un tamanio de: 1852
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Ingrese a first fit
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Entre al mutex first fit
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Despues del sort
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): El tamanio de segmentosLibres: 1
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Segmento libre que empieza en: 204 y tiene un tamanio de: 1844
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): El segmento elegido empieza en: 204 y tiene un tamanio de: 1844
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Ingrese a first fit
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Entre al mutex first fit
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Despues del sort
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): El tamanio de segmentosLibres: 1
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): Segmento libre que empieza en: 375 y tiene un tamanio de: 1673
+[INFO] 17:56:11:331 mi_ram.c/(4638:4718): El segmento elegido empieza en: 375 y tiene un tamanio de: 1673
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): Ingrese a first fit
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): Entre al mutex first fit
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): Despues del sort
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): El tamanio de segmentosLibres: 1
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): Segmento libre que empieza en: 396 y tiene un tamanio de: 1652
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): El segmento elegido empieza en: 396 y tiene un tamanio de: 1652
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): Ingrese a first fit
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): Entre al mutex first fit
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): Despues del sort
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): El tamanio de segmentosLibres: 1
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): Segmento libre que empieza en: 417 y tiene un tamanio de: 1631
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): El segmento elegido empieza en: 417 y tiene un tamanio de: 1631
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): Ingrese a first fit
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): Entre al mutex first fit
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): Despues del sort
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): El tamanio de segmentosLibres: 1
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): Segmento libre que empieza en: 438 y tiene un tamanio de: 1610
+[INFO] 17:56:11:338 mi_ram.c/(4638:4714): El segmento elegido empieza en: 438 y tiene un tamanio de: 1610
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): Ingrese a first fit
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): Entre al mutex first fit
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): Despues del sort
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): El tamanio de segmentosLibres: 1
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): Segmento libre que empieza en: 459 y tiene un tamanio de: 1589
+[INFO] 17:56:11:338 mi_ram.c/(4638:4718): El segmento elegido empieza en: 459 y tiene un tamanio de: 1589
+[INFO] 17:57:48:482 mi_ram.c/(4638:5713): Entre a eliminar tripulante segmentacion PID: 0 TID: 0
+[INFO] 17:57:48:482 mi_ram.c/(4638:5713): Tamanio de la lista referencias: 2
+[INFO] 17:57:48:483 mi_ram.c/(4638:5713): La referencia a la patota no es nula
+[INFO] 17:57:48:483 mi_ram.c/(4638:5713): Encontre el segmento del tripulante a eliminar. Base: 175, tamanio: 21
+[INFO] 17:57:48:483 mi_ram.c/(4638:5713): Tamanio de la tabla de la patota 0 antes del remove: 5
+[INFO] 17:57:48:483 mi_ram.c/(4638:5713): Tamanio de la tabla de la patota 0 despues del remove: 4
+[INFO] 17:57:48:483 mi_ram.c/(4638:5713): Entre a es el ultimo tripulante
+[INFO] 17:57:54:497 mi_ram.c/(4638:5754): Entre a eliminar tripulante segmentacion PID: 0 TID: 2
+[INFO] 17:57:54:497 mi_ram.c/(4638:5754): Tamanio de la lista referencias: 2
+[INFO] 17:57:54:497 mi_ram.c/(4638:5754): La referencia a la patota no es nula
+[INFO] 17:57:54:497 mi_ram.c/(4638:5754): Encontre el segmento del tripulante a eliminar. Base: 438, tamanio: 21
+[INFO] 17:57:54:497 mi_ram.c/(4638:5754): Tamanio de la tabla de la patota 0 antes del remove: 4
+[INFO] 17:57:54:497 mi_ram.c/(4638:5754): Tamanio de la tabla de la patota 0 despues del remove: 3
+[INFO] 17:57:54:498 mi_ram.c/(4638:5754): Entre a es el ultimo tripulante
+[INFO] 17:58:00:486 mi_ram.c/(4638:5788): Entre a eliminar tripulante segmentacion PID: 1 TID: 3
+[INFO] 17:58:00:486 mi_ram.c/(4638:5788): Tamanio de la lista referencias: 2
+[INFO] 17:58:00:486 mi_ram.c/(4638:5788): La referencia a la patota no es nula
+[INFO] 17:58:00:486 mi_ram.c/(4638:5788): Encontre el segmento del tripulante a eliminar. Base: 375, tamanio: 21
+[INFO] 17:58:00:486 mi_ram.c/(4638:5788): Tamanio de la tabla de la patota 1 antes del remove: 5
+[INFO] 17:58:00:486 mi_ram.c/(4638:5788): Tamanio de la tabla de la patota 1 despues del remove: 4
+[INFO] 17:58:00:486 mi_ram.c/(4638:5788): Entre a es el ultimo tripulante
+[INFO] 17:58:00:488 mi_ram.c/(4638:5790): Entre a eliminar tripulante segmentacion PID: 0 TID: 1
+[INFO] 17:58:00:488 mi_ram.c/(4638:5790): Tamanio de la lista referencias: 2
+[INFO] 17:58:00:488 mi_ram.c/(4638:5790): La referencia a la patota no es nula
+[INFO] 17:58:00:488 mi_ram.c/(4638:5790): Encontre el segmento del tripulante a eliminar. Base: 396, tamanio: 21
+[INFO] 17:58:00:488 mi_ram.c/(4638:5790): Tamanio de la tabla de la patota 0 antes del remove: 3
+[INFO] 17:58:00:488 mi_ram.c/(4638:5790): Tamanio de la tabla de la patota 0 despues del remove: 2
+[INFO] 17:58:00:488 mi_ram.c/(4638:5790): Entre a es el ultimo tripulante
+[INFO] 17:58:06:488 mi_ram.c/(4638:5820): Entre a eliminar tripulante segmentacion PID: 1 TID: 5
+[INFO] 17:58:06:488 mi_ram.c/(4638:5820): Tamanio de la lista referencias: 1
+[INFO] 17:58:06:488 mi_ram.c/(4638:5820): La referencia a la patota no es nula
+[INFO] 17:58:06:488 mi_ram.c/(4638:5820): Encontre el segmento del tripulante a eliminar. Base: 459, tamanio: 21
+[INFO] 17:58:06:488 mi_ram.c/(4638:5820): Tamanio de la tabla de la patota 1 antes del remove: 4
+[INFO] 17:58:06:488 mi_ram.c/(4638:5820): Tamanio de la tabla de la patota 1 despues del remove: 3
+[INFO] 17:58:06:488 mi_ram.c/(4638:5820): Entre a es el ultimo tripulante
+[INFO] 17:58:12:490 mi_ram.c/(4638:5844): Entre a eliminar tripulante segmentacion PID: 1 TID: 4
+[INFO] 17:58:12:490 mi_ram.c/(4638:5844): Tamanio de la lista referencias: 1
+[INFO] 17:58:12:490 mi_ram.c/(4638:5844): La referencia a la patota no es nula
+[INFO] 17:58:12:490 mi_ram.c/(4638:5844): Encontre el segmento del tripulante a eliminar. Base: 417, tamanio: 21
+[INFO] 17:58:12:490 mi_ram.c/(4638:5844): Tamanio de la tabla de la patota 1 antes del remove: 3
+[INFO] 17:58:12:490 mi_ram.c/(4638:5844): Tamanio de la tabla de la patota 1 despues del remove: 2
+[INFO] 17:58:12:490 mi_ram.c/(4638:5844): Entre a es el ultimo tripulante
+[INFO] 18:03:34:866 mi_ram.c/(6380:6499): INgrese a buscarEspacioNecesario
+[INFO] 18:03:34:872 mi_ram.c/(6380:6499): Antes del mutex
+[INFO] 18:03:34:872 mi_ram.c/(6380:6499): no apunta a nulo la tabla global
+[INFO] 18:03:34:872 mi_ram.c/(6380:6499): Tamanio tabla global :1
+[INFO] 18:03:34:867 mi_ram.c/(6380:6501): INgrese a buscarEspacioNecesario
+[INFO] 18:03:34:872 mi_ram.c/(6380:6501): Antes del mutex
+[INFO] 18:03:34:872 mi_ram.c/(6380:6501): no apunta a nulo la tabla global
+[INFO] 18:03:34:872 mi_ram.c/(6380:6501): Tamanio tabla global :1
+[INFO] 18:03:34:872 mi_ram.c/(6380:6497): INgrese a buscarEspacioNecesario
+[INFO] 18:03:34:872 mi_ram.c/(6380:6497): Antes del mutex
+[INFO] 18:03:34:872 mi_ram.c/(6380:6497): no apunta a nulo la tabla global
+[INFO] 18:03:34:873 mi_ram.c/(6380:6497): Tamanio tabla global :1
+[INFO] 18:03:34:872 mi_ram.c/(6380:6503): INgrese a buscarEspacioNecesario
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): Antes del mutex
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): no apunta a nulo la tabla global
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): Tamanio tabla global :1
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): Ingrese a first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): Entre al mutex first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): Despues del sort
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): Segmento libre que empieza en: 0 y tiene un tamanio de: 2048
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): El segmento elegido empieza en: 0 y tiene un tamanio de: 2048
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): Ingrese a first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): Entre al mutex first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): Despues del sort
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): Segmento libre que empieza en: 8 y tiene un tamanio de: 2040
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): El segmento elegido empieza en: 8 y tiene un tamanio de: 2040
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): Ingrese a first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): Entre al mutex first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): Despues del sort
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): Segmento libre que empieza en: 16 y tiene un tamanio de: 2032
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): El segmento elegido empieza en: 16 y tiene un tamanio de: 2032
+[INFO] 18:03:34:873 mi_ram.c/(6380:6497): Ingrese a first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6497): Entre al mutex first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6497): Despues del sort
+[INFO] 18:03:34:873 mi_ram.c/(6380:6497): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:873 mi_ram.c/(6380:6497): Segmento libre que empieza en: 24 y tiene un tamanio de: 2024
+[INFO] 18:03:34:873 mi_ram.c/(6380:6497): El segmento elegido empieza en: 24 y tiene un tamanio de: 2024
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): Ingrese a first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): Entre al mutex first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): Despues del sort
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): Segmento libre que empieza en: 32 y tiene un tamanio de: 2016
+[INFO] 18:03:34:873 mi_ram.c/(6380:6499): El segmento elegido empieza en: 32 y tiene un tamanio de: 2016
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): Ingrese a first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): Entre al mutex first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): Despues del sort
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): Segmento libre que empieza en: 58 y tiene un tamanio de: 1990
+[INFO] 18:03:34:873 mi_ram.c/(6380:6501): El segmento elegido empieza en: 58 y tiene un tamanio de: 1990
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): Ingrese a first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): Entre al mutex first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): Despues del sort
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): Segmento libre que empieza en: 88 y tiene un tamanio de: 1960
+[INFO] 18:03:34:873 mi_ram.c/(6380:6503): El segmento elegido empieza en: 88 y tiene un tamanio de: 1960
+[INFO] 18:03:34:873 mi_ram.c/(6380:6497): Ingrese a first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6497): Entre al mutex first fit
+[INFO] 18:03:34:873 mi_ram.c/(6380:6497): Despues del sort
+[INFO] 18:03:34:874 mi_ram.c/(6380:6497): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:874 mi_ram.c/(6380:6497): Segmento libre que empieza en: 110 y tiene un tamanio de: 1938
+[INFO] 18:03:34:874 mi_ram.c/(6380:6497): El segmento elegido empieza en: 110 y tiene un tamanio de: 1938
+[INFO] 18:03:34:874 mi_ram.c/(6380:6499): Ingrese a first fit
+[INFO] 18:03:34:874 mi_ram.c/(6380:6499): Entre al mutex first fit
+[INFO] 18:03:34:874 mi_ram.c/(6380:6499): Despues del sort
+[INFO] 18:03:34:874 mi_ram.c/(6380:6499): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:874 mi_ram.c/(6380:6499): Segmento libre que empieza en: 135 y tiene un tamanio de: 1913
+[INFO] 18:03:34:874 mi_ram.c/(6380:6499): El segmento elegido empieza en: 135 y tiene un tamanio de: 1913
+[INFO] 18:03:34:874 mi_ram.c/(6380:6497): Ingrese a first fit
+[INFO] 18:03:34:874 mi_ram.c/(6380:6497): Entre al mutex first fit
+[INFO] 18:03:34:874 mi_ram.c/(6380:6497): Despues del sort
+[INFO] 18:03:34:874 mi_ram.c/(6380:6497): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:874 mi_ram.c/(6380:6497): Segmento libre que empieza en: 156 y tiene un tamanio de: 1892
+[INFO] 18:03:34:874 mi_ram.c/(6380:6497): El segmento elegido empieza en: 156 y tiene un tamanio de: 1892
+[INFO] 18:03:34:874 mi_ram.c/(6380:6501): Ingrese a first fit
+[INFO] 18:03:34:874 mi_ram.c/(6380:6501): Entre al mutex first fit
+[INFO] 18:03:34:874 mi_ram.c/(6380:6501): Despues del sort
+[INFO] 18:03:34:874 mi_ram.c/(6380:6501): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:874 mi_ram.c/(6380:6501): Segmento libre que empieza en: 177 y tiene un tamanio de: 1871
+[INFO] 18:03:34:874 mi_ram.c/(6380:6501): El segmento elegido empieza en: 177 y tiene un tamanio de: 1871
+[INFO] 18:03:34:874 mi_ram.c/(6380:6503): Ingrese a first fit
+[INFO] 18:03:34:874 mi_ram.c/(6380:6503): Entre al mutex first fit
+[INFO] 18:03:34:874 mi_ram.c/(6380:6503): Despues del sort
+[INFO] 18:03:34:874 mi_ram.c/(6380:6503): El tamanio de segmentosLibres: 1
+[INFO] 18:03:34:874 mi_ram.c/(6380:6503): Segmento libre que empieza en: 198 y tiene un tamanio de: 1850
+[INFO] 18:03:34:874 mi_ram.c/(6380:6503): El segmento elegido empieza en: 198 y tiene un tamanio de: 1850
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): INgrese a buscarEspacioNecesario
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Antes del mutex
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): no apunta a nulo la tabla global
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Tamanio tabla global :1
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Ingrese a first fit
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Entre al mutex first fit
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Despues del sort
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Segmento libre que empieza en: 0 y tiene un tamanio de: 2048
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): El segmento elegido empieza en: 0 y tiene un tamanio de: 2048
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Ingrese a first fit
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Entre al mutex first fit
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Despues del sort
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Segmento libre que empieza en: 8 y tiene un tamanio de: 2040
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): El segmento elegido empieza en: 8 y tiene un tamanio de: 2040
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Ingrese a first fit
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Entre al mutex first fit
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Despues del sort
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): Segmento libre que empieza en: 38 y tiene un tamanio de: 2010
+[INFO] 18:04:25:991 mi_ram.c/(6595:6634): El segmento elegido empieza en: 38 y tiene un tamanio de: 2010
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): INgrese a buscarEspacioNecesario
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Antes del mutex
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): no apunta a nulo la tabla global
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Tamanio tabla global :4
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Ingrese a first fit
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Entre al mutex first fit
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Despues del sort
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Segmento libre que empieza en: 59 y tiene un tamanio de: 1989
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): El segmento elegido empieza en: 59 y tiene un tamanio de: 1989
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Ingrese a first fit
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Entre al mutex first fit
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Despues del sort
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Segmento libre que empieza en: 67 y tiene un tamanio de: 1981
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): El segmento elegido empieza en: 67 y tiene un tamanio de: 1981
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Ingrese a first fit
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Entre al mutex first fit
+[INFO] 18:04:25:992 mi_ram.c/(6595:6636): Despues del sort
+[INFO] 18:04:25:993 mi_ram.c/(6595:6636): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:993 mi_ram.c/(6595:6636): Segmento libre que empieza en: 89 y tiene un tamanio de: 1959
+[INFO] 18:04:25:993 mi_ram.c/(6595:6636): El segmento elegido empieza en: 89 y tiene un tamanio de: 1959
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): INgrese a buscarEspacioNecesario
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Antes del mutex
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): no apunta a nulo la tabla global
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Tamanio tabla global :7
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Ingrese a first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Entre al mutex first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Despues del sort
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Segmento libre que empieza en: 110 y tiene un tamanio de: 1938
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): El segmento elegido empieza en: 110 y tiene un tamanio de: 1938
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Ingrese a first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Entre al mutex first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Despues del sort
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Segmento libre que empieza en: 118 y tiene un tamanio de: 1930
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): El segmento elegido empieza en: 118 y tiene un tamanio de: 1930
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Ingrese a first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Entre al mutex first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Despues del sort
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): Segmento libre que empieza en: 144 y tiene un tamanio de: 1904
+[INFO] 18:04:25:993 mi_ram.c/(6595:6632): El segmento elegido empieza en: 144 y tiene un tamanio de: 1904
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): INgrese a buscarEspacioNecesario
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Antes del mutex
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): no apunta a nulo la tabla global
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Tamanio tabla global :10
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Ingrese a first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Entre al mutex first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Despues del sort
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Segmento libre que empieza en: 165 y tiene un tamanio de: 1883
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): El segmento elegido empieza en: 165 y tiene un tamanio de: 1883
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Ingrese a first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Entre al mutex first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Despues del sort
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Segmento libre que empieza en: 173 y tiene un tamanio de: 1875
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): El segmento elegido empieza en: 173 y tiene un tamanio de: 1875
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Ingrese a first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Entre al mutex first fit
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Despues del sort
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): El tamanio de segmentosLibres: 1
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): Segmento libre que empieza en: 198 y tiene un tamanio de: 1850
+[INFO] 18:04:25:993 mi_ram.c/(6595:6630): El segmento elegido empieza en: 198 y tiene un tamanio de: 1850

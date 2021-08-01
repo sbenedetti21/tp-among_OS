@@ -671,7 +671,7 @@ void llenarBlocksRecursos(char *recurso, int cantALlenar){
 	}
 
 	actualizarMD5(recurso);
-}
+} 
 
 void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 	int cantFaltante = cantAVaciar;
@@ -717,7 +717,11 @@ void generarRecurso(char *recurso, int cantidadALlenar, uint32_t idTripulante){
 	log_info(loggerImongoStore,"Tripulante %d genera %d de %s",idTripulante, cantidadALlenar, recurso);
 
 	char *ubicacionArchivoRecurso = string_from_format("%s/Files/%s.ims",puntoDeMontaje,recurso);
-
+	
+	char *comienzaLaTarea = string_from_format("Comienza la ejecucion de la tarea GENERAR_%s\n",recurso);
+	llenarBlocksBitcoras(comienzaLaTarea,idTripulante);
+	free(comienzaLaTarea);
+	
 	sem_wait(&semaforoArchivoRecurso);
 	if(access(ubicacionArchivoRecurso, F_OK ))
 		creacionFileRecurso(recurso[0], ubicacionArchivoRecurso);		

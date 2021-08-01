@@ -6,8 +6,7 @@
 // FRAN: INICIAR_PATOTA 5 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/tareas.txt 0|5 2|1 9|2 6|4
 // BENE: INICIAR_PATOTA 1 /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Discordiador/PAG_PatotaA.txt 1|1
 /* 
-DIFI:   
-  
+DIFI:    
 INICIAR_PATOTA 3 ES3_Patota1.txt 9|9 0|0 5|5
 INICIAR_PATOTA 3 ES3_Patota2.txt 4|0 2|6 8|2
 INICIAR_PATOTA 3 ES3_Patota3.txt 2|3 5|8 5|3
@@ -37,10 +36,10 @@ INICIAR_PATOTA 3 FS_PatotaB.txt
 855
 
 //SABOTAJE
-INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaA.txt 0|0
-INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaB.txt 8|0
-INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaC.txt 8|8
-INICIAR_PATOTA 1 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/FSCK_PatotaD.txt 0|8
+INICIAR_PATOTA 1 FSCK_PatotaA.txt 0|0
+INICIAR_PATOTA 1 FSCK_PatotaB.txt 8|0
+INICIAR_PATOTA 1 FSCK_PatotaC.txt 8|8
+INICIAR_PATOTA 1 FSCK_PatotaD.txt 0|8
 
 
 definitely lost: 1,176 bytes in 78 blocks
@@ -1402,7 +1401,6 @@ void serializarYMandarPosicion(TCB_DISCORDIADOR * tripulante){
 
 	buffer-> stream = stream; 
 
-	if(haySabotaje){ sem_wait(&semaforoSabotaje);}
 	if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
 
 	mandarPaqueteSerializado(buffer, socketMIRAM, ACTUALIZAR_POS);  

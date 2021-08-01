@@ -37,7 +37,7 @@ int main(int argc, char ** argv){
 
 	return 0; 
 }  
-
+ 
 void leerConfig(){
 
 	t_config * config = config_create("./cfg/miram.config");
