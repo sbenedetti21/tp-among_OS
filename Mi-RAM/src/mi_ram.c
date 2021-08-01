@@ -373,7 +373,7 @@ void * atenderDiscordiador(void * socket){
 			mandarPaqueteSerializado(buffer, socketCliente, NO_HAY_TAREA);
 
 			//mem_hexdump(memoriaPrincipal, tamanioMemoria);
-			if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {sleep(2);}
+			//if (strcmp(esquemaMemoria, "SEGMENTACION") == 0) {sleep(2);}
 			
 			 
 			eliminarTripulante(pid, tid);
@@ -997,6 +997,9 @@ void actualizarPosicionTripulanteSegmentacion(uint32_t idPatota, uint32_t idTrip
 
 void actualizarEstadoTripulanteSegmentacion(uint32_t pid, uint32_t tid, char estadoNuevo){
 	uint32_t direccionTripulante = obtenerDireccionTripulanteSegmentacion(pid, tid); 
+	if(direccionTripulante == tamanioMemoria + 1){
+		return ;
+	}
 	//printf("Entre a actualizar estado \n");
 	pthread_mutex_lock(&mutexMemoriaPrincipal); 
 	//printf("Entre al mutex de actualizar estado \n");
