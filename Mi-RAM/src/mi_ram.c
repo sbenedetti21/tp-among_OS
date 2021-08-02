@@ -1147,14 +1147,10 @@ void compactarMemoriaSegmentacion(){
 
 	compactacion = true; 
 	
-	
-	 
+	pthread_mutex_lock(&mutexListaReferenciasPatotas);
+	pthread_mutex_lock(&mutexTablaSegmentosGlobal); 
 	log_info(loggerMiram, "Iniciando compactacion de la memoria...");
-	if(strcmp(criterioSeleccion, "BEST_FIT") == 0){
-		//sleep(1);
-	}else{
-		sleep(2); 
-	}
+	
 	
 	//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 	
@@ -1215,6 +1211,9 @@ void compactarMemoriaSegmentacion(){
 
 	//mem_hexdump(memoriaPrincipal, tamanioMemoria);
 
+	pthread_mutex_unlock(&mutexTablaSegmentosGlobal);
+	pthread_mutex_unlock(&mutexListaReferenciasPatotas); 
+	
 	compactacion = false; 
 	int valorSemaforo = 0;
 	sem_getvalue(&semaforoCompactacion, &valorSemaforo);
