@@ -84,7 +84,7 @@ void servidorPrincipal() {
 			
 		}
 
-		//free(receptorDiscordiador); 
+		free(receptorDiscordiador); 
 		     
 		
 	}
@@ -97,6 +97,7 @@ void * atenderDiscordiador(void * socket){
 	
 	int socketCliente = 0; 
 	memcpy(&socketCliente, socket, 4);
+	free(socket);
 
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->buffer = malloc(sizeof(t_buffer));
@@ -341,10 +342,10 @@ void * atenderDiscordiador(void * socket){
 		log_info(loggerMiram, "Tripulante %d (perteneciente a la patota %d) pidio una tarea.", tid, pid); 
 
 	 	
-		char * stringTarea = malloc(40); //este es el string de tareas que despues tenes que cambiar por el que uses
+		//char * stringTarea = malloc(40); //este es el string de tareas que despues tenes que cambiar por el que uses
 		
 		
-		stringTarea = obtenerProximaTarea(pid, tid); 
+		char * stringTarea = obtenerProximaTarea(pid, tid); 
 		
 		int tamanioTarea = strlen(stringTarea) + 1;
 
@@ -471,7 +472,11 @@ void * atenderDiscordiador(void * socket){
 		break;
 	}
 
+	
 	close(socketCliente);
+	free(paquete->buffer->stream);
+	free(paquete->buffer);
+	free(paquete);
 	return NULL;
 
 }
@@ -564,6 +569,10 @@ void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
 	memcpy(a_enviar + offset2, paquete->buffer-> stream, paquete->buffer->size);
 
 	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
+
+	free(paquete->buffer->stream);
+	free(paquete->buffer);
+	free(paquete);
 
 }
 
@@ -1283,7 +1292,7 @@ void dumpMemoriaSegmentacion(){
 				t_segmento * segmentoActual = list_get(segmentosOcupados, x); 
 				char * escribirSegmento = string_from_format("Proceso: %2d ---- Segmento: %2d -- Inicio: %3d -- Tamanio: %3d \n", referenciaActual->pid, x, segmentoActual->base, segmentoActual->tamanio); 
 				fwrite(escribirSegmento, strlen(escribirSegmento), 1, dump); 
-				
+				free(escribirSegmento);
 			}
 		}
 	}else{
@@ -1868,6 +1877,10 @@ void eliminarTripulantePaginacion(uint32_t pid, uint32_t tid){
 		list_destroy_and_destroy_elements(listaPaginas, free);
 		pthread_mutex_unlock(&(referenciaTabla->semaforoPatota));
 		free(referenciaTabla);
+		pthread_mutex_lock(&mutexListaTripulantes);
+		list_remove_and_destroy_by_condition(listaTripulantes, coincideTID, free);
+		pthread_mutex_unlock(&mutexListaTripulantes);
+		return;
 	}
     pthread_mutex_lock(&mutexListaTripulantes);
 	list_remove_and_destroy_by_condition(listaTripulantes, coincideTID, free);

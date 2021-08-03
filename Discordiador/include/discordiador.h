@@ -32,7 +32,7 @@ typedef struct tcb_discordiador{
 
 bool planificacionPausada = false;
 
-int proximoTID = 1;
+int proximoTID = 0;
 sem_t semaforoTripulantes; 
 sem_t consultarSiHayVacios;
 sem_t esperarAlgunTripulante; 
