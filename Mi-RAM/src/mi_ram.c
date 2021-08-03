@@ -129,7 +129,7 @@ void * atenderDiscordiador(void * socket){
 	{
 	case INICIAR_PATOTA: ; 
 
-	log_info(loggerMiram, "Header 0 recibido: INICIAR PATOTA"); 
+	log_info(loggerSegmentacion, "Header 0 recibido: INICIAR PATOTA"); 
 		
 		// Deserializamos tareas
 		int tamanioTareas;
@@ -303,7 +303,7 @@ void * atenderDiscordiador(void * socket){
 					memcpy(streamPatota + offset, &direccionPCB, sizeof(uint32_t));
 					offset += sizeof(uint32_t);
 				};
-				log_info(loggerMiram, "streamPatota a ser alojado en memoria %s", mem_hexstring(streamPatota, memoriaNecesaria));
+				//log_info(loggerMiram, "streamPatota a ser alojado en memoria %s", mem_hexstring(streamPatota, memoriaNecesaria));
 
 				//mem_hexdump(streamPatota, memoriaNecesaria);
 				
@@ -324,7 +324,7 @@ void * atenderDiscordiador(void * socket){
 		break;
 
 	case PEDIR_TAREA: ;
-		log_info(loggerMiram, "Header 1 recibido: PEDIR TAREA"); 
+		log_info(loggerSegmentacion, "Header 1 recibido: PEDIR TAREA"); 
 	
 
 		// void* stream = malloc(paquete->buffer->size);
@@ -349,6 +349,7 @@ void * atenderDiscordiador(void * socket){
 		int tamanioTarea = strlen(stringTarea) + 1;
 
 		if(strcmp(stringTarea, "TRIPULANTE_ELIMINADO") == 0){ break;}
+		//if(strcmp(esquemaMemoria, "PAGINACION") == 0) {dumpDeMemoriaPaginacion();}
 	
 
 		if(strcmp(stringTarea, "NO_HAY_TAREA") == 0){ //Esto cambialo cuando sepas si hay tarea o no
@@ -407,7 +408,7 @@ void * atenderDiscordiador(void * socket){
 
 	case ACTUALIZAR_POS: ;
 
-		log_info(loggerMiram, "Header 4 recibido: ACTUALIZAR POSICION"); 
+		log_info(loggerSegmentacion, "Header 4 recibido: ACTUALIZAR POSICION"); 
 	
 		
 		uint32_t tripulanteid = 0, patotaid = 0, posx = 0, posy = 0;
@@ -431,7 +432,7 @@ void * atenderDiscordiador(void * socket){
 
 	case ACTUALIZAR_ESTADO: ;
 
-		log_info(loggerMiram, "Header 5 recibido: ACTUALIZAR ESTADO"); 
+		log_info(loggerSegmentacion, "Header 5 recibido: ACTUALIZAR ESTADO"); 
 		uint32_t trip = 0, pat = 0;
 		char estadoNuevo = 'a';
 		
@@ -448,7 +449,7 @@ void * atenderDiscordiador(void * socket){
  
 	case EXPULSAR_TRIPULANTE: ;
 
-		log_info(loggerMiram, "Header 6 recibido: EXPULSAR TRIPULANTE"); 
+		log_info(loggerSegmentacion, "Header 6 recibido: EXPULSAR TRIPULANTE"); 
 		
 		uint32_t tripid = 0, patid = 0;
 		
@@ -1874,8 +1875,6 @@ void eliminarTripulantePaginacion(uint32_t pid, uint32_t tid){
 	pthread_mutex_lock(&(referenciaTabla->semaforoPatota)); 
 	referenciaTabla->contadorTCB--;
 	pthread_mutex_unlock(&(referenciaTabla->semaforoPatota));
-
-	dumpDeMemoriaPaginacion();
 
 }
 

@@ -1114,7 +1114,7 @@ bool verificarSize(char *ubicacionRecurso){
             int blockOcupado = atoi(listaBlocks[i]) - 1;
 
 			sizeReal += reemplazarSizeBloque(blockOcupado);
-			free(listaBlocks[i]);
+			free(listaBlocks[i]); 
 	    } 
         
 		if(sizeAuxiliar != sizeReal){
