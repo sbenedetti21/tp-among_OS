@@ -18,7 +18,7 @@ INICIAR_PATOTA 3 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota2.txt 4
 INICIAR_PATOTA 3 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota3.txt 2|3 5|8 5|3
 INICIAR_PATOTA 3 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota4.txt 0|9 4|4 9|0
 INICIAR_PATOTA 3 /home/utnso/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota5.txt 0|2 9|6 3|5
-
+ 
 INICIAR_PATOTA 3 /home/facundin/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota1.txt 9|9 0|0 5|5
 INICIAR_PATOTA 3 /home/facundin/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota2.txt 4|0 2|6 8|2
 INICIAR_PATOTA 3 /home/facundin/TPCUATRI/a-mongos-pruebas/Finales/ES3_Patota3.txt 2|3 5|8 5|3
