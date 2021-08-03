@@ -167,8 +167,8 @@ void consola(){
 		}
 		
 
-		if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0){
-
+		else if(strcmp(vectorInstruccion[0], "INICIAR_PLANIFICACION") == 0){
+				
 				if(planificacionPausada){
 
 				ponerReadyNuevosTripulantes();
@@ -191,13 +191,13 @@ void consola(){
 
 		}	
 
-		if(strcmp(vectorInstruccion[0], "LISTAR_TRIPULANTES") == 0) {
+		else if(strcmp(vectorInstruccion[0], "LISTAR_TRIPULANTES") == 0) {
 			
 			listarTripulantes();
 
 		}
 	
-		if(strcmp(vectorInstruccion[0], "EXPULSAR_TRIPULANTE") == 0) {
+		else if(strcmp(vectorInstruccion[0], "EXPULSAR_TRIPULANTE") == 0) {
 
 			bool coincideID(TCB_DISCORDIADOR * tripulantee){
 				return tripulantee->tid ==  atoi(vectorInstruccion[1]);
@@ -211,20 +211,24 @@ void consola(){
 		}
 		
 		
-		if(strcmp(vectorInstruccion[0], "PAUSAR_PLANIFICACION") == 0) {
+		else if(strcmp(vectorInstruccion[0], "PAUSAR_PLANIFICACION") == 0) {
 
 			planificacionPausada = true;
 
 		}
 
-		if(strcmp(vectorInstruccion[0], "OBTENER_BITACORA") == 0) {
+		else if(strcmp(vectorInstruccion[0], "OBTENER_BITACORA") == 0) {
 			serializarYMandarPedidoDeBitacora(atoi(vectorInstruccion[1]));
 			free(vectorInstruccion[1]);
 		}
 
-		if(strcmp(vectorInstruccion[0], "EXIT") == 0){
+		else if(strcmp(vectorInstruccion[0], "EXIT") == 0){
 			log_info(loggerDiscordiador, "-------------PROGRAMA TERMINADO-------------"); 
 			return 0; 
+		}
+
+		else{
+			printf("Instruccion invalida \n"); 
 		}
 
 		free(vectorInstruccion[0]);
@@ -243,6 +247,10 @@ void consola(){
 
 void iniciarPatota(char ** vectorInstruccion){
 
+	char * tareas = leerTareas(vectorInstruccion[2]);
+	if(strcmp(tareas, "ERROR") == 0){
+		return; 
+	}
 	int socket = conectarMiRAM();
 
 				int i;
@@ -281,7 +289,7 @@ void iniciarPatota(char ** vectorInstruccion){
 					
 				}  
 				
-				serializarYMandarPCB(vectorInstruccion[2],socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
+				serializarYMandarPCB(tareas,socket, idPatota, cantidadTripulantes, listaTCBsNuevos);
 
 				int header;
 				recv(socket, &(header) , sizeof(int), 0);
@@ -943,28 +951,17 @@ void subModuloTripulante(TCB_DISCORDIADOR * tripulante) {
 																expulsarTripulate(tripulante);
 																	 break; 
 			 													}
-																log_info(loggerDiscordiador, "Tripulante  %d le faltan %ds para terminar la tarea y le queda %d quantum restante", tripulante->tid, tarea->tiempo, quantum-contador);
+																//log_info(loggerDiscordiador, "Tripulante  %d le faltan %ds para terminar la tarea y le queda %d quantum restante", tripulante->tid, tarea->tiempo, quantum-contador);
 
 													
 																	}
 
 
-												// if(!tareaTerminada){
-												// if( tripulante->fueExpulsado){
-												// expulsarTripulate(tripulante);
-												//  break; 
-												//  }
-												// if(haySabotaje){ sem_wait(&semaforoSabotaje);}
-												// if(planificacionPausada){sem_wait(&semaforoPlanificacionPausada);}
-												// cambiarDeEstado(tripulante,'R');
-												// sem_post(&esperarAlgunTripulante);
-												// sem_post(&semaforoTripulantes);} 
+												
 		
 											}
 
-			// if(planificacionPausada){
-			// 	cambiarDeEstado(tripulante,'B');				
-			// }
+			
 
 
 		}
@@ -998,7 +995,7 @@ void ponerATrabajar(){
 			sem_wait(&esperarAlgunTripulante);
 
 			sem_wait(&cambiarAReady);
-			log_info(loggerDiscordiador,"SANDRO");
+			
 			TCB_DISCORDIADOR* tripulantee = list_get(listaReady, 0);
 			sem_post(&cambiarAReady);
 
@@ -1206,7 +1203,8 @@ char * leerTareas(char* nombreTareas) {
 	FILE* archivo = fopen(pathTareas,"r");
 	if (archivo == NULL)
 	{
-		printf("no pude abrir las tareas :( \n");
+		printf("El path de tareas recibido es invalido \n");
+		return "ERROR"; 
 	}
 	else 
 	{
@@ -1271,11 +1269,11 @@ void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
 }
 
 
-void serializarYMandarPCB(char * pathTareas, int socket, uint32_t pid, int cantidadTCB, t_list * listaTCBS){
+void serializarYMandarPCB(char * tareas, int socket, uint32_t pid, int cantidadTCB, t_list * listaTCBS){
 
 	int  offset = 0;
 	
-	char * tareas = leerTareas(pathTareas);
+	
 	int  tamanioTareas = strlen(tareas);
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));   //HECHO
@@ -1319,7 +1317,7 @@ void serializarYMandarPCB(char * pathTareas, int socket, uint32_t pid, int canti
 	mandarPaqueteSerializado(buffer, socket, INICIAR_PATOTA);
 
 	close(socket);
-	free(pathTareas);
+	
 	free(tareas);
 }
 
