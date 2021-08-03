@@ -277,7 +277,7 @@ void * atenderDiscordiador(void * socket){
 					// tripu->idPatota = pid;
 					// tripu->longitudTareas = tamanioTareas;
 					int tid = 0;
-					memcpy(&tid, stream, 4);
+					memcpy(&tid, stream, 4); 
 					uint32_t x = 0;
 					uint32_t y = 0;
 				
