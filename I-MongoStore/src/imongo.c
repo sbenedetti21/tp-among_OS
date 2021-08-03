@@ -1110,7 +1110,7 @@ bool verificarSize(char *ubicacionRecurso){
 	
 	return false;
 }
-
+ 
 bool sabotajeFile(){
     log_info(loggerImongoStore,"Comienza el proceso de verificacion en los Files");
 

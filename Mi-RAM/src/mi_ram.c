@@ -405,6 +405,8 @@ void * atenderDiscordiador(void * socket){
 			
 		}
 
+		free(stringTarea);
+
 		break;  
 
 	case ACTUALIZAR_POS: ;
@@ -570,6 +572,7 @@ void mandarPaqueteSerializado(t_buffer * buffer, int socket, int header){
 
 	send(socket, a_enviar, buffer->size + sizeof(uint32_t) + sizeof(int),0);
 
+	free(a_enviar);
 	free(paquete->buffer->stream);
 	free(paquete->buffer);
 	free(paquete);
@@ -1401,7 +1404,7 @@ bool seEncuentraPrimeroEnMemoria(t_segmento * unSegmento, t_segmento* otroSegmen
 		 return false; 
 	 }
 }
-
+ 
 
 // -------------------- PAGINACION ------------------------------
 

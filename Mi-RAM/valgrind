@@ -1,245 +1,133 @@
-==21316== Memcheck, a memory error detector
-==21316== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==21316== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==21316== Command: ./mi_ram
-==21316== Parent PID: 21314
-==21316== 
-==21316== 
-==21316== HEAP SUMMARY:
-==21316==     in use at exit: 102,920 bytes in 670 blocks
-==21316==   total heap usage: 8,196 allocs, 7,526 frees, 323,082 bytes allocated
-==21316== 
-==21316== 16 (8 direct, 8 indirect) bytes in 1 blocks are definitely lost in loss record 27 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804AF60: bestFitSegmentacion (mi_ram.c:753)
-==21316==    by 0x804B024: bestFitSegmentacion (mi_ram.c:776)
-==21316==    by 0x804AE7E: buscarSegmentoLibre (mi_ram.c:741)
-==21316==    by 0x804B87B: asignarMemoriaSegmentacionTareas (mi_ram.c:964)
-==21316==    by 0x8049B61: atenderDiscordiador (mi_ram.c:196)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 16 (8 direct, 8 indirect) bytes in 1 blocks are definitely lost in loss record 28 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804B03E: bestFitSegmentacion (mi_ram.c:779)
-==21316==    by 0x804B024: bestFitSegmentacion (mi_ram.c:776)
-==21316==    by 0x804AE7E: buscarSegmentoLibre (mi_ram.c:741)
-==21316==    by 0x804B87B: asignarMemoriaSegmentacionTareas (mi_ram.c:964)
-==21316==    by 0x8049B61: atenderDiscordiador (mi_ram.c:196)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 16 (8 direct, 8 indirect) bytes in 1 blocks are definitely lost in loss record 29 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804C66A: dumpMemoriaSegmentacion (mi_ram.c:1263)
-==21316==    by 0x804AC95: sig_handler (mi_ram.c:677)
-==21316==    by 0x40D0F37: ??? (in /lib/i386-linux-gnu/libc-2.23.so)
-==21316== 
-==21316== 18 bytes in 1 blocks are definitely lost in loss record 30 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x411A2C5: strdup (strdup.c:42)
-==21316==    by 0x405727A: temporal_get_string_time (in /usr/lib/libcommons.so)
-==21316==    by 0x804C601: dumpMemoriaSegmentacion (mi_ram.c:1256)
-==21316==    by 0x804AC95: sig_handler (mi_ram.c:677)
-==21316==    by 0x40D0F37: ??? (in /lib/i386-linux-gnu/libc-2.23.so)
-==21316== 
-==21316== 20 bytes in 5 blocks are definitely lost in loss record 34 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x804A851: mandarPaqueteSerializado (mi_ram.c:555)
-==21316==    by 0x804A1E5: atenderDiscordiador (mi_ram.c:375)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 24 bytes in 3 blocks are definitely lost in loss record 46 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x804A94B: crearPCB (mi_ram.c:582)
-==21316==    by 0x8049A9E: atenderDiscordiador (mi_ram.c:181)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 24 bytes in 3 blocks are definitely lost in loss record 47 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x8049ABA: atenderDiscordiador (mi_ram.c:183)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 32 (16 direct, 16 indirect) bytes in 2 blocks are definitely lost in loss record 48 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804B03E: bestFitSegmentacion (mi_ram.c:779)
-==21316==    by 0x804AE7E: buscarSegmentoLibre (mi_ram.c:741)
-==21316==    by 0x804B87B: asignarMemoriaSegmentacionTareas (mi_ram.c:964)
-==21316==    by 0x8049B61: atenderDiscordiador (mi_ram.c:196)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 34 bytes in 1 blocks are definitely lost in loss record 49 of 126
-==21316==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x40542D4: string_append (in /usr/lib/libcommons.so)
-==21316==    by 0x4054C5A: _string_append_with_format_list (in /usr/lib/libcommons.so)
-==21316==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
-==21316==    by 0x405435E: string_from_format (in /usr/lib/libcommons.so)
-==21316==    by 0x804C617: dumpMemoriaSegmentacion (mi_ram.c:1257)
-==21316==    by 0x804AC95: sig_handler (mi_ram.c:677)
-==21316==    by 0x40D0F37: ??? (in /lib/i386-linux-gnu/libc-2.23.so)
-==21316== 
-==21316== 50 bytes in 1 blocks are definitely lost in loss record 54 of 126
-==21316==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x40542D4: string_append (in /usr/lib/libcommons.so)
-==21316==    by 0x4054C5A: _string_append_with_format_list (in /usr/lib/libcommons.so)
-==21316==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
-==21316==    by 0x405435E: string_from_format (in /usr/lib/libcommons.so)
-==21316==    by 0x804C88A: dumpMemoriaSegmentacion (mi_ram.c:1310)
-==21316==    by 0x804AC95: sig_handler (mi_ram.c:677)
-==21316==    by 0x40D0F37: ??? (in /lib/i386-linux-gnu/libc-2.23.so)
-==21316== 
-==21316== 60 bytes in 5 blocks are definitely lost in loss record 57 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x804A87E: mandarPaqueteSerializado (mi_ram.c:560)
-==21316==    by 0x804A1E5: atenderDiscordiador (mi_ram.c:375)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 80 (16 direct, 64 indirect) bytes in 2 blocks are definitely lost in loss record 68 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804C73A: dumpMemoriaSegmentacion (mi_ram.c:1289)
-==21316==    by 0x804AC95: sig_handler (mi_ram.c:677)
-==21316==    by 0x40D0F37: ??? (in /lib/i386-linux-gnu/libc-2.23.so)
-==21316== 
-==21316== 88 (24 direct, 64 indirect) bytes in 3 blocks are definitely lost in loss record 73 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804ADB3: buscarEspacioNecesarioSegmentacion (mi_ram.c:713)
-==21316==    by 0x804A79D: buscarEspacioNecesario (mi_ram.c:523)
-==21316==    by 0x80499FE: atenderDiscordiador (mi_ram.c:163)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 88 (24 direct, 64 indirect) bytes in 3 blocks are definitely lost in loss record 74 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804AF60: bestFitSegmentacion (mi_ram.c:753)
-==21316==    by 0x804AE7E: buscarSegmentoLibre (mi_ram.c:741)
-==21316==    by 0x804B703: asignarMemoriaSegmentacionPCB (mi_ram.c:931)
-==21316==    by 0x8049AEE: atenderDiscordiador (mi_ram.c:189)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 88 (24 direct, 64 indirect) bytes in 3 blocks are definitely lost in loss record 75 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804B03E: bestFitSegmentacion (mi_ram.c:779)
-==21316==    by 0x804AE7E: buscarSegmentoLibre (mi_ram.c:741)
-==21316==    by 0x804B703: asignarMemoriaSegmentacionPCB (mi_ram.c:931)
-==21316==    by 0x8049AEE: atenderDiscordiador (mi_ram.c:189)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 88 (24 direct, 64 indirect) bytes in 3 blocks are definitely lost in loss record 76 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804AF60: bestFitSegmentacion (mi_ram.c:753)
-==21316==    by 0x804AE7E: buscarSegmentoLibre (mi_ram.c:741)
-==21316==    by 0x804B87B: asignarMemoriaSegmentacionTareas (mi_ram.c:964)
-==21316==    by 0x8049B61: atenderDiscordiador (mi_ram.c:196)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 112 (56 direct, 56 indirect) bytes in 7 blocks are definitely lost in loss record 83 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804AF60: bestFitSegmentacion (mi_ram.c:753)
-==21316==    by 0x804AE7E: buscarSegmentoLibre (mi_ram.c:741)
-==21316==    by 0x804B59B: asignarMemoriaSegmentacionTCB (mi_ram.c:900)
-==21316==    by 0x8049CE4: atenderDiscordiador (mi_ram.c:235)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 112 (56 direct, 56 indirect) bytes in 7 blocks are definitely lost in loss record 84 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
-==21316==    by 0x804B03E: bestFitSegmentacion (mi_ram.c:779)
-==21316==    by 0x804AE7E: buscarSegmentoLibre (mi_ram.c:741)
-==21316==    by 0x804B59B: asignarMemoriaSegmentacionTCB (mi_ram.c:900)
-==21316==    by 0x8049CE4: atenderDiscordiador (mi_ram.c:235)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 116 bytes in 29 blocks are definitely lost in loss record 85 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x804A851: mandarPaqueteSerializado (mi_ram.c:555)
-==21316==    by 0x804A2E1: atenderDiscordiador (mi_ram.c:404)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 140 bytes in 3 blocks are definitely lost in loss record 93 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x8049908: atenderDiscordiador (mi_ram.c:139)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 147 bytes in 7 blocks are definitely lost in loss record 95 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x8049BC3: atenderDiscordiador (mi_ram.c:204)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 168 (96 direct, 72 indirect) bytes in 3 blocks are definitely lost in loss record 96 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x8049A68: atenderDiscordiador (mi_ram.c:177)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 240 (8 direct, 232 indirect) bytes in 1 blocks are definitely lost in loss record 98 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
-==21316==    by 0x804A5FA: iniciarMemoria (mi_ram.c:489)
-==21316==    by 0x80494AA: main (mi_ram.c:14)
-==21316== 
-==21316== 399 (8 direct, 391 indirect) bytes in 1 blocks are definitely lost in loss record 109 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x4056D80: config_create (in /usr/lib/libcommons.so)
-==21316==    by 0x804959E: leerConfig (mi_ram.c:43)
-==21316==    by 0x804945E: main (mi_ram.c:9)
-==21316== 
-==21316== 638 bytes in 29 blocks are definitely lost in loss record 112 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x804A87E: mandarPaqueteSerializado (mi_ram.c:560)
-==21316==    by 0x804A2E1: atenderDiscordiador (mi_ram.c:404)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== 1,360 bytes in 34 blocks are definitely lost in loss record 118 of 126
-==21316==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
-==21316==    by 0x804BFA8: obtenerProximaTareaSegmentacion (mi_ram.c:1106)
-==21316==    by 0x804AA4F: obtenerProximaTarea (mi_ram.c:604)
-==21316==    by 0x804A10B: atenderDiscordiador (mi_ram.c:348)
-==21316==    by 0x4062294: start_thread (pthread_create.c:333)
-==21316==    by 0x418C0AD: clone (clone.S:114)
-==21316== 
-==21316== LEAK SUMMARY:
-==21316==    definitely lost: 3,007 bytes in 159 blocks
-==21316==    indirectly lost: 1,167 bytes in 109 blocks
-==21316==      possibly lost: 544 bytes in 4 blocks
-==21316==    still reachable: 98,202 bytes in 398 blocks
-==21316==         suppressed: 0 bytes in 0 blocks
-==21316== Reachable blocks (those to which a pointer was found) are not shown.
-==21316== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==21316== 
-==21316== For counts of detected and suppressed errors, rerun with: -v
-==21316== ERROR SUMMARY: 30 errors from 30 contexts (suppressed: 0 from 0)
+==28406== Memcheck, a memory error detector
+==28406== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==28406== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==28406== Command: ./mi_ram
+==28406== Parent PID: 28396
+==28406== 
+==28406== Thread 3:
+==28406== Invalid free() / delete / delete[] / realloc()
+==28406==    at 0x402D358: free (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x804A2EF: atenderDiscordiador (mi_ram.c:408)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406==  Address 0x804f10b is in a r-x mapped file /home/utnso/TPCUATRI/tp-2021-1c-Pascusa/Mi-RAM/mi_ram segment
+==28406== 
+==28406== 
+==28406== HEAP SUMMARY:
+==28406==     in use at exit: 119,593 bytes in 787 blocks
+==28406==   total heap usage: 107,928 allocs, 107,156 frees, 2,727,973 bytes allocated
+==28406== 
+==28406== Thread 1:
+==28406== 40 bytes in 5 blocks are definitely lost in loss record 31 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x804A967: crearPCB (mi_ram.c:585)
+==28406==    by 0x8049A9E: atenderDiscordiador (mi_ram.c:181)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 40 bytes in 5 blocks are definitely lost in loss record 32 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x8049ABA: atenderDiscordiador (mi_ram.c:183)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 60 bytes in 15 blocks are definitely lost in loss record 34 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x804A85F: mandarPaqueteSerializado (mi_ram.c:557)
+==28406==    by 0x804A1E5: atenderDiscordiador (mi_ram.c:375)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 80 (40 direct, 40 indirect) bytes in 5 blocks are definitely lost in loss record 39 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
+==28406==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
+==28406==    by 0x804ADCF: buscarEspacioNecesarioSegmentacion (mi_ram.c:716)
+==28406==    by 0x804A7AB: buscarEspacioNecesario (mi_ram.c:525)
+==28406==    by 0x80499FE: atenderDiscordiador (mi_ram.c:163)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 80 (40 direct, 40 indirect) bytes in 5 blocks are definitely lost in loss record 40 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
+==28406==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
+==28406==    by 0x804B2AE: firstFitSegmentacion (mi_ram.c:819)
+==28406==    by 0x804AE70: buscarSegmentoLibre (mi_ram.c:741)
+==28406==    by 0x804B71F: asignarMemoriaSegmentacionPCB (mi_ram.c:934)
+==28406==    by 0x8049AEE: atenderDiscordiador (mi_ram.c:189)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 80 (40 direct, 40 indirect) bytes in 5 blocks are definitely lost in loss record 41 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
+==28406==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
+==28406==    by 0x804B2AE: firstFitSegmentacion (mi_ram.c:819)
+==28406==    by 0x804AE70: buscarSegmentoLibre (mi_ram.c:741)
+==28406==    by 0x804B897: asignarMemoriaSegmentacionTareas (mi_ram.c:967)
+==28406==    by 0x8049B61: atenderDiscordiador (mi_ram.c:196)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 240 (120 direct, 120 indirect) bytes in 15 blocks are definitely lost in loss record 64 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x4054FEA: list_create (in /usr/lib/libcommons.so)
+==28406==    by 0x40559C8: list_filter (in /usr/lib/libcommons.so)
+==28406==    by 0x804B2AE: firstFitSegmentacion (mi_ram.c:819)
+==28406==    by 0x804AE70: buscarSegmentoLibre (mi_ram.c:741)
+==28406==    by 0x804B5B7: asignarMemoriaSegmentacionTCB (mi_ram.c:903)
+==28406==    by 0x8049CE4: atenderDiscordiador (mi_ram.c:235)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 280 (160 direct, 120 indirect) bytes in 5 blocks are definitely lost in loss record 68 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x8049A68: atenderDiscordiador (mi_ram.c:177)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 315 bytes in 15 blocks are definitely lost in loss record 72 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x8049BC3: atenderDiscordiador (mi_ram.c:204)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 401 (8 direct, 393 indirect) bytes in 1 blocks are definitely lost in loss record 77 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x4056D80: config_create (in /usr/lib/libcommons.so)
+==28406==    by 0x804959E: leerConfig (mi_ram.c:43)
+==28406==    by 0x804945E: main (mi_ram.c:9)
+==28406== 
+==28406== 600 bytes in 15 blocks are definitely lost in loss record 80 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x804BFC4: obtenerProximaTareaSegmentacion (mi_ram.c:1109)
+==28406==    by 0x804AA6B: obtenerProximaTarea (mi_ram.c:607)
+==28406==    by 0x804A10B: atenderDiscordiador (mi_ram.c:348)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 744 bytes in 186 blocks are definitely lost in loss record 81 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x804A85F: mandarPaqueteSerializado (mi_ram.c:557)
+==28406==    by 0x804A2E1: atenderDiscordiador (mi_ram.c:404)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== 1,214 bytes in 5 blocks are definitely lost in loss record 86 of 96
+==28406==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==28406==    by 0x8049908: atenderDiscordiador (mi_ram.c:139)
+==28406==    by 0x4062294: start_thread (pthread_create.c:333)
+==28406==    by 0x418C0AD: clone (clone.S:114)
+==28406== 
+==28406== LEAK SUMMARY:
+==28406==    definitely lost: 3,421 bytes in 282 blocks
+==28406==    indirectly lost: 753 bytes in 69 blocks
+==28406==      possibly lost: 544 bytes in 4 blocks
+==28406==    still reachable: 114,875 bytes in 432 blocks
+==28406==         suppressed: 0 bytes in 0 blocks
+==28406== Reachable blocks (those to which a pointer was found) are not shown.
+==28406== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==28406== 
+==28406== For counts of detected and suppressed errors, rerun with: -v
+==28406== ERROR SUMMARY: 32 errors from 18 contexts (suppressed: 0 from 0)
