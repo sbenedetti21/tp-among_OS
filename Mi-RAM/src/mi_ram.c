@@ -36,7 +36,7 @@ int main(int argc, char ** argv){
 	free(memoriaPrincipal); 
 
 	return 0; 
-}  
+}   
  
 void leerConfig(){
 

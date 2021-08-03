@@ -671,7 +671,7 @@ void llenarBlocksRecursos(char *recurso, int cantALlenar){
 	}
 
 	actualizarMD5(recurso);
-} 
+}  
 
 void vaciarBlocksRecursos(char *recurso, int cantAVaciar){
 	int cantFaltante = cantAVaciar;
@@ -834,35 +834,13 @@ char *conseguirBitacora(uint32_t idTripulante){
 	} else {
 		log_info(loggerImongoStore,"No esta el tripulante %d", idTripulante);
 
-		return "No esta el tripulante";
+		return string_from_format("No existe el tripulante %d",idTripulante);
 	}
 
 }
 //---------------------------------------------------------------------------------------------------//
 //-------------------------------------------- SABOTAJES --------------------------------------------//
 
-void pruebaDeSabotaje(){
-    generarRecurso("Oxigeno",100,0);
-    generarRecurso("Basura",160,0);
-    generarRecurso("Comida",200,0);
-	
-    memcpy(mapBlocks, mapBlocksCopia, tamanioBlocks);
-    msync(mapBlocks, tamanioBlocks, MS_SYNC);
-	/*
-    int marcador = sizeof(uint32_t);
-    int nuevaCantidadDeBloques = cantidadDeBloques * 10;
-
-    memcpy(&(mapSuperBloque[marcador]), &nuevaCantidadDeBloques, sizeof(uint32_t));
-    marcador+=sizeof(uint32_t);
-
-     crearBitMap();
-	 
-    memcpy(&(mapSuperBloque[marcador]), punteroBitmap->bitarray, tamanioBitMap);
-	*/
-	guardarBitMap();
-    msync(mapSuperBloque, tamanioSuperBloqueBlocks, MS_SYNC);
-	
-}
 
 bool verificarLosBitMap(t_bitarray *punteroAlBitMap){
 	bool haySabotaje = false;

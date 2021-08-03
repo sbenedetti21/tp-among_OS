@@ -10924,3 +10924,612 @@ b2e28bb5e444fd3bcd24b0bbbce91ec1
 [INFO] 11:48:06:537 imongo.c/(3371:3426): Trip 2 arranco A00
 [INFO] 11:48:06:538 imongo.c/(3371:3425): Tripulante 2 estaba en 0|0 y ahora esta en 1|1
 [INFO] 15:55:07:994 imongo.c/(27439:27439): ---------CREO FILESYSTEM----------
+[INFO] 16:34:09:108 imongo.c/(5104:5104): ---------CREO FILESYSTEM----------
+[INFO] 16:35:00:204 imongo.c/(5104:5299): Trip 2 arranco ARREGLAR_REACTOR
+[INFO] 16:35:00:205 imongo.c/(5104:5298): Tripulante 2 estaba en 0|0 y ahora esta en 7|2
+[INFO] 16:35:00:206 imongo.c/(5104:5302): Trip 1 arranco ARREGLAR_REACTOR
+[INFO] 16:35:00:206 imongo.c/(5104:5301): Tripulante 1 estaba en 9|9 y ahora esta en 7|2
+[INFO] 16:35:04:206 imongo.c/(5104:5317): Trip 1 termino ARREGLAR_REACTOR
+[INFO] 16:35:04:206 imongo.c/(5104:5316): Trip 2 termino ARREGLAR_REACTOR
+[INFO] 16:35:09:208 imongo.c/(5104:5346): Trip 2 arranco BARRER
+[INFO] 16:35:09:208 imongo.c/(5104:5345): Tripulante 2 estaba en 7|2 y ahora esta en 7|7
+[INFO] 16:35:09:209 imongo.c/(5104:5349): Trip 1 arranco BARRER
+[INFO] 16:35:09:209 imongo.c/(5104:5348): Tripulante 1 estaba en 7|2 y ahora esta en 7|7
+[INFO] 16:35:13:210 imongo.c/(5104:5363): Trip 2 termino BARRER
+[INFO] 16:35:13:210 imongo.c/(5104:5362): Trip 1 termino BARRER
+[INFO] 16:35:27:216 imongo.c/(5104:5441): Tripulante 2 estaba en 7|7 y ahora esta en 0|0
+[INFO] 16:35:27:216 imongo.c/(5104:5439): Tripulante 1 estaba en 7|7 y ahora esta en 0|0
+[INFO] 16:35:27:217 imongo.c/(5104:5449): Tripulante 1 genera 12 de Oxigeno
+[INFO] 16:35:27:233 imongo.c/(5104:5449): Tripulante 1 termino de generar 12 de Oxigeno
+[INFO] 16:35:31:217 imongo.c/(5104:5476): Trip 4 arranco COMPRAR_FACTURAS
+[INFO] 16:35:31:217 imongo.c/(5104:5475): Tripulante 4 estaba en 4|0 y ahora esta en 1|1
+[INFO] 16:35:32:217 imongo.c/(5104:5482): Trip 3 arranco ARREGLAR_REACTOR
+[INFO] 16:35:32:217 imongo.c/(5104:5481): Tripulante 3 estaba en 5|5 y ahora esta en 7|2
+[INFO] 16:35:33:218 imongo.c/(5104:5489): Tripulante 2 genera 12 de Oxigeno
+[INFO] 16:35:33:218 imongo.c/(5104:5487): Trip 1 termino GENERAR_OXIGENO
+[INFO] 16:35:33:220 imongo.c/(5104:5489): Tripulante 2 termino de generar 12 de Oxigeno
+[INFO] 16:35:36:219 imongo.c/(5104:5505): Trip 4 termino COMPRAR_FACTURAS
+[INFO] 16:35:36:220 imongo.c/(5104:5504): Trip 3 termino ARREGLAR_REACTOR
+[INFO] 16:35:39:221 imongo.c/(5104:5523): Trip 2 termino GENERAR_OXIGENO
+[INFO] 16:35:41:223 imongo.c/(5104:5538): Tripulante 3 estaba en 7|2 y ahora esta en 7|7
+[INFO] 16:35:41:223 imongo.c/(5104:5539): Trip 3 arranco BARRER
+[INFO] 16:35:44:224 imongo.c/(5104:5555): Trip 4 arranco HACER_EJERCICIO
+[INFO] 16:35:44:224 imongo.c/(5104:5554): Tripulante 4 estaba en 1|1 y ahora esta en 7|3
+[INFO] 16:35:45:224 imongo.c/(5104:5559): Trip 3 termino BARRER
+[INFO] 16:35:54:226 imongo.c/(5104:5599): Trip 4 termino HACER_EJERCICIO
+[INFO] 16:35:54:227 imongo.c/(5104:5602): Trip 4 arranco SUBIR_FOTOS_A_IG
+[INFO] 16:35:54:227 imongo.c/(5104:5601): Tripulante 4 estaba en 7|3 y ahora esta en 7|3
+[INFO] 16:35:59:234 imongo.c/(5104:5627): Tripulante 3 estaba en 7|7 y ahora esta en 0|0
+[INFO] 16:35:59:234 imongo.c/(5104:5632): Tripulante 3 genera 12 de Oxigeno
+[INFO] 16:35:59:250 imongo.c/(5104:5632): Tripulante 3 termino de generar 12 de Oxigeno
+[INFO] 16:36:02:230 imongo.c/(5104:5646): Trip 4 termino SUBIR_FOTOS_A_IG
+[INFO] 16:36:05:234 imongo.c/(5104:5668): Trip 3 termino GENERAR_OXIGENO
+[INFO] 16:36:05:235 imongo.c/(5104:5672): Trip 5 arranco COMPRAR_FACTURAS
+[INFO] 16:36:05:235 imongo.c/(5104:5671): Tripulante 5 estaba en 2|6 y ahora esta en 1|1
+[INFO] 16:36:10:236 imongo.c/(5104:5695): Trip 5 termino COMPRAR_FACTURAS
+[INFO] 16:36:13:235 imongo.c/(5104:5716): Trip 4 arranco ARREGLAR_CABLEADOS
+[INFO] 16:36:13:235 imongo.c/(5104:5715): Tripulante 4 estaba en 7|3 y ahora esta en 1|8
+[INFO] 16:36:18:238 imongo.c/(5104:5740): Trip 5 arranco HACER_EJERCICIO
+[INFO] 16:36:18:239 imongo.c/(5104:5739): Tripulante 5 estaba en 1|1 y ahora esta en 7|3
+[INFO] 16:36:23:240 imongo.c/(5104:5753): Trip 4 termino ARREGLAR_CABLEADOS
+[INFO] 16:36:28:241 imongo.c/(5104:5777): Trip 5 termino HACER_EJERCICIO
+[INFO] 16:36:28:242 imongo.c/(5104:5780): Trip 5 arranco SUBIR_FOTOS_A_IG
+[INFO] 16:36:28:242 imongo.c/(5104:5779): Tripulante 5 estaba en 7|3 y ahora esta en 7|3
+[INFO] 16:36:32:244 imongo.c/(5104:5803): Tripulante 4 estaba en 1|8 y ahora esta en 0|0
+[INFO] 16:36:32:245 imongo.c/(5104:5808): Tripulante 4 genera 1 de Basura
+[INFO] 16:36:32:249 imongo.c/(5104:5808): Tripulante 4 termino de generar 1 de Basura
+[INFO] 16:36:36:245 imongo.c/(5104:5829): Trip 5 termino SUBIR_FOTOS_A_IG
+[INFO] 16:36:38:247 imongo.c/(5104:5838): Trip 4 termino GENERAR_BASURA
+[INFO] 16:36:40:247 imongo.c/(5104:5857): Trip 6 arranco COMPRAR_FACTURAS
+[INFO] 16:36:40:247 imongo.c/(5104:5856): Tripulante 6 estaba en 8|2 y ahora esta en 1|1
+[INFO] 16:36:45:250 imongo.c/(5104:5878): Trip 6 termino COMPRAR_FACTURAS
+[INFO] 16:36:47:251 imongo.c/(5104:5892): Trip 5 arranco ARREGLAR_CABLEADOS
+[INFO] 16:36:47:251 imongo.c/(5104:5891): Tripulante 5 estaba en 7|3 y ahora esta en 1|8
+[INFO] 16:36:53:253 imongo.c/(5104:5933): Trip 6 arranco HACER_EJERCICIO
+[INFO] 16:36:53:254 imongo.c/(5104:5932): Tripulante 6 estaba en 1|1 y ahora esta en 7|3
+[INFO] 16:36:57:254 imongo.c/(5104:5954): Trip 5 termino ARREGLAR_CABLEADOS
+[INFO] 16:37:03:256 imongo.c/(5104:5981): Trip 6 termino HACER_EJERCICIO
+[INFO] 16:37:03:257 imongo.c/(5104:5985): Trip 6 arranco SUBIR_FOTOS_A_IG
+[INFO] 16:37:03:257 imongo.c/(5104:5984): Tripulante 6 estaba en 7|3 y ahora esta en 7|3
+[INFO] 16:37:06:267 imongo.c/(5104:6005): Tripulante 5 estaba en 1|8 y ahora esta en 0|0
+[INFO] 16:37:06:267 imongo.c/(5104:6011): Tripulante 5 genera 1 de Basura
+[INFO] 16:37:06:271 imongo.c/(5104:6011): Tripulante 5 termino de generar 1 de Basura
+[INFO] 16:37:11:259 imongo.c/(5104:6034): Trip 6 termino SUBIR_FOTOS_A_IG
+[INFO] 16:37:11:268 imongo.c/(5104:6039): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:11:268 imongo.c/(5104:6038): Tripulante 7 estaba en 2|3 y ahora esta en 0|0
+[INFO] 16:37:12:268 imongo.c/(5104:6049): Trip 5 termino GENERAR_BASURA
+[INFO] 16:37:12:269 imongo.c/(5104:6051): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:13:270 imongo.c/(5104:6060): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:13:270 imongo.c/(5104:6059): Tripulante 7 estaba en 0|0 y ahora esta en 0|1
+[INFO] 16:37:15:271 imongo.c/(5104:6076): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:16:281 imongo.c/(5104:6091): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:16:281 imongo.c/(5104:6090): Tripulante 7 estaba en 0|1 y ahora esta en 0|2
+[INFO] 16:37:19:273 imongo.c/(5104:6112): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:20:273 imongo.c/(5104:6120): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:20:274 imongo.c/(5104:6119): Tripulante 7 estaba en 0|2 y ahora esta en 0|3
+[INFO] 16:37:22:264 imongo.c/(5104:6132): Trip 6 arranco ARREGLAR_CABLEADOS
+[INFO] 16:37:22:264 imongo.c/(5104:6131): Tripulante 6 estaba en 7|3 y ahora esta en 1|8
+[INFO] 16:37:24:282 imongo.c/(5104:6142): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:25:283 imongo.c/(5104:6156): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:25:283 imongo.c/(5104:6155): Tripulante 7 estaba en 0|3 y ahora esta en 0|4
+[INFO] 16:37:30:285 imongo.c/(5104:6174): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:31:286 imongo.c/(5104:6186): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:31:287 imongo.c/(5104:6185): Tripulante 7 estaba en 0|4 y ahora esta en 0|5
+[INFO] 16:37:32:280 imongo.c/(5104:6194): Trip 6 termino ARREGLAR_CABLEADOS
+[INFO] 16:37:35:287 imongo.c/(5104:6212): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:36:288 imongo.c/(5104:6220): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:36:288 imongo.c/(5104:6219): Tripulante 7 estaba en 0|5 y ahora esta en 0|6
+[INFO] 16:37:39:289 imongo.c/(5104:6237): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:40:290 imongo.c/(5104:6249): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:40:290 imongo.c/(5104:6248): Tripulante 7 estaba en 0|6 y ahora esta en 0|7
+[INFO] 16:37:41:279 imongo.c/(5104:6254): Tripulante 6 estaba en 1|8 y ahora esta en 0|0
+[INFO] 16:37:41:280 imongo.c/(5104:6259): Tripulante 6 genera 1 de Basura
+[INFO] 16:37:41:283 imongo.c/(5104:6259): Tripulante 6 termino de generar 1 de Basura
+[INFO] 16:37:42:292 imongo.c/(5104:6270): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:43:292 imongo.c/(5104:6278): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:43:292 imongo.c/(5104:6277): Tripulante 7 estaba en 0|7 y ahora esta en 0|8
+[INFO] 16:37:44:292 imongo.c/(5104:6287): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:45:292 imongo.c/(5104:6300): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:45:293 imongo.c/(5104:6299): Tripulante 7 estaba en 0|8 y ahora esta en 0|9
+[INFO] 16:37:47:282 imongo.c/(5104:6310): Trip 6 termino GENERAR_BASURA
+[INFO] 16:37:47:294 imongo.c/(5104:6315): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:48:294 imongo.c/(5104:6324): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:48:295 imongo.c/(5104:6323): Tripulante 7 estaba en 0|9 y ahora esta en 1|9
+[INFO] 16:37:51:295 imongo.c/(5104:6342): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:52:296 imongo.c/(5104:6355): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:52:297 imongo.c/(5104:6354): Tripulante 7 estaba en 1|9 y ahora esta en 2|9
+[INFO] 16:37:54:284 imongo.c/(5104:6367): Trip 8 arranco CEBAR_MATES
+[INFO] 16:37:54:284 imongo.c/(5104:6366): Tripulante 8 estaba en 5|8 y ahora esta en 0|0
+[INFO] 16:37:55:284 imongo.c/(5104:6375): Trip 8 termino CEBAR_MATES
+[INFO] 16:37:56:285 imongo.c/(5104:6382): Trip 8 arranco CEBAR_MATES
+[INFO] 16:37:56:285 imongo.c/(5104:6381): Tripulante 8 estaba en 0|0 y ahora esta en 0|1
+[INFO] 16:37:56:298 imongo.c/(5104:6383): Trip 7 termino CEBAR_MATES
+[INFO] 16:37:57:298 imongo.c/(5104:6394): Trip 7 arranco CEBAR_MATES
+[INFO] 16:37:57:298 imongo.c/(5104:6393): Tripulante 7 estaba en 2|9 y ahora esta en 3|9
+[INFO] 16:37:58:286 imongo.c/(5104:6395): Trip 8 termino CEBAR_MATES
+[INFO] 16:37:59:286 imongo.c/(5104:6408): Trip 8 arranco CEBAR_MATES
+[INFO] 16:37:59:286 imongo.c/(5104:6407): Tripulante 8 estaba en 0|1 y ahora esta en 0|2
+[INFO] 16:38:02:287 imongo.c/(5104:6417): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:02:299 imongo.c/(5104:6419): Trip 7 termino CEBAR_MATES
+[INFO] 16:38:03:287 imongo.c/(5104:6423): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:03:288 imongo.c/(5104:6422): Tripulante 8 estaba en 0|2 y ahora esta en 0|3
+[INFO] 16:38:03:299 imongo.c/(5104:6426): Trip 7 arranco CEBAR_MATES
+[INFO] 16:38:03:300 imongo.c/(5104:6425): Tripulante 7 estaba en 3|9 y ahora esta en 4|9
+[INFO] 16:38:07:290 imongo.c/(5104:6457): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:08:291 imongo.c/(5104:6461): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:08:291 imongo.c/(5104:6460): Tripulante 8 estaba en 0|3 y ahora esta en 0|4
+[INFO] 16:38:09:302 imongo.c/(5104:6466): Trip 7 termino CEBAR_MATES
+[INFO] 16:38:10:302 imongo.c/(5104:6474): Trip 7 arranco CEBAR_MATES
+[INFO] 16:38:10:302 imongo.c/(5104:6473): Tripulante 7 estaba en 4|9 y ahora esta en 5|9
+[INFO] 16:38:13:293 imongo.c/(5104:6479): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:14:293 imongo.c/(5104:6487): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:14:293 imongo.c/(5104:6486): Tripulante 8 estaba en 0|4 y ahora esta en 0|5
+[INFO] 16:38:15:303 imongo.c/(5104:6497): Trip 7 termino CEBAR_MATES
+[INFO] 16:38:16:304 imongo.c/(5104:6501): Trip 7 arranco CEBAR_MATES
+[INFO] 16:38:16:304 imongo.c/(5104:6500): Tripulante 7 estaba en 5|9 y ahora esta en 6|9
+[INFO] 16:38:18:296 imongo.c/(5104:6506): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:19:297 imongo.c/(5104:6514): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:19:297 imongo.c/(5104:6513): Tripulante 8 estaba en 0|5 y ahora esta en 0|6
+[INFO] 16:38:20:305 imongo.c/(5104:6519): Trip 7 termino CEBAR_MATES
+[INFO] 16:38:21:305 imongo.c/(5104:6523): Trip 7 arranco CEBAR_MATES
+[INFO] 16:38:21:306 imongo.c/(5104:6522): Tripulante 7 estaba en 6|9 y ahora esta en 7|9
+[INFO] 16:38:22:299 imongo.c/(5104:6528): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:23:299 imongo.c/(5104:6532): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:23:299 imongo.c/(5104:6531): Tripulante 8 estaba en 0|6 y ahora esta en 0|7
+[INFO] 16:38:24:307 imongo.c/(5104:6537): Trip 7 termino CEBAR_MATES
+[INFO] 16:38:25:300 imongo.c/(5104:6543): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:25:315 imongo.c/(5104:6547): Trip 7 arranco CEBAR_MATES
+[INFO] 16:38:25:315 imongo.c/(5104:6546): Tripulante 7 estaba en 7|9 y ahora esta en 8|9
+[INFO] 16:38:26:301 imongo.c/(5104:6550): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:26:301 imongo.c/(5104:6549): Tripulante 8 estaba en 0|7 y ahora esta en 0|8
+[INFO] 16:38:27:302 imongo.c/(5104:6557): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:27:314 imongo.c/(5104:6559): Trip 7 termino CEBAR_MATES
+[INFO] 16:38:28:302 imongo.c/(5104:6564): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:28:303 imongo.c/(5104:6563): Tripulante 8 estaba en 0|8 y ahora esta en 0|9
+[INFO] 16:38:28:314 imongo.c/(5104:6567): Trip 7 arranco SALUDAR
+[INFO] 16:38:28:315 imongo.c/(5104:6566): Tripulante 7 estaba en 8|9 y ahora esta en 9|9
+[INFO] 16:38:29:315 imongo.c/(5104:6572): Trip 7 termino SALUDAR
+[INFO] 16:38:30:304 imongo.c/(5104:6580): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:31:304 imongo.c/(5104:6586): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:31:304 imongo.c/(5104:6585): Tripulante 8 estaba en 0|9 y ahora esta en 1|9
+[INFO] 16:38:34:306 imongo.c/(5104:6598): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:35:306 imongo.c/(5104:6607): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:35:307 imongo.c/(5104:6606): Tripulante 8 estaba en 1|9 y ahora esta en 2|9
+[INFO] 16:38:37:321 imongo.c/(5104:6621): Trip 9 arranco CEBAR_MATES
+[INFO] 16:38:37:321 imongo.c/(5104:6620): Tripulante 9 estaba en 5|3 y ahora esta en 0|0
+[INFO] 16:38:38:321 imongo.c/(5104:6622): Trip 9 termino CEBAR_MATES
+[INFO] 16:38:39:307 imongo.c/(5104:6628): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:39:322 imongo.c/(5104:6632): Trip 9 arranco CEBAR_MATES
+[INFO] 16:38:39:322 imongo.c/(5104:6631): Tripulante 9 estaba en 0|0 y ahora esta en 0|1
+[INFO] 16:38:40:308 imongo.c/(5104:6639): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:40:309 imongo.c/(5104:6638): Tripulante 8 estaba en 2|9 y ahora esta en 3|9
+[INFO] 16:38:41:324 imongo.c/(5104:6640): Trip 9 termino CEBAR_MATES
+[INFO] 16:38:42:324 imongo.c/(5104:6648): Trip 9 arranco CEBAR_MATES
+[INFO] 16:38:42:324 imongo.c/(5104:6647): Tripulante 9 estaba en 0|1 y ahora esta en 0|2
+[INFO] 16:38:45:311 imongo.c/(5104:6657): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:45:325 imongo.c/(5104:6659): Trip 9 termino CEBAR_MATES
+[INFO] 16:38:46:312 imongo.c/(5104:6663): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:46:312 imongo.c/(5104:6662): Tripulante 8 estaba en 3|9 y ahora esta en 4|9
+[INFO] 16:38:46:326 imongo.c/(5104:6666): Trip 9 arranco CEBAR_MATES
+[INFO] 16:38:46:326 imongo.c/(5104:6665): Tripulante 9 estaba en 0|2 y ahora esta en 0|3
+[INFO] 16:38:50:327 imongo.c/(5104:6679): Trip 9 termino CEBAR_MATES
+[INFO] 16:38:51:327 imongo.c/(5104:6683): Trip 9 arranco CEBAR_MATES
+[INFO] 16:38:51:328 imongo.c/(5104:6682): Tripulante 9 estaba en 0|3 y ahora esta en 0|4
+[INFO] 16:38:52:314 imongo.c/(5104:6688): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:53:314 imongo.c/(5104:6692): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:53:315 imongo.c/(5104:6691): Tripulante 8 estaba en 4|9 y ahora esta en 5|9
+[INFO] 16:38:56:329 imongo.c/(5104:6701): Trip 9 termino CEBAR_MATES
+[INFO] 16:38:57:329 imongo.c/(5104:6709): Trip 9 arranco CEBAR_MATES
+[INFO] 16:38:57:330 imongo.c/(5104:6708): Tripulante 9 estaba en 0|4 y ahora esta en 0|5
+[INFO] 16:38:58:317 imongo.c/(5104:6710): Trip 8 termino CEBAR_MATES
+[INFO] 16:38:59:317 imongo.c/(5104:6718): Trip 8 arranco CEBAR_MATES
+[INFO] 16:38:59:318 imongo.c/(5104:6717): Tripulante 8 estaba en 5|9 y ahora esta en 6|9
+[INFO] 16:39:01:332 imongo.c/(5104:6723): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:02:333 imongo.c/(5104:6731): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:02:333 imongo.c/(5104:6730): Tripulante 9 estaba en 0|5 y ahora esta en 0|6
+[INFO] 16:39:03:320 imongo.c/(5104:6732): Trip 8 termino CEBAR_MATES
+[INFO] 16:39:04:320 imongo.c/(5104:6740): Trip 8 arranco CEBAR_MATES
+[INFO] 16:39:04:320 imongo.c/(5104:6739): Tripulante 8 estaba en 6|9 y ahora esta en 7|9
+[INFO] 16:39:05:334 imongo.c/(5104:6745): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:06:335 imongo.c/(5104:6749): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:06:335 imongo.c/(5104:6748): Tripulante 9 estaba en 0|6 y ahora esta en 0|7
+[INFO] 16:39:07:322 imongo.c/(5104:6754): Trip 8 termino CEBAR_MATES
+[INFO] 16:39:08:323 imongo.c/(5104:6758): Trip 8 arranco CEBAR_MATES
+[INFO] 16:39:08:323 imongo.c/(5104:6757): Tripulante 8 estaba en 7|9 y ahora esta en 8|9
+[INFO] 16:39:08:335 imongo.c/(5104:6759): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:09:336 imongo.c/(5104:6767): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:09:337 imongo.c/(5104:6766): Tripulante 9 estaba en 0|7 y ahora esta en 0|8
+[INFO] 16:39:10:324 imongo.c/(5104:6772): Trip 8 termino CEBAR_MATES
+[INFO] 16:39:10:337 imongo.c/(5104:6774): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:11:324 imongo.c/(5104:6783): Trip 8 arranco SALUDAR
+[INFO] 16:39:11:325 imongo.c/(5104:6782): Tripulante 8 estaba en 8|9 y ahora esta en 9|9
+[INFO] 16:39:11:339 imongo.c/(5104:6786): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:11:339 imongo.c/(5104:6785): Tripulante 9 estaba en 0|8 y ahora esta en 0|9
+[INFO] 16:39:12:326 imongo.c/(5104:6791): Trip 8 termino SALUDAR
+[INFO] 16:39:13:340 imongo.c/(5104:6796): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:14:340 imongo.c/(5104:6805): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:14:340 imongo.c/(5104:6804): Tripulante 9 estaba en 0|9 y ahora esta en 1|9
+[INFO] 16:39:17:341 imongo.c/(5104:6817): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:18:344 imongo.c/(5104:6822): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:18:344 imongo.c/(5104:6821): Tripulante 9 estaba en 1|9 y ahora esta en 2|9
+[INFO] 16:39:21:331 imongo.c/(5104:6835): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:21:331 imongo.c/(5104:6834): Tripulante 10 estaba en 0|9 y ahora esta en 0|0
+[INFO] 16:39:22:342 imongo.c/(5104:6840): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:23:332 imongo.c/(5104:6842): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:39:23:344 imongo.c/(5104:6846): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:23:344 imongo.c/(5104:6845): Tripulante 9 estaba en 2|9 y ahora esta en 3|9
+[INFO] 16:39:24:333 imongo.c/(5104:6853): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:24:333 imongo.c/(5104:6852): Tripulante 10 estaba en 0|0 y ahora esta en 1|0
+[INFO] 16:39:26:333 imongo.c/(5104:6858): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:39:27:334 imongo.c/(5104:6868): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:27:334 imongo.c/(5104:6867): Tripulante 10 estaba en 1|0 y ahora esta en 2|0
+[INFO] 16:39:28:345 imongo.c/(5104:6869): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:29:335 imongo.c/(5104:6875): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:39:29:346 imongo.c/(5104:6879): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:29:346 imongo.c/(5104:6878): Tripulante 9 estaba en 3|9 y ahora esta en 4|9
+[INFO] 16:39:30:335 imongo.c/(5104:6890): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:30:336 imongo.c/(5104:6889): Tripulante 10 estaba en 2|0 y ahora esta en 3|0
+[INFO] 16:39:32:336 imongo.c/(5104:6895): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:39:33:338 imongo.c/(5104:6899): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:33:338 imongo.c/(5104:6898): Tripulante 10 estaba en 3|0 y ahora esta en 4|0
+[INFO] 16:39:35:348 imongo.c/(5104:6908): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:36:339 imongo.c/(5104:6910): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:39:36:348 imongo.c/(5104:6914): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:36:348 imongo.c/(5104:6913): Tripulante 9 estaba en 4|9 y ahora esta en 5|9
+[INFO] 16:39:37:341 imongo.c/(5104:6921): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:37:341 imongo.c/(5104:6920): Tripulante 10 estaba en 4|0 y ahora esta en 5|0
+[INFO] 16:39:40:340 imongo.c/(5104:6940): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:39:41:341 imongo.c/(5104:6944): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:41:341 imongo.c/(5104:6943): Tripulante 10 estaba en 5|0 y ahora esta en 6|0
+[INFO] 16:39:41:352 imongo.c/(5104:6945): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:42:353 imongo.c/(5104:6958): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:42:353 imongo.c/(5104:6957): Tripulante 9 estaba en 5|9 y ahora esta en 6|9
+[INFO] 16:39:44:342 imongo.c/(5104:6975): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:39:45:343 imongo.c/(5104:6983): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:45:343 imongo.c/(5104:6982): Tripulante 10 estaba en 6|0 y ahora esta en 7|0
+[INFO] 16:39:46:354 imongo.c/(5104:6985): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:47:355 imongo.c/(5104:6994): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:47:356 imongo.c/(5104:6993): Tripulante 9 estaba en 6|9 y ahora esta en 7|9
+[INFO] 16:39:48:345 imongo.c/(5104:6995): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:39:49:346 imongo.c/(5104:7003): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:49:347 imongo.c/(5104:7002): Tripulante 10 estaba en 7|0 y ahora esta en 8|0
+[INFO] 16:39:50:356 imongo.c/(5104:7008): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:51:357 imongo.c/(5104:7013): Trip 9 arranco CEBAR_MATES
+[INFO] 16:39:51:357 imongo.c/(5104:7012): Tripulante 9 estaba en 7|9 y ahora esta en 8|9
+[INFO] 16:39:53:348 imongo.c/(5104:7023): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:39:53:358 imongo.c/(5104:7025): Trip 9 termino CEBAR_MATES
+[INFO] 16:39:54:348 imongo.c/(5104:7034): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:54:349 imongo.c/(5104:7033): Tripulante 10 estaba en 8|0 y ahora esta en 9|0
+[INFO] 16:39:54:358 imongo.c/(5104:7037): Trip 9 arranco SALUDAR
+[INFO] 16:39:54:358 imongo.c/(5104:7036): Tripulante 9 estaba en 8|9 y ahora esta en 9|9
+[INFO] 16:39:55:359 imongo.c/(5104:7047): Trip 9 termino SALUDAR
+[INFO] 16:39:58:350 imongo.c/(5104:7057): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:39:59:351 imongo.c/(5104:7066): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:39:59:351 imongo.c/(5104:7065): Tripulante 10 estaba en 9|0 y ahora esta en 9|1
+[INFO] 16:40:03:353 imongo.c/(5104:7079): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:40:03:364 imongo.c/(5104:7083): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:03:364 imongo.c/(5104:7082): Tripulante 11 estaba en 4|4 y ahora esta en 0|0
+[INFO] 16:40:04:354 imongo.c/(5104:7090): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:40:04:354 imongo.c/(5104:7089): Tripulante 10 estaba en 9|1 y ahora esta en 9|2
+[INFO] 16:40:05:365 imongo.c/(5104:7097): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:06:365 imongo.c/(5104:7101): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:06:365 imongo.c/(5104:7100): Tripulante 11 estaba en 0|0 y ahora esta en 1|0
+[INFO] 16:40:08:356 imongo.c/(5104:7108): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:40:08:366 imongo.c/(5104:7110): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:09:357 imongo.c/(5104:7118): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:40:09:357 imongo.c/(5104:7117): Tripulante 10 estaba en 9|2 y ahora esta en 9|3
+[INFO] 16:40:09:367 imongo.c/(5104:7121): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:09:367 imongo.c/(5104:7120): Tripulante 11 estaba en 1|0 y ahora esta en 2|0
+[INFO] 16:40:11:368 imongo.c/(5104:7127): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:12:368 imongo.c/(5104:7135): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:12:369 imongo.c/(5104:7134): Tripulante 11 estaba en 2|0 y ahora esta en 3|0
+[INFO] 16:40:14:359 imongo.c/(5104:7145): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:40:14:370 imongo.c/(5104:7147): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:15:359 imongo.c/(5104:7155): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:40:15:359 imongo.c/(5104:7154): Tripulante 10 estaba en 9|3 y ahora esta en 9|4
+[INFO] 16:40:15:371 imongo.c/(5104:7158): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:15:371 imongo.c/(5104:7157): Tripulante 11 estaba en 3|0 y ahora esta en 4|0
+[INFO] 16:40:18:371 imongo.c/(5104:7173): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:19:372 imongo.c/(5104:7181): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:19:372 imongo.c/(5104:7180): Tripulante 11 estaba en 4|0 y ahora esta en 5|0
+[INFO] 16:40:20:361 imongo.c/(5104:7191): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:40:21:362 imongo.c/(5104:7197): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:40:21:362 imongo.c/(5104:7196): Tripulante 10 estaba en 9|4 y ahora esta en 9|5
+[INFO] 16:40:22:376 imongo.c/(5104:7203): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:23:376 imongo.c/(5104:7207): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:23:376 imongo.c/(5104:7206): Tripulante 11 estaba en 5|0 y ahora esta en 6|0
+[INFO] 16:40:26:377 imongo.c/(5104:7216): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:27:378 imongo.c/(5104:7225): Tripulante 11 estaba en 6|0 y ahora esta en 7|0
+[INFO] 16:40:27:378 imongo.c/(5104:7226): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:30:380 imongo.c/(5104:7235): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:31:365 imongo.c/(5104:7237): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:40:31:381 imongo.c/(5104:7240): Tripulante 11 estaba en 7|0 y ahora esta en 8|0
+[INFO] 16:40:31:381 imongo.c/(5104:7241): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:32:365 imongo.c/(5104:7247): Tripulante 10 estaba en 9|5 y ahora esta en 9|6
+[INFO] 16:40:32:366 imongo.c/(5104:7248): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:40:35:383 imongo.c/(5104:7257): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:36:383 imongo.c/(5104:7260): Tripulante 11 estaba en 8|0 y ahora esta en 9|0
+[INFO] 16:40:36:384 imongo.c/(5104:7261): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:40:385 imongo.c/(5104:7274): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:41:386 imongo.c/(5104:7277): Tripulante 11 estaba en 9|0 y ahora esta en 9|1
+[INFO] 16:40:41:386 imongo.c/(5104:7278): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:42:370 imongo.c/(5104:7283): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:40:43:370 imongo.c/(5104:7286): Tripulante 10 estaba en 9|6 y ahora esta en 9|7
+[INFO] 16:40:43:370 imongo.c/(5104:7287): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:40:45:387 imongo.c/(5104:7296): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:46:388 imongo.c/(5104:7299): Tripulante 11 estaba en 9|1 y ahora esta en 9|2
+[INFO] 16:40:46:388 imongo.c/(5104:7300): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:50:389 imongo.c/(5104:7319): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:51:390 imongo.c/(5104:7327): Tripulante 11 estaba en 9|2 y ahora esta en 9|3
+[INFO] 16:40:51:390 imongo.c/(5104:7328): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:40:56:391 imongo.c/(5104:7341): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:40:57:391 imongo.c/(5104:7348): Tripulante 11 estaba en 9|3 y ahora esta en 9|4
+[INFO] 16:40:57:391 imongo.c/(5104:7349): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:41:02:394 imongo.c/(5104:7362): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:41:03:375 imongo.c/(5104:7364): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:41:03:394 imongo.c/(5104:7367): Tripulante 11 estaba en 9|4 y ahora esta en 9|5
+[INFO] 16:41:03:394 imongo.c/(5104:7368): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:41:04:376 imongo.c/(5104:7375): Tripulante 10 estaba en 9|7 y ahora esta en 9|8
+[INFO] 16:41:04:377 imongo.c/(5104:7376): Trip 10 arranco CODEAR_EL_TP
+[INFO] 16:41:13:396 imongo.c/(5104:7399): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:41:14:396 imongo.c/(5104:7406): Tripulante 11 estaba en 9|5 y ahora esta en 9|6
+[INFO] 16:41:14:396 imongo.c/(5104:7407): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:41:24:380 imongo.c/(5104:7432): Trip 10 termino CODEAR_EL_TP
+[INFO] 16:41:24:399 imongo.c/(5104:7434): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:41:25:383 imongo.c/(5104:7442): Tripulante 10 estaba en 9|8 y ahora esta en 9|9
+[INFO] 16:41:25:383 imongo.c/(5104:7443): Trip 10 arranco SALUDAR
+[INFO] 16:41:25:401 imongo.c/(5104:7445): Tripulante 11 estaba en 9|6 y ahora esta en 9|7
+[INFO] 16:41:25:401 imongo.c/(5104:7446): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:41:26:382 imongo.c/(5104:7453): Trip 10 termino SALUDAR
+[INFO] 16:41:35:386 imongo.c/(5104:7504): Tripulante 12 estaba en 9|0 y ahora esta en 0|0
+[INFO] 16:41:35:386 imongo.c/(5104:7505): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:41:37:387 imongo.c/(5104:7510): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:41:38:388 imongo.c/(5104:7513): Tripulante 12 estaba en 0|0 y ahora esta en 1|0
+[INFO] 16:41:38:388 imongo.c/(5104:7514): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:41:40:389 imongo.c/(5104:7523): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:41:41:389 imongo.c/(5104:7526): Tripulante 12 estaba en 1|0 y ahora esta en 2|0
+[INFO] 16:41:41:389 imongo.c/(5104:7527): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:41:43:391 imongo.c/(5104:7532): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:41:44:392 imongo.c/(5104:7539): Tripulante 12 estaba en 2|0 y ahora esta en 3|0
+[INFO] 16:41:44:392 imongo.c/(5104:7540): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:41:45:404 imongo.c/(5104:7545): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:41:46:392 imongo.c/(5104:7547): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:41:46:405 imongo.c/(5104:7550): Tripulante 11 estaba en 9|7 y ahora esta en 9|8
+[INFO] 16:41:46:405 imongo.c/(5104:7551): Trip 11 arranco CODEAR_EL_TP
+[INFO] 16:41:47:395 imongo.c/(5104:7557): Tripulante 12 estaba en 3|0 y ahora esta en 4|0
+[INFO] 16:41:47:396 imongo.c/(5104:7558): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:41:50:397 imongo.c/(5104:7567): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:41:51:398 imongo.c/(5104:7571): Tripulante 12 estaba en 4|0 y ahora esta en 5|0
+[INFO] 16:41:51:399 imongo.c/(5104:7572): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:41:54:399 imongo.c/(5104:7586): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:41:55:400 imongo.c/(5104:7593): Tripulante 12 estaba en 5|0 y ahora esta en 6|0
+[INFO] 16:41:55:400 imongo.c/(5104:7594): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:41:58:401 imongo.c/(5104:7600): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:41:59:402 imongo.c/(5104:7607): Tripulante 12 estaba en 6|0 y ahora esta en 7|0
+[INFO] 16:41:59:402 imongo.c/(5104:7608): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:42:02:403 imongo.c/(5104:7617): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:42:03:403 imongo.c/(5104:7620): Tripulante 12 estaba en 7|0 y ahora esta en 8|0
+[INFO] 16:42:03:403 imongo.c/(5104:7621): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:42:06:408 imongo.c/(5104:7630): Trip 11 termino CODEAR_EL_TP
+[INFO] 16:42:07:404 imongo.c/(5104:7636): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:42:07:409 imongo.c/(5104:7639): Tripulante 11 estaba en 9|8 y ahora esta en 9|9
+[INFO] 16:42:07:409 imongo.c/(5104:7640): Trip 11 arranco SALUDAR
+[INFO] 16:42:08:405 imongo.c/(5104:7642): Tripulante 12 estaba en 8|0 y ahora esta en 9|0
+[INFO] 16:42:08:405 imongo.c/(5104:7643): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:42:08:410 imongo.c/(5104:7644): Trip 11 termino SALUDAR
+[INFO] 16:42:10:411 imongo.c/(5104:7658): Tripulante 13 estaba en 0|2 y ahora esta en 0|0
+[INFO] 16:42:10:411 imongo.c/(5104:7659): Trip 13 arranco REALIZAR_PRIMER_COMMIT
+[INFO] 16:42:12:406 imongo.c/(5104:7664): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:42:13:406 imongo.c/(5104:7667): Tripulante 12 estaba en 9|0 y ahora esta en 9|1
+[INFO] 16:42:13:406 imongo.c/(5104:7668): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:42:17:408 imongo.c/(5104:7681): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:42:18:409 imongo.c/(5104:7684): Tripulante 12 estaba en 9|1 y ahora esta en 9|2
+[INFO] 16:42:18:409 imongo.c/(5104:7685): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:42:20:416 imongo.c/(5104:7694): Trip 13 termino REALIZAR_PRIMER_COMMIT
+[INFO] 16:42:22:410 imongo.c/(5104:7701): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:42:23:411 imongo.c/(5104:7705): Tripulante 12 estaba en 9|2 y ahora esta en 9|3
+[INFO] 16:42:23:411 imongo.c/(5104:7706): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:42:28:413 imongo.c/(5104:7731): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:42:28:420 imongo.c/(5104:7734): Tripulante 13 estaba en 0|0 y ahora esta en 4|4
+[INFO] 16:42:28:420 imongo.c/(5104:7739): Tripulante 13 genera 100 de Oxigeno
+[INFO] 16:42:28:428 imongo.c/(5104:7739): Tripulante 13 termino de generar 100 de Oxigeno
+[INFO] 16:42:29:414 imongo.c/(5104:7747): Tripulante 12 estaba en 9|3 y ahora esta en 9|4
+[INFO] 16:42:29:414 imongo.c/(5104:7748): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:42:34:416 imongo.c/(5104:7771): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:42:35:416 imongo.c/(5104:7779): Tripulante 12 estaba en 9|4 y ahora esta en 9|5
+[INFO] 16:42:35:416 imongo.c/(5104:7780): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:42:39:425 imongo.c/(5104:7793): Trip 13 termino GENERAR_OXIGENO
+[INFO] 16:42:43:428 imongo.c/(5104:7808): Tripulante 14 estaba en 9|6 y ahora esta en 0|0
+[INFO] 16:42:43:428 imongo.c/(5104:7809): Trip 14 arranco REALIZAR_PRIMER_COMMIT
+[INFO] 16:42:45:420 imongo.c/(5104:7818): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:42:46:421 imongo.c/(5104:7821): Tripulante 12 estaba en 9|5 y ahora esta en 9|6
+[INFO] 16:42:46:421 imongo.c/(5104:7822): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:42:53:432 imongo.c/(5104:7839): Trip 14 termino REALIZAR_PRIMER_COMMIT
+[INFO] 16:42:56:424 imongo.c/(5104:7851): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:42:57:425 imongo.c/(5104:7859): Tripulante 12 estaba en 9|6 y ahora esta en 9|7
+[INFO] 16:42:57:425 imongo.c/(5104:7860): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:43:01:437 imongo.c/(5104:7874): Tripulante 14 estaba en 0|0 y ahora esta en 4|4
+[INFO] 16:43:01:437 imongo.c/(5104:7879): Tripulante 14 genera 100 de Oxigeno
+[INFO] 16:43:01:451 imongo.c/(5104:7879): Tripulante 14 termino de generar 100 de Oxigeno
+[INFO] 16:43:09:440 imongo.c/(5104:7911): Tripulante 15 estaba en 3|5 y ahora esta en 0|0
+[INFO] 16:43:09:441 imongo.c/(5104:7912): Trip 15 arranco REALIZAR_PRIMER_COMMIT
+[INFO] 16:43:12:441 imongo.c/(5104:7921): Trip 14 termino GENERAR_OXIGENO
+[INFO] 16:43:17:433 imongo.c/(5104:7940): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:43:18:433 imongo.c/(5104:7943): Tripulante 12 estaba en 9|7 y ahora esta en 9|8
+[INFO] 16:43:18:433 imongo.c/(5104:7944): Trip 12 arranco CODEAR_EL_TP
+[INFO] 16:43:19:443 imongo.c/(5104:7945): Trip 15 termino REALIZAR_PRIMER_COMMIT
+[INFO] 16:43:27:448 imongo.c/(5104:7981): Tripulante 15 estaba en 0|0 y ahora esta en 4|4
+[INFO] 16:43:27:448 imongo.c/(5104:7985): Tripulante 15 genera 100 de Oxigeno
+[INFO] 16:43:27:450 imongo.c/(5104:7985): Tripulante 15 termino de generar 100 de Oxigeno
+[INFO] 16:43:31:448 imongo.c/(5104:8001): Tripulante 1 estaba en 0|0 y ahora esta en 2|2
+[INFO] 16:43:31:448 imongo.c/(5104:8002): Trip 1 arranco CAMINAR
+[INFO] 16:43:32:450 imongo.c/(5104:8007): Trip 1 termino CAMINAR
+[INFO] 16:43:35:451 imongo.c/(5104:8020): Tripulante 1 estaba en 2|2 y ahora esta en 3|4
+[INFO] 16:43:38:441 imongo.c/(5104:8030): Trip 12 termino CODEAR_EL_TP
+[INFO] 16:43:38:454 imongo.c/(5104:8035): Tripulante 1 genera 12 de Comida
+[INFO] 16:43:38:455 imongo.c/(5104:8032): Trip 15 termino GENERAR_OXIGENO
+[INFO] 16:43:38:458 imongo.c/(5104:8035): Tripulante 1 termino de generar 12 de Comida
+[INFO] 16:43:39:442 imongo.c/(5104:8039): Tripulante 12 estaba en 9|8 y ahora esta en 9|9
+[INFO] 16:43:39:442 imongo.c/(5104:8040): Trip 12 arranco SALUDAR
+[INFO] 16:43:39:456 imongo.c/(5104:8042): Tripulante 2 estaba en 0|0 y ahora esta en 2|2
+[INFO] 16:43:39:456 imongo.c/(5104:8043): Trip 2 arranco CAMINAR
+[INFO] 16:43:40:442 imongo.c/(5104:8052): Trip 12 termino SALUDAR
+[INFO] 16:43:40:456 imongo.c/(5104:8055): Trip 2 termino CAMINAR
+[INFO] 16:43:43:457 imongo.c/(5104:8072): Tripulante 2 estaba en 2|2 y ahora esta en 3|4
+[INFO] 16:43:44:444 imongo.c/(5104:8077): Tripulante 3 estaba en 0|0 y ahora esta en 2|2
+[INFO] 16:43:44:444 imongo.c/(5104:8078): Trip 3 arranco CAMINAR
+[INFO] 16:43:44:456 imongo.c/(5104:8081): Tripulante 2 genera 12 de Comida
+[INFO] 16:43:44:457 imongo.c/(5104:8079): Trip 1 termino GENERAR_COMIDA
+[INFO] 16:43:44:459 imongo.c/(5104:8081): Tripulante 2 termino de generar 12 de Comida
+[INFO] 16:43:45:445 imongo.c/(5104:8093): Trip 3 termino CAMINAR
+[INFO] 16:43:48:447 imongo.c/(5104:8105): Tripulante 3 estaba en 2|2 y ahora esta en 3|4
+[INFO] 16:43:50:456 imongo.c/(5104:8123): Tripulante 3 genera 12 de Comida
+[INFO] 16:43:50:456 imongo.c/(5104:8121): Trip 2 termino GENERAR_COMIDA
+[INFO] 16:43:50:458 imongo.c/(5104:8123): Tripulante 3 termino de generar 12 de Comida
+[INFO] 16:43:56:457 imongo.c/(5104:8150): Trip 3 termino GENERAR_COMIDA
+[INFO] 16:44:01:464 imongo.c/(5104:8180): Tripulante 4 estaba en 0|0 y ahora esta en 9|9
+[INFO] 16:44:01:464 imongo.c/(5104:8181): Trip 4 arranco SALUDAR
+[INFO] 16:44:02:466 imongo.c/(5104:8187): Trip 4 termino SALUDAR
+[INFO] 16:44:06:454 imongo.c/(5104:8210): Tripulante 5 estaba en 0|0 y ahora esta en 9|9
+[INFO] 16:44:06:454 imongo.c/(5104:8211): Trip 5 arranco SALUDAR
+[INFO] 16:44:07:455 imongo.c/(5104:8217): Trip 5 termino SALUDAR
+[INFO] 16:44:09:456 imongo.c/(5104:8224): Tripulante 13 estaba en 4|4 y ahora esta en 5|5
+[INFO] 16:44:09:456 imongo.c/(5104:8225): Trip 13 arranco HACER_EJERCICIO
+[INFO] 16:44:19:459 imongo.c/(5104:8262): Tripulante 13 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:44:19:459 imongo.c/(5104:8260): Trip 13 termino HACER_EJERCICIO
+[INFO] 16:44:19:460 imongo.c/(5104:8266): Tripulante 13 consume 20 de Oxigeno
+[INFO] 16:44:19:461 imongo.c/(5104:8266): Se consumio 20 de Oxigeno
+[INFO] 16:44:20:474 imongo.c/(5104:8280): Tripulante 6 estaba en 0|0 y ahora esta en 9|9
+[INFO] 16:44:20:474 imongo.c/(5104:8281): Trip 6 arranco SALUDAR
+[INFO] 16:44:21:460 imongo.c/(5104:8283): Tripulante 14 estaba en 4|4 y ahora esta en 5|5
+[INFO] 16:44:21:460 imongo.c/(5104:8284): Trip 14 arranco HACER_EJERCICIO
+[INFO] 16:44:21:475 imongo.c/(5104:8285): Trip 6 termino SALUDAR
+[INFO] 16:44:23:476 imongo.c/(5104:8294): Tripulante 15 estaba en 4|4 y ahora esta en 5|5
+[INFO] 16:44:23:476 imongo.c/(5104:8295): Trip 15 arranco HACER_EJERCICIO
+[INFO] 16:44:30:462 imongo.c/(5104:8318): Trip 13 termino CONSUMIR_OXIGENO
+[INFO] 16:44:31:463 imongo.c/(5104:8323): Tripulante 14 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:44:31:463 imongo.c/(5104:8321): Trip 14 termino HACER_EJERCICIO
+[INFO] 16:44:31:465 imongo.c/(5104:8327): Tripulante 14 consume 20 de Oxigeno
+[INFO] 16:44:31:479 imongo.c/(5104:8327): Se consumio 20 de Oxigeno
+[INFO] 16:44:33:480 imongo.c/(5104:8338): Tripulante 15 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:44:33:480 imongo.c/(5104:8336): Trip 15 termino HACER_EJERCICIO
+[INFO] 16:44:34:466 imongo.c/(5104:8343): Tripulante 1 estaba en 3|4 y ahora esta en 5|5
+[INFO] 16:44:34:466 imongo.c/(5104:8344): Trip 1 arranco COMER
+[INFO] 16:44:36:481 imongo.c/(5104:8356): Tripulante 2 estaba en 3|4 y ahora esta en 5|5
+[INFO] 16:44:36:481 imongo.c/(5104:8357): Trip 2 arranco COMER
+[INFO] 16:44:39:468 imongo.c/(5104:8364): Tripulante 1 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:44:39:468 imongo.c/(5104:8362): Trip 1 termino COMER
+[INFO] 16:44:41:483 imongo.c/(5104:8380): Tripulante 2 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:44:41:483 imongo.c/(5104:8378): Trip 2 termino COMER
+[INFO] 16:44:42:468 imongo.c/(5104:8390): Tripulante 15 consume 20 de Oxigeno
+[INFO] 16:44:42:468 imongo.c/(5104:8388): Trip 14 termino CONSUMIR_OXIGENO
+[INFO] 16:44:42:469 imongo.c/(5104:8392): Tripulante 3 estaba en 3|4 y ahora esta en 5|5
+[INFO] 16:44:42:469 imongo.c/(5104:8393): Trip 3 arranco COMER
+[INFO] 16:44:42:473 imongo.c/(5104:8390): Se consumio 20 de Oxigeno
+[INFO] 16:44:47:470 imongo.c/(5104:8415): Tripulante 3 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:44:47:470 imongo.c/(5104:8413): Trip 3 termino COMER
+[INFO] 16:44:49:488 imongo.c/(5104:8424): Tripulante 13 estaba en 5|5 y ahora esta en 9|9
+[INFO] 16:44:49:488 imongo.c/(5104:8425): Trip 13 arranco CAMBIARSE_DE_NAVE
+[INFO] 16:44:53:471 imongo.c/(5104:8525): Tripulante 1 consume 10 de Comida
+[INFO] 16:44:53:471 imongo.c/(5104:8523): Trip 15 termino CONSUMIR_OXIGENO
+[INFO] 16:44:53:473 imongo.c/(5104:8525): Se consumio 10 de Comida
+[INFO] 16:44:55:472 imongo.c/(5104:8539): Tripulante 14 estaba en 5|5 y ahora esta en 9|9
+[INFO] 16:44:55:473 imongo.c/(5104:8540): Trip 14 arranco CAMBIARSE_DE_NAVE
+[INFO] 16:44:59:472 imongo.c/(5104:8547): Tripulante 2 consume 10 de Comida
+[INFO] 16:44:59:473 imongo.c/(5104:8545): Trip 1 termino CONSUMIR_COMIDA
+[INFO] 16:44:59:475 imongo.c/(5104:8547): Se consumio 10 de Comida
+[INFO] 16:45:01:493 imongo.c/(5104:8560): Tripulante 13 estaba en 9|9 y ahora esta en 9|9
+[INFO] 16:45:01:493 imongo.c/(5104:8561): Trip 13 arranco SALUDAR
+[INFO] 16:45:01:493 imongo.c/(5104:8558): Trip 13 termino CAMBIARSE_DE_NAVE
+[INFO] 16:45:02:494 imongo.c/(5104:8566): Trip 13 termino SALUDAR
+[INFO] 16:45:05:474 imongo.c/(5104:8581): Tripulante 3 consume 10 de Comida
+[INFO] 16:45:05:474 imongo.c/(5104:8579): Trip 2 termino CONSUMIR_COMIDA
+[INFO] 16:45:05:476 imongo.c/(5104:8581): Se consumio 10 de Comida
+[INFO] 16:45:07:475 imongo.c/(5104:8592): Tripulante 14 estaba en 9|9 y ahora esta en 9|9
+[INFO] 16:45:07:475 imongo.c/(5104:8590): Trip 14 termino CAMBIARSE_DE_NAVE
+[INFO] 16:45:07:475 imongo.c/(5104:8593): Trip 14 arranco SALUDAR
+[INFO] 16:45:08:476 imongo.c/(5104:8598): Tripulante 1 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:45:08:476 imongo.c/(5104:8599): Trip 1 arranco TIRAR_TODO_AL_PISO
+[INFO] 16:45:08:477 imongo.c/(5104:8595): Trip 14 termino SALUDAR
+[INFO] 16:45:09:477 imongo.c/(5104:8607): Tripulante 2 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:45:09:477 imongo.c/(5104:8608): Trip 2 arranco TIRAR_TODO_AL_PISO
+[INFO] 16:45:09:477 imongo.c/(5104:8603): Tripulante 1 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:45:09:477 imongo.c/(5104:8601): Trip 1 termino TIRAR_TODO_AL_PISO
+[INFO] 16:45:10:477 imongo.c/(5104:8620): Tripulante 2 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:45:10:477 imongo.c/(5104:8618): Trip 2 termino TIRAR_TODO_AL_PISO
+[INFO] 16:45:10:506 imongo.c/(5104:8624): Tripulante 15 estaba en 5|5 y ahora esta en 9|9
+[INFO] 16:45:10:506 imongo.c/(5104:8625): Trip 15 arranco CAMBIARSE_DE_NAVE
+[INFO] 16:45:11:477 imongo.c/(5104:8632): Trip 3 arranco TIRAR_TODO_AL_PISO
+[INFO] 16:45:11:478 imongo.c/(5104:8631): Tripulante 3 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:45:11:478 imongo.c/(5104:8629): Tripulante 1 genera 30 de Basura
+[INFO] 16:45:11:478 imongo.c/(5104:8627): Trip 3 termino CONSUMIR_COMIDA
+[INFO] 16:45:11:493 imongo.c/(5104:8629): Tripulante 1 termino de generar 30 de Basura
+[INFO] 16:45:12:478 imongo.c/(5104:8641): Tripulante 3 estaba en 5|5 y ahora esta en 5|5
+[INFO] 16:45:12:478 imongo.c/(5104:8639): Trip 3 termino TIRAR_TODO_AL_PISO
+[INFO] 16:45:13:478 imongo.c/(5104:8646): Tripulante 2 genera 30 de Basura
+[INFO] 16:45:13:478 imongo.c/(5104:8644): Trip 1 termino GENERAR_BASURA
+[INFO] 16:45:13:480 imongo.c/(5104:8646): Tripulante 2 termino de generar 30 de Basura
+[INFO] 16:45:15:480 imongo.c/(5104:8662): Tripulante 3 genera 30 de Basura
+[INFO] 16:45:15:480 imongo.c/(5104:8663): Tripulante 1 estaba en 5|5 y ahora esta en 6|6
+[INFO] 16:45:15:480 imongo.c/(5104:8664): Trip 1 arranco BARRER
+[INFO] 16:45:15:481 imongo.c/(5104:8659): Trip 2 termino GENERAR_BASURA
+[INFO] 16:45:15:484 imongo.c/(5104:8662): Tripulante 3 termino de generar 30 de Basura
+[INFO] 16:45:17:480 imongo.c/(5104:8671): Trip 3 termino GENERAR_BASURA
+[INFO] 16:45:22:514 imongo.c/(5104:8687): Tripulante 15 estaba en 9|9 y ahora esta en 9|9
+[INFO] 16:45:22:514 imongo.c/(5104:8685): Trip 15 termino CAMBIARSE_DE_NAVE
+[INFO] 16:45:22:515 imongo.c/(5104:8688): Trip 15 arranco SALUDAR
+[INFO] 16:45:23:516 imongo.c/(5104:8689): Trip 15 termino SALUDAR
+[INFO] 16:45:25:484 imongo.c/(5104:8703): Tripulante 1 estaba en 6|6 y ahora esta en 6|6
+[INFO] 16:45:25:484 imongo.c/(5104:8701): Trip 1 termino BARRER
+[INFO] 16:45:25:485 imongo.c/(5104:8707): Tripulante 1 descarta Basura
+[INFO] 16:45:25:487 imongo.c/(5104:8707): Se descarto la Basura
+[INFO] 16:45:25:516 imongo.c/(5104:8711): Tripulante 2 estaba en 5|5 y ahora esta en 6|6
+[INFO] 16:45:25:516 imongo.c/(5104:8712): Trip 2 arranco BARRER
+[INFO] 16:45:27:484 imongo.c/(5104:8722): Tripulante 3 estaba en 5|5 y ahora esta en 6|6
+[INFO] 16:45:27:485 imongo.c/(5104:8723): Trip 3 arranco BARRER
+[INFO] 16:45:27:485 imongo.c/(5104:8724): Trip 1 termino DESCARTAR_BASURA
+[INFO] 16:45:35:520 imongo.c/(5104:8748): Tripulante 2 estaba en 6|6 y ahora esta en 6|6
+[INFO] 16:45:35:520 imongo.c/(5104:8746): Trip 2 termino BARRER
+[INFO] 16:45:35:521 imongo.c/(5104:8752): Tripulante 2 descarta Basura
+[INFO] 16:45:35:522 imongo.c/(5104:8752): No hay recurso que consumir
+[INFO] 16:45:37:487 imongo.c/(5104:8760): Tripulante 3 estaba en 6|6 y ahora esta en 6|6
+[INFO] 16:45:37:487 imongo.c/(5104:8758): Trip 3 termino BARRER
+[INFO] 16:45:37:521 imongo.c/(5104:8765): Tripulante 3 descarta Basura
+[INFO] 16:45:37:521 imongo.c/(5104:8765): No hay recurso que consumir
+[INFO] 16:45:37:521 imongo.c/(5104:8763): Trip 2 termino DESCARTAR_BASURA
+[INFO] 16:45:39:521 imongo.c/(5104:8770): Trip 3 termino DESCARTAR_BASURA
+[INFO] 16:45:41:522 imongo.c/(5104:8786): Tripulante 1 estaba en 6|6 y ahora esta en 9|9
+[INFO] 16:45:41:523 imongo.c/(5104:8787): Trip 1 arranco SALUDAR
+[INFO] 16:45:42:524 imongo.c/(5104:8793): Trip 1 termino SALUDAR
+[INFO] 16:45:43:523 imongo.c/(5104:8797): Tripulante 2 estaba en 6|6 y ahora esta en 9|9
+[INFO] 16:45:43:523 imongo.c/(5104:8798): Trip 2 arranco SALUDAR
+[INFO] 16:45:44:525 imongo.c/(5104:8800): Trip 2 termino SALUDAR
+[INFO] 16:45:48:526 imongo.c/(5104:8819): Tripulante 3 estaba en 6|6 y ahora esta en 9|9
+[INFO] 16:45:48:526 imongo.c/(5104:8820): Trip 3 arranco SALUDAR
+[INFO] 16:45:49:527 imongo.c/(5104:8821): Trip 3 termino SALUDAR
+[INFO] 16:46:55:610 imongo.c/(5104:8992): Entre en bitacoraaaaa
+[INFO] 16:46:55:610 imongo.c/(5104:8992): Consiguiendo bitacora del Tripulante 0
+[INFO] 16:46:55:610 imongo.c/(5104:8992): No esta el tripulante 0
+[INFO] 16:47:26:285 imongo.c/(9053:9053): ---------LEYO FILESYSTEM----------
+[INFO] 16:47:49:475 imongo.c/(9053:9137): Entre en bitacoraaaaa
+[INFO] 16:47:49:475 imongo.c/(9053:9137): Consiguiendo bitacora del Tripulante 1
+[INFO] 16:48:56:125 imongo.c/(9053:9333): Entre en bitacoraaaaa
+[INFO] 16:48:56:125 imongo.c/(9053:9333): Consiguiendo bitacora del Tripulante 2
+[INFO] 16:50:35:296 imongo.c/(9053:9606): Entre en bitacoraaaaa
+[INFO] 16:50:35:296 imongo.c/(9053:9606): Consiguiendo bitacora del Tripulante 4
+[INFO] 16:50:55:691 imongo.c/(9053:9664): Entre en bitacoraaaaa
+[INFO] 16:50:55:691 imongo.c/(9053:9664): Consiguiendo bitacora del Tripulante 10
+[INFO] 16:51:39:430 imongo.c/(9053:9808): Entre en bitacoraaaaa
+[INFO] 16:51:39:430 imongo.c/(9053:9808): Consiguiendo bitacora del Tripulante 16
+[INFO] 16:51:39:430 imongo.c/(9053:9808): No esta el tripulante 16
+[INFO] 16:54:21:121 imongo.c/(10250:10250): ---------LEYO FILESYSTEM----------
+[INFO] 16:54:45:770 imongo.c/(10250:10329): Entre en bitacoraaaaa
+[INFO] 16:54:45:770 imongo.c/(10250:10329): Consiguiendo bitacora del Tripulante 16
+[INFO] 16:54:45:770 imongo.c/(10250:10329): No esta el tripulante 16
+[INFO] 16:54:57:765 imongo.c/(10250:10367): Entre en bitacoraaaaa
+[INFO] 16:54:57:765 imongo.c/(10250:10367): Consiguiendo bitacora del Tripulante 1
+[INFO] 16:55:07:164 imongo.c/(10250:10392): Entre en bitacoraaaaa
+[INFO] 16:55:07:164 imongo.c/(10250:10392): Consiguiendo bitacora del Tripulante 14
+[INFO] 16:55:22:863 imongo.c/(10250:10430): Entre en bitacoraaaaa
+[INFO] 16:55:22:863 imongo.c/(10250:10430): Consiguiendo bitacora del Tripulante 0
+[INFO] 16:55:22:863 imongo.c/(10250:10430): No esta el tripulante 0
