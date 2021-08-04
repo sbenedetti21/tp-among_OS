@@ -405,7 +405,7 @@ void * atenderDiscordiador(void * socket){
 			
 		}
 
-		free(stringTarea);
+		
 
 		break;  
 
