@@ -20,6 +20,7 @@ sudo make uninstall
 make all
 sudo make install
 cd $CWD
+sudo apt install hexedit
 echo -e "Trayendo tareas...\n\n"
 cd ~
 TAREAS="a-mongos-pruebas"
